@@ -21,6 +21,7 @@ set mouse=a
 
 if has('macunix') && has('gui_running')
 	set macmeta
+	let macvim_skip_colorscheme = 1
 endif
 
 " Plugins {{{1
@@ -112,15 +113,9 @@ Plug 'tmhedberg/matchit'
 " let g:UltiSnipsListSnippets="<C-l>"
 " Plug 'honza/vim-snippets'
 
-if has('macunix')
-	Plug 'rizzatti/dash.vim'
-endif
-
 " Plug 'lilydjwg/colorizer'
-Plug 'Yggdroot/indentLine'
-let g:indentLine_char = '┊'
-" let g:indentLine_char = '│'
-" let g:indentLine_char = '¦'
+" Plug 'Yggdroot/indentLine'
+" let g:indentLine_char = '┊'
 
 " Tim Pope is a beast. You better use his stuff ...
 Plug 'tpope/vim-surround'
@@ -398,9 +393,7 @@ let g:netrw_list_hide = "\.pyc$,\.swp$,\.bak$"
 let g:netrw_retmap = 1
 
 " Colors"{{{1
-let macvim_skip_colorscheme = 1
 colorscheme zenburn
+" colorscheme PaperColor
 " colorscheme apprentice
 " colorscheme jellybeans
-" colorscheme PaperColor
-"}}}
