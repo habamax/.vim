@@ -303,6 +303,8 @@ nnoremap <leader>wl :LowercaseWord<CR>
 
 " just one space on the line, preserving indent
 nnoremap <leader>w<Space><Space> :JustOneSpaceInside<CR>
+" remove trailing spaces
+nnoremap <leader>t<Space> :RemoveTrailingSpaces<CR>
 
 " saving file
 nnoremap <leader>ss :update<CR>
