@@ -1,0 +1,1 @@
+nnoremap K :Dash<CR>
