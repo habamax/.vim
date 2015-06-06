@@ -126,11 +126,13 @@ let g:indentLine_char = '┊'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-scriptease'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gp :Gpush<CR>
 
 Plug 'rust-lang/rust.vim'
 augroup rust
