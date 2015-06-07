@@ -146,10 +146,7 @@ Plug 'habamax/vim-russian-jcukenmac'
 " Colorschemes"{{{
 Plug 'jnurmine/Zenburn'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'sjl/badwolf'
-Plug 'whatyouhide/vim-gotham'
 Plug 'romainl/Apprentice'
-Plug 'chriskempson/base16-vim'
 Plug 'nanotech/jellybeans.vim'
 
 Plug 'morhetz/gruvbox'
@@ -313,6 +310,7 @@ nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bk :bd!<CR>
 " quit vim
 nnoremap <leader>qq :qa<CR>
+nnoremap <leader>qui :qa!<CR>
 
 " now it is possible to paste many times over selected text
 xnoremap <expr> p 'pgv"'.v:register.'y'
@@ -376,12 +374,9 @@ command! LowercaseWord :let pos=getpos('.')<bar>
 
 " Abbreviations {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-iab teh the
-iab tihs this
-
-iab todo: TODO:
+iab todo TODO:
 iab done: DONE:
-iab fixme: FIXME:
+iab fixme FIXME:
 iab fixed: FIXED:
 
 iab mmk Maxim Kim <habamax@gmail.com>
@@ -395,7 +390,8 @@ let g:netrw_list_hide = "\.pyc$,\.swp$,\.bak$"
 let g:netrw_retmap = 1
 
 " Colors"{{{1
-colorscheme zenburn
-" colorscheme PaperColor
+" colorscheme gruvbox
+" colorscheme zenburn
+colorscheme PaperColor
 " colorscheme apprentice
 " colorscheme jellybeans
