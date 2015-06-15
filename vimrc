@@ -304,7 +304,7 @@ nnoremap <leader>w<Space><Space> :JustOneSpaceInside<CR>
 nnoremap <leader>t<Space> :RemoveTrailingSpaces<CR>
 
 " saving file
-nnoremap <leader>ss :update<CR>
+nnoremap <leader>fs :update<CR>
 " delete buffer
 nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bk :bd!<CR>
@@ -390,8 +390,19 @@ let g:netrw_list_hide = "\.pyc$,\.swp$,\.bak$"
 let g:netrw_retmap = 1
 
 " Colors"{{{1
-" colorscheme gruvbox
+colorscheme gruvbox
 " colorscheme zenburn
-colorscheme PaperColor
+" colorscheme PaperColor
 " colorscheme apprentice
 " colorscheme jellybeans
+
+" lskdjf lksdjf "this is a string" here is (the dragons)
+inoremap <C-l> <C-\><C-O>:call NextObstacle()<CR>
+fun! NextObstacle()
+	let pos = searchpos('\v[\[\(\<"|>\)\]]', 'e', line('.'))
+	if pos != [0, 0]
+		call setpos('.', [0, pos[0], pos[1]+1, 0])
+	else
+		call setpos('.', [0, line('.'), col('$')])
+	endif
+endfun
