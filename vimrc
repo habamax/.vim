@@ -1,4 +1,4 @@
-" Vim: set fdm=marker ts=2:
+" Vim: set fdm=marker:
 " Author: Maxim Kim <habamax@gmail.com>
 
 " Must have {{{1
@@ -141,6 +141,8 @@ if has("patch500")
 endif
 
 Plug 'habamax/vim-russian-jcukenmac'
+" Plug '~/work/vim/vim-skipit/'
+Plug 'habamax/vim-skipit'
 
 
 " Colorschemes"{{{
@@ -396,15 +398,3 @@ colorscheme gruvbox
 " colorscheme apprentice
 " colorscheme jellybeans
 
-" Make it as Plugin.
-" ls{dkjkdjf 'lksdjf "this is a string" here' is (the |dragons| that is here) sdfklj } 
-" that is broomy ahoy
-inoremap <C-l> <C-\><C-O>:call GetOutOfObstacle()<CR>
-fun! GetOutOfObstacle()
-	let pos = searchpos('\v[{([<"''|>\])}]', 'ec', line('.'))
-	if pos != [0, 0]
-		call setpos('.', [0, pos[0], pos[1]+1, 0])
-	else
-		call setpos('.', [0, line('.'), col('$')])
-	endif
-endfun
