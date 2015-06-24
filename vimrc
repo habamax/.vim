@@ -212,6 +212,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gw :Gwrite<CR>
 
 Plug 'rust-lang/rust.vim'
 augroup rust
@@ -239,6 +240,10 @@ Plug 'morhetz/gruvbox'
 let g:gruvbox_contrast_light = 'hard'
 let g:gruvbox_invert_selection = 0
 "}}}
+
+Plug 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'PaperColor'
 
 call plug#end()
 
@@ -352,6 +357,7 @@ let &undodir = s:other_dir . '/.vim_undo/,.'
 " Mappings {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap ii <ESC>
+inoremap iu <ESC>
 
 noremap k gk
 vnoremap k gk
@@ -379,7 +385,7 @@ nnoremap <leader>w<Space><Space> :JustOneSpaceInside<CR>
 nnoremap <leader>t<Space> :RemoveTrailingSpaces<CR>
 
 " saving file
-nnoremap <leader>fs :update<CR>
+nnoremap <leader>s :update<CR>
 " delete buffer
 nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bk :bd!<CR>
@@ -388,7 +394,7 @@ nnoremap <leader>bs :bd!<CR>
 " quit vim
 nnoremap <leader>qq :q<CR>
 nnoremap <leader>qw :wq<CR>
-nnoremap <leader>qui :qa!<CR>
+nnoremap <leader>qu :qa!<CR>
 
 " now it is possible to paste many times over selected text
 xnoremap <expr> p 'pgv"'.v:register.'y'
@@ -468,9 +474,5 @@ let g:netrw_list_hide = "\.pyc$,\.swp$,\.bak$"
 let g:netrw_retmap = 1
 
 " Colors"{{{1
-" colorscheme gruvbox
-" colorscheme zenburn
 colorscheme PaperColor
-" colorscheme apprentice
-" colorscheme jellybeans
 
