@@ -19,11 +19,6 @@ let mapleader = "\<Space>"
 
 set mouse=a
 
-if has('macunix') && has('gui_running')
-	set macmeta
-	let macvim_skip_colorscheme = 1
-endif
-
 " Plugins {{{1
 " Vim-Plug bootstrapping.
 " Don't forget to call :PlugInstall
@@ -42,20 +37,20 @@ endif
 call plug#begin('~/.vim/plugged')
 let g:plug_timeout = 180
 
-" Plug 'kien/ctrlp.vim'
-" " CtrlP settings{{{
-" let g:ctrlp_map = '<leader>ff'
-" let g:ctrlp_cmd = 'CtrlPMixed'
-" let g:ctrlp_custom_ignore = {
-" 			\ 'dir':	'\v[\/]\.(git|hg|svn)$',
-" 			\ 'file': '\v\.(exe|so|dll)$',
-" 			\ }
-" let g:ctrlp_root_markers = ['.sln']
-" let g:ctrlp_switch_buffer = 'Et'
-" let g:ctrlp_max_files = 100
-" let g:ctrlp_max_depth = 15
+Plug 'kien/ctrlp.vim'
+" CtrlP settings{{{
+let g:ctrlp_map = '<leader>ff'
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_custom_ignore = {
+			\ 'dir':	'\v[\/]\.(git|hg|svn)$',
+			\ 'file': '\v\.(exe|so|dll)$',
+			\ }
+let g:ctrlp_root_markers = ['.sln']
+let g:ctrlp_switch_buffer = 'Et'
+let g:ctrlp_max_files = 100
+let g:ctrlp_max_depth = 15
 
-" nnoremap <leader>bb :CtrlPBuffer<CR>
+nnoremap <leader>bb :CtrlPBuffer<CR>
 " }}}
 
 Plug 'Shougo/neocomplete.vim' "{{{
@@ -96,9 +91,9 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 Plug 'Shougo/neosnippet-snippets'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-nnoremap <leader>ff :FZF<CR>
-nnoremap <leader>fh :FZF ~<CR>
-nnoremap <leader>fp :FZF ../<CR>
+" nnoremap <leader>ff :FZF<CR>
+" nnoremap <leader>fh :FZF ~<CR>
+" nnoremap <leader>fp :FZF ../<CR>
 " Fuzzy colorschemes {{{
 nnoremap <silent> <Leader>col :call fzf#run({
 \   'source':
@@ -109,25 +104,25 @@ nnoremap <silent> <Leader>col :call fzf#run({
 \   'left':    30
 \ })<CR>
 "}}}
-" Fuzzy buffers {{{
-function! s:buflist()
-  redir => ls
-  silent ls
-  redir END
-  return split(ls, '\n')
-endfunction
+" " Fuzzy buffers {{{
+" function! s:buflist()
+"   redir => ls
+"   silent ls
+"   redir END
+"   return split(ls, '\n')
+" endfunction
 
-function! s:bufopen(e)
-  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
-endfunction
+" function! s:bufopen(e)
+"   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+" endfunction
 
-nnoremap <silent> <Leader>bb :call fzf#run({
-\   'source':  reverse(<sid>buflist()),
-\   'sink':    function('<sid>bufopen'),
-\   'options': '+m',
-\   'down':    len(<sid>buflist()) + 2
-\ })<CR>
-"}}}
+" nnoremap <silent> <Leader>bb :call fzf#run({
+" \   'source':  reverse(<sid>buflist()),
+" \   'sink':    function('<sid>bufopen'),
+" \   'options': '+m',
+" \   'down':    len(<sid>buflist()) + 2
+" \ })<CR>
+" "}}}
 " Fuzzy lines {{{
 function! s:line_handler(l)
   let keys = split(a:l, ':\t')
@@ -171,15 +166,15 @@ command! -nargs=1 Ag call fzf#run({
 \ 'down':    '50%'
 \ })
 "}}}
-" Fuzzy Mru {{{
-command! FZFMru call fzf#run({
-            \'source': v:oldfiles,
-            \'sink' : 'e ',
-            \'options' : '-m',
-			\'down': '60%'
-            \})
-nnoremap <leader>fm :FZFMru<CR>
-"}}}
+" " Fuzzy Mru {{{
+" command! FZFMru call fzf#run({
+"             \'source': v:oldfiles,
+"             \'sink' : 'e ',
+"             \'options' : '-m',
+" 			\'down': '60%'
+"             \})
+" nnoremap <leader>fm :FZFMru<CR>
+" "}}}
 
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 
@@ -279,20 +274,22 @@ set listchars=tab:→\ ,trail:-,extends:>,precedes:<,nbsp:+
 if has("gui_running")
 	if has("gui_macvim")
 		set gfn=Menlo\ Regular:h16
+		set macmeta
+		let macvim_skip_colorscheme = 1
 	elseif has("unix")
 		set gfn=DejaVu\ Sans\ Mono\ 12,Monospace\ 12
 	endif
 endif
 
-" setup statusline
-set stl=%f
-set stl+=\ %m%y
-set stl+=[%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}]
-set stl+=%r%w
-set stl+=[%{&ff}]
-set stl+=%=%k
-set stl+=\ %l/%L,%c
-set stl+=\ \|\ %p%%
+" " setup statusline
+" set stl=%f
+" set stl+=\ %m%y
+" set stl+=[%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}]
+" set stl+=%r%w
+" set stl+=[%{&ff}]
+" set stl+=%=%k
+" set stl+=\ %l/%L,%c
+" set stl+=\ \|\ %p%%
 
 
 " autocomplete is getting much better :e <tab>...
@@ -393,7 +390,7 @@ nnoremap <leader>bk :bd!<CR>
 nnoremap <leader>bs :bd!<CR>
 " quit vim
 nnoremap <leader>qq :q<CR>
-nnoremap <leader>qw :wq<CR>
+nnoremap <leader>wq :wq<CR>
 nnoremap <leader>qu :qa!<CR>
 
 " now it is possible to paste many times over selected text
@@ -429,6 +426,12 @@ nnoremap <Leader>rv "vyy:@v<CR>
 nnoremap <Leader>ri :source $MYVIMRC<CR>
 
 nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" System clipboard
+nnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
+vnoremap <Leader>y "+y
+nnoremap <Leader>yy "+yy
 
 " Commands {{{1
 
