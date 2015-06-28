@@ -477,5 +477,4 @@ let g:netrw_list_hide = "\.pyc$,\.swp$,\.bak$"
 let g:netrw_retmap = 1
 
 " Colors"{{{1
-colorscheme PaperColor
-
+silent! colorscheme PaperColor
