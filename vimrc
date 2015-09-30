@@ -13,6 +13,7 @@ if has('syntax') && !exists('g:syntax_on')
 endif
 
 set hidden
+set confirm
 set browsedir=buffer
 
 let mapleader = "\<Space>"
@@ -53,27 +54,26 @@ let g:ctrlp_max_depth = 15
 nnoremap <leader>bb :CtrlPBuffer<CR>
 " }}}
 
-Plug 'Shougo/neocomplete.vim' "{{{
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#enable_auto_select = 0
-let g:neocomplete#enable_auto_delimiter = 1
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-	return neocomplete#close_popup() . "\<CR>"
-	" For no inserting <CR> key.
-	"return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>p umvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y> neocomplete#close_popup()
-inoremap <expr><C-e> neocomplete#cancel_popup()
-"}}}
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --omnisharp-completer' }
+"Plug 'Shougo/neocomplete.vim' "{{{
+"let g:neocomplete#enable_at_startup = 1
+"let g:neocomplete#enable_smart_case = 1
+"let g:neocomplete#enable_auto_select = 0
+"let g:neocomplete#enable_auto_delimiter = 1
+"" Recommended key-mappings.
+"" <CR>: close popup and save indent.
+"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"function! s:my_cr_function()
+"	return neocomplete#close_popup() . "\<CR>"
+"endfunction
+"" <TAB>: completion.
+"inoremap <expr><TAB>p umvisible() ? "\<C-n>" : "\<TAB>"
+"" <C-h>, <BS>: close popup and delete backword char.
+"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+"inoremap <expr><C-y> neocomplete#close_popup()
+"inoremap <expr><C-e> neocomplete#cancel_popup()
+""}}}
 
 Plug 'Shougo/neosnippet'
 " neosnippet mappings {{{
@@ -141,7 +141,6 @@ let g:gruvbox_invert_selection = 0
 
 Plug 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
-" let g:airline_theme = 'PaperColor'
 
 call plug#end()
 
@@ -375,4 +374,5 @@ let g:netrw_list_hide = "\.pyc$,\.swp$,\.bak$"
 let g:netrw_retmap = 1
 
 " Colors"{{{1
-silent! colorscheme PaperColor
+set background=dark
+silent! colorscheme gruvbox
