@@ -124,8 +124,19 @@ nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gw :Gwrite<CR>
 
 Plug 'habamax/vim-russian-jcukenmac'
-" Plug '~/work/vim/vim-skipit/'
-Plug 'habamax/vim-skipit'
+" Plug 'habamax/vim-skipit'
+Plug '~/work/vim/vim-skipit/'
+
+Plug 'ledger/vim-ledger'
+let g:ledger_maxwidth = 80
+let g:ledger_default_commodity = 'RUR'
+let g:ledger_commodity_before = 0
+let g:ledger_commodity_sep = ' '
+" reports:
+" ledger reg --date-format [%Y-%m-%d] -f family.ledger
+" ledger bal -f family.ledger
+" use formatexpr to gqap posting...
+
 
 
 " Colorschemes"{{{
@@ -182,17 +193,6 @@ if has("gui_running")
 	endif
 endif
 
-" " setup statusline
-" set stl=%f
-" set stl+=\ %m%y
-" set stl+=[%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}]
-" set stl+=%r%w
-" set stl+=[%{&ff}]
-" set stl+=%=%k
-" set stl+=\ %l/%L,%c
-" set stl+=\ \|\ %p%%
-
-
 " autocomplete is getting much better :e <tab>...
 set wildchar=<Tab> wildmenu wildmode=full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp
@@ -220,6 +220,8 @@ set linebreak
 
 set spelllang=ru,en
 set nospell
+
+set clipboard=unnamed
 
 set nrformats-=octal
 
@@ -311,7 +313,7 @@ nnoremap <leader><leader>= o<home><ESC>120i=<ESC>
 vnoremap * y/<C-R>"<CR>
 
 " replace word under cursor
-nnoremap <F3> :%s/\<<C-R><C-W>\>//gc<Left><Left><Left>
+nnoremap <Leader>tr :%s/\<<C-R><C-W>\>//gc<Left><Left><Left>
 
 nnoremap <Leader>tn :tabnew<CR>
 nnoremap <Leader>ed :Explore<CR>
@@ -336,6 +338,7 @@ nnoremap <Leader>yy "+yy
 " Commands {{{1
 
 " remove trailing spaces
+" make a separate plugin for the commands
 command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
 			\:exe 'normal ``'<bar>
 			\:echo 'Remove trailing spaces and ^Ms.'
@@ -375,4 +378,6 @@ let g:netrw_retmap = 1
 
 " Colors"{{{1
 set background=dark
+let g:gruvbox_contrast_dark = "light"
+let g:gruvbox_contrast_light = "hard"
 silent! colorscheme gruvbox
