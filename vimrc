@@ -53,6 +53,8 @@ let g:ctrlp_max_depth = 15
 
 nnoremap <leader>bb :CtrlPBuffer<CR>
 " }}}
+Plug '~/work/vim/vim-ctrlp-colorscheme'
+nnoremap <leader>fc :CtrlPColorscheme<CR>
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --omnisharp-completer' }
 "Plug 'Shougo/neocomplete.vim' "{{{
@@ -377,7 +379,5 @@ let g:netrw_list_hide = "\.pyc$,\.swp$,\.bak$"
 let g:netrw_retmap = 1
 
 " Colors"{{{1
-set background=dark
-let g:gruvbox_contrast_dark = "light"
-let g:gruvbox_contrast_light = "hard"
+" set background=dark
 silent! colorscheme gruvbox
