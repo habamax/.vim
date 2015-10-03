@@ -139,7 +139,7 @@ nnoremap <leader>tu :UppercaseWord<CR>
 nnoremap <leader>tl :LowercaseWord<CR>
 
 " just one space on the line, preserving indent
-nnoremap <leader>tos :JustOneSpaceInside<CR>
+nnoremap <leader>tos :JustOneInnerSpace<CR>
 " remove trailing spaces
 nnoremap <leader>tts :RemoveTrailingSpaces<CR>
 
@@ -202,7 +202,7 @@ command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
 			\:exe 'normal ``'<bar>
 			\:echo 'Remove trailing spaces and ^Ms.'
 
-command! JustOneSpaceInside :let pos=getpos('.')<bar>
+command! JustOneInnerSpace :let pos=getpos('.')<bar>
 			\:silent! s/\S\+\zs\s\+/ /g<bar>
 			\:silent! s/\s$//<bar>
 			\:call setpos('.', pos)<bar>
