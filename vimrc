@@ -69,7 +69,7 @@ set fileencoding=utf8
 set fileformats=unix,mac,dos
 set fileformat=unix
 
-set tabstop=4 shiftwidth=4 noexpandtab nosmarttab
+set tabstop=8 shiftwidth=8 noexpandtab nosmarttab
 set shiftround
 set autoindent
 set hlsearch incsearch ignorecase
@@ -118,19 +118,15 @@ let &undodir = s:other_dir . '/.vim_undo/,.'
 inoremap ii <ESC>
 inoremap iu <ESC>
 
+" Regular enhancements {{{2
 noremap k gk
 vnoremap k gk
-
 noremap j gj
 vnoremap j gj
-
 vnoremap > >gv
 vnoremap < <gv
 
-" run current file
-" noremap <F5> :w<CR>:silent !"%"<CR>
-" noremap <C-F5> :w<CR>:!"%"<CR>
-
+" Text operations {{{2
 " Capitalize Inner word
 nnoremap <leader>tc :CapitalizeWord<CR>
 " UPPERCASE inner word
@@ -143,18 +139,28 @@ nnoremap <leader>tos :JustOneInnerSpace<CR>
 " remove trailing spaces
 nnoremap <leader>tts :RemoveTrailingSpaces<CR>
 
+" Files {{{2
 " saving file
 nnoremap <leader>fs :update<CR>
+
+nnoremap <Leader>fd :Explore<CR>
+
 " open init file
-nnoremap <Leader>fev :e $MYVIMRC<CR>
+nnoremap <Leader>fei :e $MYVIMRC<CR>
+
+" Buffers {{{2
+nnoremap <leader>bn :bnext<CR>
+nnoremap <leader>bp :bprevious<CR>
 " delete buffer
 nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bk :bd!<CR>
-" quit vim
+
+" Exiting {{{2
 nnoremap <leader>qq :q<CR>
 nnoremap <leader>qw :wq<CR>
 nnoremap <leader>qu :qa!<CR>
 
+" Misc {{{2
 " now it is possible to paste many times over selected text
 xnoremap <expr> p 'pgv"'.v:register.'y'
 
@@ -175,8 +181,6 @@ vnoremap * y/<C-R>"<CR>
 nnoremap <Leader>tr :%s/\<<C-R><C-W>\>//gc<Left><Left><Left>
 
 " nnoremap <Leader>tn :tabnew<CR>
-nnoremap <Leader>ed :Explore<CR>
-
 nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " run selected vimscript
@@ -221,13 +225,6 @@ command! LowercaseWord :let pos=getpos('.')<bar>
 			\:exe 'normal guiw'<bar>
 			\:call setpos('.', pos)
 
-" Abbreviations {{{1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-iab todo TODO:
-iab done: DONE:
-iab fixme FIXME:
-iab fixed: FIXED:
-
 " Netrw settings {{{1
 let g:netrw_silent = 1
 let g:netrw_keepdir = 0
@@ -236,7 +233,7 @@ let g:netrw_list_hide = "\.pyc$,\.swp$,\.bak$"
 let g:netrw_retmap = 1
 
 " Plugins {{{1
-" Vim-Plug bootstrapping.
+" Vim-Plug bootstrapping. {{{2
 " Don't forget to call :PlugInstall
 let g:vim_plug_installed = filereadable(expand('~/.vim/autoload/plug.vim'))
 if !g:vim_plug_installed
@@ -252,25 +249,62 @@ if !g:vim_plug_installed
 	finish
 endif
 
+" Here be plugins {{{2
 call plug#begin('~/.vim/plugged')
 let g:plug_timeout = 180
 
-Plug 'ctrlpvim/ctrlp.vim' | Plug '~/work/vim/vim-ctrlp-colorscheme'
-" CtrlP settings{{{
-let g:ctrlp_map = '<leader>ff'
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_custom_ignore = {
-			\ 'dir':	'\v[\/]\.(git|hg|svn)$',
-			\ 'file': '\v\.(exe|so|dll)$',
-			\ }
-let g:ctrlp_root_markers = ['.sln']
-let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_max_files = 100
-let g:ctrlp_max_depth = 15
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+" Set up FZF {{{3
+fun! s:fzf_root()
+	return expand("%:p:h")
+endfun
+nnoremap <silent> <Leader>ff :exe 'FZF ' . <SID>fzf_root()<CR>
+nnoremap <silent> <Leader>fc :call fzf#run({
+\   'source':
+\     map(split(globpath(&rtp, "colors/*.vim"), "\n"),
+\         "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
+\   'sink':    'colo',
+\   'options': '+m',
+\   'left':    30
+\ })<CR>
 
-nnoremap <leader>bb :CtrlPBuffer<CR>
+function! s:buflist()
+  redir => ls
+  silent ls
+  redir END
+  return split(ls, '\n')
+endfunction
+
+function! s:bufopen(e)
+  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+endfunction
+
+nnoremap <silent> <Leader>bb :call fzf#run({
+\   'source':  reverse(<sid>buflist()),
+\   'sink':    function('<sid>bufopen'),
+\   'options': '+m',
+\   'down':    len(<sid>buflist()) + 2
+\ })<CR>
+
+"}}}
+
+" Plug 'ctrlpvim/ctrlp.vim' | Plug '~/work/vim/vim-ctrlp-colorscheme'
+
+" CtrlP settings{{{
+" let g:ctrlp_map = '<leader>ff'
+" let g:ctrlp_cmd = 'CtrlPMixed'
+" let g:ctrlp_custom_ignore = {
+" 			\ 'dir':	'\v[\/]\.(git|hg|svn)$',
+" 			\ 'file': '\v\.(exe|so|dll)$',
+" 			\ }
+" let g:ctrlp_root_markers = ['.sln']
+" let g:ctrlp_switch_buffer = 'Et'
+" let g:ctrlp_max_files = 100
+" let g:ctrlp_max_depth = 15
+
+" nnoremap <leader>bb :CtrlPBuffer<CR>
 " }}}
-nnoremap <leader>fc :CtrlPColorscheme<CR>
+" nnoremap <leader>fc :CtrlPColorscheme<CR>
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --omnisharp-completer' }
 "Plug 'Shougo/neocomplete.vim' "{{{
@@ -292,21 +326,6 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-
 "inoremap <expr><C-y> neocomplete#close_popup()
 "inoremap <expr><C-e> neocomplete#cancel_popup()
 ""}}}
-
-Plug 'Shougo/neosnippet'
-" neosnippet mappings {{{
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>""
-"}}}
-Plug 'Shougo/neosnippet-snippets'
 
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 
@@ -336,6 +355,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-scriptease'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-fugitive'
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gp :Gpush<CR>
@@ -350,6 +370,7 @@ let g:ledger_maxwidth = 80
 let g:ledger_default_commodity = 'RUR'
 let g:ledger_commodity_before = 0
 let g:ledger_commodity_sep = ' '
+command LedgerReportBalance :!ledger bal -f ~/accounting/family.ledger
 " reports:
 " ledger reg --date-format [%Y-%m-%d] -f family.ledger
 " ledger bal -f family.ledger
@@ -362,7 +383,9 @@ Plug 'jnurmine/Zenburn'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'romainl/Apprentice'
 Plug 'nanotech/jellybeans.vim'
-Plug 'nanotech/jellybeans.vim'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'sjl/badwolf'
+Plug 'w0ng/vim-hybrid'
 
 Plug 'morhetz/gruvbox'
 let g:gruvbox_contrast_light = 'hard'
@@ -373,13 +396,23 @@ Plug 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
+
 call plug#end()
 
+" Keymap {{{1
 " plugin should be installed...
 set keymap=russian-jcukenmac
 set iminsert=0
 set imsearch=0
 
+" set langmap=йцукенгшщзхъ;qwertyuiop[]
+" set langmap+=фывапролджэё;asdfghjkl\\;'\\\
+" set langmap+=ячсмитьбю;zxcvbnm\\,.
+" set langmap+=ЙЦУКЕНГШЩЗХЪ;QWERTYUIOP{}
+" set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\|
+" set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
+" set langmap+=]`,[~
+" set langmap+=\\"@,№#,%$,\\:%,\\,^,.&,\\;*
 
 " Colors"{{{1
 set background=dark
