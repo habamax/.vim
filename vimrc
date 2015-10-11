@@ -20,6 +20,7 @@ let mapleader = "\<Space>"
 
 set mouse=a
 
+
 " UI {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set shortmess+=I
@@ -116,7 +117,7 @@ let &undodir = s:other_dir . '/.vim_undo/,.'
 " Mappings {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap ii <ESC>
-inoremap iu <ESC>
+inoremap шш <ESC>
 
 " Regular enhancements {{{2
 noremap k gk
@@ -145,8 +146,8 @@ nnoremap <leader>fs :update<CR>
 
 nnoremap <Leader>fd :Explore<CR>
 
-" open init file
-nnoremap <Leader>fei :e $MYVIMRC<CR>
+" init file AKA vimrc
+noremap <Leader>fi :e $MYVIMRC<CR>
 
 " Buffers {{{2
 nnoremap <leader>bn :bnext<CR>
@@ -256,8 +257,12 @@ let g:plug_timeout = 180
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 " Set up FZF {{{3
 fun! s:fzf_root()
-	return expand("%:p:h")
+	let path = finddir(".git", expand("%:p:h").";")
+	let path = fnamemodify(substitute(path, ".git", "", ""), ":p:h")
+	return path
+	" return expand("%:p:h")
 endfun
+nnoremap <leader>fj :echo <SID>fzf_root()<CR>
 nnoremap <silent> <Leader>ff :exe 'FZF ' . <SID>fzf_root()<CR>
 nnoremap <silent> <Leader>fc :call fzf#run({
 \   'source':
@@ -386,9 +391,11 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'sjl/badwolf'
 Plug 'w0ng/vim-hybrid'
+Plug 'endel/vim-github-colorscheme'
 
 Plug 'morhetz/gruvbox'
 let g:gruvbox_contrast_light = 'hard'
+let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_invert_selection = 0
 "}}}
 
@@ -401,18 +408,21 @@ call plug#end()
 
 " Keymap {{{1
 " plugin should be installed...
+" Однажды в студеную зимнюю пору
 set keymap=russian-jcukenmac
 set iminsert=0
 set imsearch=0
 
-" set langmap=йцукенгшщзхъ;qwertyuiop[]
-" set langmap+=фывапролджэё;asdfghjkl\\;'\\\
-" set langmap+=ячсмитьбю;zxcvbnm\\,.
-" set langmap+=ЙЦУКЕНГШЩЗХЪ;QWERTYUIOP{}
-" set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\|
-" set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
+" Russian langmap for OSX
+set langmap=йцукенгшщзхъ;qwertyuiop[]
+set langmap+=фывапролджэё;asdfghjkl\\;'\\\
+set langmap+=ячсмитьбю;zxcvbnm\\,.
+set langmap+=ЙЦУКЕНГШЩЗХЪ;QWERTYUIOP{}
+set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\|
+set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
 " set langmap+=]`,[~
 " set langmap+=\\"@,№#,%$,\\:%,\\,^,.&,\\;*
+
 
 " Colors"{{{1
 set background=dark
