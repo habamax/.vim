@@ -20,6 +20,11 @@ let mapleader = "\<Space>"
 
 set mouse=a
 
+"NeoVim handles ESC keys as alt+key, set this to solve the problem
+if has('nvim')
+	set ttimeout
+	set ttimeoutlen=0
+endif
 
 " UI {{{1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -160,6 +165,9 @@ nnoremap <leader>bk :bd!<CR>
 nnoremap <leader>qq :q<CR>
 nnoremap <leader>qw :wq<CR>
 nnoremap <leader>qu :qa!<CR>
+
+" Terminal {{{2
+tnoremap <Esc><Esc> <C-\><C-n>
 
 " Misc {{{2
 " now it is possible to paste many times over selected text
@@ -408,7 +416,7 @@ call plug#end()
 
 " Keymap {{{1
 " plugin should be installed...
-" Однажды в студеную зимнюю пору
+" Однажды в студеную зимнюю пору я из лесу вышел -- был сильный мороз.
 set keymap=russian-jcukenmac
 set iminsert=0
 set imsearch=0
@@ -420,8 +428,7 @@ set langmap+=ячсмитьбю;zxcvbnm\\,.
 set langmap+=ЙЦУКЕНГШЩЗХЪ;QWERTYUIOP{}
 set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\|
 set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
-" set langmap+=]`,[~
-" set langmap+=\\"@,№#,%$,\\:%,\\,^,.&,\\;*
+set langmap+=№#
 
 
 " Colors"{{{1
