@@ -281,6 +281,9 @@ nnoremap <silent> <Leader>fc :Colors<CR>
 nnoremap <silent> <Leader>fh :History<CR>
 nnoremap <silent> <Leader>bb :Buffers<CR>
 nnoremap <silent> <Leader>; :Commands<CR>
+nnoremap <silent> <Leader>h :Helptags<CR>
+nnoremap <silent> <Leader>ll :Lines<CR>
+nnoremap <silent> <Leader>lb :BLines<CR>
 
 "}}}
 
