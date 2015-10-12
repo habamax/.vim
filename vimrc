@@ -85,10 +85,6 @@ set nospell
 
 set clipboard=unnamed
 
-set nrformats-=octal
-
-set history=1000
-
 " backspace and cursor keys wrap to previous/next line
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
