@@ -2,7 +2,6 @@
 " Author: Maxim Kim <habamax@gmail.com>
 
 " Must have {{{1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
 if has('autocmd')
 	autocmd!
@@ -20,14 +19,13 @@ let mapleader = "\<Space>"
 
 set mouse=a
 
-"NeoVim handles ESC keys as alt+key, set this to solve the problem
+" NeoVim handles ESC keys as alt+key, set this to solve the problem
 if has('nvim')
 	set ttimeout
 	set ttimeoutlen=0
 endif
 
 " UI {{{1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set shortmess+=I
 set winaltkeys=no
 set guioptions-=T " No toolbar
@@ -69,7 +67,6 @@ set t_vb=
 
 
 " Text {{{1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf8
 set fileencoding=utf8
 set fileformats=unix,mac,dos
@@ -100,7 +97,6 @@ set comments=n:>,fb:-,fb:*
 set formatlistpat=^\\s\\+[*#-]\\s*
 
 " Backup & Undo & Sessions {{{1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let s:other_dir = expand('~/.vim_other')
 if !isdirectory(s:other_dir)
 	call mkdir(s:other_dir)
@@ -120,7 +116,6 @@ set undofile
 let &undodir = s:other_dir . '/.vim_undo/,.'
 
 " Mappings {{{1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap ii <ESC>
 inoremap шш <ESC>
 
@@ -167,7 +162,7 @@ nnoremap <leader>qw :wq<CR>
 nnoremap <leader>qu :qa!<CR>
 
 " Terminal {{{2
-tnoremap <Esc><Esc> <C-\><C-n>
+tnoremap <C-o> <C-\><C-n>
 
 " Misc {{{2
 " now it is possible to paste many times over selected text
@@ -212,27 +207,27 @@ nnoremap <Leader>yy "+yy
 " remove trailing spaces
 " make a separate plugin for the commands
 command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
-			\:exe 'normal ``'<bar>
-			\:echo 'Remove trailing spaces and ^Ms.'
+		\:exe 'normal ``'<bar>
+		\:echo 'Remove trailing spaces and ^Ms.'
 
 command! JustOneInnerSpace :let pos=getpos('.')<bar>
-			\:silent! s/\S\+\zs\s\+/ /g<bar>
-			\:silent! s/\s$//<bar>
-			\:call setpos('.', pos)<bar>
-			\:nohl<bar>
-			\:echo 'Just one space'
+		\:silent! s/\S\+\zs\s\+/ /g<bar>
+		\:silent! s/\s$//<bar>
+		\:call setpos('.', pos)<bar>
+		\:nohl<bar>
+		\:echo 'Just one space'
 
 command! CapitalizeWord :let pos=getpos('.')<bar>
-			\:exe 'normal guiw~'<bar>
-			\:call setpos('.', pos)
+		\:exe 'normal guiw~'<bar>
+		\:call setpos('.', pos)
 
 command! UppercaseWord :let pos=getpos('.')<bar>
-			\:exe 'normal gUiw'<bar>
-			\:call setpos('.', pos)
+		\:exe 'normal gUiw'<bar>
+		\:call setpos('.', pos)
 
 command! LowercaseWord :let pos=getpos('.')<bar>
-			\:exe 'normal guiw'<bar>
-			\:call setpos('.', pos)
+		\:exe 'normal guiw'<bar>
+		\:call setpos('.', pos)
 
 " Netrw settings {{{1
 let g:netrw_silent = 1
@@ -249,8 +244,8 @@ if !g:vim_plug_installed
 	echomsg "Install vim-plug with 'InstallVimPlug' command and restart vim."
 	echomsg "'curl' should be installed first"
 	command InstallVimPlug !mkdir -p ~/.vim/autoload |
-				\ curl -fLo ~/.vim/autoload/plug.vim
-				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+			\ curl -fLo ~/.vim/autoload/plug.vim
+			\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
 " Do not load plugins if plugin manager is not installed.
@@ -263,61 +258,31 @@ call plug#begin('~/.vim/plugged')
 let g:plug_timeout = 180
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf.vim'
 " Set up FZF {{{3
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
 fun! s:fzf_root()
 	let path = finddir(".git", expand("%:p:h").";")
-	let path = fnamemodify(substitute(path, ".git", "", ""), ":p:h")
-	return path
-	" return expand("%:p:h")
+	return fnamemodify(substitute(path, ".git", "", ""), ":p:h")
 endfun
-nnoremap <leader>fj :echo <SID>fzf_root()<CR>
-nnoremap <silent> <Leader>ff :exe 'FZF ' . <SID>fzf_root()<CR>
-nnoremap <silent> <Leader>fc :call fzf#run({
-\   'source':
-\     map(split(globpath(&rtp, "colors/*.vim"), "\n"),
-\         "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
-\   'sink':    'colo',
-\   'options': '+m',
-\   'left':    30
-\ })<CR>
 
-function! s:buflist()
-  redir => ls
-  silent ls
-  redir END
-  return split(ls, '\n')
-endfunction
-
-function! s:bufopen(e)
-  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
-endfunction
-
-nnoremap <silent> <Leader>bb :call fzf#run({
-\   'source':  reverse(<sid>buflist()),
-\   'sink':    function('<sid>bufopen'),
-\   'options': '+m',
-\   'down':    len(<sid>buflist()) + 2
-\ })<CR>
+nnoremap <silent> <Leader>ff :exe 'Files ' . <SID>fzf_root()<CR>
+nnoremap <silent> <Leader>fc :Colors<CR>
+nnoremap <silent> <Leader>fh :History<CR>
+nnoremap <silent> <Leader>bb :Buffers<CR>
+nnoremap <silent> <Leader>; :Commands<CR>
 
 "}}}
-
-" Plug 'ctrlpvim/ctrlp.vim' | Plug '~/work/vim/vim-ctrlp-colorscheme'
-
-" CtrlP settings{{{
-" let g:ctrlp_map = '<leader>ff'
-" let g:ctrlp_cmd = 'CtrlPMixed'
-" let g:ctrlp_custom_ignore = {
-" 			\ 'dir':	'\v[\/]\.(git|hg|svn)$',
-" 			\ 'file': '\v\.(exe|so|dll)$',
-" 			\ }
-" let g:ctrlp_root_markers = ['.sln']
-" let g:ctrlp_switch_buffer = 'Et'
-" let g:ctrlp_max_files = 100
-" let g:ctrlp_max_depth = 15
-
-" nnoremap <leader>bb :CtrlPBuffer<CR>
-" }}}
-" nnoremap <leader>fc :CtrlPColorscheme<CR>
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --omnisharp-completer' }
 "Plug 'Shougo/neocomplete.vim' "{{{
@@ -342,16 +307,25 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-
 
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 
-Plug 'scrooloose/syntastic'
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "⚠"
+Plug 'benekastah/neomake'
+" {{{
+  autocmd! BufWritePost * Neomake
+  " let g:neomake_airline = 0
+  let g:neomake_error_sign = { 'text': '✘', 'texthl': 'ErrorSign' }
+  let g:neomake_warning_sign = { 'text': ':(', 'texthl': 'WarningSign' }
+
+  " map <F4> :lopen<CR>
+  map <leader>rm :Neomake<CR>
+" }}}
 
 Plug 'Raimondi/delimitMate'
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 2
+
+Plug 'junegunn/vim-easy-align'
+let g:easy_align_ignore_comment = 0 " align comments
+vnoremap <silent> <Enter> :EasyAlign<cr>
+nmap ga <Plug>(EasyAlign)
 
 Plug 'junegunn/rainbow_parentheses.vim'
 nnoremap <leader>xp :RainbowParentheses!!<CR>
@@ -396,14 +370,11 @@ Plug 'jnurmine/Zenburn'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'romainl/Apprentice'
 Plug 'nanotech/jellybeans.vim'
-Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'sjl/badwolf'
 Plug 'w0ng/vim-hybrid'
 Plug 'endel/vim-github-colorscheme'
 
 Plug 'morhetz/gruvbox'
-let g:gruvbox_contrast_light = 'hard'
-let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_invert_selection = 0
 "}}}
 
