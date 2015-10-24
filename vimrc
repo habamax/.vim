@@ -379,6 +379,7 @@ let g:gruvbox_invert_selection = 0
 
 Plug 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 
 
@@ -403,4 +404,4 @@ set langmap+=№#
 
 " Colors"{{{1
 set background=dark
-silent! colorscheme gruvbox
+silent! colorscheme zenburn
