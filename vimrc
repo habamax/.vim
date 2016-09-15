@@ -38,7 +38,7 @@ set scrolloff=1 sidescrolloff=5
 set display+=lastline
 set tabpagemax=50
 
-"set listchars=tab:→\ ,trail:-,extends:>,precedes:<,nbsp:+
+set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 
 if has("gui_running")
 	if has("gui_macvim")
@@ -49,7 +49,10 @@ if has("gui_running")
 		set gfn=DejaVu\ Sans\ Mono\ 12,Monospace\ 12
 	else
 		set gfn=Source\ Code\ Pro:h12,Consolas:h12
+		" set renderoptions=type:directx
 	endif
+	set columns=999
+	set lines=999
 endif
 
 " autocomplete is getting much better :e <tab>...
@@ -68,7 +71,7 @@ set fileencoding=utf8
 set fileformats=unix,mac,dos
 set fileformat=unix
 
-set tabstop=8 shiftwidth=8 noexpandtab nosmarttab
+set tabstop=4 shiftwidth=4 noexpandtab nosmarttab
 set shiftround
 set autoindent
 set hlsearch incsearch ignorecase
@@ -76,6 +79,7 @@ set wrap
 set nojoinspaces
 set linebreak
 set breakindent
+set virtualedit=block
 
 set spelllang=ru,en
 set nospell
@@ -123,38 +127,14 @@ vnoremap > >gv
 vnoremap < <gv
 
 " Text operations {{{2
-" Capitalize Inner word
-nnoremap <leader>tc :CapitalizeWord<CR>
-" UPPERCASE inner word
-nnoremap <leader>tu :UppercaseWord<CR>
-" lowercase inner word
-nnoremap <leader>tl :LowercaseWord<CR>
-
 " just one space on the line, preserving indent
 nnoremap <leader>tos :JustOneInnerSpace<CR>
 " remove trailing spaces
 nnoremap <leader>tts :RemoveTrailingSpaces<CR>
 
-" Files {{{2
-" saving file
-nnoremap <leader>fs :update<CR>
-
-nnoremap <Leader>fd :Explore<CR>
-
 " init file AKA vimrc
 noremap <Leader>fi :e $MYVIMRC<CR>
 
-" Buffers {{{2
-nnoremap <leader>bn :bnext<CR>
-nnoremap <leader>bp :bprevious<CR>
-" delete buffer
-nnoremap <leader>bd :bd<CR>
-nnoremap <leader>bk :bd!<CR>
-
-" Exiting {{{2
-nnoremap <leader>qq :q<CR>
-nnoremap <leader>qw :wq<CR>
-nnoremap <leader>qu :qa!<CR>
 
 " Misc {{{2
 " now it is possible to paste many times over selected text
@@ -175,9 +155,6 @@ vnoremap * y/<C-R>"<CR>
 
 " replace word under cursor
 nnoremap <Leader>tr :%s/\<<C-R><C-W>\>//gc<Left><Left><Left>
-
-" nnoremap <Leader>tn :tabnew<CR>
-nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " run selected vimscript
 vnoremap <Leader>rv "vy:@v<CR>
@@ -209,35 +186,28 @@ command! JustOneInnerSpace :let pos=getpos('.')<bar>
 		\:nohl<bar>
 		\:echo 'Just one space'
 
-command! CapitalizeWord :let pos=getpos('.')<bar>
-		\:exe 'normal guiw~'<bar>
-		\:call setpos('.', pos)
-
-command! UppercaseWord :let pos=getpos('.')<bar>
-		\:exe 'normal gUiw'<bar>
-		\:call setpos('.', pos)
-
-command! LowercaseWord :let pos=getpos('.')<bar>
-		\:exe 'normal guiw'<bar>
-		\:call setpos('.', pos)
-
 " Langmap {{{1
 " Russian langmap for OSX
-set langmap=йцукенгшщзхъ;qwertyuiop[]
-set langmap+=фывапролджэё;asdfghjkl\\;'\\\
-set langmap+=ячсмитьбю;zxcvbnm\\,.
-set langmap+=ЙЦУКЕНГШЩЗХЪ;QWERTYUIOP{}
-set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\|
-set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
-set langmap+=№#
+" set langmap=йцукенгшщзхъ;qwertyuiop[]
+" set langmap+=фывапролджэё;asdfghjkl\\;'\\\
+" set langmap+=ячсмитьбю;zxcvbnm\\,.
+" set langmap+=ЙЦУКЕНГШЩЗХЪ;QWERTYUIOP{}
+" set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\|
+" set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
+" set langmap+=№#
+" set langmap+=./
+" set langmap+=\\,?
 
-
-" Netrw settings {{{1
-let g:netrw_silent = 1
-let g:netrw_keepdir = 0
-let g:netrw_special_syntax = 1
-let g:netrw_list_hide = "\.pyc$,\.swp$,\.bak$"
-let g:netrw_retmap = 1
+" Russian langmap for Windows
+if has('win32') && has('langmap')
+	set langmap=йцукенгшщзхъ;qwertyuiop[]
+	set langmap+=фывапролджэё;asdfghjkl\\;'\\\
+	set langmap+=ячсмитьбю;zxcvbnm\\,.
+	set langmap+=ЙЦУКЕНГШЩЗХЪ;QWERTYUIOP{}
+	set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\|
+	set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
+	set langmap+=№#
+endif
 
 " neovim specific
 if has('nvim')
@@ -249,5 +219,7 @@ endif
 runtime plugins.vim
 
 " Colors"{{{2
-"set background=dark
-"silent! colorscheme zenburn
+silent! colorscheme kosmos
+" helper to design colorscheme
+noremap <leader>cc :colo kosmos<CR>
+noremap <leader>co :e ~/*vim*/**/kosmos.vim<CR>
