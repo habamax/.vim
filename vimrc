@@ -223,3 +223,6 @@ silent! colorscheme kosmos
 " helper to design colorscheme
 noremap <leader>cc :colo kosmos<CR>
 noremap <leader>co :e ~/*vim*/**/kosmos.vim<CR>
+noremap <leader>ch :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+		\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+		\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
