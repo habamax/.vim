@@ -46,7 +46,7 @@ let s:gui0A = "3f5f5f" " !!! Statusline
 let s:gui0B = "202020" " !!! StatusInactive
 let s:gui0C = "707070" " !!! inactive text
 let s:gui0D = "101010" " !!! sidebars
-let s:gui0E = "ffffff" " !!!
+let s:gui0E = "f07070" " !!! error bg
 let s:gui0F = "5e5e5e"
 
 " Terminal color definitions
@@ -107,7 +107,7 @@ endfun
 call <sid>hi("Bold",          "", "", "", "", "bold", "")
 call <sid>hi("Debug",         s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("Directory",     s:gui0D, "", s:cterm0D, "", "", "")
-call <sid>hi("Error",         s:gui00, s:gui08, s:cterm00, s:cterm08, "", "")
+call <sid>hi("Error",         s:gui02, s:gui0E, s:cterm00, s:cterm08, "", "")
 call <sid>hi("ErrorMsg",      s:gui08, s:gui00, s:cterm08, s:cterm00, "", "")
 call <sid>hi("Exception",     s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("FoldColumn",    s:gui0C, s:gui01, s:cterm0C, s:cterm01, "", "")
@@ -211,7 +211,7 @@ call <sid>hi("DiffRemoved",  s:gui08, s:gui00,  s:cterm08, s:cterm00, "", "")
 
 " Git highlighting
 call <sid>hi("gitCommitOverflow",  s:gui08, "", s:cterm08, "", "", "")
-call <sid>hi("gitCommitSummary",   s:gui0B, "", s:cterm0B, "", "", "")
+call <sid>hi("gitCommitSummary",   s:gui01, "", s:cterm0B, "", "bold", "")
 
 " GitGutter highlighting
 call <sid>hi("GitGutterAdd",     s:gui0B, s:gui01, s:cterm0B, s:cterm01, "", "")
