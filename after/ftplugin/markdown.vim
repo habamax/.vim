@@ -1,4 +1,4 @@
-compiler markdown
+compiler md2pdf
 
 nnoremap <buffer> <leader>fop :silent !%:p:r.pdf<CR>
 nnoremap <buffer> <leader>fod :silent !%:p:r.docx<CR>
