@@ -19,6 +19,9 @@ let mapleader = "\<Space>"
 
 set mouse=a
 
+" current dir for a file
+autocmd BufEnter * silent! lcd %:p:h
+
 " UI {{{1
 set shortmess+=I
 set winaltkeys=no
@@ -48,7 +51,7 @@ if has("gui_running")
 	elseif has("unix")
 		set gfn=DejaVu\ Sans\ Mono\ 12,Monospace\ 12
 	else
-		set gfn=Source\ Code\ Pro:h12,Consolas:h12
+		set gfn=Consolas:h12
 		" set renderoptions=type:directx
 	endif
 	set columns=999
@@ -195,8 +198,6 @@ command! JustOneInnerSpace :let pos=getpos('.')<bar>
 " set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\|
 " set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
 " set langmap+=№#
-" set langmap+=./
-" set langmap+=\\,?
 
 " Russian langmap for Windows
 if has('win32') && has('langmap')
@@ -226,3 +227,10 @@ noremap <leader>co :e ~/*vim*/**/kosmos.vim<CR>
 noremap <leader>ch :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 		\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 		\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+
+
+" " add this to a latex ft plugin
+"  compiler tex
+"  set makeprg=lualatex\ -file-line-error\ -shell-escape\ -interaction=nonstopmode\ -output-directory\ %:p:h\ %:p
+"  set errorformat=%f:%l:\ %m
