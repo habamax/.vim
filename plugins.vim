@@ -60,11 +60,17 @@ nnoremap <leader>gw :Gwrite<CR>
 
 " Plug 'habamax/vim-skipit'
 
-" Plug 'bling/vim-airline'
-" let g:airline_powerline_fonts = 1
-" " let g:airline_theme = 'gruvbox'
-" let g:airline#extensions#tabline#enabled = 1
+Plug 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
+" let g:airline_theme = 'gruvbox'
+let g:airline#extensions#tabline#enabled = 1
 
+Plug 'vim-pandoc/vim-pandoc'
+let g:pandoc#modules#disabled = ["command", "templates", "menu"]
+let g:pandoc#folding#mode = 'stacked'
+let g:pandoc#folding#fold_yaml = 1
+Plug 'vim-pandoc/vim-pandoc-syntax'
+let g:pandoc#syntax#conceal#use = 0
 
 call plug#end()
 

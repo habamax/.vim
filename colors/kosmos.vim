@@ -134,7 +134,7 @@ call <sid>hi("VisualNOS", s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("WarningMsg", s:gui01, "", s:cterm08, "", "", "")
 call <sid>hi("WildMenu", s:gui08, s:gui0A, s:cterm08, "", "", "")
 call <sid>hi("Title", s:gui02, "", s:cterm02, "", "bold", "")
-call <sid>hi("Conceal", s:gui0D, s:gui00, s:cterm0D, s:cterm00, "", "")
+call <sid>hi("Conceal", s:gui0C, s:gui00, s:cterm0D, s:cterm00, "", "")
 call <sid>hi("Cursor", s:gui00, s:gui02, s:cterm00, s:cterm05, "", "")
 call <sid>hi("NonText", s:gui0B, s:gui0D, s:cterm03, "", "none", "")
 call <sid>hi("Normal", s:gui01, s:gui00, s:cterm05, s:cterm00, "", "")
@@ -250,6 +250,13 @@ call <sid>hi("markdownCode", s:gui0C, "", s:cterm0B, "", "", "")
 call <sid>hi("markdownCodeBlock", s:gui0C, "", s:cterm0B, "", "", "")
 call <sid>hi("markdownHeadingDelimiter", s:gui0C, "", s:cterm0D, "", "", "")
 call <sid>hi("markdownHeadingRule", s:gui0C, "", s:cterm0D, "", "", "")
+
+" Pandoc highlighting
+call <sid>hi("yamlDocumentStart", s:gui0C, "", s:cterm0B, "", "", "")
+call <sid>hi("yamlDocumentEnd", s:gui0C, "", s:cterm0B, "", "", "")
+call <sid>hi("yamlBlockMappingKey", s:gui0C, "", s:cterm0B, "", "", "")
+call <sid>hi("yamlKeyValueDelimiter", s:gui0C, "", s:cterm0B, "", "", "")
+call <sid>hi("pandocAtxStart", s:gui0C, "", s:cterm0B, "", "", "")
 
 " Python highlighting
 call <sid>hi("pythonOperator", s:gui0E, "", s:cterm0E, "", "", "")

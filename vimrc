@@ -45,13 +45,13 @@ set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 
 if has("gui_running")
 	if has("gui_macvim")
-		set gfn=Source\ Code\ Pro:h14
+		set gfn=Input:h12,Source\ Code\ Pro:h14
 		set macmeta
 		let macvim_skip_colorscheme = 1
 	elseif has("unix")
-		set gfn=DejaVu\ Sans\ Mono\ 12,Monospace\ 12
+		set gfn=Input\ 12,DejaVu\ Sans\ Mono\ 12,Monospace\ 12
 	else
-		set gfn=Consolas:h12
+		set gfn=Input:h12,Consolas:h12
 		" set renderoptions=type:directx
 	endif
 	set columns=999
@@ -219,7 +219,7 @@ endif
 " load plugins with vim-plug
 runtime plugins.vim
 
-" Colors"{{{2
+" Colors"{{{1
 silent! colorscheme kosmos
 " helper to design colorscheme
 noremap <leader>cc :colo kosmos<CR>
@@ -227,10 +227,3 @@ noremap <leader>co :e ~/*vim*/**/kosmos.vim<CR>
 noremap <leader>ch :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 		\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 		\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
-
-
-" " add this to a latex ft plugin
-"  compiler tex
-"  set makeprg=lualatex\ -file-line-error\ -shell-escape\ -interaction=nonstopmode\ -output-directory\ %:p:h\ %:p
-"  set errorformat=%f:%l:\ %m
