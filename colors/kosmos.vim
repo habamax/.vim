@@ -1,4 +1,11 @@
 " Vim color file
+"
+" Description:
+" Black and Gray colorscheme with limited syntax highlighting focusing on:
+" - keywords -- a bit of standout (just white)
+" - strings -- clearly visible, to be sure quotes are closed (greenish)
+" - comments -- should standout of other source code (kind of cyanish).
+"
 " File: kosmos.vim
 " URL: github.com/habamax/kosmos.vim
 " Maintainer: Maxim Kim
@@ -34,6 +41,9 @@
 " 4. airline
 " 5. more latex
 " 6. less green strings?
+" 7. command completion
+" 8. text completion
+" 9. diff
 
 " GUI color definitions
 let s:gui00 = "000000" " MASTER COLOR: background
@@ -47,9 +57,9 @@ let s:gui07 = "606020" " MASTER COLOR: incsearch bg
 let s:gui08 = "40e0d0" " MASTER COLOR: search fg
 let s:gui09 = "206060" " MASTER COLOR: search bg
 let s:gui0A = "3f5f5f" " MASTER COLOR: Statusline
-let s:gui0B = "202020" " MASTER COLOR: StatusInactive
-let s:gui0C = "707070" " MASTER COLOR: inactive text
-let s:gui0D = "101010" " MASTER COLOR: sidebars
+let s:gui0B = "393030" " MASTER COLOR: NonText
+let s:gui0C = "707070" " MASTER COLOR: inactive text/dimmed text
+let s:gui0D = "1a1d1d" " MASTER COLOR: sidebars/statusInactive
 let s:gui0E = "f07070" " MASTER COLOR: error bg
 let s:gui0F = "90a0bd" " MASTER COLOR: url
 
@@ -116,7 +126,7 @@ call <sid>hi("Directory", s:gui02, "", s:cterm0D, "", "", "")
 call <sid>hi("Error", s:gui02, s:gui0E, s:cterm00, s:cterm08, "", "")
 call <sid>hi("ErrorMsg", s:gui0E, s:gui00, s:cterm08, s:cterm00, "", "")
 call <sid>hi("Exception", s:gui08, "", s:cterm08, "", "", "")
-call <sid>hi("FoldColumn", s:gui0C, s:gui01, s:cterm0C, s:cterm01, "", "")
+call <sid>hi("FoldColumn", s:gui0C, s:gui0D, s:cterm0C, s:cterm0D, "", "")
 call <sid>hi("Folded", s:gui0C, s:gui0D, s:cterm03, s:cterm01, "", "")
 call <sid>hi("IncSearch", s:gui06, s:gui07, s:cterm01, s:cterm0A, "bold,underline", "")
 call <sid>hi("Italic", "", "", "", "", "none", "")
@@ -126,7 +136,7 @@ call <sid>hi("ModeMsg", s:gui01, "", s:cterm0B, "", "", "")
 call <sid>hi("MoreMsg", s:gui02, "", s:cterm0B, "", "", "")
 call <sid>hi("Question", s:gui01, "", s:cterm0D, "", "", "")
 call <sid>hi("Search", s:gui08, s:gui09, s:cterm01, s:cterm0A, " bold,underline", "")
-call <sid>hi("SpecialKey", s:gui0B, s:gui0D, s:cterm0B, "", "none", "")
+call <sid>hi("SpecialKey", s:gui0B, s:gui00, s:cterm0B, "", "none", "")
 call <sid>hi("TooLong", s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("Underlined", s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("Visual", s:gui00, s:gui05, "", s:cterm02, "", "")
@@ -136,22 +146,23 @@ call <sid>hi("WildMenu", s:gui08, s:gui0A, s:cterm08, "", "", "")
 call <sid>hi("Title", s:gui02, "", s:cterm02, "", "bold", "")
 call <sid>hi("Conceal", s:gui0C, s:gui00, s:cterm0D, s:cterm00, "", "")
 call <sid>hi("Cursor", s:gui00, s:gui02, s:cterm00, s:cterm05, "", "")
-call <sid>hi("NonText", s:gui0B, s:gui0D, s:cterm03, "", "none", "")
+call <sid>hi("lCursor", s:gui00, s:gui0E, s:cterm00, s:cterm05, "", "")
+call <sid>hi("NonText", s:gui0B, s:gui00, s:cterm03, "", "none", "")
 call <sid>hi("Normal", s:gui01, s:gui00, s:cterm05, s:cterm00, "", "")
-call <sid>hi("LineNr", s:gui0C, s:gui0D, s:cterm03, s:cterm01, "", "")
+call <sid>hi("LineNr", s:gui05, s:gui00, s:cterm03, s:cterm01, "", "")
 call <sid>hi("SignColumn", s:gui03, s:gui0D, s:cterm03, s:cterm01, "", "")
 call <sid>hi("StatusLine", s:gui02, s:gui0A, s:cterm04, s:cterm02, "none", "")
-call <sid>hi("StatusLineNC", s:gui0C, s:gui0B, s:cterm03, s:cterm01, "none", "")
-call <sid>hi("VertSplit", s:gui0C, s:gui0B, s:cterm02, s:cterm02, "none", "")
+call <sid>hi("StatusLineNC", s:gui01, s:gui0D, s:cterm03, s:cterm01, "none", "")
+call <sid>hi("VertSplit", s:gui0C, s:gui0D, s:cterm02, s:cterm02, "none", "")
 call <sid>hi("ColorColumn", "", s:gui09, "", s:cterm01, "none", "")
-call <sid>hi("CursorColumn", "", s:gui0B, "", s:cterm01, "none", "")
-call <sid>hi("CursorLine", "", s:gui0B, "", s:cterm0F, "none", "")
-call <sid>hi("CursorLineNr", s:gui0C, s:gui0D, s:cterm03, s:cterm01, "bold", "")
+call <sid>hi("CursorColumn", "", s:gui0D, "", s:cterm01, "none", "")
+call <sid>hi("CursorLine", "", s:gui0D, "", s:cterm0F, "none", "")
+call <sid>hi("CursorLineNr", s:gui05, "", s:cterm03, s:cterm01, "bold", "")
 call <sid>hi("PMenu", s:gui04, s:gui01, s:cterm04, s:cterm01, "none", "")
 call <sid>hi("PMenuSel", s:gui01, s:gui04, s:cterm01, s:cterm04, "", "")
 call <sid>hi("TabLine", s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
 call <sid>hi("TabLineFill", s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
-call <sid>hi("TabLineSel", s:gui0B, s:gui01, s:cterm0B, s:cterm01, "none", "")
+call <sid>hi("TabLineSel", s:gui0D, s:gui01, s:cterm0B, s:cterm01, "none", "")
 
 " Standard syntax highlighting
 call <sid>hi("Boolean", s:gui01, "", s:cterm01, "", "none", "")
@@ -187,6 +198,7 @@ call <sid>hi("vimNotation", s:gui0C, "", s:cterm0C, "", "", "")
 call <sid>hi("vimBracket", s:gui0C, "", s:cterm0C, "", "", "")
 call <sid>hi("helpHyperTextJump", s:gui0F, "", s:cterm0C, "", "underline", "")
 call <sid>hi("helpSpecial", s:gui0C, "", s:cterm0C, "", "", "")
+call <sid>hi("vimMapModKey", s:gui0C, "", s:cterm0C, "", "", "")
 call <sid>hi("helpOption", s:gui02, "", s:cterm0C, "", "none", "")
 
 " C highlighting
@@ -257,6 +269,15 @@ call <sid>hi("yamlDocumentEnd", s:gui0C, "", s:cterm0B, "", "", "")
 call <sid>hi("yamlBlockMappingKey", s:gui0C, "", s:cterm0B, "", "", "")
 call <sid>hi("yamlKeyValueDelimiter", s:gui0C, "", s:cterm0B, "", "", "")
 call <sid>hi("pandocAtxStart", s:gui0C, "", s:cterm0B, "", "", "")
+call <sid>hi("pandocUListItemBullet", s:gui02, "", s:cterm0B, "", "", "")
+call <sid>hi("pandocDelimitedCodeBlock", s:gui0C, "", s:cterm0B, "", "", "")
+call <sid>hi("pandocDelimitedCodeBlockEnd", s:gui0C, "", s:cterm0B, "", "", "")
+call <sid>hi("pandocCodeBlock", s:gui0C, "", s:cterm0B, "", "", "")
+call <sid>hi("pandocNoFormatted", s:gui0C, "", s:cterm0B, "", "", "")
+call <sid>hi("pandocOperator", s:gui0C, "", s:cterm0B, "", "", "")
+call <sid>hi("pandocEmphasis", "", "", s:cterm0B, "", "italic", "")
+call <sid>hi("pandocStrong", "", "", s:cterm0B, "", "bold", "")
+call <sid>hi("pandocStrongEmphasis", "", "", s:cterm0B, "", "bold,italic", "")
 
 " Python highlighting
 call <sid>hi("pythonOperator", s:gui0E, "", s:cterm0E, "", "", "")
@@ -264,10 +285,10 @@ call <sid>hi("pythonRepeat", s:gui0E, "", s:cterm0E, "", "", "")
 call <sid>hi("pythonDocstring", s:gui04, "", s:cterm04, "", "", "")
 
 " Spelling highlighting
-call <sid>hi("SpellBad", "", s:gui00, "", s:cterm00, "undercurl", s:gui08)
-call <sid>hi("SpellLocal", "", s:gui00, "", s:cterm00, "undercurl", s:gui0C)
-call <sid>hi("SpellCap", "", s:gui00, "", s:cterm00, "undercurl", s:gui0D)
-call <sid>hi("SpellRare", "", s:gui00, "", s:cterm00, "undercurl", s:gui0E)
+call <sid>hi("SpellBad", "", s:gui00, "", s:cterm00, "undercurl", s:gui0E)
+call <sid>hi("SpellLocal", "", s:gui00, "", s:cterm00, "undercurl", s:gui02)
+call <sid>hi("SpellCap", "", s:gui00, "", s:cterm00, "undercurl", s:gui06)
+call <sid>hi("SpellRare", "", s:gui00, "", s:cterm00, "undercurl", s:gui08)
 
 " Remove functions
 delf <sid>hi
