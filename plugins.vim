@@ -62,7 +62,6 @@ nnoremap <leader>gw :Gwrite<CR>
 
 Plug 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
-" let g:airline_theme = 'gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 
 Plug 'vim-pandoc/vim-pandoc'
