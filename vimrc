@@ -16,6 +16,7 @@ set confirm
 set browsedir=buffer
 
 let mapleader = "\<Space>"
+let maplocalleader = "\<BS>"
 
 set mouse=a
 
@@ -41,7 +42,7 @@ set scrolloff=1 sidescrolloff=5
 set display+=lastline
 set tabpagemax=50
 
-set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:+,eol:$
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 
 if has("gui_running")
 	if has("gui_macvim")
@@ -189,6 +190,12 @@ command! JustOneInnerSpace :let pos=getpos('.')<bar>
 		\:nohl<bar>
 		\:echo 'Just one space'
 
+
+" внутренняя раскладка (keymap)
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=-1
+
 " Langmap {{{1
 " Russian langmap for OSX
 " set langmap=йцукенгшщзхъ;qwertyuiop[]
@@ -199,13 +206,13 @@ command! JustOneInnerSpace :let pos=getpos('.')<bar>
 " set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
 " set langmap+=№#
 
-" Russian langmap for Windows
+" Russian langmap for standard PC keyboard
 if has('win32') && has('langmap')
 	set langmap=йцукенгшщзхъ;qwertyuiop[]
 	set langmap+=фывапролджэё;asdfghjkl\\;'\\\
 	set langmap+=ячсмитьбю;zxcvbnm\\,.
 	set langmap+=ЙЦУКЕНГШЩЗХЪ;QWERTYUIOP{}
-	set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\|
+	set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\~
 	set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
 	set langmap+=№#
 endif
