@@ -38,18 +38,18 @@
 " 1. terminal colors
 " 2. quickfix highlight line
 " 3. further markdown
-" 4. airline
+" 4. airline (Nope, not gonna do it)
 " 5. more latex
-" 6. less green strings?
-" 7. command completion
-" 8. text completion
+" 6. less green strings? Done.
+" 7. command completion Done
+" 8. text completion Done
 " 9. diff
 
 " GUI color definitions
 let s:gui00 = "000000" " MASTER COLOR: background
 let s:gui01 = "bdbdbd" " MASTER COLOR: foreground
 let s:gui02 = "ffffff" " MASTER COLOR: keywords and stuff
-let s:gui03 = "3cb371" " MASTER COLOR: strings
+let s:gui03 = "73bd7a" " MASTER COLOR: strings
 let s:gui04 = "5797a0" " MASTER COLOR: comments
 let s:gui05 = "839191" " MASTER COLOR: visual
 let s:gui06 = "fff68f" " MASTER COLOR: incsearch
@@ -142,7 +142,7 @@ call <sid>hi("Underlined", s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("Visual", s:gui00, s:gui05, "", s:cterm02, "", "")
 call <sid>hi("VisualNOS", s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("WarningMsg", s:gui01, "", s:cterm08, "", "", "")
-call <sid>hi("WildMenu", s:gui08, s:gui0A, s:cterm08, "", "", "")
+call <sid>hi("WildMenu", s:gui00, s:gui05, s:cterm08, "", "none", "")
 call <sid>hi("Title", s:gui02, "", s:cterm02, "", "bold", "")
 call <sid>hi("Conceal", s:gui0C, s:gui00, s:cterm0D, s:cterm00, "", "")
 call <sid>hi("Cursor", s:gui00, s:gui02, s:cterm00, s:cterm05, "", "")
@@ -158,8 +158,10 @@ call <sid>hi("ColorColumn", "", s:gui09, "", s:cterm01, "none", "")
 call <sid>hi("CursorColumn", "", s:gui0D, "", s:cterm01, "none", "")
 call <sid>hi("CursorLine", "", s:gui0D, "", s:cterm0F, "none", "")
 call <sid>hi("CursorLineNr", s:gui05, "", s:cterm03, s:cterm01, "bold", "")
-call <sid>hi("PMenu", s:gui04, s:gui01, s:cterm04, s:cterm01, "none", "")
-call <sid>hi("PMenuSel", s:gui01, s:gui04, s:cterm01, s:cterm04, "", "")
+call <sid>hi("PMenu", s:gui04, s:gui0D, s:cterm04, s:cterm0D, "none", "")
+call <sid>hi("PMenuSel", s:gui00, s:gui04, s:cterm00, s:cterm04, "", "")
+call <sid>hi("PMenuSbar", "", s:gui0C, s:cterm00, s:cterm04, "", "")
+call <sid>hi("PMenuThumb", "", s:gui01, s:cterm00, s:cterm04, "", "")
 call <sid>hi("TabLine", s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
 call <sid>hi("TabLineFill", s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
 call <sid>hi("TabLineSel", s:gui0D, s:gui01, s:cterm0B, s:cterm01, "none", "")
@@ -189,7 +191,7 @@ call <sid>hi("StorageClass", s:gui01, "", s:cterm01, "", "none", "")
 call <sid>hi("String", s:gui03, "", s:cterm03, "", "none", "")
 call <sid>hi("Structure", s:gui01, "", s:cterm01, "", "none", "")
 call <sid>hi("Tag", s:gui01, "", s:cterm01, "", "none", "")
-call <sid>hi("Todo", s:gui02, s:gui00, s:cterm02, s:cterm00, "bold", "")
+call <sid>hi("Todo", s:gui05, s:gui00, s:cterm02, s:cterm00, "bold", "")
 call <sid>hi("Type", s:gui01, "", s:cterm01, "", "none", "")
 call <sid>hi("Typedef", s:gui01, "", s:cterm01, "", "none", "")
 
@@ -278,6 +280,9 @@ call <sid>hi("pandocOperator", s:gui0C, "", s:cterm0B, "", "", "")
 call <sid>hi("pandocEmphasis", "", "", s:cterm0B, "", "italic", "")
 call <sid>hi("pandocStrong", "", "", s:cterm0B, "", "bold", "")
 call <sid>hi("pandocStrongEmphasis", "", "", s:cterm0B, "", "bold,italic", "")
+call <sid>hi("pandocReferenceURL", s:gui0F, "", s:cterm0F, "", "underline", "")
+call <sid>hi("pandocReferenceDefinitionAddress", s:gui0F, "", s:cterm0F, "", "underline", "")
+call <sid>hi("pandocReferenceDefinitionLabel", s:gui0C, "", s:cterm0F, "", "none", "")
 
 " Python highlighting
 call <sid>hi("pythonOperator", s:gui0E, "", s:cterm0E, "", "", "")
