@@ -136,9 +136,6 @@ nnoremap <leader>tos :JustOneInnerSpace<CR>
 " remove trailing spaces
 nnoremap <leader>tts :RemoveTrailingSpaces<CR>
 
-" init file AKA vimrc
-noremap <Leader>fi :e $MYVIMRC<CR>
-
 
 " Misc {{{2
 " now it is possible to paste many times over selected text
@@ -174,6 +171,12 @@ nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
 vnoremap <Leader>y "+y
 nnoremap <Leader>yy "+yy
+
+" init file AKA vimrc
+noremap <Leader>fi :e $MYVIMRC<CR>
+noremap <Leader>fe :Ex<CR>
+noremap <Leader>fs :up<CR>
+
 
 " Commands {{{1
 
