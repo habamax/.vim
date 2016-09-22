@@ -58,11 +58,9 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gw :Gwrite<CR>
 
-" Plug 'habamax/vim-skipit'
-
 Plug 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
 
 Plug 'vim-pandoc/vim-pandoc'
 let g:pandoc#modules#disabled = ["command", "templates", "menu"]
@@ -70,6 +68,9 @@ let g:pandoc#folding#mode = 'stacked'
 let g:pandoc#folding#fold_yaml = 1
 Plug 'vim-pandoc/vim-pandoc-syntax'
 let g:pandoc#syntax#conceal#use = 0
+
+
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
