@@ -5,7 +5,7 @@
 if exists("current_compiler")
   finish
 endif
-let current_compiler = "cs"
+let current_compiler = "lualatex"
 let s:keepcpo= &cpo
 set cpo&vim
 
