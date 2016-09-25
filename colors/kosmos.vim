@@ -283,6 +283,10 @@ call <sid>hi("asciidocAdmonition", s:gui06, "", s:cterm0B, "", "", "")
 call <sid>hi("asciidocAttributeList", s:gui0C, "", s:cterm0B, "", "", "")
 call <sid>hi("asciidocTablePrefix", s:gui05, "", s:cterm0B, "", "", "")
 call <sid>hi("asciidocBlockTitle", s:gui05, "", s:cterm0B, "", "", "")
+call <sid>hi("asciidocQuotedBold", "", "", "", "", "bold", "")
+call <sid>hi("asciidocQuotedUnconstrainedBold", "", "", "", "", "bold", "")
+call <sid>hi("asciidocQuotedEmphasized", "", "", "", "", "italic", "")
+call <sid>hi("asciidocQuotedUnconstrainedEmphasized", "", "", "", "", "italic", "")
 
 " Python highlighting
 call <sid>hi("pythonOperator", s:gui0E, "", s:cterm0E, "", "", "")
