@@ -225,6 +225,9 @@ if has('nvim')
 	runtime neo.vim
 endif
 
+" Abbreviations {{{1
+runtime abbreviations.vim
+
 " Plugins {{{1
 " load plugins with vim-plug
 runtime plugins.vim
