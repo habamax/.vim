@@ -1,3 +1,9 @@
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal expandtab
+setlocal smarttab
+setlocal ff=unix
+
 compiler adoc2pdf
 
 " open files
@@ -15,5 +21,3 @@ nnoremap <buffer> <leader>mfp :exe b:browser." ".expand("%:p:r").".pdf"<CR>
 " compile
 nnoremap <buffer> <leader>mcc :make<CR>
 
-" abbreviations
-inorea adoc AsciiDoc
