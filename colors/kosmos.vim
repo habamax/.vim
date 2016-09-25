@@ -38,11 +38,7 @@
 " 1. terminal colors
 " 2. quickfix highlight line
 " 3. further markdown
-" 4. airline (Nope, not gonna do it)
 " 5. more latex
-" 6. less green strings? Done.
-" 7. command completion Done
-" 8. text completion Done
 " 9. diff
 
 " GUI color definitions
@@ -162,9 +158,9 @@ call <sid>hi("PMenu", s:gui04, s:gui0D, s:cterm04, s:cterm0D, "none", "")
 call <sid>hi("PMenuSel", s:gui00, s:gui04, s:cterm00, s:cterm04, "", "")
 call <sid>hi("PMenuSbar", "", s:gui0C, s:cterm00, s:cterm04, "", "")
 call <sid>hi("PMenuThumb", "", s:gui01, s:cterm00, s:cterm04, "", "")
-call <sid>hi("TabLine", s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
-call <sid>hi("TabLineFill", s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
-call <sid>hi("TabLineSel", s:gui0D, s:gui01, s:cterm0B, s:cterm01, "none", "")
+call <sid>hi("TabLine", s:gui04, s:gui0D, s:cterm03, s:cterm01, "none", "")
+call <sid>hi("TabLineFill", s:gui04, s:gui0D, s:cterm03, s:cterm01, "none", "")
+call <sid>hi("TabLineSel", s:gui02, s:gui04, s:cterm0B, s:cterm01, "none", "")
 
 " Standard syntax highlighting
 call <sid>hi("Boolean", s:gui01, "", s:cterm01, "", "none", "")
@@ -202,10 +198,6 @@ call <sid>hi("helpHyperTextJump", s:gui0F, "", s:cterm0C, "", "underline", "")
 call <sid>hi("helpSpecial", s:gui0C, "", s:cterm0C, "", "", "")
 call <sid>hi("vimMapModKey", s:gui0C, "", s:cterm0C, "", "", "")
 call <sid>hi("helpOption", s:gui02, "", s:cterm0C, "", "none", "")
-
-" C highlighting
-call <sid>hi("cOperator", s:gui0C, "", s:cterm0C, "", "", "")
-call <sid>hi("cPreCondit", s:gui0E, "", s:cterm0E, "", "", "")
 
 " CSS highlighting
 call <sid>hi("cssBraces", s:gui05, "", s:cterm05, "", "", "")
@@ -254,11 +246,6 @@ call <sid>hi("xmlTag", s:gui0C, "", s:cterm0C, "", "", "")
 call <sid>hi("xmlTagName", s:gui0C, "", s:cterm0C, "", "", "")
 call <sid>hi("xmlEndTag", s:gui0C, "", s:cterm0C, "", "", "")
 
-" JavaScript highlighting
-call <sid>hi("javaScript", s:gui05, "", s:cterm05, "", "", "")
-call <sid>hi("javaScriptBraces", s:gui05, "", s:cterm05, "", "", "")
-call <sid>hi("javaScriptNumber", s:gui09, "", s:cterm09, "", "", "")
-
 " Markdown highlighting
 call <sid>hi("markdownCode", s:gui0C, "", s:cterm0B, "", "", "")
 call <sid>hi("markdownCodeBlock", s:gui0C, "", s:cterm0B, "", "", "")
@@ -284,6 +271,19 @@ call <sid>hi("pandocReferenceURL", s:gui0F, "", s:cterm0F, "", "underline", "")
 call <sid>hi("pandocReferenceDefinitionAddress", s:gui0F, "", s:cterm0F, "", "underline", "")
 call <sid>hi("pandocReferenceDefinitionLabel", s:gui0C, "", s:cterm0F, "", "none", "")
 
+" AsciiDoc highlighting
+call <sid>hi("asciidocAttributeEntry", s:gui0C, "", s:cterm0B, "", "", "")
+call <sid>hi("asciidocListBullet", s:gui02, "", s:cterm0B, "", "", "")
+call <sid>hi("asciidocLiteralParagraph", s:gui0C, "", s:cterm0B, "", "", "")
+call <sid>hi("asciidocQuoteBlockDelimiter", s:gui05, "", s:cterm0B, "", "", "")
+call <sid>hi("asciidocExampleBlockDelimiter", s:gui05, "", s:cterm0B, "", "", "")
+call <sid>hi("asciidocSidebarDelimiter", s:gui05, "", s:cterm0B, "", "", "")
+call <sid>hi("asciidocTableDelimiter", s:gui05, "", s:cterm0B, "", "", "")
+call <sid>hi("asciidocAdmonition", s:gui06, "", s:cterm0B, "", "", "")
+call <sid>hi("asciidocAttributeList", s:gui0C, "", s:cterm0B, "", "", "")
+call <sid>hi("asciidocTablePrefix", s:gui05, "", s:cterm0B, "", "", "")
+call <sid>hi("asciidocBlockTitle", s:gui05, "", s:cterm0B, "", "", "")
+
 " Python highlighting
 call <sid>hi("pythonOperator", s:gui0E, "", s:cterm0E, "", "", "")
 call <sid>hi("pythonRepeat", s:gui0E, "", s:cterm0E, "", "", "")
@@ -294,6 +294,12 @@ call <sid>hi("SpellBad", "", s:gui00, "", s:cterm00, "undercurl", s:gui0E)
 call <sid>hi("SpellLocal", "", s:gui00, "", s:cterm00, "undercurl", s:gui02)
 call <sid>hi("SpellCap", "", s:gui00, "", s:cterm00, "undercurl", s:gui06)
 call <sid>hi("SpellRare", "", s:gui00, "", s:cterm00, "undercurl", s:gui08)
+
+" Plug
+call <sid>hi("plugH2", s:gui02, "", "", s:cterm00, "", "")
+call <sid>hi("plugName", s:gui02, "", "", s:cterm00, "", "")
+call <sid>hi("plugSha", s:gui03, "", "", s:cterm00, "", "")
+call <sid>hi("plugEdge", s:gui0C, "", "", s:cterm00, "", "")
 
 " Remove functions
 delf <sid>hi
