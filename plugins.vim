@@ -69,6 +69,21 @@ let g:pandoc#folding#fold_yaml = 1
 Plug 'vim-pandoc/vim-pandoc-syntax'
 let g:pandoc#syntax#conceal#use = 0
 
+Plug 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_map = ''
+nnoremap <leader>ff :CtrlPMixed<CR>
+nnoremap <leader>bb :CtrlPBuffer<CR>
+
+
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine.
+Plug 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+
+Plug 'mhinz/vim-grepper'
 
 Plug 'chriskempson/base16-vim'
 
