@@ -1,9 +1,17 @@
 inorea eml habamax@gmail.com
 inorea уьд habamax@gmail.com
-inorea nme Maxim Kim
-inorea тьу Максим Ким
+inorea bvz Maxim Kim
+inorea тфьу Максим Ким
 
 inorea hil highlighting
+inorea хъ []
+inorea ХЪ {}
+inorea ЭЭ ""
+inorea ээ ''
+
+inorea teh the
+inorea tihs this
+inorea taht that
 
 " Most useful for AsciiDoc but also good for others
 inorea adoc AsciiDoc
