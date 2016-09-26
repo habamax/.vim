@@ -275,6 +275,7 @@ call <sid>hi("pandocReferenceDefinitionLabel", s:gui0C, "", s:cterm0F, "", "none
 call <sid>hi("asciidocAttributeEntry", s:gui0C, "", s:cterm0B, "", "", "")
 call <sid>hi("asciidocListBullet", s:gui02, "", s:cterm0B, "", "", "")
 call <sid>hi("asciidocLiteralParagraph", s:gui0C, "", s:cterm0B, "", "", "")
+call <sid>hi("asciidocListingBlock", s:gui0C, "", s:cterm0B, "", "", "")
 call <sid>hi("asciidocQuoteBlockDelimiter", s:gui05, "", s:cterm0B, "", "", "")
 call <sid>hi("asciidocExampleBlockDelimiter", s:gui05, "", s:cterm0B, "", "", "")
 call <sid>hi("asciidocSidebarDelimiter", s:gui05, "", s:cterm0B, "", "", "")
@@ -287,6 +288,8 @@ call <sid>hi("asciidocQuotedBold", "", "", "", "", "bold", "")
 call <sid>hi("asciidocQuotedUnconstrainedBold", "", "", "", "", "bold", "")
 call <sid>hi("asciidocQuotedEmphasized", "", "", "", "", "italic", "")
 call <sid>hi("asciidocQuotedUnconstrainedEmphasized", "", "", "", "", "italic", "")
+call <sid>hi("asciidocQuotedMonospaced2", s:gui0C, "", s:cterm0B, "", "", "")
+call <sid>hi("asciidocCallout", s:gui04, "", s:cterm0B, "", "", "")
 
 " Python highlighting
 call <sid>hi("pythonOperator", s:gui0E, "", s:cterm0E, "", "", "")
@@ -304,6 +307,12 @@ call <sid>hi("plugH2", s:gui02, "", "", s:cterm00, "", "")
 call <sid>hi("plugName", s:gui02, "", "", s:cterm00, "", "")
 call <sid>hi("plugSha", s:gui03, "", "", s:cterm00, "", "")
 call <sid>hi("plugEdge", s:gui0C, "", "", s:cterm00, "", "")
+
+" CtrlP
+call <sid>hi("CtrlPMatch", s:gui06, s:gui07, "", s:cterm00, "underline", "")
+" call <sid>hi("ctrlpprtbase", s:gui06, s:gui07, "", s:cterm00, "underline", "")
+" call <sid>hi("ctrlpbufferpath", s:gui06, s:gui07, "", s:cterm00, "underline", "")
+
 
 " Remove functions
 delf <sid>hi
