@@ -31,7 +31,7 @@ set laststatus=2
 set showtabline=1
 set cmdheight=1
 set number
-set relativenumber
+set norelativenumber
 set winminwidth=0 winminheight=0
 set lazyredraw
 set splitbelow
@@ -42,7 +42,11 @@ set scrolloff=1 sidescrolloff=5
 set display+=lastline
 set tabpagemax=50
 
+" default ASCII listchars
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
+" UTF-8 symbols, good font needed
+" set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+" set showbreak=↪\<space>
 
 if has("gui_running")
 	if has("gui_macvim")
@@ -122,6 +126,16 @@ vnoremap ii <ESC>
 inoremap шш <ESC>
 vnoremap шш <ESC>
 
+" Allows incsearch highlighting for range commands
+" This is just a convenient shorthand of :/foobar/t.  :/foobar/m. and :/foobar/d
+" use regular search to locate the line you want to
+" Copy to current position
+cnoremap $t <CR>:t''<CR>
+" Move to current position
+cnoremap $m <CR>:m''<CR>
+" or Delete
+cnoremap $d <CR>:d<CR>``
+
 " Regular enhancements {{{2
 noremap k gk
 vnoremap k gk
@@ -173,8 +187,8 @@ vnoremap <Leader>y "+y
 nnoremap <Leader>yy "+yy
 
 " init file AKA vimrc
-noremap <Leader>fi :e $MYVIMRC<CR>
-noremap <Leader>fe :Ex<CR>
+noremap <Leader>foi :e $MYVIMRC<CR>
+noremap <Leader>foe :Ex<CR>
 noremap <Leader>fs :up<CR>
 
 
@@ -220,7 +234,21 @@ if has('win32') && has('langmap')
 	set langmap+=№#
 endif
 
-" neovim specific
+" Create dirs on file save {{{
+function s:MkNonExDir(file, buf)
+	if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+		let dir=fnamemodify(a:file, ':h')
+		if !isdirectory(dir)
+			call mkdir(dir, 'p')
+		endif
+	endif
+endfunction
+augroup BWCCreateDir
+	autocmd!
+	autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
+
+" neovim specific {{{1
 if has('nvim')
 	runtime neo.vim
 endif
@@ -234,9 +262,9 @@ runtime plugins.vim
 
 " Colors"{{{1
 silent! colorscheme kosmos
-" helper to design colorscheme
-noremap <leader>cc :colo kosmos<CR>
-noremap <leader>co :e ~/*vim*/**/kosmos.vim<CR>
-noremap <leader>ch :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+" temporary helper bindings to design colorscheme
+noremap <leader>ac :colo kosmos<CR>
+noremap <leader>foc :e ~/*vim*/**/kosmos.vim<CR>
+noremap <leader>sh :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 		\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 		\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
