@@ -31,6 +31,8 @@ nnoremap <buffer> <leader>cp :compiler adoc2pdf<CR>
 fun! AsciiDocFoldExpr(line)
   if match(getline(a:line), '^=.*') >= 0
     return '>1'
+  elseif match(getline(a:line), '^:.*:.*') >= 0
+    return '2'
   else
     return '1'
   endif
