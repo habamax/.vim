@@ -4,17 +4,25 @@ inorea bvz Maxim Kim
 inorea тфьу Максим Ким
 
 inorea hil highlighting
-inorea хъ []
-inorea ХЪ {}
-inorea ЭЭ ""
-inorea ээ ''
+inorea хъ []<Left>
+inorea ХЪ {}<Left>
+inorea ЭЭ ""<Left>
+inorea ээ ''<Left>
+inorea ёё ``<Left>
 
 inorea teh the
 inorea tihs this
 inorea taht that
 
+inorea todo: TODO:
+inorea ещвщ TODO:
+inorea fixme: FIXME:
+inorea ашчьу FIXME:
+inorea xxx: XXX:
+inorea ччч XXX:
+
 " Most useful for AsciiDoc but also good for others
-inorea adoc AsciiDoc
+inorea asdoc AsciiDoc
 inorea note: NOTE:
 inorea тщеу NOTE:
 inorea warn: WARNING:
