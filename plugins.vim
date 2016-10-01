@@ -83,7 +83,21 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsSnippetsDir=s:vimrc_path."/UltiSnips/"
 
+" Plug 'Shougo/neosnippet'
+" Plug 'Shougo/neosnippet-snippets'
+" imap <C-j> <Plug>(neosnippet_expand_or_jump)
+" smap <C-j> <Plug>(neosnippet_expand_or_jump)
+" xmap <C-j> <Plug>(neosnippet_expand_target)
+" if has('conceal')
+	" set conceallevel=2 concealcursor=niv
+" endif
+
 Plug 'mhinz/vim-grepper'
+
+let g:skipit_default_mappings = 0
+Plug 'habamax/vim-skipit'
+" Plug '~/vimfiles/vimdev/vim-skipit'
+imap <C-l> <Plug>SkipItForward
 
 Plug 'chriskempson/base16-vim'
 

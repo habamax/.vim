@@ -234,8 +234,8 @@ if has('win32') && has('langmap')
 	set langmap+=№#
 endif
 
-" Create dirs on file save {{{
-function s:MkNonExDir(file, buf)
+" Create dirs on file save {{{1
+function! s:MkNonExDir(file, buf)
 	if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
 		let dir=fnamemodify(a:file, ':h')
 		if !isdirectory(dir)
@@ -260,8 +260,9 @@ runtime abbreviations.vim
 " load plugins with vim-plug
 runtime plugins.vim
 
-" Colors"{{{1
+" Colors {{{1
 silent! colorscheme kosmos
+
 " temporary helper bindings to design colorscheme
 noremap <leader>ac :colo kosmos<CR>
 noremap <leader>foc :e ~/*vim*/**/kosmos.vim<CR>
