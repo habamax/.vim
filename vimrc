@@ -1,4 +1,4 @@
-" vim: fen fdm=marker fdl=1
+" vime fen fdm=marker fdl=1
 " Author: Maxim Kim <habamax@gmail.com>
 
 " Must have {{{1
@@ -50,7 +50,7 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 
 if has("gui_running")
 	if has("gui_macvim")
-		set gfn=Input:h12,Source\ Code\ Pro:h14
+		set gfn=Input:h16,Menlo:h14
 		set macmeta
 		let macvim_skip_colorscheme = 1
 	elseif has("unix")

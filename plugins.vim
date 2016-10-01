@@ -5,13 +5,6 @@
 let s:vimrc_path = fnamemodify($MYVIMRC, ":p:h")."/"
 
 let s:vim_plug_installed = filereadable(s:vimrc_path.'autoload/plug.vim')
-"if !s:vim_plug_installed
-"	echomsg "Install vim-plug with 'InstallVimPlug' command and restart vim."
-"	echomsg "'curl' should be installed first"
-"	command InstallVimPlug !mkdir -p ~/.vim/autoload |
-"			\ curl -fLo ~/.vim/autoload/plug.vim
-"			\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"endif
 
 " Do not load plugins if plugin manager is not installed.
 if !s:vim_plug_installed
@@ -25,7 +18,7 @@ let g:plug_timeout = 180
 
 
 Plug 'benekastah/neomake'
-" {{{
+" {{{ TODO: only when neomake is installed!!!
 	autocmd! BufWritePost * Neomake
 	" let g:neomake_airline = 0
 	let g:neomake_error_sign = { 'text': '✘', 'texthl': 'ErrorSign' }
@@ -75,13 +68,14 @@ nnoremap <leader>ff :CtrlPMixed<CR>
 nnoremap <leader>bb :CtrlPBuffer<CR>
 let g:ctrlp_key_loop = 1
 
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine.
 Plug 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsSnippetsDir=s:vimrc_path."/UltiSnips/"
+
 
 " Plug 'Shougo/neosnippet'
 " Plug 'Shougo/neosnippet-snippets'
