@@ -21,6 +21,7 @@ endif
 
 nnoremap <buffer> <leader>oo :exe b:browser." ".expand("%:p")<CR>
 nnoremap <buffer> <leader>op :exe b:browser." ".expand("%:p:r").".pdf"<CR>
+nnoremap <buffer> <leader>oh :exe b:browser." ".expand("%:p:r").".html"<CR>
 
 " compile
 nnoremap <buffer> <leader>cc :make<CR>
