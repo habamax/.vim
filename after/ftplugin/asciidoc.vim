@@ -11,17 +11,17 @@ compiler adoc2pdf
 setlocal includeexpr=substitute(v:fname,'include::\\([^[\\]]\\{-}\\)\\[.*\\]','\\1','g')
 
 " open files
-nnoremap <buffer> <leader>oh :silent !%:p:r.html<CR>
-
 if has("win32")
-	let b:browser = ":!start ".shellescape('C:\Program Files (x86)\Mozilla Firefox\firefox.exe')
+	let b:opener = ":!start ".shellescape('C:\Program Files (x86)\Mozilla Firefox\firefox.exe')
+elseif has("osx")
+	let b:opener = ":!open -a firefox"
 else
-	let b:browser = "firefox"
+	let b:opener = ":!firefox"
 endif
 
-nnoremap <buffer> <leader>oo :exe b:browser." ".expand("%:p")<CR>
-nnoremap <buffer> <leader>op :exe b:browser." ".expand("%:p:r").".pdf"<CR>
-nnoremap <buffer> <leader>oh :exe b:browser." ".expand("%:p:r").".html"<CR>
+nnoremap <buffer> <leader>oo :exe b:opener." ".expand("%:p")<CR>
+nnoremap <buffer> <leader>op :exe b:opener." ".expand("%:p:r").".pdf"<CR>
+nnoremap <buffer> <leader>oh :exe b:opener." ".expand("%:p:r").".html"<CR>
 
 " compile
 nnoremap <buffer> <leader>cc :make<CR>
