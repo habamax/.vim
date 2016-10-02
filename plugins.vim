@@ -56,7 +56,7 @@ let g:airline_powerline_fonts = 1
 " let g:airline#extensions#tabline#enabled = 1
 
 Plug 'vim-pandoc/vim-pandoc'
-let g:pandoc#modules#disabled = ["command", "templates", "menu"]
+let g:pandoc#modules#disabled = ["command", "templates", "menu", "bibliographies"]
 let g:pandoc#folding#mode = 'stacked'
 let g:pandoc#folding#fold_yaml = 1
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -70,18 +70,18 @@ let g:ctrlp_key_loop = 1
 
 " Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine.
+" let g:UltiSnipsExpandTrigger="<c-j>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsSnippetsDir=s:vimrc_path."/UltiSnips/"
 Plug 'honza/vim-snippets'
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsSnippetsDir=s:vimrc_path."/UltiSnips/"
 
 
-" Plug 'Shougo/neosnippet'
-" Plug 'Shougo/neosnippet-snippets'
-" imap <C-j> <Plug>(neosnippet_expand_or_jump)
-" smap <C-j> <Plug>(neosnippet_expand_or_jump)
-" xmap <C-j> <Plug>(neosnippet_expand_target)
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+imap <C-j> <Plug>(neosnippet_expand_or_jump)
+smap <C-j> <Plug>(neosnippet_expand_or_jump)
+xmap <C-j> <Plug>(neosnippet_expand_target)
 " if has('conceal')
 	" set conceallevel=2 concealcursor=niv
 " endif
