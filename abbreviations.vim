@@ -33,3 +33,8 @@ inorea tip: TIP:
 inorea ешз TIP:
 inorea cau: CAUTION:
 inorea сфг CAUTION:
+
+" Date and Time
+inorea ddt <C-R>=strftime("%Y-%m-%d %X")<CR>
+inorea ddd <C-R>=strftime("%Y-%m-%d")<CR>
+inorea ttt <C-R>=strftime("%X")<CR>
