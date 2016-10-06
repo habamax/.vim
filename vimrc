@@ -18,10 +18,14 @@ set browsedir=buffer
 let mapleader = "\<Space>"
 let maplocalleader = "\<BS>"
 
+set path+=**
+
 set mouse=a
 
 " current dir for a file
-autocmd BufEnter * silent! lcd %:p:h
+" TODO: make it search for a root .git and cd there
+" so :find command be useful
+" autocmd BufEnter * silent! lcd %:p:h
 
 " UI {{{1
 set shortmess+=I
@@ -178,7 +182,7 @@ nnoremap <Leader>rv "vyy:@v<CR>
 " run .vimrc
 nnoremap <Leader>ri :source $MYVIMRC<CR>
 
-nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <Leader>fd :cd %:p:h<CR>:pwd<CR>
 
 " System clipboard
 nnoremap <Leader>p "+p
