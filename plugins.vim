@@ -53,6 +53,8 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gw :Gwrite<CR>
 
+Plug 'airblade/vim-gitgutter'
+
 Plug 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 " let g:airline#extensions#tabline#enabled = 1
@@ -69,25 +71,6 @@ let g:ctrlp_map = ''
 nnoremap <leader>ff :CtrlPMixed<CR>
 nnoremap <leader>bb :CtrlPBuffer<CR>
 let g:ctrlp_key_loop = 1
-
-" Plug 'SirVer/ultisnips'
-" Snippets are separated from the engine.
-" let g:UltiSnipsExpandTrigger="<c-j>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-" let g:UltiSnipsSnippetsDir=s:vimrc_path."/UltiSnips/"
-Plug 'honza/vim-snippets'
-
-
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-imap <C-j> <Plug>(neosnippet_expand_or_jump)
-smap <C-j> <Plug>(neosnippet_expand_or_jump)
-xmap <C-j> <Plug>(neosnippet_expand_target)
-let g:neosnippet#snippets_directory = s:vimrc_path."snips"
-" if has('conceal')
-	" set conceallevel=2 concealcursor=niv
-" endif
 
 Plug 'mhinz/vim-grepper'
 
