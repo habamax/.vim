@@ -33,20 +33,22 @@ nnoremap <buffer> <leader>cp :compiler adoc2pdf<CR>
 
 
 fun! AsciiDocFoldExpr(line)
-  if match(getline(a:line), '^=.*') >= 0
-    return '>1'
-  elseif match(getline(a:line), '^:.*:.*') >= 0
-    return '2'
-  else
-    return '1'
-  endif
+	if match(getline(a:line), '^=.*') >= 0
+		return '>1'
+	elseif match(getline(a:line), '^:.*:.*') >= 0
+		return '2'
+	else
+		return '1'
+	endif
 endfun
 
 setlocal foldexpr=AsciiDocFoldExpr(v:lnum)
 setlocal foldmethod=expr
 
+inorea <buffer> << «
+inorea <buffer> >> »
 
-inorea options: :author: Максим Ким
+inorea <buffer> options: :author: Максим Ким
 			\<CR>:experimental:
 			\<CR>:toc: left
 			\<CR>:icons: font
