@@ -6,6 +6,7 @@ setlocal ff=unix
 
 compiler adoc2pdf
 
+let &commentstring="// %s"
 
 " gf to open include files
 setlocal includeexpr=substitute(v:fname,'include::\\([^[\\]]\\{-}\\)\\[.*\\]','\\1','g')
