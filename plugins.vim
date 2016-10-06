@@ -82,6 +82,7 @@ Plug 'Shougo/neosnippet-snippets'
 imap <C-j> <Plug>(neosnippet_expand_or_jump)
 smap <C-j> <Plug>(neosnippet_expand_or_jump)
 xmap <C-j> <Plug>(neosnippet_expand_target)
+let g:neosnippet#snippets_directory = s:vimrc_path."snips"
 " if has('conceal')
 	" set conceallevel=2 concealcursor=niv
 " endif
