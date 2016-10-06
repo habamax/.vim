@@ -39,6 +39,8 @@ Plug 'tmhedberg/matchit'
 
 " Tim Pope is a beast. You better use his stuff ...
 Plug 'tpope/vim-surround'
+let g:surround_113 = "«\r»"
+
 " Plug 'tpope/vim-repeat'
 " Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'
