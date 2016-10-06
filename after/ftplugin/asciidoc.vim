@@ -25,6 +25,8 @@ nnoremap <buffer> <leader>oh :exe b:opener." ".expand("%:p:r").".html"<CR>
 
 " compile
 nnoremap <buffer> <leader>cc :make<CR>
+
+" change compiler
 nnoremap <buffer> <leader>ch :compiler adoc<CR>
 nnoremap <buffer> <leader>cp :compiler adoc2pdf<CR>
 
@@ -41,3 +43,25 @@ endfun
 
 setlocal foldexpr=AsciiDocFoldExpr(v:lnum)
 setlocal foldmethod=expr
+
+
+inorea options: :author: Максим Ким
+			\<CR>:experimental:
+			\<CR>:toc: left
+			\<CR>:icons: font
+			\<CR>:sectnums:
+			\<CR>:source-highlighter: coderay
+			\<CR>:caution-caption: Предостережение
+			\<CR>:important-caption: Важно
+			\<CR>:note-caption: Замечание
+			\<CR>:tip-caption: Подсказка
+			\<CR>:warning-caption: Внимание
+			\<CR>:figure-caption: Рисунок
+			\<CR>:table-caption: Таблица
+			\<CR>:example-caption: Пример
+			\<CR>:toc-title: Содержание
+			\<CR>:appendix-caption: Приложение
+			\<CR>:last-update-label: Обновлено
+			\<CR>:pdf-style: default
+			\<CR>:revdate: <C-R>=strftime("%Y-%m-%d")<CR>
+
