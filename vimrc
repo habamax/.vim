@@ -150,10 +150,11 @@ set undofile
 let &undodir = s:other_dir . '/.vim_undo/,.'
 
 " Mappings {{{1
-inoremap ii <ESC>
-vnoremap ii <ESC>
-inoremap шш <ESC>
-vnoremap шш <ESC>
+
+" inoremap ii <ESC>
+" vnoremap ii <ESC>
+" inoremap шш <ESC>
+" vnoremap шш <ESC>
 
 " Allows incsearch highlighting for range commands
 " This is just a convenient shorthand of :/foobar/t.  :/foobar/m. and :/foobar/d

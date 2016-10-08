@@ -35,18 +35,26 @@ let delimitMate_expand_cr = 2
 Plug 'junegunn/rainbow_parentheses.vim'
 nnoremap <leader>xp :RainbowParentheses!!<CR>
 
+" Text objects
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-indent'
+
+" use gsip to sort linewise
+" use gsib to sort in a parenthesis
+Plug 'christoomey/vim-sort-motion'
+
 Plug 'tmhedberg/matchit'
 
 " Tim Pope is a beast. You better use his stuff ...
 Plug 'tpope/vim-surround'
+" surround with q
 let g:surround_113 = "«\r»"
 
-" Plug 'tpope/vim-repeat'
-" Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
-" Plug 'tpope/vim-scriptease'
-" Plug 'tpope/vim-eunuch'
 " Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-fugitive'
 nnoremap <leader>gs :Gstatus<CR>
