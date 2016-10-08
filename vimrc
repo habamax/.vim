@@ -22,7 +22,6 @@ set path=.,,**
 
 set mouse=a
 
-" Auto change directory to a current opened file's one.
 " Convenient to :save or :write a copy of a file to the same directory.
 autocmd BufEnter * silent! lcd %:p:h
 
@@ -55,7 +54,7 @@ autocmd BufEnter * let &l:path = MakePathToDotGit()
 " UI {{{1
 set shortmess+=I
 set winaltkeys=no
-set guioptions=m " No toolbar
+set guioptions=cm " No toolbar
 set laststatus=2
 set showtabline=1
 set cmdheight=1
@@ -292,6 +291,7 @@ runtime plugins.vim
 
 " Colors {{{1
 silent! colorscheme kosmos
+" silent! colorscheme base16-tomorrow-night
 
 " temporary helper bindings to design colorscheme
 noremap <leader>ac :colo kosmos<CR>
