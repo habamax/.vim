@@ -16,6 +16,7 @@ endif
 call plug#begin(s:vimrc_path.'plugged')
 let g:plug_timeout = 180
 
+Plug 'tmhedberg/matchit'
 
 Plug 'benekastah/neomake'
 " {{{ TODO: only when neomake is installed!!!
@@ -44,7 +45,8 @@ Plug 'kana/vim-textobj-indent'
 " use gsib to sort in a parenthesis
 Plug 'christoomey/vim-sort-motion'
 
-Plug 'tmhedberg/matchit'
+" use gtip to titlecase a paragraph
+Plug 'christoomey/vim-titlecase'
 
 " Tim Pope is a beast. You better use his stuff ...
 Plug 'tpope/vim-surround'
@@ -62,6 +64,7 @@ nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gw :Gwrite<CR>
 
 Plug 'airblade/vim-gitgutter'
+
 
 Plug 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
