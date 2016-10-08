@@ -10,6 +10,11 @@ inorea ЭЭ ""<Left>
 inorea ээ ''<Left>
 inorea ёё ``<Left>
 
+inorea -Ю ->
+inorea -ю ->
+inorea =Ю =>
+inorea =ю =>
+
 inorea teh the
 inorea tihs this
 inorea taht that
