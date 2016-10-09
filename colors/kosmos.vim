@@ -229,10 +229,10 @@ call <sid>hi("gitCommitOverflow", s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("gitCommitSummary", s:gui01, "", s:cterm0B, "", "bold", "")
 
 " GitGutter highlighting
-call <sid>hi("GitGutterAdd", s:gui0B, s:gui01, s:cterm0B, s:cterm01, "", "")
-call <sid>hi("GitGutterChange", s:gui0D, s:gui01, s:cterm0D, s:cterm01, "", "")
-call <sid>hi("GitGutterDelete", s:gui08, s:gui01, s:cterm08, s:cterm01, "", "")
-call <sid>hi("GitGutterChangeDelete", s:gui0E, s:gui01, s:cterm0E, s:cterm01, "", "")
+call <sid>hi("GitGutterAdd", s:gui03, "", s:cterm03, "", "", "")
+call <sid>hi("GitGutterChange", s:gui06, "", s:cterm06, "", "", "")
+call <sid>hi("GitGutterDelete", s:gui0E, "", s:cterm0E, "", "", "")
+call <sid>hi("GitGutterChangeDelete", s:gui0E, "", s:cterm0E, "", "", "")
 
 " HTML highlighting
 call <sid>hi("htmlBold", "", "", "", "", "bold", "")
