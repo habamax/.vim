@@ -64,10 +64,20 @@ nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gw :Gwrite<CR>
 
 Plug 'airblade/vim-gitgutter'
+" async doesn't work for my windows box
+if has("win32")
+	let g:gitgutter_async = 0
+endif
 
 
 Plug 'bling/vim-airline'
-let g:airline_powerline_fonts = 1
+" Win terminal has no powerline fonts
+" But I can install good font for a GVim
+if !has("win32")
+	let g:airline_powerline_fonts = 1
+elseif has("gui_running")
+	let g:airline_powerline_fonts = 1
+endif
 " let g:airline#extensions#tabline#enabled = 1
 
 Plug 'vim-pandoc/vim-pandoc'
