@@ -9,7 +9,7 @@ compiler adoc2pdf
 let &commentstring="// %s"
 
 " gf to open include files
-setlocal includeexpr=substitute(v:fname,'include::\\([^[\\]]\\{-}\\)\\[.*\\]','\\1','g')
+setlocal includeexpr=substitute(v:fname,'include::\\(.\\{-}\\)\\[.*','\\1','g')
 
 " open files
 if has("win32")
