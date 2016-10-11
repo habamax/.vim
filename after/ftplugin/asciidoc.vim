@@ -51,6 +51,7 @@ inorea <buffer> >> »
 inorea <buffer> options: :author: Максим Ким
 			\<CR>:experimental:
 			\<CR>:toc: left
+			\<CR>:toclevels: 3
 			\<CR>:icons: font
 			\<CR>:sectnums:
 			\<CR>:source-highlighter: coderay
