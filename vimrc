@@ -66,7 +66,7 @@ set splitbelow
 set diffopt+=vertical
 set nofoldenable
 set foldminlines=1 foldlevel=1
-set scrolloff=1 sidescrolloff=5
+" set scrolloff=1 sidescrolloff=5
 set display+=lastline
 set tabpagemax=50
 
