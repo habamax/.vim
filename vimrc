@@ -59,7 +59,7 @@ set laststatus=2
 set showtabline=1
 set cmdheight=1
 set number
-set norelativenumber
+set relativenumber
 set winminwidth=0 winminheight=0
 set lazyredraw
 set splitbelow
@@ -166,10 +166,10 @@ cnoremap $m <CR>:m''<CR>
 cnoremap $d <CR>:d<CR>``
 
 " Regular enhancements {{{2
-noremap k gk
-vnoremap k gk
-noremap j gj
-vnoremap j gj
+" noremap k gk
+" vnoremap k gk
+" noremap j gj
+" vnoremap j gj
 vnoremap > >gv
 vnoremap < <gv
 
