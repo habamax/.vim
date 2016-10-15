@@ -216,7 +216,7 @@ call <sid>hi("DiffRemoved", s:gui08, s:gui00, s:cterm08, s:cterm00, "", "")
 
 " Git highlighting
 call <sid>hi("gitCommitOverflow", s:gui08, "", s:cterm08, "", "", "")
-call <sid>hi("gitCommitSummary", s:gui01, "", s:cterm0B, "", "bold", "")
+call <sid>hi("gitCommitSummary", s:gui01, "", s:cterm01, "", "bold", "")
 
 " GitGutter highlighting
 call <sid>hi("GitGutterAdd", s:gui03, s:gui0D, s:cterm03, s:cterm0D, "", "")
