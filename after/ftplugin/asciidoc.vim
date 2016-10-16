@@ -16,6 +16,8 @@ if has("win32")
 	let b:opener = ":!start ".shellescape('C:\Program Files (x86)\Mozilla Firefox\firefox.exe')
 elseif has("osx")
 	let b:opener = ":!open -a firefox"
+elseif has("win32unix")
+	let b:opener = ":!start ".shellescape('/c/Program Files (x86)/Mozilla Firefox/firefox.exe')
 else
 	let b:opener = ":!firefox"
 endif
