@@ -35,11 +35,8 @@
 " THE SOFTWARE.
 "
 " TODO:
-" 1. terminal colors
 " 2. quickfix highlight line
-" 3. further markdown
-" 5. more latex
-" 9. diff
+" 3. diff
 
 " GUI color definitions
 let s:gui00 = "000000" " MASTER COLOR: background
