@@ -35,7 +35,6 @@
 " THE SOFTWARE.
 "
 " TODO:
-" 1. terminal colors
 " 2. quickfix highlight line
 " 3. diff
 
