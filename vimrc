@@ -3,6 +3,7 @@
 
 " Must have {{{1
 set nocompatible
+
 if has('autocmd')
 	autocmd!
 	filetype plugin indent on
@@ -18,38 +19,10 @@ set browsedir=buffer
 let mapleader = "\<Space>"
 let maplocalleader = "\<BS>"
 
-set path=.,,**
-
 set mouse=a
 
 " Convenient to :save or :write a copy of a file to the same directory.
 autocmd BufEnter * silent! lcd %:p:h
-
-" Exploit semifuzzy `:find` files.
-" Construct the path:
-" 1. find first .git directory upwards
-" 2. set it as a first dir in path
-" 3. add 'fuzziness' with /**
-" Once you've opened the file in a nested dir you would be able to :find
-" other*file*s related to a .git directory.
-fun! MakePathToDotGit()
-	let path = fnamemodify(finddir(".git", ".;"), ":p:h:h")
-	" Unfortunately `finddir` do not indicate whether it has found a dir or
-	" not. This check is fragile and tested only in Windows.
-	" Constructing semi-semi fuzzy path: files would be searched from the
-	" CURRENT file's directory.
-	if path == expand("$VIM")
-		return ".,**"
-	endif
-
-	" Windows paths are evil.
-	let path = substitute(path, '\\', '/', "g")
-	" Spaces should be escaped.
-	let path = substitute(path, ' ', '\\\\\\ ', "g")
-	" The `Fuzzy` path is ready.
-	return path."/**,."
-endfun
-autocmd BufEnter * let &l:path = MakePathToDotGit()
 
 " UI {{{1
 set shortmess+=I
