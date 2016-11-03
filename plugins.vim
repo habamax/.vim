@@ -53,11 +53,15 @@ Plug 'tpope/vim-surround'
 " surround with q
 let g:surround_113 = "«\r»"
 
+" XML and HTML stuff
+Plug 'tpope/vim-ragtag'
+let g:ragtag_global_maps = 1
+
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
-" Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gp :Gpush<CR>
@@ -94,6 +98,8 @@ nnoremap <leader>bb :CtrlPBuffer<CR>
 let g:ctrlp_key_loop = 1
 
 Plug 'mhinz/vim-grepper'
+
+" Plug 'justinmk/vim-dirvish'
 
 let g:skipit_default_mappings = 0
 Plug 'habamax/vim-skipit'
