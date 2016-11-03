@@ -108,4 +108,6 @@ imap <C-l> <Plug>SkipItForward
 
 Plug 'chriskempson/base16-vim'
 
+Plug 'hrj/vim-drawit'
+
 call plug#end()
