@@ -98,8 +98,8 @@ set clipboard=unnamed
 " backspace and cursor keys wrap to previous/next line
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
-set formatoptions+=nroj
-set comments=n:>,fb:-,fb:*
+set formatoptions=tcqnroj
+set comments=n:>,n:-,n:*
 set formatlistpat=^\\s\\+[*#-]\\s*
 
 " Backup & Undo & Sessions {{{1
