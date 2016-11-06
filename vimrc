@@ -80,7 +80,7 @@ set fileencoding=utf8
 set fileformats=unix,mac,dos
 set fileformat=unix
 
-set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab nosmarttab
+set tabstop=8 softtabstop=4 shiftwidth=4 expandtab nosmarttab
 set shiftround
 set autoindent
 set hlsearch incsearch ignorecase
