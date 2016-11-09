@@ -15,6 +15,12 @@ inorea -ю ->
 inorea =Ю =>
 inorea =ю =>
 
+" em-dash
+inorea -- —
+" bullits
+inorea -= ▪
+inorea -0 •
+
 inorea teh the
 inorea tihs this
 inorea taht that
