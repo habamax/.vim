@@ -182,15 +182,8 @@ nnoremap <Leader>ri :source $MYVIMRC<CR>
 
 nnoremap <Leader>fd :cd %:p:h<CR>:pwd<CR>
 
-" System clipboard
-nnoremap <Leader>p "+p
-nnoremap <Leader>P "+P
-vnoremap <Leader>y "+y
-nnoremap <Leader>yy "+yy
-
 " init file AKA vimrc
 noremap <Leader>foi :e $MYVIMRC<CR>
-noremap <Leader>foe :Ex<CR>
 noremap <Leader>fs :up<CR>
 
 
