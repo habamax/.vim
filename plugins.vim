@@ -110,4 +110,7 @@ Plug 'chriskempson/base16-vim'
 
 Plug 'hrj/vim-drawit'
 
+Plug 'scrooloose/nerdtree'
+nnoremap <F12> :NERDTreeToggle<CR>
+
 call plug#end()
