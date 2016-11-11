@@ -16,7 +16,7 @@ inorea =Ю =>
 inorea =ю =>
 
 " em-dash
-inorea -- —
+inorea --- —
 " bullits
 inorea -= ▪
 inorea -0 •
