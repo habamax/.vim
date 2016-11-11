@@ -46,8 +46,9 @@ endfun
 setlocal foldexpr=AsciiDocFoldExpr(v:lnum)
 setlocal foldmethod=expr
 
-inorea <buffer> << «
-inorea <buffer> >> »
+
+inorea <buffer> <<< «
+inorea <buffer> >>> »
 
 inorea <buffer> options: :author: Максим Ким
 			\<CR>:experimental:
@@ -69,4 +70,46 @@ inorea <buffer> options: :author: Максим Ким
 			\<CR>:last-update-label: Обновлено
 			\<CR>:pdf-style: default
 			\<CR>:revdate: <C-R>=strftime("%Y-%m-%d")<CR>
+
+nnoremap <buffer> <leader>mt :call Asciidoc_convert_admonition()<CR>
+
+fun! Asciidoc_convert_admonition()
+	let linenr = line('.')
+	let savelinenr = linenr
+	" processing 
+	" NOTE: style of admonitions
+	let matches = matchlist(getline(linenr), '\v^(NOTE|TIP|CAUTION|WARNING|IMPORTANT): (.*)')
+	if len(matches) != 0
+		call setline(linenr, '['.matches[1].']')
+		call append(linenr, '--')
+		let linenr += 1
+		call append(linenr, matches[2])
+		" it could be multilined, so skip non-empty lines
+		while getline(linenr) !~ '^\s*$'
+			let linenr += 1
+		endwhile
+		" now close the admonition block
+		call append(linenr-1, '--')
+	else
+		let matches = matchlist(getline(linenr), '\v^\[(NOTE|TIP|CAUTION|WARNING|IMPORTANT)\]\s*$')
+		if len(matches) != 0
+			if getline(linenr+1) == '--'
+				call setline(linenr, matches[1].":")
+				.+1del _
+				.-1join
+				while getline(linenr) != '--' && linenr < line('$')
+					if getline(linenr) =~ '^\s*$'
+						exe linenr."join"
+					else
+						let linenr += 1
+					endif
+				endwhile
+				if getline(linenr) == '--'
+					exe linenr."del _"
+					exe savelinenr
+				endif
+			endif
+		endif
+	endif
+endfun
 
