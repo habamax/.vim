@@ -32,6 +32,12 @@ nnoremap <buffer> <leader>cc :make<CR>
 nnoremap <buffer> <leader>ch :compiler adoc<CR>
 nnoremap <buffer> <leader>cp :compiler adoc2pdf<CR>
 
+" mode bindings
+nnoremap <buffer> <leader>mt :call Asciidoc_convert_admonition()<CR>
+nnoremap <buffer> <leader>mis :call Asciidoc_insert_source_block()<CR>2jo
+nnoremap <buffer> <leader>miv :call Asciidoc_insert_verse_block()<CR>2jo
+nnoremap <buffer> <leader>miq :call Asciidoc_insert_quote_block()<CR>2jo
+
 
 fun! AsciiDocFoldExpr(line)
 	if match(getline(a:line), '^=.*') >= 0
@@ -57,6 +63,7 @@ inorea <buffer> options: :author: Максим Ким
 			\<CR>:icons: font
 			\<CR>:sectnums:
 			\<CR>:source-highlighter: coderay
+			\<CR>:chapter-label: Раздел
 			\<CR>:caution-caption: Предостережение
 			\<CR>:important-caption: Важно
 			\<CR>:note-caption: Замечание
@@ -68,20 +75,20 @@ inorea <buffer> options: :author: Максим Ким
 			\<CR>:toc-title: Содержание
 			\<CR>:appendix-caption: Приложение
 			\<CR>:last-update-label: Обновлено
+			\<CR>:doctype: article
 			\<CR>:pdf-style: default
 			\<CR>:revdate: <C-R>=strftime("%Y-%m-%d")<CR>
-
-nnoremap <buffer> <leader>mt :call Asciidoc_convert_admonition()<CR>
 
 fun! Asciidoc_convert_admonition()
 	let linenr = line('.')
 	let savelinenr = linenr
-	" processing 
+	" processing
 	" NOTE: style of admonitions
 	let matches = matchlist(getline(linenr), '\v^(NOTE|TIP|CAUTION|WARNING|IMPORTANT): (.*)')
 	if len(matches) != 0
 		call setline(linenr, '['.matches[1].']')
-		call append(linenr, '--')
+		" call append(linenr, '--')
+		call append(linenr, '====')
 		let linenr += 1
 		call append(linenr, matches[2])
 		" it could be multilined, so skip non-empty lines
@@ -89,22 +96,26 @@ fun! Asciidoc_convert_admonition()
 			let linenr += 1
 		endwhile
 		" now close the admonition block
-		call append(linenr-1, '--')
+		call append(linenr-1, '====')
+		" call append(linenr-1, '--')
 	else
 		let matches = matchlist(getline(linenr), '\v^\[(NOTE|TIP|CAUTION|WARNING|IMPORTANT)\]\s*$')
 		if len(matches) != 0
-			if getline(linenr+1) == '--'
+			" if getline(linenr+1) == '--'
+			if getline(linenr+1) == '===='
 				call setline(linenr, matches[1].":")
 				.+1del _
 				.-1join
-				while getline(linenr) != '--' && linenr < line('$')
+				" while getline(linenr) != '--' && linenr < line('$')
+				while getline(linenr) != '====' && linenr < line('$')
 					if getline(linenr) =~ '^\s*$'
 						exe linenr."join"
 					else
 						let linenr += 1
 					endif
 				endwhile
-				if getline(linenr) == '--'
+				" if getline(linenr) == '--'
+				if getline(linenr) == '===='
 					exe linenr."del _"
 					exe savelinenr
 				endif
@@ -113,3 +124,14 @@ fun! Asciidoc_convert_admonition()
 	endif
 endfun
 
+fun! Asciidoc_insert_source_block()
+	call append('.', ['[source]', '----', '----'])
+endfun
+
+fun! Asciidoc_insert_verse_block()
+	call append('.', ['[verse]', '____', '____'])
+endfun
+
+fun! Asciidoc_insert_quote_block()
+	call append('.', ['[quote]', '____', '____'])
+endfun
