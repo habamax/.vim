@@ -99,8 +99,8 @@ set clipboard=unnamed
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
 set formatoptions=tcqnroj
-set comments=n:>,n:-,n:*
-set formatlistpat=^\\s\\+[*#-]\\s*
+" set comments=n:>,n:-,n:*
+" set formatlistpat=^\\s\\+[*#-]\\s*
 
 " Backup & Undo & Sessions {{{1
 let s:other_dir = expand('~/.vim_other')

@@ -108,8 +108,6 @@ imap <C-l> <Plug>SkipItForward
 
 Plug 'chriskempson/base16-vim'
 
-Plug 'hrj/vim-drawit'
-
 Plug 'scrooloose/nerdtree'
 nnoremap <Leader>fn :NERDTreeToggle<CR>
 
