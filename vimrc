@@ -1,4 +1,4 @@
-" vime fen fdm=marker fdl=1
+" vim: fen fdm=marker fdl=1
 " Author: Maxim Kim <habamax@gmail.com>
 
 " Must have {{{1
@@ -256,8 +256,8 @@ runtime abbreviations.vim
 runtime plugins.vim
 
 " Colors {{{1
-silent! colorscheme kosmos
-" silent! colorscheme base16-tomorrow-night
+" silent! colorscheme kosmos
+silent! colorscheme base16-tomorrow-night
 
 " temporary helper bindings to design colorscheme
 noremap <leader>ac :colo kosmos<CR>

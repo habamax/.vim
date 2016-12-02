@@ -74,7 +74,7 @@ if has("win32")
 endif
 
 
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 " Win terminal has no powerline fonts
 " But I can install good font for a GVim
 if !has("win32")
@@ -83,6 +83,7 @@ elseif has("gui_running")
 	let g:airline_powerline_fonts = 1
 endif
 " let g:airline#extensions#tabline#enabled = 1
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'vim-pandoc/vim-pandoc'
 let g:pandoc#modules#disabled = ["command", "templates", "menu", "bibliographies"]
@@ -99,7 +100,11 @@ let g:ctrlp_key_loop = 1
 
 Plug 'mhinz/vim-grepper'
 
-" Plug 'justinmk/vim-dirvish'
+Plug 'junegunn/vim-easy-align'
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+vmap ga <Plug>(LiveEasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 let g:skipit_default_mappings = 0
 Plug 'habamax/vim-skipit'
