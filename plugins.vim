@@ -59,6 +59,7 @@ let g:ragtag_global_maps = 1
 
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
@@ -66,6 +67,7 @@ Plug 'tpope/vim-fugitive'
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gw :Gwrite<CR>
+
 
 Plug 'airblade/vim-gitgutter'
 " async doesn't work for my windows box
@@ -75,28 +77,27 @@ endif
 
 
 Plug 'vim-airline/vim-airline'
-" Win terminal has no powerline fonts
-" But I can install good font for a GVim
-if !has("win32")
-	let g:airline_powerline_fonts = 1
-elseif has("gui_running")
-	let g:airline_powerline_fonts = 1
-endif
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep='░'
+let g:airline_right_sep='░'
 " let g:airline#extensions#tabline#enabled = 1
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'vim-pandoc/vim-pandoc'
-let g:pandoc#modules#disabled = ["command", "templates", "menu", "bibliographies"]
-let g:pandoc#folding#mode = 'stacked'
-let g:pandoc#folding#fold_yaml = 1
-Plug 'vim-pandoc/vim-pandoc-syntax'
-let g:pandoc#syntax#conceal#use = 0
+" Plug 'vim-pandoc/vim-pandoc'
+" let g:pandoc#modules#disabled = ["command", "templates", "menu", "bibliographies"]
+" let g:pandoc#folding#mode = 'stacked'
+" let g:pandoc#folding#fold_yaml = 1
+" Plug 'vim-pandoc/vim-pandoc-syntax'
+" let g:pandoc#syntax#conceal#use = 0
 
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = ''
 nnoremap <leader>ff :CtrlPMixed<CR>
 nnoremap <leader>bb :CtrlPBuffer<CR>
 let g:ctrlp_key_loop = 1
+if has("win32") || has("win64")
+	let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+endif
 
 Plug 'mhinz/vim-grepper'
 
@@ -112,6 +113,7 @@ Plug 'habamax/vim-skipit'
 imap <C-l> <Plug>SkipItForward
 
 Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
 
 Plug 'scrooloose/nerdtree'
 nnoremap <Leader>fn :NERDTreeToggle<CR>

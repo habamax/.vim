@@ -51,14 +51,13 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 
 if has("gui_running")
 	if has("gui_macvim")
-		set gfn=Input:h14,Menlo:h14
+		set gfn=Menlo:h14
 		set macmeta
 		let macvim_skip_colorscheme = 1
 	elseif has("unix")
 		set gfn=Input\ 12,DejaVu\ Sans\ Mono\ 12,Monospace\ 12
 	else
-		set gfn=Input:h12,Consolas:h12
-		" set renderoptions=type:directx
+		set gfn=Consolas:h14
 	endif
 	set columns=999
 	set lines=999
@@ -80,7 +79,7 @@ set fileencoding=utf8
 set fileformats=unix,mac,dos
 set fileformat=unix
 
-set tabstop=8 softtabstop=4 shiftwidth=4 expandtab nosmarttab
+set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab nosmarttab
 set shiftround
 set autoindent
 set hlsearch incsearch ignorecase
@@ -147,8 +146,8 @@ inoremap <C-U> <C-G>u<C-U>
 " vnoremap k gk
 " noremap j gj
 " vnoremap j gj
-vnoremap > >gv
-vnoremap < <gv
+" vnoremap > >gv
+" vnoremap < <gv
 
 " Text operations {{{2
 " just one space on the line, preserving indent
@@ -190,6 +189,8 @@ nnoremap <Leader>fd :cd %:p:h<CR>:pwd<CR>
 noremap <Leader>foi :e $MYVIMRC<CR>
 noremap <Leader>fs :up<CR>
 
+" open global todo file
+noremap <Leader>fot :e ~/docs/todo.adoc<CR>
 
 " Commands {{{1
 
@@ -260,8 +261,9 @@ runtime abbreviations.vim
 runtime plugins.vim
 
 " Colors {{{1
-" silent! colorscheme kosmos
-silent! colorscheme base16-tomorrow-night
+silent! colorscheme kosmos
+" silent! colorscheme base16-tomorrow-night
+" silent! colorscheme base16-solarized-light
 
 " temporary helper bindings to design colorscheme
 noremap <leader>ac :colo kosmos<CR>
