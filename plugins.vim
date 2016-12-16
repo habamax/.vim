@@ -19,15 +19,11 @@ let g:plug_timeout = 180
 Plug 'tmhedberg/matchit'
 
 Plug 'benekastah/neomake'
-" {{{ TODO: only when neomake is installed!!!
+if exists(":Neomake") == 2
 	autocmd! BufWritePost * Neomake
-	" let g:neomake_airline = 0
 	let g:neomake_error_sign = { 'text': '✘', 'texthl': 'ErrorSign' }
 	let g:neomake_warning_sign = { 'text': ':(', 'texthl': 'WarningSign' }
-
-	" map <F4> :lopen<CR>
-	map <leader>rm :Neomake<CR>
-" }}}
+endif
 
 Plug 'Raimondi/delimitMate'
 let delimitMate_expand_space = 1
