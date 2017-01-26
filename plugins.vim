@@ -109,7 +109,6 @@ Plug 'habamax/vim-skipit'
 imap <C-l> <Plug>SkipItForward
 
 Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox'
 
 Plug 'scrooloose/nerdtree'
 nnoremap <Leader>fn :NERDTreeToggle<CR>

@@ -136,7 +136,6 @@ fun! Asciidoc_insert_quote_block()
 	call append('.', ['[quote]', '____', '____'])
 endfun
 
-
 " highlighting
 
 " " AsciiDoc highlighting

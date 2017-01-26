@@ -51,13 +51,13 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 
 if has("gui_running")
 	if has("gui_macvim")
-		set gfn=Menlo:h14
+		set gfn=go_mono:h12,Menlo:h14
 		set macmeta
 		let macvim_skip_colorscheme = 1
 	elseif has("unix")
-		set gfn=Input\ 12,DejaVu\ Sans\ Mono\ 12,Monospace\ 12
+		set gfn=Go\ Mono\ 12,DejaVu\ Sans\ Mono\ 12,Monospace\ 12
 	else
-		set gfn=Consolas:h14
+		set gfn=go_mono:h12,Consolas:h14
 	endif
 	set columns=999
 	set lines=999
