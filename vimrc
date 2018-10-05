@@ -4,6 +4,9 @@
 " Must have {{{1
 set nocompatible
 
+set langmenu=en_US.UTF8
+language en
+
 if has('autocmd')
 	autocmd!
 	filetype plugin indent on
@@ -32,7 +35,7 @@ set laststatus=2
 set showtabline=1
 set cmdheight=1
 set number
-set relativenumber
+" set relativenumber
 set winminwidth=0 winminheight=0
 set lazyredraw
 set splitbelow
@@ -49,19 +52,12 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 " set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 " set showbreak=↪\<space>
 
-if has("gui_running")
-	if has("gui_macvim")
-		set gfn=go_mono:h12,Menlo:h14
-		set macmeta
-		let macvim_skip_colorscheme = 1
-	elseif has("unix")
-		set gfn=Go\ Mono\ 12,DejaVu\ Sans\ Mono\ 12,Monospace\ 12
-	else
-		set gfn=go_mono:h12,Consolas:h14
-	endif
-	set columns=999
-	set lines=999
+if has("gui_macvim")
+	set macmeta
+	let macvim_skip_colorscheme = 1
 endif
+set columns=999
+set lines=999
 
 " autocomplete is getting much better :e <tab>...
 set wildchar=<Tab> wildmenu wildmode=full
@@ -72,14 +68,13 @@ set visualbell
 au GuiEnter * set t_vb=
 set t_vb=
 
-
 " Text {{{1
 set encoding=utf8
 set fileencoding=utf8
 set fileformats=unix,mac,dos
 set fileformat=unix
 
-set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab nosmarttab
+set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab nosmarttab
 set shiftround
 set autoindent
 set hlsearch incsearch ignorecase
@@ -122,32 +117,16 @@ let &undodir = s:other_dir . '/.vim_undo/,.'
 
 " Mappings {{{1
 
-" inoremap ii <ESC>
-" vnoremap ii <ESC>
-" inoremap шш <ESC>
-" vnoremap шш <ESC>
-
-" Allows incsearch highlighting for range commands
-" This is just a convenient shorthand of :/foobar/t.  :/foobar/m. and :/foobar/d
-" use regular search to locate the line you want to
-" Copy to current position
-cnoremap $t <CR>:t''<CR>
-" Move to current position
-cnoremap $m <CR>:m''<CR>
-" or Delete
-cnoremap $d <CR>:d<CR>``
+inoremap ii <ESC>
+vnoremap ii <ESC>
+inoremap шш <ESC>
+vnoremap шш <ESC>
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
 " Regular enhancements {{{2
-" noremap k gk
-" vnoremap k gk
-" noremap j gj
-" vnoremap j gj
-" vnoremap > >gv
-" vnoremap < <gv
 
 " Text operations {{{2
 " just one space on the line, preserving indent
@@ -163,6 +142,7 @@ xnoremap <expr> p 'pgv"'.v:register.'y'
 " <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
+
 " Underline current line "{{{
 nnoremap <leader>- "zyy"zp<c-v>$r-
 nnoremap <leader>= "zyy"zp<c-v>$r=
@@ -173,24 +153,23 @@ nnoremap <leader><leader>= o<home><ESC>120i=<ESC>
 " find visually selected text
 vnoremap * y/<C-R>"<CR>
 
-" replace word under cursor
-nnoremap <Leader>tr :%s/\<<C-R><C-W>\>//gc<Left><Left><Left>
+" substitute word under cursor
+nnoremap <Leader>ts :%s/\<<C-R><C-W>\>//gc<Left><Left><Left>
 
-" run selected vimscript
-vnoremap <Leader>rv "vy:@v<CR>
-" run vimscript line
-nnoremap <Leader>rv "vyy:@v<CR>
-" run .vimrc
-nnoremap <Leader>ri :source $MYVIMRC<CR>
+" eval selected vimscript
+vnoremap <Leader>e "vy:@v<CR>
+" eval vimscript line
+nnoremap <Leader>el "vyy:@v<CR>
+" eval .vimrc
+nnoremap <Leader>ev :source $MYVIMRC<CR>
 
-nnoremap <Leader>fd :cd %:p:h<CR>:pwd<CR>
+nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " init file AKA vimrc
-noremap <Leader>foi :e $MYVIMRC<CR>
-noremap <Leader>fs :up<CR>
+noremap <Leader>ov :e $MYVIMRC<CR>
 
-" open global todo file
-noremap <Leader>fot :e ~/docs/todo.adoc<CR>
+" open global notes file
+noremap <Leader>on :e ~/docs/notes.adoc<CR>
 
 " Commands {{{1
 
@@ -209,7 +188,11 @@ command! JustOneInnerSpace :let pos=getpos('.')<bar>
 
 
 " внутренняя раскладка (keymap)
-set keymap=russian-jcukenwin
+if has('osx')
+	set keymap=russian-jcukenmac
+else
+	set keymap=russian-jcukenwin
+endif
 set iminsert=0
 set imsearch=-1
 
@@ -224,7 +207,7 @@ set imsearch=-1
 " set langmap+=№#
 
 " Russian langmap for standard PC keyboard
-if has('win32') && has('langmap')
+if has('langmap')
 	set langmap=йцукенгшщзхъ;qwertyuiop[]
 	set langmap+=фывапролджэё;asdfghjkl\\;'\\\
 	set langmap+=ячсмитьбю;zxcvbnm\\,.
@@ -250,7 +233,11 @@ augroup END
 
 " neovim specific {{{1
 if has('nvim')
-	runtime neo.vim
+	set inccommand=split
+endif
+
+if executable('rg')
+	set grepprg=rg\ --color=never
 endif
 
 " Abbreviations {{{1
@@ -259,15 +246,3 @@ runtime abbreviations.vim
 " Plugins {{{1
 " load plugins with vim-plug
 runtime plugins.vim
-
-" Colors {{{1
-silent! colorscheme kosmos
-" silent! colorscheme base16-tomorrow-night
-" silent! colorscheme base16-solarized-light
-
-" temporary helper bindings to design colorscheme
-noremap <leader>ac :colo kosmos<CR>
-noremap <leader>foc :e ~/*vim*/**/kosmos.vim<CR>
-noremap <leader>sh :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-		\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-		\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>

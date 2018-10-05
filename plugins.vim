@@ -25,9 +25,11 @@ if exists(":Neomake") == 2
 	let g:neomake_warning_sign = { 'text': ':(', 'texthl': 'WarningSign' }
 endif
 
-Plug 'Raimondi/delimitMate'
-let delimitMate_expand_space = 1
-let delimitMate_expand_cr = 2
+" Plug 'Raimondi/delimitMate'
+" let delimitMate_expand_space = 1
+" let delimitMate_expand_cr = 2
+
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'junegunn/rainbow_parentheses.vim'
 nnoremap <leader>xp :RainbowParentheses!!<CR>
@@ -74,8 +76,9 @@ endif
 
 Plug 'vim-airline/vim-airline'
 let g:airline_powerline_fonts = 0
-let g:airline_left_sep='░'
-let g:airline_right_sep='░'
+let g:airline#extensions#keymap#enabled = '0'
+" let g:airline_left_sep='░'
+" let g:airline_right_sep='░'
 " let g:airline#extensions#tabline#enabled = 1
 Plug 'vim-airline/vim-airline-themes'
 
@@ -91,7 +94,10 @@ let g:ctrlp_map = ''
 nnoremap <leader>ff :CtrlPMixed<CR>
 nnoremap <leader>bb :CtrlPBuffer<CR>
 let g:ctrlp_key_loop = 1
-if has("win32") || has("win64")
+if executable('rg')
+	let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+	let g:ctrlp_use_caching = 0
+elseif has("win32") || has("win64")
 	let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
 endif
 
