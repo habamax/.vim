@@ -11,8 +11,8 @@ if !s:vim_plug_installed
 	finish
 endif
 
-" Here be plugins {{{2
-" tune it to store plugins in correct directory
+" Here be the plugins {{{2
+" Tune it to store plugins in correct directory
 call plug#begin(s:vimrc_path.'plugged')
 let g:plug_timeout = 180
 
@@ -25,9 +25,15 @@ if exists(":Neomake") == 2
 	let g:neomake_warning_sign = { 'text': ':(', 'texthl': 'WarningSign' }
 endif
 
-" Plug 'Raimondi/delimitMate'
-" let delimitMate_expand_space = 1
-" let delimitMate_expand_cr = 2
+" Python should be installed. PATH should be set up to python37.dll
+Plug 'maralla/completor.vim'
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  '\'<CR>
 
 Plug 'jiangmiao/auto-pairs'
 
@@ -43,8 +49,12 @@ Plug 'kana/vim-textobj-indent'
 " use gsib to sort in a parenthesis
 Plug 'christoomey/vim-sort-motion'
 
-" use gtip to titlecase a paragraph
+" use <leader>ttip to titlecase a paragraph
 Plug 'christoomey/vim-titlecase'
+let g:titlecase_map_keys = 0
+nmap <leader>tt <Plug>Titlecase
+vmap <leader>tt <Plug>Titlecase
+nmap <leader>tT <Plug>TitlecaseLine
 
 " Tim Pope is a beast. You better use his stuff ...
 Plug 'tpope/vim-surround'
@@ -65,6 +75,7 @@ Plug 'tpope/vim-fugitive'
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gl :Glog<CR>
 
 
 Plug 'airblade/vim-gitgutter'
@@ -74,13 +85,9 @@ if has("win32")
 endif
 
 
-Plug 'vim-airline/vim-airline'
-let g:airline_powerline_fonts = 0
-let g:airline#extensions#keymap#enabled = '0'
-" let g:airline_left_sep='░'
-" let g:airline_right_sep='░'
-" let g:airline#extensions#tabline#enabled = 1
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" let g:airline#extensions#keymap#enabled = '0'
+" Plug 'vim-airline/vim-airline-themes'
 
 " Plug 'vim-pandoc/vim-pandoc'
 " let g:pandoc#modules#disabled = ["command", "templates", "menu", "bibliographies"]
@@ -98,7 +105,7 @@ if executable('rg')
 	let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 	let g:ctrlp_use_caching = 0
 elseif has("win32") || has("win64")
-	let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+	let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
 endif
 
 Plug 'mhinz/vim-grepper'
@@ -109,14 +116,19 @@ vmap ga <Plug>(LiveEasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-let g:skipit_default_mappings = 0
-Plug 'habamax/vim-skipit'
-" Plug '~/vimfiles/vimdev/vim-skipit'
-imap <C-l> <Plug>SkipItForward
-
-Plug 'chriskempson/base16-vim'
-
 Plug 'scrooloose/nerdtree'
 nnoremap <Leader>fn :NERDTreeToggle<CR>
+
+" There will be asciidoctor plugin here
+let g:asciidoctor_extensions = ['asciidoctor-diagram', 'asciidoctor-rouge']
+let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram']
+let g:asciidoctor_pdf_themes_path = '~/docs/AsciiDocThemes'
+let g:asciidoctor_pdf_fonts_path = '~/docs/AsciiDocThemes/fonts'
+
+Plug 'chrisbra/csv.vim'
+
+Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()

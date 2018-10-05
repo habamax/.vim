@@ -10,4 +10,4 @@ endif
 set columns=999
 set lines=999
 
-colo base16-eighties
+colo dracula

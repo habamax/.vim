@@ -3,7 +3,7 @@ setlocal shiftwidth=4
 setlocal expandtab
 setlocal ff=unix
 
-compiler adoc2pdf
+compiler adoc
 
 let &commentstring="// %s"
 
@@ -12,11 +12,11 @@ setlocal includeexpr=substitute(v:fname,'include::\\(.\\{-}\\)\\[.*','\\1','g')
 
 " open files
 if has("win32")
-	let b:opener = ":!start ".shellescape('C:\Program Files (x86)\Mozilla Firefox\firefox.exe')
+	let b:opener = ":!start"
 elseif has("osx")
-	let b:opener = ":!open -a firefox"
+	let b:opener = ":!open"
 elseif has("win32unix")
-	let b:opener = ":!start ".shellescape('/c/Program Files (x86)/Mozilla Firefox/firefox.exe')
+	let b:opener = ":!start"
 else
 	let b:opener = ":!firefox"
 endif
@@ -26,11 +26,11 @@ nnoremap <buffer> <leader>op :exe b:opener." ".expand("%:p:r").".pdf"<CR>
 nnoremap <buffer> <leader>oh :exe b:opener." ".expand("%:p:r").".html"<CR>
 
 " compile
-nnoremap <buffer> <leader>cc :make<CR>
+" nnoremap <buffer> <leader>cc :make<CR>
 
 " change compiler
-nnoremap <buffer> <leader>ch :compiler adoc<CR>
-nnoremap <buffer> <leader>cp :compiler adoc2pdf<CR>
+nnoremap <buffer> <leader>ch :compiler adoc<CR>:Dispatch<CR>
+nnoremap <buffer> <leader>cp :compiler adoc2pdf<CR>:Dispatch<CR>
 
 " mode bindings
 nnoremap <buffer> <leader>mt :call Asciidoc_convert_admonition()<CR>

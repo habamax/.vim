@@ -27,7 +27,8 @@ set mouse=a
 " Convenient to :save or :write a copy of a file to the same directory.
 autocmd BufEnter * silent! lcd %:p:h
 
-" UI {{{1
+
+" GUI {{{1
 set shortmess+=I
 set winaltkeys=no
 set guioptions=cm " No toolbar
@@ -51,13 +52,6 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 " UTF-8 symbols, good font needed
 " set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 " set showbreak=↪\<space>
-
-if has("gui_macvim")
-	set macmeta
-	let macvim_skip_colorscheme = 1
-endif
-set columns=999
-set lines=999
 
 " autocomplete is getting much better :e <tab>...
 set wildchar=<Tab> wildmenu wildmode=full
@@ -117,25 +111,21 @@ let &undodir = s:other_dir . '/.vim_undo/,.'
 
 " Mappings {{{1
 
-inoremap ii <ESC>
-vnoremap ii <ESC>
-inoremap шш <ESC>
-vnoremap шш <ESC>
+" inoremap ii <ESC>
+" vnoremap ii <ESC>
+" inoremap шш <ESC>
+" vnoremap шш <ESC>
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-" Regular enhancements {{{2
-
-" Text operations {{{2
 " just one space on the line, preserving indent
 nnoremap <leader>tos :JustOneInnerSpace<CR>
 " remove trailing spaces
 nnoremap <leader>tts :RemoveTrailingSpaces<CR>
 
 
-" Misc {{{2
 " now it is possible to paste many times over selected text
 xnoremap <expr> p 'pgv"'.v:register.'y'
 
@@ -143,12 +133,11 @@ xnoremap <expr> p 'pgv"'.v:register.'y'
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
 
-" Underline current line "{{{
+" Underline current line
 nnoremap <leader>- "zyy"zp<c-v>$r-
 nnoremap <leader>= "zyy"zp<c-v>$r=
 nnoremap <leader><leader>- o<home><ESC>120i-<ESC>
 nnoremap <leader><leader>= o<home><ESC>120i=<ESC>
-"}}}
 
 " find visually selected text
 vnoremap * y/<C-R>"<CR>
@@ -165,7 +154,7 @@ nnoremap <Leader>ev :source $MYVIMRC<CR>
 
 nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
-" init file AKA vimrc
+" open init file AKA vimrc
 noremap <Leader>ov :e $MYVIMRC<CR>
 
 " open global notes file
