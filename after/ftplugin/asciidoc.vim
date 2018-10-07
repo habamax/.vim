@@ -24,15 +24,14 @@ endif
 nnoremap <buffer> <leader>oo :exe b:opener." ".expand("%:p")<CR>
 nnoremap <buffer> <leader>op :exe b:opener." ".expand("%:p:r").".pdf"<CR>
 nnoremap <buffer> <leader>oh :exe b:opener." ".expand("%:p:r").".html"<CR>
+nnoremap <buffer> <leader>ox :exe b:opener." ".expand("%:p:r").".docx"<CR>
 
-" compile
-" nnoremap <buffer> <leader>cc :make<CR>
+" change compiler and compile
+nnoremap <buffer> <leader>ch :compiler adoc<CR>:make<CR>
+nnoremap <buffer> <leader>cp :compiler adoc2pdf<CR>:make<CR>
+nnoremap <buffer> <leader>cx :compiler adoc2docx<CR>:make<CR>
 
-" change compiler
-nnoremap <buffer> <leader>ch :compiler adoc<CR>:Dispatch<CR>
-nnoremap <buffer> <leader>cp :compiler adoc2pdf<CR>:Dispatch<CR>
-
-" mode bindings
+" mode bindings, probably should not be here...
 nnoremap <buffer> <leader>mt :call Asciidoc_convert_admonition()<CR>
 nnoremap <buffer> <leader>mis :call Asciidoc_insert_source_block()<CR>2jo
 nnoremap <buffer> <leader>miv :call Asciidoc_insert_verse_block()<CR>2jo
@@ -53,16 +52,16 @@ setlocal foldexpr=AsciiDocFoldExpr(v:lnum)
 setlocal foldmethod=expr
 
 
-inorea <buffer> <<< «
-inorea <buffer> >>> »
-
-inorea <buffer> options: :author: Максим Ким
+inorea <buffer> optsru: :author: Максим Ким
 			\<CR>:experimental:
 			\<CR>:toc: left
 			\<CR>:toclevels: 3
 			\<CR>:icons: font
+			\<CR>:autofit-option:
 			\<CR>:sectnums:
-			\<CR>:source-highlighter: coderay
+			\<CR>:sectnumslevels: 4
+			\<CR>:source-highlighter: rouge
+			\<CR>:rouge-style: github
 			\<CR>:chapter-label: Раздел
 			\<CR>:caution-caption: Предостережение
 			\<CR>:important-caption: Важно
@@ -75,6 +74,22 @@ inorea <buffer> options: :author: Максим Ким
 			\<CR>:toc-title: Содержание
 			\<CR>:appendix-caption: Приложение
 			\<CR>:last-update-label: Обновлено
+			\<CR>:imagesdir: images
+			\<CR>:doctype: article
+			\<CR>:pdf-style: default
+			\<CR>:revdate: <C-R>=strftime("%Y-%m-%d")<CR>
+
+inorea <buffer> opts: :author: Maxim Kim
+			\<CR>:experimental:
+			\<CR>:toc: left
+			\<CR>:toclevels: 3
+			\<CR>:icons: font
+			\<CR>:autofit-option:
+			\<CR>:sectnums:
+			\<CR>:sectnumslevels: 4
+			\<CR>:source-highlighter: rouge
+			\<CR>:rouge-style: github
+			\<CR>:imagesdir: images
 			\<CR>:doctype: article
 			\<CR>:pdf-style: default
 			\<CR>:revdate: <C-R>=strftime("%Y-%m-%d")<CR>
