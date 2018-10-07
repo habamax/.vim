@@ -37,8 +37,8 @@ nnoremap <silent> <localleader> :<c-u>WhichKey  '\'<CR>
 
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'junegunn/rainbow_parentheses.vim'
-nnoremap <leader>xp :RainbowParentheses!!<CR>
+" Plug 'junegunn/rainbow_parentheses.vim'
+" nnoremap <leader>xp :RainbowParentheses!!<CR>
 
 " Text objects
 Plug 'kana/vim-textobj-user'
@@ -85,9 +85,9 @@ if has("win32")
 endif
 
 
-" Plug 'vim-airline/vim-airline'
-" let g:airline#extensions#keymap#enabled = '0'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+let g:airline#extensions#keymap#enabled = '0'
+Plug 'vim-airline/vim-airline-themes'
 
 " Plug 'vim-pandoc/vim-pandoc'
 " let g:pandoc#modules#disabled = ["command", "templates", "menu", "bibliographies"]
@@ -116,8 +116,8 @@ vmap ga <Plug>(LiveEasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-Plug 'scrooloose/nerdtree'
-nnoremap <Leader>fn :NERDTreeToggle<CR>
+" Plug 'scrooloose/nerdtree'
+" nnoremap <Leader>fn :NERDTreeToggle<CR>
 
 " There will be asciidoctor plugin here
 let g:asciidoctor_extensions = ['asciidoctor-diagram', 'asciidoctor-rouge']
@@ -130,5 +130,6 @@ Plug 'chrisbra/csv.vim'
 Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'dracula/vim', { 'as': 'dracula' }
+
 
 call plug#end()

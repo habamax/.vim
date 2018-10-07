@@ -146,19 +146,22 @@ vnoremap * y/<C-R>"<CR>
 nnoremap <Leader>ts :%s/\<<C-R><C-W>\>//gc<Left><Left><Left>
 
 " eval selected vimscript
-vnoremap <Leader>e "vy:@v<CR>
+vnoremap <Leader>ee "vy:@v<CR>
 " eval vimscript line
-nnoremap <Leader>el "vyy:@v<CR>
+nnoremap <Leader>ee "vyy:@v<CR>
 " eval .vimrc
 nnoremap <Leader>ev :source $MYVIMRC<CR>
 
-nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+" nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
-" open init file AKA vimrc
-noremap <Leader>ov :e $MYVIMRC<CR>
+" edit init file (vimrc)
+noremap <Leader>ei :e $MYVIMRC<CR>
+" edit plugins file
+noremap <Leader>ep :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
 
-" open global notes file
-noremap <Leader>on :e ~/docs/notes.adoc<CR>
+" edit global notes file
+noremap <Leader>en :e ~/docs/notes.adoc<CR>
+
 
 " Commands {{{1
 
