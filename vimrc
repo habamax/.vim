@@ -4,7 +4,9 @@
 " Must have {{{1
 set nocompatible
 
+" menus will be in english
 set langmenu=en_US.UTF8
+" everything else will be in english too
 language en
 
 if has('autocmd')
@@ -28,7 +30,7 @@ set mouse=a
 autocmd BufEnter * silent! lcd %:p:h
 
 
-" GUI {{{1
+" UI {{{1
 set shortmess+=I
 set winaltkeys=no
 set guioptions=cm " No toolbar
@@ -87,6 +89,7 @@ set clipboard=unnamed
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
 set formatoptions=tcqnroj
+" tune it for asciidoctor
 " set comments=n:>,n:-,n:*
 " set formatlistpat=^\\s\\+[*#-]\\s*
 
@@ -136,8 +139,8 @@ nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 " Underline current line
 nnoremap <leader>- "zyy"zp<c-v>$r-
 nnoremap <leader>= "zyy"zp<c-v>$r=
-nnoremap <leader><leader>- o<home><ESC>120i-<ESC>
-nnoremap <leader><leader>= o<home><ESC>120i=<ESC>
+nnoremap <leader><leader>- o<home><ESC>100i-<ESC>
+nnoremap <leader><leader>= o<home><ESC>100i=<ESC>
 
 " find visually selected text
 vnoremap * y/<C-R>"<CR>
@@ -150,7 +153,7 @@ vnoremap <Leader>ee "vy:@v<CR>
 " eval vimscript line
 nnoremap <Leader>ee "vyy:@v<CR>
 " eval .vimrc
-nnoremap <Leader>ev :source $MYVIMRC<CR>
+" nnoremap <Leader>ev :source $MYVIMRC<CR>
 
 " nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
@@ -229,7 +232,7 @@ if has('nvim')
 endif
 
 if executable('rg')
-	set grepprg=rg\ --color=never
+	set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
 
 " Abbreviations {{{1
