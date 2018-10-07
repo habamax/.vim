@@ -10,4 +10,8 @@ endif
 set columns=999
 set lines=999
 
-colo dracula
+" colo dracula
+colo deep-space
+" colo iceberg
+" colo gruvbox
+" colo paramount
