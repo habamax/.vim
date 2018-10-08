@@ -157,13 +157,15 @@ nnoremap <Leader>ee "vyy:@v<CR>
 
 " nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
-" edit init file (vimrc)
-noremap <Leader>ei :e $MYVIMRC<CR>
-" edit plugins file
-noremap <Leader>ep :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
+" open init file (vimrc)
+noremap <Leader>fvi :e $MYVIMRC<CR>
+" open gvim init file (gvimrc)
+noremap <Leader>fvg :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/gvimrc"<CR>
+" open plugins file
+noremap <Leader>fvp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
 
-" edit global notes file
-noremap <Leader>en :e ~/docs/notes.adoc<CR>
+" open global notes file
+noremap <Leader>fn :e ~/docs/notes.adoc<CR>
 
 
 " Commands {{{1
