@@ -1,79 +1,33 @@
-" Use minpac to utilize standard vim package stuff + git
-" First of all minpac should be installed (windows):
-" cd /d %USERPROFILE%
-" git clone https://github.com/k-takata/minpac.git vimfiles\pack\minpac\opt\minpac
-packadd minpac
+" Plugins
+" Vim-Plug bootstrapping. {{{1
+" Don't forget to call :PlugInstall
+" TODO: this should be tweaked for win/linux/osx boxes!
+let s:vimrc_path = fnamemodify($MYVIMRC, ":p:h")."/"
 
-if !exists('*minpac#init')
+let s:vim_plug_installed = filereadable(s:vimrc_path.'autoload/plug.vim')
+
+" Do not load plugins if plugin manager is not installed.
+if !s:vim_plug_installed
 	finish
 endif
 
+" Here be the plugins {{{1
+" Tune it to store plugins in correct directory
+call plug#begin(s:vimrc_path.'plugged')
+let g:plug_timeout = 180
 
-call minpac#init()
-call minpac#add('k-takata/minpac', {'type': 'opt'})
+Plug 'tmhedberg/matchit'
 
-command! PackUpdate packadd minpac | runtime plugins.vim | call minpac#update('', {'do': 'call minpac#status()'})
-command! PackClean  packadd minpac | runtime plugins.vim | call minpac#clean()
-command! PackStatus packadd minpac | runtime plugins.vim | call minpac#status()
-
-" Tim Pope is a beast. You better use his stuff ... {{{1
-call minpac#add('tpope/vim-surround')
-" surround with q
-let g:surround_113 = "«\r»"
-
-" XML and HTML stuff
-call minpac#add('tpope/vim-ragtag')
-let g:ragtag_global_maps = 1
-
-call minpac#add('tpope/vim-commentary')
-call minpac#add('tpope/vim-repeat')
-call minpac#add('tpope/vim-dispatch')
-call minpac#add('tpope/vim-speeddating')
-call minpac#add('tpope/vim-unimpaired')
-call minpac#add('tpope/vim-eunuch')
-call minpac#add('tpope/vim-fugitive')
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gp :Gpush<CR>
-nnoremap <leader>gw :Gwrite<CR>
-nnoremap <leader>gl :Glog<CR>
-
-call minpac#add('tmhedberg/matchit')
-
-call minpac#add('benekastah/neomake')
+Plug 'benekastah/neomake'
 if exists(":Neomake") == 2
 	autocmd! BufWritePost * Neomake
 	let g:neomake_error_sign = { 'text': '✘', 'texthl': 'ErrorSign' }
 	let g:neomake_warning_sign = { 'text': ':(', 'texthl': 'WarningSign' }
 endif
 
-" Git-gutter {{{1
-call minpac#add('airblade/vim-gitgutter')
-" async doesn't work for my windows box
-if has("win32")
-	let g:gitgutter_async = 1
-endif
-
-" Airline {{{1
-call minpac#add('vim-airline/vim-airline')
-let g:airline#extensions#keymap#enabled = '0'
-call minpac#add('vim-airline/vim-airline-themes')
-
-" CtrlP {{{1
-call minpac#add('ctrlpvim/ctrlp.vim')
-let g:ctrlp_map = ''
-nnoremap <leader>ff :CtrlPMixed<CR>
-nnoremap <leader>bb :CtrlPBuffer<CR>
-let g:ctrlp_key_loop = 1
-if executable('rg')
-	let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-	let g:ctrlp_use_caching = 0
-elseif has("win32") || has("win64")
-	let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
-endif
-
 " Completor {{{1
 " Python should be installed. PATH should be set up to python37.dll
-call minpac#add('maralla/completor.vim')
+Plug 'maralla/completor.vim'
 
 " Use TAB to complete when typing words, else inserts TABs as usual.  Uses
 " dictionary, source files, and completor to find matching words to complete.
@@ -103,6 +57,70 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:completor_auto_trigger = 0
 inoremap <expr> <Tab> Tab_Or_Complete()
 
+
+" UltiSnips {{{1
+" What about ultisnips???
+" Let us try to set the here...
+
+
+" WhichKey {{{1
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  '\'<CR>
+
+" Text objects {{{1
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-indent'
+
+
+" Tim Pope is a beast. You better use his stuff ... {{{1
+Plug 'tpope/vim-surround'
+" surround with q
+let g:surround_113 = "«\r»"
+
+" XML and HTML stuff
+Plug 'tpope/vim-ragtag'
+let g:ragtag_global_maps = 1
+
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gl :Glog<CR>
+
+
+" Git-gutter {{{1
+Plug 'airblade/vim-gitgutter'
+" async doesn't work for my windows box
+if has("win32")
+	let g:gitgutter_async = 1
+endif
+
+" Airline {{{1
+Plug 'vim-airline/vim-airline'
+let g:airline#extensions#keymap#enabled = '0'
+Plug 'vim-airline/vim-airline-themes'
+
+" CtrlP {{{1
+Plug 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_map = ''
+nnoremap <leader>ff :CtrlPMixed<CR>
+nnoremap <leader>bb :CtrlPBuffer<CR>
+let g:ctrlp_key_loop = 1
+if executable('rg')
+	let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+	let g:ctrlp_use_caching = 0
+elseif has("win32") || has("win64")
+	let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
+endif
+
 " Asciidoctor {{{1
 " There will be asciidoctor plugin here
 let g:asciidoctor_extensions = ['asciidoctor-diagram', 'asciidoctor-rouge']
@@ -111,14 +129,14 @@ let g:asciidoctor_pdf_themes_path = '~/docs/AsciiDocThemes'
 let g:asciidoctor_pdf_fonts_path = '~/docs/AsciiDocThemes/fonts'
 
 " Misc {{{1
-call minpac#add('jiangmiao/auto-pairs')
+Plug 'jiangmiao/auto-pairs'
 
 " use gsip to sort linewise
 " use gsib to sort in a parenthesis
-call minpac#add('christoomey/vim-sort-motion')
+Plug 'christoomey/vim-sort-motion'
 
 " use <leader>ttip to titlecase a paragraph
-call minpac#add('christoomey/vim-titlecase')
+Plug 'christoomey/vim-titlecase'
 let g:titlecase_map_keys = 0
 nmap <leader>tt <Plug>Titlecase
 vmap <leader>tt <Plug>Titlecase
@@ -127,27 +145,21 @@ nmap <leader>tT <Plug>TitlecaseLine
 " Plug 'junegunn/rainbow_parentheses.vim'
 " nnoremap <leader>xp :RainbowParentheses!!<CR>
 
-call minpac#add('mhinz/vim-grepper')
+Plug 'mhinz/vim-grepper'
 
-call minpac#add('junegunn/vim-easy-align')
+Plug 'junegunn/vim-easy-align'
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 vmap ga <Plug>(LiveEasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-" Text objects {{{1
-call minpac#add('kana/vim-textobj-user')
-call minpac#add('kana/vim-textobj-entire')
-call minpac#add('kana/vim-textobj-indent')
+Plug 'chrisbra/csv.vim'
 
-" colors {{{1
-call minpac#add('dracula/vim')
-call minpac#add('morhetz/gruvbox')
-call minpac#add('tyrannicaltoucan/vim-deep-space')
-call minpac#add('cocopon/iceberg.vim')
-call minpac#add('owickstrom/vim-colors-paramount')
-
-" let there will be vim-plug for a while
-finish
+Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'cocopon/iceberg.vim'
+Plug 'owickstrom/vim-colors-paramount'
 
 
+call plug#end()
