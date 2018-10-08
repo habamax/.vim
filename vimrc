@@ -174,8 +174,8 @@ tnoremap <esc> <C-\><C-n>
 " temporary here
 
 fun! s:findnext(pattern)
-    " c - accept matches at the current cursor
-    return searchpos(a:pattern, 'ecW')
+	" c - accept matches at the current cursor
+	return searchpos(a:pattern, 'ecW')
 endfun
 
 fun! s:haba_open_below()
@@ -184,7 +184,7 @@ fun! s:haba_open_below()
 
 	if pos != [0, 0]
 		call setpos('.', [0, pos[0], pos[1], 0])
-      startinsert
+		startinsert
 	endif
 endfun
 
