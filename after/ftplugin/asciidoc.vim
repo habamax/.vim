@@ -150,13 +150,3 @@ endfun
 fun! Asciidoc_insert_quote_block()
 	call append('.', ['[quote]', '____', '____'])
 endfun
-
-" highlighting
-
-" " AsciiDoc highlighting
-" hi asciidocOneLineTitle gui=bold cterm=bold
-" hi asciidocQuotedBold gui=bold cterm=bold
-" hi asciidocQuotedUnconstrainedBold gui=bold cterm=bold
-" hi asciidocQuotedEmphasized gui=italic cterm=italic
-" hi asciidocQuotedUnconstrainedEmphasized gui=italic cterm=italic
-

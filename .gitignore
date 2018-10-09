@@ -1,5 +1,6 @@
 plugged/
 pack/minpac/
+pack/habamax/start/vim-evalvim/
 autoload/plug.vim.old
 
 .netrwhist

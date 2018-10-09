@@ -11,6 +11,7 @@ set columns=999
 set lines=999
 
 colo dracula
+" colo jellybeans
 " colo deep-space
 " colo iceberg
 " colo gruvbox

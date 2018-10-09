@@ -29,15 +29,21 @@ set mouse=a
 " Convenient to :save or :write a copy of a file to the same directory.
 autocmd BufEnter * silent! lcd %:p:h
 
+" Encoding and fileformat {{{1
+set encoding=utf8
+set fileencoding=utf8
+set fileformats=unix,mac,dos
+set fileformat=unix
 
 " UI {{{1
 set shortmess+=I
 set winaltkeys=no
 set guioptions=cm " No toolbar
 set laststatus=2
+set ruler " for default statusline"
 set showtabline=1
 set cmdheight=1
-set number
+set nonumber
 " set relativenumber
 set winminwidth=0 winminheight=0
 set lazyredraw
@@ -52,8 +58,9 @@ set tabpagemax=50
 " default ASCII listchars
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 " UTF-8 symbols, good font needed
-" set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
-" set showbreak=↪\<space>
+set listchars=tab:→\ ,eol:↲,trail:•,extends:⟩,precedes:⟨
+set showbreak=↪\<space>
+set list
 
 " autocomplete is getting much better :e <tab>...
 set wildchar=<Tab> wildmenu wildmode=full
@@ -61,16 +68,11 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.swp
 
 " turn off beeping...
 set visualbell
-au GuiEnter * set t_vb=
+au! GuiEnter * set t_vb=
 set t_vb=
 
 " Text {{{1
-set encoding=utf8
-set fileencoding=utf8
-set fileformats=unix,mac,dos
-set fileformat=unix
-
-set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab nosmarttab
+set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab smarttab
 set shiftround
 set autoindent
 set hlsearch incsearch ignorecase
@@ -119,7 +121,7 @@ let &undodir = s:other_dir . '/.vim_undo/,.'
 " inoremap шш <ESC>
 " vnoremap шш <ESC>
 
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" CTRL-U in insert mode deletes a lot.	Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
@@ -148,11 +150,6 @@ vnoremap * y/<C-R>"<CR>
 " substitute word under cursor
 nnoremap <Leader>ts :%s/\<<C-R><C-W>\>//gc<Left><Left><Left>
 
-" eval selected vimscript
-vnoremap <Leader>ee "vy:@v<CR>
-" eval vimscript line
-nnoremap <Leader>ee "vyy:@v<CR>
-" eval .vimrc
 " nnoremap <Leader>ev :source $MYVIMRC<CR>
 
 " nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
@@ -160,7 +157,7 @@ nnoremap <Leader>ee "vyy:@v<CR>
 " open init file (vimrc)
 noremap <Leader>fvi :e $MYVIMRC<CR>
 " open gvim init file (gvimrc)
-noremap <Leader>fvg :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/gvimrc"<CR>
+noremap <Leader>fvg :e $MYGVIMRC<CR>
 " open plugins file
 noremap <Leader>fvp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
 
@@ -192,21 +189,22 @@ fun! s:haba_open_below()
 endfun
 
 nnoremap go :call <sid>haba_open_below()<CR><right><CR>
+" TODO: make gO, move it to a separate package
 
 " Commands {{{1
 
 " remove trailing spaces
 " make a separate plugin for the commands
 command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
-		\:exe 'normal ``'<bar>
-		\:echo 'Remove trailing spaces and ^Ms.'
+			\:exe 'normal ``'<bar>
+			\:echo 'Remove trailing spaces and ^Ms.'
 
 command! JustOneInnerSpace :let pos=getpos('.')<bar>
-		\:silent! s/\S\+\zs\s\+/ /g<bar>
-		\:silent! s/\s$//<bar>
-		\:call setpos('.', pos)<bar>
-		\:nohl<bar>
-		\:echo 'Just one space'
+			\:silent! s/\S\+\zs\s\+/ /g<bar>
+			\:silent! s/\s$//<bar>
+			\:call setpos('.', pos)<bar>
+			\:nohl<bar>
+			\:echo 'Just one space'
 
 
 " внутренняя раскладка (keymap)
@@ -258,13 +256,13 @@ if has('nvim')
 	set inccommand=split
 endif
 
-if executable('rg')
-	set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-endif
+" if executable('rg')
+"	set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+" endif
 
 " Abbreviations {{{1
 runtime abbreviations.vim
 
 " Plugins {{{1
-" load plugins with vim-plug
+" load plugins
 runtime plugins.vim
