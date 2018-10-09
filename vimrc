@@ -171,6 +171,9 @@ noremap <Leader>fn :e ~/docs/notes.adoc<CR>
 " built-in terminal
 tnoremap <esc> <C-\><C-n>
 
+nnoremap <Leader><tab> :bn<CR>
+nnoremap <Leader><leader><tab> :bp<CR>
+
 " temporary here
 
 fun! s:findnext(pattern)
