@@ -123,6 +123,9 @@ let &undodir = s:other_dir . '/.vim_undo/,.'
 
 " Mappings {{{1
 
+inoremap <C-space> <esc>
+xnoremap <C-space> <esc>
+
 " inoremap ii <ESC>
 " vnoremap ii <ESC>
 " inoremap шш <ESC>
@@ -170,7 +173,6 @@ noremap <Leader>fvp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
 
 " open global notes file
 noremap <Leader>fn :e ~/docs/notes.adoc<CR>
-
 
 " built-in terminal
 tnoremap <esc> <C-\><C-n>
@@ -232,15 +234,17 @@ set imsearch=-1
 " set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\|
 " set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
 " set langmap+=№#
+" set langmap+=№#
+" set langmap+=№#
 
 " Russian langmap for standard PC keyboard
 if has('langmap')
 	set langmap=йцукенгшщзхъ;qwertyuiop[]
 	set langmap+=фывапролджэё;asdfghjkl\\;'\\\
-	set langmap+=ячсмитьбю;zxcvbnm\\,.
+	set langmap+=ячсмитьбю.;zxcvbnm\\,./
 	set langmap+=ЙЦУКЕНГШЩЗХЪ;QWERTYUIOP{}
 	set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\~
-	set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
+	set langmap+=ЯЧСМИТЬБЮ\\,;ZXCVBNM<>?
 	set langmap+=№#
 endif
 
