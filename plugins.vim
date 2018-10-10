@@ -5,6 +5,10 @@ runtime minpac_list.vim
 
 let g:ragtag_global_maps = 1
 
+" delimitmate
+let delimitMate_expand_space = 1
+let delimitMate_expand_cr = 2
+
 " surround with q
 let g:surround_113 = "«\r»"
 

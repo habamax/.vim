@@ -49,7 +49,11 @@ if exists('*minpac#init')
 	" Python should be installed. PATH should be set up to python37.dll
 	call minpac#add('maralla/completor.vim')
 
-	call minpac#add('jiangmiao/auto-pairs')
+	" well, this plugin will quite good
+	" breaks some russian letters. Like жЖхХъЪ
+	" call minpac#add('jiangmiao/auto-pairs')
+
+	call minpac#add('Raimondi/delimitMate')
 
 	" use gsip to sort linewise
 	" use gsib to sort in a parenthesis
