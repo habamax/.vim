@@ -78,7 +78,7 @@ au! GuiEnter * set t_vb=
 set t_vb=
 
 " Text {{{1
-set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab smarttab
+set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab smarttab
 set shiftround
 set autoindent
 set hlsearch incsearch ignorecase
