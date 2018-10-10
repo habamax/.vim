@@ -244,10 +244,10 @@ set imsearch=-1
 if has('langmap')
 	set langmap=йцукенгшщзхъ;qwertyuiop[]
 	set langmap+=фывапролджэё;asdfghjkl\\;'\\\
-	set langmap+=ячсмитьбю.;zxcvbnm\\,./
+	set langmap+=ячсмитьбю;zxcvbnm\\,.
 	set langmap+=ЙЦУКЕНГШЩЗХЪ;QWERTYUIOP{}
 	set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\~
-	set langmap+=ЯЧСМИТЬБЮ\\,;ZXCVBNM<>?
+	set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
 	set langmap+=№#
 endif
 
