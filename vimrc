@@ -61,9 +61,12 @@ set tabpagemax=50
 " default ASCII listchars
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 " UTF-8 symbols, good font needed
-set listchars=tab:→\ ,eol:↲,trail:•,extends:⟩,precedes:⟨
-set showbreak=↪\<space>
+set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
+set showbreak=↪
 set list
+
+set fillchars=vert:┆
+" set fillchars=vert:░
 
 " autocomplete is getting much better :e <tab>...
 set wildchar=<Tab> wildmenu wildmode=full
@@ -83,6 +86,7 @@ set wrap
 set nojoinspaces
 set linebreak
 set breakindent
+set breakindentopt=sbr " showbreak will be handled correctly
 set virtualedit=block
 
 set spelllang=ru,en

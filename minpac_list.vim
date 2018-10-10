@@ -43,6 +43,7 @@ if exists('*minpac#init')
 	" call minpac#add('vim-airline/vim-airline')
 	" call minpac#add('vim-airline/vim-airline-themes')
 
+
 	call minpac#add('ctrlpvim/ctrlp.vim')
 
 	" Python should be installed. PATH should be set up to python37.dll
@@ -68,6 +69,8 @@ if exists('*minpac#init')
 	call minpac#add('kana/vim-textobj-indent')
 
 	call minpac#add('guns/vim-sexp')
+
+	" call minpac#add('ipod825/vim-netranger')
 
 	" colors
 	call minpac#add('dracula/vim', {'name': 'dracula', 'type': 'opt'})

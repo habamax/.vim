@@ -3,7 +3,6 @@ runtime minpac_list.vim
 
 " Plugin settings {{{1
 
-let g:airline#extensions#keymap#enabled = '0'
 let g:ragtag_global_maps = 1
 
 " surround with q
@@ -52,7 +51,7 @@ function! Tab_Or_Complete() abort
 		return "\<C-N>"
 		" If completor is not open and we are in the middle of typing a word then
 		" `tab` opens completor menu.
-	elseif col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+	elseif col('.')>1 && strpart( getline('.'), col('.')-3, 2 ) =~ '\%(->\)\|\%(.\w\)\|\%(.\.\)'
 		return "\<C-R>=completor#do('complete')\<CR>"
 	else
 		" If we aren't typing a word and we press `tab` simply do the normal `tab`
@@ -61,17 +60,20 @@ function! Tab_Or_Complete() abort
 	endif
 endfunction
 
+
 " Use `tab` key to select completions.  Default is arrow keys.
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Use tab to trigger auto completion.  Default suggests completions as you type.
-let g:completor_auto_trigger = 0
+let g:completor_auto_trigger = 1
 inoremap <expr> <Tab> Tab_Or_Complete()
-
+if has('win32')
+	let g:completor_python_binary = expand("~/scoop/apps/python/current/python.exe")
+endif
 "}}}
 
-" Asciidoctor {{{
+") Asciidoctor {{{
 " There will be asciidoctor plugin here
 let g:asciidoctor_extensions = ['asciidoctor-diagram', 'asciidoctor-rouge']
 let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram']
