@@ -124,12 +124,15 @@ let &undodir = s:other_dir . '/.vim_undo/,.'
 " Mappings {{{1
 
 inoremap <C-space> <esc>
-xnoremap <C-space> <esc>
-
-" inoremap ii <ESC>
-" vnoremap ii <ESC>
-" inoremap шш <ESC>
-" vnoremap шш <ESC>
+vnoremap <C-space> <esc>
+onoremap <C-space> <esc>
+tnoremap <C-space> <C-\><C-N>
+cnoremap <C-space> <C-c><esc>
+inoremap <S-space> <esc>
+vnoremap <S-space> <esc>
+onoremap <S-space> <esc>
+tnoremap <S-space> <C-\><C-N>
+cnoremap <S-space> <C-c><esc>
 
 " CTRL-U in insert mode deletes a lot.	Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
