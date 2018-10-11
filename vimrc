@@ -60,7 +60,7 @@ set display+=lastline
 set tabpagemax=50
 
 " default ASCII listchars
-set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
+" set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 " UTF-8 symbols, good font needed"{{{
 set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
 set showbreak=↪
