@@ -4,7 +4,7 @@ if has("gui_macvim")
 elseif has("unix")
 	" set gfn=Hack\ 10,DejaVu\ Sans\ Mono\ 12,Monospace\ 12
 else
-	GuiFont Hack:h10
+	GuiFont! Hack:h10
 endif
 
 colo dracula
