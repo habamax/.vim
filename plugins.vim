@@ -14,9 +14,9 @@ let g:surround_113 = "«\r»"
 
 " fugitive
 nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gp :Gpush<CR>
+" nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gw :Gwrite<CR>
-nnoremap <leader>gl :Glog<CR>
+" nnoremap <leader>gl :Glog<CR>
 
 " Neomake
 if exists(":Neomake") == 2
