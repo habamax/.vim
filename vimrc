@@ -66,7 +66,7 @@ set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
 set showbreak=↪
 set list
 
-set fillchars=vert:│
+set fillchars=vert:│,fold:\ 
 
 " My fancy foldtext
 set foldtext=MyFoldText()
