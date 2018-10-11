@@ -83,6 +83,7 @@ if exists('*minpac#init')
 	call minpac#add('cocopon/iceberg.vim', {'type': 'opt'})
 	call minpac#add('owickstrom/vim-colors-paramount', {'type': 'opt'})
 	call minpac#add('nanotech/jellybeans.vim', {'type': 'opt'})
+	call minpac#add('rakr/vim-one', {'type': 'opt'})
 
 endif
 

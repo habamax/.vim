@@ -103,23 +103,25 @@ set formatoptions=tcqnroj
 " set formatlistpat=^\\s\\+[*#-]\\s*
 
 " Backup & Undo & Sessions {{{1
-let s:other_dir = expand('~/.vim_other')
-if !isdirectory(s:other_dir)
-	call mkdir(s:other_dir)
-endif
-if !isdirectory(s:other_dir.'/.vim_backups')
-	call mkdir(s:other_dir.'/.vim_backups')
-endif
-if !isdirectory(s:other_dir.'/.vim_undo')
-	call mkdir(s:other_dir.'/.vim_undo')
-endif
+if !has("nvim")
+	let s:other_dir = expand('~/.vim_other')
+	if !isdirectory(s:other_dir)
+		call mkdir(s:other_dir)
+	endif
+	if !isdirectory(s:other_dir.'/.vim_backups')
+		call mkdir(s:other_dir.'/.vim_backups')
+	endif
+	if !isdirectory(s:other_dir.'/.vim_undo')
+		call mkdir(s:other_dir.'/.vim_undo')
+	endif
 
-set backup
-let &backupdir = s:other_dir . '/.vim_backups/'
-let &directory = s:other_dir . '/.vim_backups/,.'
+	set backup
+	let &backupdir = s:other_dir . '/.vim_backups/'
+	let &directory = s:other_dir . '/.vim_backups/,.'
 
-set undofile
-let &undodir = s:other_dir . '/.vim_undo/,.'
+	set undofile
+	let &undodir = s:other_dir . '/.vim_undo/,.'
+endif
 
 " Mappings {{{1
 
@@ -171,8 +173,10 @@ nnoremap <Leader>ts :%s/\<<C-R><C-W>\>//gc<Left><Left><Left>
 noremap <Leader>fvi :e $MYVIMRC<CR>
 " open gvim init file (gvimrc)
 noremap <Leader>fvg :e $MYGVIMRC<CR>
-" open plugins file
-noremap <Leader>fvp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
+" open plugins settings file
+noremap <Leader>fvs :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
+" open plugins list file
+noremap <Leader>fvp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/minpac_list.vim"<CR>
 
 " open global notes file
 noremap <Leader>fn :e ~/docs/notes.adoc<CR>

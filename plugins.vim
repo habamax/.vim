@@ -1,5 +1,5 @@
-runtime minpac_list.vim
-" runtime vimplug_list.vim
+source <sfile>:h/minpac_list.vim
+" source <sfile>:h/vimplug_list.vim
 
 " Plugin settings {{{1
 
@@ -87,9 +87,9 @@ let g:asciidoctor_pdf_fonts_path = '~/docs/AsciiDocThemes/fonts'
 
 " use <leader>ttip to titlecase a paragraph
 let g:titlecase_map_keys = 0
-nmap <leader>tt <Plug>Titlecase
-vmap <leader>tt <Plug>Titlecase
-nmap <leader>tT <Plug>TitlecaseLine
+nmap <leader>tc <Plug>Titlecase
+vmap <leader>tc <Plug>Titlecase
+nmap <leader>tcc <Plug>TitlecaseLine
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 vmap ga <Plug>(LiveEasyAlign)
