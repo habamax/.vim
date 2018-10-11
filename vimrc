@@ -61,13 +61,23 @@ set tabpagemax=50
 
 " default ASCII listchars
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
-" UTF-8 symbols, good font needed
+" UTF-8 symbols, good font needed"{{{
 set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
 set showbreak=↪
 set list
 
-set fillchars=vert:┆
-" set fillchars=vert:░
+set fillchars=vert:│
+
+" My fancy foldtext
+set foldtext=MyFoldText()
+fu! MyFoldText()
+  let line = getline(v:foldstart)
+  let sub = substitute(line, '^//\|["#]\|/\*\|\*/\|{{{\d\=', '', 'g')
+  let sub = substitute(sub, '^[[:space:]]*\|[[:space:]]*$', ' ', 'g')
+  return repeat('▷', v:foldlevel) . sub .'{'. (v:foldend - v:foldstart + 1) .'} '
+  " ★◆▷▶
+endfu
+"}}}
 
 " autocomplete is getting much better :e <tab>...
 set wildchar=<Tab> wildmenu wildmode=full
