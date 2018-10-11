@@ -51,6 +51,7 @@ set nonumber
 set winminwidth=0 winminheight=0
 set lazyredraw
 set splitbelow
+set splitright
 set diffopt+=vertical
 set nofoldenable
 set foldminlines=1 foldlevel=1
@@ -187,6 +188,17 @@ tnoremap <esc> <C-\><C-n>
 nnoremap <Leader><tab> :bn<CR>
 nnoremap <Leader><leader><tab> :bp<CR>
 
+
+" window movements
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+tnoremap <C-h> <C-w>h
+tnoremap <C-j> <C-w>j
+tnoremap <C-k> <C-w>k
+tnoremap <C-l> <C-w>l
+
 " temporary here
 
 fun! s:findnext(pattern)
@@ -256,14 +268,15 @@ if has('langmap')
 endif
 
 " Create dirs on file save {{{1
-function! s:MkNonExDir(file, buf)
+fu! s:MkNonExDir(file, buf)
 	if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
 		let dir=fnamemodify(a:file, ':h')
 		if !isdirectory(dir)
 			call mkdir(dir, 'p')
 		endif
 	endif
-endfunction
+endfu
+
 augroup BWCCreateDir
 	autocmd!
 	autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
