@@ -9,9 +9,6 @@ let g:ragtag_global_maps = 1
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 2
 
-" surround with q
-let g:surround_113 = "«\r»"
-
 " fugitive
 nnoremap <leader>gs :Gstatus<CR>
 " nnoremap <leader>gp :Gpush<CR>
@@ -78,7 +75,7 @@ if has('win32')
 endif
 "}}}
 
-") Asciidoctor {{{
+" Asciidoctor {{{
 " There will be asciidoctor plugin here
 let g:asciidoctor_extensions = ['asciidoctor-diagram', 'asciidoctor-rouge']
 let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram']
