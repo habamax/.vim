@@ -33,6 +33,7 @@ endif
 " CtrlP{{{
 let g:ctrlp_map = ''
 nnoremap <leader>ff :CtrlPMixed<CR>
+nnoremap <leader>fp :CtrlPBookmarkDir<CR>
 nnoremap <leader>bb :CtrlPBuffer<CR>
 let g:ctrlp_key_loop = 1
 if executable('rg')
