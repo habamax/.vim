@@ -189,15 +189,15 @@ nnoremap <Leader><tab> :bn<CR>
 nnoremap <Leader><leader><tab> :bp<CR>
 
 
-" window movements
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-tnoremap <C-h> <C-w>h
-tnoremap <C-j> <C-w>j
-tnoremap <C-k> <C-w>k
-tnoremap <C-l> <C-w>l
+" Window movements
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+tnoremap <A-h> <C-w>h
+tnoremap <A-j> <C-w>j
+tnoremap <A-k> <C-w>k
+tnoremap <A-l> <C-w>l
 
 " temporary here
 
