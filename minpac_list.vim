@@ -8,6 +8,12 @@ command! PackUpdate packadd minpac | runtime plugins.vim | call minpac#update()
 command! PackClean  packadd minpac | runtime plugins.vim | call minpac#clean()
 command! PackStatus packadd minpac | runtime plugins.vim | call minpac#status()
 
+" External dependencies {{{1
+if executable("git")
+	packadd vim-fugitive
+	packadd vim-gitgutter
+endif
+
 " Plugins {{{1
 if exists('*minpac#init')
 	call minpac#init()
