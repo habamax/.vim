@@ -46,8 +46,7 @@ set laststatus=2
 set ruler " for default statusline"
 set showtabline=1
 set cmdheight=1
-set nonumber
-" set relativenumber
+set nonumber norelativenumber
 set winminwidth=0 winminheight=0
 set lazyredraw
 set splitbelow
@@ -55,7 +54,7 @@ set splitright
 set diffopt+=vertical
 set nofoldenable
 set foldminlines=1 foldlevel=1
-" set scrolloff=1 sidescrolloff=5
+set scrolloff=2 sidescrolloff=5
 set display+=lastline
 set tabpagemax=50
 
@@ -246,7 +245,8 @@ command! JustOneInnerSpace :let pos=getpos('.')<bar>
 			\:echo 'Just one space'
 
 
-" внутренняя раскладка (keymap)
+" RU {{{1
+" Keymap внутренняя раскладка
 if has('osx')
 	set keymap=russian-jcukenmac
 else
@@ -255,7 +255,7 @@ endif
 set iminsert=0
 set imsearch=-1
 
-" Langmap {{{1
+" Langmap
 " Russian langmap for OSX
 " set langmap=йцукенгшщзхъ;qwertyuiop[]
 " set langmap+=фывапролджэё;asdfghjkl\\;'\\\
@@ -298,13 +298,9 @@ if has('nvim')
 	set inccommand=split
 endif
 
-" if executable('rg')
-"	set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-" endif
-
 " Abbreviations {{{1
-runtime abbreviations.vim
+source <sfile>:h/abbreviations.vim
 
 " Plugins {{{1
 " load plugins
-runtime plugins.vim
+source <sfile>:h/plugins.vim
