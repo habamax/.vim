@@ -59,14 +59,15 @@ set foldminlines=1 foldlevel=1
 set display+=lastline
 set tabpagemax=50
 
+" Unicode chars {{{
 " default ASCII listchars
 " set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
-" UTF-8 symbols, good font needed"{{{
+" UTF-8 symbols, good font needed
 set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
 set showbreak=↪
 set list
 
-set fillchars=vert:│,fold:\ 
+set fillchars=vert:│,fold:\·
 
 " My fancy foldtext
 set foldtext=MyFoldText()
