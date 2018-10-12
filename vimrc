@@ -9,9 +9,10 @@ set langmenu=en_US.UTF8
 " everything else will be in english too
 language en
 
+filetype plugin indent on
+
 if has('autocmd')
 	autocmd!
-	filetype plugin indent on
 endif
 if has('syntax') && !exists('g:syntax_on')
 	syntax enable

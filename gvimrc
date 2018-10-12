@@ -15,9 +15,9 @@ colo dracula
 " colo deep-space
 " colo iceberg
 
-" let g:gruvbox_contrast_dark  = "medium"
-" let g:gruvbox_contrast_light = "hard"
-" let g:gruvbox_invert_selection = 0
+let g:gruvbox_contrast_dark  = "medium"
+let g:gruvbox_contrast_light = "medium"
+let g:gruvbox_invert_selection = 0
 " colo gruvbox
 
 " set background=light
