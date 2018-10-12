@@ -137,16 +137,16 @@ endif
 
 " Mappings {{{1
 
+" Escaping
 inoremap <C-space> <esc>
 vnoremap <C-space> <esc>
 onoremap <C-space> <esc>
 tnoremap <C-space> <C-\><C-N>
 cnoremap <C-space> <C-c><esc>
-inoremap <S-space> <esc>
-vnoremap <S-space> <esc>
-onoremap <S-space> <esc>
-tnoremap <S-space> <C-\><C-N>
-cnoremap <S-space> <C-c><esc>
+
+" Easier keymap switch, Да.
+inoremap <C-l> <C-^>
+cnoremap <C-l> <C-^>
 
 " CTRL-U in insert mode deletes a lot.	Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
