@@ -4,7 +4,7 @@
 " git clone https://github.com/k-takata/minpac.git vimfiles\pack\minpac\opt\minpac
 
 " Commands to update and clean plugins {{{1
-command! PackUpdate packadd minpac | runtime plugins.vim | call minpac#update('', {'do': 'call minpac#status()'})
+command! PackUpdate packadd minpac | runtime plugins.vim | call minpac#update()
 command! PackClean  packadd minpac | runtime plugins.vim | call minpac#clean()
 command! PackStatus packadd minpac | runtime plugins.vim | call minpac#status()
 
