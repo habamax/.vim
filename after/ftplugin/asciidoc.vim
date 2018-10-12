@@ -39,12 +39,25 @@ nnoremap <buffer> <leader>miq :call Asciidoc_insert_quote_block()<CR>2jo
 
 
 fun! AsciiDocFoldExpr(line)
-	if match(getline(a:line), '^=.*') >= 0
+	let line = getline(a:line)
+	" I think that top level heading AKA title should have the same level
+	" as level 2.
+	if match(line, '^=[[:space:]].\+') >= 0
 		return '>1'
-	elseif match(getline(a:line), '^:.*:.*') >= 0
-		return '2'
+	elseif match(line, '^==[[:space:]].\+') >= 0
+		return '>1'
+	elseif match(line, '^===[[:space:]].\+') >= 0
+		return '>2'
+	elseif match(line, '^====[[:space:]].\+') >= 0
+		return '>3'
+	elseif match(line, '^=====[[:space:]].\+') >= 0
+		return '>4'
+	elseif match(line, '^======[[:space:]].\+') >= 0
+		return '>5'
+	elseif match(line, '^=======[[:space:]].\+') >= 0
+		return '>6'
 	else
-		return '1'
+		return '='
 	endif
 endfun
 
