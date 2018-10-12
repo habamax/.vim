@@ -73,7 +73,7 @@ set fillchars=vert:│,fold:\·
 set foldtext=MyFoldText()
 fu! MyFoldText()
   let line = getline(v:foldstart)
-  let sub = substitute(line, '^//\|["#]\|/\*\|\*/\|{{{\d\=', '', 'g')
+  let sub = substitute(line, '^//\|=\+\|["#]\|/\*\|\*/\|{{{\d\=', '', 'g')
   let sub = substitute(sub, '^[[:space:]]*\|[[:space:]]*$', ' ', 'g')
   return repeat('▷', v:foldlevel) . sub .'{'. (v:foldend - v:foldstart + 1) .'} '
   " ★◆▷▶
