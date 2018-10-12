@@ -32,7 +32,7 @@ if exists('*minpac#init')
 	call minpac#add('tpope/vim-scriptease')
 	call minpac#add('tpope/vim-unimpaired')
 	call minpac#add('tpope/vim-eunuch')
-	call minpac#add('tpope/vim-fugitive')
+	call minpac#add('tpope/vim-fugitive', {'type': 'opt'})
 	call minpac#add('tpope/vim-sexp-mappings-for-regular-people')
 	call minpac#add('tpope/vim-fireplace')
 
@@ -44,7 +44,7 @@ if exists('*minpac#init')
 	" <leader>hu to undo hunk
 	" ]c next hunk
 	" [c prev hunk
-	call minpac#add('airblade/vim-gitgutter')
+	call minpac#add('airblade/vim-gitgutter', {'type': 'opt'})
 
 	" call minpac#add('vim-airline/vim-airline')
 	" call minpac#add('vim-airline/vim-airline-themes')
