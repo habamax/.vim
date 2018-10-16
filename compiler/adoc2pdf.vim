@@ -16,11 +16,11 @@ if exists("g:asciidoctor_pdf_extensions")
 	let b:extensions = "-r ".join(g:asciidoctor_pdf_extensions, ' -r ')
 endif
 
-let prg = "asciidoctor-pdf"
+if !exists("g:asciidoctor_pdf_executable")
+	let g:asciidoctor_pdf_executable = "asciidoctor-pdf"
+endif
 
-let &l:makeprg = prg." ".b:extensions." -a docdate=".strftime("%Y-%m-%d")." -a doctime=".strftime("%T")." ".b:pdf_styles." ".b:pdf_fonts." ".shellescape(expand("%:p"))
-
-" let &l:makeprg = prg." -r asciidoctor-diagram -a pdf-stylesdir=".b:adoc_path_styles." -a pdf-fontsdir=".b:adoc_path_fonts." ".shellescape(expand("%:p"))
+let &l:makeprg = g:asciidoctor_pdf_executable." ".b:extensions." -a docdate=".strftime("%Y-%m-%d")." -a doctime=".strftime("%T")." ".b:pdf_styles." ".b:pdf_fonts." ".shellescape(expand("%:p"))
 
 let &cpo = s:keepcpo
 unlet s:keepcpo

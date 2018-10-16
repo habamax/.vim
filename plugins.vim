@@ -100,6 +100,7 @@ let g:asciidoctor_extensions = ['asciidoctor-diagram', 'asciidoctor-rouge']
 let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram']
 let g:asciidoctor_pdf_themes_path = '~/docs/AsciiDocThemes'
 let g:asciidoctor_pdf_fonts_path = '~/docs/AsciiDocThemes/fonts'
+let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/habamax-asciidoctor-pdf/bin/asciidoctor-pdf"
 "}}}
 
 " use <leader>ttip to titlecase a paragraph
