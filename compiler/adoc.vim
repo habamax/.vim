@@ -1,6 +1,6 @@
 " Vim compiler file
-" Compiler:	adoc
-" Maintainer:Maxim Kim (habamax@gmail.com)
+" Compiler: adoc
+" Maintainer: Maxim Kim (habamax@gmail.com)
 
 if exists("current_compiler")
   finish
