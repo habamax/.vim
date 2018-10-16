@@ -1,3 +1,4 @@
+" This has to be tuned on mac.
 if has("gui_macvim")
 	set macmeta
 	let macvim_skip_colorscheme = 1
