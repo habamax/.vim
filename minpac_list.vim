@@ -81,6 +81,8 @@ if exists('*minpac#init')
 
 	call minpac#add('guns/vim-sexp')
 
+	call minpac#add('w0rp/ale')
+
 	" call minpac#add('ipod825/vim-netranger')
 
 	" colors
