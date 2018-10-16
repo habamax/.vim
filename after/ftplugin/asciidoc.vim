@@ -1,7 +1,8 @@
-setlocal softtabstop=4
-setlocal shiftwidth=4
-setlocal expandtab
-setlocal ff=unix
+setl softtabstop=4
+setl shiftwidth=4
+setl expandtab
+setl ff=unix
+setl comments=n:*,n:.,n:-
 
 compiler adoc
 
