@@ -86,13 +86,14 @@ if exists('*minpac#init')
 	" call minpac#add('ipod825/vim-netranger')
 
 	" colors
-	call minpac#add('dracula/vim', {'name': 'dracula', 'type': 'opt'})
-	call minpac#add('morhetz/gruvbox', {'type': 'opt'})
-	call minpac#add('tyrannicaltoucan/vim-deep-space', {'type': 'opt'})
-	call minpac#add('cocopon/iceberg.vim', {'type': 'opt'})
-	call minpac#add('owickstrom/vim-colors-paramount', {'type': 'opt'})
-	call minpac#add('nanotech/jellybeans.vim', {'type': 'opt'})
-	call minpac#add('rakr/vim-one', {'type': 'opt'})
+	call minpac#add('dracula/vim', {'name': 'dracula'})
+	call minpac#add('morhetz/gruvbox')
+	call minpac#add('tyrannicaltoucan/vim-deep-space')
+	call minpac#add('cocopon/iceberg.vim')
+	call minpac#add('owickstrom/vim-colors-paramount')
+	call minpac#add('nanotech/jellybeans.vim')
+	call minpac#add('rakr/vim-one')
+	call minpac#add('cormacrelf/vim-colors-github')
 
 endif
 
