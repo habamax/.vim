@@ -27,17 +27,36 @@ endif
 " 	let g:gitgutter_async = 1
 " endif
 
-" CtrlP{{{
-let g:ctrlp_map = ''
-nnoremap <leader>ff :CtrlPMixed<CR>
-nnoremap <leader>fp :CtrlPBookmarkDir<CR>
-nnoremap <leader>bb :CtrlPBuffer<CR>
-let g:ctrlp_key_loop = 1
-if executable('rg')
-	let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-	let g:ctrlp_use_caching = 0
-elseif has("win32") || has("win64")
-	let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
+
+" LeaderF or CtrlP {{{
+" Try to find out if python lib available in Windows...
+" For Linux it should be has('python') checked
+if executable('python')
+	let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+	let g:Lf_ShortcutF = '<leader>ff'
+	let g:Lf_Shortcutb = '<leader>b'
+	let g:Lf_WindowHeight = 0.30
+	cabbrev lf LeaderfFile
+	nnoremap <leader>fh :LeaderfHelp<CR>
+	nnoremap <leader>fm :LeaderfMru<CR>
+	nnoremap <leader>fs :LeaderfSelf<CR>
+	nnoremap <leader>fc :LeaderfColorscheme<CR>
+	nnoremap <leader>/ :LeaderfLine<CR>
+	nnoremap <leader>fdd :LeaderfFile ~/docs<CR>
+	packadd leaderF
+else 
+	packadd ctrlp
+	let g:ctrlp_map = ''
+	nnoremap <leader>ff :CtrlPMixed<CR>
+	nnoremap <leader>fp :CtrlPBookmarkDir<CR>
+	nnoremap <leader>bb :CtrlPBuffer<CR>
+	let g:ctrlp_key_loop = 1
+	if executable('rg')
+		let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+		let g:ctrlp_use_caching = 0
+	elseif has("win32") || has("win64")
+		let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
+	endif
 endif
 "}}}
 

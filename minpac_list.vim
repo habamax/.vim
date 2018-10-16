@@ -50,7 +50,8 @@ if exists('*minpac#init')
 	" call minpac#add('vim-airline/vim-airline-themes')
 
 
-	call minpac#add('ctrlpvim/ctrlp.vim')
+	call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
+	call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
 
 	" Python should be installed. PATH should be set up to python37.dll
 	call minpac#add('maralla/completor.vim')
