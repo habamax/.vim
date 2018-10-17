@@ -48,6 +48,8 @@ if has('python') || has('python3')
 	let g:Lf_ShortcutF = '<leader>ff'
 	let g:Lf_Shortcutb = '<leader>b'
 	let g:Lf_WindowHeight = 0.30
+	let g:Lf_WorkingDirectoryMode = 'Af'
+	let g:Lf_FollowLinks = 1
 	cabbrev lf LeaderfFile
 	nnoremap <leader>fh :LeaderfHelp<CR>
 	nnoremap <leader>fm :LeaderfMru<CR>
