@@ -19,12 +19,13 @@ if exists('*minpac#init')
 	call minpac#init()
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
+	call minpac#add('tpope/vim-surround')
+	call minpac#add('editorconfig/editorconfig-vim')
+
 	" Tim Pope is a beast. You better use his stuff ...
 	call minpac#add('tpope/vim-surround')
-
 	" XML and HTML stuff
-	call minpac#add('tpope/vim-ragtag')
-
+	" call minpac#add('tpope/vim-ragtag')
 	call minpac#add('tpope/vim-commentary')
 	call minpac#add('tpope/vim-repeat')
 	call minpac#add('tpope/vim-dispatch')
@@ -35,10 +36,12 @@ if exists('*minpac#init')
 	call minpac#add('tpope/vim-fugitive', {'type': 'opt'})
 	call minpac#add('tpope/vim-sexp-mappings-for-regular-people')
 	call minpac#add('tpope/vim-fireplace')
+	call minpac#add('tpope/vim-endwise')
 
 	call minpac#add('tmhedberg/matchit')
 
 	call minpac#add('benekastah/neomake')
+	call minpac#add('alvan/vim-closetag')
 
 	" <leader>hs to stage hunk
 	" <leader>hu to undo hunk
@@ -52,6 +55,10 @@ if exists('*minpac#init')
 
 	call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
 	call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
+
+	call minpac#add('jreybert/vimagit')
+
+	" call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
 
 	" Python should be installed. PATH should be set up to python37.dll
 	call minpac#add('maralla/completor.vim')
@@ -83,6 +90,8 @@ if exists('*minpac#init')
 
 	call minpac#add('w0rp/ale')
 
+	call minpac#add('SirVer/ultisnips')
+	call minpac#add('honza/vim-snippets')
 	" call minpac#add('ipod825/vim-netranger')
 
 	" colors

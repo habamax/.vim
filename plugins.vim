@@ -8,6 +8,7 @@ let g:ragtag_global_maps = 1
 " delimitmate
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 2
+let delimitMate_matchpairs = "(:),[:],{:}"
 
 " fugitive
 nnoremap <leader>gs :Gstatus<CR>
