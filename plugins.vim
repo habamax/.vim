@@ -56,7 +56,7 @@ if has('python') || has('python3')
 	nnoremap <leader>/ :LeaderfLine<CR>
 	nnoremap <leader>fdd :LeaderfFile ~/docs<CR>
 	packadd leaderF
-else 
+else
 	packadd ctrlp
 	let g:ctrlp_map = ''
 	nnoremap <leader>ff :CtrlPMixed<CR>
