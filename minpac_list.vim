@@ -90,8 +90,8 @@ if exists('*minpac#init')
 
 	call minpac#add('w0rp/ale')
 
-	call minpac#add('SirVer/ultisnips')
-	call minpac#add('honza/vim-snippets')
+	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
+	call minpac#add('honza/vim-snippets', {'type': 'opt'})
 	" call minpac#add('ipod825/vim-netranger')
 
 	" colors

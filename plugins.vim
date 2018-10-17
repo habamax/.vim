@@ -28,11 +28,22 @@ endif
 " 	let g:gitgutter_async = 1
 " endif
 
+" UltiSnips {{{
+if has('python') || has('python3')
+	" XXX: make it with tab + completor aware...
+	let g:UltiSnipsExpandTrigger = '<C-j>'
+	" let g:UltiSnipsListSnippets = '<c-tab>'
+	let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+	let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 
+	" echo g:UltiSnipsSnippetsDir
+	let g:UltiSnipsSnippetsDir=fnamemodify($MYVIMRC, ":p:h")."/snips"
+	let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
+	packadd ultisnips
+	packadd vim-snippets
+endif
 " LeaderF or CtrlP {{{
-" Try to find out if python lib available in Windows...
-" For Linux it should be has('python') checked
-if executable('python')
+if has('python') || has('python3')
 	let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 	let g:Lf_ShortcutF = '<leader>ff'
 	let g:Lf_Shortcutb = '<leader>b'
