@@ -1,0 +1,297 @@
+snippet opts "English options" b
+:author: ${1:Maxim Kim}
+:experimental:
+:toc: left
+:toclevels: 3
+:icons: font
+:autofit-option:
+:sectnums:
+:sectnumlevels: 4
+:source-highlighter: rouge
+:rouge-style: github
+:revdate: `!v strftime("%Y-%m-%d")`
+:imagesdir: images
+:pdf-style: ${2:default}
+:doctype: ${3:article}
+$0
+endsnippet
+
+snippet optsru "Russian options" b
+:author: ${1:Максим Ким}
+:experimental:
+:toc: left
+:toclevels: 3
+:icons: font
+:autofit-option:
+:sectnums:
+:sectnumlevels: 4
+:source-highlighter: rouge
+:rouge-style: github
+:chapter-label: Раздел
+:caution-caption: Предостережение
+:important-caption: Важно
+:note-caption: Замечание
+:tip-caption: Подсказка
+:warning-caption: Внимание
+:figure-caption: Рисунок
+:table-caption: Таблица
+:example-caption: Пример
+:toc-title: Содержание
+:appendix-caption: Приложение
+:last-update-label: Обновлено
+:revdate: `!v strftime("%Y-%m-%d")`
+:imagesdir: images
+:pdf-style: ${2:default}
+:doctype: ${3:article}
+$0
+endsnippet
+
+snippet note "Multiline note" b
+[NOTE]
+======
+
+$0
+
+======
+endsnippet
+
+snippet warn "Multiline warning" b
+[WARNING]
+=========
+
+$0
+
+=========
+endsnippet
+
+snippet caution "Multiline caution" b
+[CAUTION]
+=========
+
+$0
+
+=========
+endsnippet
+
+snippet important "Multiline important" b
+[IMPORTANT]
+===========
+
+$0
+
+===========
+endsnippet
+
+snippet quote "Multiline quote" b
+[QUOTE]
+=======
+
+$0
+
+=======
+endsnippet
+
+snippet example "Multiline example" b
+[EXAMPLE]
+=========
+
+$0
+
+=========
+endsnippet
+
+snippet literal "Multiline literal" b
+[LITERAL]
+.........
+
+$0
+
+.........
+endsnippet
+
+snippet sidebar "Sidebar" b
+.${1:Sidebar Note}
+****
+
+$0
+
+****
+endsnippet
+
+snippet src "Source code block" b
+[SOURCE,${1:text}]
+--------
+
+$0
+
+--------
+endsnippet
+
+snippet tip "Multiline tip" b
+[TIP]
+=====
+
+$0
+
+=====
+endsnippet
+
+snippet verse "Multiline verse" b
+[VERSE]
+_______
+
+$0
+
+_______
+endsnippet
+
+snippet diagram "General plantuml diagram" b
+[plantuml, ${1:diagram-name}, ${2:png}]
+....
+skinparam monochrome true
+skinparam shadowing false
+skinparam dpi 300
+skinparam backgroundcolor transparent
+
+$0
+....
+endsnippet
+
+snippet diagactivity "Activity diagram" b
+[plantuml, ${1:diagram-name}, ${2:png}]
+....
+skinparam monochrome true
+skinparam shadowing false
+skinparam dpi 300
+skinparam backgroundcolor transparent
+
+start
+
+:Инициализация **программного**
+интерфейса;
+
+if (Норм?) then (Да)
+:A1;
+:A2;
+:A3;
+else (Нет)
+:B1;
+:B2;
+endif
+
+stop
+....
+endsnippet
+
+snippet diagclass "Class diagram" b
+[plantuml, ${1:diagram-name}, ${2:png}]
+....
+skinparam monochrome true
+skinparam shadowing false
+skinparam dpi 300
+skinparam backgroundcolor transparent
+
+class ${3:Parent}
+class ${4:Child1}
+class ${5:Child2}
+
+$3 <|-- $4
+$3 <|-- $5
+$0
+....
+endsnippet
+
+snippet diagdb "Database diagram" b
+[plantuml, ${1:diagram-db-name}, ${2:svg}]
+....
+skinparam monochrome true
+skinparam shadowing false
+skinparam dpi 300
+skinparam backgroundcolor transparent
+skinparam classarrowcolor gray
+
+!include <material/key>
+
+!define table(x) class x << (T,mistyrose) >>
+!define view(x) class x << (V,lightblue) >>
+!define tr(x) class x << (R,red) >>
+!define fn(x) class x << (F,plum) >>
+!define p(x) class x << (P,indianred) >>
+!define PK <$ma_key{scale=0.3}>
+
+hide methods
+hide stereotypes
+
+table(Schema.Table) {
+PK ID: int
+{field}Name: nvarchar(100)
+}
+
+view(Schema.View) {
+ID: int
+{field}Title: nvarchar(200)
+EndDate: date
+}
+
+Schema.Table -|> Schema.View:FK
+
+$0
+....
+endsnippet
+
+snippet diagseq "Sequence diagram" b
+[plantuml, ${1:diagram-name}, ${2:svg}]
+....
+skinparam monochrome true
+skinparam shadowing false
+skinparam dpi 300
+skinparam backgroundcolor transparent
+
+${3:Max} -> ${4:Alex}: ${5:I want more work!}
+$4 -> ${6:Sharka}: ${7:Max wants more work!}
+$6 --> $4: ${8:He can do this and that!}
+$4 --> $3: ${9:Hey, do that!}
+note left: Max has some time...
+$0
+....
+endsnippet
+
+snippet diagstate "State diagram" b
+[plantuml, ${1:diagram-state-name}, ${2:svg}]
+....
+skinparam monochrome true
+skinparam shadowing false
+skinparam dpi 300
+skinparam backgroundcolor transparent
+
+[*] --> ${3:State1}
+$2 --> ${4:State2}
+$2 --> ${5:State3}
+$3 --> [*]
+$4 --> [*]
+$0
+....
+endsnippet
+
+snippet diaguse "Usecase diagram" b
+[plantuml, ${1:diagram-usecase-name}, ${2:svg}]
+....
+skinparam monochrome true
+skinparam shadowing false
+skinparam dpi 300
+skinparam backgroundcolor transparent
+
+:${3:Actor1}: -> (${4:Start})
+note right of :$3: : hello
+:$3: --> (${5:Use the Application}) : ${6:with pleasure}
+
+:${7:Super Admin}: ---> ($5) : ${8:Label\nthe usage}
+note left of ($5)
+Однажды в студеную
+Зимнюю пору
+Я из лесу вышел
+Был сильный мороз
+end note
+$0
+....
+endsnippet
