@@ -58,7 +58,6 @@ if has('python') || has('python3')
 	nnoremap <leader>fdd :LeaderfFile ~/docs<CR>
 	packadd leaderF
 else
-	packadd ctrlp
 	let g:ctrlp_map = ''
 	nnoremap <leader>ff :CtrlPMixed<CR>
 	nnoremap <leader>fp :CtrlPBookmarkDir<CR>
@@ -70,6 +69,7 @@ else
 	elseif has("win32") || has("win64")
 		let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
 	endif
+	packadd ctrlp
 endif
 "}}}
 
@@ -114,6 +114,35 @@ let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram']
 let g:asciidoctor_pdf_themes_path = '~/docs/AsciiDocThemes'
 let g:asciidoctor_pdf_fonts_path = '~/docs/AsciiDocThemes/fonts'
 let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/habamax-asciidoctor-pdf/bin/asciidoctor-pdf"
+" for OSX `pngpaste` could be used.
+let g:asciidoctor_img_paste_command = "gm convert clipboard: "
+
+" I need a separate plugin for list manipulation...
+fun! ListToggleCheckBox()
+	let rx_bullets = '^\(\s*[-*]\+\s*\)'
+	let rx_empty_checkbox = '\(\s*\[ \?\]\+\s*\)'
+	let rx_marked_checkbox = '\(\s*\[[Xx]\]\+\s*\)'
+	let line = getline('.')
+	if line =~ rx_bullets && line !~ rx_bullets.rx_empty_checkbox.'\|'.rx_marked_checkbox
+		exe ':s/'.rx_bullets.'/\1\[ \] /'
+	elseif line =~ rx_bullets.rx_empty_checkbox
+		exe ':s/'.rx_bullets.rx_empty_checkbox.'/\1\[x\] /'
+	elseif line =~ rx_bullets.rx_marked_checkbox
+		exe ':s/'.rx_bullets.rx_marked_checkbox.'/\1\[ \] /'
+	endif
+endfun
+
+command! ListToggleCheckBox :call ListToggleCheckBox()
+
+nnoremap <leader>x :ListToggleCheckBox<CR>
+
+" checking the water
+fun! AsciidoctorPasteImage()
+	let fname = "C:/Users/maksim.kim/docs/images/test_image.png"
+	" exe ":!gm convert clipboard: ".fname
+	let job = job_start(g:asciidoctor_img_paste_command.fname)
+	exe "normal iimage::".fnamemodify(fname, ":t")."[]\<ESC>"
+endfun
 "}}}
 
 " use <leader>ttip to titlecase a paragraph
