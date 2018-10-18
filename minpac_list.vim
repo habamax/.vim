@@ -37,6 +37,7 @@ if exists('*minpac#init')
 	call minpac#add('tpope/vim-sexp-mappings-for-regular-people')
 	call minpac#add('tpope/vim-fireplace')
 	call minpac#add('tpope/vim-endwise')
+	call minpac#add('tpope/vim-dadbod')
 
 	call minpac#add('tmhedberg/matchit')
 

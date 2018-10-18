@@ -30,18 +30,16 @@ endif
 
 " UltiSnips {{{
 if has('python') || has('python3')
-	" XXX: make it with tab + completor aware...
 	let g:UltiSnipsExpandTrigger = '<C-j>'
-	" let g:UltiSnipsListSnippets = '<c-tab>'
-	let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-	let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+	let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+	let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
-	" echo g:UltiSnipsSnippetsDir
 	let g:UltiSnipsSnippetsDir=fnamemodify($MYVIMRC, ":p:h")."/snips"
 	let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
 	packadd ultisnips
 	packadd vim-snippets
 endif
+
 " LeaderF or CtrlP {{{
 if has('python') || has('python3')
 	let g:Lf_StlSeparator = { 'left': '', 'right': '' }
@@ -50,6 +48,7 @@ if has('python') || has('python3')
 	let g:Lf_WindowHeight = 0.30
 	let g:Lf_WorkingDirectoryMode = 'Af'
 	let g:Lf_FollowLinks = 1
+    let g:Lf_CommandMap = {'<ESC>': ['<C-Space>']}
 	cabbrev lf LeaderfFile
 	nnoremap <leader>fh :LeaderfHelp<CR>
 	nnoremap <leader>fm :LeaderfMru<CR>
