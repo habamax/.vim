@@ -23,11 +23,6 @@ if exists(":Neomake") == 2
 	let g:neomake_warning_sign = { 'text': ':(', 'texthl': 'WarningSign' }
 endif
 
-" " GitGutterasync doesn't work for my windows box
-" if has("win32")
-" 	let g:gitgutter_async = 1
-" endif
-
 " UltiSnips {{{
 if has('python') || has('python3')
 	let g:UltiSnipsExpandTrigger = '<C-j>'
@@ -39,6 +34,7 @@ if has('python') || has('python3')
 	packadd ultisnips
 	packadd vim-snippets
 endif
+"}}}
 
 " LeaderF or CtrlP {{{
 if has('python') || has('python3')
@@ -95,9 +91,9 @@ function! Tab_Or_Complete() abort
 endfunction
 
 
-" Use `tab` key to select completions.  Default is arrow keys.
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" " Use `tab` key to select completions.  Default is arrow keys.
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Use tab to trigger auto completion.  Default suggests completions as you type.
 let g:completor_auto_trigger = 1

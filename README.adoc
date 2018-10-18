@@ -1,0 +1,13 @@
+= Personal .vim
+:author: Maxim Kim
+:experimental:
+:autofit-option:
+:sectnumlevels: 4
+:source-highlighter: rouge
+:rouge-style: github
+:imagesdir: images
+
+
+Nothing fancy, just to keep it safe and available.
+
+image::image1.png[]
