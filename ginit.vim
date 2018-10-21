@@ -8,7 +8,11 @@ else
 	GuiFont! Hack:h10
 endif
 
-colo dracula
+" colo dracula
+" colo jellybeans
+
+let g:github_colors_soft = 1
+colo github
 
 let g:gruvbox_contrast_dark  = "medium"
 let g:gruvbox_contrast_light = "medium"

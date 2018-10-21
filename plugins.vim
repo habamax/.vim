@@ -1,9 +1,7 @@
 source <sfile>:h/minpac_list.vim
 " source <sfile>:h/vimplug_list.vim
 
-" Plugin settings {{{1
-
-let g:ragtag_global_maps = 1
+" Plugin settings
 
 " delimitmate
 let delimitMate_expand_space = 1
@@ -44,7 +42,7 @@ if has('python') || has('python3')
 	let g:Lf_WindowHeight = 0.30
 	let g:Lf_WorkingDirectoryMode = 'Af'
 	let g:Lf_FollowLinks = 1
-    let g:Lf_CommandMap = {'<ESC>': ['<C-Space>']}
+	let g:Lf_CommandMap = {'<ESC>': ['<C-Space>']}
 	cabbrev lf LeaderfFile
 	nnoremap <leader>fh :LeaderfHelp<CR>
 	nnoremap <leader>fm :LeaderfMru<CR>
@@ -92,11 +90,11 @@ endfunction
 
 
 " " Use `tab` key to select completions.  Default is arrow keys.
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Use tab to trigger auto completion.  Default suggests completions as you type.
-let g:completor_auto_trigger = 1
+let g:completor_auto_trigger = 0
 inoremap <expr> <Tab> Tab_Or_Complete()
 if has('win32')
 	let g:completor_python_binary = expand("~/scoop/apps/python/current/python.exe")
@@ -154,3 +152,9 @@ nmap ga <Plug>(EasyAlign)
 
 " vim-sexp
 let g:sexp_enable_insert_mode_mappings = 0
+
+
+" ariline
+" let g:airline_theme = "github"
+let g:airline#extensions#keymap#enabled = '0'
+

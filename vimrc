@@ -58,6 +58,8 @@ set foldminlines=1 foldlevel=1
 set scrolloff=2 sidescrolloff=5
 set display+=lastline
 set tabpagemax=50
+" turn off if you use airline
+set noshowmode
 
 " Unicode chars {{{
 " default ASCII listchars
@@ -65,18 +67,24 @@ set tabpagemax=50
 " UTF-8 symbols, good font needed
 set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
 set showbreak=↪
-set list
+set nolist
 
-set fillchars=vert:│,fold:\·
+" set fillchars=vert:│,fold:\·
+set fillchars=fold:\ ,vert:│
 
 " My fancy foldtext
 set foldtext=MyFoldText()
 fu! MyFoldText()
-  let line = getline(v:foldstart)
-  let sub = substitute(line, '^//\|=\+\|["#]\|/\*\|\*/\|{{{\d\=', '', 'g')
-  let sub = substitute(sub, '^[[:space:]]*\|[[:space:]]*$', ' ', 'g')
-  return repeat('▷', v:foldlevel) . sub .'{'. (v:foldend - v:foldstart + 1) .'} '
-  " ★◆▷▶
+	let line = getline(v:foldstart)
+	let lines = (v:foldend - v:foldstart + 1)
+	let sub = substitute(line, '^//\|=\+\|["#]\|/\*\|\*/\|{{{\d\=', '', 'g')
+	let sub = substitute(sub, '^[[:space:]]*\|[[:space:]]*$', ' ', 'g')
+	let text = strpart(sub, 0, winwidth(0) - v:foldlevel - 6 - strlen(lines))
+	if strlen(sub) > strlen(text)
+		let text = text.'… '
+	endif
+	return repeat('▷', v:foldlevel) . text .'{'. lines .'}'
+	" ★◆▷▶┄
 endfu
 "}}}
 
@@ -100,6 +108,10 @@ set linebreak
 set breakindent
 set breakindentopt=sbr " showbreak will be handled correctly
 set virtualedit=block
+" neovim specific
+if has('nvim')
+	set inccommand=split
+endif
 
 set spelllang=ru,en
 set nospell
@@ -199,6 +211,7 @@ tnoremap <esc> <C-\><C-n>
 nnoremap <Leader><tab> :bn<CR>
 nnoremap <Leader><leader><tab> :bp<CR>
 
+nnoremap <Leader>cd :lcd %:p:h <bar> pwd<CR>
 
 " Window movements
 nnoremap <A-h> <C-w>h
@@ -279,7 +292,8 @@ if has('langmap')
 	set langmap+=№#
 endif
 
-" Create dirs on file save {{{1
+" Extra stuff better to put somewhere else {{{1
+" Create dirs on file save
 fu! s:MkNonExDir(file, buf)
 	if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
 		let dir=fnamemodify(a:file, ':h')
@@ -294,14 +308,7 @@ augroup BWCCreateDir
 	autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
 
-" neovim specific {{{1
-if has('nvim')
-	set inccommand=split
-endif
-
-" Abbreviations {{{1
+" Load Plugins and Abbreviations {{{1
 source <sfile>:h/abbreviations.vim
 
-" Plugins {{{1
-" load plugins
 source <sfile>:h/plugins.vim

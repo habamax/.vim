@@ -24,8 +24,6 @@ if exists('*minpac#init')
 
 	" Tim Pope is a beast. You better use his stuff ...
 	call minpac#add('tpope/vim-surround')
-	" XML and HTML stuff
-	" call minpac#add('tpope/vim-ragtag')
 	call minpac#add('tpope/vim-commentary')
 	call minpac#add('tpope/vim-repeat')
 	call minpac#add('tpope/vim-dispatch')
@@ -50,8 +48,9 @@ if exists('*minpac#init')
 	" [c prev hunk
 	call minpac#add('airblade/vim-gitgutter', {'type': 'opt'})
 
-	" call minpac#add('vim-airline/vim-airline')
-	" call minpac#add('vim-airline/vim-airline-themes')
+	call minpac#add('vim-airline/vim-airline')
+	call minpac#add('vim-airline/vim-airline-themes')
+	" call minpac#add('itchyny/lightline.vim')
 
 
 	call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
