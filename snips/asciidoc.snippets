@@ -9,6 +9,7 @@ snippet opts "English options" b
 :sectnumlevels: 4
 :source-highlighter: rouge
 :rouge-style: github
+:source-linenums-option:
 :revdate: `!v strftime("%Y-%m-%d")`
 :imagesdir: images
 :pdf-style: ${2:default}
@@ -27,6 +28,7 @@ snippet optsru "Russian options" b
 :sectnumlevels: 4
 :source-highlighter: rouge
 :rouge-style: github
+:source-linenums-option:
 :chapter-label: Раздел
 :caution-caption: Предостережение
 :important-caption: Важно
@@ -83,16 +85,16 @@ $0
 endsnippet
 
 snippet quote "Multiline quote" b
-[QUOTE]
-=======
+[quote]
+_______
 
 $0
 
-=======
+_______
 endsnippet
 
 snippet example "Multiline example" b
-[EXAMPLE]
+[example]
 =========
 
 $0
@@ -101,7 +103,7 @@ $0
 endsnippet
 
 snippet literal "Multiline literal" b
-[LITERAL]
+[literal]
 .........
 
 $0
@@ -119,7 +121,7 @@ $0
 endsnippet
 
 snippet src "Source code block" b
-[SOURCE,${1:text}]
+[source,${1:text}]
 --------
 
 $0
@@ -137,7 +139,7 @@ $0
 endsnippet
 
 snippet verse "Multiline verse" b
-[VERSE]
+[verse]
 _______
 
 $0
@@ -294,4 +296,29 @@ note left of ($5)
 end note
 $0
 ....
+endsnippet
+
+
+snippet table "Table with grid" b
+[cols=".^${1:1},.^${2:2}", options="header"]
+|===
+| ${3:header1}
+| ${4:header1}
+
+| $5
+| $6
+
+|===
+endsnippet
+
+snippet tableclean  "Table without grid" b
+[cols=".^${1:1},.^${2:2}", options="header",frame=none,grid=none]
+|===
+| ${3:header1}
+| ${4:header1}
+
+| $5
+| $6
+
+|===
 endsnippet
