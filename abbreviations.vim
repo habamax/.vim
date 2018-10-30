@@ -16,6 +16,9 @@ inorea -ю ->
 inorea =Ю =>
 inorea =ю =>
 
+inorea --> →
+inorea --ю →
+
 inorea <<< «
 inorea >>> »
 
