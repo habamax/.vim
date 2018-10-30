@@ -126,6 +126,11 @@ set formatoptions=tcqnroj
 " set comments=n:>,n:-,n:*
 " set formatlistpat=^\\s\\+[*#-]\\s*
 
+" Encryption {{{1
+if has('crypt-blowfish2')
+	set cryptmethod=blowfish2
+endif
+" 1}}}
 " Backup & Undo & Sessions {{{1
 if !has("nvim")
 	let s:other_dir = expand('~/.vim_other')
