@@ -34,7 +34,7 @@ syn match asciidoctorLineStart "^[<@]\@!" nextgroup=@asciidoctorBlock
 syn match asciidoctorComment "^//.*$"
 syn match asciidoctorOption "^:[[:alnum:]-]\{-}:.*$"
 
-syn cluster asciidoctorBlock contains=asciidoctorH1,asciidoctorH2,asciidoctorH3,asciidoctorH4,asciidoctorH5,asciidoctorH6,asciidoctorBlockquote,asciidoctorListMarker,asciidoctorOrderedListMarker,asciidoctorCodeBlock
+syn cluster asciidoctorBlock contains=asciidoctorTitle,asciidoctorH1,asciidoctorH2,asciidoctorH3,asciidoctorH4,asciidoctorH5,asciidoctorH6,asciidoctorBlockquote,asciidoctorListMarker,asciidoctorOrderedListMarker,asciidoctorCodeBlock
 syn cluster asciidoctorInline contains=asciidoctorLineBreak,asciidoctorLinkText,asciidoctorItalic,asciidoctorBold,asciidoctorCode,asciidoctorError
 
 syn match asciidoctorH1 "^.\+\n=\+$" contained contains=@asciidoctorInline,asciidoctorHeadingRule,asciidoctorAutomaticLink
@@ -42,12 +42,13 @@ syn match asciidoctorH2 "^.\+\n-\+$" contained contains=@asciidoctorInline,ascii
 
 syn match asciidoctorHeadingRule "^[=-]\+$" contained
 
-syn region asciidoctorH1 matchgroup=asciidoctorHeadingDelimiter start="==\@!"      end="=*\s*$" keepend oneline contains=@asciidoctorInline,asciidoctorAutomaticLink contained
-syn region asciidoctorH2 matchgroup=asciidoctorHeadingDelimiter start="===\@!"     end="=*\s*$" keepend oneline contains=@asciidoctorInline,asciidoctorAutomaticLink contained
-syn region asciidoctorH3 matchgroup=asciidoctorHeadingDelimiter start="====\@!"    end="=*\s*$" keepend oneline contains=@asciidoctorInline,asciidoctorAutomaticLink contained
-syn region asciidoctorH4 matchgroup=asciidoctorHeadingDelimiter start="=====\@!"   end="=*\s*$" keepend oneline contains=@asciidoctorInline,asciidoctorAutomaticLink contained
-syn region asciidoctorH5 matchgroup=asciidoctorHeadingDelimiter start="======\@!"  end="=*\s*$" keepend oneline contains=@asciidoctorInline,asciidoctorAutomaticLink contained
-syn region asciidoctorH6 matchgroup=asciidoctorHeadingDelimiter start="=======\@!" end="=*\s*$" keepend oneline contains=@asciidoctorInline,asciidoctorAutomaticLink contained
+syn match asciidoctorTitle "^=\s.*$"
+syn match asciidoctorH1 "^==\s.*$"
+syn match asciidoctorH2 "^===\s.*$"
+syn match asciidoctorH3 "^====\s.*$"
+syn match asciidoctorH4 "^=====\s.*$"
+syn match asciidoctorH5 "^======\s.*$"
+syn match asciidoctorH6 "^=======\s.*$"
 
 " syn match asciidoctorBlockquote ">\%(\s\|$\)" contained nextgroup=@asciidoctorBlock
 
@@ -55,7 +56,10 @@ syn region asciidoctorH6 matchgroup=asciidoctorHeadingDelimiter start="=======\@
 
 " TODO: real nesting
 syn match asciidoctorListMarker "\s*\(-\|\*\+\|\.\+\)\%(\s\+\S\)\@=" contained
-syn match asciidoctorOrderedListMarker "\s\<\d\+\.\%(\s\+\S\)\@=" contained
+syn match asciidoctorOrderedListMarker "\s*\d\+\.\%(\s\+\S\)\@=" contained
+
+syn match asciidoctorDefList "^\S.\{-}::"
+syn match asciidoctorCaption "^\..\+$"
 
 " syn match asciidoctorLineBreak " \{2,\}$"
 
@@ -91,6 +95,7 @@ endif
 " syn match asciidoctorEscape "\\[][\\`*_{}()<>#+.!-]"
 " syn match asciidoctorError "\w\@<=_\w\@="
 
+hi def link asciidoctorTitle                 Title
 hi def link asciidoctorH1                    Title
 hi def link asciidoctorH2                    Title
 hi def link asciidoctorH3                    Title
@@ -98,9 +103,8 @@ hi def link asciidoctorH4                    Title
 hi def link asciidoctorH5                    Title
 hi def link asciidoctorH6                    Title
 hi def link asciidoctorHeadingRule           Delimiter
-hi def link asciidoctorHeadingDelimiter      Delimiter
-hi def link asciidoctorOrderedListMarker     asciidoctorListMarker
 hi def link asciidoctorListMarker            Delimiter
+hi def link asciidoctorOrderedListMarker     asciidoctorListMarker
 hi def link asciidoctorBlockquote            Comment
 hi def link asciidoctorComment               Comment
 
@@ -117,8 +121,10 @@ hi def link asciidoctorUrlTitleDelimiter     Delimiter
 hi asciidoctorBold                           gui=bold cterm=bold
 hi asciidoctorItalic                         gui=italic cterm=italic
 hi asciidoctorBoldItalic                     gui=bold,italic cterm=bold,italic
+hi def link asciidoctorDefList               asciidoctorBold
 hi def link asciidoctorCode                  PreProc
 hi def link asciidoctorOption                PreProc
+hi def link asciidoctorCaption               asciidoctorItalic
 
 " hi def link asciidoctorEscape                Special
 " hi def link asciidoctorError                 Error

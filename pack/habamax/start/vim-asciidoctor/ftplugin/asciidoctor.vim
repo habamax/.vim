@@ -56,25 +56,27 @@ function! AsciidoctorFold() "{{{
 		return ">2"
 	endif
 
-	" Fold options
-	let prevline = getline(v:lnum - 1)
-	if (line =~ '^:[[:alnum:]-]\{-}:.*$')
-		if v:lnum == 1
-			return ">1"
-		endif
-		if (prevline =~ '^=\+.*')
-			return ">2"
+	if g:asciidoctor_fold_options
+		" Fold options
+		let prevline = getline(v:lnum - 1)
+		if (line =~ '^:[[:alnum:]-]\{-}:.*$')
+			if (prevline !~ '^:[[:alnum:]-]\{-}:.*$')
+				return "a1"
+			endif
+			if (nextline !~ '^:[[:alnum:]-]\{-}:.*$')
+				return "s1"
+			endif
 		endif
 	endif
 
-	if g:asciidoctor_fold_tables
-		" Fold tables
+	if g:asciidoctor_fold_blocks
+		" Fold tables and other blocks
 		let nextline2 = getline(v:lnum + 2)
 		" if (line =~ '^\.\S.*$\|^\[.*\]\s*$')
-		if (line =~ '^\[.*\]\s*$') && (nextline =~ '|==\+')
+		if (line =~ '^\[.*\]\s*$') && (nextline =~ '^\%(\(|===*\)\|=\{2,}\|\.\{2,}\|-\{2,}\|_\{3,}\s*\)$')
 			return "a1"
 		endif
-		if (line =~ '|==\+') && (prevline =~ '^\s*$\|^|.*$')
+		if (line =~ '^\%(\(|===*\)\|=\{2,}\|\.\{2,}\|-\{2,}\|_\{3,}\s*\)$') && (prevline =~ '^\s*$\|^|.*$')
 			return "s1"
 		endif
 	endif
@@ -94,8 +96,11 @@ command! -buffer AsciidoctorOpenDOCX :exe g:asciidoctor_opener." ".expand("%:p:r
 if has("folding") && exists("g:asciidoctor_folding")
 	setlocal foldexpr=AsciidoctorFold()
 	setlocal foldmethod=expr
-	if !exists('g:asciidoctor_fold_tables')
-		let g:asciidoctor_fold_tables = 0
+	if !exists('g:asciidoctor_fold_blocks')
+		let g:asciidoctor_fold_blocks = 0
+	endif
+	if !exists('g:asciidoctor_fold_options')
+		let g:asciidoctor_fold_options = 0
 	endif
 	let b:undo_ftplugin .= " foldexpr< foldmethod<"
 endif

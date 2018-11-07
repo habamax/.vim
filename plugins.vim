@@ -111,9 +111,10 @@ let g:asciidoctor_pdf_fonts_path = '~/docs/AsciiDocThemes/fonts'
 let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/habamax-asciidoctor-pdf/bin/asciidoctor-pdf"
 " for OSX `pngpaste` could be used.
 let g:asciidoctor_img_paste_command = "gm convert clipboard: "
-" Asciidoctor
+
 let g:asciidoctor_folding = 1
-let g:asciidoctor_fold_tables = 1
+let g:asciidoctor_fold_options = 1
+let g:asciidoctor_fold_blocks = 1
 
 fun! AsciidoctorMappings()
 	nnoremap <buffer> <leader>oo :AsciidoctorOpenRAW<CR>
