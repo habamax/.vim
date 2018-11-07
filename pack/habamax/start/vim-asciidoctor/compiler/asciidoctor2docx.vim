@@ -1,11 +1,11 @@
 " Vim compiler file
-" Compiler: adoc to docx using docbook intermediate format and pandoc
+" Compiler: Asciidoctor 2 DOCX using docbook intermediate format and pandoc
 " Maintainer: Maxim Kim (habamax@gmail.com)
 
 if exists("current_compiler")
 	finish
 endif
-let current_compiler = "adoc2docx"
+let current_compiler = "Asciidoctor2DOCX"
 let s:keepcpo= &cpo
 set cpo&vim
 

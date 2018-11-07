@@ -1,11 +1,11 @@
 " Vim compiler file
-" Compiler: adoc
+" Compiler: Asciidoctor2HTML
 " Maintainer: Maxim Kim (habamax@gmail.com)
 
 if exists("current_compiler")
   finish
 endif
-let current_compiler = "adoc"
+let current_compiler = "Asciidoctor2HTML"
 let s:keepcpo= &cpo
 set cpo&vim
 

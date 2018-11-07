@@ -21,7 +21,7 @@ if exists(":Neomake") == 2
 	let g:neomake_warning_sign = { 'text': ':(', 'texthl': 'WarningSign' }
 endif
 
-" UltiSnips {{{
+" UltiSnips and Completor {{{
 if has('python') || has('python3')
 	let g:UltiSnipsExpandTrigger = '<C-j>'
 	let g:UltiSnipsJumpForwardTrigger = '<C-j>'
@@ -31,6 +31,7 @@ if has('python') || has('python3')
 	let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
 	packadd ultisnips
 	packadd vim-snippets
+	packadd completor.vim
 endif
 "}}}
 
@@ -63,7 +64,7 @@ else
 	elseif has("win32") || has("win64")
 		let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
 	endif
-	packadd ctrlp
+	packadd ctrlp.vim
 endif
 "}}}
 
@@ -110,6 +111,24 @@ let g:asciidoctor_pdf_fonts_path = '~/docs/AsciiDocThemes/fonts'
 let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/habamax-asciidoctor-pdf/bin/asciidoctor-pdf"
 " for OSX `pngpaste` could be used.
 let g:asciidoctor_img_paste_command = "gm convert clipboard: "
+" Asciidoctor
+let g:asciidoctor_folding = 1
+let g:asciidoctor_fold_tables = 1
+
+fun! AsciidoctorMappings()
+	nnoremap <buffer> <leader>oo :AsciidoctorOpenRAW<CR>
+	nnoremap <buffer> <leader>op :AsciidoctorOpenPDF<CR>
+	nnoremap <buffer> <leader>oh :AsciidoctorOpenHTML<CR>
+	nnoremap <buffer> <leader>ox :AsciidoctorOpenDOCX<CR>
+	nnoremap <buffer> <leader>ch :Asciidoctor2HTML<CR>
+	nnoremap <buffer> <leader>cp :Asciidoctor2PDF<CR>
+	nnoremap <buffer> <leader>cx :Asciidoctor2DOCX<CR>
+endfun
+augroup asciidoctor
+	au!
+	au BufEnter *.adoc,*.asciidoc call AsciidoctorMappings()
+augroup END
+" }}}
 
 " I need a separate plugin for list manipulation...
 fun! ListToggleCheckBox()
