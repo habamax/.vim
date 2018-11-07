@@ -29,6 +29,7 @@ set mouse=a
 
 " Convenient to :save or :write a copy of a file to the same directory.
 " autocmd BufEnter * silent! lcd %:p:h
+set autochdir
 
 " Encoding and fileformat {{{1
 set encoding=utf8
@@ -122,9 +123,6 @@ set clipboard=unnamed
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
 set formatoptions=tcqnroj
-" tune it for asciidoctor
-" set comments=n:>,n:-,n:*
-" set formatlistpat=^\\s\\+[*#-]\\s*
 
 " Encryption {{{1
 if has('crypt-blowfish2')

@@ -19,6 +19,8 @@ if exists('*minpac#init')
 	call minpac#init()
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
+	call minpac#add('wellle/targets.vim')
+
 	call minpac#add('tpope/vim-surround')
 	call minpac#add('editorconfig/editorconfig-vim')
 
@@ -61,7 +63,7 @@ if exists('*minpac#init')
 	" call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
 
 	" Python should be installed. PATH should be set up to python37.dll
-	call minpac#add('maralla/completor.vim')
+	call minpac#add('maralla/completor.vim', {'type': 'opt'})
 
 	" well, this plugin will quite good
 	" breaks some russian letters. Like жЖхХъЪ
@@ -94,6 +96,8 @@ if exists('*minpac#init')
 	call minpac#add('honza/vim-snippets', {'type': 'opt'})
 	" call minpac#add('ipod825/vim-netranger')
 
+	call minpac#add('elixir-editors/vim-elixir')
+
 	" colors
 	call minpac#add('dracula/vim', {'name': 'dracula'})
 	call minpac#add('morhetz/gruvbox')
@@ -103,6 +107,12 @@ if exists('*minpac#init')
 	call minpac#add('nanotech/jellybeans.vim')
 	call minpac#add('rakr/vim-one')
 	call minpac#add('cormacrelf/vim-colors-github')
+	call minpac#add('jnurmine/Zenburn')
+	call minpac#add('chriskempson/base16-vim')
+	call minpac#add('NLKNguyen/papercolor-theme')
+	call minpac#add('sjl/badwolf')
+	call minpac#add('altercation/vim-colors-solarized')
+
 
 endif
 

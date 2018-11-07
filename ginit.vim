@@ -11,8 +11,10 @@ endif
 " colo dracula
 " colo jellybeans
 
-let g:github_colors_soft = 1
-colo github
+" let g:github_colors_soft = 1
+" colo github
+
+colo base16-tomorrow-night
 
 let g:gruvbox_contrast_dark  = "medium"
 let g:gruvbox_contrast_light = "medium"
