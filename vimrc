@@ -84,7 +84,7 @@ fu! MyFoldText()
 	if strlen(sub) > strlen(text)
 		let text = text.'… '
 	endif
-	return repeat('▷', v:foldlevel) . text .'{'. lines .'}'
+	return repeat('▶', v:foldlevel) . text .'┄'. lines .'┄'
 	" ★◆▷▶┄
 endfu
 "}}}
