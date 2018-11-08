@@ -98,6 +98,8 @@ if exists('*minpac#init')
 
 	call minpac#add('elixir-editors/vim-elixir')
 
+	call minpac#add('scrooloose/nerdtree')
+
 	" colors
 	call minpac#add('dracula/vim', {'name': 'dracula'})
 	call minpac#add('morhetz/gruvbox')

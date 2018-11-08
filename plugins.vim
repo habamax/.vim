@@ -178,3 +178,7 @@ let g:sexp_enable_insert_mode_mappings = 0
 " let g:airline_theme = "github"
 let g:airline#extensions#keymap#enabled = '0'
 
+" NERDTree
+let g:NERDTreeDirArrowExpandable = '▶'
+let g:NERDTreeDirArrowCollapsible = '▼'
+nnoremap <leader>ft :NERDTreeToggle<CR>
