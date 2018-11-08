@@ -66,10 +66,12 @@ set noshowmode
 " default ASCII listchars
 " set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 " UTF-8 symbols, good font needed
-set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
-set showbreak=↪
+" set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
+set listchars=tab:→\ ,eol:┑,trail:·
+" set showbreak=↪
+set showbreak=↘
 set nolist
-
+" ⇾➠➥➝➙⇰↪⊂➘↳→│↑←↓↘➝┐↙
 " set fillchars=vert:│,fold:\·
 set fillchars=fold:\ ,vert:│
 
@@ -84,8 +86,8 @@ fu! MyFoldText()
 	if strlen(sub) > strlen(text)
 		let text = text.'… '
 	endif
-	return repeat('▶', v:foldlevel) . text .'┄'. lines .'┄'
-	" ★◆▷▶┄
+	return repeat('◆', v:foldlevel) . text .'('. lines .')'
+	" ★▢▪◆▷▶┄◇
 endfu
 "}}}
 
