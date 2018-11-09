@@ -67,12 +67,11 @@ set noshowmode
 " set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 " UTF-8 symbols, good font needed
 " set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
-set listchars=tab:→\ ,eol:┑,trail:·
+set listchars=tab:→\ ,eol:┐,trail:·
 " set showbreak=↪
 set showbreak=↘
 set nolist
 " ⇾➠➥➝➙⇰↪⊂➘↳→│↑←↓↘➝┐↙
-" set fillchars=vert:│,fold:\·
 set fillchars=fold:\ ,vert:│
 
 " My fancy foldtext
@@ -282,8 +281,6 @@ set imsearch=-1
 " set langmap+=ЙЦУКЕНГШЩЗХЪ;QWERTYUIOP{}
 " set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\|
 " set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
-" set langmap+=№#
-" set langmap+=№#
 " set langmap+=№#
 
 " Russian langmap for standard PC keyboard
