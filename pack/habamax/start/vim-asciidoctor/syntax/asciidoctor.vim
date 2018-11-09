@@ -5,22 +5,22 @@
 " Last Change:  2018-11-01
 
 if exists("b:current_syntax")
-  finish
+	finish
 endif
 
 if !exists('main_syntax')
-  let main_syntax = 'asciidoctor'
+	let main_syntax = 'asciidoctor'
 endif
 
 if !exists('g:asciidoctor_fenced_languages')
-  let g:asciidoctor_fenced_languages = []
+	let g:asciidoctor_fenced_languages = []
 endif
 for s:type in map(copy(g:asciidoctor_fenced_languages),'matchstr(v:val,"[^=]*$")')
-  if s:type =~ '\.'
-    let b:{matchstr(s:type,'[^.]*')}_subtype = matchstr(s:type,'\.\zs.*')
-  endif
-  exe 'syn include @asciidoctorHighlight'.substitute(s:type,'\.','','g').' syntax/'.matchstr(s:type,'[^.]*').'.vim'
-  unlet! b:current_syntax
+	if s:type =~ '\.'
+		let b:{matchstr(s:type,'[^.]*')}_subtype = matchstr(s:type,'\.\zs.*')
+	endif
+	exe 'syn include @asciidoctorHighlight'.substitute(s:type,'\.','','g').' syntax/'.matchstr(s:type,'[^.]*').'.vim'
+	unlet! b:current_syntax
 endfor
 unlet! s:type
 
@@ -59,7 +59,7 @@ syn match asciidoctorListMarker "\s*\(-\|\*\+\|\.\+\)\%(\s\+\S\)\@=" contained
 syn match asciidoctorOrderedListMarker "\s*\d\+\.\%(\s\+\S\)\@=" contained
 
 syn match asciidoctorDefList "^\S.\{-}::"
-syn match asciidoctorCaption "^\..\+$"
+syn match asciidoctorCaption "^\.\S.\+$"
 
 " syn match asciidoctorLineBreak " \{2,\}$"
 
@@ -75,21 +75,25 @@ syn match asciidoctorCaption "^\..\+$"
 " syn region asciidoctorId matchgroup=asciidoctorIdDelimiter start="\[" end="\]" keepend contained
 " syn region asciidoctorAutomaticLink matchgroup=asciidoctorUrlDelimiter start="<\%(\w\+:\|[[:alnum:]_+-]\+@\)\@=" end=">" keepend oneline
 
-syn match asciidoctorBold /\(^\|\s\)\zs\*\S.\{-}\S\*\ze\_s/ keepend contains=asciidoctorLineStart,asciidoctorItalic
-syn match asciidoctorBold /\*\*\S.\{-}\S\*\*/ keepend contains=asciidoctorLineStart,asciidoctorItalic
-syn match asciidoctorItalic /\(^\|\s\)\zs_\S.\{-}\S_\ze\_s/ keepend contains=asciidoctorLineStart,asciidoctorItalic
-syn match asciidoctorItalic /__\S.\{-}\S__/ keepend contains=asciidoctorLineStart,asciidoctorItalic
-syn match asciidoctorBoldItalic /\(^\|\s\)\zs\*_\S.\{-}\S_\*\ze\_s/ keepend contains=asciidoctorLineStart
-syn match asciidoctorBoldItalic /\*\*_\S.\{-}\S_\*\*/ keepend contains=asciidoctorLineStart
-syn match asciidoctorCode /\(^\|\s\)\zs`\S.\{-}\S`\ze\_s/ keepend contains=asciidoctorLineStart,asciidoctorItalic,asciidoctorBold
-syn match asciidoctorCode /``\S.\{-}\S``/ keepend contains=asciidoctorLineStart,asciidoctorItalic,asciidoctorBold
+syn match asciidoctorBold /\(^\|\s\)\zs\*[^* ].\{-}\S\*\ze\_s/ keepend contains=asciidoctorLineStart,asciidoctorItalic
+syn match asciidoctorBold /\(^\|\s\)\zs\*[^* ]\*\ze\_s/ keepend contains=asciidoctorLineStart,asciidoctorItalic
+syn match asciidoctorBold /\*\*\S.\{-}\*\*/ keepend contains=asciidoctorLineStart,asciidoctorItalic
+syn match asciidoctorItalic /\(^\|\s\)\zs_[^_ ].\{-}\S_\ze\_s/ keepend contains=asciidoctorLineStart,asciidoctorItalic
+syn match asciidoctorItalic /\(^\|\s\)\zs_[^_ ]_\ze\_s/ keepend contains=asciidoctorLineStart,asciidoctorItalic
+syn match asciidoctorItalic /__\S.\{-}__/ keepend contains=asciidoctorLineStart,asciidoctorItalic
+syn match asciidoctorBoldItalic /\(^\|\s\)\zs\*_[^*_ ].\{-}\S_\*\ze\_s/ keepend contains=asciidoctorLineStart
+syn match asciidoctorBoldItalic /\(^\|\s\)\zs\*_\S_\*\ze\_s/ keepend contains=asciidoctorLineStart
+syn match asciidoctorBoldItalic /\*\*_\S.\{-}_\*\*/ keepend contains=asciidoctorLineStart
+syn match asciidoctorCode /\(^\|\s\)\zs`[^` ].\{-}\S`\ze\_s/ keepend contains=asciidoctorLineStart,asciidoctorItalic,asciidoctorBold
+syn match asciidoctorCode /\(^\|\s\)\zs`[^` ]`\ze\_s/ keepend contains=asciidoctorLineStart,asciidoctorItalic,asciidoctorBold
+syn match asciidoctorCode /``.\{-}``/ keepend contains=asciidoctorLineStart,asciidoctorItalic,asciidoctorBold
 
 
 if main_syntax ==# 'asciidoctor'
-  for s:type in g:asciidoctor_fenced_languages
-    exe 'syn region asciidoctorHighlight'.substitute(matchstr(s:type,'[^=]*$'),'\..*','','').' matchgroup=asciidoctorCodeDelimiter start="^\s*```\s*'.matchstr(s:type,'[^=]*').'\>.*$" end="^\s*```\ze\s*$" keepend contains=@asciidoctorHighlight'.substitute(matchstr(s:type,'[^=]*$'),'\.','','g')
-  endfor
-  unlet! s:type
+	for s:type in g:asciidoctor_fenced_languages
+		exe 'syn region asciidoctorHighlight'.substitute(matchstr(s:type,'[^=]*$'),'\..*','','').' matchgroup=asciidoctorCodeDelimiter start="^\s*```\s*'.matchstr(s:type,'[^=]*').'\>.*$" end="^\s*```\ze\s*$" keepend contains=@asciidoctorHighlight'.substitute(matchstr(s:type,'[^=]*$'),'\.','','g')
+	endfor
+	unlet! s:type
 endif
 
 " syn match asciidoctorEscape "\\[][\\`*_{}()<>#+.!-]"
@@ -131,7 +135,5 @@ hi def link asciidoctorCaption               asciidoctorItalic
 
 let b:current_syntax = "asciidoctor"
 if main_syntax ==# 'asciidoctor'
-  unlet main_syntax
+	unlet main_syntax
 endif
-
-" vim:set sw=2:
