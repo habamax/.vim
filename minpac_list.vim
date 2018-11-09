@@ -102,18 +102,10 @@ if exists('*minpac#init')
 
 	" colors
 	call minpac#add('dracula/vim', {'name': 'dracula'})
-	call minpac#add('morhetz/gruvbox')
-	call minpac#add('tyrannicaltoucan/vim-deep-space')
 	call minpac#add('cocopon/iceberg.vim')
-	call minpac#add('owickstrom/vim-colors-paramount')
 	call minpac#add('nanotech/jellybeans.vim')
-	call minpac#add('rakr/vim-one')
 	call minpac#add('cormacrelf/vim-colors-github')
-	call minpac#add('jnurmine/Zenburn')
 	call minpac#add('chriskempson/base16-vim')
-	call minpac#add('NLKNguyen/papercolor-theme')
-	call minpac#add('sjl/badwolf')
-	call minpac#add('altercation/vim-colors-solarized')
 
 
 endif
