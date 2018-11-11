@@ -37,8 +37,8 @@ syn match asciidoctorOption "^:[[:alnum:]-]\{-}:.*$"
 syn cluster asciidoctorBlock contains=asciidoctorTitle,asciidoctorH1,asciidoctorH2,asciidoctorH3,asciidoctorH4,asciidoctorH5,asciidoctorH6,asciidoctorBlockquote,asciidoctorListMarker,asciidoctorOrderedListMarker,asciidoctorCodeBlock
 syn cluster asciidoctorInline contains=asciidoctorLineBreak,asciidoctorLinkText,asciidoctorItalic,asciidoctorBold,asciidoctorCode,asciidoctorError
 
-syn match asciidoctorH1 "^.\+\n=\+$" contained contains=@asciidoctorInline,asciidoctorHeadingRule,asciidoctorAutomaticLink
-syn match asciidoctorH2 "^.\+\n-\+$" contained contains=@asciidoctorInline,asciidoctorHeadingRule,asciidoctorAutomaticLink
+syn match asciidoctorH1 "^[^[].\+\n=\+$" contained contains=@asciidoctorInline,asciidoctorHeadingRule,asciidoctorAutomaticLink
+syn match asciidoctorH2 "^[^[].\+\n-\+$" contained contains=@asciidoctorInline,asciidoctorHeadingRule,asciidoctorAutomaticLink
 
 syn match asciidoctorHeadingRule "^[=-]\+$" contained
 
