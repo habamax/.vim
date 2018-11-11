@@ -75,19 +75,20 @@ syn match asciidoctorCaption "^\.\S.\+$"
 " syn region asciidoctorId matchgroup=asciidoctorIdDelimiter start="\[" end="\]" keepend contained
 " syn region asciidoctorAutomaticLink matchgroup=asciidoctorUrlDelimiter start="<\%(\w\+:\|[[:alnum:]_+-]\+@\)\@=" end=">" keepend oneline
 
-syn match asciidoctorBold /\(^\|\s\)\zs\*[^* ].\{-}\S\*\ze\_s/ keepend contains=asciidoctorLineStart,asciidoctorItalic
-syn match asciidoctorBold /\(^\|\s\)\zs\*[^* ]\*\ze\_s/ keepend contains=asciidoctorLineStart,asciidoctorItalic
+syn match asciidoctorBold /\(^\|\s\)\zs\*[^* ].\{-}\S\*\ze[[:punct:][:space:]]/ keepend contains=asciidoctorLineStart,asciidoctorItalic
+syn match asciidoctorBold /\(^\|\s\)\zs\*[^* ]\*\ze[[:punct:][:space:]]/ keepend contains=asciidoctorLineStart,asciidoctorItalic
 syn match asciidoctorBold /\*\*\S.\{-}\*\*/ keepend contains=asciidoctorLineStart,asciidoctorItalic
-syn match asciidoctorItalic /\(^\|\s\)\zs_[^_ ].\{-}\S_\ze\_s/ keepend contains=asciidoctorLineStart,asciidoctorItalic
-syn match asciidoctorItalic /\(^\|\s\)\zs_[^_ ]_\ze\_s/ keepend contains=asciidoctorLineStart,asciidoctorItalic
+syn match asciidoctorItalic /\(^\|\s\)\zs_[^_ ].\{-}\S_\ze[[:punct:][:space:]]/ keepend contains=asciidoctorLineStart,asciidoctorItalic
+syn match asciidoctorItalic /\(^\|\s\)\zs_[^_ ]_\ze[[:punct:][:space:]]/ keepend contains=asciidoctorLineStart,asciidoctorItalic
 syn match asciidoctorItalic /__\S.\{-}__/ keepend contains=asciidoctorLineStart,asciidoctorItalic
-syn match asciidoctorBoldItalic /\(^\|\s\)\zs\*_[^*_ ].\{-}\S_\*\ze\_s/ keepend contains=asciidoctorLineStart
-syn match asciidoctorBoldItalic /\(^\|\s\)\zs\*_\S_\*\ze\_s/ keepend contains=asciidoctorLineStart
+syn match asciidoctorBoldItalic /\(^\|\s\)\zs\*_[^*_ ].\{-}\S_\*\ze[[:punct:][:space:]]/ keepend contains=asciidoctorLineStart
+syn match asciidoctorBoldItalic /\(^\|\s\)\zs\*_\S_\*\ze[[:punct:][:space:]]/ keepend contains=asciidoctorLineStart
 syn match asciidoctorBoldItalic /\*\*_\S.\{-}_\*\*/ keepend contains=asciidoctorLineStart
-syn match asciidoctorCode /\(^\|\s\)\zs`[^` ].\{-}\S`\ze\_s/ keepend contains=asciidoctorLineStart,asciidoctorItalic,asciidoctorBold
-syn match asciidoctorCode /\(^\|\s\)\zs`[^` ]`\ze\_s/ keepend contains=asciidoctorLineStart,asciidoctorItalic,asciidoctorBold
+syn match asciidoctorCode /\(^\|\s\)\zs`[^` ].\{-}\S`\ze[[:punct:][:space:]]/ keepend contains=asciidoctorLineStart,asciidoctorItalic,asciidoctorBold
+syn match asciidoctorCode /\(^\|\s\)\zs`[^` ]`\ze[[:punct:][:space:]]/ keepend contains=asciidoctorLineStart,asciidoctorItalic,asciidoctorBold
 syn match asciidoctorCode /``.\{-}``/ keepend contains=asciidoctorLineStart,asciidoctorItalic,asciidoctorBold
 
+syn match asciidoctorAdmonition /^\(NOTE:\)\|\(TIP:\)\|\(IMPORTANT:\)\|\(CAUTION:\)\|\(WARNING:\)\s/
 
 if main_syntax ==# 'asciidoctor'
 	for s:type in g:asciidoctor_fenced_languages
@@ -129,6 +130,7 @@ hi def link asciidoctorDefList               asciidoctorBold
 hi def link asciidoctorCode                  PreProc
 hi def link asciidoctorOption                PreProc
 hi def link asciidoctorCaption               asciidoctorItalic
+hi def link asciidoctorAdmonition            asciidoctorBold
 
 " hi def link asciidoctorEscape                Special
 " hi def link asciidoctorError                 Error
