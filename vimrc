@@ -1,4 +1,3 @@
-" vim: fen fdm=marker fdl=1
 " Author: Maxim Kim <habamax@gmail.com>
 
 " Must have {{{1
@@ -69,9 +68,9 @@ set noshowmode
 " set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
 set listchars=tab:→\ ,eol:┐,trail:·
 " set showbreak=↪
-set showbreak=↘
+set showbreak=╰
 set nolist
-" ⇾➠➥➝➙⇰↪⊂➘↳→│↑←↓↘➝┐↙
+" ╙⇾●➠➥➝➙⇰↪⊂➘↳→│↑←↓↘➝┐↙
 set fillchars=fold:\ ,vert:│
 
 " My fancy foldtext
@@ -85,8 +84,8 @@ fu! MyFoldText()
 	if strlen(sub) > strlen(text)
 		let text = text.'… '
 	endif
-	return repeat('◆', v:foldlevel) . text .'('. lines .')'
-	" ★▢▪◆▷▶┄◇
+	return repeat('●', v:foldlevel) . text .'('. lines .')'
+	" ▸•●□★▢▪◆▷▶┄◇
 endfu
 "}}}
 
