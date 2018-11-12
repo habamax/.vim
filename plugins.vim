@@ -43,9 +43,9 @@ if has('python') || has('python3')
 	let g:Lf_WorkingDirectoryMode = 'Af'
 	let g:Lf_FollowLinks = 1
 	let g:Lf_CommandMap = {'<ESC>': ['<C-Space>', '<ESC>']}
-    let g:Lf_NormalMap = {
-        \ "File":   [["u", ':LeaderfFile ..<CR>']]
-        \}
+	let g:Lf_NormalMap = {
+			\ "File":   [["u", ':LeaderfFile ..<CR>']]
+			\}
 	cabbrev lf LeaderfFile
 	nnoremap <leader>fh :LeaderfHelp<CR>
 	nnoremap <leader>fm :LeaderfMru<CR>
