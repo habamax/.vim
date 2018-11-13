@@ -30,12 +30,13 @@ syn case ignore
 syn match asciidoctorValid '[<>]\c[a-z/$!]\@!'
 syn match asciidoctorValid '&\%(#\=\w*;\)\@!'
 
-syn match asciidoctorLineStart "^[<@]\@!" nextgroup=@asciidoctorBlock
+" Not sure why this is needed? And it breaks some cases for Bold, Italic
+" syn match asciidoctorLineStart "^[<@]\@!" nextgroup=@asciidoctorBlock
 syn match asciidoctorComment "^//.*$"
 syn match asciidoctorOption "^:[[:alnum:]-]\{-}:.*$"
 
 syn cluster asciidoctorBlock contains=asciidoctorTitle,asciidoctorH1,asciidoctorH2,asciidoctorH3,asciidoctorH4,asciidoctorH5,asciidoctorH6,asciidoctorBlockquote,asciidoctorListMarker,asciidoctorOrderedListMarker,asciidoctorCodeBlock
-syn cluster asciidoctorInline contains=asciidoctorLineBreak,asciidoctorLinkText,asciidoctorItalic,asciidoctorBold,asciidoctorCode,asciidoctorError
+syn cluster asciidoctorInline contains=asciidoctorLineBreak,asciidoctorLinkText,asciidoctorItalic,asciidoctorBold,asciidoctorCode,asciidoctorError,asciidoctorBoldItalic
 
 syn match asciidoctorH1 "^[^[].\+\n=\+$" contained contains=@asciidoctorInline,asciidoctorHeadingRule,asciidoctorAutomaticLink
 syn match asciidoctorH2 "^[^[].\+\n-\+$" contained contains=@asciidoctorInline,asciidoctorHeadingRule,asciidoctorAutomaticLink
@@ -50,20 +51,13 @@ syn match asciidoctorH4 "^=====\s.*$"
 syn match asciidoctorH5 "^======\s.*$"
 syn match asciidoctorH6 "^=======\s.*$"
 
-" syn match asciidoctorBlockquote ">\%(\s\|$\)" contained nextgroup=@asciidoctorBlock
 
-" syn region asciidoctorCodeBlock start="    \|\t" end="$" contained
-
-" TODO: real nesting
 syn match asciidoctorListMarker "\s*\(-\|\*\+\|\.\+\)\%(\s\+\S\)\@=" contained
 syn match asciidoctorOrderedListMarker "\s*\d\+\.\%(\s\+\S\)\@=" contained
 
 syn match asciidoctorDefList "^\S.\{-}::"
 syn match asciidoctorCaption "^\.\S.\+$"
 
-" syn match asciidoctorLineBreak " \{2,\}$"
-
-" syn region asciidoctorIdDeclaration matchgroup=asciidoctorLinkDelimiter start="^ \{0,3\}!\=\[" end="\]:" oneline keepend nextgroup=asciidoctorUrl skipwhite
 " syn match asciidoctorUrl "\S\+" nextgroup=asciidoctorUrlTitle skipwhite contained
 " syn region asciidoctorUrl matchgroup=asciidoctorUrlDelimiter start="<" end=">" oneline keepend nextgroup=asciidoctorUrlTitle skipwhite contained
 " syn region asciidoctorUrlTitle matchgroup=asciidoctorUrlTitleDelimiter start=+"+ end=+"+ keepend contained
@@ -75,18 +69,18 @@ syn match asciidoctorCaption "^\.\S.\+$"
 " syn region asciidoctorId matchgroup=asciidoctorIdDelimiter start="\[" end="\]" keepend contained
 " syn region asciidoctorAutomaticLink matchgroup=asciidoctorUrlDelimiter start="<\%(\w\+:\|[[:alnum:]_+-]\+@\)\@=" end=">" keepend oneline
 
-syn match asciidoctorBold /\%(^\|\s\)\zs\*[^* ].\{-}\S\*\ze\%([[:punct:][:space:]]\|$\)/ keepend contains=asciidoctorLineStart,asciidoctorItalic
-syn match asciidoctorBold /\%(^\|\s\)\zs\*[^* ]\*\ze\%([[:punct:][:space:]]\|$\)/ keepend contains=asciidoctorLineStart,asciidoctorItalic
-syn match asciidoctorBold /\*\*\S.\{-}\*\*/ keepend contains=asciidoctorLineStart,asciidoctorItalic
-syn match asciidoctorItalic /\%(^\|\s\)\zs_[^_ ].\{-}\S_\ze\%([[:punct:][:space:]]\|$\)/ keepend contains=asciidoctorLineStart,asciidoctorItalic
-syn match asciidoctorItalic /\%(^\|\s\)\zs_[^_ ]_\ze\%([[:punct:][:space:]]\|$\)/ keepend contains=asciidoctorLineStart,asciidoctorItalic
-syn match asciidoctorItalic /__\S.\{-}__/ keepend contains=asciidoctorLineStart,asciidoctorItalic
-syn match asciidoctorBoldItalic /\%(^\|\s\)\zs\*_[^*_ ].\{-}\S_\*\ze\%([[:punct:][:space:]]\|$\)/ keepend contains=asciidoctorLineStart
-syn match asciidoctorBoldItalic /\%(^\|\s\)\zs\*_\S_\*\ze\%([[:punct:][:space:]]\|$\)/ keepend contains=asciidoctorLineStart
-syn match asciidoctorBoldItalic /\*\*_\S.\{-}_\*\*/ keepend contains=asciidoctorLineStart
-syn match asciidoctorCode /\%(^\|\s\)\zs`[^` ].\{-}\S`\ze\%([[:punct:][:space:]]\|$\)/ keepend contains=asciidoctorLineStart,asciidoctorItalic,asciidoctorBold
-syn match asciidoctorCode /\%(^\|\s\)\zs`[^` ]`\ze\%([[:punct:][:space:]]\|$\)/ keepend contains=asciidoctorLineStart,asciidoctorItalic,asciidoctorBold
-syn match asciidoctorCode /``.\{-}``/ keepend contains=asciidoctorLineStart,asciidoctorItalic,asciidoctorBold
+syn match asciidoctorBold /\%(^\|[[:punct:][:space:]]\)\zs\*[^* ].\{-}\S\*\ze\%([[:punct:][:space:]]\|$\)/
+syn match asciidoctorBold /\%(^\|[[:punct:][:space:]]\)\zs\*[^* ]\*\ze\%([[:punct:][:space:]]\|$\)/
+syn match asciidoctorBold /\*\*\S.\{-}\*\*/
+syn match asciidoctorItalic /\%(^\|[[:punct:][:space:]]\)\zs_[^_ ].\{-}\S_\ze\%([[:punct:][:space:]]\|$\)/
+syn match asciidoctorItalic /\%(^\|[[:punct:][:space:]]\)\zs_[^_ ]_\ze\%([[:punct:][:space:]]\|$\)/
+syn match asciidoctorItalic /__\S.\{-}__/
+syn match asciidoctorBoldItalic /\%(^\|\s\)\zs\*_[^*_ ].\{-}\S_\*\ze\%([[:punct:][:space:]]\|$\)/
+syn match asciidoctorBoldItalic /\%(^\|\s\)\zs\*_\S_\*\ze\%([[:punct:][:space:]]\|$\)/
+syn match asciidoctorBoldItalic /\*\*_\S.\{-}_\*\*/
+syn match asciidoctorCode /\%(^\|[[:punct:][:space:]]\)\zs`[^` ].\{-}\S`\ze\%([[:punct:][:space:]]\|$\)/
+syn match asciidoctorCode /\%(^\|[[:punct:][:space:]]\)\zs`[^` ]`\ze\%([[:punct:][:space:]]\|$\)/
+syn match asciidoctorCode /``.\{-}``/
 
 syn match asciidoctorAdmonition /^\%(NOTE:\)\|\%(TIP:\)\|\%(IMPORTANT:\)\|\%(CAUTION:\)\|\%(WARNING:\)\s/
 
@@ -114,14 +108,9 @@ hi def link asciidoctorBlockquote            Comment
 hi def link asciidoctorComment               Comment
 
 hi def link asciidoctorLinkText              htmlLink
-hi def link asciidoctorIdDeclaration         Typedef
-hi def link asciidoctorId                    Type
-hi def link asciidoctorAutomaticLink         asciidoctorUrl
-hi def link asciidoctorUrl                   Float
-hi def link asciidoctorUrlTitle              String
-hi def link asciidoctorIdDelimiter           asciidoctorLinkDelimiter
-hi def link asciidoctorUrlDelimiter          htmlTag
-hi def link asciidoctorUrlTitleDelimiter     Delimiter
+" hi def link asciidoctorAutomaticLink         asciidoctorUrl
+" hi def link asciidoctorUrl                   Float
+" hi def link asciidoctorUrlTitle              String
 
 hi asciidoctorBold                           gui=bold cterm=bold
 hi asciidoctorItalic                         gui=italic cterm=italic
