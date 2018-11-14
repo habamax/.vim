@@ -22,8 +22,6 @@ inorea --ю →
 inorea <<< «
 inorea >>> »
 
-" em-dash
-inorea --- —
 " bullets
 inorea -* •
 inorea --* ▪
