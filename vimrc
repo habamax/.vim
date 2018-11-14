@@ -42,7 +42,7 @@ if !has("gui_running")
 endif
 set shortmess+=I
 set winaltkeys=no
-set guioptions=cm " No toolbar
+set guioptions=cme
 set laststatus=2
 set ruler " for default statusline"
 set showtabline=1
@@ -59,7 +59,7 @@ set scrolloff=2 sidescrolloff=5
 set display+=lastline
 set tabpagemax=50
 " turn off if you use airline
-set noshowmode
+set showmode
 
 " Unicode chars {{{
 " default ASCII listchars

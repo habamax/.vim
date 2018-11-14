@@ -50,8 +50,8 @@ if exists('*minpac#init')
 	" [c prev hunk
 	call minpac#add('airblade/vim-gitgutter', {'type': 'opt'})
 
-	call minpac#add('vim-airline/vim-airline')
-	call minpac#add('vim-airline/vim-airline-themes')
+	" call minpac#add('vim-airline/vim-airline')
+	" call minpac#add('vim-airline/vim-airline-themes')
 	" call minpac#add('itchyny/lightline.vim')
 
 
