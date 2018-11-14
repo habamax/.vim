@@ -5,8 +5,7 @@ if has("gui_macvim")
 elseif has("unix")
 	set gfn=Hack\ 10,DejaVu\ Sans\ Mono\ 12,Monospace\ 12
 else
-	set gfn=Fantasque_Sans_Mono:h14,Hack:h10,Consolas:h14
-	" set gfn=Hack:h10,Consolas:h14
+	set gfn=Fantasque_Sans_Mono:h10,Hack:h10,Consolas:h14
 endif
 set columns=999
 set lines=999
