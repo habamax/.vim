@@ -48,11 +48,11 @@ function! AsciidoctorFold() "{{{
 
 	" Setext style headings
 	let nextline = getline(v:lnum + 1)
-	if (line =~ '^.\+$') && (nextline =~ '^=\+$')
+	if (line !~ '^\[.\+\]\s*$') && (line !~ '^\s*$') && (nextline =~ '^=\+$')
 		return ">1"
 	endif
 
-	if (line =~ '^.\+$') && (nextline =~ '^-\+$')
+	if (line !~ '^\[.\+\]\s*$') && (line !~ '^\s*$') && (nextline =~ '^-\+$')
 		return ">2"
 	endif
 
@@ -69,17 +69,17 @@ function! AsciidoctorFold() "{{{
 		endif
 	endif
 
-	if g:asciidoctor_fold_blocks
-		" Fold tables and other blocks
-		let nextline2 = getline(v:lnum + 2)
-		" if (line =~ '^\.\S.*$\|^\[.*\]\s*$')
-		if (line =~ '^\[.*\]\s*$') && (nextline =~ '^\%(\(|===*\)\|=\{2,}\|\.\{2,}\|-\{2,}\|_\{3,}\s*\)$')
-			return "a1"
-		endif
-		if (line =~ '^\%(\(|===*\)\|=\{2,}\|\.\{2,}\|-\{2,}\|_\{3,}\s*\)$') && (prevline =~ '^\s*$\|^|.*$')
-			return "s1"
-		endif
-	endif
+	" if g:asciidoctor_fold_blocks
+	" 	" Fold tables and other blocks
+	" 	let nextline2 = getline(v:lnum + 2)
+	" 	" if (line =~ '^\.\S.*$\|^\[.*\]\s*$')
+	" 	if (line =~ '^\[.*\]\s*$') && (nextline =~ '^\%(\(|===*\)\|=\{2,}\|\.\{2,}\|-\{2,}\|_\{3,}\s*\)$')
+	" 		return "a1"
+	" 	endif
+	" 	if (line =~ '^\%(\(|===*\)\|=\{2,}\|\.\{2,}\|-\{2,}\|_\{3,}\s*\)$') && (prevline =~ '^\s*$\|^|.*$')
+	" 		return "s1"
+	" 	endif
+	" endif
 
 	return "="
 endfunction "}}}
