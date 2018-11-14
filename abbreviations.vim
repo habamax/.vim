@@ -1,10 +1,10 @@
-inorea eml habamax@gmail.com
-inorea уьд habamax@gmail.com
-inorea bvz Maxim Kim
-inorea тфьу Максим Ким
+inorea haba@ habamax@gmail.com
+inorea рфиф" habamax@gmail.com
+inorea maxkim Maxim Kim
+inorea ьфчлшь Maxim Kim
+inorea макским Максим Ким
+inorea vfrcrbv Максим Ким
 
-
-inorea hil highlighting
 inorea хъ []<Left>
 inorea ХЪ {}<Left>
 inorea ЭЭ ""<Left>
@@ -15,12 +15,6 @@ inorea -Ю ->
 inorea -ю ->
 inorea =Ю =>
 inorea =ю =>
-
-inorea --> →
-inorea --ю →
-
-inorea <<< «
-inorea >>> »
 
 " bullets
 inorea -* •
