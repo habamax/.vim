@@ -13,13 +13,27 @@ set lines=999
 fun! s:base16_customize() abort "{{{
 	call Base16hi("Title", "", "", "", "", "bold", "")
 	call Base16hi("Statement", "", "", "", "", "none", "")
+	call Base16hi("Underlined", "", "", "", "", "underline", "")
+	call Base16hi("LineNr", "", g:base16_gui00, "", "", "", "")
+	call Base16hi("SignColumn", "", g:base16_gui00, "", "", "", "")
+	call Base16hi("GitGutterAdd", "", g:base16_gui00, "", "", "", "")
+	call Base16hi("GitGutterChange", "", g:base16_gui00, "", "", "", "")
+	call Base16hi("GitGutterDelete", "", g:base16_gui00, "", "", "", "")
+	call Base16hi("GitGutterChangeDelete", "", g:base16_gui00, "", "", "", "")
 	hi! link lCursor IncSearch
 	hi link Lf_hl_match Title
+endfun
+" }}}
+
+fun! s:base16_zenburn_customize() abort "{{{
+	call Base16hi("Delimiter", "8f8f8f", "", "", "", "", "")
+	call Base16hi("SpecialChar", "dca3a3", "", "", "", "", "")
 endfun
 
 augroup on_change_colorscheme
 	autocmd!
 	autocmd ColorScheme base16* call s:base16_customize()
+	autocmd ColorScheme base16-zenburn call s:base16_zenburn_customize()
 augroup END
 " }}}
 
