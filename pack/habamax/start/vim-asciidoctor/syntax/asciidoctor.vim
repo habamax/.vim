@@ -83,7 +83,7 @@ syn match asciidoctorAdmonition /^\%(NOTE:\)\|\%(TIP:\)\|\%(IMPORTANT:\)\|\%(CAU
 
 if main_syntax ==# 'asciidoctor'
 	for s:type in g:asciidoctor_fenced_languages
-		exe 'syn region asciidoctorHighlight'.substitute(matchstr(s:type,'[^=]*$'),'\..*','','').' matchgroup=asciidoctorCodeDelimiter start="^\s*```\s*'.matchstr(s:type,'[^=]*').'\>.*$" end="^\s*```\ze\s*$" keepend contains=@asciidoctorHighlight'.substitute(matchstr(s:type,'[^=]*$'),'\.','','g')
+		exe 'syn region asciidoctorHighlight'.substitute(matchstr(s:type,'[^=]*$'),'\..*','','').' start="^\[source,\s*'.matchstr(s:type,'[^=]*').'\]\s*\n--\+\s*$" end="^[^[]*\n--\+\s*$" keepend contains=@asciidoctorHighlight'.substitute(matchstr(s:type,'[^=]*$'),'\.','','g')
 	endfor
 	unlet! s:type
 endif

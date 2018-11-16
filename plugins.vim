@@ -123,7 +123,7 @@ let g:asciidoctor_img_paste_command = "gm convert clipboard: "
 
 let g:asciidoctor_folding = 1
 let g:asciidoctor_fold_options = 1
-let g:asciidoctor_fold_blocks = 1
+let g:asciidoctor_fenced_languages = ['python', 'c', 'javascript']
 
 fun! AsciidoctorMappings()
 	nnoremap <buffer> <leader>oo :AsciidoctorOpenRAW<CR>
