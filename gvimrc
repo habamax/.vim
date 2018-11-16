@@ -5,7 +5,7 @@ if has("gui_macvim")
 elseif has("unix")
 	set gfn=Hack\ 10,DejaVu\ Sans\ Mono\ 12,Monospace\ 12
 else
-	set gfn=Fantasque_Sans_Mono:h10,Hack:h10,Consolas:h14
+	set gfn=Fantasque_Sans_Mono:h11,Hack:h10,Consolas:h14
 endif
 set columns=999
 set lines=999
@@ -22,9 +22,10 @@ augroup on_change_colorscheme
 	autocmd ColorScheme base16* call s:base16_customize()
 augroup END
 " }}}
+
 " Next are good base16 themes AKA themes I like
 " DARK
-" colo base16-oceanicnext
+colo base16-oceanicnext
 " colo base16-tomorrow-night
 " colo base16-irblack
 " colo base16-default-dark
@@ -35,7 +36,7 @@ augroup END
 " colo base16-twilight
 " colo base16-default-dark
 " LIGHT
-colo base16-one-light
+" colo base16-one-light
 " colo base16-grayscale-light
 " colo base16-solarized-light
 " colo base16-atelier-forest-light
