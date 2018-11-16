@@ -30,9 +30,6 @@ syn case ignore
 syn match asciidoctorValid '[<>]\c[a-z/$!]\@!'
 syn match asciidoctorValid '&\%(#\=\w*;\)\@!'
 
-" Not sure why this is needed? And it breaks some cases for Bold, Italic
-" syn match asciidoctorLineStart "^[<@]\@!" nextgroup=@asciidoctorBlock
-syn match asciidoctorComment "^//.*$"
 syn match asciidoctorOption "^:[[:alnum:]-]\{-}:.*$"
 
 syn cluster asciidoctorBlock contains=asciidoctorTitle,asciidoctorH1,asciidoctorH2,asciidoctorH3,asciidoctorH4,asciidoctorH5,asciidoctorH6,asciidoctorBlockquote,asciidoctorListMarker,asciidoctorOrderedListMarker,asciidoctorCodeBlock
@@ -93,6 +90,9 @@ endif
 
 " syn match asciidoctorEscape "\\[][\\`*_{}()<>#+.!-]"
 " syn match asciidoctorError "\w\@<=_\w\@="
+
+syn match asciidoctorComment "^//.*$"
+
 
 hi def link asciidoctorTitle                 Title
 hi def link asciidoctorH1                    Title
