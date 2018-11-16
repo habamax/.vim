@@ -213,6 +213,7 @@ tnoremap <esc> <C-\><C-n>
 
 nnoremap <Leader><tab> :bn<CR>
 nnoremap <Leader><leader><tab> :bp<CR>
+nnoremap <Leader><leader>t :tabnew<CR>
 
 nnoremap <Leader>cd :lcd %:p:h <bar> pwd<CR>
 
