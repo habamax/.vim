@@ -39,12 +39,12 @@ augroup END
 
 " Next are good base16 themes AKA themes I like
 " DARK
-colo base16-oceanicnext
+colo base16-nord
+" colo base16-oceanicnext
 " colo base16-tomorrow-night
 " colo base16-irblack
 " colo base16-default-dark
 " colo base16-grayscale-dark
-" colo base16-nord
 " colo base16-eighties
 " colo base16-onedark
 " colo base16-twilight
