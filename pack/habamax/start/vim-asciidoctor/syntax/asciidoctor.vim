@@ -49,8 +49,8 @@ syn match asciidoctorH5 "^======\s.*$"
 syn match asciidoctorH6 "^=======\s.*$"
 
 
-syn match asciidoctorListMarker "\s*\(-\|\*\+\|\.\+\)\%(\s\+\S\)\@=" contained
-syn match asciidoctorOrderedListMarker "\s*\d\+\.\%(\s\+\S\)\@=" contained
+syn match asciidoctorListMarker "^\s*\(-\|\*\+\|\.\+\)\%(\s\+\S\)\@="
+syn match asciidoctorOrderedListMarker "^\s*\d\+\.\%(\s\+\S\)\@="
 
 syn match asciidoctorDefList "^\S.\{-}::"
 syn match asciidoctorCaption "^\.\S.\+$"
