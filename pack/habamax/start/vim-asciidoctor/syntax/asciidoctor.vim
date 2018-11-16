@@ -27,8 +27,8 @@ unlet! s:type
 syn sync minlines=10
 syn case ignore
 
-syn match asciidoctorValid '[<>]\c[a-z/$!]\@!'
-syn match asciidoctorValid '&\%(#\=\w*;\)\@!'
+" syn match asciidoctorValid '[<>]\c[a-z/$!]\@!'
+" syn match asciidoctorValid '&\%(#\=\w*;\)\@!'
 
 syn match asciidoctorOption "^:[[:alnum:]-]\{-}:.*$"
 
