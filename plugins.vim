@@ -22,15 +22,55 @@ endif
 
 " UltiSnips and Completor {{{
 if has('python') || has('python3')
-	let g:UltiSnipsExpandTrigger = '<C-j>'
-	let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-	let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+	" let g:UltiSnipsExpandTrigger = '<C-j>'
+	" let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+	" let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+	
+	let g:UltiSnipsExpandTrigger = '<tab>'
+	let g:UltiSnipsJumpForwardTrigger = '<tab>'
 
 	let g:UltiSnipsSnippetsDir=fnamemodify($MYVIMRC, ":p:h")."/snips"
 	let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
 	packadd ultisnips
 	packadd vim-snippets
+
+	" Completor and ultisnips to reuse TAB key
+	fun! Tab_Or_Complete()
+		call UltiSnips#ExpandSnippet()
+		if g:ulti_expand_res == 0
+			if pumvisible()
+				return "\<C-n>"
+			else
+				call UltiSnips#JumpForwards()
+				if g:ulti_jump_forwards_res == 0
+					" If completor is not open and we are in the middle of typing a word then
+					" `tab` opens completor menu.
+					if col('.')>1 && strpart( getline('.'), col('.')-3, 2 ) =~ '\%(->\)\|\%(.\w\)\|\%(.\.\)'
+						return "\<C-R>=completor#do('complete')\<CR>"
+					else
+						return "\<TAB>"
+					endif
+				endif
+			endif
+		endif
+		return ""
+	endfun
+
+	" " Use `tab` key to select completions.  Default is arrow keys.
+	" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+	" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+	" inoremap <expr> <Tab> Tab_Or_Complete()
+	au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=Tab_Or_Complete()<cr>"
+
+	" Use tab to trigger auto completion.  Default suggests completions as you type.
+	let g:completor_auto_trigger = 1
+	" if has('win32')
+	" 	let g:completor_python_binary = expand("~/scoop/apps/python/current/python.exe")
+	" endif
+	"}}}
+
 	packadd completor.vim
+
 endif
 "}}}
 
@@ -44,8 +84,8 @@ if has('python') || has('python3')
 	let g:Lf_FollowLinks = 1
 	let g:Lf_CommandMap = {'<ESC>': ['<C-Space>', '<ESC>']}
 	let g:Lf_NormalMap = {
-			\ "File":   [["u", ':LeaderfFile ..<CR>']]
-			\}
+				\ "File":   [["u", ':LeaderfFile ..<CR>']]
+				\}
 	cabbrev lf LeaderfFile
 	nnoremap <leader>fh :LeaderfHelp<CR>
 	nnoremap <leader>fm :LeaderfMru<CR>
@@ -70,39 +110,6 @@ else
 endif
 "}}}
 
-" Completor {{{
-" Use TAB to complete when typing words, else inserts TABs as usual.  Uses
-" dictionary, source files, and completor to find matching words to complete.
-" Note: usual completion is on <C-n> but more trouble to press all the time.
-" Never type the same word twice and maybe learn a new spellings!
-" Use the Linux dictionary when spelling is in doubt.
-function! Tab_Or_Complete() abort
-	" If completor is already open the `tab` cycles through suggested completions.
-	if pumvisible()
-		return "\<C-N>"
-		" If completor is not open and we are in the middle of typing a word then
-		" `tab` opens completor menu.
-	elseif col('.')>1 && strpart( getline('.'), col('.')-3, 2 ) =~ '\%(->\)\|\%(.\w\)\|\%(.\.\)'
-		return "\<C-R>=completor#do('complete')\<CR>"
-	else
-		" If we aren't typing a word and we press `tab` simply do the normal `tab`
-		" action.
-		return "\<Tab>"
-	endif
-endfunction
-
-
-" " Use `tab` key to select completions.  Default is arrow keys.
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Use tab to trigger auto completion.  Default suggests completions as you type.
-let g:completor_auto_trigger = 0
-inoremap <expr> <Tab> Tab_Or_Complete()
-if has('win32')
-	let g:completor_python_binary = expand("~/scoop/apps/python/current/python.exe")
-endif
-"}}}
 
 " Asciidoctor {{{
 " There will be asciidoctor plugin here
