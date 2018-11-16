@@ -96,6 +96,8 @@ if exists('*minpac#init')
 	call minpac#add('honza/vim-snippets', {'type': 'opt'})
 	" call minpac#add('ipod825/vim-netranger')
 
+	call minpac#add('mattn/emmet-vim')
+
 	call minpac#add('elixir-editors/vim-elixir')
 
 	call minpac#add('scrooloose/nerdtree')
