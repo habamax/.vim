@@ -43,23 +43,15 @@ augroup on_change_colorscheme
 augroup END
 " }}}
 
-" Next are good base16 themes AKA themes I like
 " DARK
-colo base16-oceanicnext
-" colo base16-default-dark
-" colo base16-nord
-" colo base16-ocean
+" colo base16-oceanicnext
 " colo base16-grayscale-dark
-" colo base16-irblack
-" colo base16-tomorrow-night
-" colo base16-onedark
-" colo base16-eighties
 " LIGHT
 " colo base16-one-light
-" colo base16-grayscale-light
-" colo base16-solarized-light
+colo base16-grayscale-light
 
-let g:duo_themes = ['base16-oceanicnext', 'base16-one-light']
+" let g:duo_themes = ['base16-oceanicnext', 'base16-one-light']
+let g:duo_themes = ['base16-grayscale-light', 'base16-grayscale-dark']
 fun! ToggleColorscheme()
 	let color = filter(copy(g:duo_themes), {k,v-> v != g:colors_name})[0]
 	exe "colorscheme ".color
