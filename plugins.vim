@@ -67,7 +67,6 @@ if has('python') || has('python3')
 	" if has('win32')
 	" 	let g:completor_python_binary = expand("~/scoop/apps/python/current/python.exe")
 	" endif
-	"}}}
 
 	packadd completor.vim
 
@@ -109,7 +108,6 @@ else
 	packadd ctrlp.vim
 endif
 "}}}
-
 
 " Asciidoctor {{{
 " There will be asciidoctor plugin here
@@ -183,12 +181,5 @@ nmap ga <Plug>(EasyAlign)
 let g:sexp_enable_insert_mode_mappings = 0
 
 
-" ariline
-" let g:airline_theme = "github"
-let g:airline#extensions#keymap#enabled = 0
-let g:airline#extensions#tabline#enabled = 1
-
 " NERDTree
-" let g:NERDTreeDirArrowExpandable = '▶'
-" let g:NERDTreeDirArrowCollapsible = '▼'
 nnoremap <leader>ft :NERDTreeToggle<CR>
