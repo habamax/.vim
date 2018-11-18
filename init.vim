@@ -1,2 +1,2 @@
-" Just source vim's vimrc
+" Source vim's vimrc
 source <sfile>:h/vimrc
