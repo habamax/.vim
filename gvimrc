@@ -14,6 +14,7 @@ fun! s:base16_customize() abort "{{{
 	call Base16hi("Title", "", "", "", "", "bold", "")
 	call Base16hi("Statement", "", "", "", "", "none", "")
 	call Base16hi("Underlined", "", "", "", "", "underline", "")
+	call Base16hi("StatusLine", "", "", "", "", "bold", "")
 	call Base16hi("LineNr", "", g:base16_gui00, "", "", "", "")
 	call Base16hi("SignColumn", "", g:base16_gui00, "", "", "", "")
 	call Base16hi("GitGutterAdd", "", g:base16_gui00, "", "", "", "")
