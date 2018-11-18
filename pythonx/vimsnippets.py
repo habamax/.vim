@@ -40,7 +40,7 @@ def _parse_comments(s):
 
                 if flags[-1] in string.digits:
                     indent = " " * int(flags[-1])
-                ctriple.append(text)
+                ctriple.append(text + ' ')
 
                 flags, text = next(i).split(':', 1)
                 assert flags[0] == 'm'
@@ -48,7 +48,7 @@ def _parse_comments(s):
 
                 flags, text = next(i).split(':', 1)
                 assert flags[0] == 'e'
-                ctriple.append(text)
+                ctriple.append(" " + text)
                 ctriple.append(indent)
 
                 rv.append(ctriple)
@@ -72,8 +72,10 @@ def get_comment_format():
         return (c, c, c, "")
     comments = _parse_comments(vim.eval("&comments"))
     for c in comments:
+        # if there is no "real" comments -- do not return anything
+        # to avoid - inserted in non programming langs
         if c[0] == "SINGLE_CHAR":
-            return c[1:]
+            return ("", "", "", "")
     return comments[0][1:]
 
 

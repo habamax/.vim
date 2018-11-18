@@ -44,8 +44,8 @@ ${2:${VISUAL:Content}}
 `!p snip.rv = get_comment_format()[0]` `!p snip.rv = foldmarker()[1]` $1 `!p snip.rv = get_comment_format()[2]`
 endsnippet
 
-snippet todo "TODO comment" bw
-`!p snip.rv=get_comment_format()[0]` ${2:TODO}: $0 <`!v strftime('%Y-%M-%d %T')`> `!p snip.rv=(get_comment_format()[2] if get_comment_format()[0] != get_comment_format()[2] else '')`
+snippet todo "TODO comment" w
+`!p snip.rv=get_comment_format()[0]`${2:TODO}: $0 <`!v strftime('%Y-%M-%d %T')`>`!p snip.rv=(get_comment_format()[2] if get_comment_format()[0] != get_comment_format()[2] else '')`
 endsnippet
 
 snippet uuid "Random UUID" w
