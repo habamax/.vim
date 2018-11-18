@@ -67,107 +67,107 @@ ifdef::preface-title[:preface-title: Предисловие]
 $0
 endsnippet
 
-snippet note "Multiline note" b
+snippet note "[NOTE] ==" b
 [NOTE]
 ======
 
-$0
+${0:${VISUAL}}
 
 ======
 endsnippet
 
-snippet warn "Multiline warning" b
+snippet warn "[WARNING] ==" b
 [WARNING]
 =========
 
-$0
+${0:${VISUAL}}
 
 =========
 endsnippet
 
-snippet caution "Multiline caution" b
+snippet caution "[CAUTION] ==" b
 [CAUTION]
 =========
 
-$0
+${0:${VISUAL}}
 
 =========
 endsnippet
 
-snippet important "Multiline important" b
+snippet important "[IMPORTANT] ==" b
 [IMPORTANT]
 ===========
 
-$0
+${0:${VISUAL}}
 
 ===========
 endsnippet
 
-snippet quote "Multiline quote" b
+snippet quote "[quote] __" b
 [quote]
 _______
 
-$0
+${0:${VISUAL}}
 
 _______
 endsnippet
 
-snippet example "Multiline example" b
+snippet example "[example] ==" b
 [example]
 =========
 
-$0
+${0:${VISUAL}}
 
 =========
 endsnippet
 
-snippet literal "Multiline literal" b
+snippet literal "[literal] .." b
 [literal]
 .........
 
-$0
+${0:${VISUAL}}
 
 .........
 endsnippet
 
-snippet sidebar "Sidebar" b
+snippet sidebar ".Sidebar **" b
 .${1:Sidebar Note}
 ****
 
-$0
+${0:${VISUAL}}
 
 ****
 endsnippet
 
-snippet src "Source code block" b
+snippet src "[source] --" b
 [source,${1:text}]
 --------
 
-$0
+${0:${VISUAL}}
 
 --------
 endsnippet
 
-snippet tip "Multiline tip" b
+snippet tip "[TIP] ==" b
 [TIP]
 =====
 
-$0
+${0:${VISUAL}}
 
 =====
 endsnippet
 
-snippet verse "Multiline verse" b
+snippet verse "[verse] __" b
 [verse]
 _______
 
-$0
+${0:${VISUAL}}
 
 _______
 endsnippet
 
 snippet diagram "General plantuml diagram" b
-[plantuml, ${1:diagram-name}, ${2:png}]
+[plantuml, ${1:diagram-name}, ${2:svg}]
 ....
 skinparam monochrome true
 skinparam shadowing false
@@ -179,7 +179,7 @@ $0
 endsnippet
 
 snippet diagactivity "Activity diagram" b
-[plantuml, ${1:diagram-name}, ${2:png}]
+[plantuml, ${1:diagram-name}, ${2:svg}]
 ....
 skinparam monochrome true
 skinparam shadowing false
@@ -205,7 +205,7 @@ stop
 endsnippet
 
 snippet diagclass "Class diagram" b
-[plantuml, ${1:diagram-name}, ${2:png}]
+[plantuml, ${1:diagram-name}, ${2:svg}]
 ....
 skinparam monochrome true
 skinparam shadowing false
