@@ -54,8 +54,12 @@ colo base16-ocean
 " colo base16-one-light
 " colo base16-grayscale-light
 " colo base16-solarized-light
-" colo base16-atelier-forest-light
-" colo base16-atelier-savanna-light
-" colo base16-atelier-sulphurpool-light
-" colo base16-atelier-estuary-light
-" colo base16-atelier-cave-light
+
+let g:duo_themes = ['base16-oceanicnext', 'base16-one-light']
+fun! ToggleColorscheme()
+	let color = filter(copy(g:duo_themes), {k,v-> v != g:colors_name})[0]
+	exe "colorscheme ".color
+endf
+
+" Mimic toggling behaviour of Tim Popes unimpaired plugin
+nnoremap yot :call ToggleColorscheme()<CR>
