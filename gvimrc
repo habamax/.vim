@@ -22,7 +22,7 @@ fun! s:base16_customize() abort "{{{
 	call Base16hi("GitGutterDelete", "", g:base16_gui00, "", "", "", "")
 	call Base16hi("GitGutterChangeDelete", "", g:base16_gui00, "", "", "", "")
 	hi! link lCursor IncSearch
-	hi link Lf_hl_match Title
+	hi! link Lf_hl_match Title
 endfun
 " }}}
 
