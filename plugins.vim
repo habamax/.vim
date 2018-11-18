@@ -32,7 +32,7 @@ if has('python') || has('python3')
 	let g:UltiSnipsSnippetsDir=fnamemodify($MYVIMRC, ":p:h")."/snips"
 	let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
 	packadd ultisnips
-	packadd vim-snippets
+	" packadd vim-snippets
 
 	" Completor and ultisnips to reuse TAB key
 	fun! Tab_Or_Complete()

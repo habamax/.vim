@@ -5,3 +5,4 @@ autoload/plug.vim.old
 rplugin.vim
 *.html
 .netrwhist
+*.pyc

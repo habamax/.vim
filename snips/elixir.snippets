@@ -1,0 +1,333 @@
+snippet do
+do
+	${0:${VISUAL}}
+end
+endsnippet
+
+snippet put "IO.puts"
+IO.puts "${0:${VISUAL}}"
+endsnippet
+
+snippet ins "IO.inspect"
+IO.inspect ${0:${VISUAL}}
+endsnippet
+
+snippet insl "IO.inspect with label"
+IO.inspect(${0}label: "${1:label}")
+endsnippet
+
+snippet if "if .. do .. end"
+if ${1} do
+	${0:${VISUAL}}
+end
+endsnippet
+
+snippet if: "if .. do: .."
+if ${1:condition}, do: ${0}
+endsnippet
+
+snippet ife "if .. do .. else .. end"
+if ${1:condition} do
+	${2:${VISUAL}}
+else
+	${0}
+end
+endsnippet
+
+snippet ife: "if .. do: .. else: .."
+if ${1:condition}, do: ${2}, else: ${0}
+endsnippet
+
+snippet unless "unless .. do .. end"
+unless ${1} do
+	${0:${VISUAL}}
+end
+endsnippet
+
+snippet unless: "unless .. do: .."
+unless ${1:condition}, do: ${0}
+endsnippet
+
+snippet unlesse "unless .. do .. else .. end"
+unless ${1:condition} do
+	${2:${VISUAL}}
+else
+	${0}
+end
+endsnippet
+
+snippet unlesse: "unless .. do: .. else: .."
+	unless ${1:condition}, do: ${2}, else: ${0}
+endsnippet
+
+snippet cond "cond do .. end"
+cond do
+	${1} ->
+	${0:${VISUAL}}
+end
+endsnippet
+
+snippet case "case .. do .. end"
+case ${1} do
+	${2} ->
+		${0}
+end
+endsnippet
+
+snippet for "for .. do .. end"
+for ${1:item} <- ${2:items} do
+	${0}
+end
+endsnippet
+
+snippet for: "for .. , do: .."
+for ${1:item} <- ${2:items}, do: ${0}
+endsnippet
+
+snippet fori "for .. , into: .. do .. end"
+for ${1:item} <- ${2:items}, into: ${3} do
+	${0}
+end
+endsnippet
+
+snippet wi "with .. do .. end"
+with ${1:item} <- ${2:items} do
+	${0}
+end
+endsnippet
+
+snippet wie "with .. do .. else .. end"
+with(
+	${1:item} <- ${2:items}
+) do
+	${3}
+else
+	${4} ->
+		${0}
+end
+endsnippet
+
+snippet sp "@spec ..."
+@spec ${1:name}(${2:args}) :: ${3:returns}
+endsnippet
+
+snippet op "@opaque ..."
+@opaque ${1:type_name} :: ${2:type}
+endsnippet
+
+snippet ty "@type ..."
+@type ${1:type_name} :: ${2:type}
+endsnippet
+
+snippet typ "@typep ..."
+@typep ${1:type_name} :: ${2:type}
+endsnippet
+
+snippet cb "@callback ..."
+@callback ${1:name}(${2:args}) :: ${3:returns}
+endsnippet
+
+snippet df "def .., do: .."
+def ${1:name}, do: ${2}
+endsnippet
+
+snippet def "def .. do .. end"
+def ${1:name} do
+	${0}
+end
+endsnippet
+
+snippet defd "@doc .. def .. do .. end"
+@doc """
+${1:doc string}
+"""
+def ${2:name} do
+	${0}
+end
+endsnippet
+
+snippet defsd "@doc .. @spec .. def .. do .. end"
+@doc """
+${1:doc string}
+"""
+@spec ${2:name} :: ${3:no_return}
+def ${2} do
+	${0}
+end
+endsnippet
+
+snippet defim "defimpl .., for: .. do .. end"
+defimpl ${1:protocol_name}, for: ${2:data_type} do
+	${0}
+end
+endsnippet
+
+snippet defma "defmacro .. do .. end"
+defmacro ${1:name} do
+	${0}
+end
+endsnippet
+
+snippet defmo "defmodule .. do .. end"
+defmodule ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} do
+	${0}
+end
+endsnippet
+
+snippet dfp "defp .., do: .."
+defp ${1:name}, do: ${2}
+endsnippet
+
+snippet defp "defp .. do .. end"
+defp ${1:name} do
+	${0}
+end
+endsnippet
+
+snippet defpr "defprotocol .., .."
+defprotocol ${1:name}, [${0:function}]
+endsnippet
+
+snippet defr "defrecord .., .."
+defrecord ${1:record_name}, ${0:fields}
+endsnippet
+
+snippet fn "Anonymous function"
+fn ${1:args} -> ${0} end
+endsnippet
+
+snippet doc "@doc .."
+@doc """
+${0}
+"""
+endsnippet
+
+snippet mdoc "@moduledoc .."
+@moduledoc """
+${0}
+"""
+endsnippet
+
+snippet im "@impl true"
+@impl true
+endsnippet
+
+snippet docf "@doc false"
+@doc false
+endsnippet
+
+snippet mdocf "@moduledoc false"
+@moduledoc false
+endsnippet
+
+snippet rec "receive do .. end"
+receive do
+	${1} ->
+		${0}
+end
+endsnippet
+
+snippet req "require .."
+require ${0:Logger}
+endsnippet
+
+snippet imp "import .."
+import ${0:module_name}
+endsnippet
+
+snippet ali "alias .."
+alias ${0:module_name}
+endsnippet
+
+snippet test "test .. do .. end"
+test "${1:test name}" do
+	${0}
+end
+endsnippet
+
+snippet testc "test .., ctx do .. end"
+test "${1:test_name}", ctx do
+	${0}
+end
+endsnippet
+
+snippet testa "test .., .. do .. end"
+test "${1:test_name}", %{${2:arg: arg}} do
+	${0}
+end
+endsnippet
+
+snippet des "describe .. do .. end"
+describe "${1:test group subject}" do
+	${0}
+end
+endsnippet
+
+snippet exunit "ExUnit module"
+defmodule ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} do
+	use ExUnit.Case, async: true
+
+	${0}
+end
+endsnippet
+
+snippet try "try .. rescue .. end"
+try do
+	${1:${VISUAL}}
+rescue
+	${2} -> ${0}
+end
+endsnippet
+
+snippet qu "quote do .. end"
+quote do
+	${1}
+end
+endsnippet
+
+snippet beh "@behaviour .."
+@behaviour ${1:Mix.Task}
+${0}
+endsnippet
+
+snippet p "|> .."
+|> ${0}
+endsnippet
+
+snippet >e "|> Enum.each(..)"
+|> Enum.each(fn ${1} -> ${0} end)
+endsnippet
+
+snippet >m "|> Enum.map(..)"
+|> Enum.map(fn ${1} -> ${0} end)
+endsnippet
+
+snippet >f "|> Enum.filter(..)"
+|> Enum.filter(fn ${1} -> ${0} end)
+endsnippet
+
+snippet >r "|> Enum.reduce(..)"
+|> Enum.reduce(${1:acc}, fn ${2}, ${3:acc} -> ${0} end)
+endsnippet
+
+snippet >i "|> IO.inspect"
+|> IO.inspect
+endsnippet
+
+snippet >il "|> IO.inspect(label: ..)"
+|> IO.inspect(label: "${1:label}")
+endsnippet
+
+snippet genserver "Basic genserver"
+use GenServer
+
+@doc false
+def start_link do
+	GenServer.start_link(__MODULE__, ${1:Map.new})
+end
+
+@impl true
+def init(state) do
+	{:ok, state}
+end
+endsnippet
