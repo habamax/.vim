@@ -14,8 +14,6 @@ if !has('nvim')
 	set columns=999
 	set lines=999
 endif
-set columns=999
-set lines=999
 
 fun! s:base16_customize() abort "{{{
 	call Base16hi("Title", "", "", "", "", "bold", "")
