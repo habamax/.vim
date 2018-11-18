@@ -1,9 +1,11 @@
 if has("gui_macvim")
-	set gfn=Hack:h12,Menlo:h14
+	set gfn=Fantasque_Sans_Mono:h13,Hack:h12,Menlo:h14
 	set macmeta
 	let macvim_skip_colorscheme = 1
 elseif has("unix")
-	set gfn=Hack\ 10,DejaVu\ Sans\ Mono\ 12,Monospace\ 12
+	set gfn=Fantasque\ Sans\ Mono\ 13,Hack\ 10,DejaVu\ Sans\ Mono\ 12,Monospace\ 12
+elseif has('nvim')
+	GuiFont! Fantasque\ Sans\ Mono:h13
 else
 	set gfn=Fantasque_Sans_Mono:h13,Hack:h10,Consolas:h14
 endif
