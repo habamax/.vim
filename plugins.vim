@@ -22,17 +22,12 @@ endif
 
 " UltiSnips and Completor {{{
 if has('python') || has('python3')
-	" let g:UltiSnipsExpandTrigger = '<C-j>'
-	" let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-	" let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-	
 	let g:UltiSnipsExpandTrigger = '<tab>'
 	let g:UltiSnipsJumpForwardTrigger = '<tab>'
 
 	let g:UltiSnipsSnippetsDir=fnamemodify($MYVIMRC, ":p:h")."/snips"
 	let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
 	packadd ultisnips
-	" packadd vim-snippets
 
 	" Completor and ultisnips to reuse TAB key
 	fun! Tab_Or_Complete()
