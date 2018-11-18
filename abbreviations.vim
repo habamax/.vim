@@ -16,13 +16,13 @@ inorea -ю ->
 inorea =Ю =>
 inorea =ю =>
 
-" bullets
-inorea -* •
-inorea --* ▪
-
 inorea teh the
 inorea tihs this
+inorea thsi this
 inorea taht that
+inorea thta that
+inorea waht what
+inorea whta what
 
 inorea todo: TODO:
 inorea ещвщ TODO:
