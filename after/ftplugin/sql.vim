@@ -4,4 +4,5 @@
 setlocal formatprg=sqlformat\ -s\ -a\ --keywords\ upper\ --wrap_after\ 120\ -
 " setlocal formatprg=sqlformat\ -r\ -a\ --keywords\ upper\ -
 
-setlocal commentstring=--%s
+" setlocal commentstring=--\ %s
+let &l:commentstring = "-- %s"
