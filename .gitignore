@@ -1,6 +1,7 @@
 plugged/
 pack/minpac/
 pack/habamax/start/vim-evalvim/
+pack/habamax/start/vim-asciidoctor/
 autoload/plug.vim.old
 rplugin.vim
 *.html
