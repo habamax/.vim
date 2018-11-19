@@ -25,8 +25,8 @@ if has('python') || has('python3')
 	let g:UltiSnipsExpandTrigger = '<tab>'
 	let g:UltiSnipsJumpForwardTrigger = '<tab>'
 
-	let g:UltiSnipsSnippetsDir=fnamemodify($MYVIMRC, ":p:h")."/snips"
-	let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
+	" let g:UltiSnipsSnippetsDir=fnamemodify($MYVIMRC, ":p:h")."/snips"
+	" let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
 	packadd ultisnips
 
 	" Completor and ultisnips to reuse TAB key
@@ -52,13 +52,11 @@ if has('python') || has('python3')
 	endfun
 
 	" " Use `tab` key to select completions.  Default is arrow keys.
-	" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-	" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-	" inoremap <expr> <Tab> Tab_Or_Complete()
 	au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=Tab_Or_Complete()<cr>"
 
 	" Use tab to trigger auto completion.  Default suggests completions as you type.
 	let g:completor_auto_trigger = 1
+
 	" if has('win32')
 	" 	let g:completor_python_binary = expand("~/scoop/apps/python/current/python.exe")
 	" endif
@@ -106,6 +104,7 @@ endif
 
 " Asciidoctor {{{
 " There will be asciidoctor plugin here
+let g:asciidoctor_executable = 'asciidoctor'
 let g:asciidoctor_extensions = ['asciidoctor-diagram', 'asciidoctor-rouge']
 let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram']
 let g:asciidoctor_pdf_themes_path = '~/docs/AsciiDocThemes'
