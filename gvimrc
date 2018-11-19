@@ -35,23 +35,32 @@ fun! s:base16_zenburn_customize() abort "{{{
 	call Base16hi("Delimiter", "8f8f8f", "", "", "", "", "")
 	call Base16hi("SpecialChar", "dca3a3", "", "", "", "", "")
 endfun
+" }}}
+
+fun! s:base16_tomorrow_cusomize() abort "{{{
+	call Base16hi("StatusLine", "505050", "", "", "", "", "")
+endfun
+" }}}
 
 augroup on_change_colorscheme
 	autocmd!
 	autocmd ColorScheme base16* call s:base16_customize()
 	autocmd ColorScheme base16-zenburn call s:base16_zenburn_customize()
+	autocmd ColorScheme base16-tomorrow call s:base16_tomorrow_cusomize()
 augroup END
-" }}}
 
 " DARK
 " colo base16-oceanicnext
+" colo base16-tomorrow-night
 " colo base16-grayscale-dark
 " LIGHT
 " colo base16-one-light
-colo base16-grayscale-light
+colo base16-tomorrow
+" colo base16-grayscale-light
 
 " let g:duo_themes = ['base16-oceanicnext', 'base16-one-light']
-let g:duo_themes = ['base16-grayscale-light', 'base16-grayscale-dark']
+let g:duo_themes = ['base16-tomorrow-night', 'base16-tomorrow']
+" let g:duo_themes = ['base16-grayscale-light', 'base16-grayscale-dark']
 fun! ToggleColorscheme()
 	let color = filter(copy(g:duo_themes), {k,v-> v != g:colors_name})[0]
 	exe "colorscheme ".color
