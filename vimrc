@@ -270,6 +270,10 @@ command! JustOneInnerSpace :let pos=getpos('.')<bar>
 			\:nohl<bar>
 			\:echo 'Just one space'
 
+" Not for Windows
+" Write to a privileged file
+command! W w !sudo tee "%" > /dev/null
+
 
 " RU {{{1
 " Keymap внутренняя раскладка
