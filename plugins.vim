@@ -30,7 +30,7 @@ if has('python') || has('python3')
 	packadd ultisnips
 
 	" Completor and ultisnips to reuse TAB key
-	fun! Tab_Or_Complete()
+	fun! Tab_Or_Complete() "{{{
 		call UltiSnips#ExpandSnippet()
 		if g:ulti_expand_res == 0
 			if pumvisible()
@@ -40,7 +40,8 @@ if has('python') || has('python3')
 				if g:ulti_jump_forwards_res == 0
 					" If completor is not open and we are in the middle of typing a word then
 					" `tab` opens completor menu.
-					if col('.')>1 && strpart( getline('.'), col('.')-3, 2 ) =~ '\%(->\)\|\%(.\w\)\|\%(.\.\)'
+					let inp_str = strpart( getline('.'), col('.')-3, 2 )
+					if col('.')>1 && (inp_str =~ '^\w$' || inp_str =~ '\%(->\)\|\%(.\w\)\|\%(\w\.\)')
 						return "\<C-R>=completor#do('complete')\<CR>"
 					else
 						return "\<TAB>"
@@ -49,13 +50,14 @@ if has('python') || has('python3')
 			endif
 		endif
 		return ""
-	endfun
+	endf "}}}
 
-	" " Use `tab` key to select completions.  Default is arrow keys.
 	au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=Tab_Or_Complete()<cr>"
 
-	" Use tab to trigger auto completion.  Default suggests completions as you type.
-	let g:completor_auto_trigger = 1
+	" should be together if auto trigger is off
+	let g:completor_complete_options = "menuone,preview"
+	let g:completor_min_chars = 1
+	let g:completor_auto_trigger = 0
 
 	" if has('win32')
 	" 	let g:completor_python_binary = expand("~/scoop/apps/python/current/python.exe")
