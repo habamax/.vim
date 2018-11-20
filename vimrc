@@ -150,6 +150,12 @@ if !has("nvim")
 	let &undodir = s:other_dir . '/.vim_undo/,.'
 endif
 
+" NETRW {{{1
+let g:netrw_banner = 0
+let g:netrw_preview = 1
+let g:netrw_alto = 0
+let g:netrw_liststyle = 3
+
 " Mappings {{{1
 
 " Escaping
@@ -197,16 +203,19 @@ nnoremap <Leader>ts :%s/\<<C-R><C-W>\>//gc<Left><Left><Left>
 " nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " open init file (vimrc)
-noremap <Leader>fvi :e $MYVIMRC<CR>
+nnoremap <Leader>fvi :e $MYVIMRC<CR>
 " open gvim init file (gvimrc)
-noremap <Leader>fvg :e $MYGVIMRC<CR>
+nnoremap <Leader>fvg :e $MYGVIMRC<CR>
 " open plugins settings file
-noremap <Leader>fvs :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
+nnoremap <Leader>fvs :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
 " open plugins list file
-noremap <Leader>fvp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/minpac_list.vim"<CR>
+nnoremap <Leader>fvp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/minpac_list.vim"<CR>
 
 " open global notes file
-noremap <Leader>fn :e ~/docs/notes.adoc<CR>
+nnoremap <Leader>fn :e ~/docs/notes.adoc<CR>
+
+" Current Directory file explorer
+nnoremap <Leader>fe :Explore<CR>
 
 " built-in terminal
 tnoremap <esc> <C-\><C-n>
