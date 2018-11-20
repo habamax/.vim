@@ -23,6 +23,8 @@ inorea taht that
 inorea thta that
 inorea waht what
 inorea whta what
+inorea rigth right
+inorea lenght length
 
 inorea todo: TODO:
 inorea ещвщ TODO:
@@ -44,6 +46,5 @@ inorea cau: CAUTION:
 inorea сфг CAUTION:
 
 " Date and Time
-inorea ddt <C-R>=strftime("%Y-%m-%d %X")<CR>
+inorea ddt <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 inorea ddd <C-R>=strftime("%Y-%m-%d")<CR>
-inorea ttt <C-R>=strftime("%X")<CR>
