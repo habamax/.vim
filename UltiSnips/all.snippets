@@ -4,6 +4,14 @@ global !p
 from vimsnippets import foldmarker, make_box, get_comment_format
 endglobal
 
+snippet * "Unicode small circle"
+• $0
+endsnippet
+
+snippet -> "Unicode arrow"
+→ $0
+endsnippet
+
 snippet box "A nice box with the current comment symbol" b
 `!p
 box = make_box(len(t[1]))
