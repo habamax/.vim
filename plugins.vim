@@ -7,11 +7,16 @@ let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 2
 let delimitMate_matchpairs = "(:),[:],{:}"
 
-" fugitive
-nnoremap <leader>gs :Gstatus<CR>
-" nnoremap <leader>gp :Gpush<CR>
-nnoremap <leader>gw :Gwrite<CR>
-" nnoremap <leader>gl :Glog<CR>
+" Fugitive and Git-Gutter
+if executable("git")
+	nnoremap <leader>gs :Gstatus<CR>
+	" nnoremap <leader>gp :Gpush<CR>
+	nnoremap <leader>gw :Gwrite<CR>
+	" nnoremap <leader>gl :Glog<CR>
+
+	packadd vim-fugitive
+	packadd vim-gitgutter
+endif
 
 " Neomake
 if exists(":Neomake") == 2
@@ -77,9 +82,7 @@ if has('python') || has('python3')
 	let g:Lf_WorkingDirectoryMode = 'Af'
 	let g:Lf_FollowLinks = 1
 	let g:Lf_CommandMap = {'<ESC>': ['<C-Space>', '<ESC>']}
-	let g:Lf_NormalMap = {
-				\ "File":   [["u", ':LeaderfFile ..<CR>']]
-				\}
+	let g:Lf_NormalMap = {"File":   [["u", ':LeaderfFile ..<CR>']]}
 	cabbrev lf LeaderfFile
 	nnoremap <leader>fh :LeaderfHelp<CR>
 	nnoremap <leader>fm :LeaderfMru<CR>
@@ -175,7 +178,3 @@ nmap ga <Plug>(EasyAlign)
 
 " vim-sexp
 let g:sexp_enable_insert_mode_mappings = 0
-
-
-" NERDTree
-nnoremap <leader>ft :NERDTreeToggle<CR>

@@ -8,12 +8,6 @@ command! PackUpdate packadd minpac | runtime minpac_list.vim | call minpac#updat
 command! PackClean  packadd minpac | runtime minpac_list.vim | call minpac#clean()
 command! PackStatus packadd minpac | runtime minpac_list.vim | call minpac#status()
 
-" External dependencies {{{1
-if executable("git")
-	packadd vim-fugitive
-	packadd vim-gitgutter
-endif
-
 " Plugins {{{1
 if exists('*minpac#init')
 	call minpac#init()
@@ -100,7 +94,7 @@ if exists('*minpac#init')
 
 	call minpac#add('elixir-editors/vim-elixir')
 
-	call minpac#add('scrooloose/nerdtree')
+	" call minpac#add('scrooloose/nerdtree')
 
 	" colors
 	call minpac#add('dracula/vim', {'name': 'dracula'})
