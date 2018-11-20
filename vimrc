@@ -211,8 +211,7 @@ noremap <Leader>fn :e ~/docs/notes.adoc<CR>
 " built-in terminal
 tnoremap <esc> <C-\><C-n>
 
-nnoremap <Leader><tab> :bn<CR>
-nnoremap <Leader><leader><tab> :bp<CR>
+nnoremap <Leader><tab> <C-^>
 nnoremap <Leader><leader>t :tabnew<CR>
 
 nnoremap <Leader>cd :lcd %:p:h <bar> pwd<CR>
