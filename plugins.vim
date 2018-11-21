@@ -176,5 +176,17 @@ vmap ga <Plug>(LiveEasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+" vim-swap settings {{{
+let g:swap_no_default_key_mappings = 1
+" text objects
+omap i, <Plug>(swap-textobject-i)
+xmap i, <Plug>(swap-textobject-i)
+omap a, <Plug>(swap-textobject-a)
+xmap a, <Plug>(swap-textobject-a)
+nmap g< <Plug>(swap-prev)
+nmap g> <Plug>(swap-next)
+nmap g. <Plug>(swap-interactive)
+" }}}
+
 " vim-sexp
 let g:sexp_enable_insert_mode_mappings = 0

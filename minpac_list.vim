@@ -13,9 +13,6 @@ if exists('*minpac#init')
 	call minpac#init()
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-	call minpac#add('wellle/targets.vim')
-
-	call minpac#add('tpope/vim-surround')
 	call minpac#add('editorconfig/editorconfig-vim')
 
 	" Tim Pope is a beast. You better use his stuff ...
@@ -44,17 +41,8 @@ if exists('*minpac#init')
 	" [c prev hunk
 	call minpac#add('airblade/vim-gitgutter', {'type': 'opt'})
 
-	" call minpac#add('vim-airline/vim-airline')
-	" call minpac#add('vim-airline/vim-airline-themes')
-	" call minpac#add('itchyny/lightline.vim')
-
-
 	call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
 	call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
-
-	call minpac#add('jreybert/vimagit')
-
-	" call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
 
 	" Python should be installed. PATH should be set up to python37.dll
 	call minpac#add('maralla/completor.vim', {'type': 'opt'})
@@ -69,6 +57,11 @@ if exists('*minpac#init')
 	" use gsib to sort in a parenthesis
 	call minpac#add('christoomey/vim-sort-motion')
 
+	" swap comma separated stuff with g> g< gs
+	" gs will probably interfere with vim-sort-motion
+	call minpac#add('machakann/vim-swap')
+
+
 	call minpac#add('christoomey/vim-titlecase')
 
 	" Plug 'junegunn/rainbow_parentheses.vim'
@@ -79,7 +72,6 @@ if exists('*minpac#init')
 	call minpac#add('junegunn/vim-easy-align')
 
 	call minpac#add('kana/vim-textobj-user')
-	" call minpac#add('kana/vim-textobj-entire')
 	call minpac#add('kana/vim-textobj-indent')
 
 	call minpac#add('guns/vim-sexp')
@@ -88,13 +80,10 @@ if exists('*minpac#init')
 
 	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
 	call minpac#add('honza/vim-snippets', {'type': 'opt'})
-	" call minpac#add('ipod825/vim-netranger')
 
 	call minpac#add('mattn/emmet-vim')
 
 	call minpac#add('elixir-editors/vim-elixir')
-
-	" call minpac#add('scrooloose/nerdtree')
 
 	" colors
 	call minpac#add('dracula/vim', {'name': 'dracula'})
