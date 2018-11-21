@@ -83,7 +83,10 @@ if exists('*minpac#init')
 
 	call minpac#add('mattn/emmet-vim')
 
+	" languages
 	call minpac#add('elixir-editors/vim-elixir')
+	call minpac#add('udalov/kotlin-vim')
+	
 
 	" colors
 	call minpac#add('dracula/vim', {'name': 'dracula'})
