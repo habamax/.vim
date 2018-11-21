@@ -43,7 +43,7 @@ if has('python') || has('python3')
 					" If completor is not open and we are in the middle of typing a word then
 					" `tab` opens completor menu.
 					let inp_str = strpart( getline('.'), col('.')-3, 2 )
-					if col('.')>1 && (inp_str =~ '^\w$' || inp_str =~ '\%(->\)\|\%(.\w\)\|\%(\w\.\)')
+					if col('.')>1 && (inp_str =~ '^\w$' || inp_str =~ '\%(->\)\|\%(.\w\)\|\%(\w\.\)\|\%(./\)')
 						return "\<C-R>=completor#do('complete')\<CR>"
 					else
 						return "\<TAB>"
