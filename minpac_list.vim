@@ -25,7 +25,7 @@ if exists('*minpac#init')
 	call minpac#add('tpope/vim-unimpaired')
 	call minpac#add('tpope/vim-eunuch')
 	call minpac#add('tpope/vim-fugitive', {'type': 'opt'})
-	call minpac#add('tpope/vim-sexp-mappings-for-regular-people')
+	" call minpac#add('tpope/vim-sexp-mappings-for-regular-people')
 	call minpac#add('tpope/vim-fireplace')
 	call minpac#add('tpope/vim-endwise')
 	call minpac#add('tpope/vim-dadbod')
@@ -74,7 +74,8 @@ if exists('*minpac#init')
 	call minpac#add('kana/vim-textobj-user')
 	call minpac#add('kana/vim-textobj-indent')
 
-	call minpac#add('guns/vim-sexp')
+	" no clojure and racket for now
+	" call minpac#add('guns/vim-sexp')
 
 	call minpac#add('w0rp/ale')
 
