@@ -11,3 +11,82 @@
 Nothing fancy, just to keep it safe and available.
 
 image::image1.png[]
+
+
+== Colors
+
+Collection of `base16` colorschemes has quite a number of good colors defined.
+
+Nonetheless they still have to be customized:
+
+.part of gvimrc
+[source,vim]
+--------
+
+" Titles should be bold
+" Statements should not be bold
+" Active Statusline should be bold
+" LineNr and SignColumn to have the same background as the rest
+" GitGutter uses initial SignColumn background (which is different now). Reset it.
+" lCursor is the same as Cursor -- change it.
+" LeaderF uses colors that don't work well with different colorschemes.
+fun! s:base16_customize() abort "{{{
+	call Base16hi("Title", "", "", "", "", "bold", "")
+	call Base16hi("Statement", "", "", "", "", "none", "")
+	call Base16hi("Underlined", "", "", "", "", "underline", "")
+	call Base16hi("StatusLine", "", "", "", "", "bold", "")
+	call Base16hi("LineNr", "", g:base16_gui00, "", "", "", "")
+	call Base16hi("SignColumn", "", g:base16_gui00, "", "", "", "")
+	call Base16hi("GitGutterAdd", "", g:base16_gui00, "", "", "", "")
+	call Base16hi("GitGutterChange", "", g:base16_gui00, "", "", "", "")
+	call Base16hi("GitGutterDelete", "", g:base16_gui00, "", "", "", "")
+	call Base16hi("GitGutterChangeDelete", "", g:base16_gui00, "", "", "", "")
+	hi! link lCursor IncSearch
+	hi! link Lf_hl_match Title
+endfun
+" }}}
+
+" base16 zenburn has very strange blackish brackets/delimiters.
+" get rid of it
+fun! s:base16_zenburn_customize() abort "{{{
+	call Base16hi("Delimiter", "8f8f8f", "", "", "", "", "")
+	call Base16hi("SpecialChar", "dca3a3", "", "", "", "", "")
+endfun
+" }}}
+
+" base16 tomorrow statusline is too non-contrast
+fun! s:base16_tomorrow_cusomize() abort "{{{
+	call Base16hi("StatusLine", "505050", "", "", "", "", "")
+endfun
+" }}}
+
+augroup on_change_colorscheme
+	autocmd!
+	autocmd ColorScheme base16* call s:base16_customize()
+	autocmd ColorScheme base16-zenburn call s:base16_zenburn_customize()
+	autocmd ColorScheme base16-tomorrow call s:base16_tomorrow_cusomize()
+augroup END
+
+--------
+
+Usually I prefer light background colors but sometimes there is a room for a dark background:
+
+.another part of gvimrc
+[source,vim]
+--------
+
+let g:duo_themes = ['base16-one-light', 'base16-oceanicnext']
+" let g:duo_themes = ['base16-grayscale-light', 'base16-grayscale-dark']
+" let g:duo_themes = ['base16-tomorrow', 'base16-tomorrow-night']
+fun! ToggleColorscheme()
+	let color = filter(copy(g:duo_themes), {k,v-> v != g:colors_name})[0]
+	exe "colorscheme ".color
+endf
+
+exe "colorscheme ".g:duo_themes[0]
+
+" Mimic toggling behaviour of Tim Popes unimpaired plugin
+nnoremap yot :call ToggleColorscheme()<CR>
+
+--------
+
