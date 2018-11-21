@@ -272,7 +272,9 @@ command! JustOneInnerSpace :let pos=getpos('.')<bar>
 
 " Not for Windows
 " Write to a privileged file
-command! W w !sudo tee "%" > /dev/null
+if has("unix") || has("osxdarwin")
+	command! W w !sudo tee "%" > /dev/null
+endif
 
 
 " RU {{{1
