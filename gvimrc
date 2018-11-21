@@ -49,22 +49,15 @@ augroup on_change_colorscheme
 	autocmd ColorScheme base16-tomorrow call s:base16_tomorrow_cusomize()
 augroup END
 
-" DARK
-" colo base16-oceanicnext
-" colo base16-tomorrow-night
-" colo base16-grayscale-dark
-" LIGHT
-" colo base16-one-light
-colo base16-tomorrow
-" colo base16-grayscale-light
-
-" let g:duo_themes = ['base16-oceanicnext', 'base16-one-light']
-let g:duo_themes = ['base16-tomorrow-night', 'base16-tomorrow']
+let g:duo_themes = ['base16-one-light', 'base16-oceanicnext']
 " let g:duo_themes = ['base16-grayscale-light', 'base16-grayscale-dark']
+" let g:duo_themes = ['base16-tomorrow', 'base16-tomorrow-night']
 fun! ToggleColorscheme()
 	let color = filter(copy(g:duo_themes), {k,v-> v != g:colors_name})[0]
 	exe "colorscheme ".color
 endf
+
+exe "colorscheme ".g:duo_themes[0]
 
 " Mimic toggling behaviour of Tim Popes unimpaired plugin
 nnoremap yot :call ToggleColorscheme()<CR>
