@@ -10,9 +10,6 @@ let delimitMate_matchpairs = "(:),[:],{:}"
 " Fugitive and Git-Gutter
 if executable("git")
 	nnoremap <leader>gs :Gstatus<CR>
-	" nnoremap <leader>gp :Gpush<CR>
-	nnoremap <leader>gw :Gwrite<CR>
-	" nnoremap <leader>gl :Glog<CR>
 
 	packadd vim-fugitive
 	packadd vim-gitgutter
