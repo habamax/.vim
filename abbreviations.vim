@@ -23,25 +23,26 @@ inorea lenght length
 inorea knwo know
 inorea kwno know
 inorea konw know
+inorea clena clean
 
 inorea todo: TODO:
-inorea ещвщ TODO:
+inorea ещвщЖ TODO:
 inorea fixme: FIXME:
 inorea ашчьу FIXME:
 inorea xxx: XXX:
-inorea ччч XXX:
+inorea чччЖ XXX:
 
 " Most useful for AsciiDoc but also good for others
 inorea note: NOTE:
-inorea тщеу NOTE:
+inorea тщеуЖ NOTE:
 inorea warn: WARNING:
-inorea цфкт WARNING:
+inorea цфктЖ WARNING:
 inorea impo: IMPORTANT:
-inorea шьзщ IMPORTANT:
+inorea шьзщЖ IMPORTANT:
 inorea tip: TIP:
-inorea ешз TIP:
+inorea ешзЖ TIP:
 inorea cau: CAUTION:
-inorea сфг CAUTION:
+inorea сфгЖ CAUTION:
 
 " Date and Time
 inorea ddt <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
