@@ -1,0 +1,13 @@
+snippet snip "snippet .. endsnippet" b
+`!p snip.rv = "snippet"` ${1:Trigger} "${2:Description}" ${3:b}
+${0:${VISUAL}}
+`!p snip.rv = "endsnippet"`
+endsnippet
+
+snippet vis "${0:${VISUAL}}" i
+\$\{${1:0}:\$\{VISUAL\}\}
+endsnippet
+
+snippet $ "Snip placeholder" i
+\$\{${1:0}:${2:default}\}
+endsnippet
