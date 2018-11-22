@@ -1,9 +1,4 @@
 inorea haba@ habamax@gmail.com
-inorea рфиф" habamax@gmail.com
-inorea maxkim Maxim Kim
-inorea ьфчлшь Maxim Kim
-inorea макским Максим Ким
-inorea vfrcrbv Максим Ким
 
 inorea хъ []<Left>
 inorea ХЪ {}<Left>
@@ -25,6 +20,9 @@ inorea waht what
 inorea whta what
 inorea rigth right
 inorea lenght length
+inorea knwo know
+inorea kwno know
+inorea konw know
 
 inorea todo: TODO:
 inorea ещвщ TODO:
