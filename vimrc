@@ -235,26 +235,6 @@ tnoremap <A-j> <C-w>j
 tnoremap <A-k> <C-w>k
 tnoremap <A-l> <C-w>l
 
-" temporary here
-
-fun! s:findnext(pattern)
-	" c - accept matches at the current cursor
-	return searchpos(a:pattern, 'ecW')
-endfun
-
-fun! s:haba_open_below()
-	let pattern='\v[)}\]]'
-	let pos = s:findnext(pattern)
-
-	if pos != [0, 0]
-		call setpos('.', [0, pos[0], pos[1], 0])
-		startinsert
-	endif
-endfun
-
-nnoremap go :call <sid>haba_open_below()<CR><right><CR>
-" TODO: make gO, move it to a separate package
-
 " Commands {{{1
 
 " remove trailing spaces
