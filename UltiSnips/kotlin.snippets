@@ -1,4 +1,10 @@
-snippet defm "def main(args: ...)"
+snippet f "fun name() {..}"
+fun ${1:name}($2) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet fm "fun main(args: ...)"
 fun main(args: Array<String>) {
 	${0:${VISUAL}}
 }
