@@ -29,6 +29,21 @@ fun! s:base16_customize() abort "{{{
 	call Base16hi("GitGutterChangeDelete", "", g:base16_gui00, "", "", "", "")
 	hi! link lCursor IncSearch
 	hi! link Lf_hl_match Title
+
+	" customize leaderF
+    let g:Lf_StlPalette = {
+            \   'stlName': {'gui': 'NONE', 'guifg': '#'.g:base16_gui04, 'guibg': '#'.g:base16_gui02, 'cterm': 'bold', 'ctermfg': g:base16_cterm04, 'ctermbg': g:base16_cterm02},
+            \   'stlCategory': {'gui': 'bold', 'guifg': '#'.g:base16_gui0E, 'guibg': '#'.g:base16_gui02, 'cterm': 'bold', 'ctermfg': g:base16_cterm04, 'ctermbg': g:base16_cterm02},
+            \   'stlNameOnlyMode': {'gui': 'NONE', 'guifg': '#'.g:base16_gui0D, 'guibg': '#'.g:base16_gui02, 'cterm': 'bold', 'ctermfg': g:base16_cterm04, 'ctermbg': g:base16_cterm02},
+            \   'stlFullPathMode': {'gui': 'NONE', 'guifg': '#'.g:base16_gui0D, 'guibg': '#'.g:base16_gui02, 'cterm': 'bold', 'ctermfg': g:base16_cterm04, 'ctermbg': g:base16_cterm02},
+            \   'stlFuzzyMode': {'gui': 'NONE', 'guifg': '#'.g:base16_gui0D, 'guibg': '#'.g:base16_gui02, 'cterm': 'bold', 'ctermfg': g:base16_cterm04, 'ctermbg': g:base16_cterm02},
+            \   'stlRegexMode': {'gui': 'NONE', 'guifg': '#'.g:base16_gui0D, 'guibg': '#'.g:base16_gui02, 'cterm': 'bold', 'ctermfg': g:base16_cterm04, 'ctermbg': g:base16_cterm02},
+            \   'stlCwd': {'gui': 'NONE', 'guifg': '#'.g:base16_gui04, 'guibg': '#'.g:base16_gui02, 'cterm': 'bold', 'ctermfg': g:base16_cterm04, 'ctermbg': g:base16_cterm02},
+            \   'stlBlank': {'gui': 'NONE', 'guifg': '#'.g:base16_gui04, 'guibg': '#'.g:base16_gui02, 'cterm': 'bold', 'ctermfg': g:base16_cterm04, 'ctermbg': g:base16_cterm02},
+            \   'stlLineInfo': {'gui': 'NONE', 'guifg': '#'.g:base16_gui04, 'guibg': '#'.g:base16_gui02, 'cterm': 'bold', 'ctermfg': g:base16_cterm04, 'ctermbg': g:base16_cterm02},
+            \   'stlTotal': {'gui': 'NONE', 'guifg': '#'.g:base16_gui04, 'guibg': '#'.g:base16_gui02, 'cterm': 'bold', 'ctermfg': g:base16_cterm04, 'ctermbg': g:base16_cterm02}
+            \ }
+	let g:leaderf#colorscheme#default#palette = g:Lf_StlPalette
 endfun
 " }}}
 
