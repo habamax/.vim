@@ -90,3 +90,32 @@ nnoremap yot :call ToggleColorscheme()<CR>
 
 --------
 
+
+== Folding text
+
+Don't really like default folding text vim has. But it is quite easy to change.
+
+[source,vim]
+--------
+
+" fill chars to be spaces instead of dashes
+set fillchars=fold:\ ,vert:│
+
+" and the text
+set foldtext=MyFoldText()
+fun! MyFoldText()
+	let line = getline(v:foldstart)
+	let lines = (v:foldend - v:foldstart + 1)
+	let sub = substitute(line, '^//\|=\+\|["#]\|/\*\|\*/\|{{{\d\=', '', 'g')
+	let sub = substitute(sub, '^[[:space:]]*\|[[:space:]]*$', ' ', 'g')
+	let text = strpart(sub, 0, winwidth(0) - v:foldlevel - 6 - strlen(lines))
+	if strlen(sub) > strlen(text)
+		let text = text.'… '
+	endif
+	return repeat('●', v:foldlevel) . text .'('. lines .')'
+endf
+
+--------
+
+image::folds.png[]
+
