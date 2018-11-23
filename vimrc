@@ -67,7 +67,6 @@ set showmode
 " UTF-8 symbols, good font needed
 " set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
 set listchars=tab:→\ ,eol:┐,trail:·
-" set showbreak=↪
 set showbreak=╰
 set nolist
 " ╙⇾●➠➥➝➙⇰↪⊂➘↳→│↑←↓↘➝┐↙
@@ -99,7 +98,7 @@ au! GuiEnter * set t_vb=
 set t_vb=
 
 " Text {{{1
-set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab smarttab
+set tabstop=8 softtabstop=-1 shiftwidth=0 noexpandtab smarttab
 set shiftround
 set autoindent
 set hlsearch incsearch ignorecase
