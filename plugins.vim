@@ -187,5 +187,8 @@ nmap g> <Plug>(swap-next)
 nmap g. <Plug>(swap-interactive)
 " }}}
 
-" vim-sexp
-let g:sexp_enable_insert_mode_mappings = 0
+" Goyo && Limelight {{{
+nnoremap yog :Goyo<CR>
+autocmd! User GoyoEnter Limelight 
+autocmd! User GoyoLeave Limelight!
+" }}}

@@ -26,9 +26,8 @@ if exists('*minpac#init')
 	call minpac#add('tpope/vim-eunuch')
 	call minpac#add('tpope/vim-fugitive', {'type': 'opt'})
 	" call minpac#add('tpope/vim-sexp-mappings-for-regular-people')
-	call minpac#add('tpope/vim-fireplace')
+	" call minpac#add('tpope/vim-fireplace')
 	call minpac#add('tpope/vim-endwise')
-	call minpac#add('tpope/vim-dadbod')
 
 	call minpac#add('tmhedberg/matchit')
 
@@ -47,18 +46,15 @@ if exists('*minpac#init')
 	" Python should be installed. PATH should be set up to python37.dll
 	call minpac#add('maralla/completor.vim', {'type': 'opt'})
 
-	" well, this plugin will quite good
-	" breaks some russian letters. Like жЖхХъЪ
-	" call minpac#add('jiangmiao/auto-pairs')
-
 	call minpac#add('Raimondi/delimitMate')
 
 	" use gsip to sort linewise
 	" use gsib to sort in a parenthesis
 	call minpac#add('christoomey/vim-sort-motion')
 
-	" swap comma separated stuff with g> g< gs
-	" gs will probably interfere with vim-sort-motion
+	" swap comma separated stuff with `g>` `g<` `gs`
+	" `gs` will probably interfere with vim-sort-motion
+	" map it to `g.`
 	call minpac#add('machakann/vim-swap')
 
 
@@ -88,12 +84,14 @@ if exists('*minpac#init')
 	call minpac#add('elixir-editors/vim-elixir')
 	call minpac#add('udalov/kotlin-vim')
 	
+	" Distraction free
+	call minpac#add('junegunn/goyo.vim')
+	call minpac#add('junegunn/limelight.vim')
 
 	" colors
 	call minpac#add('dracula/vim', {'name': 'dracula'})
-	call minpac#add('cocopon/iceberg.vim')
 	call minpac#add('nanotech/jellybeans.vim')
-	call minpac#add('cormacrelf/vim-colors-github')
+	call minpac#add('arcticicestudio/nord-vim')
 	call minpac#add('chriskempson/base16-vim')
 
 
