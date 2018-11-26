@@ -27,8 +27,6 @@ if has('python') || has('python3')
 	let g:UltiSnipsExpandTrigger = '<tab>'
 	let g:UltiSnipsJumpForwardTrigger = '<tab>'
 
-	" let g:UltiSnipsSnippetsDir=fnamemodify($MYVIMRC, ":p:h")."/snips"
-	" let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
 	packadd ultisnips
 
 	" Completor and ultisnips to reuse TAB key
@@ -192,3 +190,8 @@ nnoremap yog :Goyo<CR>
 autocmd! User GoyoEnter Limelight 
 autocmd! User GoyoLeave Limelight!
 " }}}
+
+" Grepper {{{
+" let g:grepper.dir = 'repo,file'
+" }}}
+
