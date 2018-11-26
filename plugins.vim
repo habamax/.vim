@@ -191,7 +191,8 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 " }}}
 
-" Grepper {{{
-" let g:grepper.dir = 'repo,file'
+" vim-skipit {{{
+let g:skipit_default_mappings = 0
+imap <A-;> <Plug>SkipItForward
 " }}}
 
