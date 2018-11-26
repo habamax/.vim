@@ -18,6 +18,7 @@ endif
 fun! s:base16_customize() abort "{{{
 	call Base16hi("Title", "", "", "", "", "bold", "")
 	call Base16hi("Statement", "", "", "", "", "none", "")
+	call Base16hi("Comment", "", "", "", "", "italic", "")
 	call Base16hi("Underlined", "", "", "", "", "underline", "")
 	call Base16hi("StatusLine", "", "", "", "", "bold", "")
 	call Base16hi("htmlBold", g:base16_gui05, "", "", "", "bold", "")
