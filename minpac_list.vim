@@ -64,6 +64,9 @@ fun! PackInit() abort
 
 	call minpac#add('kana/vim-textobj-user')
 	call minpac#add('kana/vim-textobj-indent')
+	call minpac#add('kana/vim-textobj-function')
+	call minpac#add('thinca/vim-textobj-function-javascript')
+
 
 	" no clojure and racket for now
 	" call minpac#add('guns/vim-sexp')
