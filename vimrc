@@ -98,7 +98,7 @@ set t_vb=
 set tabstop=4 softtabstop=-1 shiftwidth=0 noexpandtab smarttab
 set shiftround
 set autoindent
-set hlsearch incsearch ignorecase
+set nohlsearch incsearch ignorecase
 set wrap
 set nojoinspaces
 set linebreak
