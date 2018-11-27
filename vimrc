@@ -37,9 +37,6 @@ set fileformats=unix,mac,dos
 set fileformat=unix
 
 " UI {{{1
-if !has("gui_running")
-	colo industry
-endif
 set shortmess+=I
 set winaltkeys=no
 set guioptions=cme
