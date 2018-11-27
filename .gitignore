@@ -8,3 +8,4 @@ rplugin.vim
 *.html
 .netrwhist
 *.pyc
+*.temp
