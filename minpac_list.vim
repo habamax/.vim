@@ -5,13 +5,9 @@
 " OTHER:
 " git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
 
-" Commands to update and clean plugins {{{1
-command! PackUpdate packadd minpac | runtime minpac_list.vim | call minpac#update()
-command! PackClean  packadd minpac | runtime minpac_list.vim | call minpac#clean()
-command! PackStatus packadd minpac | runtime minpac_list.vim | call minpac#status()
-
 " Plugins {{{1
-if exists('*minpac#init')
+fun! PackInit() abort
+	packadd minpac
 	call minpac#init()
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
@@ -93,7 +89,10 @@ if exists('*minpac#init')
 	call minpac#add('nanotech/jellybeans.vim')
 	call minpac#add('arcticicestudio/nord-vim')
 	call minpac#add('chriskempson/base16-vim')
+endf
 
-
-endif
+" Commands to update and clean plugins {{{1
+command! PackUpdate exe 'so '.expand('%:p') | call PackInit() | call minpac#update()
+command! PackClean  exe 'so '.expand('%:p') | call PackInit() | call minpac#clean()
+command! PackStatus exe 'so '.expand('%:p') | call PackInit() | call minpac#status()
 
