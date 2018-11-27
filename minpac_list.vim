@@ -95,7 +95,7 @@ fun! PackInit() abort
 endf
 
 " Commands to update and clean plugins {{{1
-command! PackUpdate exe 'so '.expand('%:p') | call PackInit() | call minpac#update()
+command! PackUpdate exe 'so '.expand('%:p') | call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
 command! PackClean  exe 'so '.expand('%:p') | call PackInit() | call minpac#clean()
 command! PackStatus exe 'so '.expand('%:p') | call PackInit() | call minpac#status()
 
