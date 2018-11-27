@@ -1,10 +1,12 @@
 " Use minpac to utilize standard vim package stuff + git
-" First of all minpac should be installed (windows):
-" cd /d %USERPROFILE%
-" git clone https://github.com/k-takata/minpac.git vimfiles\pack\minpac\opt\minpac
+" First of all minpac should be installed:
+" WIN:
+" git clone https://github.com/k-takata/minpac.git %HOME/vimfiles/pack/minpac/opt/minpac
+" OTHER:
+" git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
 
 " Commands to update and clean plugins {{{1
-command! PackUpdate packadd minpac | runtime minpac_list.vim | call minpac#update() | call minpac#status()
+command! PackUpdate packadd minpac | runtime minpac_list.vim | call minpac#update()
 command! PackClean  packadd minpac | runtime minpac_list.vim | call minpac#clean()
 command! PackStatus packadd minpac | runtime minpac_list.vim | call minpac#status()
 
@@ -60,9 +62,6 @@ if exists('*minpac#init')
 
 	call minpac#add('christoomey/vim-titlecase')
 
-	" Plug 'junegunn/rainbow_parentheses.vim'
-	" nnoremap <leader>xp :RainbowParentheses!!<CR>
-
 	call minpac#add('mhinz/vim-grepper')
 
 	call minpac#add('junegunn/vim-easy-align')
@@ -74,6 +73,7 @@ if exists('*minpac#init')
 	" call minpac#add('guns/vim-sexp')
 
 	call minpac#add('w0rp/ale')
+	call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
 
 	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
 	call minpac#add('honza/vim-snippets', {'type': 'opt'})

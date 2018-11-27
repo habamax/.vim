@@ -2,12 +2,12 @@ source <sfile>:h/minpac_list.vim
 
 " Plugin settings
 
-" delimitmate
+" Delimitmate {{{1
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 2
 let delimitMate_matchpairs = "(:),[:],{:}"
 
-" Fugitive and Git-Gutter
+" Fugitive and Git-Gutter {{{1
 if executable("git")
 	nnoremap <leader>gs :Gstatus<CR>
 
@@ -15,14 +15,14 @@ if executable("git")
 	packadd vim-gitgutter
 endif
 
-" Neomake
+" Neomake {{{1
 if exists(":Neomake") == 2
 	autocmd! BufWritePost * Neomake
 	let g:neomake_error_sign = { 'text': '✘', 'texthl': 'ErrorSign' }
 	let g:neomake_warning_sign = { 'text': ':(', 'texthl': 'WarningSign' }
 endif
 
-" UltiSnips and Completor {{{
+" UltiSnips and Completor {{{1
 if has('python') || has('python3')
 	let g:UltiSnipsExpandTrigger = '<tab>'
 	let g:UltiSnipsJumpForwardTrigger = '<tab>'
@@ -66,9 +66,8 @@ if has('python') || has('python3')
 	packadd completor.vim
 
 endif
-"}}}
 
-" LeaderF or CtrlP {{{
+" LeaderF or CtrlP {{{1
 if has('python') || has('python3')
 	let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 	let g:Lf_ShortcutF = '<leader>ff'
@@ -100,9 +99,8 @@ else
 	endif
 	packadd ctrlp.vim
 endif
-"}}}
 
-" Asciidoctor {{{
+" Asciidoctor {{{1
 " There will be asciidoctor plugin here
 let g:asciidoctor_executable = 'asciidoctor'
 let g:asciidoctor_extensions = ['asciidoctor-diagram', 'asciidoctor-rouge']
@@ -132,8 +130,8 @@ augroup asciidoctor
 	au!
 	au BufEnter *.adoc,*.asciidoc call AsciidoctorMappings()
 augroup END
-" }}}
 
+" List Manipulation {{{1
 " I need a separate plugin for list manipulation...
 fun! ListToggleCheckBox()
 	let rx_bullets = '^\(\s*[-*]\+\s*\)'
@@ -160,20 +158,21 @@ fun! AsciidoctorPasteImage()
 	let job = job_start(g:asciidoctor_img_paste_command.fname)
 	exe "normal iimage::".fnamemodify(fname, ":t")."[]\<ESC>"
 endfun
-"}}}
 
+" TitleCase {{{1
 " use <leader>ttip to titlecase a paragraph
 let g:titlecase_map_keys = 0
 nmap <leader>tc <Plug>Titlecase
 vmap <leader>tc <Plug>Titlecase
 nmap <leader>tcc <Plug>TitlecaseLine
 
+" EasyAlign {{{1
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 vmap ga <Plug>(LiveEasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-" vim-swap settings {{{
+" vim-swap settings {{{1
 let g:swap_no_default_key_mappings = 1
 " text objects
 omap i, <Plug>(swap-textobject-i)
@@ -183,16 +182,17 @@ xmap a, <Plug>(swap-textobject-a)
 nmap g< <Plug>(swap-prev)
 nmap g> <Plug>(swap-next)
 nmap g. <Plug>(swap-interactive)
-" }}}
 
-" Goyo && Limelight {{{
+" Goyo && Limelight {{{1
 nnoremap yog :Goyo<CR>
 autocmd! User GoyoEnter Limelight 
 autocmd! User GoyoLeave Limelight!
-" }}}
 
-" vim-skipit {{{
+" vim-skipit {{{1
 let g:skipit_default_mappings = 0
 imap <A-;> <Plug>SkipItForward
-" }}}
 
+" vim-gutentags {{{1
+if executable("ctags")
+	packadd vim-gutentags
+endif
