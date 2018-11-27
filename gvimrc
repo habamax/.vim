@@ -1,3 +1,4 @@
+" Fonts {{{1
 if has("gui_macvim")
 	set gfn=Fantasque_Sans_Mono:h13,Hack:h12,Menlo:h14
 	set macmeta
@@ -10,11 +11,13 @@ else
 	set gfn=Fantasque_Sans_Mono:h13,Hack:h10,Consolas:h14
 endif
 
+" Window size {{{1
 if !has('nvim')
 	set columns=999
 	set lines=999
 endif
 
+" Colors {{{1
 fun! s:base16_customize() abort "{{{
 	call Base16hi("Title", "", "", "", "", "bold", "")
 	call Base16hi("Statement", "", "", "", "", "none", "")
@@ -70,6 +73,9 @@ let g:duo_themes = ['base16-one-light', 'base16-oceanicnext']
 " let g:duo_themes = ['base16-grayscale-light', 'base16-grayscale-dark']
 " let g:duo_themes = ['base16-tomorrow', 'base16-tomorrow-night']
 fun! ToggleColorscheme()
+	if !exists(g:colors_name)
+		return
+	endif
 	let color = filter(copy(g:duo_themes), {k,v-> v != g:colors_name})[0]
 	exe "colorscheme ".color
 endf
