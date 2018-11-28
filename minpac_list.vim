@@ -62,6 +62,7 @@ fun! PackInit() abort
 
 	call minpac#add('junegunn/vim-easy-align')
 
+	" text objects
 	call minpac#add('kana/vim-textobj-user')
 	call minpac#add('kana/vim-textobj-indent')
 	call minpac#add('kana/vim-textobj-function')
@@ -78,6 +79,9 @@ fun! PackInit() abort
 	call minpac#add('honza/vim-snippets', {'type': 'opt'})
 
 	call minpac#add('mattn/emmet-vim')
+
+	
+	call minpac#add('diepm/vim-rest-console')
 
 	" languages
 	call minpac#add('elixir-editors/vim-elixir')
