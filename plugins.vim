@@ -189,8 +189,8 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 " vim-skipit {{{1
-let g:skipit_default_mappings = 0
-imap <A-;> <Plug>SkipItForward
+imap <A-.> <Plug>(SkipItForward)
+imap <A-,> <Plug>(SkipItBack)
 
 " vim-gutentags {{{1
 if executable("ctags")
