@@ -124,7 +124,7 @@ set formatoptions=tcqnroj
 if has('crypt-blowfish2')
 	set cryptmethod=blowfish2
 endif
-" 1}}}
+
 " Backup & Undo & Sessions {{{1
 if !has("nvim")
 	let s:other_dir = expand('~/.vim_other')
