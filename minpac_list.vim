@@ -66,7 +66,7 @@ fun! PackInit() abort
 	call minpac#add('kana/vim-textobj-indent')
 	call minpac#add('kana/vim-textobj-function')
 	call minpac#add('thinca/vim-textobj-function-javascript')
-
+	call minpac#add('andyl/vim-textobj-elixir')
 
 	" no clojure and racket for now
 	" call minpac#add('guns/vim-sexp')
@@ -95,7 +95,7 @@ fun! PackInit() abort
 endf
 
 " Commands to update and clean plugins {{{1
-command! PackUpdate exe 'so '.expand('%:p') | call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
-command! PackClean  exe 'so '.expand('%:p') | call PackInit() | call minpac#clean()
-command! PackStatus exe 'so '.expand('%:p') | call PackInit() | call minpac#status()
+command! PackUpdate call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
+command! PackClean  call PackInit() | call minpac#clean()
+command! PackStatus call PackInit() | call minpac#status()
 
