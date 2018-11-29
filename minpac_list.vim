@@ -29,8 +29,6 @@ fun! PackInit() abort
 
 	call minpac#add('tmhedberg/matchit')
 
-	call minpac#add('benekastah/neomake')
-	call minpac#add('alvan/vim-closetag')
 
 	" <leader>hs to stage hunk
 	" <leader>hu to undo hunk
@@ -73,13 +71,15 @@ fun! PackInit() abort
 	" call minpac#add('guns/vim-sexp')
 
 	call minpac#add('w0rp/ale')
+	call minpac#add('benekastah/neomake')
 	call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
 
 	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
 	call minpac#add('honza/vim-snippets', {'type': 'opt'})
-
 	call minpac#add('mattn/emmet-vim')
+	call minpac#add('alvan/vim-closetag')
 
+	call minpac#add('scrooloose/nerdtree')
 	
 	" I have a fork to fix an issue...
 	" call minpac#add('diepm/vim-rest-console')

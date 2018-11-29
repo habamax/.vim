@@ -150,7 +150,7 @@ endif
 let g:netrw_banner = 0
 let g:netrw_preview = 1
 let g:netrw_alto = 0
-let g:netrw_liststyle = 3
+let g:netrw_liststyle = 0
 
 " Mappings {{{1
 
@@ -209,9 +209,6 @@ nnoremap <Leader>fvp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/minpac_list.vim"<
 
 " open global notes file
 nnoremap <Leader>fn :e ~/docs/notes.adoc<CR>
-
-" Current Directory file explorer
-nnoremap <Leader>fe :Explore<CR>
 
 " built-in terminal
 tnoremap <esc> <C-\><C-n>

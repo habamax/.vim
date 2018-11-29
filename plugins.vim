@@ -206,3 +206,9 @@ let g:vrc_curl_opts = {
 			\ '-i': '',
 			\ '--connect-timeout': 10,
 			\}
+
+" nerdtree {{{1
+" let g:NERDTreeDirArrowExpandable = '▸'
+" let g:NERDTreeDirArrowCollapsible = '▾'
+nnoremap <Leader>fe :NERDTreeToggle<CR>
+
