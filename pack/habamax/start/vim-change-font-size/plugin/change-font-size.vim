@@ -1,4 +1,8 @@
-fu! ChangeFontSize(op)
+"""""""""""""""""""""""""""""""""""""""""""""""""
+"  This is Windows specific at the moment...    "
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+fun! s:getCurrentFont()
 	if has('nvim')
 		redir => gfont
 		silent GuiFont
@@ -7,36 +11,45 @@ fu! ChangeFontSize(op)
 	else
 		let font = matchlist(&guifont, '\(.\{-}\):h\(\d\+\)')
 	endif
-	if !exists('b:fontsize')
-		let b:fontname = font[1]
-		let b:fontsize = font[2]
-		let b:lines = &lines
-		let b:columns = &columns
-	endif
+	return [font[1], font[2]]
+endfu
 
-	let lines = &lines
+
+fun! s:changeFontSize(op)
+	let [fontname,fontsize] = s:getCurrentFont()
 
 	if a:op == 'inc'
-		let new_font = b:fontname.':h'.(font[2] + 1)
+		let new_font = fontname.':h'.(fontsize + 1)
 	elseif a:op == 'dec'
-		let new_font = b:fontname.':h'.(font[2] - 1)
-	else
-		let new_font = b:fontname.':h'.b:fontsize
+		let new_font = fontname.':h'.(fontsize - 1)
+	elseif !has('nvim')
+		let new_font = g:init_fontname.':h'.g:init_fontsize
 	endif
 
 	if has('nvim')
-		echomsg 'GuiFont! '. new_font
 		exe 'GuiFont! '. new_font
 	else
 		let &guifont = new_font
+		let &lines = g:init_lines
+		let &columns = g:init_columns
 	endif
-
-	let &lines = b:lines
-	let &columns = b:columns
 endfu
 
+fun! s:save_init_size()
+	if has('gui_running')
+		let g:init_lines = &lines
+		let g:init_columns = &columns
+		let [g:init_fontname, g:init_fontsize] = s:getCurrentFont()
+	endif
+endf
+
+augroup GVIM_SAVE_INIT_SIZE
+	au!
+	autocmd VimEnter * call s:save_init_size()
+augroup end
+
 " looks like this is windows only
-nnoremap <A--> :call ChangeFontSize('dec')<CR>
-nnoremap <A-=> :call ChangeFontSize('inc')<CR>
-nnoremap <A-0> :call ChangeFontSize('restore')<CR>
+nnoremap <A--> :call <sid>changeFontSize('dec')<CR>
+nnoremap <A-=> :call <sid>changeFontSize('inc')<CR>
+nnoremap <A-0> :call <sid>changeFontSize('restore')<CR>
 
