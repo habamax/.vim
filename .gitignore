@@ -3,6 +3,7 @@ pack/minpac/
 pack/habamax/start/vim-evalvim/
 pack/habamax/start/vim-asciidoctor/
 pack/habamax/start/vim-skipit/
+pack/habamax/start/vim-rest-console/
 autoload/plug.vim.old
 rplugin.vim
 *.html
