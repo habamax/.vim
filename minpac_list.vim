@@ -81,7 +81,8 @@ fun! PackInit() abort
 	call minpac#add('mattn/emmet-vim')
 
 	
-	call minpac#add('diepm/vim-rest-console')
+	" I have a fork to fix an issue...
+	" call minpac#add('diepm/vim-rest-console')
 
 	" languages
 	call minpac#add('elixir-editors/vim-elixir')
