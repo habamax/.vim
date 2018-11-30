@@ -111,7 +111,8 @@ let g:asciidoctor_pdf_themes_path = '~/docs/AsciiDocThemes'
 let g:asciidoctor_pdf_fonts_path = '~/docs/AsciiDocThemes/fonts'
 let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/habamax-asciidoctor-pdf/bin/asciidoctor-pdf"
 " for OSX `pngpaste` could be used.
-let g:asciidoctor_img_paste_command = "gm convert clipboard: "
+let g:asciidoctor_img_paste_command = 'gm convert clipboard: %s%s'
+let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 
 let g:asciidoctor_folding = 1
 let g:asciidoctor_fold_options = 1
@@ -125,6 +126,7 @@ fun! AsciidoctorMappings()
 	nnoremap <buffer> <leader>ch :Asciidoctor2HTML<CR>
 	nnoremap <buffer> <leader>cp :Asciidoctor2PDF<CR>
 	nnoremap <buffer> <leader>cx :Asciidoctor2DOCX<CR>
+	nnoremap <buffer> <leader>p :AsciidoctorPasteImage<CR>
 endfun
 augroup asciidoctor
 	au!
@@ -150,14 +152,6 @@ endfun
 command! ListToggleCheckBox :call ListToggleCheckBox()
 
 nnoremap <leader>x :ListToggleCheckBox<CR>
-
-" checking the water
-fun! AsciidoctorPasteImage()
-	let fname = "C:/Users/maksim.kim/docs/images/test_image.png"
-	" exe ":!gm convert clipboard: ".fname
-	let job = job_start(g:asciidoctor_img_paste_command.fname)
-	exe "normal iimage::".fnamemodify(fname, ":t")."[]\<ESC>"
-endfun
 
 " TitleCase {{{1
 " use <leader>ttip to titlecase a paragraph
