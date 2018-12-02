@@ -49,7 +49,7 @@ set winminwidth=0 winminheight=0
 set lazyredraw
 set splitbelow
 set splitright
-set diffopt+=vertical
+set diffopt=internal,filler,vertical,algorithm:patience
 set nofoldenable
 set foldminlines=1 foldlevel=1
 set scrolloff=2 sidescrolloff=5
@@ -146,7 +146,7 @@ if !has("nvim")
 	let &undodir = s:other_dir . '/.vim_undo/,.'
 endif
 
-" NETRW {{{1
+" Netrw {{{1
 let g:netrw_banner = 0
 let g:netrw_preview = 1
 let g:netrw_alto = 0
