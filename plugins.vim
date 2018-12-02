@@ -78,11 +78,11 @@ if has('python') || has('python3')
 	let g:Lf_CommandMap = {'<ESC>': ['<C-Space>', '<ESC>']}
 	let g:Lf_NormalMap = {"File":   [["u", ':LeaderfFile ..<CR>']]}
 	cabbrev lf LeaderfFile
+	nnoremap <leader>/ :Leaderf rg<CR>
 	nnoremap <leader>fh :LeaderfHelp<CR>
 	nnoremap <leader>fm :LeaderfMru<CR>
-	nnoremap <leader>fs :LeaderfSelf<CR>
+	" nnoremap <leader>fs :LeaderfSelf<CR>
 	nnoremap <leader>fc :LeaderfColorscheme<CR>
-	nnoremap <leader>/ :LeaderfLine<CR>
 	nnoremap <leader>fdd :LeaderfFile ~/docs<CR>
 	packadd leaderF
 else
