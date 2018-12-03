@@ -298,6 +298,8 @@ augroup BWCCreateDir
 augroup END
 
 " Load Plugins and Abbreviations {{{1
-source <sfile>:h/abbreviations.vim
+" source <sfile>:h/abbreviations.vim
+runtime abbreviations.vim
 
-source <sfile>:h/plugins.vim
+" source <sfile>:h/plugins.vim
+runtime plugins.vim

@@ -1,4 +1,5 @@
-source <sfile>:h/minpac_list.vim
+" source <sfile>:h/minpac_list.vim
+runtime minpac_list.vim
 
 " Plugin settings
 
