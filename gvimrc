@@ -9,6 +9,7 @@ elseif has('nvim')
 	GuiFont! Fantasque\ Sans\ Mono:h13
 else
 	set gfn=Fantasque_Sans_Mono:h13,Hack:h10,Consolas:h14
+	" set gfn=Hack:h10,Consolas:h14
 endif
 
 " Window size {{{1
@@ -20,7 +21,7 @@ endif
 " Colors {{{1
 fun! s:base16_customize() abort "{{{
 	call Base16hi("Title", "", "", "", "", "bold", "")
-	call Base16hi("Statement", "", "", "", "", "bold", "")
+	" call Base16hi("Statement", "", "", "", "", "", "")
 	call Base16hi("Comment", "", "", "", "", "italic", "")
 	call Base16hi("Underlined", "", "", "", "", "underline", "")
 	call Base16hi("StatusLine", "", "", "", "", "bold", "")
@@ -57,7 +58,7 @@ fun! s:base16_zenburn_customize() abort "{{{
 endfun
 " }}}
 
-fun! s:base16_tomorrow_cusomize() abort "{{{
+fun! s:base16_tomorrow_customize() abort "{{{
 	call Base16hi("StatusLine", "505050", "", "", "", "", "")
 endfun
 " }}}
@@ -66,7 +67,7 @@ augroup on_change_colorscheme
 	autocmd!
 	autocmd ColorScheme base16* call s:base16_customize()
 	autocmd ColorScheme base16-zenburn call s:base16_zenburn_customize()
-	autocmd ColorScheme base16-tomorrow call s:base16_tomorrow_cusomize()
+	autocmd ColorScheme base16-tomorrow call s:base16_tomorrow_customize()
 augroup END
 
 let g:duo_themes = ['base16-one-light', 'base16-oceanicnext']
