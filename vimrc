@@ -285,22 +285,6 @@ if has('langmap')
 	set langmap+=№#
 endif
 
-" Extra stuff better to put somewhere else {{{1
-" Create dirs on file save
-fu! s:MkNonExDir(file, buf)
-	if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
-		let dir=fnamemodify(a:file, ':h')
-		if !isdirectory(dir)
-			call mkdir(dir, 'p')
-		endif
-	endif
-endfu
-
-augroup BWCCreateDir
-	autocmd!
-	autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
-augroup END
-
 " Load Plugins and Abbreviations {{{1
 " source <sfile>:h/abbreviations.vim
 runtime abbreviations.vim
