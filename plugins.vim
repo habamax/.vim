@@ -86,6 +86,8 @@ if has('python') || has('python3')
 	nnoremap <leader>fs :LeaderfSelf<CR>
 	nnoremap <leader>fc :LeaderfColorscheme<CR>
 	nnoremap <leader>fdd :LeaderfFile ~/docs<CR>
+	" open .vim or .vimfiles or nvim config directory
+	nnoremap <leader>fdv :exe ':LeaderfFile '.fnamemodify($MYVIMRC, ':p:h')<CR>
 	packadd leaderF
 else
 	let g:ctrlp_map = ''
