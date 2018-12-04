@@ -49,7 +49,11 @@ set winminwidth=0 winminheight=0
 set lazyredraw
 set splitbelow
 set splitright
-set diffopt=internal,filler,vertical,algorithm:patience
+if !has('nvim') && has('patch-8.1.360')
+	set diffopt=internal,filler,vertical,algorithm:patience
+else
+	set diffopt=filler,vertical
+endif
 set nofoldenable
 set foldminlines=1 foldlevel=1
 set scrolloff=2 sidescrolloff=5
