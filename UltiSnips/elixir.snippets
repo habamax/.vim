@@ -9,7 +9,7 @@ IO.puts "${0:${VISUAL}}"
 endsnippet
 
 snippet ins "IO.inspect"
-IO.inspect ${0:${VISUAL}}
+IO.inspect(${0:${VISUAL}})
 endsnippet
 
 snippet insl "IO.inspect with label"
@@ -132,41 +132,47 @@ def ${1:name}, do: ${2}
 endsnippet
 
 snippet def "def .. do .. end"
-def ${1:name} do
+def ${1:name}($2) do
 	${0}
 end
 endsnippet
 
-snippet defd "@doc .. def .. do .. end"
-@doc """
-${1:doc string}
-"""
-def ${2:name} do
+snippet defw "def .. when .. do .. end"
+def ${1:name}($2) when is_${3:$2}($2) do
 	${0}
 end
 endsnippet
 
-snippet defsd "@doc .. @spec .. def .. do .. end"
-@doc """
-${1:doc string}
-"""
-@spec ${2:name} :: ${3:no_return}
-def ${2} do
-	${0}
-end
-endsnippet
+# snippet defd "@doc .. def .. do .. end"
+# @doc """
+# ${1:doc string}
+# """
+# def ${2:name}($3) do
+# 	${0}
+# end
+# endsnippet
 
-snippet defim "defimpl .., for: .. do .. end"
-defimpl ${1:protocol_name}, for: ${2:data_type} do
-	${0}
-end
-endsnippet
+# snippet defsd "@doc .. @spec .. def .. do .. end"
+# @doc """
+# ${1:doc string}
+# """
+# @spec ${2:name} :: ${3:no_return}
+# def ${2} do
+# 	${0}
+# end
+# endsnippet
 
-snippet defma "defmacro .. do .. end"
-defmacro ${1:name} do
-	${0}
-end
-endsnippet
+# snippet defim "defimpl .., for: .. do .. end"
+# defimpl ${1:protocol_name}, for: ${2:data_type} do
+# 	${0}
+# end
+# endsnippet
+
+# snippet defma "defmacro .. do .. end"
+# defmacro ${1:name} do
+# 	${0}
+# end
+# endsnippet
 
 snippet defmo "defmodule .. do .. end"
 defmodule ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} do
@@ -174,23 +180,29 @@ defmodule ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')
 end
 endsnippet
 
-snippet dfp "defp .., do: .."
-defp ${1:name}, do: ${2}
-endsnippet
+# snippet dfp "defp .., do: .."
+# defp ${1:name}, do: ${2}
+# endsnippet
 
 snippet defp "defp .. do .. end"
-defp ${1:name} do
+defp ${1:name}($2) do
 	${0}
 end
 endsnippet
 
-snippet defpr "defprotocol .., .."
-defprotocol ${1:name}, [${0:function}]
+snippet defpw "defp .. when .. do .. end"
+defp ${1:name}($2) when is_${3:$2}($2) do
+	${0}
+end
 endsnippet
 
-snippet defr "defrecord .., .."
-defrecord ${1:record_name}, ${0:fields}
-endsnippet
+# snippet defpr "defprotocol .., .."
+# defprotocol ${1:name}, [${0:function}]
+# endsnippet
+
+# snippet defr "defrecord .., .."
+# defrecord ${1:record_name}, ${0:fields}
+# endsnippet
 
 snippet fn "Anonymous function"
 fn ${1:args} -> ${0} end
