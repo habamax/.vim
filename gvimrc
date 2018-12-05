@@ -70,15 +70,14 @@ augroup on_change_colorscheme
 	autocmd ColorScheme base16-tomorrow call s:base16_tomorrow_customize()
 augroup END
 
+" let g:duo_themes = ['base16-one-light', 'base16-tomorrow-night']
+let g:duo_themes = ['base16-grayscale-light', 'base16-grayscale-dark']
 " let g:duo_themes = ['base16-one-light', 'base16-oceanicnext']
-" let g:duo_themes = ['base16-grayscale-light', 'base16-grayscale-dark']
-let g:duo_themes = ['base16-one-light', 'base16-tomorrow-night']
-" let g:duo_themes = ['base16-tomorrow', 'base16-tomorrow-night']
 fun! ToggleColorscheme()
 	if !exists('g:colors_name')
 		let g:colors_name = 'default'
 	endif
-	let color = filter(copy(g:duo_themes), {k,v-> v != g:colors_name})[0]
+	let color = filter(copy(g:duo_themes), {k, v -> v != g:colors_name})[0]
 	exe "colorscheme ".color
 endf
 
