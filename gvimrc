@@ -64,10 +64,10 @@ endfun
 " }}}
 
 augroup on_change_colorscheme
-	autocmd!
-	autocmd ColorScheme base16* call s:base16_customize()
-	autocmd ColorScheme base16-zenburn call s:base16_zenburn_customize()
-	autocmd ColorScheme base16-tomorrow call s:base16_tomorrow_customize()
+	au!
+	au ColorScheme base16* call s:base16_customize()
+	au ColorScheme base16-zenburn call s:base16_zenburn_customize()
+	au ColorScheme base16-tomorrow call s:base16_tomorrow_customize()
 augroup END
 
 let g:duo_themes = ['base16-one-light', 'base16-tomorrow-night']
