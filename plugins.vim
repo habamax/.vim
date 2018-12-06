@@ -30,6 +30,9 @@ if has('python') || has('python3')
 
 	packadd ultisnips
 
+	" convenince command to list all snips available
+	command! UltiSnips :call UltiSnips#ListSnippets()
+
 	" Completor should NOT be opened automatically
 	" tab to trigger snip → jump to next placeholder → open completion → next
 	" completion or plain tab
