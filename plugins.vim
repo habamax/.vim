@@ -30,23 +30,54 @@ if has('python') || has('python3')
 
 	packadd ultisnips
 
+	" Completor should NOT be opened automatically
+	" tab to trigger snip → jump to next placeholder → open completion → next
+	" completion or plain tab
+	" " Completor and ultisnips to reuse TAB key
+	" fun! Tab_Or_Complete() "{{{
+	" 	call UltiSnips#ExpandSnippet()
+	" 	if g:ulti_expand_res == 0
+	" 		if pumvisible()
+	" 			return "\<C-n>"
+	" 		else
+	" 			call UltiSnips#JumpForwards()
+	" 			if g:ulti_jump_forwards_res == 0
+	" 				" If completor is not open and we are in the middle of typing a word then
+	" 				" `tab` opens completor menu.
+	" 				let inp_str = strpart( getline('.'), col('.')-3, 2 )
+	" 				if col('.')>1 && (inp_str =~ '^\w$' || inp_str =~ '\%(->\)\|\%(.\w\)\|\%(\w\.\)\|\%(./\)')
+	" 					return "\<C-R>=completor#do('complete')\<CR>"
+	" 				else
+	" 					return "\<TAB>"
+	" 				endif
+	" 			endif
+	" 		endif
+	" 	endif
+	" 	return ""
+	" endf "}}}
+
+	" au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=Tab_Or_Complete()<cr>"
+
+	" " should be together if auto trigger is off
+	" let g:completor_complete_options = "menuone,preview"
+	" let g:completor_min_chars = 1
+	" let g:completor_auto_trigger = 0
+
+" ----------------------------
+"
+	" Completor SHOULD BE opened automatically
 	" Completor and ultisnips to reuse TAB key
+	" tab to trigger snip → jump to next placeholder → next completion or
+	" plain tab
 	fun! Tab_Or_Complete() "{{{
 		call UltiSnips#ExpandSnippet()
 		if g:ulti_expand_res == 0
-			if pumvisible()
-				return "\<C-n>"
-			else
-				call UltiSnips#JumpForwards()
-				if g:ulti_jump_forwards_res == 0
-					" If completor is not open and we are in the middle of typing a word then
-					" `tab` opens completor menu.
-					let inp_str = strpart( getline('.'), col('.')-3, 2 )
-					if col('.')>1 && (inp_str =~ '^\w$' || inp_str =~ '\%(->\)\|\%(.\w\)\|\%(\w\.\)\|\%(./\)')
-						return "\<C-R>=completor#do('complete')\<CR>"
-					else
-						return "\<TAB>"
-					endif
+			call UltiSnips#JumpForwards()
+			if g:ulti_jump_forwards_res == 0
+				if pumvisible()
+					return "\<C-n>"
+				else
+					return "\<TAB>"
 				endif
 			endif
 		endif
@@ -55,11 +86,11 @@ if has('python') || has('python3')
 
 	au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=Tab_Or_Complete()<cr>"
 
-	" should be together if auto trigger is off
-	let g:completor_complete_options = "menuone,preview"
 	let g:completor_min_chars = 1
-	let g:completor_auto_trigger = 0
+	let g:completor_auto_trigger = 1
 
+" ----------------------------
+"
 	" if has('win32')
 	" 	let g:completor_python_binary = expand("~/scoop/apps/python/current/python.exe")
 	" endif
