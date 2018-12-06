@@ -139,24 +139,7 @@ augroup asciidoctor
 augroup END
 
 " List Manipulation {{{1
-" I need a separate plugin for list manipulation...
-fun! ListToggleCheckBox()
-	let rx_bullets = '^\(\s*[-*]\+\s*\)'
-	let rx_empty_checkbox = '\(\s*\[ \?\]\+\s*\)'
-	let rx_marked_checkbox = '\(\s*\[[Xx]\]\+\s*\)'
-	let line = getline('.')
-	if line =~ rx_bullets && line !~ rx_bullets.rx_empty_checkbox.'\|'.rx_marked_checkbox
-		exe ':s/'.rx_bullets.'/\1\[ \] /'
-	elseif line =~ rx_bullets.rx_empty_checkbox
-		exe ':s/'.rx_bullets.rx_empty_checkbox.'/\1\[x\] /'
-	elseif line =~ rx_bullets.rx_marked_checkbox
-		exe ':s/'.rx_bullets.rx_marked_checkbox.'/\1\[ \] /'
-	endif
-endfun
-
-command! ListToggleCheckBox :call ListToggleCheckBox()
-
-nnoremap <leader>x :ListToggleCheckBox<CR>
+let g:list_man_default_mappings = 1
 
 " TitleCase {{{1
 " use <leader>ttip to titlecase a paragraph
