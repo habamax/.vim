@@ -29,10 +29,10 @@ fun! s:toggle_checkboxes(line1, line2)
 	endfor
 endfu
 
-command! -range ListManToggleCheckBox :call <sid>toggle_checkboxes(<line1>,<line2>)
-nnoremap <Plug>(ListManToggleCheckBox) :ListManToggleCheckBox<CR>
-vnoremap <Plug>(ListManToggleCheckBox) :ListManToggleCheckBox<CR>
-xnoremap <Plug>(ListManToggleCheckBox) :ListManToggleCheckBox<CR>
+command! -range ListManToggleCheckbox :call <sid>toggle_checkboxes(<line1>,<line2>)
+nnoremap <Plug>(ListManToggleCheckbox) :ListManToggleCheckbox<CR>
+vnoremap <Plug>(ListManToggleCheckbox) :ListManToggleCheckbox<CR>
+xnoremap <Plug>(ListManToggleCheckbox) :ListManToggleCheckbox<CR>
 
 " operator pending...
 fu! s:op_toggle_checkboxes(...)
@@ -53,30 +53,30 @@ fu! s:op_toggle_checkboxes(...)
 		silent exe "normal! `[v`]y"
 	endif
 
-	:'<,'>ListManToggleCheckBox
+	:'<,'>ListManToggleCheckbox
 
 	let &selection = sel_save
 	let &clipboard = clipboard_save
 endfu
 
-xnoremap <expr> <Plug>(ListManToggleCheckBoxOp) <sid>op_toggle_checkboxes()
-nnoremap <expr> <Plug>(ListManToggleCheckBoxOp) <sid>op_toggle_checkboxes()
-nnoremap <expr> <Plug>(ListManToggleCheckBoxLineOp) <sid>op_toggle_checkboxes() . '_'
+xnoremap <expr> <Plug>(ListManToggleCheckboxOp) <sid>op_toggle_checkboxes()
+nnoremap <expr> <Plug>(ListManToggleCheckboxOp) <sid>op_toggle_checkboxes()
+nnoremap <expr> <Plug>(ListManToggleCheckboxLineOp) <sid>op_toggle_checkboxes() . '_'
 
 
 
 if exists("g:list_man_default_mappings") && g:list_man_default_mappings == 1
 	"TODO: introduce default mapping setting <2018-12-06 11:15>
-	if !hasmapto('<Plug>(ListManToggleCheckBoxOp)') && maparg('glt','n') ==# ''
-		xmap glt  <Plug>(ListManToggleCheckBoxOp)
-		nmap glt  <Plug>(ListManToggleCheckBoxOp)
-		omap glt  <Plug>(ListManToggleCheckBoxOp)
-		nmap gltt <Plug>(ListManToggleCheckBoxLineOp)
+	if !hasmapto('<Plug>(ListManToggleCheckboxOp)') && maparg('glt','n') ==# ''
+		xmap glt  <Plug>(ListManToggleCheckboxOp)
+		nmap glt  <Plug>(ListManToggleCheckboxOp)
+		omap glt  <Plug>(ListManToggleCheckboxOp)
+		nmap gltt <Plug>(ListManToggleCheckboxLineOp)
 	endif
 
-	if !hasmapto('<Plug>(ListManToggleCheckBox)') && maparg('<leader>x','n') ==# ''
-		xmap <leader>x <Plug>(ListManToggleCheckBox)
-		vmap <leader>x <Plug>(ListManToggleCheckBox)
-		nmap <leader>x <Plug>(ListManToggleCheckBox)
+	if !hasmapto('<Plug>(ListManToggleCheckbox)') && maparg('<leader>x','n') ==# ''
+		xmap <leader>x <Plug>(ListManToggleCheckbox)
+		vmap <leader>x <Plug>(ListManToggleCheckbox)
+		nmap <leader>x <Plug>(ListManToggleCheckbox)
 	endif
 endif
