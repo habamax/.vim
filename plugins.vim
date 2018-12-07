@@ -71,7 +71,7 @@ if has('python') || has('python3')
 	" Completor SHOULD BE opened automatically
 	" Completor and ultisnips to reuse TAB key
 	" tab to trigger snip → jump to next placeholder → next completion or
-	" plain tab
+	" insert a plain tab char
 	fun! Tab_Or_Complete() "{{{
 		call UltiSnips#ExpandSnippet()
 		if g:ulti_expand_res == 0
