@@ -42,7 +42,9 @@ fun! PackInit() abort
 	" Python should be installed. PATH should be set up to python37.dll
 	call minpac#add('maralla/completor.vim', {'type': 'opt'})
 
-	call minpac#add('Raimondi/delimitMate')
+	" it breaks abbreviation expansion when pmenu is visible (for example
+	" completor opens it)
+	" call minpac#add('Raimondi/delimitMate')
 
 	" use gsip to sort linewise
 	" use gsib to sort in a parenthesis
