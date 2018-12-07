@@ -77,14 +77,15 @@ set fillchars=fold:\ ,vert:│
 set foldtext=MyFoldText()
 fu! MyFoldText()
 	let line = getline(v:foldstart)
+	let indent = max([indent(v:foldstart)-v:foldlevel, 0])
 	let lines = (v:foldend - v:foldstart + 1)
 	let sub = substitute(line, '^//\|=\+\|["#]\|/\*\|\*/\|{{{\d\=', '', 'g')
 	let sub = substitute(sub, '^[[:space:]]*\|[[:space:]]*$', ' ', 'g')
-	let text = strpart(sub, 0, winwidth(0) - v:foldlevel - indent(v:foldstart) - 6 - strlen(lines))
+	let text = strpart(sub, 0, winwidth(0) - v:foldlevel - indent - 6 - strlen(lines))
 	if strlen(sub) > strlen(text)
 		let text = text.'… '
 	endif
-	return repeat(' ', indent(v:foldstart)).repeat('●', v:foldlevel) . text .'('. lines .')'
+	return repeat('●', v:foldlevel) . repeat(' ', indent) . text .'('. lines .')'
 	" ▸•●□★▢▪◆▷▶┄◇
 endfu
 "}}}
