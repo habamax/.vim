@@ -80,11 +80,11 @@ fu! MyFoldText()
 	let lines = (v:foldend - v:foldstart + 1)
 	let sub = substitute(line, '^//\|=\+\|["#]\|/\*\|\*/\|{{{\d\=', '', 'g')
 	let sub = substitute(sub, '^[[:space:]]*\|[[:space:]]*$', ' ', 'g')
-	let text = strpart(sub, 0, winwidth(0) - v:foldlevel - 6 - strlen(lines))
+	let text = strpart(sub, 0, winwidth(0) - v:foldlevel - indent(v:foldstart) - 6 - strlen(lines))
 	if strlen(sub) > strlen(text)
 		let text = text.'… '
 	endif
-	return repeat('●', v:foldlevel) . text .'('. lines .')'
+	return repeat(' ', indent(v:foldstart)).repeat('●', v:foldlevel) . text .'('. lines .')'
 	" ▸•●□★▢▪◆▷▶┄◇
 endfu
 "}}}
