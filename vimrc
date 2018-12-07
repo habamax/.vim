@@ -85,7 +85,7 @@ fu! MyFoldText()
 	if strlen(sub) > strlen(text)
 		let text = text.'… '
 	endif
-	return repeat('●', v:foldlevel) . repeat(' ', indent) . text .'('. lines .')'
+	return repeat('•', v:foldlevel) . repeat(' ', indent) . text .'('. lines .')'
 	" ▸•●□★▢▪◆▷▶┄◇
 endfu
 "}}}
