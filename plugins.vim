@@ -113,6 +113,7 @@ if has('python') || has('python3')
 	let g:Lf_RootMarkers = ['.git', '.hg', '.svn', 'mix.exs']
 	let g:Lf_CommandMap = {'<ESC>': ['<C-Space>', '<ESC>']}
 	let g:Lf_NormalMap = {"File":   [["u", ':LeaderfFile ..<CR>']]}
+    let g:Lf_PreviewResult = {'Colorscheme': 1}
 	cabbrev lf LeaderfFile
 	nnoremap <leader>f/ :Leaderf rg<CR>
 	nnoremap <leader>/ :LeaderfLineAll<CR>
