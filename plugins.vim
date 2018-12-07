@@ -3,11 +3,6 @@ runtime minpac_list.vim
 
 " Plugin settings
 
-" Delimitmate {{{1
-let delimitMate_expand_space = 1
-let delimitMate_expand_cr = 1
-let delimitMate_matchpairs = "(:),[:],{:}"
-
 " Fugitive and Git-Gutter {{{1
 if executable("git")
 	nnoremap <leader>gs :Gstatus<CR>
