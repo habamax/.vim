@@ -94,6 +94,7 @@ augroup END
 
 let g:duo_themes = ['base16-one-light', 'base16-tomorrow-night']
 " let g:duo_themes = ['base16-grayscale-light', 'base16-grayscale-dark']
+" let g:duo_themes = ['base16-one-light', 'base16-default-dark']
 " let g:duo_themes = ['base16-one-light', 'base16-oceanicnext']
 fun! ToggleColorscheme()
 	if !exists('g:colors_name')
