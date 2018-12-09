@@ -96,8 +96,6 @@ fun! PackInit() abort
 	call minpac#add('junegunn/limelight.vim')
 
 	" colors
-	call minpac#add('dracula/vim', {'name': 'dracula'})
-	call minpac#add('nanotech/jellybeans.vim')
 	call minpac#add('chriskempson/base16-vim')
 endf
 
