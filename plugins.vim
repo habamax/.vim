@@ -225,4 +225,4 @@ let g:vrc_curl_opts = {
 nnoremap <Leader>fe :NERDTreeToggle<CR>
 
 " vim-mix-format {{{1
-autocmd User MixFormatDiff diffthis | wincmd p | diffthis
+" autocmd User MixFormatDiff diffthis | wincmd p | diffthis
