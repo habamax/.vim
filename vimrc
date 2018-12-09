@@ -77,7 +77,7 @@ set fillchars=fold:\ ,vert:│
 set foldtext=MyFoldText()
 fu! MyFoldText()
 	let line = getline(v:foldstart)
-	let indent = max([indent(v:foldstart)-v:foldlevel, 0])
+	let indent = max([indent(v:foldstart)-v:foldlevel, 1])
 	let lines = (v:foldend - v:foldstart + 1)
 	let sub = substitute(line, '^//\|=\+\|["#]\|/\*\|\*/\|{{{\d\=', '', 'g')
 	let sub = substitute(sub, '^[[:space:]]*\|[[:space:]]*$', '', 'g')
