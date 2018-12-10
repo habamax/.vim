@@ -183,6 +183,10 @@ nnoremap <leader>tts :RemoveTrailingSpaces<CR>
 " now it is possible to paste many times over selected text
 xnoremap <expr> p 'pgv"'.v:register.'y'
 
+" change current word (like ciw) but repeatable with dot . for the same next
+" word
+nnoremap <silent> c<Tab> :let @/=expand('<cword>')<cr>cgn
+
 " <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
