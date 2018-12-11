@@ -247,16 +247,7 @@ let g:ale_fixers = {}
 let g:ale_fixers.elixir = ['ALE_BEFORE_mix_format', 'mix_format', 'ALE_AFTER_mix_format']
 let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
 
-nmap <leader>tf <Plug>(ale_fix)
-
-" vim-test {{{1
-fun! ElixirProjectRoot()
-	let g:test#project_root = fnamemodify(findfile("mix.exs", expand("%:p:h").";"), ":p:h")
-endfu
-augroup elixir_tests
-	au!
-	au BufEnter *.ex,*.exs call ElixirProjectRoot()
-augroup end
+nmap <leader>gf <Plug>(ale_fix)
 
 " Undotree {{{1
 nnoremap <leader>tu :UndotreeToggle<CR>
