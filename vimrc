@@ -219,6 +219,9 @@ nnoremap <Leader>fvp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/minpac_list.vim"<
 " open global notes file
 nnoremap <Leader>fn :e ~/docs/notes.adoc<CR>
 
+" open global notes file
+nnoremap <Leader>fe :Ex<CR>
+
 " built-in terminal
 tnoremap <esc> <C-\><C-n>
 
