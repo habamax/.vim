@@ -248,3 +248,6 @@ let g:ale_fixers.elixir = ['ALE_BEFORE_mix_format', 'mix_format', 'ALE_AFTER_mix
 let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
 
 nmap <leader>tf <Plug>(ale_fix)
+
+" Undotree {{{1
+nnoremap <leader>tu :UndotreeToggle<CR>

@@ -83,6 +83,8 @@ fun! PackInit() abort
 
 	call minpac#add('scrooloose/nerdtree')
 
+	call minpac#add('mbbill/undotree')
+
 	" I have a fork to fix an issue...
 	" call minpac#add('diepm/vim-rest-console')
 
