@@ -77,7 +77,7 @@ fun! PackInit() abort
 	call minpac#add('mattn/emmet-vim')
 	call minpac#add('alvan/vim-closetag')
 
-	call minpac#add('scrooloose/nerdtree')
+	" call minpac#add('scrooloose/nerdtree')
 
 	call minpac#add('mbbill/undotree')
 
