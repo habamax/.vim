@@ -48,7 +48,7 @@ endsnippet
 snippet au "augroup ... autocmd block"
 augroup ${1:AU_NAME}
 	au!
-	autocmd ${2:BufRead,BufNewFile} ${3:*.ext,*.ext3|<buffer[=N]>} ${0}
+	au ${2:BufRead,BufNewFile} ${3:*.ext,*.ext3|<buffer[=N]>} ${0}
 augroup end
 endsnippet
 
