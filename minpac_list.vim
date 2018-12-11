@@ -72,10 +72,6 @@ fun! PackInit() abort
 	" no clojure and racket for now
 	" call minpac#add('guns/vim-sexp')
 
-	call minpac#add('w0rp/ale')
-	call minpac#add('benekastah/neomake')
-	call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
-
 	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
 	call minpac#add('honza/vim-snippets', {'type': 'opt'})
 	call minpac#add('mattn/emmet-vim')
@@ -88,10 +84,14 @@ fun! PackInit() abort
 	" I have a fork to fix an issue...
 	" call minpac#add('diepm/vim-rest-console')
 
-	" languages
+	" programming
+	call minpac#add('w0rp/ale')
+	" call minpac#add('benekastah/neomake')
+	" call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
 	call minpac#add('elixir-editors/vim-elixir')
-	call minpac#add('mhinz/vim-mix-format')
+	" call minpac#add('mhinz/vim-mix-format')
 	call minpac#add('udalov/kotlin-vim')
+	call minpac#add('janko-m/vim-test')
 
 	" Distraction free
 	call minpac#add('junegunn/goyo.vim')

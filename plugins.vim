@@ -12,11 +12,11 @@ if executable("git")
 endif
 
 " Neomake {{{1
-if exists(":Neomake") == 2
-	autocmd! BufWritePost * Neomake
-	let g:neomake_error_sign = { 'text': '✘', 'texthl': 'ErrorSign' }
-	let g:neomake_warning_sign = { 'text': ':(', 'texthl': 'WarningSign' }
-endif
+" if exists(":Neomake") == 2
+" 	autocmd! BufWritePost * Neomake
+" 	let g:neomake_error_sign = { 'text': '✘', 'texthl': 'ErrorSign' }
+" 	let g:neomake_warning_sign = { 'text': ':(', 'texthl': 'WarningSign' }
+" endif
 
 " UltiSnips and Completor {{{1
 if has('python') || has('python3')
@@ -206,9 +206,9 @@ imap <A-.> <Plug>(SkipItForward)
 imap <A-,> <Plug>(SkipItBack)
 
 " vim-gutentags {{{1
-if executable("ctags")
-	packadd vim-gutentags
-endif
+" if executable("ctags")
+" 	packadd vim-gutentags
+" endif
 
 " vim-rest-console {{{1
 let g:vrc_auto_format_response_enabled = 1
@@ -248,6 +248,15 @@ let g:ale_fixers.elixir = ['ALE_BEFORE_mix_format', 'mix_format', 'ALE_AFTER_mix
 let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
 
 nmap <leader>tf <Plug>(ale_fix)
+
+" vim-test {{{1
+fun! ElixirProjectRoot()
+	let g:test#project_root = fnamemodify(findfile("mix.exs", expand("%:p:h").";"), ":p:h")
+endfu
+augroup elixir_tests
+	au!
+	au BufEnter *.ex,*.exs call ElixirProjectRoot()
+augroup end
 
 " Undotree {{{1
 nnoremap <leader>tu :UndotreeToggle<CR>
