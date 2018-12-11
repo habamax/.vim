@@ -17,7 +17,7 @@ IO.puts "${0:${VISUAL}}"
 endsnippet
 
 snippet ins "IO.inspect"
-IO.inspect(${0:${VISUAL}})
+IO.inspect ${0:${VISUAL}}
 endsnippet
 
 snippet insl "IO.inspect with label"
@@ -212,8 +212,8 @@ endsnippet
 # defrecord ${1:record_name}, ${0:fields}
 # endsnippet
 
-snippet fn "Anonymous function"
-fn ${1:args} -> ${0} end
+snippet fn "Anonymous function fn .. end"
+fn ${1:args} -> ${2} end$0
 endsnippet
 
 snippet doc "@doc .."
@@ -310,6 +310,14 @@ snippet beh "@behaviour .."
 ${0}
 endsnippet
 
+snippet % "Hashmap %{}"
+%{$1}$0
+endsnippet
+
+snippet & "Anonymous function &(&1...)"
+&(${1:&1}$0)
+endsnippet
+
 snippet > "|> .."
 |> ${0}
 endsnippet
@@ -336,6 +344,22 @@ endsnippet
 
 snippet >il "|> IO.inspect(label: ..)"
 |> IO.inspect(label: "${1:label}")
+endsnippet
+
+snippet ee "Enum.each(..)"
+Enum.each(${1:coll}, fn ${2} -> ${0} end)
+endsnippet
+
+snippet em "Enum.map(..)"
+Enum.map(${1:coll}, fn ${2} -> ${0} end)
+endsnippet
+
+snippet ef "Enum.filter(..)"
+Enum.filter(${1:coll}, fn ${2} -> ${0} end)
+endsnippet
+
+snippet er "Enum.reduce(..)"
+Enum.reduce(${1:coll}, ${2:acc}, fn ${3}, ${4:acc} -> ${0} end)
 endsnippet
 
 snippet genserver "Basic genserver"
