@@ -91,7 +91,6 @@ fun! PackInit() abort
 	call minpac#add('elixir-editors/vim-elixir')
 	" call minpac#add('mhinz/vim-mix-format')
 	call minpac#add('udalov/kotlin-vim')
-	call minpac#add('janko-m/vim-test')
 
 	" Distraction free
 	call minpac#add('junegunn/goyo.vim')
