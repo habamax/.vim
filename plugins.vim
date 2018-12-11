@@ -250,4 +250,4 @@ let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
 nmap <leader>gf <Plug>(ale_fix)
 
 " Undotree {{{1
-nnoremap <leader>tu :UndotreeToggle<CR>
+nnoremap <leader>u :UndotreeToggle<CR>
