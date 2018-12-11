@@ -82,7 +82,7 @@ fun! PackInit() abort
 	call minpac#add('alvan/vim-closetag')
 
 	call minpac#add('scrooloose/nerdtree')
-	
+
 	" I have a fork to fix an issue...
 	" call minpac#add('diepm/vim-rest-console')
 
@@ -90,7 +90,7 @@ fun! PackInit() abort
 	call minpac#add('elixir-editors/vim-elixir')
 	call minpac#add('mhinz/vim-mix-format')
 	call minpac#add('udalov/kotlin-vim')
-	
+
 	" Distraction free
 	call minpac#add('junegunn/goyo.vim')
 	call minpac#add('junegunn/limelight.vim')
@@ -103,4 +103,3 @@ endf
 command! PackUpdate call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
 command! PackClean  call PackInit() | call minpac#clean()
 command! PackStatus call PackInit() | call minpac#status()
-
