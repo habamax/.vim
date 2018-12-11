@@ -223,7 +223,7 @@ let g:vrc_curl_opts = {
 " nerdtree {{{1
 " let g:NERDTreeDirArrowExpandable = '▸'
 " let g:NERDTreeDirArrowCollapsible = '▾'
-nnoremap <Leader>fe :NERDTreeToggle<CR>
+" nnoremap <Leader>fe :NERDTreeToggle<CR>
 
 " ALE configuration {{{1
 
