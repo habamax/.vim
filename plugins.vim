@@ -103,6 +103,7 @@ if has('python') || has('python3')
 	let g:Lf_ShortcutF = '<leader>ff'
 	let g:Lf_Shortcutb = '<leader>b'
 	let g:Lf_WindowHeight = 0.30
+	let g:Lf_ShowHidden = 1
 	let g:Lf_WorkingDirectoryMode = 'Af'
 	let g:Lf_FollowLinks = 1
 	let g:Lf_RootMarkers = ['.git', '.hg', '.svn', 'mix.exs']
@@ -197,7 +198,7 @@ nmap g. <Plug>(swap-interactive)
 
 " Goyo && Limelight {{{1
 nnoremap yog :Goyo<CR>
-autocmd! User GoyoEnter Limelight 
+autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 " vim-skipit {{{1
@@ -224,5 +225,26 @@ let g:vrc_curl_opts = {
 " let g:NERDTreeDirArrowCollapsible = '▾'
 nnoremap <Leader>fe :NERDTreeToggle<CR>
 
-" vim-mix-format {{{1
-" autocmd User MixFormatDiff diffthis | wincmd p | diffthis
+" ALE configuration {{{1
+
+" You have to use formatter from the root of the elixir project
+" or to be precise from the folder where .formatter.exs file exist.
+" Otherwise, formatter dependencies will not be used.
+
+" Change working directory to directory where .formatter.exs exists, upwards.
+fun! ALE_BEFORE_mix_format(bufnr)
+	" find path of the .formatter.exs upwards from the current file
+	let path = fnamemodify(findfile(".formatter.exs", expand("%:p:h").";"), ":p:h")
+	exe 'lcd '. path
+endfu
+
+" Change working directory to directory of the current file
+fun! ALE_AFTER_mix_format(bufnr)
+	lcd %:p:h
+endfu
+
+let g:ale_fixers = {}
+let g:ale_fixers.elixir = ['ALE_BEFORE_mix_format', 'mix_format', 'ALE_AFTER_mix_format']
+let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
+
+nmap <leader>tf <Plug>(ale_fix)
