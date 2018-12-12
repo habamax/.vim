@@ -84,7 +84,7 @@ if has('python') || has('python3')
 
 	au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=Tab_Or_Complete()<cr>"
 
-	let g:completor_min_chars = 1
+	let g:completor_min_chars = 2
 	let g:completor_auto_trigger = 1
 
 " ----------------------------
