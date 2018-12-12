@@ -28,7 +28,7 @@ set mouse=a
 
 " Convenient to :save or :write a copy of a file to the same directory.
 " autocmd BufEnter * silent! lcd %:p:h
-set autochdir
+" set autochdir
 
 " Encoding and fileformat {{{1
 set encoding=utf8
@@ -175,9 +175,9 @@ cnoremap <C-l> <C-^>
 inoremap <C-U> <C-G>u<C-U>
 
 " just one space on the line, preserving indent
-nnoremap <leader>tos :JustOneInnerSpace<CR>
+" nnoremap <leader>tos :JustOneInnerSpace<CR>
 " remove trailing spaces
-nnoremap <leader>tts :RemoveTrailingSpaces<CR>
+" nnoremap <leader>tts :RemoveTrailingSpaces<CR>
 
 
 " now it is possible to paste many times over selected text
