@@ -21,16 +21,32 @@ fun! s:run_tests()
 
 	" colorize it
 	syn clear
-	syntax match MixTestDots /\v^\.+$/
+
+	" Test heading
+	syntax cluster MixTestTitleParts contains=MixTestTitleFront,MixTestTitleTail
+	syntax match MixTestTitleFront /\v^\s+\d+\)\s((test|doctest)\s)?/ contains=MixTestTitleNum,MixTestTitleType containedin=@MixTestTitleParts
+	syntax match MixTestTitle /\v^\s+\d+\)\s+.*$/ contains=@MixTestTitleParts
+	syntax match MixTestTitleNum /\v\s+\d+\)\s*/ contained containedin=MixTestTitleFront
+	syntax match MixTestTitleType /\v(test|doctest)/ contained containedin=MixTestTitleFront
+	syntax match MixTestTitleTail /\v\s+\([^()]{-}\)$/ contained containedin=MixTestTitle
+	syntax match MixTestTitleTail /\v\(\d+\)\s\([^()]{-}\)$/ contained containedin=MixTestTitle
+	hi link MixTestTitle Title
+	hi link MixTestTitleNum Statement
+	hi link MixTestTitleType Type
+	hi link MixTestTitleTail Comment
+
 	syntax match MixTestAttr /\v^\s*\zs(code|left|right|stacktrace):/
 	syntax match MixTestDoctestFailed /\v^\s*\zsDoctest failed/
-	syntax match MixTestTitle /\v^\s+\d+\) .*$/
+	syntax match MixTestTestFailed /\v^\s*\zsAssertion with .* failed/
 	syntax match MixTestFinished /\v^Finished in \d+\.\d+ seconds$/
-	hi link MixTestDots Title
-	hi link MixTestAttr Comment
+	syntax match MixTestResults /\v^\d+ doctests, \d+ tests, \d+ failures$/
+	syntax match MixTestRandomized /\v^Randomized with seed \d+$/
+	hi link MixTestAttr Special
 	hi link MixTestDoctestFailed ErrorMsg
-	hi link MixTestTitle Title
-	hi link MixTestFinished Keyword
+	hi link MixTestTestFailed ErrorMsg
+	hi link MixTestResults Title
+	hi link MixTestFinished Comment
+	hi link MixTestRandomized Comment
 
 	" make it async
 	exe 'lcd '. project_root
