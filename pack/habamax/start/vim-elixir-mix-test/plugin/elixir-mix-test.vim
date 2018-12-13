@@ -67,16 +67,20 @@ fun! s:run_tests()
 	syntax match MixTestFinished /\v^Finished in \d+\.\d+ seconds$/
 	syntax match MixTestResults /\v^\d+ doctests, \d+ tests, \d+ failures$/
 	syntax match MixTestRandomized /\v^Randomized with seed \d+$/
+	syntax match MixTestComment /\v^# .*$/
 	hi link MixTestAttr Special
 	hi link MixTestDoctestFailed ErrorMsg
 	hi link MixTestTestFailed ErrorMsg
 	hi link MixTestResults Title
 	hi link MixTestFinished Comment
 	hi link MixTestRandomized Comment
+	hi link MixTestComment Comment
 
 	" make it async
 	exe 'lcd '. project_root
 	silent %!mix test
+
+	call s:add_help()
 
 	" scroll to bottom
 	normal G
@@ -92,6 +96,15 @@ fun! s:next_test(direction)
 		let flags = 'Wb'
 	endif
 	call search('\v^\s+\d+\)\s+(test|doctest)', flags)
+endfu
+
+fun! s:add_help()
+	call append(0, "# ----")
+	call append(1, "# <C-n> - jump to next test")
+	call append(2, "# <C-p> - jump to previous test")
+	call append(3, "# <CR>  - open file under cursor at specified line `lib/hello.ex:5`")
+	call append(4, "# q     - close this window")
+	call append(5, "# ----")
 endfu
 
 augroup MIX_TEST
