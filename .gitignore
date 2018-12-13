@@ -4,6 +4,7 @@ pack/habamax/start/vim-evalvim/
 pack/habamax/start/vim-asciidoctor/
 pack/habamax/start/vim-skipit/
 pack/habamax/start/vim-rest-console/
+pack/habamax/start/vim-elixir-mix-test/
 autoload/plug.vim.old
 rplugin.vim
 *.html
