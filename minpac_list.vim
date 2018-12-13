@@ -39,10 +39,6 @@ fun! PackInit() abort
 	call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
 	call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
 
-	" it breaks abbreviation expansion when pmenu is visible (for example
-	" completor opens it)
-	" call minpac#add('Raimondi/delimitMate')
-
 	" use gsip to sort linewise
 	" use gsib to sort in a parenthesis
 	call minpac#add('christoomey/vim-sort-motion')

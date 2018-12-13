@@ -11,13 +11,6 @@ if executable("git")
 	packadd vim-gitgutter
 endif
 
-" Neomake {{{1
-" if exists(":Neomake") == 2
-" 	autocmd! BufWritePost * Neomake
-" 	let g:neomake_error_sign = { 'text': '✘', 'texthl': 'ErrorSign' }
-" 	let g:neomake_warning_sign = { 'text': ':(', 'texthl': 'WarningSign' }
-" endif
-
 " UltiSnips {{{1
 if has('python') || has('python3')
 	let g:UltiSnipsExpandTrigger = '<tab>'
@@ -164,11 +157,6 @@ autocmd! User GoyoLeave Limelight!
 imap <A-.> <Plug>(SkipItForward)
 imap <A-,> <Plug>(SkipItBack)
 
-" vim-gutentags {{{1
-" if executable("ctags")
-" 	packadd vim-gutentags
-" endif
-
 " vim-rest-console {{{1
 let g:vrc_auto_format_response_enabled = 1
 let b:vrc_response_default_content_type = 'application/json'
@@ -178,11 +166,6 @@ let g:vrc_curl_opts = {
 			\ '-i': '',
 			\ '--connect-timeout': 10,
 			\}
-
-" nerdtree {{{1
-" let g:NERDTreeDirArrowExpandable = '▸'
-" let g:NERDTreeDirArrowCollapsible = '▾'
-" nnoremap <Leader>fe :NERDTreeToggle<CR>
 
 " ALE configuration {{{1
 
