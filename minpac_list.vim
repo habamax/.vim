@@ -39,9 +39,6 @@ fun! PackInit() abort
 	call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
 	call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
 
-	" Python should be installed. PATH should be set up to python37.dll
-	call minpac#add('maralla/completor.vim', {'type': 'opt'})
-
 	" it breaks abbreviation expansion when pmenu is visible (for example
 	" completor opens it)
 	" call minpac#add('Raimondi/delimitMate')
@@ -91,6 +88,8 @@ fun! PackInit() abort
 	call minpac#add('elixir-editors/vim-elixir')
 	" call minpac#add('mhinz/vim-mix-format')
 	call minpac#add('udalov/kotlin-vim')
+	call minpac#add('airblade/vim-rooter')
+
 
 	" Distraction free
 	call minpac#add('junegunn/goyo.vim')
