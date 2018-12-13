@@ -110,6 +110,11 @@ if has('python') || has('python3')
 	let g:Lf_CommandMap = {'<ESC>': ['<C-Space>', '<ESC>']}
 	let g:Lf_NormalMap = {"File":   [["u", ':LeaderfFile ..<CR>']]}
     let g:Lf_PreviewResult = {'Colorscheme': 1}
+    let g:Lf_WildIgnore = {
+            \ 'dir': ['.svn','.git','.hg'],
+            \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+            \}
+    let g:Lf_MruWildIgnore = copy(g:Lf_WildIgnore)
 	cabbrev lf LeaderfFile
 	nnoremap <leader>f/ :Leaderf rg<CR>
 	nnoremap <leader>/ :LeaderfLineAll<CR>
