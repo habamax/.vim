@@ -51,7 +51,7 @@ if has('python') || has('python3')
 	let g:Lf_Shortcutb = '<leader>b'
 	let g:Lf_WindowHeight = 0.30
 	let g:Lf_ShowHidden = 1
-	let g:Lf_WorkingDirectoryMode = 'Af'
+	" let g:Lf_WorkingDirectoryMode = 'Af'
 	let g:Lf_FollowLinks = 1
 	let g:Lf_RootMarkers = ['.git', '.hg', '.svn', 'mix.exs']
 	let g:Lf_CommandMap = {'<ESC>': ['<C-Space>', '<ESC>']}
@@ -187,7 +187,10 @@ endfu
 
 let g:ale_fixers = {}
 let g:ale_fixers.elixir = ['ALE_BEFORE_mix_format', 'mix_format', 'ALE_AFTER_mix_format']
+let g:ale_fixers.html = ['prettier']
 let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
+
+let g:ale_javascript_prettier_options = '--use-tabs'
 
 let g:ale_elixir_elixir_ls_release = "C:/prg/elixir-ls"
 let g:ale_completion_enabled = 1
