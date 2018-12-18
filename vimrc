@@ -151,12 +151,6 @@ if !has("nvim")
 	let &undodir = s:other_dir . '/.vim_undo/,.'
 endif
 
-" Netrw {{{1
-let g:netrw_banner = 0
-let g:netrw_preview = 1
-let g:netrw_alto = 0
-let g:netrw_liststyle = 0
-
 " Mappings {{{1
 
 " Escaping
@@ -218,9 +212,6 @@ nnoremap <Leader>fvp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/minpac_list.vim"<
 
 " open global notes file
 nnoremap <Leader>fn :e ~/docs/notes.adoc<CR>
-
-" open global notes file
-nnoremap <Leader>fe :Ex<CR>
 
 " built-in terminal
 tnoremap <esc> <C-\><C-n>
