@@ -13,11 +13,9 @@ endif
 
 " UltiSnips {{{1
 if has('python') || has('python3')
-	inoremap <A-j> <nop>
-	inoremap <A-k> <nop>
-	let g:UltiSnipsExpandTrigger = '<A-j>'
-	let g:UltiSnipsJumpForwardTrigger = '<A-j>'
-	let g:UltiSnipsJumpBackwardTrigger = '<A-k>'
+	let g:UltiSnipsExpandTrigger = '<tab>'
+	let g:UltiSnipsJumpForwardTrigger = '<tab>'
+	let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 	packadd ultisnips
 	
@@ -176,10 +174,12 @@ let g:elixir_mix_test_position = "bottom"
 
 " mucomplete {{{1
 let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#no_mappings = 1
 let g:mucomplete#chains = {}
 let g:mucomplete#chains.vim = ['path', 'ulti', 'cmd', 'keyn']
 let g:mucomplete#chains.default = ['path', 'ulti', 'keyn', 'dict', 'uspl']
 
-let g:mucomplete#ultisnips#match_at_start = 0
-inoremap <silent> <expr> <plug>MyCR mucomplete#ultisnips#expand_snippet("\<cr>")
-imap <cr> <plug>MyCR
+let g:mucomplete#ultisnips#match_at_start = 1
+let g:mucomplete#cycle_with_trigger = 1
+imap <C-n> <plug>(MUcompleteFwd)
+imap <C-p> <plug>(MUcompleteBwd)
