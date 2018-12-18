@@ -65,15 +65,10 @@ fun! PackInit() abort
 	call minpac#add('thinca/vim-textobj-function-javascript')
 	call minpac#add('andyl/vim-textobj-elixir')
 
-	" no clojure and racket for now
-	" call minpac#add('guns/vim-sexp')
-
 	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
 	call minpac#add('honza/vim-snippets', {'type': 'opt'})
 	call minpac#add('mattn/emmet-vim')
 	call minpac#add('alvan/vim-closetag')
-
-	" call minpac#add('scrooloose/nerdtree')
 
 	call minpac#add('mbbill/undotree')
 
@@ -82,10 +77,8 @@ fun! PackInit() abort
 
 	" programming
 	call minpac#add('w0rp/ale')
-	" call minpac#add('benekastah/neomake')
 	" call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
 	call minpac#add('elixir-editors/vim-elixir')
-	" call minpac#add('mhinz/vim-mix-format')
 	call minpac#add('udalov/kotlin-vim')
 	call minpac#add('airblade/vim-rooter')
 
