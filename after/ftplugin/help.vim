@@ -1,7 +1,8 @@
 nnoremap <buffer> <CR> <C-]>
+nnoremap q <C-w>c
 
-nnoremap <buffer> <TAB> :silent call <SID>goto_help_link('next')<CR>
-nnoremap <buffer> <S-TAB> :silent call <SID>goto_help_link('prev')<CR>
+nnoremap <buffer> <C-n> :silent call <SID>goto_help_link('next')<CR>
+nnoremap <buffer> <C-p> :silent call <SID>goto_help_link('prev')<CR>
 
 function! s:goto_help_link(dir)
   if a:dir == 'next'
