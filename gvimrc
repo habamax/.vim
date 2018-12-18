@@ -26,12 +26,12 @@ fun! s:base16_customize() abort "{{{
 	call Base16hi("Underlined", "", "", "", "", "underline", "")
 	call Base16hi("StatusLine", "", "", "", "", "bold", "")
 	call Base16hi("htmlBold", g:base16_gui05, "", "", "", "bold", "")
-	call Base16hi("LineNr", "", g:base16_gui00, "", "", "", "")
-	call Base16hi("SignColumn", "", g:base16_gui00, "", "", "", "")
-	call Base16hi("GitGutterAdd", "", g:base16_gui00, "", "", "", "")
-	call Base16hi("GitGutterChange", "", g:base16_gui00, "", "", "", "")
-	call Base16hi("GitGutterDelete", "", g:base16_gui00, "", "", "", "")
-	call Base16hi("GitGutterChangeDelete", "", g:base16_gui00, "", "", "", "")
+	" call Base16hi("LineNr", "", g:base16_gui00, "", "", "", "")
+	" call Base16hi("SignColumn", "", g:base16_gui00, "", "", "", "")
+	" call Base16hi("GitGutterAdd", "", g:base16_gui00, "", "", "", "")
+	" call Base16hi("GitGutterChange", "", g:base16_gui00, "", "", "", "")
+	" call Base16hi("GitGutterDelete", "", g:base16_gui00, "", "", "", "")
+	" call Base16hi("GitGutterChangeDelete", "", g:base16_gui00, "", "", "", "")
 	hi! link lCursor IncSearch
 endfun
 " }}}
