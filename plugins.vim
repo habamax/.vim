@@ -148,25 +148,8 @@ let g:vrc_curl_opts = {
 
 " ALE configuration {{{1
 
-" You have to use formatter from the root of the elixir project
-" or to be precise from the folder where .formatter.exs file exists.
-" Otherwise, formatter dependencies will not be used.
-
-" Change working directory to directory where .formatter.exs exists, upwards.
-" fun! ALE_BEFORE_mix_format(bufnr)
-" 	" find path of the .formatter.exs upwards from the current file's path
-" 	let path = fnamemodify(findfile(".formatter.exs", expand("%:p:h").";"), ":p:h")
-" 	exe 'lcd '. path
-" endfu
-
-" " Change working directory to directory of the current file
-" fun! ALE_AFTER_mix_format(bufnr)
-" 	lcd %:p:h
-" endfu
-
 let g:ale_fixers = {}
-" I have vim rooter now...
-" let g:ale_fixers.elixir = ['ALE_BEFORE_mix_format', 'mix_format', 'ALE_AFTER_mix_format']
+" use with vim rooter...
 let g:ale_fixers.elixir = ['mix_format']
 let g:ale_fixers.html = ['prettier']
 let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
