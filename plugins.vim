@@ -157,7 +157,7 @@ let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
 let g:ale_javascript_prettier_options = '--use-tabs'
 
 let g:ale_elixir_elixir_ls_release = "C:/prg/elixir-ls"
-let g:ale_completion_enabled = 1
+" let g:ale_completion_enabled = 1
 
 nmap <leader>gf <Plug>(ale_fix)
 nmap <leader>gd :ALEGoToDefinition<CR>
