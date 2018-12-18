@@ -209,3 +209,5 @@ let g:rooter_change_directory_for_non_project_files = 'current'
 let g:rooter_patterns = ['.git', '.git/', 'mix.exs']
 let g:rooter_silent_chdir = 1
 
+" elixir-mix-test {{{1
+let g:elixir_mix_test_position = "bottom"
