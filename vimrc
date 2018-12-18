@@ -54,6 +54,8 @@ if !has('nvim') && has('patch-8.1.360')
 else
 	set diffopt=filler,vertical
 endif
+" mucomplete needs this
+set completeopt+=menuone,noselect
 set nofoldenable
 set foldminlines=1 foldlevel=1
 set scrolloff=2 sidescrolloff=5

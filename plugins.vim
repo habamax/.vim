@@ -13,35 +13,14 @@ endif
 
 " UltiSnips {{{1
 if has('python') || has('python3')
-	let g:UltiSnipsExpandTrigger = '<tab>'
-	let g:UltiSnipsJumpForwardTrigger = '<tab>'
+	inoremap <A-j> <nop>
+	inoremap <A-k> <nop>
+	let g:UltiSnipsExpandTrigger = '<A-j>'
+	let g:UltiSnipsJumpForwardTrigger = '<A-j>'
+	let g:UltiSnipsJumpBackwardTrigger = '<A-k>'
 
 	packadd ultisnips
-
-	" convenince command to list all snips available
-	command! UltiSnips :call UltiSnips#ListSnippets()
-
-	" Completion SHOULD BE opened automatically
-	" Completion and ultisnips to reuse TAB key
-	" tab to trigger snip → jump to next placeholder → next completion or
-	" insert a plain tab char
-	fun! Tab_Or_Complete() "{{{
-		call UltiSnips#ExpandSnippet()
-		if g:ulti_expand_res == 0
-			call UltiSnips#JumpForwards()
-			if g:ulti_jump_forwards_res == 0
-				if pumvisible()
-					return "\<C-n>"
-				else
-					return "\<TAB>"
-				endif
-			endif
-		endif
-		return ""
-	endf "}}}
-
-	au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=Tab_Or_Complete()<cr>"
-
+	
 endif
 
 " LeaderF or CtrlP {{{1
@@ -211,3 +190,13 @@ let g:rooter_silent_chdir = 1
 
 " elixir-mix-test {{{1
 let g:elixir_mix_test_position = "bottom"
+
+" mucomplete {{{1
+let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#chains = {}
+let g:mucomplete#chains.vim = ['path', 'ulti', 'cmd', 'keyn']
+let g:mucomplete#chains.default = ['path', 'ulti', 'keyn', 'dict', 'uspl']
+
+let g:mucomplete#ultisnips#match_at_start = 0
+inoremap <silent> <expr> <plug>MyCR mucomplete#ultisnips#expand_snippet("\<cr>")
+imap <cr> <plug>MyCR

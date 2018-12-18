@@ -56,6 +56,8 @@ fun! PackInit() abort
 
 	call minpac#add('junegunn/vim-easy-align')
 
+	call minpac#add('lifepillar/vim-mucomplete')
+
 	" text objects
 	call minpac#add('kana/vim-textobj-user')
 	call minpac#add('kana/vim-textobj-indent')
