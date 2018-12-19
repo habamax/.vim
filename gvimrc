@@ -92,10 +92,12 @@ augroup on_change_colorscheme
 	au ColorScheme * call s:leaderf_customize()
 augroup END
 
+" pairs of colorschemes I like to use
+" let g:duo_themes = ['base16-one-light', 'base16-oceanicnext']
 " let g:duo_themes = ['base16-one-light', 'base16-tomorrow-night']
-" let g:duo_themes = ['base16-grayscale-light', 'base16-grayscale-dark']
+let g:duo_themes = ['base16-grayscale-light', 'base16-grayscale-dark']
 " let g:duo_themes = ['base16-one-light', 'base16-default-dark']
-let g:duo_themes = ['base16-one-light', 'base16-oceanicnext']
+" let g:duo_themes = ['base16-solarized-light', 'base16-solarized-dark']
 fun! ToggleColorscheme()
 	if !exists('g:colors_name')
 		let g:colors_name = 'default'
