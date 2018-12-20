@@ -20,7 +20,7 @@ if has('python') || has('python3')
 	
 endif
 
-" LeaderF or CtrlP {{{1
+" FZF or LeaderF or CtrlP {{{1
 if has('python') || has('python3')
 	let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 	let g:Lf_ShortcutF = '<leader>ff'
@@ -49,6 +49,15 @@ if has('python') || has('python3')
 	" open .vim or .vimfiles or nvim config directory
 	nnoremap <leader>fdv :exe ':LeaderfFile '.fnamemodify($MYVIMRC, ':p:h')<CR>
 	packadd leaderF
+elseif executable('fzf')
+	packadd fzf
+	packadd fzf.vim
+	nnoremap <leader>ff :Files<CR>
+	nnoremap <leader>bb :Buffers<CR>
+	nnoremap <leader>fc :Colors<CR>
+	nnoremap <leader>fdd :Files ~/docs<CR>
+	nnoremap <leader>fdv :exe ':Files '.fnamemodify($MYVIMRC, ':p:h')<CR>
+
 else
 	let g:ctrlp_map = ''
 	nnoremap <leader>ff :CtrlPMixed<CR>
