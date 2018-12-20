@@ -3,12 +3,11 @@ runtime minpac_list.vim
 
 " Plugin settings
 
-" Fugitive and Git-Gutter {{{1
+" Git packages {{{1
 if executable("git")
 	nnoremap <leader>gs :Gstatus<CR>
 
 	packadd vim-fugitive
-	packadd vim-gitgutter
 endif
 
 " UltiSnips {{{1
@@ -30,7 +29,7 @@ if has('python') || has('python3')
 	let g:Lf_ShowHidden = 1
 	" let g:Lf_WorkingDirectoryMode = 'Af'
 	let g:Lf_FollowLinks = 1
-	let g:Lf_RootMarkers = ['.git', '.hg', '.svn', 'mix.exs']
+	" let g:Lf_RootMarkers = ['.git', '.hg', '.svn', 'mix.exs']
 	let g:Lf_CommandMap = {'<ESC>': ['<C-Space>', '<ESC>']}
 	let g:Lf_NormalMap = {"File":   [["u", ':LeaderfFile ..<CR>']]}
     let g:Lf_PreviewResult = {'Colorscheme': 1}
@@ -165,7 +164,7 @@ nmap <leader>gh :ALEHover<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 
 " vim-rooter {{{1
-let g:rooter_change_directory_for_non_project_files = 'current'
+let g:rooter_change_directory_for_non_project_files = ''
 let g:rooter_patterns = ['.git', '.git/', 'mix.exs']
 let g:rooter_silent_chdir = 1
 

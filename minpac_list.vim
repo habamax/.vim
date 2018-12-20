@@ -29,13 +29,6 @@ fun! PackInit() abort
 
 	call minpac#add('tmhedberg/matchit')
 
-
-	" <leader>hs to stage hunk
-	" <leader>hu to undo hunk
-	" ]c next hunk
-	" [c prev hunk
-	call minpac#add('airblade/vim-gitgutter', {'type': 'opt'})
-
 	call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
 	call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
 
