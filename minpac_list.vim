@@ -68,8 +68,8 @@ fun! PackInit() abort
 
 	call minpac#add('mbbill/undotree')
 
-	" I have a fork to fix an issue...
-	" call minpac#add('diepm/vim-rest-console')
+	" I have a fork to fix an issue... and it was merged
+	call minpac#add('diepm/vim-rest-console')
 
 	" programming
 	call minpac#add('w0rp/ale')
