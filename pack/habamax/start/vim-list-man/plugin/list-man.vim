@@ -66,17 +66,16 @@ nnoremap <expr> <Plug>(ListManToggleCheckboxLineOp) <sid>op_toggle_checkboxes() 
 
 
 if exists("g:list_man_default_mappings") && g:list_man_default_mappings == 1
-	"TODO: introduce default mapping setting <2018-12-06 11:15>
-	if !hasmapto('<Plug>(ListManToggleCheckboxOp)') && maparg('glt','n') ==# ''
-		xmap glt  <Plug>(ListManToggleCheckboxOp)
-		nmap glt  <Plug>(ListManToggleCheckboxOp)
-		omap glt  <Plug>(ListManToggleCheckboxOp)
-		nmap gltt <Plug>(ListManToggleCheckboxLineOp)
+	if !hasmapto('<Plug>(ListManToggleCheckboxOp)') && maparg('<leader>x','n') ==# ''
+		xmap <leader>x  <Plug>(ListManToggleCheckboxOp)
+		nmap <leader>x  <Plug>(ListManToggleCheckboxOp)
+		omap <leader>x  <Plug>(ListManToggleCheckboxOp)
+		nmap <leader>xx <Plug>(ListManToggleCheckboxLineOp)
 	endif
 
-	if !hasmapto('<Plug>(ListManToggleCheckbox)') && maparg('<leader>x','n') ==# ''
-		xmap <leader>x <Plug>(ListManToggleCheckbox)
-		vmap <leader>x <Plug>(ListManToggleCheckbox)
-		nmap <leader>x <Plug>(ListManToggleCheckbox)
-	endif
+	" if !hasmapto('<Plug>(ListManToggleCheckbox)') && maparg('<leader>x','n') ==# ''
+	" 	xmap <leader>x <Plug>(ListManToggleCheckbox)
+	" 	vmap <leader>x <Plug>(ListManToggleCheckbox)
+	" 	nmap <leader>x <Plug>(ListManToggleCheckbox)
+	" endif
 endif

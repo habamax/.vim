@@ -37,7 +37,7 @@ set fileformats=unix,mac,dos
 set fileformat=unix
 
 " UI {{{1
-set shortmess+=I
+set shortmess+=Ic
 set winaltkeys=no
 set guioptions=cme
 set laststatus=2
