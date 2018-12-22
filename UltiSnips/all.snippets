@@ -89,7 +89,7 @@ endsnippet
 ##########
 
 snippet todo "TODO comment" w
-`!p snip.rv=get_comment_format()[0]`${2:TODO}: ${0:${VISUAL}} <`!v strftime("%Y-%m-%d %H:%M")`>`!p snip.rv=(get_comment_format()[2] if get_comment_format()[0] != get_comment_format()[2] else '')`
+`!p snip.rv=get_comment_format()[0]`${1:TODO}: ${2:${VISUAL}} <`!v strftime("%Y-%m-%d %H:%M")`>`!p snip.rv=(get_comment_format()[2] if get_comment_format()[0] != get_comment_format()[2] else '')`$0
 endsnippet
 
 snippet uuid "Random UUID" w
@@ -122,7 +122,7 @@ endsnippet
 ##################
 #  Lorem Ipsums  #
 ##################
-snippet lorem "Lorem Ipsum - 53 words" b
+snippet lorem "Lorem Ipsum - 53 words" w
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Maecenas feugiat fermentum pretium. Cras eu dolor imperdiet justo mattis
 pulvinar. Cras nec lectus ligula. Proin elementum luctus elit, a tincidunt quam
@@ -130,7 +130,7 @@ facilisis non. Nunc quis mauris non turpis finibus luctus. Maecenas ante
 sapien, sagittis quis accumsan in, feugiat quis sem. Praesent et auctor libero.
 endsnippet
 
-snippet lorem2 "Lorem Ipsum - 87 words" b
+snippet lorem2 "Lorem Ipsum - 87 words" w
 Ut sed lacus id mauris mattis lobortis. Aliquam ut nisl eu neque viverra
 pretium. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam
 convallis, purus sit amet rutrum porttitor, enim ante dapibus libero, finibus
@@ -141,7 +141,7 @@ nisi, at vulputate dolor. Pellentesque habitant morbi tristique senectus et
 netus et malesuada fames ac turpis egestas.
 endsnippet
 
-snippet lorem3 "Lorem Ipsum - 111 words" b
+snippet lorem3 "Lorem Ipsum - 111 words" w
 Vivamus ultricies, sapien nec faucibus molestie, lectus quam lobortis lectus,
 ornare feugiat lacus arcu vel turpis. Donec libero enim, congue a mi a,
 vehicula consectetur massa. Integer aliquam, quam et convallis ultrices, sapien
@@ -154,7 +154,7 @@ facilisis volutpat arcu. Vestibulum a dolor magna. Morbi placerat dapibus
 vestibulum. Integer id malesuada urna. Integer tempor ac diam ac facilisis.
 endsnippet
 
-snippet lorem4 "Lorem Ipsum - 49 words" b
+snippet lorem4 "Lorem Ipsum - 49 words" w
 Nam in nulla libero. Proin ut finibus lacus. Integer eleifend accumsan sem, ut
 mollis lectus molestie ac. Duis finibus nunc quis arcu scelerisque malesuada.
 Mauris ac tincidunt mi. Sed scelerisque placerat tortor eu condimentum. Etiam
@@ -162,7 +162,7 @@ vitae sapien et tortor lobortis fringilla. Mauris sit amet ante id mauris
 tristique aliquam.
 endsnippet
 
-snippet lorem5 "Lorem Ipsum - 109 words" b
+snippet lorem5 "Lorem Ipsum - 109 words" w
 Donec condimentum, massa nec dapibus tristique, velit mi viverra risus, non
 vulputate lectus elit vel sapien. Nam rhoncus, nisl sed viverra sodales, leo
 nisl rutrum urna, ac scelerisque mi elit sit amet magna. Cras elementum
