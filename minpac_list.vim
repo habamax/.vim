@@ -1,7 +1,9 @@
 " Use minpac to utilize standard vim package stuff + git
 " First of all minpac should be installed:
 " WIN:
-" git clone https://github.com/k-takata/minpac.git %HOME/vimfiles/pack/minpac/opt/minpac
+" git clone https://github.com/k-takata/minpac.git %HOME%/vimfiles/pack/minpac/opt/minpac
+" WIN POWERSHELL:
+" git clone https://github.com/k-takata/minpac.git $HOME/vimfiles/pack/minpac/opt/minpac
 " OTHER:
 " git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
 
