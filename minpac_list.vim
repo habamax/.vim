@@ -30,7 +30,8 @@ fun! PackInit() abort
 	call minpac#add('tmhedberg/matchit')
 
 	call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
-	call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
+	" call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
+	call minpac#add('Yggdroot/LeaderF', {'type': 'opt', 'branch': 'dev'})
 	call minpac#add('junegunn/fzf', {'type': 'opt'})
 	call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
 

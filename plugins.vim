@@ -20,7 +20,23 @@ if has('python') || has('python3')
 	
 endif
 
-" FZF or LeaderF or CtrlP {{{1
+" Let me have fzf just in case... {{{1
+if executable('fzf')
+	" nnoremap <leader>ff :Files<CR>
+	" nnoremap <leader>fh :History<CR>
+	" nnoremap <leader>b :Buffers<CR>
+	" nnoremap <leader>fc :Colors<CR>
+	" nnoremap <leader>fdd :Files ~/docs<CR>
+	" nnoremap <leader>fdv :exe ':Files '.fnamemodify($MYVIMRC, ':p:h')<CR>
+	" [Buffers] Jump to the existing window if possible
+	let g:fzf_buffers_jump = 1
+
+	packadd fzf
+	packadd fzf.vim
+
+endif
+
+" LeaderF or CtrlP {{{1
 if has('python') || has('python3')
 	let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 	let g:Lf_ShortcutF = '<leader>ff'
@@ -41,7 +57,7 @@ if has('python') || has('python3')
 	cabbrev lf LeaderfFile
 	nnoremap <leader>f/ :Leaderf rg<CR>
 	nnoremap <leader>/ :LeaderfLineAll<CR>
-	nnoremap <leader>fh :LeaderfHelp<CR>
+	nnoremap <leader>h :LeaderfHelp<CR>
 	nnoremap <leader>fm :LeaderfMru<CR>
 	nnoremap <leader>fs :LeaderfSelf<CR>
 	nnoremap <leader>fc :LeaderfColorscheme<CR>
@@ -49,20 +65,11 @@ if has('python') || has('python3')
 	" open .vim or .vimfiles or nvim config directory
 	nnoremap <leader>fdv :exe ':LeaderfFile '.fnamemodify($MYVIMRC, ':p:h')<CR>
 	packadd leaderF
-elseif executable('fzf')
-	packadd fzf
-	packadd fzf.vim
-	nnoremap <leader>ff :Files<CR>
-	nnoremap <leader>bb :Buffers<CR>
-	nnoremap <leader>fc :Colors<CR>
-	nnoremap <leader>fdd :Files ~/docs<CR>
-	nnoremap <leader>fdv :exe ':Files '.fnamemodify($MYVIMRC, ':p:h')<CR>
-
 else
 	let g:ctrlp_map = ''
 	nnoremap <leader>ff :CtrlPMixed<CR>
 	nnoremap <leader>fp :CtrlPBookmarkDir<CR>
-	nnoremap <leader>bb :CtrlPBuffer<CR>
+	nnoremap <leader>b :CtrlPBuffer<CR>
 	let g:ctrlp_key_loop = 1
 	if executable('rg')
 		let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
