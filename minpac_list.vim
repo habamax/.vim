@@ -13,11 +13,9 @@ fun! PackInit() abort
 	call minpac#init()
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-	call minpac#add('editorconfig/editorconfig-vim')
-
 	" Tim Pope is a beast. You better use his stuff ...
-	call minpac#add('tpope/vim-surround')
 	call minpac#add('tpope/vim-commentary')
+	call minpac#add('tpope/vim-surround')
 	call minpac#add('tpope/vim-repeat')
 	call minpac#add('tpope/vim-dispatch')
 	call minpac#add('tpope/vim-speeddating')
@@ -41,17 +39,10 @@ fun! PackInit() abort
 	" use gsib to sort in a parenthesis
 	call minpac#add('christoomey/vim-sort-motion')
 
-	" swap comma separated stuff with `g>` `g<` `gs`
-	" `gs` will probably interfere with vim-sort-motion
-	" map it to `g.`
-	call minpac#add('machakann/vim-swap')
-
 	" Too buggy yet
 	" call minpac#add('terryma/vim-multiple-cursors')
 
 	call minpac#add('christoomey/vim-titlecase')
-
-	call minpac#add('mhinz/vim-grepper')
 
 	call minpac#add('junegunn/vim-easy-align')
 
@@ -71,15 +62,20 @@ fun! PackInit() abort
 
 	call minpac#add('mbbill/undotree')
 
-	" I have a fork to fix an issue... and it was merged
+	"" I have a fork to fix an issue... and it was merged
 	call minpac#add('diepm/vim-rest-console')
 
-	" programming
+	"" programming
 	call minpac#add('w0rp/ale')
 	" call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
 	call minpac#add('elixir-editors/vim-elixir')
 	call minpac#add('udalov/kotlin-vim')
 	call minpac#add('airblade/vim-rooter')
+	call minpac#add('editorconfig/editorconfig-vim')
+	" swap comma separated stuff with `g>` `g<` `gs`
+	" `gs` will probably interfere with vim-sort-motion
+	" map it to `g.`
+	call minpac#add('machakann/vim-swap')
 
 
 	" Distraction free
