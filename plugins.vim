@@ -187,6 +187,7 @@ let g:elixir_mix_test_position = "bottom"
 
 " mucomplete {{{1
 let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#completion_delay = 500
 let g:mucomplete#no_mappings = 1
 let g:mucomplete#chains = {}
 let g:mucomplete#chains.vim = ['path', 'ulti', 'cmd', 'keyn']
