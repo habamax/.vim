@@ -196,5 +196,5 @@ let g:mucomplete#chains.default = ['path', 'ulti', 'keyn', 'dict', 'uspl']
 
 let g:mucomplete#ultisnips#match_at_start = 1
 let g:mucomplete#cycle_with_trigger = 1
-imap <C-n> <plug>(MUcompleteFwd)
-imap <C-p> <plug>(MUcompleteBwd)
+imap <C-space> <plug>(MUcompleteFwd)
+imap <C-S-space> <plug>(MUcompleteBwd)
