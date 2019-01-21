@@ -76,6 +76,8 @@ fun! PackInit() abort
 	" `gs` will probably interfere with vim-sort-motion
 	" map it to `g.`
 	call minpac#add('machakann/vim-swap')
+	" parenthesis auto-pair
+	call minpac#add('tmsvg/pear-tree')
 
 
 	" Distraction free
