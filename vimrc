@@ -156,11 +156,11 @@ endif
 " Mappings {{{1
 
 " Escaping
-inoremap <C-space> <esc>
-vnoremap <C-space> <esc>
-onoremap <C-space> <esc>
-tnoremap <C-space> <C-\><C-N>
-cnoremap <C-space> <C-c><esc>
+" inoremap <C-space> <esc>
+" vnoremap <C-space> <esc>
+" onoremap <C-space> <esc>
+" tnoremap <C-space> <C-\><C-N>
+" cnoremap <C-space> <C-c><esc>
 
 " Easier keymap switch, Да.
 inoremap <C-l> <C-^>
