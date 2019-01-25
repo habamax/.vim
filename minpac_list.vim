@@ -23,6 +23,7 @@ fun! PackInit() abort
 	call minpac#add('tpope/vim-unimpaired')
 	call minpac#add('tpope/vim-eunuch')
 	call minpac#add('tpope/vim-fugitive', {'type': 'opt'})
+	" coerce word with cru :h cr
 	call minpac#add('tpope/vim-abolish')
 	call minpac#add('tpope/vim-endwise')
 	call minpac#add('tpope/vim-vinegar')
