@@ -9,7 +9,7 @@ elseif has('nvim')
 	GuiFont! Fantasque\ Sans\ Mono:h13
 else
 	set gfn=Fantasque_Sans_Mono:h13,Hack:h10,Consolas:h14
-	" set gfn=Hack:h10,Consolas:h14
+	" set gfn=Hack:h12,Consolas:h14
 endif
 
 " Window size {{{1
