@@ -82,11 +82,11 @@ endif
 " There will be asciidoctor plugin here
 let g:asciidoctor_executable = 'asciidoctor'
 let g:asciidoctor_extensions = ['asciidoctor-diagram', 'asciidoctor-rouge']
-let g:asciidoctor_css_path = '~/docs/AsciiDocThemes'
-let g:asciidoctor_css = 'haba-asciidoctor.css'
+" let g:asciidoctor_css_path = '~/docs/.asciidoctor-setup'
+" let g:asciidoctor_css = 'haba-asciidoctor.css'
 let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram']
-let g:asciidoctor_pdf_themes_path = '~/docs/AsciiDocThemes'
-let g:asciidoctor_pdf_fonts_path = '~/docs/AsciiDocThemes/fonts'
+let g:asciidoctor_pdf_themes_path = '~/docs/.asciidoctor-setup'
+let g:asciidoctor_pdf_fonts_path = '~/docs/.asciidoctor-setup/fonts'
 let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/habamax-asciidoctor-pdf/bin/asciidoctor-pdf"
 " let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/asciidoctor-pdf/bin/asciidoctor-pdf"
 " for OSX `pngpaste` could be used.
@@ -95,7 +95,7 @@ let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 
 let g:asciidoctor_folding = 1
 let g:asciidoctor_fold_options = 1
-let g:asciidoctor_fenced_languages = ['python', 'c', 'javascript']
+let g:asciidoctor_fenced_languages = ['python', 'vim', 'javascript']
 
 fun! AsciidoctorMappings()
 	nnoremap <buffer> <leader>oo :AsciidoctorOpenRAW<CR>
