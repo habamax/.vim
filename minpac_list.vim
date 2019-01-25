@@ -84,9 +84,6 @@ fun! PackInit() abort
 	call minpac#add('junegunn/goyo.vim')
 	call minpac#add('junegunn/limelight.vim')
 
-	" Fancy fading
-	call minpac#add('TaDaa/vimade')
-
 	" colors
 	call minpac#add('chriskempson/base16-vim')
 endf
