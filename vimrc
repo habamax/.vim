@@ -213,7 +213,7 @@ nnoremap <Leader>fvs :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
 nnoremap <Leader>fvp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/minpac_list.vim"<CR>
 
 " open global notes file
-nnoremap <Leader>fn :e ~/docs/notes.adoc<CR>
+nnoremap <Leader>fn :e ~/docs/notes/notes.adoc<CR>
 
 " built-in terminal
 tnoremap <esc> <C-\><C-n>
