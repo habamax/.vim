@@ -77,7 +77,7 @@ fun! PackInit() abort
 	" map it to `g.`
 	call minpac#add('machakann/vim-swap')
 	" parenthesis auto-pair
-	call minpac#add('tmsvg/pear-tree')
+	" call minpac#add('tmsvg/pear-tree')
 
 
 	" Distraction free
