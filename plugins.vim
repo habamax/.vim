@@ -195,6 +195,8 @@ let g:mucomplete#chains.vim = ['path', 'ulti', 'cmd', 'keyn']
 let g:mucomplete#chains.default = ['path', 'ulti', 'keyn', 'dict', 'uspl']
 
 let g:mucomplete#ultisnips#match_at_start = 1
-let g:mucomplete#cycle_with_trigger = 1
+" let g:mucomplete#cycle_with_trigger = 1
 imap <C-space> <plug>(MUcompleteFwd)
-imap <C-S-space> <plug>(MUcompleteBwd)
+" imap <C-S-space> <plug>(MUcompleteBwd)
+inoremap <silent> <plug>(MUcompleteFwdKey) <C-S-space>
+imap <C-S-space> <plug>(MUcompleteCycFwd)
