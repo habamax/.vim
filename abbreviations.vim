@@ -44,6 +44,6 @@ inorea ешзЖ TIP:
 inorea cau: CAUTION:
 inorea сфгЖ CAUTION:
 
-" Date and Time
-inorea ddt <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
-inorea ddd <C-R>=strftime("%Y-%m-%d")<CR>
+inorea wtf WTF
+inorea smth something
+inorea Smth Something
