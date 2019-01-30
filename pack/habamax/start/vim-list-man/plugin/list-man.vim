@@ -7,8 +7,8 @@ endif
 let g:loaded_list_man = 1
 
 " next regex is for numbered lists too but not sure if it makes sense
-" let s:rx_bullets = '^\(\%(\s*[-*.]\+\s*\)\|\%(\s*\d\+\.\s*\)\)'
-let s:rx_bullets = '^\(\s*[-*]\+\s*\)'
+let s:rx_bullets = '^\(\%(\s*[-*]\+\s\+\)\|\%(\s*\d\+\.\s\+\)\)'
+" let s:rx_bullets = '^\(\s*[-*]\+\s*\)'
 let s:rx_empty_checkbox = '\(\s*\[ \?\]\+\s*\)'
 let s:rx_marked_checkbox = '\(\s*\[[Xx]\]\+\s*\)'
 
