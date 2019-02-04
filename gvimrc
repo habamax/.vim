@@ -21,24 +21,11 @@ endif
 " Colors {{{1
 fun! s:base16_customize() abort "{{{
 	call Base16hi("Title", "", "", "", "", "bold", "")
-	" call Base16hi("Statement", "", "", "", "", "", "")
 	call Base16hi("Comment", "", "", "", "", "italic", "")
 	call Base16hi("Underlined", "", "", "", "", "underline", "")
 	call Base16hi("StatusLine", "", "", "", "", "bold", "")
 	call Base16hi("htmlBold", g:base16_gui05, "", "", "", "bold", "")
-	" call Base16hi("LineNr", "", g:base16_gui00, "", "", "", "")
-	" call Base16hi("SignColumn", "", g:base16_gui00, "", "", "", "")
-	" call Base16hi("GitGutterAdd", "", g:base16_gui00, "", "", "", "")
-	" call Base16hi("GitGutterChange", "", g:base16_gui00, "", "", "", "")
-	" call Base16hi("GitGutterDelete", "", g:base16_gui00, "", "", "", "")
-	" call Base16hi("GitGutterChangeDelete", "", g:base16_gui00, "", "", "", "")
 	hi! link lCursor IncSearch
-endfun
-" }}}
-
-fun! s:base16_zenburn_customize() abort "{{{
-	call Base16hi("Delimiter", "8f8f8f", "", "", "", "", "")
-	call Base16hi("SpecialChar", "dca3a3", "", "", "", "", "")
 endfun
 " }}}
 
@@ -87,16 +74,15 @@ endfun
 augroup on_change_colorscheme
 	au!
 	au ColorScheme base16* call s:base16_customize()
-	au ColorScheme base16-zenburn call s:base16_zenburn_customize()
 	au ColorScheme base16-tomorrow call s:base16_tomorrow_customize()
 	au ColorScheme * call s:leaderf_customize()
 augroup END
 
 " pairs of colorschemes I like to use
-let g:duo_themes = ['base16-one-light', 'base16-oceanicnext']
+let g:duo_themes = ['base16-one-light', 'base16-default-dark']
+" let g:duo_themes = ['base16-one-light', 'base16-oceanicnext']
 " let g:duo_themes = ['base16-one-light', 'base16-tomorrow-night']
 " let g:duo_themes = ['base16-grayscale-light', 'base16-grayscale-dark']
-" let g:duo_themes = ['base16-one-light', 'base16-default-dark']
 " let g:duo_themes = ['base16-solarized-light', 'base16-solarized-dark']
 fun! ToggleColorscheme()
 	if !exists('g:colors_name')
