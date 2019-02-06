@@ -134,23 +134,26 @@ endif
 
 " Backup & Undo & Sessions {{{1
 if !has("nvim")
-	let s:other_dir = expand('~/.vim_other')
+	let s:other_dir = expand('~/.vimdata')
 	if !isdirectory(s:other_dir)
 		call mkdir(s:other_dir)
 	endif
-	if !isdirectory(s:other_dir.'/.vim_backups')
-		call mkdir(s:other_dir.'/.vim_backups')
+	if !isdirectory(s:other_dir.'/backup')
+		call mkdir(s:other_dir.'/backup')
 	endif
-	if !isdirectory(s:other_dir.'/.vim_undo')
-		call mkdir(s:other_dir.'/.vim_undo')
+	if !isdirectory(s:other_dir.'/undo')
+		call mkdir(s:other_dir.'/undo')
+	endif
+	if !isdirectory(s:other_dir.'/swap')
+		call mkdir(s:other_dir.'/swap')
 	endif
 
 	set backup
-	let &backupdir = s:other_dir . '/.vim_backups/'
-	let &directory = s:other_dir . '/.vim_backups/,.'
+	let &backupdir = s:other_dir . '/backup//'
+	let &directory = s:other_dir . '/swap//,.'
 
 	set undofile
-	let &undodir = s:other_dir . '/.vim_undo/,.'
+	let &undodir = s:other_dir . '/undo//,.'
 endif
 
 " Mappings {{{1
