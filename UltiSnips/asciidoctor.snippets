@@ -153,8 +153,8 @@ snippet diagram "General plantuml diagram" b
 [plantuml, ${1:diagram-name}, ${2:svg}]
 ....
 skinparam monochrome true
-skinparam shadowing false
-skinparam dpi 300
+skinparam shadowing true
+skinparam dpi 100
 skinparam backgroundcolor transparent
 
 $0
@@ -165,8 +165,8 @@ snippet diagactivity "Activity diagram" b
 [plantuml, ${1:diagram-name}, ${2:svg}]
 ....
 skinparam monochrome true
-skinparam shadowing false
-skinparam dpi 300
+skinparam shadowing true
+skinparam dpi 100
 skinparam backgroundcolor transparent
 
 start
@@ -191,8 +191,8 @@ snippet diagclass "Class diagram" b
 [plantuml, ${1:diagram-name}, ${2:svg}]
 ....
 skinparam monochrome true
-skinparam shadowing false
-skinparam dpi 300
+skinparam shadowing true
+skinparam dpi 100
 skinparam backgroundcolor transparent
 
 class ${3:Parent}
@@ -209,8 +209,8 @@ snippet diagdb "Database diagram" b
 [plantuml, ${1:diagram-db-name}, ${2:svg}]
 ....
 skinparam monochrome true
-skinparam shadowing false
-skinparam dpi 300
+skinparam shadowing true
+skinparam dpi 100
 skinparam backgroundcolor transparent
 skinparam classarrowcolor gray
 
@@ -247,8 +247,8 @@ snippet diagseq "Sequence diagram" b
 [plantuml, ${1:diagram-name}, ${2:svg}]
 ....
 skinparam monochrome true
-skinparam shadowing false
-skinparam dpi 300
+skinparam shadowing true
+skinparam dpi 100
 skinparam backgroundcolor transparent
 
 ${3:Max} -> ${4:Alex}: ${5:I want more work!}
@@ -264,8 +264,8 @@ snippet diagstate "State diagram" b
 [plantuml, ${1:diagram-state-name}, ${2:svg}]
 ....
 skinparam monochrome true
-skinparam shadowing false
-skinparam dpi 300
+skinparam shadowing true
+skinparam dpi 100
 skinparam backgroundcolor transparent
 
 [*] --> ${3:State1}
@@ -281,21 +281,20 @@ snippet diaguse "Usecase diagram" b
 [plantuml, ${1:diagram-usecase-name}, ${2:svg}]
 ....
 skinparam monochrome true
-skinparam shadowing false
-skinparam dpi 300
+skinparam shadowing true
+skinparam dpi 100
 skinparam backgroundcolor transparent
 
-:${3:Actor1}: -> (${4:Start})
-note right of :$3: : hello
-:$3: --> (${5:Use the Application}) : ${6:with pleasure}
+left to right direction
 
-:${7:Super Admin}: ---> ($5) : ${8:Label\nthe usage}
-note left of ($5)
-Однажды в студеную
-Зимнюю пору
-Я из лесу вышел
-Был сильный мороз
-end note
+actor customer
+actor clerk
+rectangle checkout {
+	customer -- (checkout)
+	(checkout) .> (payment) : <<include>>
+	(help) .> (checkout) : <<extends>>
+	(checkout) -- clerk
+}
 $0
 ....
 endsnippet
