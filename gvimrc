@@ -96,7 +96,13 @@ fun! ToggleColorscheme()
 	exe "colorscheme ".color
 endf
 
-exe "colorscheme ".g:duo_themes[0]
+" Well, if it happens you run vim late, use dark colorscheme
+if strftime("%H") >= 21
+	exe "colorscheme ".g:duo_themes[1]
+else
+" Light colors otherwise
+	exe "colorscheme ".g:duo_themes[0]
+endif
 
 " Mimic toggling behaviour of Tim Popes unimpaired plugin
 nnoremap yot :call ToggleColorscheme()<CR>
