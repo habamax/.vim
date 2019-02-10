@@ -1,6 +1,8 @@
 setl commentstring=<!--%s-->
 
-let &l:makeprg = "pandoc --data-dir=".shellescape(expand("~/docs/.pandoc"))." ".shellescape(expand("%:p"))." -s --pdf-engine=xelatex -o ".shellescape(expand("%:p:r").".pdf").' --listings'
+compiler md2pdf
 
-" let &l:makeprg = "pandoc ".shellescape(expand("%:p"))." -s --pdf-engine=wkhtmltopdf -o ".shellescape(expand("%:p:r").".pdf")
-
+" open files
+nnoremap <buffer> <leader>op :silent !start %:p:r.pdf<CR>
+nnoremap <buffer> <leader>od :silent !start %:p:r.docx<CR>
+nnoremap <buffer> <leader>oh :silent !start %:p:r.html<CR>
