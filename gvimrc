@@ -79,8 +79,12 @@ augroup on_change_colorscheme
 augroup END
 
 " pairs of colorschemes I like to use
-let g:duo_themes = ['base16-one-light', 'base16-default-dark']
-" let g:duo_themes = ['base16-one-light', 'base16-oceanicnext']
+let g:duo_themes = ['base16-grayscale-light', 'base16-grayscale-dark']
+" let g:duo_themes = ['base16-one-light', 'base16-default-dark']
+" let g:duo_themes = ['base16-one-light', 'base16-ocean']
+" let g:duo_themes = ['base16-one-light', 'base16-irblack']
+" let g:duo_themes = ['base16-one-light', 'base16-twilight']
+" let g:duo_themes = ['base16-summerfruit-light', 'base16-summerfruit-dark']
 " let g:duo_themes = ['base16-one-light', 'base16-tomorrow-night']
 " let g:duo_themes = ['base16-grayscale-light', 'base16-grayscale-dark']
 " let g:duo_themes = ['base16-solarized-light', 'base16-solarized-dark']
