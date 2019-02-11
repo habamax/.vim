@@ -21,6 +21,7 @@ hi Cursor guibg=#000000
 hi lCursor guibg=#ff0000
 hi NonText guibg=NONE guifg=#c0c0c0
 hi SpecialKey guibg=NONE guifg=#c0c0c0
+hi Visual guibg=#c9f9c9 guifg=NONE
 
 hi Directory guibg=NONE guifg=#000000 gui=bold
 hi Title guibg=NONE guifg=#ff00ff gui=bold
