@@ -158,13 +158,6 @@ endif
 
 " Mappings {{{1
 
-" Escaping
-" inoremap <C-space> <esc>
-" vnoremap <C-space> <esc>
-" onoremap <C-space> <esc>
-" tnoremap <C-space> <C-\><C-N>
-" cnoremap <C-space> <C-c><esc>
-
 " Easier keymap switch, Да.
 inoremap <C-l> <C-^>
 cnoremap <C-l> <C-^>
@@ -175,9 +168,6 @@ inoremap <C-U> <C-G>u<C-U>
 
 " just one space on the line, preserving indent
 " nnoremap <leader>tos :JustOneInnerSpace<CR>
-" remove trailing spaces
-" nnoremap <leader>tts :RemoveTrailingSpaces<CR>
-
 
 " now it is possible to paste many times over selected text
 xnoremap <expr> p 'pgv"'.v:register.'y'
