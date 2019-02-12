@@ -77,3 +77,6 @@ hi diffLine guibg=NONE guifg=#000000 gui=bold,underline
 hi diffSubName guibg=NONE guifg=#000000 gui=bold,underline
 hi diffAdded guibg=NONE guifg=#009000
 hi diffRemoved guibg=NONE guifg=#c00000
+
+" minpac
+hi link minpacName Statement
