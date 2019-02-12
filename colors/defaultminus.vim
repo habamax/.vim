@@ -62,3 +62,19 @@ hi link jpropertiesIdentifier Statement
 hi link jpropertiesString Normal
 
 
+" Diff
+hi diffAdd guibg=#c9f9c9
+hi diffChange guibg=#f9f9c9
+hi diffText guibg=#f9d999 guifg=NONE gui=NONE
+hi diffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
+
+" fugitive
+hi link fugitiveHeading Title
+hi link fugitiveModifier Identifier
+hi link diffIndexLine Constant
+hi diffLine guibg=NONE guifg=#000000 gui=bold,underline
+hi diffSubName guibg=NONE guifg=#000000 gui=bold,underline
+hi diffLine guibg=NONE guifg=#0050ff gui=bold,underline
+hi link diffFile Title
+hi diffAdded guibg=NONE guifg=#009000
+hi diffRemoved guibg=NONE guifg=#c00000
