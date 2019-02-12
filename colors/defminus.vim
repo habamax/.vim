@@ -11,7 +11,7 @@ set background=light
 
 hi clear
 if exists('syntax_on')
-   syntax reset
+	syntax reset
 endif
 
 let g:colors_name = 'defminus'
@@ -48,6 +48,7 @@ hi Underlined guifg=#707070 gui=underline
 
 hi link vimFuncName Statement
 hi link vimVar Normal
+hi vimCommentTitle gui=italic
 
 hi link pythonInclude Statement
 hi link pythonBuiltin Statement
