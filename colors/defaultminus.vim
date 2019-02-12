@@ -24,7 +24,7 @@ hi SpecialKey guibg=NONE guifg=#c0c0c0
 hi Visual guibg=#c9f9c9 guifg=NONE
 
 hi Directory guibg=NONE guifg=#000000 gui=bold
-hi Title guibg=NONE guifg=#ff00ff gui=bold
+hi Title guibg=NONE guifg=#0050ff gui=bold
 hi Todo guibg=NONE guifg=#000000 gui=bold
 
 hi Statusline guibg=#000000 guifg=#ffffff gui=bold
@@ -36,12 +36,27 @@ hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold
 
 " Syntax
 
-hi Comment guifg=#b0b0b0 gui=italic
-hi Constant guifg=#707070 gui=NONE
+hi Comment guifg=#909090 gui=italic
+hi Constant guifg=#505050 gui=NONE
 hi Identifier guifg=#707070 gui=NONE
 hi Statement guifg=#000000 gui=bold
 hi PreProc guifg=#000000 gui=NONE
 hi Type guifg=#000000 gui=NONE
 hi Special guifg=#707070 gui=NONE
 
-hi def link luaFunction Statement
+hi link vimFuncName Statement
+
+hi link pythonInclude Statement
+hi link pythonBuiltin Statement
+
+hi link luaFunction Statement
+
+hi link elixirModuleDefine Statement
+hi link elixirInclude Statement
+hi link elixirExUnitMacro Statement
+hi link elixirBlockDefinition Statement
+
+hi link jpropertiesIdentifier Statement
+hi link jpropertiesString Normal
+
+
