@@ -57,8 +57,11 @@ hi link luaFunction Statement
 
 hi link elixirModuleDefine Statement
 hi link elixirInclude Statement
+hi link elixirDefine Statement
+hi link elixirAtom Identifier
 hi link elixirExUnitMacro Statement
 hi link elixirBlockDefinition Statement
+hi link elixirFunctionDeclaration Normal
 
 hi link jpropertiesIdentifier Statement
 hi link jpropertiesString Normal
