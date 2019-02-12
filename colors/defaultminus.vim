@@ -47,6 +47,7 @@ hi Special guifg=#707070 gui=NONE
 hi Underlined guifg=#707070 gui=underline
 
 hi link vimFuncName Statement
+hi link vimVar Normal
 
 hi link pythonInclude Statement
 hi link pythonBuiltin Statement
