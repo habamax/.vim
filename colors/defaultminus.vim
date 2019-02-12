@@ -5,7 +5,7 @@
 " License:    MIT
 "
 " GUI only `Black On White` colorscheme based on default vim colorscheme.
-" There are colors of course.
+" There are colors of course. Но это не точно.
 
 set background=light
 
@@ -43,6 +43,7 @@ hi Statement guifg=#000000 gui=bold
 hi PreProc guifg=#000000 gui=NONE
 hi Type guifg=#000000 gui=NONE
 hi Special guifg=#707070 gui=NONE
+hi Underlined guifg=#707070 gui=underline
 
 hi link vimFuncName Statement
 
