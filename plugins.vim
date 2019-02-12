@@ -200,3 +200,6 @@ imap <C-space> <plug>(MUcompleteFwd)
 " imap <C-S-space> <plug>(MUcompleteBwd)
 inoremap <silent> <plug>(MUcompleteFwdKey) <C-S-space>
 imap <C-S-space> <plug>(MUcompleteCycFwd)
+
+" tpope's Markdown
+let g:markdown_folding = 1
