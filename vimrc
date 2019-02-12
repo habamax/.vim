@@ -105,13 +105,22 @@ set t_vb=
 set tabstop=4 softtabstop=-1 shiftwidth=0 noexpandtab smarttab
 set shiftround
 set autoindent
+
 set nohlsearch incsearch ignorecase
+" highlight all occurencies of a term being searched/replaced
+augroup hlsearch-incsearch
+	autocmd!
+	autocmd CmdlineEnter /,\?,: :set hlsearch
+	autocmd CmdlineLeave /,\?,: :set nohlsearch
+augroup END
+
 set wrap
 set nojoinspaces
 set linebreak
 set breakindent
 set breakindentopt=sbr " showbreak will be handled correctly
 set virtualedit=block
+
 " neovim specific
 if has('nvim')
 	set inccommand=split
