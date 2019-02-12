@@ -1,6 +1,6 @@
 " Vim color scheme
 "
-" Name:       defaultminus.vim
+" Name:       defminus.vim
 " Maintainer: Maxim Kim <habamax@gmail.com>
 " License:    MIT
 "
@@ -14,7 +14,7 @@ if exists('syntax_on')
    syntax reset
 endif
 
-let g:colors_name = 'defaultminus'
+let g:colors_name = 'defminus'
 
 hi Normal guibg=#ffffff guifg=#000000 gui=NONE
 hi Cursor guibg=#000000
