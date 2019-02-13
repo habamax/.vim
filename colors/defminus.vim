@@ -17,22 +17,22 @@ endif
 let g:colors_name = 'defminus'
 
 "" General
-hi Normal guibg=#ffffff guifg=#000000 gui=NONE
+hi Normal guibg=#ffffff guifg=#000000 gui=NONE ctermbg=white ctermfg=black
 hi Cursor guibg=#000000
 hi lCursor guibg=#ff0000
 hi NonText guibg=NONE guifg=#c0c0c0
 hi SpecialKey guibg=NONE guifg=#c0c0c0
-hi Visual guibg=#c9c9c9 guifg=NONE
+hi Visual guibg=#c9c9c9 guifg=NONE ctermbg=lightgray
 
-hi Directory guibg=NONE guifg=#000000 gui=bold
+hi Directory guibg=NONE guifg=#000000 gui=bold ctermfg=black
 hi Title guibg=NONE guifg=#0050ff gui=bold
 hi Todo guibg=NONE guifg=#f000f0 gui=bold
 
 "" UI
-hi Statusline guibg=#000000 guifg=#ffffff gui=bold
-hi StatuslineNC guibg=#000000 guifg=#909090 gui=NONE
-hi Folded guibg=#eaeaea guifg=#505050 gui=NONE
-hi FoldColumn guibg=#eaeaea
+hi Statusline guibg=#000000 guifg=#ffffff gui=bold ctermbg=black ctermfg=white
+hi StatuslineNC guibg=#000000 guifg=#909090 gui=NONE ctermbg=black ctermfg=darkgray
+hi Folded guibg=#eaeaea guifg=#505050 gui=NONE ctermbg=darkgray ctermfg=black
+hi FoldColumn guibg=#eaeaea ctermbg=darkgray ctermfg=black
 hi SignColumn guibg=NONE
 hi Pmenu guibg=#eaeaea guifg=#505050 gui=NONE
 hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold
@@ -40,13 +40,13 @@ hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold
 "" Syntax
 
 " generic
-hi Comment guifg=#909090 gui=italic
-hi Constant guifg=#505050 gui=NONE
-hi Identifier guifg=#505050 gui=NONE
-hi Statement guifg=#000000 gui=bold
-hi PreProc guifg=#000000 gui=NONE
-hi Type guifg=#000000 gui=NONE
-hi Special guifg=#a05050 gui=NONE
+hi Comment guifg=#909090 gui=italic ctermfg=lightgrey
+hi Constant guifg=#505050 gui=NONE ctermfg=darkgrey
+hi Identifier guifg=#505050 gui=NONE ctermfg=darkgrey
+hi Statement guifg=#000000 gui=bold ctermfg=darkblue
+hi PreProc guifg=#000000 gui=NONE ctermfg=black
+hi Type guifg=#000000 gui=NONE ctermfg=black
+hi Special guifg=#a05050 gui=NONE ctermfg=darkmagenta
 hi Underlined guifg=#5050c0 gui=underline
 
 " vim
