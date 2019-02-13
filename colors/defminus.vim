@@ -115,3 +115,12 @@ hi link gitCommitSummary Title
 
 "" minpac
 hi link minpacName Statement
+
+"" help
+hi link helpHeader Title
+hi link helpHyperTextEntry Statement
+hi link helpHyperTextJump Underlined
+hi link helpExample Constant
+hi link helpURL Underlined
+hi helpSectionDelim guifg=#909090
+hi helpOption gui=italic
