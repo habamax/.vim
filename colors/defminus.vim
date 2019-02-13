@@ -42,12 +42,12 @@ hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold
 " generic
 hi Comment guifg=#909090 gui=italic
 hi Constant guifg=#505050 gui=NONE
-hi Identifier guifg=#707070 gui=NONE
+hi Identifier guifg=#505050 gui=NONE
 hi Statement guifg=#000000 gui=bold
 hi PreProc guifg=#000000 gui=NONE
 hi Type guifg=#000000 gui=NONE
-hi Special guifg=#707070 gui=NONE
-hi Underlined guifg=#707070 gui=underline
+hi Special guifg=#a05050 gui=NONE
+hi Underlined guifg=#5050c0 gui=underline
 
 " vim
 hi link vimFuncName Statement
