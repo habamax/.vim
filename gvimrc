@@ -19,9 +19,8 @@ if !has('nvim')
 endif
 
 " pairs of colorschemes I like to use
-" let g:duo_themes = ['defminus', 'nord']
 " let g:duo_themes = ['defminus', 'jellybeans']
-let g:duo_themes = ['defminus', 'badwolf']
+let g:duo_themes = ['defminus', 'OceanicNext']
 fun! ToggleColorscheme()
 	if !exists('g:colors_name')
 		let g:colors_name = 'default'
