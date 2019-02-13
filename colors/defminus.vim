@@ -99,6 +99,9 @@ hi link xmlTagName Statement
 hi link xmlTagN Statement
 hi link xmlAttrib Constant
 
+" sql
+hi link sqlKeyword Statement
+
 "" Diff
 hi diffAdd guibg=#c9f9c9
 hi diffChange guibg=#f9f9c9
