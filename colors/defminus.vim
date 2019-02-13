@@ -59,6 +59,15 @@ hi vimCommentTitle gui=italic
 hi link pythonInclude Statement
 hi link pythonBuiltin Statement
 
+" ruby
+hi link rubyInclude Statement
+hi link rubyModule Statement
+hi link rubyClass Statement
+hi link rubyMacro Statement
+hi link rubyStringDelimiter Constant
+hi link rubyDefine Statement
+hi link rubyMethodName Normal
+
 " lua
 hi link luaFunction Statement
 
