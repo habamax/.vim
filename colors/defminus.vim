@@ -26,7 +26,7 @@ hi Visual guibg=#c9c9c9 guifg=NONE
 
 hi Directory guibg=NONE guifg=#000000 gui=bold
 hi Title guibg=NONE guifg=#0050ff gui=bold
-hi Todo guibg=NONE guifg=#000000 gui=bold
+hi Todo guibg=NONE guifg=#f000f0 gui=bold
 
 "" UI
 hi Statusline guibg=#000000 guifg=#ffffff gui=bold
