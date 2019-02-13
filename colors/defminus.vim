@@ -90,6 +90,11 @@ hi link jpropertiesString Normal
 hi link ktStructure Statement
 hi link ktModifier Statement
 
+" C
+hi link cInclude Statement
+hi link cType Statement
+
+
 "" Diff
 hi diffAdd guibg=#c9f9c9
 hi diffChange guibg=#f9f9c9
