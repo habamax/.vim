@@ -94,6 +94,10 @@ hi link ktModifier Statement
 hi link cInclude Statement
 hi link cType Statement
 
+" xml
+hi link xmlTagName Statement
+hi link xmlTagN Statement
+hi link xmlAttrib Constant
 
 "" Diff
 hi diffAdd guibg=#c9f9c9
