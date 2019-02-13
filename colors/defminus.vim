@@ -29,10 +29,10 @@ hi Todo guibg=NONE guifg=#000000 gui=bold
 
 hi Statusline guibg=#000000 guifg=#ffffff gui=bold
 hi StatuslineNC guibg=#000000 guifg=#909090 gui=NONE
-hi Folded guibg=#e0e0e0 guifg=#505050 gui=underline
-hi FoldColumn guibg=#e0e0e0
+hi Folded guibg=#eaeaea guifg=#505050 gui=NONE
+hi FoldColumn guibg=#eaeaea
 hi SignColumn guibg=NONE
-hi Pmenu guibg=#e0e0e0 guifg=#505050 gui=NONE
+hi Pmenu guibg=#eaeaea guifg=#505050 gui=NONE
 hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold
 
 " Syntax
