@@ -131,3 +131,7 @@ hi link helpExample Constant
 hi link helpURL Underlined
 hi helpSectionDelim guifg=#909090
 hi helpOption gui=italic
+
+"" netrw
+hi link netrwDateSep Constant
+hi link netrwTimeSep Constant
