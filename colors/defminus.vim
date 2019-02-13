@@ -16,6 +16,7 @@ endif
 
 let g:colors_name = 'defminus'
 
+"" General
 hi Normal guibg=#ffffff guifg=#000000 gui=NONE
 hi Cursor guibg=#000000
 hi lCursor guibg=#ff0000
@@ -27,6 +28,7 @@ hi Directory guibg=NONE guifg=#000000 gui=bold
 hi Title guibg=NONE guifg=#0050ff gui=bold
 hi Todo guibg=NONE guifg=#000000 gui=bold
 
+"" UI
 hi Statusline guibg=#000000 guifg=#ffffff gui=bold
 hi StatuslineNC guibg=#000000 guifg=#909090 gui=NONE
 hi Folded guibg=#eaeaea guifg=#505050 gui=NONE
@@ -35,8 +37,9 @@ hi SignColumn guibg=NONE
 hi Pmenu guibg=#eaeaea guifg=#505050 gui=NONE
 hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold
 
-" Syntax
+"" Syntax
 
+" generic
 hi Comment guifg=#909090 gui=italic
 hi Constant guifg=#505050 gui=NONE
 hi Identifier guifg=#707070 gui=NONE
@@ -46,15 +49,19 @@ hi Type guifg=#000000 gui=NONE
 hi Special guifg=#707070 gui=NONE
 hi Underlined guifg=#707070 gui=underline
 
+" vim
 hi link vimFuncName Statement
 hi link vimVar Normal
 hi vimCommentTitle gui=italic
 
+" python
 hi link pythonInclude Statement
 hi link pythonBuiltin Statement
 
+" lua
 hi link luaFunction Statement
 
+" elixir
 hi link elixirModuleDefine Statement
 hi link elixirInclude Statement
 hi link elixirDefine Statement
@@ -63,17 +70,21 @@ hi link elixirExUnitMacro Statement
 hi link elixirBlockDefinition Statement
 hi link elixirFunctionDeclaration Normal
 
+" properties
 hi link jpropertiesIdentifier Statement
 hi link jpropertiesString Normal
 
+" kotlin
+hi link ktStructure Statement
+hi link ktModifier Statement
 
-" Diff
+"" Diff
 hi diffAdd guibg=#c9f9c9
 hi diffChange guibg=#f9f9c9
 hi diffText guibg=#f9d999 guifg=NONE gui=NONE
 hi diffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
 
-" fugitive
+"" fugitive
 hi link fugitiveHeading Title
 hi link fugitiveModifier Identifier
 hi link diffIndexLine Constant
@@ -84,5 +95,5 @@ hi diffAdded guibg=NONE guifg=#009000
 hi diffRemoved guibg=NONE guifg=#c00000
 hi link gitCommitSummary Title
 
-" minpac
+"" minpac
 hi link minpacName Statement
