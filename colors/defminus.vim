@@ -103,7 +103,7 @@ hi diffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
 
 "" fugitive
 hi link fugitiveHeading Title
-hi link fugitiveModifier Identifier
+hi link fugitiveModifier Constant
 hi link diffIndexLine Constant
 hi link diffFile Title
 hi diffLine guibg=NONE guifg=#000000 gui=bold,underline
