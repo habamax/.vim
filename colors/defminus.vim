@@ -52,6 +52,7 @@ hi Underlined guifg=#5050c0 gui=underline
 " vim
 hi link vimFuncName Statement
 hi link vimVar Normal
+hi link vimParenSep Normal
 hi vimCommentTitle gui=italic
 
 " python
