@@ -148,3 +148,30 @@ hi link qfFilename Constant
 hi link qfSeparator Special
 hi link qfLineNr Special
 
+"" LeaderF
+" separators have an issue -- they are changed by LeaderF
+let s:leaderf_modes = [
+			\'File', 'Buffer', 'Mru', 'Help', 'Rg', 
+			\'Line', 'BufTag', 'Function', 'Cmd_History',
+			\'Colorscheme', 'Self'
+			\]
+for lf_mode in s:leaderf_modes
+	execute 'hi Lf_hl_'.lf_mode.'_stlName guibg=#000000 guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlMode guibg=#000000 guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlCategory guibg=#000000 guifg=#c0c0c0 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlCwd guibg=#000000 guifg=#ffffff gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator0 guibg=#000000 guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator1 guibg=#000000 guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator2 guibg=#000000 guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator3 guibg=#000000 guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator4 guibg=#000000 guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator5 guibg=#000000 guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlLineInfo guibg=#000000 guifg=#ffffff gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlNameOnlyMode guibg=#000000 guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlRegexMode guibg=#000000 guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlFullPathMode guibg=#000000 guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlFuzzyMode guibg=#000000 guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlTotal guibg=#000000 guifg=#ffffff gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlBlank guibg=#000000 guifg=#ffffff gui=NONE'
+endfor
+
