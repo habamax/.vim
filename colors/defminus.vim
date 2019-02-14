@@ -6,6 +6,11 @@
 "
 " GUI only `Black On White` colorscheme based on default vim colorscheme.
 " There are colors of course. Но это не точно.
+"
+" :h 'hl' 
+" or
+" :h highlight-default 
+" to get vim default highlight group names
 
 set background=light
 
