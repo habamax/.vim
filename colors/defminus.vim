@@ -135,3 +135,9 @@ hi helpOption gui=italic
 "" netrw
 hi link netrwDateSep Constant
 hi link netrwTimeSep Constant
+
+"" quickfix
+hi link qfFilename Constant
+hi link qfSeparator Special
+hi link qfLineNr Special
+
