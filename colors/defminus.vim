@@ -36,12 +36,13 @@ hi Todo guibg=NONE guifg=#f000f0 gui=bold
 "" UI
 hi Statusline guibg=#000000 guifg=#ffffff gui=NONE ctermbg=black ctermfg=white
 hi StatuslineNC guibg=#000000 guifg=#909090 gui=NONE ctermbg=black ctermfg=darkgray
+hi VertSplit guibg=#000000 guifg=#909090 gui=NONE ctermbg=black ctermfg=darkgray
 hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE
 hi Folded guibg=#eaeaea guifg=#505050 gui=NONE ctermbg=darkgray ctermfg=black
 hi FoldColumn guibg=#eaeaea ctermbg=darkgray ctermfg=black
 hi SignColumn guibg=NONE
-hi Pmenu guibg=#eaeaea guifg=#505050 gui=NONE
-hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold
+hi Pmenu guibg=#eaeaea guifg=#505050 gui=NONE ctermbg=lightgray ctermfg=black
+hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold ctermbg=darkgray ctermfg=black
 
 "" Syntax
 
@@ -53,7 +54,7 @@ hi Statement guifg=#000000 gui=bold ctermfg=darkblue
 hi PreProc guifg=#000000 gui=NONE ctermfg=black
 hi Type guifg=#000000 gui=NONE ctermfg=black
 hi Special guifg=#a05050 gui=NONE ctermfg=darkmagenta
-hi Underlined guifg=#5050c0 gui=underline
+hi Underlined guifg=#5050c0 gui=underline ctermbg=darkblue ctermfg=white cterm=underline
 
 " vim
 hi link vimFuncName Statement
@@ -124,10 +125,10 @@ hi link fugitiveSymbolicRef Constant
 hi link diffIndexLine Constant
 hi link diffFile Title
 hi link diffNewFile Title
-hi diffLine guibg=NONE guifg=#000000 gui=bold,underline
-hi diffSubName guibg=NONE guifg=#000000 gui=bold,underline
-hi diffAdded guibg=NONE guifg=#009000
-hi diffRemoved guibg=NONE guifg=#c00000
+hi diffLine guibg=NONE guifg=#000000 gui=bold,underline ctermfg=blue
+hi diffSubName guibg=NONE guifg=#000000 gui=bold,underline ctermfg=blue
+hi diffAdded guibg=NONE guifg=#009000 ctermfg=darkgreen
+hi diffRemoved guibg=NONE guifg=#c00000 ctermfg=darkred
 hi link gitCommitSummary Title
 
 "" minpac
