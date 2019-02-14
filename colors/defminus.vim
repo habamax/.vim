@@ -111,6 +111,7 @@ hi link sqlKeyword Statement
 
 " markdown
 hi link markdownListMarker Special
+hi link markdownCode Constant
 
 "" Diff
 hi diffAdd guibg=#c9f9c9
