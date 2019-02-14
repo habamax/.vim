@@ -41,7 +41,6 @@ set shortmess+=Ic
 set winaltkeys=no
 set guioptions=cme
 set laststatus=2
-set ruler " for default statusline"
 set showtabline=1
 set cmdheight=1
 set nonumber norelativenumber
@@ -54,6 +53,10 @@ if !has('nvim') && has('patch-8.1.360')
 else
 	set diffopt=filler,vertical
 endif
+
+set statusline=%<%f\ %h%m%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %p%%
+" set ruler " for default statusline"
+
 " mucomplete needs this
 set completeopt+=menuone,noselect
 set nofoldenable
