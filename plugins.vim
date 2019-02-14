@@ -44,7 +44,7 @@ if has('python') || has('python3')
 	let g:Lf_WindowHeight = 0.30
 	let g:Lf_ShowHidden = 1
 	let g:Lf_FollowLinks = 1
-	let g:Lf_CommandMap = {'<ESC>': ['<C-Space>', '<ESC>']}
+	" let g:Lf_CommandMap = {'<ESC>': ['<C-Space>', '<ESC>']}
 	let g:Lf_NormalMap = {"File":   [["u", ':LeaderfFile ..<CR>']]}
     let g:Lf_PreviewResult = {'Colorscheme': 1}
     let g:Lf_WildIgnore = {
