@@ -3,10 +3,8 @@
 " Must have {{{1
 set nocompatible
 
-" menus will be in english
-set langmenu=en_US.UTF8
-" everything else will be in english too
-language en
+" everything will be in english
+language messages en_US.UTF-8
 
 filetype plugin indent on
 
