@@ -180,5 +180,10 @@ for lf_mode in s:leaderf_modes
 	execute 'hi Lf_hl_'.lf_mode.'_stlBlank guibg=#000000 guifg=#ffffff gui=NONE'
 endfor
 
+hi link Lf_hl_bufDirname Comment
+hi link Lf_hl_funcDirname Comment
+hi link Lf_hl_rgFilename Comment
+hi link Lf_hl_rgTagFile Comment
+
 "" CtrlP
 hi CtrlPMatch guifg=#1540AD gui=bold
