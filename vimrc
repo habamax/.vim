@@ -35,6 +35,10 @@ set fileformats=unix,mac,dos
 set fileformat=unix
 
 " UI {{{1
+if !has("gui_running")
+	" for terminals that should be dark
+	set bg=dark
+endif
 set shortmess+=Ic
 set winaltkeys=no
 set guioptions=cme
