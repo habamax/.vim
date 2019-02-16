@@ -38,6 +38,10 @@ set fileformat=unix
 if !has("gui_running")
 	" for terminals that should be dark
 	set bg=dark
+	" if &term =~ '^xterm\\|rxvt'
+	" 	let &t_SI .= "\<Esc>[4 q"
+	" 	let &t_EI .= "\<Esc>[2 q"
+	" endif
 endif
 set shortmess+=Ic
 set winaltkeys=no
