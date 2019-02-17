@@ -135,6 +135,11 @@ hi link gitCommitSummary Title
 "" minpac
 hi link minpacName Statement
 
+"" UltiSnips
+hi link snipSnippetTrigger Normal
+hi link snipMirror Special
+hi link snipTabStop Special
+
 "" help
 hi link helpHeader Title
 hi link helpHyperTextEntry Statement
@@ -187,3 +192,4 @@ hi link Lf_hl_rgTagFile Comment
 
 "" CtrlP
 hi CtrlPMatch guifg=#1540AD gui=bold
+
