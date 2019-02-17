@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 git clone https://github.com/habamax/vim-asciidoctor.git ./habamax/start/vim-asciidoctor
 git clone https://github.com/habamax/vim-evalvim.git ./habamax/start/vim-evalvim
 git clone https://github.com/habamax/vim-skipit.git ./habamax/start/vim-skipit
