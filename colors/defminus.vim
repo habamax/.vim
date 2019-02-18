@@ -65,6 +65,7 @@ hi vimCommentTitle gui=italic
 " python
 hi link pythonInclude Statement
 hi link pythonBuiltin Statement
+hi link pythonRepeat Statement
 
 " ruby
 hi link rubyInclude Statement
