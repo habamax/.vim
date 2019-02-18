@@ -152,6 +152,7 @@ hi helpOption gui=italic
 "" netrw
 hi link netrwDateSep Constant
 hi link netrwTimeSep Constant
+hi link netrwExe Special
 
 "" quickfix
 hi link qfFilename Constant
