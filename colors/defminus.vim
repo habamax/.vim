@@ -50,7 +50,7 @@ hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold ctermbg=darkgray ctermfg=black
 hi Comment guifg=#909090 gui=italic ctermfg=lightgrey
 hi Constant guifg=#505050 gui=NONE ctermfg=darkgrey
 hi Identifier guifg=#505050 gui=NONE ctermfg=darkgrey
-hi Statement guifg=#000000 gui=bold ctermfg=darkblue
+hi Statement guifg=#000000 gui=bold ctermfg=black
 hi PreProc guifg=#000000 gui=NONE ctermfg=black
 hi Type guifg=#000000 gui=NONE ctermfg=black
 hi Special guifg=#a05050 gui=NONE ctermfg=darkmagenta
