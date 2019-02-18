@@ -203,3 +203,7 @@ imap <C-S-space> <plug>(MUcompleteCycFwd)
 
 " tpope's Markdown
 let g:markdown_folding = 1
+
+
+"" NETRW
+let g:netrw_liststyle = 1
