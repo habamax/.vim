@@ -6,6 +6,7 @@ pack/habamax/start/vim-skipit/
 pack/habamax/start/vim-rest-console/
 pack/habamax/start/vim-elixir-mix-test/
 autoload/plug.vim.old
+.netrwbook
 rplugin.vim
 *.html
 .netrwhist
