@@ -110,6 +110,9 @@ hi link xmlAttrib Constant
 " sql
 hi link sqlKeyword Statement
 
+" dos batch
+hi link dosbatchImplicit Statement
+
 " markdown
 hi link markdownListMarker Special
 hi link markdownCode Constant
