@@ -24,10 +24,6 @@ let maplocalleader = "\<BS>"
 
 set mouse=a
 
-" Convenient to :save or :write a copy of a file to the same directory.
-" autocmd BufEnter * silent! lcd %:p:h
-" set autochdir
-
 " Encoding and fileformat {{{1
 set encoding=utf8
 set fileencoding=utf8
