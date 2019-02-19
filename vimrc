@@ -38,6 +38,9 @@ set fileformat=unix
 if !has("gui_running")
 	" for terminals that should be dark
 	set bg=dark
+	" if there is gruvbox installed change colors
+	silent! colorscheme gruvbox
+
 	" if &term =~ '^xterm\\|rxvt'
 	" 	let &t_SI .= "\<Esc>[4 q"
 	" 	let &t_EI .= "\<Esc>[2 q"
