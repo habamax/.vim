@@ -57,7 +57,6 @@ endif
 set statusline=%<%f\ %h%m%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %p%%
 " set ruler " for default statusline"
 
-" mucomplete needs this
 set completeopt+=menuone,noselect
 set nofoldenable
 set foldminlines=1 foldlevel=1
