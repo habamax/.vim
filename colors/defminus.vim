@@ -34,9 +34,12 @@ hi Title guibg=NONE guifg=#0050ff gui=bold
 hi Todo guibg=NONE guifg=#f000f0 gui=bold
 
 "" UI
-hi Statusline guibg=#000000 guifg=#ffffff gui=NONE ctermbg=black ctermfg=white
-hi StatuslineNC guibg=#000000 guifg=#909090 gui=NONE ctermbg=black ctermfg=darkgray
-hi VertSplit guibg=#000000 guifg=#909090 gui=NONE ctermbg=black ctermfg=darkgray
+" hi Statusline guibg=#000000 guifg=#ffffff gui=NONE ctermbg=black ctermfg=white
+" hi StatuslineNC guibg=#000000 guifg=#909090 gui=NONE ctermbg=black ctermfg=darkgray
+" hi VertSplit guibg=#000000 guifg=#909090 gui=NONE ctermbg=black ctermfg=darkgray
+hi Statusline guibg=#e0e0e0 guifg=#000000 gui=underline ctermbg=black ctermfg=white
+hi StatuslineNC guibg=#e0e0e0 guifg=#909090 gui=underline ctermbg=black ctermfg=darkgray
+hi VertSplit guibg=NONE guifg=#909090 gui=NONE ctermbg=black ctermfg=darkgray
 hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE
 hi Folded guibg=#eaeaea guifg=#505050 gui=NONE ctermbg=darkgray ctermfg=black
 hi FoldColumn guibg=#eaeaea ctermbg=darkgray ctermfg=black
