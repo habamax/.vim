@@ -92,6 +92,7 @@ fun! PackInit() abort
 	call minpac#add('nanotech/jellybeans.vim')
 	call minpac#add('mhartington/oceanic-next')
 	call minpac#add('cocopon/iceberg.vim')
+	call minpac#add('morhetz/gruvbox')
 endf
 
 " Commands to update and clean plugins {{{1
