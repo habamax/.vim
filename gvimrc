@@ -18,23 +18,32 @@ if !has('nvim')
 	set lines=999
 endif
 
-" pairs of colorschemes I like to use
-" let g:duo_themes = ['defminus', 'jellybeans']
-let g:duo_themes = ['defminus', 'OceanicNext']
+" pairs of colorschemes I like to use:
+" light is the first one, dark is the second.
+" let g:duo_themes = [{'name': 'defminus'}, {'name': 'jellybeans'}]
+let g:duo_themes = [{'name': 'defminus'}, {'name': 'gruvbox', 'bg': 'dark'}]
+fun! s:set_colorscheme(color)
+	if has_key(a:color, 'bg')
+		let &bg = a:color['bg']
+	endif
+	if has_key(a:color, 'name')
+		exe "colorscheme ".a:color['name']
+	endif
+endfun
 fun! ToggleColorscheme()
 	if !exists('g:colors_name')
 		let g:colors_name = 'default'
 	endif
-	let color = filter(copy(g:duo_themes), {k, v -> v != g:colors_name})[0]
-	exe "colorscheme ".color
+	let color = filter(copy(g:duo_themes), {k, v -> v['name'] != g:colors_name})[0]
+	call s:set_colorscheme(color)
 endf
 
 " Well, if it happens you run vim late, use dark colorscheme
 if strftime("%H") >= 21
-	exe "colorscheme ".g:duo_themes[1]
+	call s:set_colorscheme(g:duo_themes[1])
 else
 " Light colors otherwise
-	exe "colorscheme ".g:duo_themes[0]
+	call s:set_colorscheme(g:duo_themes[0])
 endif
 
 " Mimic toggling behaviour of Tim Popes unimpaired plugin
