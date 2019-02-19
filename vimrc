@@ -232,16 +232,6 @@ nnoremap <Leader><leader>t :tabnew<CR>
 
 nnoremap <Leader>cd :lcd %:p:h <bar> pwd<CR>
 
-" Window movements
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
-tnoremap <A-h> <C-w>h
-tnoremap <A-j> <C-w>j
-tnoremap <A-k> <C-w>k
-tnoremap <A-l> <C-w>l
-
 " Commands {{{1
 
 " remove trailing spaces
