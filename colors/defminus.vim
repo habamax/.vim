@@ -136,6 +136,9 @@ hi link dosbatchImplicit Statement
 hi link markdownListMarker Statement
 hi link markdownCode Constant
 
+" asciidoctor
+hi link asciidoctorListMarker Statement
+
 "" Diff
 hi diffAdd guibg=#c9f9c9
 hi diffChange guibg=#f9f9c9
