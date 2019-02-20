@@ -30,7 +30,7 @@ hi SpecialKey guibg=NONE guifg=#c0c0c0
 hi Visual guibg=#add6ff guifg=NONE ctermbg=lightblue
 
 hi Directory guibg=NONE guifg=#000000 gui=bold ctermfg=black
-hi Title guibg=NONE guifg=#0050ff gui=bold
+hi Title guibg=NONE guifg=#3754df gui=bold
 hi Todo guibg=NONE guifg=#f000f0 gui=bold
 
 "" UI
