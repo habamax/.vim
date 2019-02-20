@@ -4,8 +4,16 @@
 " Maintainer: Maxim Kim <habamax@gmail.com>
 " License:    MIT
 "
-" GUI only `Black On White` colorscheme based on default vim colorscheme.
-" There are colors of course. Но это не точно.
+" GUI only `white background` colorscheme.
+" There are tons of amaizing `dark background` colorschemes and I use them for
+" terminal vim but...
+"
+" I do really like white backgrounds. Not gray, not "light" -- just plane
+" simple white background. The one default GVim provides. But default GVim
+" colors are too colorful and too bold.
+"
+" This has to be fixed. Because why not?
+"
 "
 " :h 'hl' 
 " or
