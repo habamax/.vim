@@ -19,6 +19,9 @@
 " or
 " :h highlight-default 
 " to get vim default highlight group names
+"
+" :h group-name
+" to see current syntax highlight of default syntax groups
 
 set background=light
 
@@ -63,8 +66,7 @@ hi Identifier guifg=#505050 gui=NONE ctermfg=darkgrey
 hi Statement guifg=#af00db gui=NONE ctermfg=05
 hi PreProc guifg=#000000 gui=NONE ctermfg=black
 hi Type guifg=#000000 gui=NONE ctermfg=black
-" TODO: now it looks too close to constant... need a fix
-hi Special guifg=#a05050 gui=NONE ctermfg=darkmagenta
+hi Special guifg=#00979b gui=NONE ctermfg=darkcyan
 hi Underlined guifg=#5050c0 gui=underline ctermbg=darkblue ctermfg=white cterm=underline
 
 " vim
@@ -131,7 +133,7 @@ hi link clojureFunc Statement
 hi link dosbatchImplicit Statement
 
 " markdown
-hi link markdownListMarker Special
+hi link markdownListMarker Statement
 hi link markdownCode Constant
 
 "" Diff
@@ -145,7 +147,7 @@ hi fugitiveHeader guibg=#ffffff guifg=#000000 gui=bold
 hi fugitiveHeading guibg=#ffffff guifg=#000000 gui=bold
 hi gitKeyword guibg=#ffffff guifg=#000000 gui=bold
 hi link gitIdentityKeyword gitKeyword
-hi link fugitiveModifier Special
+hi link fugitiveModifier Statement
 hi link fugitiveSymbolicRef Constant
 hi link diffIndexLine Comment
 hi link diffFile Title
@@ -174,9 +176,9 @@ hi helpSectionDelim guifg=#909090
 hi helpOption gui=italic
 
 "" netrw
-hi link netrwDateSep Constant
-hi link netrwTimeSep Constant
-hi link netrwExe Special
+hi link netrwDateSep Normal
+hi link netrwTimeSep Normal
+hi link netrwExe Constant
 hi link netrwDir Directory
 
 "" quickfix
