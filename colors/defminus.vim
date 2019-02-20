@@ -30,8 +30,8 @@ hi SpecialKey guibg=NONE guifg=#c0c0c0
 hi Visual guibg=#add6ff guifg=NONE ctermbg=lightblue
 
 hi Directory guibg=NONE guifg=#000000 gui=bold ctermfg=black
-hi Title guibg=NONE guifg=#3754df gui=bold
-hi Todo guibg=NONE guifg=#f000f0 gui=bold
+hi Title guibg=NONE guifg=#3554df gui=bold
+hi Todo guibg=NONE guifg=#af00db gui=bold ctermfg=05
 
 "" UI
 hi Statusline guibg=#2c2c2c guifg=#ffffff gui=NONE ctermbg=black ctermfg=white
@@ -49,11 +49,13 @@ hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold ctermbg=darkgray ctermfg=black
 
 " generic
 hi Comment guifg=#909090 gui=italic ctermfg=lightgrey
-hi Constant guifg=#505050 gui=NONE ctermfg=darkgrey
+hi Constant guifg=#c05030 gui=NONE ctermfg=darkgrey
+hi String guifg=#399030 gui=NONE ctermfg=green
 hi Identifier guifg=#505050 gui=NONE ctermfg=darkgrey
-hi Statement guifg=#000000 gui=bold ctermfg=black
+hi Statement guifg=#af00db gui=NONE ctermfg=05
 hi PreProc guifg=#000000 gui=NONE ctermfg=black
 hi Type guifg=#000000 gui=NONE ctermfg=black
+" TODO: now it looks too close to constant... need a fix
 hi Special guifg=#a05050 gui=NONE ctermfg=darkmagenta
 hi Underlined guifg=#5050c0 gui=underline ctermbg=darkblue ctermfg=white cterm=underline
 
@@ -66,6 +68,7 @@ hi vimCommentTitle gui=italic
 " python
 hi link pythonInclude Statement
 hi link pythonBuiltin Statement
+hi link pythonConditional Statement
 hi link pythonRepeat Statement
 
 " ruby
@@ -73,7 +76,7 @@ hi link rubyInclude Statement
 hi link rubyModule Statement
 hi link rubyClass Statement
 hi link rubyMacro Statement
-hi link rubyStringDelimiter Constant
+hi link rubyStringDelimiter String
 hi link rubyDefine Statement
 hi link rubyMethodName Normal
 
@@ -88,7 +91,7 @@ hi link elixirAtom Constant
 hi link elixirExUnitMacro Statement
 hi link elixirBlockDefinition Statement
 hi link elixirFunctionDeclaration Normal
-hi link elixirStringDelimiter Constant
+hi link elixirStringDelimiter String
 hi link elixirMapDelimiter Special
 
 " properties
@@ -110,6 +113,11 @@ hi link xmlAttrib Constant
 
 " sql
 hi link sqlKeyword Statement
+
+" clojure
+hi link clojureMacro Statement
+hi link clojureDefine Statement
+hi link clojureFunc Statement
 
 " dos batch
 hi link dosbatchImplicit Statement
@@ -158,9 +166,10 @@ hi helpOption gui=italic
 hi link netrwDateSep Constant
 hi link netrwTimeSep Constant
 hi link netrwExe Special
+hi link netrwDir Directory
 
 "" quickfix
-hi link qfFilename Constant
+hi link qfFilename Comment
 hi link qfSeparator Special
 hi link qfLineNr Special
 
@@ -172,23 +181,23 @@ let s:leaderf_modes = [
 			\'Colorscheme', 'Self'
 			\]
 for lf_mode in s:leaderf_modes
-	execute 'hi Lf_hl_'.lf_mode.'_stlName guibg=#000000 guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlMode guibg=#000000 guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlCategory guibg=#000000 guifg=#c0c0c0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlCwd guibg=#000000 guifg=#ffffff gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator0 guibg=#000000 guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator1 guibg=#000000 guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator2 guibg=#000000 guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator3 guibg=#000000 guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator4 guibg=#000000 guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator5 guibg=#000000 guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlLineInfo guibg=#000000 guifg=#ffffff gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlNameOnlyMode guibg=#000000 guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlRegexMode guibg=#000000 guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlFullPathMode guibg=#000000 guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlFuzzyMode guibg=#000000 guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlTotal guibg=#000000 guifg=#ffffff gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlBlank guibg=#000000 guifg=#ffffff gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlName guibg=#2c2c2c guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlMode guibg=#2c2c2c guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlCategory guibg=#2c2c2c guifg=#c0c0c0 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlCwd guibg=#2c2c2c guifg=#ffffff gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator0 guibg=#2c2c2c guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator1 guibg=#2c2c2c guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator2 guibg=#2c2c2c guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator3 guibg=#2c2c2c guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator4 guibg=#2c2c2c guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator5 guibg=#2c2c2c guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlLineInfo guibg=#2c2c2c guifg=#ffffff gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlNameOnlyMode guibg=#2c2c2c guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlRegexMode guibg=#2c2c2c guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlFullPathMode guibg=#2c2c2c guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlFuzzyMode guibg=#2c2c2c guifg=#505050 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlTotal guibg=#2c2c2c guifg=#ffffff gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlBlank guibg=#2c2c2c guifg=#ffffff gui=NONE'
 endfor
 
 hi link Lf_hl_bufDirname Comment
