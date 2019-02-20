@@ -133,14 +133,15 @@ hi diffText guibg=#f9d999 guifg=NONE gui=NONE
 hi diffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
 
 "" fugitive
-hi link fugitiveHeading Title
+hi fugitiveHeader guibg=#ffffff guifg=#000000 gui=bold
+hi fugitiveHeading guibg=#ffffff guifg=#000000 gui=bold
 hi link fugitiveModifier Special
 hi link fugitiveSymbolicRef Constant
 hi link diffIndexLine Constant
 hi link diffFile Title
 hi link diffNewFile Title
-hi diffLine guibg=NONE guifg=#000000 gui=bold,underline ctermfg=blue
-hi diffSubName guibg=NONE guifg=#000000 gui=bold,underline ctermfg=blue
+hi link diffLine Title
+hi link diffSubName Title
 hi diffAdded guibg=NONE guifg=#009000 ctermfg=darkgreen
 hi diffRemoved guibg=NONE guifg=#c00000 ctermfg=darkred
 hi link gitCommitSummary Title
