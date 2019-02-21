@@ -159,6 +159,7 @@ hi link xmlAttrib Constant
 " yaml
 hi link yamlBlockMappingKey Statement
 hi link yamlKeyValueDelimiter Statement
+hi link yamlDocumentStart Comment
 
 " sql
 hi link sqlKeyword Statement
