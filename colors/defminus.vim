@@ -58,21 +58,56 @@ hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold ctermbg=darkgray ctermfg=black
 
 "" Syntax
 
-" generic
+" generic group-names
 hi Comment guifg=#909090 gui=italic ctermfg=lightgrey
-hi Constant guifg=#c05030 gui=NONE ctermfg=darkgrey
+
+" hi Constant guifg=#c05030 gui=NONE ctermfg=darkgrey
+hi Constant guifg=#a04327 gui=NONE ctermfg=darkgrey
 hi String guifg=#399030 gui=NONE ctermfg=green
+hi! link Character Constant
+hi! link Number Constant
+hi! link Boolean Constant
+hi! link Float Constant
+
 hi Identifier guifg=#505050 gui=NONE ctermfg=darkgrey
+hi! link Function Identifier
+
 hi Statement guifg=#af00db gui=NONE ctermfg=05
+hi! link Conditional Statement
+hi! link Repeat Statement
+hi! link Label Statement
+hi! link Operator Statement
+hi! link Keyword Statement
+hi! link Exception Statement
+
 hi PreProc guifg=#000000 gui=NONE ctermfg=black
+hi! link Include PreProc
+hi! link Define PreProc
+hi! link Macro PreProc
+hi! link PreCondit PreProc
+
 hi Type guifg=#000000 gui=NONE ctermfg=black
+hi! link StorageClass Type
+hi! link Structure Type
+hi! link Typedef Type
+
 hi Special guifg=#00979b gui=NONE ctermfg=darkcyan
+hi! link SpecialChar Special
+hi! link Tag Special
+hi! link Delimiter Special
+hi! link SpecialComment Special
+hi! link Debug Special
+
 hi Underlined guifg=#5050c0 gui=underline ctermbg=darkblue ctermfg=white cterm=underline
 
 " vim
 hi link vimFuncName Statement
 hi link vimVar Normal
+hi link vimOper Normal
 hi link vimParenSep Normal
+hi link vimMapModKey Special
+hi link vimMapMod vimMapModKey
+hi link vimAutoEvent Constant
 hi vimCommentTitle gui=italic
 
 " python
@@ -133,11 +168,19 @@ hi link clojureFunc Statement
 hi link dosbatchImplicit Statement
 
 " markdown
-hi link markdownListMarker Statement
+hi link markdownH1 Title
+hi link markdownH2 Title
+hi link markdownH3 Title
+hi link markdownH4 Title
+hi link markdownH5 Title
+hi link markdownH6 Title
+hi link markdownHeadingDelimiter Constant
+hi link markdownListMarker Constant
 hi link markdownCode Constant
+hi link markdownCodeDelimiter markdownCode
 
 " asciidoctor
-hi link asciidoctorListMarker Statement
+hi link asciidoctorListMarker Constant
 
 "" Diff
 hi diffAdd guibg=#c9f9c9
