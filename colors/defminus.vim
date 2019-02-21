@@ -156,6 +156,10 @@ hi link xmlTagName Statement
 hi link xmlTagN Statement
 hi link xmlAttrib Constant
 
+" yaml
+hi link yamlBlockMappingKey Statement
+hi link yamlKeyValueDelimiter Statement
+
 " sql
 hi link sqlKeyword Statement
 
