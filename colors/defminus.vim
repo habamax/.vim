@@ -218,6 +218,7 @@ hi link snipTabStop Special
 
 "" help
 hi link helpHeader Title
+hi link helpHeadLine Title
 hi link helpHyperTextEntry Statement
 hi link helpHyperTextJump Underlined
 hi link helpExample Constant
