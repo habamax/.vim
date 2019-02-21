@@ -180,7 +180,7 @@ cnoremap <C-l> <C-^>
 inoremap <C-U> <C-G>u<C-U>
 
 " just one space on the line, preserving indent
-" nnoremap <leader>tos :JustOneInnerSpace<CR>
+nnoremap <leader>tos :JustOneInnerSpace<CR>
 
 " now it is possible to paste many times over selected text
 xnoremap <expr> p 'pgv"'.v:register.'y'
