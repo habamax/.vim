@@ -13,7 +13,7 @@ fun! PackInit() abort
 	call minpac#init()
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-	" Tim Pope is a beast. You better use his stuff ...
+	"" Tim Pope is a beast. You better use his stuff ...
 	call minpac#add('tpope/vim-commentary')
 	call minpac#add('tpope/vim-surround')
 	call minpac#add('tpope/vim-repeat')
@@ -29,47 +29,19 @@ fun! PackInit() abort
 	call minpac#add('tpope/vim-vinegar')
 	call minpac#add('tpope/vim-obsession')
 
-	" Fuzzy stuuf
+	"" Fuzzy stuuf
 	call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
 	call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
 	call minpac#add('junegunn/fzf', {'type': 'opt'})
 	call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
 
+	"" Text manipulation
 	call minpac#add('tommcdo/vim-exchange')
-
 	call minpac#add('tmhedberg/matchit')
-
 	" use gsip to sort linewise
 	" use gsib to sort in a parenthesis
 	call minpac#add('christoomey/vim-sort-motion')
-
 	call minpac#add('junegunn/vim-easy-align')
-
-	call minpac#add('lifepillar/vim-mucomplete')
-
-	" text objects
-	call minpac#add('kana/vim-textobj-user')
-	call minpac#add('kana/vim-textobj-indent')
-	call minpac#add('kana/vim-textobj-function')
-	call minpac#add('thinca/vim-textobj-function-javascript')
-	call minpac#add('andyl/vim-textobj-elixir')
-
-	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
-	call minpac#add('honza/vim-snippets', {'type': 'opt'})
-	call minpac#add('mattn/emmet-vim')
-	call minpac#add('alvan/vim-closetag')
-
-	call minpac#add('mbbill/undotree')
-
-	"" I have a fork to fix an issue... and it was merged
-	call minpac#add('diepm/vim-rest-console')
-
-	"" programming
-	call minpac#add('w0rp/ale')
-	call minpac#add('elixir-editors/vim-elixir')
-	call minpac#add('udalov/kotlin-vim')
-	call minpac#add('airblade/vim-rooter')
-	call minpac#add('editorconfig/editorconfig-vim')
 	" swap comma separated stuff with `g>` `g<` `gs`
 	" `gs` will probably interfere with vim-sort-motion
 	" map it to `g.`
@@ -77,11 +49,34 @@ fun! PackInit() abort
 	" parenthesis auto-pair
 	call minpac#add('tmsvg/pear-tree')
 
-	" Distraction free
+	"" Completion/Expansion
+	call minpac#add('lifepillar/vim-mucomplete')
+	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
+	call minpac#add('honza/vim-snippets', {'type': 'opt'})
+	call minpac#add('mattn/emmet-vim')
+	call minpac#add('alvan/vim-closetag')
+
+	"" Text objects
+	call minpac#add('kana/vim-textobj-user')
+	call minpac#add('kana/vim-textobj-indent')
+	call minpac#add('kana/vim-textobj-function')
+	call minpac#add('thinca/vim-textobj-function-javascript')
+	call minpac#add('andyl/vim-textobj-elixir')
+
+	"" Programming
+	call minpac#add('w0rp/ale')
+	call minpac#add('elixir-editors/vim-elixir')
+	call minpac#add('udalov/kotlin-vim')
+	call minpac#add('editorconfig/editorconfig-vim')
+
+	"" Misc
 	call minpac#add('junegunn/goyo.vim')
 	call minpac#add('junegunn/limelight.vim')
+	call minpac#add('diepm/vim-rest-console')
+	call minpac#add('mbbill/undotree')
+	call minpac#add('airblade/vim-rooter')
 
-	" colors
+	"" Colors
 	call minpac#add('sjl/badwolf')
 	call minpac#add('nanotech/jellybeans.vim')
 	call minpac#add('mhartington/oceanic-next')
