@@ -115,13 +115,6 @@ augroup END
 " List Manipulation {{{1
 let g:list_man_default_mappings = 1
 
-" TitleCase {{{1
-" use <leader>ttip to titlecase a paragraph
-let g:titlecase_map_keys = 0
-nmap <leader>tc <Plug>Titlecase
-vmap <leader>tc <Plug>Titlecase
-nmap <leader>tcc <Plug>TitlecaseLine
-
 " EasyAlign {{{1
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 vmap ga <Plug>(LiveEasyAlign)

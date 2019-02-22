@@ -29,24 +29,22 @@ fun! PackInit() abort
 	call minpac#add('tpope/vim-vinegar')
 	call minpac#add('tpope/vim-obsession')
 
-	call minpac#add('tmhedberg/matchit')
-
 	" Fuzzy stuuf
 	call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
 	call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
 	call minpac#add('junegunn/fzf', {'type': 'opt'})
 	call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
 
-	" use gsip to sort linewise
-	" use gsib to sort in a parenthesis
-	call minpac#add('christoomey/vim-sort-motion')
-
 	call minpac#add('tommcdo/vim-exchange')
+
+	call minpac#add('tmhedberg/matchit')
 
 	" Too buggy yet
 	" call minpac#add('terryma/vim-multiple-cursors')
 
-	call minpac#add('christoomey/vim-titlecase')
+	" use gsip to sort linewise
+	" use gsib to sort in a parenthesis
+	call minpac#add('christoomey/vim-sort-motion')
 
 	call minpac#add('junegunn/vim-easy-align')
 
