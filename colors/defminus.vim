@@ -148,6 +148,15 @@ hi link jpropertiesString Normal
 hi link ktStructure Statement
 hi link ktModifier Statement
 
+" Go
+hi link goDirective Statement
+hi link goDeclaration Statement
+hi link goType Statement
+hi link goDeclType Statement
+hi link goSignedInts Statement
+hi link goConstants Constant
+hi link goBuiltins Statement
+
 " C
 hi link cInclude Statement
 hi link cType Statement
