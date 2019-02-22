@@ -183,7 +183,7 @@ inoremap <C-U> <C-G>u<C-U>
 nnoremap <leader>tos :JustOneInnerSpace<CR>
 
 " now it is possible to paste many times over selected text
-xnoremap <expr> p 'pgv"'.v:register.'y'
+" xnoremap <expr> p 'pgv"'.v:register.'y'
 
 " change current word (like ciw) but repeatable with dot . for the same next
 " word
