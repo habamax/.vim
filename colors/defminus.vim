@@ -226,6 +226,19 @@ hi link clojureMacro Statement
 hi link clojureDefine Statement
 hi link clojureFunc Statement
 
+" php
+hi link phpDocTags String
+hi link phpDocCustomTags String
+hi link phpStructure Statement
+hi link phpInclude Statement
+hi link phpStorageClass Statement
+hi link phpDefine Statement
+hi link phpVarSelector Identifier
+hi link phpSpecialFunction Identifier
+hi link phpOperator Normal
+hi link phpComparison Normal
+hi link phpType Constant
+
 " dos batch
 hi link dosbatchImplicit Statement
 
