@@ -212,6 +212,15 @@ hi link javaDocTags String
 hi link javaDocParam Constant
 hi link javaDocSeeTagParam Constant
 
+" c#
+hi link csUnspecifiedStatement Statement
+hi link csStorage Statement
+hi link csModifier Statement
+hi link csClass Statement
+hi link csType Statement
+hi link csOpSymbols Normal
+hi link csLogicSymbols Normal
+
 " clojure
 hi link clojureMacro Statement
 hi link clojureDefine Statement
