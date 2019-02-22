@@ -40,6 +40,8 @@ fun! PackInit() abort
 	" use gsib to sort in a parenthesis
 	call minpac#add('christoomey/vim-sort-motion')
 
+	call minpac#add('tommcdo/vim-exchange')
+
 	" Too buggy yet
 	" call minpac#add('terryma/vim-multiple-cursors')
 
