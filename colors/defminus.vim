@@ -368,3 +368,6 @@ hi link Lf_hl_rgTagFile Comment
 "" CtrlP
 hi CtrlPMatch guifg=#1540AD gui=bold
 
+"" ALE
+hi link ALEWarningSign SignColumn
+hi link ALEErrorSign WarningMsg
