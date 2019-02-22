@@ -42,7 +42,7 @@ hi Visual guibg=#add6ff guifg=NONE ctermbg=lightblue
 
 hi Directory guibg=NONE guifg=#000000 gui=bold ctermfg=black
 hi Title guibg=NONE guifg=#3554df gui=bold
-hi Todo guibg=NONE guifg=#af00db gui=bold ctermfg=05
+hi Todo guibg=NONE guifg=#ff0000 gui=bold ctermfg=red
 
 "" UI
 hi Statusline guibg=#2c2c2c guifg=#ffffff gui=NONE ctermbg=black ctermfg=white
