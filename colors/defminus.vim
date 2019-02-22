@@ -61,7 +61,6 @@ hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold ctermbg=darkgray ctermfg=black
 " generic group-names
 hi Comment guifg=#909090 gui=italic ctermfg=lightgrey
 
-" hi Constant guifg=#c05030 gui=NONE ctermfg=darkgrey
 hi Constant guifg=#a04327 gui=NONE ctermfg=darkgrey
 hi String guifg=#399030 gui=NONE ctermfg=green
 hi! link Character Constant
@@ -91,7 +90,7 @@ hi! link StorageClass Type
 hi! link Structure Type
 hi! link Typedef Type
 
-hi Special guifg=#00979b gui=NONE ctermfg=darkcyan
+hi Special guifg=#00737b gui=NONE ctermfg=darkcyan
 hi! link SpecialChar Special
 hi! link Tag Special
 hi! link Delimiter Special
