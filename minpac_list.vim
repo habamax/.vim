@@ -39,9 +39,6 @@ fun! PackInit() abort
 
 	call minpac#add('tmhedberg/matchit')
 
-	" Too buggy yet
-	" call minpac#add('terryma/vim-multiple-cursors')
-
 	" use gsip to sort linewise
 	" use gsib to sort in a parenthesis
 	call minpac#add('christoomey/vim-sort-motion')
