@@ -5,7 +5,7 @@
 " License:    MIT
 "
 " GUI only `white background` colorscheme.
-" There are tons of amaizing `dark background` colorschemes and I use them for
+" There are tons of awesome `dark background` colorschemes and I use them for
 " terminal vim but...
 "
 " I do really like white backgrounds. Not gray, not "light" -- just plane
