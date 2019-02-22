@@ -162,6 +162,11 @@ hi link xmlTagName Statement
 hi link xmlTagN Statement
 hi link xmlAttrib Constant
 
+" html
+hi link htmlTagName Statement
+hi link htmlTag Statement
+hi link htmlEndTag Statement
+
 " yaml
 hi link yamlBlockMappingKey Statement
 hi link yamlKeyValueDelimiter Statement
@@ -169,6 +174,19 @@ hi link yamlDocumentStart Comment
 
 " sql
 hi link sqlKeyword Statement
+
+" java
+hi javaCommentTitle guifg=#909090 gui=bold,italic ctermfg=lightgrey
+hi link javaExternal Statement
+hi link javaScopeDecl Statement
+hi link javaClassDecl Statement
+hi link javaStorageClass Statement
+hi link javaType Statement
+hi link javaOperator Statement
+hi link javaConstant Constant
+hi link javaDocTags String
+hi link javaDocParam Constant
+hi link javaDocSeeTagParam Constant
 
 " clojure
 hi link clojureMacro Statement
