@@ -166,6 +166,16 @@ hi link xmlAttrib Constant
 hi link htmlTagName Statement
 hi link htmlTag Statement
 hi link htmlEndTag Statement
+hi link htmlArg Constant
+hi link htmlSpecialTagName Statement
+hi link htmlSpecialChar SpecialChar
+
+" css
+hi link cssColor Constant
+hi link cssPseudoClassId Identifier
+hi link cssClassName Identifier
+hi link cssIdentifier Identifier
+hi link cssAtRule Identifier
 
 " yaml
 hi link yamlBlockMappingKey Statement
