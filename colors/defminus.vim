@@ -158,8 +158,17 @@ hi link goConstants Constant
 hi link goBuiltins Statement
 
 " C
-hi link cInclude Statement
+hi link cInclude Constant
+hi link cPreCondit Constant
+hi link cDefine Constant
 hi link cType Statement
+hi link cStructure Statement
+hi link cStorageClass Statement
+
+" Cpp
+hi link cppStructure Statement
+hi link cppModifier Statement
+hi link cppType Statement
 
 " TCL
 hi link tclProcCommand Statement
