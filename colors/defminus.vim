@@ -220,6 +220,10 @@ hi link clojureFunc Statement
 " dos batch
 hi link dosbatchImplicit Statement
 
+" sh
+hi link shSet Statement
+hi link shQuote Identifier
+
 " markdown
 hi link markdownH1 Title
 hi link markdownH2 Title
