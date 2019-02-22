@@ -114,6 +114,8 @@ hi link pythonInclude Statement
 hi link pythonBuiltin Statement
 hi link pythonConditional Statement
 hi link pythonRepeat Statement
+hi link pythonOperator Statement
+hi link pythonException Statement
 
 " ruby
 hi link rubyInclude Statement
