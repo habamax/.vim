@@ -207,3 +207,14 @@ let g:markdown_folding = 1
 
 "" NETRW
 let g:netrw_liststyle = 1
+
+"" vim-obsession
+
+command! -nargs=1 -complete=customlist,LoadObsessionComplete SA :Obsession ~/.vimdata/sessions/<args>
+
+command! -nargs=1 -complete=customlist,LoadObsessionComplete LO :so ~/.vimdata/sessions/<args>
+
+fun! LoadObsessionComplete(A, L, P)
+	let fullpaths = split(globpath("~/.vimdata/sessions/", "*"), "\n")
+	return map(fullpaths, {k,v -> fnamemodify(v, ":t")})
+endfu

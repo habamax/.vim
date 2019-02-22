@@ -27,6 +27,7 @@ fun! PackInit() abort
 	call minpac#add('tpope/vim-abolish')
 	call minpac#add('tpope/vim-endwise')
 	call minpac#add('tpope/vim-vinegar')
+	call minpac#add('tpope/vim-obsession')
 
 	call minpac#add('tmhedberg/matchit')
 
