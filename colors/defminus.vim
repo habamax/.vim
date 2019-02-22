@@ -152,6 +152,11 @@ hi link ktModifier Statement
 hi link cInclude Statement
 hi link cType Statement
 
+" TCL
+hi link tclProcCommand Statement
+hi link tclVarRef Identifier
+hi link tcltkWidgetColor Statement
+
 " xml
 hi link xmlTagName Statement
 hi link xmlTagN Statement
