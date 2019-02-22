@@ -31,9 +31,9 @@ fun! PackInit() abort
 
 	call minpac#add('tmhedberg/matchit')
 
+	" Fuzzy stuuf
 	call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
 	call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
-	" call minpac#add('Yggdroot/LeaderF', {'type': 'opt', 'branch': 'dev'})
 	call minpac#add('junegunn/fzf', {'type': 'opt'})
 	call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
 
@@ -71,7 +71,6 @@ fun! PackInit() abort
 
 	"" programming
 	call minpac#add('w0rp/ale')
-	" call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
 	call minpac#add('elixir-editors/vim-elixir')
 	call minpac#add('udalov/kotlin-vim')
 	call minpac#add('airblade/vim-rooter')
@@ -83,18 +82,14 @@ fun! PackInit() abort
 	" parenthesis auto-pair
 	call minpac#add('tmsvg/pear-tree')
 
-
 	" Distraction free
 	call minpac#add('junegunn/goyo.vim')
 	call minpac#add('junegunn/limelight.vim')
 
 	" colors
-	" call minpac#add('chriskempson/base16-vim')
-	call minpac#add('arcticicestudio/nord-vim')
 	call minpac#add('sjl/badwolf')
 	call minpac#add('nanotech/jellybeans.vim')
 	call minpac#add('mhartington/oceanic-next')
-	call minpac#add('cocopon/iceberg.vim')
 	call minpac#add('morhetz/gruvbox')
 endf
 
