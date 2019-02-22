@@ -107,7 +107,10 @@ hi link vimParenSep Normal
 hi link vimMapModKey Special
 hi link vimMapMod vimMapModKey
 hi link vimAutoEvent Constant
-hi vimCommentTitle gui=italic
+hi link vimHiAttrib Constant
+hi link vimHiCtermColor Constant
+" The same as Constant + italic
+hi vimCommentTitle guifg=#a04327 gui=italic ctermfg=green
 
 " python
 hi link pythonInclude Statement
