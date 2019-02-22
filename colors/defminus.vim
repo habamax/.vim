@@ -177,10 +177,24 @@ hi link cssClassName Identifier
 hi link cssIdentifier Identifier
 hi link cssAtRule Identifier
 
+" javascript
+hi link javaScriptIdentifier Statement
+hi link javaScriptFunction Statement
+hi link javaScriptOperator Statement
+hi link javaScriptType Identifier
+hi link javaScriptNumber Constant
+
 " yaml
 hi link yamlBlockMappingKey Statement
 hi link yamlKeyValueDelimiter Statement
 hi link yamlDocumentStart Comment
+
+" json
+hi link jsonKeyword Statement
+hi link jsonKeywordMatch Statement
+hi link jsonString String
+hi link jsonQuote Normal
+hi link yamlKeyValueDelimiter Statement
 
 " sql
 hi link sqlKeyword Statement
