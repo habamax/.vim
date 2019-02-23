@@ -77,9 +77,7 @@ fun! PackInit() abort
 	call minpac#add('airblade/vim-rooter')
 
 	"" Colors
-	call minpac#add('sjl/badwolf')
 	call minpac#add('nanotech/jellybeans.vim')
-	call minpac#add('mhartington/oceanic-next')
 	call minpac#add('morhetz/gruvbox')
 endf
 
