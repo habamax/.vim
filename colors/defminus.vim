@@ -323,7 +323,7 @@ hi link helpHyperTextJump Underlined
 hi link helpExample Constant
 hi link helpURL Underlined
 hi helpSectionDelim guifg=#909090
-hi helpOption gui=italic
+hi link helpOption Constant
 
 "" netrw
 hi link netrwDateSep Normal
