@@ -278,12 +278,12 @@ hi link markdownH4 Title
 hi link markdownH5 Title
 hi link markdownH6 Title
 hi link markdownHeadingDelimiter Constant
-hi link markdownListMarker Constant
+hi link markdownListMarker Special
 hi link markdownCode Constant
 hi link markdownCodeDelimiter markdownCode
 
 " asciidoctor
-hi link asciidoctorListMarker Constant
+hi link asciidoctorListMarker Special
 
 "" Diff
 hi diffAdd guibg=#c9f9c9
