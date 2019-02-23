@@ -7,6 +7,7 @@ runtime minpac_list.vim
 if executable("git")
 	nnoremap <leader>gs :Gstatus<CR>
 
+	let g:fugitive_autoreload_status = 1
 	packadd vim-fugitive
 endif
 
