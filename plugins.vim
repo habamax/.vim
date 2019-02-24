@@ -7,7 +7,7 @@ runtime minpac_list.vim
 if executable("git")
 	nnoremap <leader>gs :Gstatus<CR>
 
-	" let g:fugitive_autoreload_status = 1
+	let g:fugitive_autoreload_status = 1
 	packadd vim-fugitive
 endif
 
@@ -47,7 +47,7 @@ if has('python') || has('python3')
 	let g:Lf_FollowLinks = 1
 	" let g:Lf_CommandMap = {'<ESC>': ['<C-Space>', '<ESC>']}
 	let g:Lf_NormalMap = {"File":   [["u", ':LeaderfFile ..<CR>']]}
-    let g:Lf_PreviewResult = {'Colorscheme': 1}
+    " let g:Lf_PreviewResult = {'Colorscheme': 1}
     let g:Lf_WildIgnore = {
             \ 'dir': ['.svn','.git','.hg'],
             \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', '*.tmp']
