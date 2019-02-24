@@ -79,6 +79,7 @@ fun! PackInit() abort
 	"" Colors
 	call minpac#add('nanotech/jellybeans.vim')
 	call minpac#add('morhetz/gruvbox')
+	call minpac#add('dracula/vim', {'name': 'dracula'})
 endf
 
 " Commands to update and clean plugins {{{1
