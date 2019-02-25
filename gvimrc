@@ -18,7 +18,7 @@ if !has('nvim')
 	set lines=999
 endif
 
-"" colorschemes setup {{{1
+"" Colorschemes setup {{{1
 
 " pairs of colorschemes I like to use:
 " light is the first one, dark is the second.
