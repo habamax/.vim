@@ -48,7 +48,6 @@ hi Todo guibg=NONE guifg=#ff0000 gui=bold ctermfg=red
 hi Statusline guibg=#2c2c2c guifg=#ffffff gui=NONE ctermbg=black ctermfg=white
 hi StatuslineNC guibg=#5c5c5c guifg=#cbcbcb gui=NONE ctermbg=black ctermfg=white
 hi VertSplit guibg=NONE guifg=#5c5c5c gui=NONE ctermbg=black ctermfg=darkgray
-" hi VertSplit guibg=#7c7c7c guifg=#cbcbcb gui=NONE ctermbg=black ctermfg=darkgray
 hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE
 hi Folded guibg=#f5f5f5 guifg=#505050 gui=NONE ctermbg=darkgray ctermfg=black
 hi FoldColumn guibg=#f5f5f5 ctermbg=darkgray ctermfg=black
