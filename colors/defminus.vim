@@ -54,7 +54,7 @@ hi FoldColumn guibg=#f5f5f5 ctermbg=darkgray ctermfg=black
 hi CursorLine guibg=#eaeaea
 hi CursorColumn guibg=#eaeaea
 hi LineNr guibg=NONE guifg=#909090
-hi CursorLineNr guibg=NONE guifg=#707070 gui=bold
+hi CursorLineNr guibg=NONE guifg=#000000 gui=NONE
 hi SignColumn guibg=NONE
 hi Pmenu guibg=#eaeaea guifg=#505050 gui=NONE ctermbg=lightgray ctermfg=black
 hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold ctermbg=darkgray ctermfg=black
