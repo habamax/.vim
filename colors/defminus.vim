@@ -308,6 +308,9 @@ hi link diffSubName diffLine
 hi diffAdded guibg=NONE guifg=#009000 ctermfg=darkgreen
 hi diffRemoved guibg=NONE guifg=#c00000 ctermfg=darkred
 hi link gitCommitSummary Title
+hi link gitCommitHeader fugitiveHeader
+hi link gitCommitSelectedType Constant
+hi link gitCommitSelectedFile Normal
 
 "" minpac
 hi link minpacName Statement
