@@ -61,8 +61,8 @@ hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold ctermbg=darkgray ctermfg=black
 "" Syntax
 
 " generic group-names
-" hi Comment guifg=#909090 gui=italic ctermfg=lightgrey
-hi Comment guifg=#909090 gui=NONE ctermfg=lightgrey
+hi Comment guifg=#909090 gui=italic ctermfg=lightgrey
+" hi Comment guifg=#909090 gui=NONE ctermfg=lightgrey
 
 hi Constant guifg=#a04327 gui=NONE ctermfg=darkgrey
 hi String guifg=#399030 gui=NONE ctermfg=green
@@ -113,8 +113,8 @@ hi link vimAutoEvent Constant
 hi link vimHiAttrib Constant
 hi link vimHiCtermColor Constant
 " The same as Constant + italic
-" hi vimCommentTitle guifg=#a04327 gui=italic ctermfg=green
-hi vimCommentTitle guifg=#a04327 gui=NONE ctermfg=green
+hi vimCommentTitle guifg=#a04327 gui=italic ctermfg=green
+" hi vimCommentTitle guifg=#a04327 gui=NONE ctermfg=green
 
 " python
 hi link pythonInclude Statement
@@ -225,8 +225,8 @@ hi link yamlKeyValueDelimiter Statement
 hi link sqlKeyword Statement
 
 " java
-" hi javaCommentTitle guifg=#909090 gui=bold,italic ctermfg=lightgrey
-hi javaCommentTitle guifg=#909090 gui=bold ctermfg=lightgrey
+hi javaCommentTitle guifg=#909090 gui=bold,italic ctermfg=lightgrey
+" hi javaCommentTitle guifg=#909090 gui=bold ctermfg=lightgrey
 hi link javaExternal Statement
 hi link javaScopeDecl Statement
 hi link javaClassDecl Statement
