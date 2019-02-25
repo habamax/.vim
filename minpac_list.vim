@@ -29,7 +29,7 @@ fun! PackInit() abort
 	call minpac#add('tpope/vim-vinegar')
 	call minpac#add('tpope/vim-obsession')
 
-	"" Fuzzy stuuf
+	"" Fuzzy stuff
 	call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
 	call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
 	call minpac#add('junegunn/fzf', {'type': 'opt'})
