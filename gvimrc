@@ -1,4 +1,4 @@
-" Fonts {{{1
+"" Fonts {{{1
 if has("gui_macvim")
 	set gfn=Fantasque_Sans_Mono:h13,Hack:h12,Menlo:h14
 	set macmeta
@@ -12,11 +12,13 @@ else
 	set gfn=Iosevka_SS03:h14,Hack:h12,Consolas:h14
 endif
 
-" Window size {{{1
+"" Window size {{{1
 if !has('nvim')
 	set columns=999
 	set lines=999
 endif
+
+"" colorschemes setup {{{1
 
 " pairs of colorschemes I like to use:
 " light is the first one, dark is the second.
