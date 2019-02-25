@@ -66,39 +66,39 @@ hi Comment guifg=#909090 gui=NONE ctermfg=lightgrey
 
 hi Constant guifg=#a04327 gui=NONE ctermfg=darkgrey
 hi String guifg=#399030 gui=NONE ctermfg=green
-hi! link Character Constant
-hi! link Number Constant
-hi! link Boolean Constant
-hi! link Float Constant
+" hi! link Character Constant
+" hi! link Number Constant
+" hi! link Boolean Constant
+" hi! link Float Constant
 
 hi Identifier guifg=#505050 gui=NONE ctermfg=darkgrey
 hi! link Function Identifier
 
 hi Statement guifg=#af00db gui=NONE ctermfg=05
-hi! link Conditional Statement
-hi! link Repeat Statement
-hi! link Label Statement
-hi! link Operator Statement
-hi! link Keyword Statement
-hi! link Exception Statement
+" hi! link Conditional Statement
+" hi! link Repeat Statement
+" hi! link Label Statement
+" hi! link Operator Statement
+" hi! link Keyword Statement
+" hi! link Exception Statement
 
 hi PreProc guifg=#000000 gui=NONE ctermfg=black
-hi! link Include PreProc
-hi! link Define PreProc
-hi! link Macro PreProc
-hi! link PreCondit PreProc
+" hi! link Include PreProc
+" hi! link Define PreProc
+" hi! link Macro PreProc
+" hi! link PreCondit PreProc
 
 hi Type guifg=#000000 gui=NONE ctermfg=black
-hi! link StorageClass Type
-hi! link Structure Type
-hi! link Typedef Type
+" hi! link StorageClass Type
+" hi! link Structure Type
+" hi! link Typedef Type
 
 hi Special guifg=#00737b gui=NONE ctermfg=darkcyan
-hi! link SpecialChar Special
-hi! link Tag Special
-hi! link Delimiter Special
-hi! link SpecialComment Special
-hi! link Debug Special
+" hi! link SpecialChar Special
+" hi! link Tag Special
+" hi! link Delimiter Special
+" hi! link SpecialComment Special
+" hi! link Debug Special
 
 hi Underlined guifg=#5050c0 gui=underline ctermbg=darkblue ctermfg=white cterm=underline
 
