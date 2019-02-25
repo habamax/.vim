@@ -52,6 +52,8 @@ hi VertSplit guibg=NONE guifg=#5c5c5c gui=NONE ctermbg=black ctermfg=darkgray
 hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE
 hi Folded guibg=#f5f5f5 guifg=#505050 gui=NONE ctermbg=darkgray ctermfg=black
 hi FoldColumn guibg=#eaeaea ctermbg=darkgray ctermfg=black
+hi CursorLine guibg=#e7efff
+hi CursorColumn guibg=#e7efff
 hi SignColumn guibg=NONE
 hi Pmenu guibg=#eaeaea guifg=#505050 gui=NONE ctermbg=lightgray ctermfg=black
 hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold ctermbg=darkgray ctermfg=black
