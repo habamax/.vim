@@ -292,9 +292,9 @@ hi diffText guibg=#f9d999 guifg=NONE gui=NONE
 hi diffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
 
 "" fugitive
-hi fugitiveHeader guibg=#d0d0d0 guifg=#000000 gui=bold
-hi fugitiveHeading guibg=#d0d0d0 guifg=#000000 gui=bold
-hi gitKeyword guibg=#d0d0d0 guifg=#000000 gui=bold
+hi fugitiveHeader guibg=#000000 guifg=#d0d0d0 gui=bold
+hi fugitiveHeading guibg=#000000 guifg=#d0d0d0 gui=bold
+hi gitKeyword guibg=#000000 guifg=#d0d0d0 gui=bold
 hi link gitIdentityKeyword gitKeyword
 hi link fugitiveModifier Statement
 hi link fugitiveSymbolicRef Constant
@@ -303,8 +303,8 @@ hi link diffFile Title
 hi link diffNewFile Title
 hi link diffLine fugitiveHeading
 hi link diffSubName diffLine
-hi diffAdded guibg=NONE guifg=#009000 ctermfg=darkgreen
-hi diffRemoved guibg=NONE guifg=#c00000 ctermfg=darkred
+hi diffAdded guibg=NONE guifg=#00c000 ctermfg=darkgreen
+hi diffRemoved guibg=NONE guifg=#f02030 ctermfg=darkred
 hi link gitCommitSummary Title
 hi link gitCommitHeader fugitiveHeader
 hi link gitCommitSelectedType Constant
