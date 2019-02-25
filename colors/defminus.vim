@@ -1,19 +1,24 @@
-" Vim color scheme
+" defminus.vim -- a GVim colorscheme
 "
-" Name:       defminus.vim
+" Name:       defminus
 " Maintainer: Maxim Kim <habamax@gmail.com>
-" License:    MIT
+" License:    MIT, but who cares? This is colorscheme.
+"
+" Description:
 "
 " GUI only `white background` colorscheme.
 " There are tons of awesome `dark background` colorschemes and I use them for
 " terminal vim but...
 "
 " I do really like white backgrounds. Not gray, not "light" -- just plane
-" simple white background. The one default GVim provides. But default GVim
-" colors are too colorful and too bold.
+" simple white background. The one default GVim provides. 
+"
+" Hmm... Default GVim colors are too colorful and too bold.
 "
 " This has to be fixed. Because why not?
 "
+"
+" Helpers:
 "
 " :h 'hl' 
 " or
