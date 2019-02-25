@@ -3,7 +3,7 @@
 " Must have {{{1
 set nocompatible
 
-" everything will be in english
+" Everything will be in English
 language messages en_US.UTF-8
 
 filetype plugin indent on
@@ -111,7 +111,7 @@ set shiftround
 set autoindent
 
 set nohlsearch incsearch ignorecase
-" highlight all occurencies of a term being searched/replaced
+" highlight all occurrences of a term being searched/replaced
 augroup hlsearch-incsearch
 	autocmd!
 	autocmd CmdlineEnter /,\?,: :set hlsearch
