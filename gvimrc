@@ -23,8 +23,9 @@ endif
 " pairs of colorschemes I like to use:
 " light is the first one, dark is the second.
 " let g:duo_themes = [{'name': 'defminus'}, {'name': 'jellybeans'}]
-let g:duo_themes = [{'name': 'defminus'}, {'name': 'gruvbox', 'bg': 'dark'}]
+" let g:duo_themes = [{'name': 'defminus'}, {'name': 'gruvbox', 'bg': 'dark'}]
 " let g:duo_themes = [{'name': 'defminus'}, {'name': 'dracula'}]
+let g:duo_themes = [{'name': 'defminus'}, {'name': 'defnoche'}]
 fun! s:set_colorscheme(color)
 	if has_key(a:color, 'bg')
 		let &bg = a:color['bg']
