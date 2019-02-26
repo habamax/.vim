@@ -32,6 +32,7 @@ set fileformat=unix
 
 " UI {{{1
 if !has("gui_running")
+	set t_Co=256
 	" for terminals that should be dark
 	set bg=dark
 	" if there is defnoche installed change colors
