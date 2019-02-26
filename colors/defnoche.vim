@@ -304,7 +304,7 @@ hi link diffNewFile Title
 hi link diffLine fugitiveHeading
 hi link diffSubName diffLine
 hi diffAdded guibg=NONE guifg=#00c000 ctermfg=darkgreen
-hi diffRemoved guibg=NONE guifg=#f02030 ctermfg=darkred
+hi diffRemoved guibg=NONE guifg=#f04749 ctermfg=darkred
 hi link gitCommitSummary Title
 hi link gitCommitHeader fugitiveHeader
 hi link gitCommitSelectedType Constant
