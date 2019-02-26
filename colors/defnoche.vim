@@ -28,7 +28,7 @@
 " 0    Black       #000000  Normal BG
 " 1    DarkBlue    #103040  Visual
 " 2    DarkGreen   #294929  DiffAdd
-" 3    DarkCyan    #303030  NonText
+" 3    DarkCyan    #00a3ab  Special
 " 4    DarkRed     #492929  DiffDelete
 " 5    DarkMagenta #4f4719  DiffChange
 " 6    DarkYellow  #e6a657  Constant
@@ -36,7 +36,7 @@
 " 8    DarkGray    #5e5e5e  Comment
 " 9    Blue        #8798e5  Link?
 " 10   Green       #49b34e  String
-" 11   Cyan        #00a3ab  Special
+" 11   Cyan        #303030  NonText
 " 12   Red         #2f2f09  DiffText
 " 13   Magenta     #f070f0  Statement
 " 14   Yellow      #f0f035  Title
@@ -58,7 +58,7 @@ hi DefNocheBold guibg=NONE guifg=#ffffff gui=bold ctermbg=15 ctermfg=0
 hi Normal guibg=#000000 guifg=#d0d0d0 gui=NONE ctermbg=0 ctermfg=15
 hi Cursor guibg=#ffffff ctermbg=15
 hi lCursor guibg=#ff0000 ctermbg=12
-hi NonText guibg=NONE guifg=#303030 ctermfg=3
+hi NonText guibg=NONE guifg=#303030 ctermfg=11
 hi! link SpecialKey NonText
 hi Visual guibg=#103040 guifg=NONE ctermbg=1
 
@@ -71,9 +71,9 @@ hi Statusline guibg=#5c5c5c guifg=#d0d0d0 gui=NONE ctermbg=7 ctermfg=15
 hi StatuslineNC guibg=#3c3c3c guifg=#9b9b9b gui=NONE ctermbg=8 ctermfg=15
 hi VertSplit guibg=NONE guifg=#5c5c5c gui=NONE ctermbg=0 ctermfg=8
 hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE
-hi Folded guibg=#252525 guifg=#909090 gui=NONE ctermbg=3 ctermfg=7
+hi Folded guibg=#252525 guifg=#909090 gui=NONE ctermbg=11 ctermfg=7
 hi! link FoldColumn Folded
-hi CursorLine guibg=#353535 ctermbg=3
+hi CursorLine guibg=#353535 ctermbg=11
 hi! link CursorColumn CursorLine
 hi LineNr guibg=NONE guifg=#909090
 hi CursorLineNr guibg=NONE guifg=#d0d0d0 gui=NONE
@@ -117,7 +117,7 @@ hi Type guifg=#d0d0d0 gui=NONE ctermfg=15
 " hi! link Structure Type
 " hi! link Typedef Type
 
-hi Special guifg=#00a3ab gui=NONE ctermfg=11
+hi Special guifg=#00a3ab gui=NONE ctermfg=3
 " hi! link SpecialChar Special
 " hi! link Tag Special
 " hi! link Delimiter Special
