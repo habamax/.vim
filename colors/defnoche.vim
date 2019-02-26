@@ -54,7 +54,7 @@ hi StatuslineNC guibg=#3c3c3c guifg=#9b9b9b gui=NONE ctermbg=black ctermfg=white
 hi VertSplit guibg=NONE guifg=#5c5c5c gui=NONE ctermbg=black ctermfg=darkgray
 hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE
 hi Folded guibg=#252525 guifg=#909090 gui=NONE ctermbg=darkgray ctermfg=black
-hi FoldColumn guibg=#f5f5f5 ctermbg=darkgray ctermfg=black
+hi! link FoldColumn Folded
 hi CursorLine guibg=#353535
 hi CursorColumn guibg=#353535
 hi LineNr guibg=NONE guifg=#909090
