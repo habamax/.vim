@@ -11,8 +11,8 @@ filetype plugin indent on
 if has('autocmd')
 	autocmd!
 endif
-if has('syntax') && !exists('g:syntax_on')
-	syntax enable
+if &t_Co > 2 || has("gui_running")
+	syntax on
 endif
 
 set hidden
@@ -22,7 +22,9 @@ set browsedir=buffer
 let mapleader = "\<Space>"
 let maplocalleader = "\<BS>"
 
-set mouse=a
+if has('mouse')
+  set mouse=a
+endif
 
 " Encoding and fileformat {{{1
 set encoding=utf8
@@ -284,6 +286,10 @@ if has('langmap')
 	set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\~
 	set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
 	set langmap+=№#
+
+	if exists('+langremap')
+		set nolangremap
+	endif
 endif
 
 " Load Plugins and Abbreviations {{{1
