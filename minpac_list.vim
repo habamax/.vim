@@ -75,6 +75,8 @@ fun! PackInit() abort
 	call minpac#add('diepm/vim-rest-console')
 	call minpac#add('mbbill/undotree')
 	call minpac#add('airblade/vim-rooter')
+	call minpac#add('chrisbra/Colorizer')
+
 
 	"" Colors
 	call minpac#add('nanotech/jellybeans.vim')
