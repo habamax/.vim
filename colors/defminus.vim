@@ -37,6 +37,9 @@ endif
 
 let g:colors_name = 'defminus'
 
+"" Helper color groups
+hi DefMinusBold guibg=NONE guifg=#000000 gui=bold
+
 "" General
 hi Normal guibg=#ffffff guifg=#000000 gui=NONE ctermbg=white ctermfg=black
 hi Cursor guibg=#000000
@@ -301,9 +304,9 @@ hi diffText guibg=#f9d999 guifg=NONE gui=NONE
 hi diffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
 
 "" fugitive
-hi fugitiveHeader guibg=#ffffff guifg=#000000 gui=bold
-hi fugitiveHeading guibg=#ffffff guifg=#000000 gui=bold
-hi gitKeyword guibg=#ffffff guifg=#000000 gui=bold
+hi! link fugitiveHeader DefMinusBold
+hi! link fugitiveHeading DefMinusBold
+hi! link gitKeyword DefMinusBold
 hi link gitIdentityKeyword gitKeyword
 hi link fugitiveModifier Statement
 hi link fugitiveSymbolicRef Constant
