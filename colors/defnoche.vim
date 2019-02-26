@@ -29,6 +29,9 @@ endif
 
 let g:colors_name = 'defnoche'
 
+"" Helper color groups
+hi DefNocheBold guibg=NONE guifg=#ffffff gui=bold
+
 "" General
 hi Normal guibg=#000000 guifg=#d0d0d0 gui=NONE ctermbg=black ctermfg=gray
 hi Cursor guibg=#ffffff
@@ -37,9 +40,9 @@ hi NonText guibg=NONE guifg=#303030
 hi SpecialKey guibg=NONE guifg=#303030
 hi Visual guibg=#103040 guifg=NONE
 
-hi Directory guibg=NONE guifg=#d0d000 gui=bold ctermfg=black
-hi Title guibg=NONE guifg=#f0f569 gui=bold
-hi Todo guibg=NONE guifg=#e03045 gui=bold ctermfg=red
+hi! link Directory DefNocheBold
+hi Title guibg=NONE guifg=#f0f035 gui=bold
+hi Todo guibg=NONE guifg=#e03045 gui=bold
 
 "" UI
 hi Statusline guibg=#5c5c5c guifg=#d0d0d0 gui=NONE ctermbg=black ctermfg=white
@@ -293,9 +296,9 @@ hi diffText guibg=#f9d999 guifg=NONE gui=NONE
 hi diffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
 
 "" fugitive
-hi fugitiveHeader guibg=#000000 guifg=#d0d0d0 gui=bold
-hi fugitiveHeading guibg=#000000 guifg=#d0d0d0 gui=bold
-hi gitKeyword guibg=#000000 guifg=#d0d0d0 gui=bold
+hi! link fugitiveHeader DefNocheBold
+hi! link fugitiveHeading DefNocheBold
+hi! link gitKeyword DefNocheBold
 hi link gitIdentityKeyword gitKeyword
 hi link fugitiveModifier Statement
 hi link fugitiveSymbolicRef Constant
