@@ -34,8 +34,8 @@ set fileformat=unix
 if !has("gui_running")
 	" for terminals that should be dark
 	set bg=dark
-	" if there is gruvbox installed change colors
-	" silent! colorscheme gruvbox
+	" if there is defnoche installed change colors
+	silent! colorscheme defnoche
 endif
 set shortmess+=Ic
 set winaltkeys=no
