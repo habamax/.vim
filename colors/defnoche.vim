@@ -34,7 +34,7 @@ endif
 let g:colors_name = 'defnoche'
 
 "" Helper color groups
-hi DefNocheBold guibg=NONE guifg=#ffffff gui=bold ctermbg=15 ctermfg=0
+hi DefNocheBold guibg=NONE guifg=#ffffff gui=bold ctermfg=15 ctermbg=0 cterm=bold
 
 "" General
 hi Normal guibg=#000000 guifg=#d0d0d0 gui=NONE ctermbg=0 ctermfg=252
