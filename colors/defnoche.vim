@@ -47,7 +47,7 @@ hi! link SpecialKey NonText
 hi Visual guibg=#103040 guifg=NONE ctermbg=4
 
 hi! link Directory DefNocheBold
-hi Title guibg=NONE guifg=#f0f035 gui=bold ctermfg=221
+hi Title guibg=NONE guifg=#f0f035 gui=bold ctermfg=221 cterm=bold
 hi! link Todo Title
 
 "" UI
