@@ -35,7 +35,7 @@ if !has("gui_running")
 	" for terminals that should be dark
 	set bg=dark
 	" if there is gruvbox installed change colors
-	silent! colorscheme gruvbox
+	" silent! colorscheme gruvbox
 endif
 set shortmess+=Ic
 set winaltkeys=no
