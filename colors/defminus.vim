@@ -6,7 +6,7 @@
 "
 " Description:
 "
-" GUI only `white background` colorscheme.
+" White background colorscheme.
 " There are tons of awesome `dark background` colorschemes and I use them for
 " terminal vim but...
 "
@@ -38,24 +38,24 @@ endif
 let g:colors_name = 'defminus'
 
 "" Helper color groups
-hi DefMinusBold guibg=NONE guifg=#000000 gui=bold
+hi DefMinusBold guibg=NONE guifg=#000000 gui=bold ctermfg=16 ctermbg=NONE cterm=bold
 
 "" General
-hi Normal guibg=#ffffff guifg=#000000 gui=NONE ctermbg=white ctermfg=black
-hi Cursor guibg=#000000
-hi lCursor guibg=#ff0000
-hi NonText guibg=NONE guifg=#c0c0c0
-hi SpecialKey guibg=NONE guifg=#c0c0c0
-hi Visual guibg=#add6ff guifg=NONE ctermbg=lightblue
+hi Normal guibg=#ffffff guifg=#000000 gui=NONE ctermbg=15 ctermfg=16
+hi Cursor guibg=#000000 ctermbg=0
+hi lCursor guibg=#ff0000 ctermfg=12
+hi NonText guibg=NONE guifg=#c0c0c0 ctermfg=250
+hi! link SpecialKey NonText
+hi Visual guibg=#add6ff guifg=NONE ctermbg=110 ctermfg=NONE
 
-hi Directory guibg=NONE guifg=#000000 gui=bold ctermfg=black
-hi Title guibg=NONE guifg=#3554df gui=bold
-hi Todo guibg=NONE guifg=#ff0000 gui=bold ctermfg=red
+hi! link Directory DefMinusBold
+hi Title guibg=NONE guifg=#3554df gui=bold ctermfg=62 cterm=bold
+hi! link Todo Title
 
 "" UI
-hi Statusline guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=black ctermfg=white
-hi StatuslineNC guibg=#5c5c5c guifg=#cbcbcb gui=NONE ctermbg=black ctermfg=white
-hi VertSplit guibg=NONE guifg=#5c5c5c gui=NONE ctermbg=black ctermfg=darkgray
+hi Statusline guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=15 cterm=NONE
+hi StatuslineNC guibg=#5c5c5c guifg=#cbcbcb gui=NONE ctermbg=241 ctermfg=252 cterm=NONE
+hi VertSplit guibg=NONE guifg=#5c5c5c gui=NONE ctermbg=15 ctermfg=241 cterm=NONE
 hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE
 hi Folded guibg=#f5f5f5 guifg=#505050 gui=NONE ctermbg=darkgray ctermfg=black
 hi! link FoldColumn Folded
@@ -70,11 +70,11 @@ hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold ctermbg=darkgray ctermfg=black
 "" Syntax
 
 " generic group-names
-hi Comment guifg=#909090 gui=italic ctermfg=lightgrey
+hi Comment guifg=#909090 gui=italic ctermfg=246
 " hi Comment guifg=#909090 gui=NONE ctermfg=lightgrey
 
-hi Constant guifg=#a04327 gui=NONE ctermfg=darkgrey
-hi String guifg=#399030 gui=NONE ctermfg=green
+hi Constant guifg=#a04327 gui=NONE ctermfg=130
+hi String guifg=#399030 gui=NONE ctermfg=65
 " hi! link Character Constant
 " hi! link Number Constant
 " hi! link Boolean Constant
@@ -83,7 +83,7 @@ hi String guifg=#399030 gui=NONE ctermfg=green
 hi Identifier guifg=#505050 gui=NONE ctermfg=darkgrey
 hi! link Function Identifier
 
-hi Statement guifg=#af00db gui=NONE ctermfg=05
+hi Statement guifg=#af00db gui=NONE ctermfg=128
 " hi! link Conditional Statement
 " hi! link Repeat Statement
 " hi! link Label Statement
@@ -91,13 +91,13 @@ hi Statement guifg=#af00db gui=NONE ctermfg=05
 " hi! link Keyword Statement
 " hi! link Exception Statement
 
-hi PreProc guifg=#000000 gui=NONE ctermfg=black
+hi PreProc guifg=#000000 gui=NONE ctermfg=16 cterm=NONE
 " hi! link Include PreProc
 " hi! link Define PreProc
 " hi! link Macro PreProc
 " hi! link PreCondit PreProc
 
-hi Type guifg=#000000 gui=NONE ctermfg=black
+hi Type guifg=#000000 gui=NONE ctermfg=16 term=NONE
 " hi! link StorageClass Type
 " hi! link Structure Type
 " hi! link Typedef Type
@@ -109,7 +109,7 @@ hi Special guifg=#00737b gui=NONE ctermfg=darkcyan
 " hi! link SpecialComment Special
 " hi! link Debug Special
 
-hi Underlined guifg=#5050c0 gui=underline ctermbg=darkblue ctermfg=white cterm=underline
+hi Underlined guifg=#5050c0 gui=underline ctermbg=15 ctermfg=68 cterm=underline
 
 " vim
 hi link vimFuncName Statement
@@ -122,7 +122,7 @@ hi link vimAutoEvent Constant
 hi link vimHiAttrib Constant
 hi link vimHiCtermColor Constant
 " The same as Constant + italic
-hi vimCommentTitle guifg=#a04327 gui=italic ctermfg=green
+hi vimCommentTitle guifg=#a04327 gui=italic ctermfg=130
 " hi vimCommentTitle guifg=#a04327 gui=NONE ctermfg=green
 
 " python
