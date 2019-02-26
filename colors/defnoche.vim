@@ -312,8 +312,8 @@ hi link diffFile Title
 hi link diffNewFile Title
 hi link diffLine fugitiveHeading
 hi link diffSubName diffLine
-hi diffAdded guibg=NONE guifg=#00c000 ctermfg=darkgreen
-hi diffRemoved guibg=NONE guifg=#f04749 ctermfg=darkred
+hi diffAdded guibg=NONE guifg=#00c000 ctermfg=114
+hi diffRemoved guibg=NONE guifg=#f04749 ctermfg=124
 hi link gitCommitSummary Title
 hi link gitCommitHeader fugitiveHeader
 hi link gitCommitSelectedType Constant
