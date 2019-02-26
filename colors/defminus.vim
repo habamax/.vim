@@ -50,7 +50,7 @@ hi Title guibg=NONE guifg=#3554df gui=bold
 hi Todo guibg=NONE guifg=#ff0000 gui=bold ctermfg=red
 
 "" UI
-hi Statusline guibg=#2c2c2c guifg=#ffffff gui=NONE ctermbg=black ctermfg=white
+hi Statusline guibg=#2c504c guifg=#ffffff gui=NONE ctermbg=black ctermfg=white
 hi StatuslineNC guibg=#5c5c5c guifg=#cbcbcb gui=NONE ctermbg=black ctermfg=white
 hi VertSplit guibg=NONE guifg=#5c5c5c gui=NONE ctermbg=black ctermfg=darkgray
 hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE
@@ -355,23 +355,23 @@ let s:leaderf_modes = [
 			\'Colorscheme', 'Self'
 			\]
 for lf_mode in s:leaderf_modes
-	execute 'hi Lf_hl_'.lf_mode.'_stlName guibg=#2c2c2c guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlMode guibg=#2c2c2c guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlCategory guibg=#2c2c2c guifg=#c0c0c0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlCwd guibg=#2c2c2c guifg=#ffffff gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator0 guibg=#2c2c2c guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator1 guibg=#2c2c2c guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator2 guibg=#2c2c2c guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator3 guibg=#2c2c2c guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator4 guibg=#2c2c2c guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator5 guibg=#2c2c2c guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlLineInfo guibg=#2c2c2c guifg=#ffffff gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlNameOnlyMode guibg=#2c2c2c guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlRegexMode guibg=#2c2c2c guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlFullPathMode guibg=#2c2c2c guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlFuzzyMode guibg=#2c2c2c guifg=#505050 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlTotal guibg=#2c2c2c guifg=#ffffff gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlBlank guibg=#2c2c2c guifg=#ffffff gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlName guibg=#2c504c guifg=#c0c0c0 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlMode guibg=#2c504c guifg=#c0c0c0 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlCategory guibg=#2c504c guifg=#c0c0c0 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlCwd guibg=#2c504c guifg=#ffffff gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator0 guibg=#2c504c guifg=#c0c0c0 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator1 guibg=#2c504c guifg=#c0c0c0 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator2 guibg=#2c504c guifg=#c0c0c0 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator3 guibg=#2c504c guifg=#c0c0c0 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator4 guibg=#2c504c guifg=#c0c0c0 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator5 guibg=#2c504c guifg=#c0c0c0 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlLineInfo guibg=#2c504c guifg=#ffffff gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlNameOnlyMode guibg=#2c504c guifg=#c0c0c0 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlRegexMode guibg=#2c504c guifg=#c0c0c0 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlFullPathMode guibg=#2c504c guifg=#c0c0c0 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlFuzzyMode guibg=#2c504c guifg=#c0c0c0 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlTotal guibg=#2c504c guifg=#ffffff gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlBlank guibg=#2c504c guifg=#ffffff gui=NONE'
 endfor
 
 hi link Lf_hl_bufDirname Comment
