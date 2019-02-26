@@ -7,7 +7,6 @@ runtime minpac_list.vim
 if executable("git")
 	nnoremap <leader>gs :Gstatus<CR>
 
-	" let g:fugitive_autoreload_status = 1
 	packadd vim-fugitive
 endif
 
@@ -18,7 +17,6 @@ if has('python') || has('python3')
 	let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 	packadd ultisnips
-	
 endif
 
 " Let me have fzf just in case... {{{1
@@ -34,7 +32,6 @@ if executable('fzf')
 
 	packadd fzf
 	packadd fzf.vim
-
 endif
 
 " LeaderF or CtrlP {{{1
