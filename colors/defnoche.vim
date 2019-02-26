@@ -23,6 +23,24 @@
 "
 " :h group-name
 " to see current syntax highlight of default syntax groups
+"
+" NR-16 COLOR-NAME REAL-COLOR
+" 0    Black       #000000  Normal BG
+" 1    DarkBlue    #103040  Visual
+" 2    DarkGreen   #294929  DiffAdd
+" 3    DarkCyan    #303030  NonText
+" 4    DarkRed     #492929  DiffDelete
+" 5    DarkMagenta #4f4719  DiffChange
+" 6    DarkYellow  #e6a657  Constant
+" 7    Gray        #909090  Identifier
+" 8    DarkGray    #5e5e5e  Comment
+" 9    Blue        #8798e5  Link?
+" 10   Green       #49b34e  String
+" 11   Cyan        #00a3ab  Special
+" 12   Red         #2f2f09  DiffText
+" 13   Magenta     #f070f0  Statement
+" 14   Yellow      #f0f035  Title
+" 15   White       #d0d0d0  Normal FG
 
 set background=dark
 
@@ -34,52 +52,53 @@ endif
 let g:colors_name = 'defnoche'
 
 "" Helper color groups
-hi DefNocheBold guibg=NONE guifg=#ffffff gui=bold
+hi DefNocheBold guibg=NONE guifg=#ffffff gui=bold ctermbg=15 ctermfg=0
 
 "" General
-hi Normal guibg=#000000 guifg=#d0d0d0 gui=NONE ctermbg=black ctermfg=gray
-hi Cursor guibg=#ffffff
-hi lCursor guibg=#ff0000
-hi NonText guibg=NONE guifg=#303030
-hi SpecialKey guibg=NONE guifg=#303030
-hi Visual guibg=#103040 guifg=NONE
+hi Normal guibg=#000000 guifg=#d0d0d0 gui=NONE ctermbg=0 ctermfg=15
+hi Cursor guibg=#ffffff ctermbg=15
+hi lCursor guibg=#ff0000 ctermbg=12
+hi NonText guibg=NONE guifg=#303030 ctermfg=3
+hi! link SpecialKey NonText
+hi Visual guibg=#103040 guifg=NONE ctermbg=1
 
 hi! link Directory DefNocheBold
-hi Title guibg=NONE guifg=#f0f035 gui=bold
-hi Todo guibg=NONE guifg=#e03045 gui=bold
+hi Title guibg=NONE guifg=#f0f035 gui=bold ctermfg=14
+hi! link Todo Title
 
 "" UI
-hi Statusline guibg=#5c5c5c guifg=#d0d0d0 gui=NONE ctermbg=black ctermfg=white
-hi StatuslineNC guibg=#3c3c3c guifg=#9b9b9b gui=NONE ctermbg=black ctermfg=white
-hi VertSplit guibg=NONE guifg=#5c5c5c gui=NONE ctermbg=black ctermfg=darkgray
+hi Statusline guibg=#5c5c5c guifg=#d0d0d0 gui=NONE ctermbg=7 ctermfg=15
+hi StatuslineNC guibg=#3c3c3c guifg=#9b9b9b gui=NONE ctermbg=8 ctermfg=15
+hi VertSplit guibg=NONE guifg=#5c5c5c gui=NONE ctermbg=0 ctermfg=8
 hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE
-hi Folded guibg=#252525 guifg=#909090 gui=NONE ctermbg=darkgray ctermfg=black
+hi Folded guibg=#252525 guifg=#909090 gui=NONE ctermbg=3 ctermfg=7
 hi! link FoldColumn Folded
-hi CursorLine guibg=#353535
-hi CursorColumn guibg=#353535
+hi CursorLine guibg=#353535 ctermbg=3
+hi! link CursorColumn CursorLine
 hi LineNr guibg=NONE guifg=#909090
 hi CursorLineNr guibg=NONE guifg=#d0d0d0 gui=NONE
 hi SignColumn guibg=NONE
 hi Pmenu guibg=#555555 guifg=#d0d0d0 gui=NONE
 hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold
 
+
 "" Syntax
 
 " generic group-names
-hi Comment guifg=#5e5e5e gui=italic ctermfg=lightgrey
+hi Comment guifg=#5e5e5e gui=italic ctermfg=8
 " hi Comment guifg=#909090 gui=NONE ctermfg=lightgrey
 
-hi Constant guifg=#e6a657 gui=NONE
-hi String guifg=#49b34e gui=NONE
+hi Constant guifg=#e6a657 gui=NONE ctermfg=6
+hi String guifg=#49b34e gui=NONE ctermfg=10
 " hi! link Character Constant
 " hi! link Number Constant
 " hi! link Boolean Constant
 " hi! link Float Constant
 
-hi Identifier guifg=#505050 gui=NONE ctermfg=darkgrey
-hi! link Function Identifier
+hi Identifier guifg=#909090 gui=NONE ctermfg=7
+" hi! link Function Identifier
 
-hi Statement guifg=#f070f0 gui=NONE
+hi Statement guifg=#f070f0 gui=NONE ctermfg=13
 " hi! link Conditional Statement
 " hi! link Repeat Statement
 " hi! link Label Statement
@@ -87,25 +106,25 @@ hi Statement guifg=#f070f0 gui=NONE
 " hi! link Keyword Statement
 " hi! link Exception Statement
 
-hi PreProc guifg=#d0d0d0 gui=NONE ctermfg=white
+hi PreProc guifg=#d0d0d0 gui=NONE ctermfg=15
 " hi! link Include PreProc
 " hi! link Define PreProc
 " hi! link Macro PreProc
 " hi! link PreCondit PreProc
 
-hi Type guifg=#d0d0d0 gui=NONE ctermfg=white
+hi Type guifg=#d0d0d0 gui=NONE ctermfg=15
 " hi! link StorageClass Type
 " hi! link Structure Type
 " hi! link Typedef Type
 
-hi Special guifg=#00a3ab gui=NONE ctermfg=darkcyan
+hi Special guifg=#00a3ab gui=NONE ctermfg=11
 " hi! link SpecialChar Special
 " hi! link Tag Special
 " hi! link Delimiter Special
 " hi! link SpecialComment Special
 " hi! link Debug Special
 
-hi Underlined guifg=#8798e5 gui=underline
+hi Underlined guifg=#8798e5 gui=underline ctermbg=0 ctermfg=9
 
 " vim
 hi link vimFuncName Statement
@@ -118,7 +137,7 @@ hi link vimAutoEvent Constant
 hi link vimHiAttrib Constant
 hi link vimHiCtermColor Constant
 " The same as Constant + italic
-hi vimCommentTitle guifg=#e6a657 gui=italic ctermfg=green
+hi vimCommentTitle guifg=#e6a657 gui=italic ctermfg=6
 " hi vimCommentTitle guifg=#a04327 gui=NONE ctermfg=green
 
 " python
@@ -294,10 +313,10 @@ hi link markdownCodeDelimiter markdownCode
 hi link asciidoctorListMarker Special
 
 "" Diff
-hi diffAdd guibg=#294929
-hi diffChange guibg=#4f4719
-hi diffText guibg=#2f2f09 guifg=NONE gui=NONE
-hi diffDelete guibg=#492929 guifg=#707070 gui=NONE
+hi diffAdd guibg=#294929 ctermbg=2
+hi diffChange guibg=#4f4719 ctermbg=5
+hi diffText guibg=#2f2f09 guifg=NONE gui=NONE ctermbg=12 ctermfg=NONE
+hi diffDelete guibg=#492929 guifg=#707070 gui=NONE ctermbg=4 ctermfg=8
 
 "" fugitive
 hi! link fugitiveHeader DefNocheBold
@@ -327,6 +346,7 @@ hi link snipMirror Special
 hi link snipTabStop Special
 
 "" help
+hi link helpVim Title
 hi link helpHeader Title
 hi link helpHeadLine Title
 hi link helpHyperTextEntry Statement
