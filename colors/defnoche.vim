@@ -23,24 +23,6 @@
 "
 " :h group-name
 " to see current syntax highlight of default syntax groups
-"
-" NR-16 COLOR-NAME REAL-COLOR
-" 0    Black       #000000  Normal BG
-" 1    DarkBlue    #103040  Visual
-" 2    DarkGreen   #294929  DiffAdd
-" 3    DarkCyan    #00a3ab  Special
-" 4    DarkRed     #492929  DiffDelete
-" 5    DarkMagenta #4f4719  DiffChange
-" 6    DarkYellow  #e6a657  Constant
-" 7    Gray        #909090  Identifier
-" 8    DarkGray    #5e5e5e  Comment
-" 9    Blue        #8798e5  Link?
-" 10   Green       #49b34e  String
-" 11   Cyan        #303030  NonText
-" 12   Red         #2f2f09  DiffText
-" 13   Magenta     #f070f0  Statement
-" 14   Yellow      #f0f035  Title
-" 15   White       #d0d0d0  Normal FG
 
 set background=dark
 
@@ -55,50 +37,50 @@ let g:colors_name = 'defnoche'
 hi DefNocheBold guibg=NONE guifg=#ffffff gui=bold ctermbg=15 ctermfg=0
 
 "" General
-hi Normal guibg=#000000 guifg=#d0d0d0 gui=NONE ctermbg=0 ctermfg=15
+hi Normal guibg=#000000 guifg=#d0d0d0 gui=NONE ctermbg=0 ctermfg=252
 hi Cursor guibg=#ffffff ctermbg=15
 hi lCursor guibg=#ff0000 ctermbg=12
-hi NonText guibg=NONE guifg=#303030 ctermfg=11
+hi NonText guibg=NONE guifg=#303030 ctermfg=236
 hi! link SpecialKey NonText
-hi Visual guibg=#103040 guifg=NONE ctermbg=1
+hi Visual guibg=#103040 guifg=NONE ctermbg=4
 
 hi! link Directory DefNocheBold
-hi Title guibg=NONE guifg=#f0f035 gui=bold ctermfg=14
+hi Title guibg=NONE guifg=#f0f035 gui=bold ctermfg=221
 hi! link Todo Title
 
 "" UI
-hi Statusline guibg=#5c5c5c guifg=#d0d0d0 gui=NONE ctermbg=7 ctermfg=15
-hi StatuslineNC guibg=#3c3c3c guifg=#9b9b9b gui=NONE ctermbg=8 ctermfg=15
-hi VertSplit guibg=NONE guifg=#5c5c5c gui=NONE ctermbg=0 ctermfg=8
+hi Statusline guibg=#5c5c5c guifg=#d0d0d0 gui=NONE ctermbg=241 ctermfg=252
+hi StatuslineNC guibg=#3c3c3c guifg=#9b9b9b gui=NONE ctermbg=241 ctermfg=237
+hi VertSplit guibg=NONE guifg=#5c5c5c gui=NONE ctermfg=0 ctermbg=237
 hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE
-hi Folded guibg=#252525 guifg=#909090 gui=NONE ctermbg=11 ctermfg=7
+hi Folded guibg=#252525 guifg=#909090 gui=NONE ctermbg=235 ctermfg=246
 hi! link FoldColumn Folded
-hi CursorLine guibg=#353535 ctermbg=11
+hi CursorLine guibg=#353535 ctermbg=236 cterm=NONE
 hi! link CursorColumn CursorLine
-hi LineNr guibg=NONE guifg=#909090
-hi CursorLineNr guibg=NONE guifg=#d0d0d0 gui=NONE
+hi LineNr guibg=NONE guifg=#909090 ctermfg=246
+hi CursorLineNr guibg=NONE guifg=#d0d0d0 gui=NONE ctermfg=252
 hi SignColumn guibg=NONE
-hi Pmenu guibg=#555555 guifg=#d0d0d0 gui=NONE
-hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold
+hi Pmenu guibg=#555555 guifg=#d0d0d0 gui=NONE ctermbg=240 ctermfg=252
+hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold ctermbg=250 ctermfg=240
 
 
 "" Syntax
 
 " generic group-names
-hi Comment guifg=#5e5e5e gui=italic ctermfg=8
+hi Comment guifg=#5e5e5e gui=italic ctermfg=241
 " hi Comment guifg=#909090 gui=NONE ctermfg=lightgrey
 
-hi Constant guifg=#e6a657 gui=NONE ctermfg=6
-hi String guifg=#49b34e gui=NONE ctermfg=10
+hi Constant guifg=#e6a657 gui=NONE ctermfg=179
+hi String guifg=#49b34e gui=NONE ctermfg=77
 " hi! link Character Constant
 " hi! link Number Constant
 " hi! link Boolean Constant
 " hi! link Float Constant
 
-hi Identifier guifg=#909090 gui=NONE ctermfg=7
+hi Identifier guifg=#909090 gui=NONE ctermfg=245
 " hi! link Function Identifier
 
-hi Statement guifg=#f070f0 gui=NONE ctermfg=13
+hi Statement guifg=#f070f0 gui=NONE ctermfg=170
 " hi! link Conditional Statement
 " hi! link Repeat Statement
 " hi! link Label Statement
@@ -106,25 +88,25 @@ hi Statement guifg=#f070f0 gui=NONE ctermfg=13
 " hi! link Keyword Statement
 " hi! link Exception Statement
 
-hi PreProc guifg=#d0d0d0 gui=NONE ctermfg=15
+hi PreProc guifg=#d0d0d0 gui=NONE ctermfg=252
 " hi! link Include PreProc
 " hi! link Define PreProc
 " hi! link Macro PreProc
 " hi! link PreCondit PreProc
 
-hi Type guifg=#d0d0d0 gui=NONE ctermfg=15
+hi Type guifg=#d0d0d0 gui=NONE ctermfg=252
 " hi! link StorageClass Type
 " hi! link Structure Type
 " hi! link Typedef Type
 
-hi Special guifg=#00a3ab gui=NONE ctermfg=3
+hi Special guifg=#00a3ab gui=NONE ctermfg=38
 " hi! link SpecialChar Special
 " hi! link Tag Special
 " hi! link Delimiter Special
 " hi! link SpecialComment Special
 " hi! link Debug Special
 
-hi Underlined guifg=#8798e5 gui=underline ctermbg=0 ctermfg=9
+hi Underlined guifg=#8798e5 gui=underline ctermbg=0 ctermfg=68
 
 " vim
 hi link vimFuncName Statement
@@ -137,7 +119,7 @@ hi link vimAutoEvent Constant
 hi link vimHiAttrib Constant
 hi link vimHiCtermColor Constant
 " The same as Constant + italic
-hi vimCommentTitle guifg=#e6a657 gui=italic ctermfg=6
+hi vimCommentTitle guifg=#e6a657 gui=italic ctermfg=179
 " hi vimCommentTitle guifg=#a04327 gui=NONE ctermfg=green
 
 " python
@@ -313,10 +295,10 @@ hi link markdownCodeDelimiter markdownCode
 hi link asciidoctorListMarker Special
 
 "" Diff
-hi diffAdd guibg=#294929 ctermbg=2
-hi diffChange guibg=#4f4719 ctermbg=5
-hi diffText guibg=#2f2f09 guifg=NONE gui=NONE ctermbg=12 ctermfg=NONE
-hi diffDelete guibg=#492929 guifg=#707070 gui=NONE ctermbg=4 ctermfg=8
+hi diffAdd guibg=#294929 ctermbg=22
+hi diffChange guibg=#4f4719 ctermbg=58
+hi diffText guibg=#2f2f09 guifg=NONE gui=NONE ctermbg=3 ctermfg=NONE
+hi diffDelete guibg=#492929 guifg=#707070 gui=NONE ctermbg=52 ctermfg=239
 
 "" fugitive
 hi! link fugitiveHeader DefNocheBold
@@ -353,7 +335,7 @@ hi link helpHyperTextEntry Statement
 hi link helpHyperTextJump Underlined
 hi link helpExample Constant
 hi link helpURL Underlined
-hi helpSectionDelim guifg=#909090
+hi helpSectionDelim guifg=#909090 ctermfg=245
 hi link helpOption Constant
 
 "" netrw
@@ -375,23 +357,23 @@ let s:leaderf_modes = [
 			\'Colorscheme', 'Self'
 			\]
 for lf_mode in s:leaderf_modes
-	execute 'hi Lf_hl_'.lf_mode.'_stlName guibg=#5c5c5c guifg=#909090 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlMode guibg=#5c5c5c guifg=#909090 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlCategory guibg=#5c5c5c guifg=#909090 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlCwd guibg=#5c5c5c guifg=#d0d0d0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator0 guibg=#5c5c5c guifg=#909090 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator1 guibg=#5c5c5c guifg=#909090 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator2 guibg=#5c5c5c guifg=#909090 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator3 guibg=#5c5c5c guifg=#909090 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator4 guibg=#5c5c5c guifg=#909090 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator5 guibg=#5c5c5c guifg=#909090 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlLineInfo guibg=#5c5c5c guifg=#d0d0d0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlNameOnlyMode guibg=#5c5c5c guifg=#909090 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlRegexMode guibg=#5c5c5c guifg=#909090 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlFullPathMode guibg=#5c5c5c guifg=#909090 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlFuzzyMode guibg=#5c5c5c guifg=#909090 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlTotal guibg=#5c5c5c guifg=#d0d0d0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlBlank guibg=#5c5c5c guifg=#d0d0d0 gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlName guibg=#5c5c5c guifg=#909090 gui=NONE ctermbg=241 ctermfg=245'
+	execute 'hi Lf_hl_'.lf_mode.'_stlMode guibg=#5c5c5c guifg=#909090 gui=NONE ctermbg=241 ctermfg=245'
+	execute 'hi Lf_hl_'.lf_mode.'_stlCategory guibg=#5c5c5c guifg=#909090 gui=NONE ctermbg=241 ctermfg=245'
+	execute 'hi Lf_hl_'.lf_mode.'_stlCwd guibg=#5c5c5c guifg=#d0d0d0 gui=NONE ctermbg=241 ctermfg=252'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator0 guibg=#5c5c5c guifg=#909090 gui=NONE ctermbg=241 ctermfg=245'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator1 guibg=#5c5c5c guifg=#909090 gui=NONE ctermbg=241 ctermfg=245'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator2 guibg=#5c5c5c guifg=#909090 gui=NONE ctermbg=241 ctermfg=245'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator3 guibg=#5c5c5c guifg=#909090 gui=NONE ctermbg=241 ctermfg=245'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator4 guibg=#5c5c5c guifg=#909090 gui=NONE ctermbg=241 ctermfg=245'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator5 guibg=#5c5c5c guifg=#909090 gui=NONE ctermbg=241 ctermfg=245'
+	execute 'hi Lf_hl_'.lf_mode.'_stlLineInfo guibg=#5c5c5c guifg=#d0d0d0 gui=NONE ctermbg=241 ctermfg=252'
+	execute 'hi Lf_hl_'.lf_mode.'_stlNameOnlyMode guibg=#5c5c5c guifg=#909090 gui=NONE ctermbg=241 ctermfg=245'
+	execute 'hi Lf_hl_'.lf_mode.'_stlRegexMode guibg=#5c5c5c guifg=#909090 gui=NONE ctermbg=241 ctermfg=245'
+	execute 'hi Lf_hl_'.lf_mode.'_stlFullPathMode guibg=#5c5c5c guifg=#909090 gui=NONE ctermbg=241 ctermfg=245'
+	execute 'hi Lf_hl_'.lf_mode.'_stlFuzzyMode guibg=#5c5c5c guifg=#909090 gui=NONE ctermbg=241 ctermfg=245'
+	execute 'hi Lf_hl_'.lf_mode.'_stlTotal guibg=#5c5c5c guifg=#d0d0d0 gui=NONE ctermbg=241 ctermfg=252'
+	execute 'hi Lf_hl_'.lf_mode.'_stlBlank guibg=#5c5c5c guifg=#d0d0d0 gui=NONE ctermbg=241 ctermfg=252'
 endfor
 
 hi link Lf_hl_bufDirname Comment
