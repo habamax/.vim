@@ -10,6 +10,10 @@
 " There are tons of awesome `dark background` colorschemes...
 " This is not one of them.
 "
+" But when the night comes upon you
+" Caught unsleep
+" You better be prepared
+"
 " Helpers:
 "
 " :h 'hl' 

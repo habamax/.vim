@@ -13,7 +13,7 @@
 " I do really like white backgrounds. Not gray, not "light" -- just plane
 " simple white background. The one default GVim provides. 
 "
-" Hmm... Default GVim colors are too colorful and too bold.
+" Hmm... Default GVim colors are too colorful. And bold.
 "
 " This has to be fixed. Because why not?
 "
