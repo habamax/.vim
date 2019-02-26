@@ -294,10 +294,10 @@ hi link markdownCodeDelimiter markdownCode
 hi link asciidoctorListMarker Special
 
 "" Diff
-hi diffAdd guibg=#c9f9c9
-hi diffChange guibg=#f9f9c9
-hi diffText guibg=#f9d999 guifg=NONE gui=NONE
-hi diffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
+hi diffAdd guibg=#294929
+hi diffChange guibg=#4f4719
+hi diffText guibg=#2f2f09 guifg=NONE gui=NONE
+hi diffDelete guibg=#492929 guifg=#707070 gui=NONE
 
 "" fugitive
 hi! link fugitiveHeader DefNocheBold
