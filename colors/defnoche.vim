@@ -6,13 +6,15 @@
 "
 " Description:
 "
-" GUI only `black background` colorscheme.
+" Black background colorscheme.
 " There are tons of awesome `dark background` colorschemes...
 " This is not one of them.
 "
 " But when the night comes upon you
 " Caught unsleep
 " You better be prepared
+"
+" It also looks OK with default 256 color palette.
 "
 " Helpers:
 "
