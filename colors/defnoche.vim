@@ -35,7 +35,7 @@ hi Cursor guibg=#ffffff
 hi lCursor guibg=#ff0000
 hi NonText guibg=NONE guifg=#303030
 hi SpecialKey guibg=NONE guifg=#303030
-hi Visual guibg=#add6ff guifg=NONE
+hi Visual guibg=#103040 guifg=NONE
 
 hi Directory guibg=NONE guifg=#d0d000 gui=bold ctermfg=black
 hi Title guibg=NONE guifg=#f0f569 gui=bold
