@@ -49,9 +49,9 @@ hi Title guibg=NONE guifg=#f0f035 gui=bold ctermfg=221
 hi! link Todo Title
 
 "" UI
-hi Statusline guibg=#5c5c5c guifg=#d0d0d0 gui=NONE ctermbg=241 ctermfg=252
+hi Statusline guibg=#5c5c5c guifg=#d0d0d0 gui=NONE ctermbg=241 ctermfg=252 cterm=NONE
 hi StatuslineNC guibg=#3c3c3c guifg=#9b9b9b gui=NONE ctermbg=241 ctermfg=237
-hi VertSplit guibg=NONE guifg=#5c5c5c gui=NONE ctermfg=0 ctermbg=237
+hi VertSplit guibg=NONE guifg=#5c5c5c gui=NONE ctermbg=0 ctermfg=237 cterm=NONE
 hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE
 hi Folded guibg=#252525 guifg=#909090 gui=NONE ctermbg=235 ctermfg=246
 hi! link FoldColumn Folded
