@@ -71,9 +71,7 @@ set laststatus=2
 set statusline=%([%R%M]%)
 set statusline+=%<%f
 set statusline+=%=
-if exists('*FugitiveHead')
-	set statusline+=%([git:%{FugitiveHead()}]%)
-endif
+set statusline+=%([git:%{FugitiveHead()}]%)
 set statusline+=\%y
 set statusline+=%4(%p%%%)
 
