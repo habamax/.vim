@@ -8,8 +8,7 @@
 " git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
 
 " Plugins {{{1
-fun! PackInit() abort
-	packadd minpac
+if exists('*minpac#init')
 	call minpac#init()
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
@@ -82,10 +81,10 @@ fun! PackInit() abort
 	call minpac#add('nanotech/jellybeans.vim')
 	call minpac#add('morhetz/gruvbox')
 	call minpac#add('dracula/vim', {'name': 'dracula'})
-endf
+endif
 
 " Commands to update and clean plugins {{{1
 " command! PackUpdate call PackInit() | call minpac#update('', {'do': 'call minpac#status()'})
-command! PackUpdate call PackInit() | call minpac#update()
-command! PackClean  call PackInit() | call minpac#clean()
-command! PackStatus call PackInit() | call minpac#status()
+command! PackUpdate packadd minpac | runtime minpac_list.vim | call minpac#update()
+command! PackClean  packadd minpac | runtime minpac_list.vim | call minpac#clean()
+command! PackStatus packadd minpac | runtime minpac_list.vim | call minpac#status()
