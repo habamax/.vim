@@ -5,6 +5,7 @@ pack/habamax/start/vim-asciidoctor/
 pack/habamax/start/vim-skipit/
 pack/habamax/start/vim-rest-console/
 pack/habamax/start/vim-elixir-mix-test/
+pack/habamax/start/vim-sendtoterm/
 autoload/plug.vim.old
 .netrwbook
 rplugin.vim
