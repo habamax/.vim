@@ -67,12 +67,18 @@ set tabpagemax=50
 set showmode
 
 " Statusline {{{
+fun! GitBranch()
+	if exists('*fugitive#head')
+		return fugitive#head()
+	endif
+	return ''
+endfu
 set laststatus=2
 " set ruler " for default statusline"
 set statusline=%([%R%M]%)
 set statusline+=%<%f
 set statusline+=%=
-set statusline+=%([git:%{FugitiveHead()}]%)
+set statusline+=%([git:%{GitBranch()}]%)
 set statusline+=\%y
 set statusline+=%4(%p%%%)
 
