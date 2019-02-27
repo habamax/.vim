@@ -43,7 +43,6 @@ endif
 set shortmess+=Ic
 set winaltkeys=no
 set guioptions=cme
-set laststatus=2
 set showtabline=1
 set cmdheight=1
 set nonumber norelativenumber
@@ -57,9 +56,6 @@ else
 	set diffopt=filler,vertical
 endif
 
-set statusline=%<%f\ %h%m%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %p%%
-" set ruler " for default statusline"
-
 set completeopt+=menuone,noselect
 set nofoldenable
 set foldminlines=1 foldlevel=1
@@ -68,6 +64,20 @@ set display+=lastline
 set tabpagemax=50
 " turn off if you use airline
 set showmode
+
+" Statusline {{{
+set laststatus=2
+" set ruler " for default statusline"
+set statusline=%([%R%M]%)
+set statusline+=%<%f
+set statusline+=%=
+if exists('*FugitiveHead')
+	set statusline+=%([git:%{FugitiveHead()}]%)
+endif
+set statusline+=\%y
+set statusline+=%4(%p%%%)
+
+" }}}
 
 " Unicode chars {{{
 " default ASCII listchars
