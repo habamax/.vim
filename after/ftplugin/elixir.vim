@@ -1,1 +1,1 @@
-nmap <buffer> <leader>tt <Plug>(MixTestRun)
+nmap <buffer> <leader>mt <Plug>(MixTestRun)
