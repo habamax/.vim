@@ -50,6 +50,7 @@ set winminwidth=0 winminheight=0
 set lazyredraw
 set splitbelow
 set splitright
+set helpheight=0
 if !has('nvim') && has('patch-8.1.360')
 	set diffopt=internal,filler,vertical,algorithm:patience
 else
