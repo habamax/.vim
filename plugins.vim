@@ -192,15 +192,16 @@ imap <C-space> <plug>(MUcompleteFwd)
 inoremap <silent> <plug>(MUcompleteFwdKey) <C-S-space>
 imap <C-S-space> <plug>(MUcompleteCycFwd)
 
-" tpope's Markdown
+"" tpope's Markdown {{{1
 let g:markdown_folding = 1
 
-
-"" NETRW
+"" NETRW {{{1
 let g:netrw_liststyle = 1
 
-"" vim-obsession
+"" Lisp {{{1
+let g:lisp_rainbow = 1
 
+"" Vim-obsession {{{1
 command! -nargs=1 -complete=customlist,LoadObsessionComplete SA :Obsession ~/.vimdata/sessions/<args>
 
 command! -nargs=1 -complete=customlist,LoadObsessionComplete LO :so ~/.vimdata/sessions/<args>
