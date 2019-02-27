@@ -191,7 +191,7 @@ cnoremap <C-l> <C-^>
 inoremap <C-U> <C-G>u<C-U>
 
 " just one space on the line, preserving indent
-nnoremap <leader>tos :JustOneInnerSpace<CR>
+" nnoremap <leader>tos :JustOneInnerSpace<CR>
 
 " now it is possible to paste many times over selected text
 " xnoremap <expr> p 'pgv"'.v:register.'y'
@@ -214,7 +214,7 @@ nnoremap <leader><leader>= o<home><ESC>100i=<ESC>
 vnoremap * y/<C-R>"<CR>
 
 " substitute word under cursor
-nnoremap <Leader>ts :%s/\<<C-R><C-W>\>//gc<Left><Left><Left>
+" nnoremap <Leader>ts :%s/\<<C-R><C-W>\>//gc<Left><Left><Left>
 
 " nnoremap <Leader>ev :source $MYVIMRC<CR>
 
@@ -239,7 +239,7 @@ nnoremap <Leader>fp :e ~/docs/projects.adoc<CR>
 tnoremap <esc> <C-\><C-n>
 
 nnoremap <Leader><tab> <C-^>
-nnoremap <Leader><leader>t :tabnew<CR>
+" nnoremap <Leader><leader>t :tabnew<CR>
 
 nnoremap <Leader>cd :lcd %:p:h <bar> pwd<CR>
 
