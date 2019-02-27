@@ -304,5 +304,6 @@ endif
 " source <sfile>:h/abbreviations.vim
 runtime abbreviations.vim
 
-" source <sfile>:h/plugins.vim
-runtime plugins.vim
+if v:version >= 801
+	runtime plugins.vim
+endif
