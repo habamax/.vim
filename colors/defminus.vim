@@ -49,32 +49,36 @@ hi! link SpecialKey NonText
 hi Visual guibg=#add6ff guifg=NONE ctermbg=110 ctermfg=NONE
 
 hi! link Directory DefMinusBold
-hi Title guibg=NONE guifg=#3554df gui=bold ctermfg=62 cterm=bold
+hi Title guibg=NONE guifg=#3554df gui=bold ctermfg=12 cterm=bold
 hi! link Todo Title
 
 "" UI
 hi Statusline guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=15 cterm=NONE
 hi StatuslineNC guibg=#5c5c5c guifg=#cbcbcb gui=NONE ctermbg=241 ctermfg=252 cterm=NONE
 hi VertSplit guibg=NONE guifg=#5c5c5c gui=NONE ctermbg=15 ctermfg=241 cterm=NONE
-hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE
+hi! link TabLine StatusLineNC
+hi! link TabLineFill TabLine
+hi! link TabLineSel Normal
+
+hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE ctermbg=11 ctermfg=16
 hi Folded guibg=#f5f5f5 guifg=#505050 gui=NONE ctermbg=darkgray ctermfg=black
 hi! link FoldColumn Folded
-hi CursorLine guibg=#eaeaea
-hi CursorColumn guibg=#eaeaea
-hi LineNr guibg=NONE guifg=#909090
-hi CursorLineNr guibg=NONE guifg=#000000 gui=NONE
+hi CursorLine guibg=#eaeaea ctermbg=254 cterm=NONE
+hi! link CursorColumn CursorLine
+hi LineNr guibg=NONE guifg=#909090 ctermbg=NONE ctermfg=245
+hi CursorLineNr guibg=NONE guifg=#000000 gui=NONE ctermbg=NONE ctermfg=16 cterm=NONE
 hi SignColumn guibg=NONE
-hi Pmenu guibg=#eaeaea guifg=#505050 gui=NONE ctermbg=lightgray ctermfg=black
-hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold ctermbg=darkgray ctermfg=black
+hi Pmenu guibg=#eaeaea guifg=#505050 gui=NONE ctermbg=254 ctermfg=239
+hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold ctermbg=250 ctermfg=16
+
 
 "" Syntax
 
 " generic group-names
 hi Comment guifg=#909090 gui=italic ctermfg=246
-" hi Comment guifg=#909090 gui=NONE ctermfg=lightgrey
 
 hi Constant guifg=#a04327 gui=NONE ctermfg=130
-hi String guifg=#399030 gui=NONE ctermfg=65
+hi String guifg=#399030 gui=NONE ctermfg=2
 " hi! link Character Constant
 " hi! link Number Constant
 " hi! link Boolean Constant
@@ -109,7 +113,7 @@ hi Special guifg=#00737b gui=NONE ctermfg=darkcyan
 " hi! link SpecialComment Special
 " hi! link Debug Special
 
-hi Underlined guifg=#5050c0 gui=underline ctermbg=15 ctermfg=68 cterm=underline
+hi Underlined guifg=#5050c0 gui=underline ctermbg=15 ctermfg=61 cterm=underline
 
 " vim
 hi link vimFuncName Statement
@@ -359,23 +363,23 @@ let s:leaderf_modes = [
 			\'Colorscheme', 'Self'
 			\]
 for lf_mode in s:leaderf_modes
-	execute 'hi Lf_hl_'.lf_mode.'_stlName guibg=#3c3c3c guifg=#c0c0c0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlMode guibg=#3c3c3c guifg=#c0c0c0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlCategory guibg=#3c3c3c guifg=#c0c0c0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlCwd guibg=#3c3c3c guifg=#ffffff gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator0 guibg=#3c3c3c guifg=#c0c0c0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator1 guibg=#3c3c3c guifg=#c0c0c0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator2 guibg=#3c3c3c guifg=#c0c0c0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator3 guibg=#3c3c3c guifg=#c0c0c0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator4 guibg=#3c3c3c guifg=#c0c0c0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator5 guibg=#3c3c3c guifg=#c0c0c0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlLineInfo guibg=#3c3c3c guifg=#ffffff gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlNameOnlyMode guibg=#3c3c3c guifg=#c0c0c0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlRegexMode guibg=#3c3c3c guifg=#c0c0c0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlFullPathMode guibg=#3c3c3c guifg=#c0c0c0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlFuzzyMode guibg=#3c3c3c guifg=#c0c0c0 gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlTotal guibg=#3c3c3c guifg=#ffffff gui=NONE'
-	execute 'hi Lf_hl_'.lf_mode.'_stlBlank guibg=#3c3c3c guifg=#ffffff gui=NONE'
+	execute 'hi Lf_hl_'.lf_mode.'_stlName guibg=#3c3c3c guifg=#c0c0c0 gui=NONE ctermbg=237 ctermfg=250'
+	execute 'hi Lf_hl_'.lf_mode.'_stlMode guibg=#3c3c3c guifg=#c0c0c0 gui=NONE ctermbg=237 ctermfg=250'
+	execute 'hi Lf_hl_'.lf_mode.'_stlCategory guibg=#3c3c3c guifg=#c0c0c0 gui=NONE ctermbg=237 ctermfg=250'
+	execute 'hi Lf_hl_'.lf_mode.'_stlCwd guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=15'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator0 guibg=#3c3c3c guifg=#c0c0c0 gui=NONE ctermbg=237 ctermfg=250'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator1 guibg=#3c3c3c guifg=#c0c0c0 gui=NONE ctermbg=237 ctermfg=250'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator2 guibg=#3c3c3c guifg=#c0c0c0 gui=NONE ctermbg=237 ctermfg=250'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator3 guibg=#3c3c3c guifg=#c0c0c0 gui=NONE ctermbg=237 ctermfg=250'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator4 guibg=#3c3c3c guifg=#c0c0c0 gui=NONE ctermbg=237 ctermfg=250'
+	execute 'hi Lf_hl_'.lf_mode.'_stlSeparator5 guibg=#3c3c3c guifg=#c0c0c0 gui=NONE ctermbg=237 ctermfg=250'
+	execute 'hi Lf_hl_'.lf_mode.'_stlLineInfo guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=250'
+	execute 'hi Lf_hl_'.lf_mode.'_stlNameOnlyMode guibg=#3c3c3c guifg=#c0c0c0 gui=NONE ctermbg=237 ctermfg=250'
+	execute 'hi Lf_hl_'.lf_mode.'_stlRegexMode guibg=#3c3c3c guifg=#c0c0c0 gui=NONE ctermbg=237 ctermfg=250'
+	execute 'hi Lf_hl_'.lf_mode.'_stlFullPathMode guibg=#3c3c3c guifg=#c0c0c0 gui=NONE ctermbg=237 ctermfg=250'
+	execute 'hi Lf_hl_'.lf_mode.'_stlFuzzyMode guibg=#3c3c3c guifg=#c0c0c0 gui=NONE ctermbg=237 ctermfg=250'
+	execute 'hi Lf_hl_'.lf_mode.'_stlTotal guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=15'
+	execute 'hi Lf_hl_'.lf_mode.'_stlBlank guibg=#3c3c3c guifg=#ffffff gui=NONE ctermbg=237 ctermfg=15'
 endfor
 
 hi link Lf_hl_bufDirname Comment
@@ -384,7 +388,7 @@ hi link Lf_hl_rgFilename Comment
 hi link Lf_hl_rgTagFile Comment
 
 "" CtrlP
-hi CtrlPMatch guifg=#1540AD gui=bold
+" hi CtrlPMatch guifg=#1540AD gui=bold
 
 "" ALE
 hi link ALEWarningSign SignColumn

@@ -14,8 +14,6 @@
 " Caught unsleep
 " You better be prepared
 "
-" It also looks OK with default 256 color palette.
-"
 " Helpers:
 "
 " :h 'hl' 
@@ -54,14 +52,17 @@ hi! link Todo Title
 hi Statusline guibg=#5c5c5c guifg=#d0d0d0 gui=NONE ctermbg=241 ctermfg=252 cterm=NONE
 hi StatuslineNC guibg=#3c3c3c guifg=#9b9b9b gui=NONE ctermbg=241 ctermfg=237
 hi VertSplit guibg=NONE guifg=#5c5c5c gui=NONE ctermbg=0 ctermfg=237 cterm=NONE
-hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE
+hi! link TabLine StatusLineNC
+hi! link TabLineFill TabLine
+hi! link TabLineSel Normal
+hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE ctermbg=11 ctermfg=16
 hi Folded guibg=#252525 guifg=#909090 gui=NONE ctermbg=235 ctermfg=246
 hi! link FoldColumn Folded
 hi CursorLine guibg=#353535 ctermbg=236 cterm=NONE
 hi! link CursorColumn CursorLine
-hi LineNr guibg=NONE guifg=#909090 ctermfg=246
-hi CursorLineNr guibg=NONE guifg=#d0d0d0 gui=NONE ctermfg=252
-hi SignColumn guibg=NONE
+hi LineNr guibg=NONE guifg=#909090 ctermbg=NONE ctermfg=246
+hi CursorLineNr guibg=NONE guifg=#d0d0d0 gui=NONE ctermbg=NONE ctermfg=252 cterm=NONE
+hi SignColumn guibg=NONE cterm=NONE
 hi Pmenu guibg=#555555 guifg=#d0d0d0 gui=NONE ctermbg=240 ctermfg=252
 hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold ctermbg=250 ctermfg=240
 
@@ -70,7 +71,6 @@ hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold ctermbg=250 ctermfg=240
 
 " generic group-names
 hi Comment guifg=#5e5e5e gui=italic ctermfg=241
-" hi Comment guifg=#909090 gui=NONE ctermfg=lightgrey
 
 hi Constant guifg=#e6a657 gui=NONE ctermfg=179
 hi String guifg=#49b34e gui=NONE ctermfg=77
