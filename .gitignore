@@ -6,6 +6,8 @@ pack/habamax/start/vim-skipit/
 pack/habamax/start/vim-rest-console/
 pack/habamax/start/vim-elixir-mix-test/
 pack/habamax/start/vim-sendtoterm/
+pack/habamax/start/vim-colors-defminus/
+pack/habamax/start/vim-colors-defnoche/
 autoload/plug.vim.old
 .netrwbook
 rplugin.vim
