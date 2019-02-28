@@ -56,7 +56,7 @@ hi! link TabLine StatusLineNC
 hi! link TabLineFill TabLine
 hi! link TabLineSel Normal
 hi WildMenu guibg=#ffff00 guifg=#000000 gui=NONE ctermbg=11 ctermfg=16
-hi Folded guibg=#252525 guifg=#909090 gui=NONE ctermbg=235 ctermfg=246
+hi Folded guibg=#252525 guifg=#909090 gui=NONE ctermbg=235 ctermfg=246 cterm=NONE
 hi! link FoldColumn Folded
 hi CursorLine guibg=#353535 ctermbg=236 cterm=NONE
 hi! link CursorColumn CursorLine
