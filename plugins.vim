@@ -207,6 +207,6 @@ command! -nargs=1 -complete=customlist,LoadObsessionComplete SA :Obsession ~/.vi
 command! -nargs=1 -complete=customlist,LoadObsessionComplete LO :so ~/.vimdata/sessions/<args>
 
 fun! LoadObsessionComplete(A, L, P)
-	let fullpaths = split(globpath("~/.vimdata/sessions/", "*"), "\n")
+	let fullpaths = split(globpath("~/.vimdata/sessions/", a:A."*"), "\n")
 	return map(fullpaths, {k,v -> fnamemodify(v, ":t")})
 endfu
