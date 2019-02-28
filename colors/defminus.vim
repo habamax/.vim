@@ -67,7 +67,7 @@ hi CursorLine guibg=#eaeaea ctermbg=254 cterm=NONE
 hi! link CursorColumn CursorLine
 hi LineNr guibg=NONE guifg=#909090 ctermbg=NONE ctermfg=245
 hi CursorLineNr guibg=NONE guifg=#000000 gui=NONE ctermbg=NONE ctermfg=16 cterm=NONE
-hi SignColumn guibg=NONE
+hi SignColumn guibg=NONE ctermbg=NONE
 hi Pmenu guibg=#eaeaea guifg=#505050 gui=NONE ctermbg=254 ctermfg=239
 hi PmenuSel guibg=#c0c0c0 guifg=#505050 gui=bold ctermbg=250 ctermfg=16
 
