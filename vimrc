@@ -308,7 +308,6 @@ if has('langmap')
 endif
 
 " Load Plugins and Abbreviations {{{1
-" source <sfile>:h/abbreviations.vim
 runtime abbreviations.vim
 
 if v:version >= 801
