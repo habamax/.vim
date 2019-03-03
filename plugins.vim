@@ -8,6 +8,7 @@ if executable("git")
 	nnoremap <leader>gs :Gstatus<CR>
 
 	packadd vim-fugitive
+	packadd vim-flog
 endif
 
 " UltiSnips {{{1
