@@ -57,7 +57,7 @@ else
 	set diffopt=filler,vertical
 endif
 
-set completeopt+=menuone,noselect
+" set completeopt+=menuone,noselect
 set nofoldenable
 set foldminlines=1 foldlevel=1
 set scrolloff=2 sidescrolloff=5
