@@ -178,21 +178,6 @@ let g:rooter_silent_chdir = 1
 " elixir-mix-test {{{1
 let g:elixir_mix_test_position = "bottom"
 
-" mucomplete {{{1
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#completion_delay = 500
-let g:mucomplete#no_mappings = 1
-let g:mucomplete#chains = {}
-let g:mucomplete#chains.vim = ['path', 'ulti', 'cmd', 'keyn']
-let g:mucomplete#chains.default = ['path', 'ulti', 'keyn', 'dict', 'uspl']
-
-let g:mucomplete#ultisnips#match_at_start = 1
-" let g:mucomplete#cycle_with_trigger = 1
-imap <C-space> <plug>(MUcompleteFwd)
-" imap <C-S-space> <plug>(MUcompleteBwd)
-inoremap <silent> <plug>(MUcompleteFwdKey) <C-S-space>
-imap <C-S-space> <plug>(MUcompleteCycFwd)
-
 "" tpope's Markdown {{{1
 let g:markdown_folding = 1
 

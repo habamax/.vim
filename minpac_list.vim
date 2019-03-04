@@ -52,7 +52,6 @@ if exists('*minpac#init')
 	call minpac#add('tmsvg/pear-tree')
 
 	"" Completion/Expansion
-	call minpac#add('lifepillar/vim-mucomplete')
 	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
 	call minpac#add('honza/vim-snippets', {'type': 'opt'})
 	call minpac#add('mattn/emmet-vim')
@@ -66,6 +65,7 @@ if exists('*minpac#init')
 	call minpac#add('andyl/vim-textobj-elixir')
 
 	"" Programming
+	" call minpac#add('natebosch/vim-lsc')
 	call minpac#add('w0rp/ale')
 	call minpac#add('elixir-editors/vim-elixir')
 	call minpac#add('udalov/kotlin-vim')
