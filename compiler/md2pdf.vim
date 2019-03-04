@@ -15,9 +15,10 @@ let s:data_dir = " --data-dir=".shellescape(expand("~/docs/.pandoc"))
 let s:resource_path = " --resource-path=.;".shellescape(expand("~/docs/.pandoc"))
 let s:input = " ".shellescape(expand("%:p"))
 let s:output = " -o ".shellescape(expand("%:p:r").".pdf")
-let s:oth_params = " -s --pdf-engine=xelatex --listings --lua-filter=plantuml.lua"
+let s:pdf_engine = " -s --pdf-engine=latexmk --pdf-engine-opt=-lualatex"
+let s:oth_params = " --listings --lua-filter=plantuml.lua"
 
-let &l:makeprg = s:exe.s:data_dir.s:input.s:output.s:resource_path.s:oth_params
+let &l:makeprg = s:exe.s:data_dir.s:input.s:output.s:resource_path.s:pdf_engine.s:oth_params
 
 " setl errorformat=%f:%l:\ %m
 
