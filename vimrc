@@ -39,6 +39,16 @@ if !has("gui_running")
 	set bg=dark
 	" if there is defnoche installed change colors
 	silent! colorscheme defnoche
+
+	" to fix cursor shape in WSL bash
+	" also add 
+	" echo -ne "\e[2 q"
+	" to .bashrc
+    if &term =~ "xterm"
+		let &t_SI = "\<Esc>[6 q"
+		let &t_SR = "\<Esc>[3 q"
+		let &t_EI = "\<Esc>[2 q"
+    endif
 endif
 set shortmess+=Ic
 set winaltkeys=no
