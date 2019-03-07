@@ -65,7 +65,6 @@ if exists('*minpac#init')
 	call minpac#add('andyl/vim-textobj-elixir')
 
 	"" Programming
-	" call minpac#add('natebosch/vim-lsc')
 	call minpac#add('w0rp/ale')
 	call minpac#add('elixir-editors/vim-elixir')
 	call minpac#add('udalov/kotlin-vim')
