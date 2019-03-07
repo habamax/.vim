@@ -27,5 +27,10 @@ function! MarkdownFold()
     return ">2"
   endif
 
+  " frontmatter
+  if (v:lnum == 1) && (line =~ '^----*$')
+	  return ">1"
+  endif
+
   return "="
 endfunction
