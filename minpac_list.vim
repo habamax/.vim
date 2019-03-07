@@ -82,7 +82,6 @@ if exists('*minpac#init')
 	"" Colors
 	call minpac#add('nanotech/jellybeans.vim')
 	call minpac#add('morhetz/gruvbox')
-	call minpac#add('dracula/vim', {'name': 'dracula'})
 endif
 
 " Commands to update and clean plugins {{{1
