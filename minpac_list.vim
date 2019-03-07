@@ -48,8 +48,8 @@ if exists('*minpac#init')
 	" `gs` will probably interfere with vim-sort-motion
 	" map it to `g.`
 	call minpac#add('machakann/vim-swap')
-	" parenthesis auto-pair
-	call minpac#add('tmsvg/pear-tree')
+	" parenthesis auto-pair, it clashes with tpope's endwise unfortunately.
+	" call minpac#add('tmsvg/pear-tree')
 
 	"" Completion/Expansion
 	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
