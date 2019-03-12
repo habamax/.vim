@@ -22,6 +22,7 @@ if exists('*minpac#init')
 	call minpac#add('tpope/vim-unimpaired')
 	call minpac#add('tpope/vim-eunuch')
 	" coerce word with cru :h cr
+	" All Abolish commands defined in ~/{vimfiles|.vim}/after/plugin/abolish.vim
 	call minpac#add('tpope/vim-abolish')
 	call minpac#add('tpope/vim-endwise')
 	call minpac#add('tpope/vim-vinegar')
@@ -69,6 +70,8 @@ if exists('*minpac#init')
 	call minpac#add('elixir-editors/vim-elixir')
 	call minpac#add('udalov/kotlin-vim')
 	call minpac#add('editorconfig/editorconfig-vim')
+	call minpac#add('aklt/plantuml-syntax')
+
 
 	"" Misc
 	call minpac#add('junegunn/goyo.vim')
