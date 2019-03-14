@@ -23,7 +23,7 @@ let mapleader = "\<Space>"
 let maplocalleader = "\<BS>"
 
 if has('mouse')
-  set mouse=a
+	set mouse=a
 endif
 
 " Encoding and fileformat {{{1
