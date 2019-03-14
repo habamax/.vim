@@ -11,6 +11,7 @@ else
 	" set gfn=Hack:h12
 	" set gfn=Consolas:h14
 	set gfn=Go_Mono:h12
+	" set gfn=Liberation_Mono:h12
 	" set gfn=Hack:h12,Consolas:h14
 	" set gfn=Fantasque_Sans_Mono:h13,Hack:h10,Consolas:h14
 endif
