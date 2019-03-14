@@ -9,7 +9,9 @@ elseif has('nvim')
 	GuiFont! Fantasque\ Sans\ Mono:h13
 else
 	" set gfn=Fantasque_Sans_Mono:h13,Hack:h10,Consolas:h14
-	set gfn=Iosevka_SS03:h14,Hack:h12,Consolas:h14
+	" set gfn=Hack:h12
+	set gfn=Consolas:h14
+	" set gfn=Iosevka_SS03:h14,Hack:h12,Consolas:h14
 endif
 
 "" Window size {{{1
@@ -24,7 +26,6 @@ endif
 " light is the first one, dark is the second.
 " let g:duo_themes = [{'name': 'defminus'}, {'name': 'jellybeans'}]
 " let g:duo_themes = [{'name': 'defminus'}, {'name': 'gruvbox', 'bg': 'dark'}]
-" let g:duo_themes = [{'name': 'defminus'}, {'name': 'dracula'}]
 let g:duo_themes = [{'name': 'defminus'}, {'name': 'defnoche'}]
 fun! s:set_colorscheme(color)
 	if has_key(a:color, 'bg')
