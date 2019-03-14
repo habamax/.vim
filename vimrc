@@ -102,9 +102,10 @@ set statusline+=%4(%p%%%)
 " set listchars=tab:→\ ,eol:↲,trail:·
 set listchars=tab:→\ ,eol:┐,trail:·
 
-set showbreak=╰
+" set showbreak=╰
+set showbreak=└
 set nolist
-" ╙●↳→│↑←↓↘┐
+" ╙●↳→│↑←↓↘└┐
 set fillchars=fold:\ ,vert:│
 
 " My fancy foldtext
