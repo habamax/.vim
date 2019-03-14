@@ -99,8 +99,9 @@ set statusline+=%4(%p%%%)
 " set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 " UTF-8 symbols, good font needed
 " set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
-set listchars=tab:→\ ,eol:↲,trail:·
-" set listchars=tab:→\ ,eol:┐,trail:·
+" set listchars=tab:→\ ,eol:↲,trail:·
+set listchars=tab:→\ ,eol:┐,trail:·
+
 set showbreak=╰
 set nolist
 " ╙●↳→│↑←↓↘┐
@@ -125,8 +126,8 @@ fu! MyFoldText()
 	if strlen(strip_line) > strlen(text)
 		let text = text.'…'
 	endif
-	return repeat('▧', v:foldlevel) . repeat(' ', indent) . text .' ('. lines .')'
-	" ▸•●□★▢▧▪◆▷▶┄◇
+	return repeat('•', v:foldlevel) . repeat(' ', indent) . text .' ('. lines .')'
+	" ▸•●□★▢▧▪◆▷▶┄◇□▢○◎
 endfu
 "}}}
 
