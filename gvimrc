@@ -1,19 +1,18 @@
 "" Fonts {{{1
 if has("gui_macvim")
-	set gfn=Fantasque_Sans_Mono:h13,Hack:h12,Menlo:h14
+	set gfn=Hack:h12,Menlo:h14
 	set macmeta
 	let macvim_skip_colorscheme = 1
 elseif has("unix")
-	set gfn=Fantasque\ Sans\ Mono\ 13,Hack\ 10,DejaVu\ Sans\ Mono\ 12,Monospace\ 12
+	set gfn=Hack\ 10,Monospace\ 12
 elseif has('nvim')
-	GuiFont! Fantasque\ Sans\ Mono:h13
+	GuiFont! Hack:h13
 else
 	" set gfn=Hack:h12
-	" set gfn=Consolas:h14
-	set gfn=Go_Mono:h12
+	set gfn=Consolas:h12
 	" set gfn=Liberation_Mono:h12
-	" set gfn=Hack:h12,Consolas:h14
-	" set gfn=Fantasque_Sans_Mono:h13,Hack:h10,Consolas:h14
+	" set gfn=Hack:h12,Consolas:h12
+	" set gfn=Fantasque_Sans_Mono:h13,Hack:h10,Consolas:h12
 endif
 
 "" Window size {{{1
