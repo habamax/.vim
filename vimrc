@@ -328,6 +328,6 @@ endif
 " Load Plugins and Abbreviations {{{1
 runtime abbreviations.vim
 
-if v:version >= 801
+if v:version >= 801 || has('nvim')
 	runtime plugins.vim
 endif
