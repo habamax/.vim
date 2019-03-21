@@ -215,6 +215,10 @@ cnoremap <C-l> <C-^>
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
+" spell correction for the first suggested
+" https://castel.dev/post/lecture-notes-1/
+inoremap <C-k> <c-g>u<C-o>[s<ESC>1z=`]a<c-g>u
+
 " just one space on the line, preserving indent
 " nnoremap <leader>tos :JustOneInnerSpace<CR>
 
