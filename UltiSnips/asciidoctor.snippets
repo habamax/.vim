@@ -212,34 +212,53 @@ skinparam monochrome true
 skinparam shadowing true
 skinparam dpi 100
 skinparam backgroundcolor transparent
-skinparam classarrowcolor gray
-
-!include <material/key>
+skinparam classarrowcolor black
 
 !define table(x) class x << (T,mistyrose) >>
 !define view(x) class x << (V,lightblue) >>
 !define tr(x) class x << (R,red) >>
 !define fn(x) class x << (F,plum) >>
 !define p(x) class x << (P,indianred) >>
-!define PK <$ma_key{scale=0.3}>
 
 hide methods
 hide stereotypes
 
-table(Schema.Table) {
-PK ID: int
-{field}Name: nvarchar(100)
+table(mdc.Party) {
+#id int
+master_id: int
+{field}firstname: varchar(100)
+{field}lastname: varchar(100)
+{field}gender: varchar(1)
 }
 
-view(Schema.View) {
-ID: int
-{field}Title: nvarchar(200)
-EndDate: date
+table(mdc.Contact) {
+#id int
+master_id: int
+party_master_id: int
+{field}type: int
+{field}value: varchar(100)
 }
 
-Schema.Table -|> Schema.View:FK
+table(mdc.Document) {
+#id int
+master_id: int
+party_master_id: int
+{field}type: varchar(2)
+{field}number: varchar(100)
+}
 
-$0
+table(mdc.Address) {
+#id int
+master_id: int
+party_master_id: int
+{field}country: varchar(3)
+{field}city: varchar(50)
+{field}street: varchar(100)
+}
+
+mdc.Party --{ mdc.Address:master_id -- party_master_id
+mdc.Party --{ mdc.Document:master_id -- party_master_id
+mdc.Party --{ mdc.Contact:master_id -- party_master_id
 ....
 endsnippet
 
