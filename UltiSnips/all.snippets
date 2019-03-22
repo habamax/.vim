@@ -1,7 +1,7 @@
 priority -60
 
 global !p
-from vimsnippets import foldmarker, make_box, get_comment_format
+from vimsnippets import foldmarker 
 endglobal
 
 ###########
@@ -55,36 +55,7 @@ snippet ^^ "Unicode heavy check mark"
 ✔ $0
 endsnippet
 
-###########
-#  Boxes  #
-###########
-snippet box "A nice box with the current comment symbol" b
-`!p
-box = make_box(len(t[1]))
-snip.rv = box[0]
-snip += box[1]
-`${1:${VISUAL:content}}`!p
-box = make_box(len(t[1]))
-snip.rv = box[2]
-snip += box[3]`
-$0
-endsnippet
-
-snippet bbox "A nice box over the full width" b
-`!p
-if not snip.c:
-	width = int(vim.eval("&textwidth - (virtcol('.') == 1 ? 0 : virtcol('.'))")) or 71
-box = make_box(len(t[1]), width)
-snip.rv = box[0]
-snip += box[1]
-`${1:${VISUAL:content}}`!p
-box = make_box(len(t[1]), width)
-snip.rv = box[2]
-snip += box[3]`
-$0
-endsnippet
-
-snippet ubox "Unicode Box"
+snippet box "Unicode Box"
 `!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
 │ $1 │
 `!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
@@ -95,10 +66,6 @@ endsnippet
 ##########
 #  Misc  #
 ##########
-
-snippet todo "TODO comment" w
-`!p snip.rv=get_comment_format()[0]`${1:TODO}: ${2:${VISUAL}} <`!v strftime("%Y-%m-%d %H:%M")`>`!p snip.rv=(get_comment_format()[2] if get_comment_format()[0] != get_comment_format()[2] else '')`$0
-endsnippet
 
 snippet uuid "Random UUID" w
 `!p if not snip.c: import uuid; snip.rv = uuid.uuid4()`
@@ -115,10 +82,6 @@ snippet d "YYYY-MM-DD" w
 `!v strftime("%Y-%m-%d")`
 endsnippet
 
-snippet dd "DD Month YYYY" w
-`!v strftime("%b %d, %Y")`
-endsnippet
-
 snippet diso "ISO format datetime" w
 `!v strftime("%Y-%m-%d %H:%M:%S%z")`
 endsnippet
@@ -127,7 +90,7 @@ snippet time "hh:mm" w
 `!v strftime("%H:%M")`
 endsnippet
 
-snippet dt "YYYY-MM-DD hh:mm" w
+snippet now "YYYY-MM-DD hh:mm" w
 `!v strftime("%Y-%m-%d %H:%M:%S")`
 endsnippet
 
