@@ -4,9 +4,9 @@ global !p
 from vimsnippets import foldmarker 
 endglobal
 
-###########
-#  Names  #
-###########
+# ┌───────┐
+# │ Names │
+# └───────┘
 
 snippet maxim "Myself with Email"
 Maxim Kim <habamax@gmail.com>
@@ -24,9 +24,9 @@ snippet maxima "Myself with Adastra Email"
 Maxim Kim <maksim.kim@adastragrp.com>
 endsnippet
 
-###################
-#  Unicode chars  #
-###################
+# ┌───────────────┐
+# │ Unicode chars │
+# └───────────────┘
 snippet * "Unicode small circle"
 • $0
 endsnippet
@@ -63,9 +63,9 @@ $0
 endsnippet
 
 
-##########
-#  Misc  #
-##########
+# ┌──────┐
+# │ Misc │
+# └──────┘
 
 snippet uuid "Random UUID" w
 `!p if not snip.c: import uuid; snip.rv = uuid.uuid4()`
@@ -75,9 +75,10 @@ snippet -- "Vim fold"
 {{{${0:1}
 endsnippet
 
-#########
-# DATES #
-#########
+# ┌───────┐
+# │ Dates │
+# └───────┘
+
 snippet d "YYYY-MM-DD" w
 `!v strftime("%Y-%m-%d")`
 endsnippet
@@ -94,9 +95,10 @@ snippet now "YYYY-MM-DD hh:mm" w
 `!v strftime("%Y-%m-%d %H:%M:%S")`
 endsnippet
 
-##################
-#  Lorem Ipsums  #
-##################
+# ┌──────────────┐
+# │ Lorem ipsums │
+# └──────────────┘
+
 snippet lorem "Lorem Ipsum - 53 words" w
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Maecenas feugiat fermentum pretium. Cras eu dolor imperdiet justo mattis
