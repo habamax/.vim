@@ -81,7 +81,8 @@ endif
 " Asciidoctor {{{1
 " There will be asciidoctor plugin here
 let g:asciidoctor_executable = 'asciidoctor'
-let g:asciidoctor_extensions = ['asciidoctor-diagram', 'asciidoctor-rouge']
+" let g:asciidoctor_extensions = ['asciidoctor-diagram', 'asciidoctor-rouge']
+let g:asciidoctor_extensions = ['asciidoctor-diagram']
 " let g:asciidoctor_css_path = '~/docs/.asciidoctor-setup'
 " let g:asciidoctor_css = 'haba-asciidoctor.css'
 let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram']
