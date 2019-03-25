@@ -1,6 +1,6 @@
 setl commentstring=<!--%s-->
 
-compiler md2pdf
+compiler pandoc2pdf
 
 " open files
 nnoremap <buffer> <leader>op :silent !start %:p:r.pdf<CR>

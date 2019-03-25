@@ -1,12 +1,12 @@
 " Vim compiler file
-" Compiler:	markdown to pdf
-" Maintainer:Maxim Kim (habamax@gmail.com)
+" Compiler:	pandoc (md, adoc) to pdf
+" Maintainer: Maxim Kim (habamax@gmail.com)
 
 if exists("current_compiler")
   finish
 endif
 
-let current_compiler = "md2pdf"
+let current_compiler = "pandoc2pdf"
 let s:keepcpo= &cpo
 set cpo&vim
 
