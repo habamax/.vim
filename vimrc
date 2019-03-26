@@ -50,6 +50,7 @@ if !has("gui_running")
 		let &t_EI = "\<Esc>[2 q"
     endif
 endif
+" 'I' in shortmess removes intro/welcome screen
 set shortmess+=Ic
 set winaltkeys=no
 set guioptions=cme
