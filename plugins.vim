@@ -199,3 +199,7 @@ fun! LoadObsessionComplete(A, L, P)
 	let fullpaths = split(globpath("~/.vimdata/sessions/", a:A."*"), "\n")
 	return map(fullpaths, {k,v -> fnamemodify(v, ":t")})
 endfu
+
+
+"" Supertab
+let g:SuperTabDefaultCompletionType = "context"
