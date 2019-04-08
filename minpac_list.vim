@@ -35,8 +35,8 @@ if exists('*minpac#init')
 	"" Fuzzy stuff
 	call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
 	call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
-	call minpac#add('junegunn/fzf', {'type': 'opt'})
-	call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
+	" call minpac#add('junegunn/fzf', {'type': 'opt'})
+	" call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
 
 	"" Text manipulation
 	call minpac#add('tommcdo/vim-exchange')
@@ -68,6 +68,7 @@ if exists('*minpac#init')
 	"" Programming
 	call minpac#add('w0rp/ale')
 	call minpac#add('elixir-editors/vim-elixir')
+	call minpac#add('mhinz/vim-mix-format')
 	call minpac#add('udalov/kotlin-vim')
 	call minpac#add('editorconfig/editorconfig-vim')
 	call minpac#add('aklt/plantuml-syntax')
@@ -86,6 +87,8 @@ if exists('*minpac#init')
 	"" Colors
 	call minpac#add('nanotech/jellybeans.vim')
 	call minpac#add('morhetz/gruvbox')
+	call minpac#add('axvr/photon.vim')
+
 endif
 
 " Commands to update and clean plugins {{{1

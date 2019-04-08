@@ -23,17 +23,20 @@ endif
 
 " Let me have fzf just in case... {{{1
 if executable('fzf')
-	" nnoremap <leader>ff :Files<CR>
-	" nnoremap <leader>fh :History<CR>
-	" nnoremap <leader>b :Buffers<CR>
-	" nnoremap <leader>fc :Colors<CR>
-	" nnoremap <leader>fdd :Files ~/docs<CR>
-	" nnoremap <leader>fdv :exe ':Files '.fnamemodify($MYVIMRC, ':p:h')<CR>
-	" [Buffers] Jump to the existing window if possible
-	let g:fzf_buffers_jump = 1
+	try
+		" nnoremap <leader>ff :Files<CR>
+		" nnoremap <leader>fh :History<CR>
+		" nnoremap <leader>b :Buffers<CR>
+		" nnoremap <leader>fc :Colors<CR>
+		" nnoremap <leader>fdd :Files ~/docs<CR>
+		" nnoremap <leader>fdv :exe ':Files '.fnamemodify($MYVIMRC, ':p:h')<CR>
+		" [Buffers] Jump to the existing window if possible
+		let g:fzf_buffers_jump = 1
 
-	packadd fzf
-	packadd fzf.vim
+		packadd fzf
+		packadd fzf.vim
+	catch /./
+	endtry
 endif
 
 " LeaderF or CtrlP {{{1
