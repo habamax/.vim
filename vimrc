@@ -100,11 +100,12 @@ set statusline+=%4(%p%%%)
 " set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 " UTF-8 symbols, good font needed
 " set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
-" set listchars=tab:→\ ,eol:↲,trail:·
-set listchars=tab:→\ ,eol:┐,trail:·
+set listchars=tab:→\ ,eol:↲,trail:·
+" set listchars=tab:→\ ,eol:┐,trail:·
 
+let &showbreak='↳ '
 " set showbreak=╰
-set showbreak=└
+" set showbreak=└
 set nolist
 " ╙●↳→│↑←↓↘└┐
 set fillchars=fold:\ ,vert:│
@@ -250,7 +251,7 @@ vnoremap * y/<C-R>"<CR>
 nnoremap <Leader>fvi :e $MYVIMRC<CR>
 " open gvim init file (gvimrc)
 nnoremap <Leader>fvg :e $MYGVIMRC<CR>
-" open plugins settings file
+" open plugins settings file 
 nnoremap <Leader>fvs :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
 " open plugins list file
 nnoremap <Leader>fvp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/minpac_list.vim"<CR>
@@ -268,6 +269,10 @@ nnoremap <Leader><tab> <C-^>
 " nnoremap <Leader><leader>t :tabnew<CR>
 
 nnoremap <Leader>cd :lcd %:p:h <bar> pwd<CR>
+
+"" scroll other window
+nnoremap <C-j> <C-w>p<C-e><C-w>p
+nnoremap <C-k> <C-w>p<C-y><C-w>p
 
 " Commands {{{1
 
