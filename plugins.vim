@@ -181,8 +181,10 @@ let g:rooter_change_directory_for_non_project_files = ''
 let g:rooter_patterns = ['.git', '.git/', 'mix.exs']
 let g:rooter_silent_chdir = 1
 
-" elixir-mix-test {{{1
+" elixir {{{1
+" elixir related settings from different plugins
 let g:elixir_mix_test_position = "bottom"
+let g:mix_format_on_save = 1
 
 "" tpope's Markdown {{{1
 let g:markdown_folding = 1
