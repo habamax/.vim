@@ -34,7 +34,11 @@ set fileformat=unix
 
 " UI {{{1
 if !has("gui_running")
-	set t_Co=256
+	if exists('+termguicolors')
+		set termguicolors
+	else
+		set t_Co=256
+	endif
 	" for terminals that should be dark
 	set bg=dark
 	" if there is defnoche installed change colors
@@ -44,11 +48,11 @@ if !has("gui_running")
 	" also add 
 	" echo -ne "\e[2 q"
 	" to .bashrc
-    if &term =~ "xterm"
+	if &term =~ "xterm"
 		let &t_SI = "\<Esc>[6 q"
 		let &t_SR = "\<Esc>[3 q"
 		let &t_EI = "\<Esc>[2 q"
-    endif
+	endif
 endif
 " 'I' in shortmess removes intro/welcome screen
 set shortmess+=Ic
