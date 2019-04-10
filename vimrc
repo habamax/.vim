@@ -36,7 +36,8 @@ set fileformat=unix
 if !has("gui_running")
 	if exists('+termguicolors')
 		set termguicolors
-	else
+	endif
+	if &term =~ "win32"
 		set t_Co=256
 	endif
 	" for terminals that should be dark
