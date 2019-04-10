@@ -49,11 +49,12 @@ if !has("gui_running")
 	" also add 
 	" echo -ne "\e[2 q"
 	" to .bashrc
-	if &term =~ "xterm"
-		let &t_SI = "\<Esc>[6 q"
-		let &t_SR = "\<Esc>[3 q"
-		let &t_EI = "\<Esc>[2 q"
-	endif
+	" It is probably a bad thing :)
+	" if &term =~ "xterm"
+	" 	let &t_SI = "\<Esc>[6 q"
+	" 	let &t_SR = "\<Esc>[3 q"
+	" 	let &t_EI = "\<Esc>[2 q"
+	" endif
 endif
 " 'I' in shortmess removes intro/welcome screen
 set shortmess+=Ic
