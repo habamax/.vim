@@ -42,19 +42,17 @@ if !has("gui_running")
 	endif
 	" for terminals that should be dark
 	set bg=dark
-	" if there is defnoche installed change colors
+	" if there is defnoche installed -- use it
 	silent! colorscheme defnoche
 
-	" to fix cursor shape in WSL bash
-	" also add 
+	" to fix cursor shape in WSL bash add 
 	" echo -ne "\e[2 q"
 	" to .bashrc
-	" It is probably a bad thing :)
-	" if &term =~ "xterm"
-	" 	let &t_SI = "\<Esc>[6 q"
-	" 	let &t_SR = "\<Esc>[3 q"
-	" 	let &t_EI = "\<Esc>[2 q"
-	" endif
+	if &term =~ "xterm"
+		let &t_SI = "\<Esc>[6 q"
+		let &t_SR = "\<Esc>[3 q"
+		let &t_EI = "\<Esc>[2 q"
+	endif
 endif
 " 'I' in shortmess removes intro/welcome screen
 set shortmess+=Ic
