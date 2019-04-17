@@ -28,6 +28,8 @@ endif
 
 "" Colorschemes setup {{{1
 
+let g:jellybeans_use_gui_italics = 0
+
 " pairs of colorschemes I like to use:
 " light is the first one, dark is the second.
 " let g:duo_themes = [{'name': 'defminus'}, {'name': 'jellybeans'}]
