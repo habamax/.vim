@@ -1,6 +1,6 @@
 " Author: Maxim Kim <habamax@gmail.com>
 
-" Must have {{{1
+"" Must have {{{1
 set nocompatible
 
 " Everything will be in English
@@ -26,13 +26,13 @@ if has('mouse')
 	set mouse=a
 endif
 
-" Encoding and fileformat {{{1
+"" Encoding and fileformat {{{1
 set encoding=utf8
 set fileencoding=utf8
 set fileformats=unix,mac,dos
 set fileformat=unix
 
-" UI {{{1
+"" UI {{{1
 if !has("gui_running")
 	if exists('+termguicolors')
 		set termguicolors
@@ -81,7 +81,7 @@ set tabpagemax=50
 " turn off if you use airline
 set showmode
 
-" Statusline {{{
+"" Statusline {{{
 fun! GitBranch()
 	if exists('*fugitive#head')
 		return fugitive#head()
@@ -99,7 +99,7 @@ set statusline+=%4(%p%%%)
 
 " }}}
 
-" Unicode chars {{{
+"" Unicode chars {{{
 " default ASCII listchars
 " set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 " UTF-8 symbols, good font needed
@@ -147,7 +147,7 @@ set visualbell
 au! GuiEnter * set t_vb=
 set t_vb=
 
-" Text {{{1
+"" Text {{{1
 set tabstop=4 softtabstop=-1 shiftwidth=0 noexpandtab smarttab
 set shiftround
 set autoindent
@@ -182,12 +182,12 @@ set backspace=indent,eol,start whichwrap+=<,>,[,]
 
 set formatoptions=tcqnroj
 
-" Encryption {{{1
+"" Encryption {{{1
 if has('crypt-blowfish2')
 	set cryptmethod=blowfish2
 endif
 
-" Backup & Undo & Sessions {{{1
+"" Backup & Undo & Sessions {{{1
 if !has("nvim")
 	let s:other_dir = expand('~/.vimdata')
 	if !isdirectory(s:other_dir)
@@ -211,7 +211,7 @@ if !has("nvim")
 	let &undodir = s:other_dir . '/undo//,.'
 endif
 
-" Mappings {{{1
+"" Mappings {{{1
 
 " CTRL-U in insert mode deletes a lot.	Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -244,13 +244,6 @@ nnoremap <leader><leader>= o<home><ESC>100i=<ESC>
 " find visually selected text
 vnoremap * y/<C-R>"<CR>
 
-" substitute word under cursor
-" nnoremap <Leader>ts :%s/\<<C-R><C-W>\>//gc<Left><Left><Left>
-
-" nnoremap <Leader>ev :source $MYVIMRC<CR>
-
-" nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
-
 " open init file (vimrc)
 nnoremap <Leader>fvi :e $MYVIMRC<CR>
 " open gvim init file (gvimrc)
@@ -274,11 +267,11 @@ nnoremap <Leader><tab> <C-^>
 
 nnoremap <Leader>cd :lcd %:p:h <bar> pwd<CR>
 
-"" scroll other window
+" scroll other window
 nnoremap <C-j> <C-w>p<C-e><C-w>p
 nnoremap <C-k> <C-w>p<C-y><C-w>p
 
-" Commands {{{1
+"" Commands {{{1
 
 " remove trailing spaces
 " make a separate plugin for the commands
@@ -300,7 +293,7 @@ if has("unix") || has("osxdarwin")
 endif
 
 
-" RU {{{1
+"" RU {{{1
 " Keymap внутренняя раскладка
 if has('osx')
 	set keymap=russian-jcukenmac
@@ -335,7 +328,7 @@ if has('langmap')
 	endif
 endif
 
-" Load Plugins and Abbreviations {{{1
+"" Load Plugins and Abbreviations {{{1
 runtime abbreviations.vim
 
 if v:version >= 801 || has('nvim')
