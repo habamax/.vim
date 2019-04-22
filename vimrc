@@ -254,10 +254,13 @@ nnoremap <Leader>fvs :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
 nnoremap <Leader>fvp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/minpac_list.vim"<CR>
 
 " open global notes file
-nnoremap <Leader>fn :e ~/docs/notes/notes.adoc<CR>
+nnoremap <Leader>fdn :e ~/docs/notes/notes.adoc<CR>
+
+" open global current journal file
+nnoremap <Leader>fdn :e ~/docs/journal/2019.adoc<CR>
 
 " open projects file
-nnoremap <Leader>fp :e ~/docs/projects.adoc<CR>
+nnoremap <Leader>fdp :e ~/docs/projects/project-paths.adoc<CR>
 
 " built-in terminal
 tnoremap <esc> <C-\><C-n>
