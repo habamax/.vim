@@ -257,7 +257,7 @@ nnoremap <Leader>fvp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/minpac_list.vim"<
 nnoremap <Leader>fdn :e ~/docs/notes/notes.adoc<CR>
 
 " open global current journal file
-nnoremap <Leader>fdn :e ~/docs/journal/2019.adoc<CR>
+nnoremap <Leader>fdj :e ~/docs/journal/2019.adoc<CR>
 
 " open projects file
 nnoremap <Leader>fdp :e ~/docs/projects/project-paths.adoc<CR>
