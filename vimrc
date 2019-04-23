@@ -244,23 +244,20 @@ nnoremap <leader><leader>= o<home><ESC>100i=<ESC>
 " find visually selected text
 vnoremap * y/<C-R>"<CR>
 
-" open init file (vimrc)
-nnoremap <Leader>fvi :e $MYVIMRC<CR>
-" open gvim init file (gvimrc)
-nnoremap <Leader>fvg :e $MYGVIMRC<CR>
-" open plugins settings file 
-nnoremap <Leader>fvs :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
-" open plugins list file
-nnoremap <Leader>fvp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/minpac_list.vim"<CR>
-
-" open global notes file
-nnoremap <Leader>fdn :e ~/docs/notes/notes.adoc<CR>
-
-" open global current journal file
-nnoremap <Leader>fdj :e ~/docs/journal/2019.adoc<CR>
-
-" open projects file
-nnoremap <Leader>fdp :e ~/docs/projects/project-paths.adoc<CR>
+" edit init file (vimrc)
+nnoremap <Leader>evi :e $MYVIMRC<CR>
+" edit gvim init file (gvimrc)
+nnoremap <Leader>evg :e $MYGVIMRC<CR>
+" edit plugins settings file 
+nnoremap <Leader>evs :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
+" edit plugins list file
+nnoremap <Leader>evp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/minpac_list.vim"<CR>
+" edit global notes file
+nnoremap <Leader>en :e ~/docs/notes/notes.adoc<CR>
+" edit global current journal file
+nnoremap <Leader>ej :e ~/docs/journal/2019.adoc<CR>
+" edit projects file
+nnoremap <Leader>ep :e ~/docs/projects/project-paths.adoc<CR>
 
 " built-in terminal
 tnoremap <esc> <C-\><C-n>
