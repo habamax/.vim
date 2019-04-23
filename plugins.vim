@@ -58,7 +58,7 @@ if has('python') || has('python3')
 	cabbrev lf LeaderfFile
 	nnoremap <leader>f/ :Leaderf rg<CR>
 	nnoremap <leader>/ :LeaderfLineAll<CR>
-	nnoremap <leader>h :LeaderfHelp<CR>
+	nnoremap <leader>fh :LeaderfHelp<CR>
 	nnoremap <leader>fm :LeaderfMru<CR>
 	nnoremap <leader>fs :LeaderfSelf<CR>
 	nnoremap <leader>fc :LeaderfColorscheme<CR>
