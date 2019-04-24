@@ -52,7 +52,7 @@ if has('python') || has('python3')
     " let g:Lf_PreviewResult = {'Colorscheme': 1}
     let g:Lf_WildIgnore = {
             \ 'dir': ['.svn','.git','.hg'],
-            \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', '*.tmp']
+            \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', '*.tmp', '*.ttf']
             \}
     let g:Lf_MruWildIgnore = copy(g:Lf_WildIgnore)
 	cabbrev lf LeaderfFile
