@@ -5,10 +5,13 @@ runtime minpac_list.vim
 
 " Git packages {{{1
 if executable("git")
-	nnoremap <leader>gs :Gstatus<CR>
+	try
+		nnoremap <leader>gs :Gstatus<CR>
 
-	packadd vim-fugitive
-	packadd vim-flog
+		packadd vim-fugitive
+		packadd vim-flog
+	catch /./
+	endtry
 endif
 
 " UltiSnips {{{1
@@ -47,14 +50,13 @@ if has('python') || has('python3')
 	let g:Lf_WindowHeight = 0.30
 	let g:Lf_ShowHidden = 1
 	let g:Lf_FollowLinks = 1
-	" let g:Lf_CommandMap = {'<ESC>': ['<C-Space>', '<ESC>']}
 	let g:Lf_NormalMap = {"File":   [["u", ':LeaderfFile ..<CR>']]}
-    " let g:Lf_PreviewResult = {'Colorscheme': 1}
     let g:Lf_WildIgnore = {
             \ 'dir': ['.svn','.git','.hg'],
-            \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', '*.tmp', '*.ttf']
+            \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', '*.tmp','*.ttf']
             \}
     let g:Lf_MruWildIgnore = copy(g:Lf_WildIgnore)
+	let g:Lf_UseVersionControlTool = 0
 	cabbrev lf LeaderfFile
 	nnoremap <leader>f/ :Leaderf rg<CR>
 	nnoremap <leader>/ :LeaderfLineAll<CR>
