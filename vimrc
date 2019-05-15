@@ -292,6 +292,13 @@ if has("unix") || has("osxdarwin")
 	command! W w !sudo tee "%" > /dev/null
 endif
 
+augroup restore_last_cursor_position
+	autocmd!
+	autocmd BufReadPost *
+				\ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+				\ |   exe "normal! g`\""
+				\ | endif
+augroup END
 
 "" RU {{{1
 " Keymap внутренняя раскладка
