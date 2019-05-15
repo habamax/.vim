@@ -271,7 +271,7 @@ nnoremap <Leader>cd :lcd %:p:h <bar> pwd<CR>
 nnoremap <C-j> <C-w>p<C-e><C-w>p
 nnoremap <C-k> <C-w>p<C-y><C-w>p
 
-"" Commands {{{1
+"" Commands (and Autocommands) {{{1
 
 " remove trailing spaces
 " make a separate plugin for the commands
