@@ -6,17 +6,18 @@ if has("gui_macvim")
 elseif has("unix")
 	set gfn=Hack\ 10,Monospace\ 12
 elseif has('nvim')
-	GuiFont! Hack:h13
+	GuiFont! Hack:h14
 else
 	set linespace=0
 	set gfn=Hack:h14
 	" set gfn=Consolas:h13
-	" set gfn=IBM_Plex_Mono:h14
 	" set gfn=Liberation_Mono:h14
 	" set gfn=PT_Mono:h13
 	" set gfn=Iosevka_SS03:h14
 	" set gfn=Pragmata_Pro:h13
 	" set gfn=Go_Mono:h13
+	" set gfn=IBM_Plex_Mono:h14
+	" set gfn=anonymous_pro:h13
 	" Однажды в студеную зимнюю пору я из лесу вышел был сильный мороз
 	" set gfn=Hack:h12,Consolas:h12
 	" set gfn=Fantasque_Sans_Mono:h13,Hack:h10,Consolas:h12
