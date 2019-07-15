@@ -335,6 +335,14 @@ if has('langmap')
 	endif
 endif
 
+
+"" Shell {{{1
+" fix vim-fugitive :Gpush issue https://github.com/tpope/vim-fugitive/issues/1289
+if has("win32")
+	set shellxquote=
+	set shellxescape=
+endif
+
 "" Load Plugins and Abbreviations {{{1
 runtime abbreviations.vim
 
