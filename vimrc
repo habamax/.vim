@@ -339,7 +339,7 @@ endif
 "" Shell {{{1
 " fix vim-fugitive :Gpush issue https://github.com/tpope/vim-fugitive/issues/1289
 if has("win32")
-	set shellxquote=
+	set shellxquote=\"
 	set shellxescape=
 endif
 
