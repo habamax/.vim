@@ -335,7 +335,6 @@ if has('langmap')
 	endif
 endif
 
-
 "" Load Plugins and Abbreviations {{{1
 runtime abbreviations.vim
 
