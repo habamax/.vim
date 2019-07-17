@@ -140,7 +140,7 @@ endfu
 "}}}
 
 " autocomplete is getting much better :e <tab>...
-set wildchar=<Tab> wildmenu wildmode=full
+set wildchar=<Tab> wildmenu wildmode=longest,full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp
 
 " turn off beeping...
