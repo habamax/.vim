@@ -269,9 +269,22 @@ nnoremap <Leader><tab> <C-^>
 
 nnoremap <Leader>cd :lcd %:p:h <bar> pwd<CR>
 
+" helper func for scroll other window mappings
+fun! s:scroll_other_window(dir)
+	wincmd p
+	let cmd = "normal ".winheight(0)/2
+	if a:dir
+		let cmd .= "\<c-e>"
+	else
+		let cmd .= "\<c-y>"
+	endif
+	exe cmd
+	wincmd p
+endfu
+
 " scroll other window
-nnoremap <C-j> <C-w>p<C-e><C-w>p
-nnoremap <C-k> <C-w>p<C-y><C-w>p
+nnoremap <silent> <C-j> :call <SID>scroll_other_window(1)<CR>
+nnoremap <silent> <C-k> :call <SID>scroll_other_window(0)<CR>
 
 "" Commands (and Autocommands) {{{1
 
