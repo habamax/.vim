@@ -192,9 +192,6 @@ let g:mix_format_on_save = 1
 "" tpope's Markdown {{{1
 let g:markdown_folding = 1
 
-"" NETRW {{{1
-let g:netrw_liststyle = 1
-
 "" Lisp {{{1
 let g:lisp_rainbow = 1
 
