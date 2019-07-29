@@ -84,6 +84,7 @@ if exists('*minpac#init')
 	call minpac#add('chrisbra/Colorizer')
 	call minpac#add('RRethy/vim-hexokinase')
 	call minpac#add('ervandew/supertab')
+	call minpac#add('svermeulen/vim-yoink')
 
 	"" Colors
 	call minpac#add('nanotech/jellybeans.vim')
