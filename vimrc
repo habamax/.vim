@@ -43,7 +43,7 @@ if !has("gui_running")
 	" for terminals that should be dark
 	set bg=dark
 	" if there is defnoche installed -- use it
-	silent! colorscheme defnoche
+	silent! colorscheme lessthan
 
 	" to fix cursor shape in WSL bash add 
 	" echo -ne "\e[2 q"
