@@ -4,6 +4,10 @@
 if exists("g:loaded_change_font_size") || &cp || v:version < 700
 	finish
 endif
+if !has("gui_running")
+	finish
+endif
+
 let g:loaded_change_font_size = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""
