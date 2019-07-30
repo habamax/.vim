@@ -8,6 +8,7 @@ pack/habamax/start/vim-elixir-mix-test/
 pack/habamax/start/vim-sendtoterm/
 pack/habamax/start/vim-colors-defminus/
 pack/habamax/start/vim-colors-defnoche/
+pack/habamax/start/vim-colors-lessthan/
 autoload/plug.vim.old
 .netrwbook
 rplugin.vim
