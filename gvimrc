@@ -37,7 +37,8 @@ let g:jellybeans_use_gui_italics = 0
 " light is the first one, dark is the second.
 " let g:duo_themes = [{'name': 'defminus'}, {'name': 'jellybeans'}]
 " let g:duo_themes = [{'name': 'defminus'}, {'name': 'gruvbox', 'bg': 'dark'}]
-let g:duo_themes = [{'name': 'defminus'}, {'name': 'defnoche'}]
+" let g:duo_themes = [{'name': 'defminus'}, {'name': 'defnoche'}]
+let g:duo_themes = [{'name': 'lessthan'}, {'name': 'defminus'}]
 fun! s:set_colorscheme(color)
 	if has_key(a:color, 'bg')
 		let &bg = a:color['bg']
