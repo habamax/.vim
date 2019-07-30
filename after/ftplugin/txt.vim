@@ -3,9 +3,9 @@ if exists("b:did_ftplugin")
 endif
 
 if exists('b:undo_ftplugin')
-	let b:undo_ftplugin .= "|setl cms< com< fo< flp<"
+	let b:undo_ftplugin .= "|setl cms< com< fo< flp< tw<"
 else
-	let b:undo_ftplugin = "setl cms< com< fo< flp<"
+	let b:undo_ftplugin = "setl cms< com< fo< flp< tw<"
 endif
 
 setlocal comments=
@@ -27,3 +27,4 @@ setlocal formatlistpat+=^\\s*-\\s\\+
 setlocal formatlistpat+=\\\|
 setlocal formatlistpat+=^\\s*[*]\\+\\s\\+
 
+setlocal textwidth=78
