@@ -240,8 +240,8 @@ nnoremap <silent> c<Tab> :let @/=expand('<cword>')<cr>cgn
 " Underline current line
 nnoremap <leader>- "zyy"zp<c-v>$r-
 nnoremap <leader>= "zyy"zp<c-v>$r=
-nnoremap <leader><leader>- o<home><ESC>100i-<ESC>
-nnoremap <leader><leader>= o<home><ESC>100i=<ESC>
+nnoremap <leader><leader>- o<home><ESC>78i-<ESC>
+nnoremap <leader><leader>= o<home><ESC>78i=<ESC>
 
 " find visually selected text
 vnoremap * y/<C-R>"<CR>
