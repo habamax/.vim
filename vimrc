@@ -315,6 +315,16 @@ augroup restore_last_cursor_position
 				\ | endif
 augroup END
 
+fun! SetDefaultFiletype()
+	if @% == ""
+		setfiletype txt
+	endif
+endfu
+augroup default_filetype
+	autocmd!
+	autocmd BufEnter * call SetDefaultFiletype()
+augroup END
+
 "" RU {{{1
 " Keymap внутренняя раскладка
 if has('osx')
