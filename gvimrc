@@ -9,7 +9,7 @@ elseif has('nvim')
 	GuiFont! Hack:h14
 else
 	set linespace=0
-	set gfn=Hack:h14
+	set gfn=Hack:h12
 	" set gfn=Consolas:h13
 	" set gfn=Liberation_Mono:h14
 	" set gfn=PT_Mono:h13
