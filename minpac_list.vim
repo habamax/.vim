@@ -76,20 +76,28 @@ if exists('*minpac#init')
 
 
 	"" Misc
+	" yog to trigger goyo
 	call minpac#add('junegunn/goyo.vim')
 	call minpac#add('junegunn/limelight.vim')
-	call minpac#add('diepm/vim-rest-console')
+
+	" awesome
 	call minpac#add('mbbill/undotree')
+	
+	call minpac#add('diepm/vim-rest-console')
 	call minpac#add('airblade/vim-rooter')
+
+	" RGB2Term is nice
 	call minpac#add('chrisbra/Colorizer')
 	call minpac#add('RRethy/vim-hexokinase')
+
+	" awesome
 	call minpac#add('ervandew/supertab')
+	" really good implementation of kill-ring
 	call minpac#add('svermeulen/vim-yoink')
 
 	"" Colors
 	call minpac#add('nanotech/jellybeans.vim')
 	call minpac#add('morhetz/gruvbox')
-	call minpac#add('axvr/photon.vim')
 
 endif
 
