@@ -167,6 +167,7 @@ set linebreak
 set breakindent
 set breakindentopt=sbr " showbreak will be handled correctly
 set virtualedit=block
+set textwidth=78
 
 " neovim specific
 if has('nvim')
