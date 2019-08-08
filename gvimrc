@@ -54,8 +54,9 @@ fun! ToggleColorscheme()
 	call s:set_colorscheme(color)
 endf
 
+let s:force_dark = 1
 " Well, if it happens you run vim late, use dark colorscheme
-if strftime("%H") >= 21
+if strftime("%H") >= 21 || s:force_dark
 	call s:set_colorscheme(g:duo_themes[1])
 else
 " Light colors otherwise
