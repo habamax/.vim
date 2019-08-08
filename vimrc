@@ -287,6 +287,10 @@ endfu
 nnoremap <silent> <C-j> :call <SID>scroll_other_window(1)<CR>
 nnoremap <silent> <C-k> :call <SID>scroll_other_window(0)<CR>
 
+
+nnoremap <f8> :20Lexplore<CR>
+nnoremap - :Ex<CR>
+
 "" Commands (and Autocommands) {{{1
 
 " remove trailing spaces

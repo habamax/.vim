@@ -216,3 +216,7 @@ nmap <c-p> <plug>(YoinkPostPasteSwapForward)
 
 nmap p <plug>(YoinkPaste_p)
 nmap P <plug>(YoinkPaste_P)
+
+"" netrw
+let g:netrw_liststyle = 0
+let g:netrw_banner = 0

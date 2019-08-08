@@ -25,7 +25,7 @@ if exists('*minpac#init')
 	" All Abolish commands defined in ~/{vimfiles|.vim}/after/plugin/abolish.vim
 	call minpac#add('tpope/vim-abolish')
 	call minpac#add('tpope/vim-endwise')
-	call minpac#add('tpope/vim-vinegar')
+	" call minpac#add('tpope/vim-vinegar')
 	call minpac#add('tpope/vim-obsession')
 
 	"" Git
