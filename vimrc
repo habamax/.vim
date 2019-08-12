@@ -105,14 +105,13 @@ set statusline+=%4(%p%%%)
 " set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 " UTF-8 symbols, good font needed
 " set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
-set listchars=tab:→\ ,eol:↲,trail:·
+" set listchars=tab:⭲\ ,eol:↲,trail:·
+set listchars=tab:⭲\ ,eol:$,trail:·
 " set listchars=tab:→\ ,eol:┐,trail:·
-
-let &showbreak='↳ '
-" set showbreak=╰
-" set showbreak=└
+" let &showbreak='↳ '
+let &showbreak='⮎ '
 set nolist
-" ╙●↳→│↑←↓↘└┐
+"⮌⭯⭮⮍⮎⮏⭲╙●↳→│↑←↓↘└┐
 set fillchars=fold:\ ,vert:│
 
 " My fancy foldtext
