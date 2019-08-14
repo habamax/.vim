@@ -110,7 +110,7 @@ set listchars=tab:⭲\ ,eol:⮠,trail:·
 " set listchars=tab:→\ ,eol:┐,trail:·
 " let &showbreak='↳ '
 let &showbreak='⮎ '
-set nolist
+set list
 "⮌⭯⭮⮍⮎⮏⭲╙●↳→│↑←↓↘└┐⤶⤾⤶⤸⬎⮐␊␍⮠⮐
 set fillchars=fold:\ ,vert:│
 
@@ -288,7 +288,6 @@ nnoremap <silent> <C-k> :call <SID>scroll_other_window(0)<CR>
 
 
 nnoremap <f8> :20Lexplore<CR>
-nnoremap - :Ex<CR>
 
 "" Commands (and Autocommands) {{{1
 
