@@ -101,17 +101,23 @@ set statusline+=%4(%p%%%)
 " }}}
 
 "" Unicode chars {{{
-" default ASCII listchars
 " set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 " UTF-8 symbols, good font needed
+" ⮌⭯⭮⮍⮎⮏⭲╙●↳→│↑←↓↘└┐⤶⤾⤶⤸⬎⮐␊␍⮠⮐
 " set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
 " set listchars=tab:⭲\ ,eol:↲,trail:·
-set listchars=tab:⭲\ ,eol:⮠,trail:·
 " set listchars=tab:→\ ,eol:┐,trail:·
 " let &showbreak='↳ '
-let &showbreak='⮎ '
-set list
-"⮌⭯⭮⮍⮎⮏⭲╙●↳→│↑←↓↘└┐⤶⤾⤶⤸⬎⮐␊␍⮠⮐
+" Fancy listchars for GUI, ASCII listchars for terminal
+if has("gui_running")
+	" set listchars=tab:⭲\ ,eol:⮠,trail:·
+	set listchars=tab:│\ ,eol:⮠,trail:·
+	let &showbreak='⮎ '
+	set list
+else
+	set listchars=tab:│\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
+endif
+
 set fillchars=fold:\ ,vert:│
 
 " My fancy foldtext
