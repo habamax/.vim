@@ -150,7 +150,7 @@ imap <A-,> <Plug>(SkipItBack)
 " vim-rest-console {{{1
 let g:vrc_auto_format_response_enabled = 1
 let b:vrc_response_default_content_type = 'application/json'
-let g:vrc_show_command = 1
+" let g:vrc_show_command = 1
 let g:vrc_curl_opts = {
 			\ '-sS': '',
 			\ '-i': '',
