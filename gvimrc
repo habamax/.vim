@@ -10,16 +10,13 @@ elseif has('nvim')
 else
 	set linespace=0
 	" Однажды в студеную зимнюю пору я из лесу вышел был сильный мороз
-	" set gfn=Hack:h12
-	set gfn=Fantasque_Sans_Mono:h15
-	" set gfn=Consolas:h13
-	" set gfn=Liberation_Mono:h12
-	" set gfn=PT_Mono:h13
-	" set gfn=Iosevka_SS03:h14
-	" set gfn=Pragmata_Pro:h13
-	" set gfn=Go_Mono:h13
-	" set gfn=IBM_Plex_Mono:h14
-	" set gfn=anonymous_pro:h13
+	set gfn=Hack:h14
+	" set gfn=Liberation_Mono:h14
+	" set gfn=Consolas:h14
+	" set gfn=PT_Mono:h14
+	" set gfn=Fantasque_Sans_Mono:h15
+	" set gfn=Iosevka_SS03:h12
+	" set gfn=Pragmata_Pro:h12
 endif
 
 "" Window size {{{1
@@ -29,8 +26,6 @@ if !has('nvim')
 endif
 
 "" Colorschemes setup {{{1
-
-let g:jellybeans_use_gui_italics = 0
 
 " pairs of colorschemes I like to use:
 " light is the first one, dark is the second.
