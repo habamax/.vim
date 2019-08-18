@@ -10,8 +10,10 @@ elseif has('nvim')
 else
 	set linespace=0
 	" Однажды в студеную зимнюю пору я из лесу вышел был сильный мороз
-	set gfn=Hack:h12
+	" set gfn=Hack:h14
 	" set gfn=Consolas:h14
+	set gfn=Fira_Mono:h14
+	" set gfn=Cousine:h14
 	" set gfn=Fantasque_Sans_Mono:h15
 	" set gfn=Liberation_Mono:h14
 	" set gfn=Iosevka_SS03:h14
