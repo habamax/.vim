@@ -11,12 +11,11 @@ else
 	set linespace=0
 	" Однажды в студеную зимнюю пору я из лесу вышел был сильный мороз
 	set gfn=Hack:h14
-	" set gfn=Liberation_Mono:h14
 	" set gfn=Consolas:h14
-	" set gfn=PT_Mono:h14
 	" set gfn=Fantasque_Sans_Mono:h15
-	" set gfn=Iosevka_SS03:h12
-	" set gfn=Pragmata_Pro:h12
+	" set gfn=Liberation_Mono:h14
+	" set gfn=Iosevka_SS03:h14
+	" set gfn=Pragmata_Pro:h14
 endif
 
 "" Window size {{{1
@@ -32,21 +31,21 @@ endif
 " let g:duo_themes = [{'name': 'defminus'}, {'name': 'gruvbox', 'bg': 'dark'}]
 " let g:duo_themes = [{'name': 'defminus'}, {'name': 'defnoche'}]
 let g:duo_themes = [#{name: 'defminus'}, #{name: 'lessthan'}]
-fun! s:set_colorscheme(color)
+func! s:set_colorscheme(color)
 	if has_key(a:color, 'bg')
 		let &bg = a:color['bg']
 	endif
 	if has_key(a:color, 'name')
 		exe "colorscheme ".a:color['name']
 	endif
-endfun
-fun! ToggleColorscheme()
+endfunc
+func! ToggleColorscheme()
 	if !exists('g:colors_name')
 		let g:colors_name = 'default'
 	endif
 	let color = filter(copy(g:duo_themes), {k, v -> v['name'] != g:colors_name})[0]
 	call s:set_colorscheme(color)
-endf
+endfunc
 
 let s:force_dark = 1
 " Well, if it happens you run vim late, use dark colorscheme
