@@ -293,7 +293,7 @@ nnoremap <silent> <C-j> :call <SID>scroll_other_window(1)<CR>
 nnoremap <silent> <C-k> :call <SID>scroll_other_window(0)<CR>
 
 
-nnoremap <f8> :20Lexplore<CR>
+nnoremap <leader>ee :20Lexplore<CR>
 
 "" Commands (and Autocommands) {{{1
 
