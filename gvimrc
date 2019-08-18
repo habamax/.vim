@@ -13,6 +13,7 @@ else
 	" set gfn=Hack:h14
 	" set gfn=Consolas:h14
 	set gfn=Fira_Mono:h14
+	" set gfn=IBM_Plex_Mono:h14
 	" set gfn=Cousine:h14
 	" set gfn=Fantasque_Sans_Mono:h15
 	" set gfn=Liberation_Mono:h14
