@@ -101,7 +101,7 @@ let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 
 let g:asciidoctor_folding = 1
 let g:asciidoctor_fold_options = 1
-let g:asciidoctor_fenced_languages = ['python', 'vim', 'javascript']
+let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql']
 
 fun! AsciidoctorMappings()
 	nnoremap <buffer> <leader>oo :AsciidoctorOpenRAW<CR>
