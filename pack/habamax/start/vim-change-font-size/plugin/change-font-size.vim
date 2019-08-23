@@ -45,6 +45,7 @@ fun! s:changeFontSize(op)
 		let &lines = g:init_lines
 		let &columns = g:init_columns
 	endif
+	wincmd =
 endfu
 
 fun! s:save_init_size()
