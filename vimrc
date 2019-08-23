@@ -167,7 +167,7 @@ augroup hlsearch-incsearch
 	autocmd CmdlineLeave /,\?,: :set nohlsearch
 augroup END
 
-set wrap
+set nowrap
 set nojoinspaces
 set linebreak
 set breakindent
