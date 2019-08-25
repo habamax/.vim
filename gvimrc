@@ -14,18 +14,20 @@ else
 	" Однажды в студеную зимнюю пору
 	" я из лесу вышел был сильный мороз
 	"
-	set gfn=Fira_Mono:h12
-	" set gfn=Hack:h14
-	" set gfn=Consolas:h14
-	" set gfn=Anonymous_Pro:h14
-	" set gfn=PT_Mono:h14
-	" set gfn=IBM_Plex_Mono:h14
-	" set gfn=Cousine:h14
-	" set gfn=Fantasque_Sans_Mono:h15
-	" set gfn=Ubuntu_Mono:h16
-	" set gfn=Liberation_Mono:h14
+	set gfn=Hack:h12
+	" set gfn=Fira_Mono:h12
+	" set gfn=Consolas:h12
+	" set gfn=Liberation_Mono:h12
+	" set gfn=Anonymous_Pro:h12
+	" set gfn=PT_Mono:h12
+	" set gfn=Source_Code_Pro:h12
+	" set gfn=IBM_Plex_Mono:h12
+	" set gfn=Fantasque_Sans_Mono:h12
+	" set gfn=Ubuntu_Mono:h12
+	" set gfn=Iosevka_Extended:h12
+	" set gfn=Iosevka:h12
 	" set gfn=Iosevka_SS03:h14
-	" set gfn=Pragmata_Pro:h14
+	" set gfn=Pragmata_Pro:h12
 endif
 
 "" Window size {{{1
@@ -59,7 +61,7 @@ endfunc
 
 let s:force_dark = 0
 " Well, if it happens you run vim late, use dark colorscheme
-if strftime("%H") >= 21 || s:force_dark
+if strftime("%H") >= 20 || s:force_dark
 	call s:set_colorscheme(g:duo_themes[1])
 else
 " Light colors otherwise
