@@ -76,7 +76,7 @@ endif
 " set completeopt+=menuone,noselect
 set nofoldenable
 set foldminlines=1 foldlevel=1
-set scrolloff=2 sidescrolloff=5
+set scrolloff=2 sidescrolloff=1
 set display+=lastline
 set tabpagemax=50
 " turn off if you use airline
