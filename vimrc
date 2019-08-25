@@ -112,6 +112,7 @@ set statusline+=%4(%p%%%)
 if has("gui_running")
 	set listchars=tab:⭲\ ,eol:⮠,trail:·
 	" set listchars=tab:│\ ,eol:⮠,trail:·
+	" set listchars=tab:│\ ,eol:$,trail:·
 	" set listchars=tab:│\ ,eol:⮐,trail:·
 	let &showbreak='⮎ '
 	set list
@@ -123,7 +124,7 @@ set fillchars=fold:\ ,vert:│
 
 " My fancy foldtext
 set foldtext=MyFoldText()
-fu! MyFoldText()
+func! MyFoldText()
 	let line = getline(v:foldstart)
 
 	" markdown frontmatter -- just take the next line hoping it would be
@@ -142,7 +143,7 @@ fu! MyFoldText()
 	endif
 	return repeat('•', v:foldlevel) . repeat(' ', indent) . text .' ('. lines .')'
 	" ▸•●□★▢▧▪◆▷▶┄◇□▢○◎
-endfu
+endfunc
 "}}}
 
 " autocomplete is getting much better :e <tab>...
