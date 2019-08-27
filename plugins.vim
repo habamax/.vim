@@ -220,3 +220,30 @@ nmap P <plug>(YoinkPaste_P)
 "" netrw
 let g:netrw_liststyle = 0
 let g:netrw_banner = 0
+
+"" Vim dadbod {{{1
+let g:dadbods = []
+
+" g:dadbods should be populated with
+"
+" let db = #{
+" 		\name: "My Database",
+" 		\url: "postgresql://user:password@url/dbname"
+" 		\}
+
+" call add(g:dadbods, db)
+
+runtime mydadbods.vim
+
+command! DBSelect :call popup_menu(map(copy(g:dadbods), {k,v -> v.name}), #{
+			\callback: 'DBSelected'
+			\})
+
+func! DBSelected(id, result)
+	if a:result != -1
+		let b:db = g:dadbods[a:result-1].url
+		echomsg b:db
+	endif
+endfunc
+
+"" TODO: operator mappings? <Leader>d?

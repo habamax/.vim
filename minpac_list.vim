@@ -29,6 +29,8 @@ if exists('*minpac#init')
 	" vinegar is small extension to Netrw
 	call minpac#add('tpope/vim-vinegar')
 	call minpac#add('tpope/vim-obsession')
+	" Databases, let's try it
+	call minpac#add('tpope/vim-dadbod')
 
 	"" Git
 	call minpac#add('tpope/vim-fugitive', {'type': 'opt'})
