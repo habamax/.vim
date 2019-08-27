@@ -148,33 +148,33 @@ imap <A-.> <Plug>(SkipItForward)
 imap <A-,> <Plug>(SkipItBack)
 
 " vim-rest-console {{{1
-let g:vrc_auto_format_response_enabled = 1
-let b:vrc_response_default_content_type = 'application/json'
-" let g:vrc_show_command = 1
-let g:vrc_curl_opts = {
-			\ '-sS': '',
-			\ '-i': '',
-			\ '--connect-timeout': 10,
-			\}
+" let g:vrc_auto_format_response_enabled = 1
+" let b:vrc_response_default_content_type = 'application/json'
+" " let g:vrc_show_command = 1
+" let g:vrc_curl_opts = {
+" 			\ '-sS': '',
+" 			\ '-i': '',
+" 			\ '--connect-timeout': 10,
+" 			\}
 
 " ALE configuration {{{1
 
-let g:ale_fixers = {}
-" use with vim rooter...
-let g:ale_fixers.elixir = ['mix_format']
-let g:ale_fixers.html = ['prettier']
-let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
+" let g:ale_fixers = {}
+" " use with vim rooter...
+" let g:ale_fixers.elixir = ['mix_format']
+" let g:ale_fixers.html = ['prettier']
+" let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
 
-let g:ale_javascript_prettier_options = '--use-tabs'
+" let g:ale_javascript_prettier_options = '--use-tabs'
 
-let g:ale_elixir_elixir_ls_release = "C:/prg/elixir-ls"
-let g:ale_linters = {'elixir': ['elixir-ls']}
-let g:ale_completion_enabled = 1
-imap <C-Space> <Plug>(ale_complete)
+" let g:ale_elixir_elixir_ls_release = "C:/prg/elixir-ls"
+" let g:ale_linters = {'elixir': ['elixir-ls']}
+" let g:ale_completion_enabled = 1
+" imap <C-Space> <Plug>(ale_complete)
 
-nmap <leader>af <Plug>(ale_fix)
-nmap <leader>ad :ALEGoToDefinition<CR>
-nmap <leader>ah :ALEHover<CR>
+" nmap <leader>af <Plug>(ale_fix)
+" nmap <leader>ad :ALEGoToDefinition<CR>
+" nmap <leader>ah :ALEHover<CR>
 
 " Undotree {{{1
 nnoremap <leader>u :UndotreeToggle<CR>
