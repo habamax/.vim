@@ -327,7 +327,7 @@ augroup restore_last_cursor_position
 augroup END
 
 fun! SetDefaultFiletype()
-	if @% == ""
+	if @% == "" && &filetype == ""
 		setfiletype txt
 	endif
 endfu
