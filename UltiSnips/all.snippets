@@ -39,6 +39,10 @@ snippet ssf "select * from" w
 select ${2:*} from ${1:table}$0
 endsnippet
 
+snippet pscol "postgres columns" b
+select * from information_schema.columns where table_schema = '${1:schema}' and table_name = '${2:table}';$0
+endsnippet
+
 # ┌───────────────┐
 # │ Unicode chars │
 # └───────────────┘
