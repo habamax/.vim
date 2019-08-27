@@ -242,7 +242,7 @@ command! DBSelect :call popup_menu(map(copy(g:dadbods), {k,v -> v.name}), #{
 func! DBSelected(id, result)
 	if a:result != -1
 		let b:db = g:dadbods[a:result-1].url
-		echomsg b:db
+		echomsg 'DB ' . g:dadbods[a:result-1].name . ' is selected.'
 	endif
 endfunc
 
