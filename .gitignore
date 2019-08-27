@@ -17,3 +17,4 @@ rplugin.vim
 .netrwhist
 *.pyc
 *.temp
+/mydadbods.vim
