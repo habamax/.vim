@@ -256,6 +256,7 @@ xmap <leader>db  <Plug>(DBExe)
 nmap <leader>db  <Plug>(DBExe)
 omap <leader>db  <Plug>(DBExe)
 nmap <leader>dbb <Plug>(DBExeLine)
+noremap <leader>dbs :DBSelect<CR>
 
 "" SQLHell setup
 let g:sqh_connections = {
