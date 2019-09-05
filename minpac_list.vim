@@ -32,6 +32,8 @@ if exists('*minpac#init')
 	" Databases, let's try it
 	call minpac#add('tpope/vim-dadbod')
 
+	call minpac#add('joereynolds/SQHell.vim')
+
 	"" Git
 	call minpac#add('tpope/vim-fugitive', {'type': 'opt'})
 	call minpac#add('rbong/vim-flog', {'type': 'opt'})
@@ -96,7 +98,7 @@ if exists('*minpac#init')
 
 	" RGB2Term is nice
 	call minpac#add('chrisbra/Colorizer')
-	call minpac#add('RRethy/vim-hexokinase')
+	" call minpac#add('RRethy/vim-hexokinase')
 
 	" awesome
 	call minpac#add('ervandew/supertab')
