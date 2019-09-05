@@ -10,6 +10,7 @@ pack/habamax/start/vim-colors-defminus/
 pack/habamax/start/vim-colors-defnoche/
 pack/habamax/start/vim-colors-lessthan/
 pack/habamax/start/vim-commentary/
+pack/habamax/start/vial
 autoload/plug.vim.old
 .netrwbook
 rplugin.vim
