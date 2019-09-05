@@ -88,7 +88,8 @@ if exists('*minpac#init')
 	call minpac#add('mbbill/undotree')
 	
 	call minpac#add('diepm/vim-rest-console')
-	call minpac#add('baverman/vial')
+	" use forked vial
+	" call minpac#add('baverman/vial')
 	call minpac#add('baverman/vial-http')
 
 	call minpac#add('airblade/vim-rooter')
