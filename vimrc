@@ -115,7 +115,7 @@ if has("gui_running")
 	" set listchars=tab:│\ ,eol:$,trail:·
 	" set listchars=tab:│\ ,eol:⮐,trail:·
 	let &showbreak='⮎ '
-	set list
+	" set list
 else
 	set listchars=tab:│\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 endif
