@@ -189,7 +189,8 @@ set clipboard=unnamed
 " backspace and cursor keys wrap to previous/next line
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
-set formatoptions=tcqnroj
+set formatoptions=cqj
+set textwidth=78
 
 "" Encryption {{{1
 if has('crypt-blowfish2')
