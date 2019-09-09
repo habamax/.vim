@@ -32,8 +32,6 @@ if exists('*minpac#init')
 	" Databases, let's try it
 	call minpac#add('tpope/vim-dadbod')
 
-	call minpac#add('joereynolds/SQHell.vim')
-
 	"" Git
 	call minpac#add('tpope/vim-fugitive', {'type': 'opt'})
 	call minpac#add('rbong/vim-flog', {'type': 'opt'})

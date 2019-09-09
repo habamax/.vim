@@ -257,17 +257,3 @@ nmap <leader>db  <Plug>(DBExe)
 omap <leader>db  <Plug>(DBExe)
 nmap <leader>dbb <Plug>(DBExeLine)
 noremap <leader>dbs :DBSelect<CR>
-
-"" SQLHell setup
-let g:sqh_connections = {
-    \ 'default': {
-    \   'user': 'postgres',
-    \   'password': '',
-    \   'host': 'localhost'
-    \},
-    \ 'AVAST Dev Stage': {
-    \   'user': 'mdm_stage',
-    \   'password': 'YS5w2AvsZPfC9LSw',
-    \   'host': 'attacama-db-dev-001.prg5.ff.int.avast.com/mdm_main'
-    \}
-\}
