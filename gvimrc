@@ -14,20 +14,20 @@ else
 	" Однажды в студеную зимнюю пору
 	" я из лесу вышел был сильный мороз
 	"
-	set gfn=Hack:h12
-	" set gfn=Fira_Mono:h12
+	" set gfn=Hack:h12
+	set gfn=Fira_Mono:h12
 	" set gfn=Consolas:h12
-	" set gfn=Liberation_Mono:h12
-	" set gfn=Anonymous_Pro:h12
 	" set gfn=PT_Mono:h12
+	" set gfn=Liberation_Mono:h12
+	" set gfn=Fantasque_Sans_Mono:h12
+	" set gfn=Anonymous_Pro:h10
 	" set gfn=Source_Code_Pro:h12
 	" set gfn=IBM_Plex_Mono:h12
-	" set gfn=Fantasque_Sans_Mono:h12
-	" set gfn=Ubuntu_Mono:h12
 	" set gfn=Iosevka_Extended:h12
 	" set gfn=Iosevka:h12
-	" set gfn=Iosevka_SS03:h14
+	" set gfn=Iosevka_SS03:h12
 	" set gfn=Pragmata_Pro:h12
+	" set gfn=Go_Mono:h12
 endif
 
 "" Window size {{{1
