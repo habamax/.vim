@@ -94,6 +94,7 @@ set laststatus=2
 set statusline=%([%R%M]%)
 set statusline+=%<%f
 set statusline+=%=
+set statusline+=[w:%{winnr()}]
 set statusline+=%([git:%{GitBranch()}]%)
 set statusline+=\%y
 set statusline+=%4(%p%%%)
