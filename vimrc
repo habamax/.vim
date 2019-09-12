@@ -157,7 +157,7 @@ endfunc
 
 " autocomplete is getting much better :e <tab>...
 set wildchar=<Tab> wildmenu wildmode=full
-set wildignore=*.o,*.obj,*.bak,*.exe,*.swp
+set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 
 " turn off beeping...
 set visualbell
