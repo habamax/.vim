@@ -83,28 +83,24 @@ set tabpagemax=50
 set showmode
 
 "" Statusline {{{
-func! GitBranch()
+func! StatusGitBranch()
 	if exists('*fugitive#head')
 		return fugitive#head()
 	endif
 	return ''
 endfunc
-func! WinNumber()
-	if winnr('$') > 2
-		" return '[' . winnr() . ']'
-		return winnr() . ' '
-	else
-		return ''
+func! StatusFiletype()
+		return &filetype
 	endif
 endfunc
+
 set laststatus=2
 " set ruler " for default statusline"
-set statusline=%{WinNumber()}
-set statusline+=%([\%R%M]%)
+set statusline=%([\%R%M]\ %)
 set statusline+=%<%f
+set statusline+=%(\ %y%)
 set statusline+=%=
-set statusline+=%([git:%{GitBranch()}]%)
-set statusline+=\%y
+set statusline+=%([git:%{StatusGitBranch()}]%)
 set statusline+=%4(%p%%%)
 
 " }}}
