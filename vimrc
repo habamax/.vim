@@ -280,7 +280,7 @@ nnoremap <Leader>cd :lcd %:p:h <bar> pwd<CR>
 
 " helper func for scroll other window mappings
 fun! s:scroll_other_window(dir)
-	wincmd p
+	wincmd w
 	let cmd = "normal ".winheight(0)/2
 	if a:dir
 		let cmd .= "\<c-e>"
