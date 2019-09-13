@@ -85,7 +85,8 @@ endif
 
 " Asciidoctor {{{1
 " There will be asciidoctor plugin here
-let g:asciidoctor_executable = 'asciidoctor'
+" let g:asciidoctor_executable = 'asciidoctor'
+let g:asciidoctor_executable = 'ruby C:/Users/maksim.kim/projects/asciidoctor/bin/asciidoctor'
 " let g:asciidoctor_extensions = ['asciidoctor-diagram', 'asciidoctor-rouge']
 let g:asciidoctor_extensions = ['asciidoctor-diagram']
 " let g:asciidoctor_css_path = '~/docs/.asciidoctor-setup'
