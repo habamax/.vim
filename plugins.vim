@@ -86,16 +86,24 @@ endif
 " Asciidoctor {{{1
 " There will be asciidoctor plugin here
 " let g:asciidoctor_executable = 'asciidoctor'
+
+" use upstream asciidoctor
 let g:asciidoctor_executable = 'ruby C:/Users/maksim.kim/projects/asciidoctor/bin/asciidoctor'
-" let g:asciidoctor_extensions = ['asciidoctor-diagram', 'asciidoctor-rouge']
 let g:asciidoctor_extensions = ['asciidoctor-diagram']
-" let g:asciidoctor_css_path = '~/docs/.asciidoctor-setup'
-" let g:asciidoctor_css = 'haba-asciidoctor.css'
+
+" use upstream asciidoctor-pdf
+let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/asciidoctor-pdf/bin/asciidoctor-pdf"
+
+" use upstream asciidoctor-pdf in upstream asciidoctor
+" let g:asciidoctor_pdf_executable = 'ruby C:/Users/maksim.kim/projects/asciidoctor/bin/asciidoctor -r C:/Users/maksim.kim/projects/asciidoctor-pdf/lib/asciidoctor-pdf -b pdf'
+
+" use mojavelinux asciidoctor-pdf
+" let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/mojavelinux-asciidoctor-pdf/bin/asciidoctor-pdf"
+
 let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram']
 let g:asciidoctor_pdf_themes_path = '~/docs/.asciidoctor-setup'
 let g:asciidoctor_pdf_fonts_path = '~/docs/.asciidoctor-setup/fonts'
-let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/asciidoctor-pdf/bin/asciidoctor-pdf"
-" let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/mojavelinux-asciidoctor-pdf/bin/asciidoctor-pdf"
+
 " for OSX `pngpaste` could be used.
 let g:asciidoctor_img_paste_command = 'gm convert clipboard: %s%s'
 let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
