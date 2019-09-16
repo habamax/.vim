@@ -61,7 +61,7 @@ endfunc
 
 let s:force_dark = 0
 " Well, if it happens you run vim late, use dark colorscheme
-if strftime("%H") >= 20 || s:force_dark
+if strftime("%H") >= 20 || strftime("%H") < 7 || s:force_dark
 	call s:set_colorscheme(g:duo_themes[1])
 else
 " Light colors otherwise
