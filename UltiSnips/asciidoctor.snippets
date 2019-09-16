@@ -207,60 +207,63 @@ $0
 ....
 endsnippet
 
-snippet diagdb "Database diagram" b
+snippet erd "Database Entity-Relation Diagram" b
 [plantuml, ${1:diagram-db-name}, ${2:svg}]
 ....
 skinparam monochrome true
 skinparam shadowing true
 skinparam dpi 100
 skinparam backgroundcolor transparent
-skinparam classarrowcolor black
+skinparam classarrowFontSize 8
 
 !define table(x) class x << (T,mistyrose) >>
 !define view(x) class x << (V,lightblue) >>
-!define tr(x) class x << (R,red) >>
-!define fn(x) class x << (F,plum) >>
-!define p(x) class x << (P,indianred) >>
+!define f(n,t) {field}n <color:gray>: t</color>
+!define string(n,size) {field}n <color:gray>: varchar(size)</color>
 
 hide methods
 hide stereotypes
 
 table(mdc.Party) {
-#id int
-master_id: int
-{field}firstname: varchar(100)
-{field}lastname: varchar(100)
-{field}gender: varchar(1)
+	f(**source_id**, **int**)
+	f(master_id, int)
+	..
+	string(firstname, 100)
+	string(lastname, 100)
+	string(gender, 1)
 }
 
 table(mdc.Contact) {
-#id int
-master_id: int
-party_master_id: int
-{field}type: int
-{field}value: varchar(100)
+	f(**source_id**, **int**)
+	f(master_id, int)
+	..
+	f(//party_master_id//, //int//)
+	f(type, int)
+	string(value, 100)
 }
 
 table(mdc.Document) {
-#id int
-master_id: int
-party_master_id: int
-{field}type: varchar(2)
-{field}number: varchar(100)
+	f(**source_id**, **int**)
+	f(master_id, int)
+	..
+	f(//party_master_id//, //int//)
+	string(type, 2)
+	string(number, 100)
 }
 
 table(mdc.Address) {
-#id int
-master_id: int
-party_master_id: int
-{field}country: varchar(3)
-{field}city: varchar(50)
-{field}street: varchar(100)
+	f(**source_id**, **int**)
+	f(master_id, int)
+	..
+	f(//party_master_id//, //int//)
+	string(country, 3)
+	string(city, 50)
+	string(street, 100)
 }
 
-mdc.Party --{ mdc.Address:master_id -- party_master_id
-mdc.Party --{ mdc.Document:master_id -- party_master_id
-mdc.Party --{ mdc.Contact:master_id -- party_master_id
+mdc.Party "1" --{ "*" mdc.Address: Party has\naddresses
+mdc.Party "1" --{ "*" mdc.Document: Party has\ndocuments
+mdc.Party "1" --{ "*" mdc.Contact: Party has\ncontacts
 ....
 endsnippet
 
