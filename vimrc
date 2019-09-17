@@ -260,14 +260,15 @@ nnoremap <leader><leader>= o<home><ESC>78i=<ESC>
 " find visually selected text
 vnoremap * y/<C-R>"<CR>
 
-" edit init file (vimrc)
-nnoremap <Leader>evi :e $MYVIMRC<CR>
-" edit gvim init file (gvimrc)
-nnoremap <Leader>evg :e $MYGVIMRC<CR>
+" edit init file (vimrc) -- nvim's init.vim sources vimrc
+nnoremap <Leader>evi :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/vimrc"<CR>
+" edit gvim init file (gvimrc) -- nvim doesn't know about $GVIMRC and it's
+" ginit.vim sources gvimrc
+nnoremap <Leader>evg :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/gvimrc"<CR>
 " edit plugins settings file 
-nnoremap <Leader>evs :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
+nnoremap <Leader>evs :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
 " edit plugins list file
-nnoremap <Leader>evp :exe "e ".fnamemodify($MYVIMRC, ":p:h")."/minpac_list.vim"<CR>
+nnoremap <Leader>evp :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/minpac_list.vim"<CR>
 " edit global notes file
 nnoremap <Leader>en :e ~/docs/notes/notes.adoc<CR>
 " edit global current journal file
