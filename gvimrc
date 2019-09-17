@@ -7,7 +7,7 @@ elseif has("unix")
 	set gfn=Fira\ Mono\ 12,Hack\ 10,Monospace\ 12
 elseif has('nvim')
 	" GuiFont! Hack:h14
-	GuiFont! Fira\ Mono:h14
+	GuiFont! Fira\ Mono:h12
 else
 	set linespace=0
 	"
