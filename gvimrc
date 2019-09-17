@@ -42,7 +42,7 @@ endif
 " light is the first one, dark is the second.
 " let g:duo_themes = [{'name': 'defminus'}, {'name': 'gruvbox', 'bg': 'dark'}]
 " let g:duo_themes = [{'name': 'defminus'}, {'name': 'defnoche'}]
-let g:duo_themes = [#{name: 'defminus'}, #{name: 'lessthan'}]
+let g:duo_themes = [{'name': 'defminus'}, {'name': 'lessthan'}]
 func! s:set_colorscheme(color)
 	if has_key(a:color, 'bg')
 		let &bg = a:color['bg']
