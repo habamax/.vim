@@ -231,38 +231,40 @@ let g:netrw_liststyle = 0
 let g:netrw_banner = 0
 
 "" Vim dadbod {{{1
-let g:dadbods = []
+if !has('nvim')
+	let g:dadbods = []
 
-" g:dadbods should be populated with
-"
-" let db = #{
-" 		\name: "My Database",
-" 		\url: "postgresql://user:password@url/dbname"
-" 		\}
+	" g:dadbods should be populated with
+	"
+	" let db = #{
+	" 		\name: "My Database",
+	" 		\url: "postgresql://user:password@url/dbname"
+	" 		\}
 
-" call add(g:dadbods, db)
+	" call add(g:dadbods, db)
 
-runtime mydadbods.vim
+	runtime mydadbods.vim
 
-command! DBSelect :call popup_menu(map(copy(g:dadbods), {k,v -> v.name}), #{
-			\callback: 'DBSelected'
-			\})
+	command! DBSelect :call popup_menu(map(copy(g:dadbods), {k,v -> v.name}), #{
+				\callback: 'DBSelected'
+				\})
 
-func! DBSelected(id, result)
-	if a:result != -1
-		let b:db = g:dadbods[a:result-1].url
-		echomsg 'DB ' . g:dadbods[a:result-1].name . ' is selected.'
-	endif
-endfunc
+	func! DBSelected(id, result)
+		if a:result != -1
+			let b:db = g:dadbods[a:result-1].url
+			echomsg 'DB ' . g:dadbods[a:result-1].name . ' is selected.'
+		endif
+	endfunc
 
-"" operator mapping
+	"" operator mapping
 
-xnoremap <expr> <Plug>(DBExe)     db#op_exec()
-nnoremap <expr> <Plug>(DBExe)     db#op_exec()
-nnoremap <expr> <Plug>(DBExeLine) db#op_exec() . '_'
+	xnoremap <expr> <Plug>(DBExe)     db#op_exec()
+	nnoremap <expr> <Plug>(DBExe)     db#op_exec()
+	nnoremap <expr> <Plug>(DBExeLine) db#op_exec() . '_'
 
-xmap <leader>db  <Plug>(DBExe)
-nmap <leader>db  <Plug>(DBExe)
-omap <leader>db  <Plug>(DBExe)
-nmap <leader>dbb <Plug>(DBExeLine)
-noremap <leader>dbs :DBSelect<CR>
+	xmap <leader>db  <Plug>(DBExe)
+	nmap <leader>db  <Plug>(DBExe)
+	omap <leader>db  <Plug>(DBExe)
+	nmap <leader>dbb <Plug>(DBExeLine)
+	noremap <leader>dbs :DBSelect<CR>
+endif
