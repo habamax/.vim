@@ -25,14 +25,14 @@ if has('python') || has('python3')
 endif
 
 " Let me have fzf just in case... {{{1
-if executable('fzf')
+if executable('fzf') && 0
 	try
-		" nnoremap <leader>ff :Files<CR>
-		" nnoremap <leader>fh :History<CR>
-		" nnoremap <leader>b :Buffers<CR>
-		" nnoremap <leader>fc :Colors<CR>
-		" nnoremap <leader>fdd :Files ~/docs<CR>
-		" nnoremap <leader>fdv :exe ':Files '.fnamemodify($MYVIMRC, ':p:h')<CR>
+		nnoremap <leader>ff :Files<CR>
+		nnoremap <leader>fh :History<CR>
+		nnoremap <leader>b :Buffers<CR>
+		nnoremap <leader>fc :Colors<CR>
+		nnoremap <leader>fdd :Files ~/docs<CR>
+		nnoremap <leader>fdv :exe ':Files '.fnamemodify($MYVIMRC, ':p:h')<CR>
 		" [Buffers] Jump to the existing window if possible
 		let g:fzf_buffers_jump = 1
 
@@ -40,10 +40,8 @@ if executable('fzf')
 		packadd fzf.vim
 	catch /./
 	endtry
-endif
-
 " LeaderF or CtrlP {{{1
-if has('python') || has('python3')
+elseif has('python') || has('python3')
 	let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 	let g:Lf_ShortcutF = '<leader>ff'
 	let g:Lf_Shortcutb = '<leader>b'
@@ -57,7 +55,6 @@ if has('python') || has('python3')
             \}
     let g:Lf_MruWildIgnore = copy(g:Lf_WildIgnore)
 	let g:Lf_UseVersionControlTool = 0
-	cabbrev lf LeaderfFile
 	nnoremap <leader>f/ :Leaderf rg<CR>
 	nnoremap <leader>/ :LeaderfLineAll<CR>
 	nnoremap <leader>fh :LeaderfHelp<CR>
