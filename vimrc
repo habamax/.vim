@@ -322,6 +322,20 @@ command! JustOneInnerSpace :let pos=getpos('.')<bar>
 			\:nohl<bar>
 			\:echo 'Just one space'
 
+" Continuous buffers.
+" 1. Vertically split window
+" 2. Offset it one screen
+" 3. Scrollbind
+command! SplitContinue 
+			\exe "normal zR" 
+			\|set noscrollbind
+			\|vsplit
+			\|exe "normal \<c-f>"
+			\|set scrollbind
+			\|wincmd p
+			\|set scrollbind
+
+
 " Not for Windows
 " Write to a privileged file
 if has("unix") || has("osxdarwin")
