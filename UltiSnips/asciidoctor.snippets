@@ -216,7 +216,7 @@ skinparam dpi 100
 skinparam backgroundcolor transparent
 skinparam classarrowFontSize 8
 
-!define table(x) class x << (T,mistyrose) >>
+!define table(x) class x << (T,#ede7aa) >>
 !define view(x) class x << (V,lightblue) >>
 !define f(n,t) {field}n <color:gray>: t</color>
 !define string(n,size) {field}n <color:gray>: varchar(size)</color>
@@ -261,9 +261,9 @@ table(mdc.Address) {
 	string(street, 100)
 }
 
-mdc.Party "1" --{ "*" mdc.Address: Party has\naddresses
-mdc.Party "1" --{ "*" mdc.Document: Party has\ndocuments
-mdc.Party "1" --{ "*" mdc.Contact: Party has\ncontacts
+mdc.Party "1" --{ "0..*" mdc.Address: Party has\naddresses
+mdc.Party "1" --{ "0..*" mdc.Document: Party has\ndocuments
+mdc.Party "1" --{ "0..*" mdc.Contact: Party has\ncontacts
 ....
 endsnippet
 
