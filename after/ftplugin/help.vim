@@ -24,4 +24,4 @@ fun! s:help_heading()
 	endif
 endfu
 
-nnoremap <space><space><space> :call <sid>help_heading()<CR>
+nnoremap <buffer> <space><space><space> :call <sid>help_heading()<CR>
