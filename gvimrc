@@ -1,28 +1,23 @@
 "" Fonts {{{1
 if has("gui_macvim")
-	set gfn=Fira_Mono:h14,Hack:h12,Menlo:h14
+	set gfn=Hack:h12,Menlo:h14
 	set macmeta
 	let macvim_skip_colorscheme = 1
 elseif has("unix")
-	set gfn=Fira\ Mono\ 12,Hack\ 10,Monospace\ 12
+	set gfn=Hack\ 10,Monospace\ 12
 elseif has('nvim')
-	" GuiFont! Hack:h14
-	GuiFont! Fira\ Mono:h12
+	GuiFont! Hack:h12
 else
 	set linespace=0
 	"
 	" Однажды в студеную зимнюю пору
-	" я из лесу вышел был сильный мороз
+	" Я из лесу вышел, был сильный мороз.
 	"
-	" set gfn=Hack:h12
-	set gfn=Fira_Mono:h12
-	" set gfn=Consolas:h12
+	set gfn=Hack:h12
+	" set gfn=Fira_Mono:h12
+	" set gfn=Consolas:h14
 	" set gfn=PT_Mono:h12
 	" set gfn=Liberation_Mono:h12
-	" set gfn=Fantasque_Sans_Mono:h12
-	" set gfn=Anonymous_Pro:h10
-	" set gfn=Source_Code_Pro:h12
-	" set gfn=IBM_Plex_Mono:h12
 	" set gfn=Iosevka_Extended:h12
 	" set gfn=Iosevka:h12
 	" set gfn=Iosevka_SS03:h12
