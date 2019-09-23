@@ -115,6 +115,7 @@ set statusline+=%4(%p%%%)
 " let &showbreak='↳ '
 " Fancy listchars for GUI, ASCII listchars for terminal
 if has("gui_running")
+	" set listchars=tab:>\ ,trail:·,eol:$
 	set listchars=tab:⭲\ ,eol:⮠,trail:·
 	" set listchars=tab:│\ ,eol:⮠,trail:·
 	" set listchars=tab:│\ ,eol:$,trail:·
@@ -122,7 +123,7 @@ if has("gui_running")
 	let &showbreak='⮎ '
 	" set list
 else
-	set listchars=tab:│\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
+	set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 endif
 
 set fillchars=fold:\ ,vert:│
