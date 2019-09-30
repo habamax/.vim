@@ -13,8 +13,7 @@ if exists('*minpac#init')
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 	"" Tim Pope is a beast. You better use his stuff ...
-	" use forked habamax/vim-commentary
-	" call minpac#add('tpope/vim-commentary')
+	call minpac#add('tpope/vim-commentary')
 	call minpac#add('tpope/vim-surround')
 	call minpac#add('tpope/vim-repeat')
 	call minpac#add('tpope/vim-dispatch')
