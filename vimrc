@@ -306,7 +306,19 @@ nnoremap <silent> <C-j> :call <SID>scroll_other_window(1)<CR>
 nnoremap <silent> <C-k> :call <SID>scroll_other_window(0)<CR>
 
 
-nnoremap <leader>ee :20Lexplore <bar> :set noscrollbind<CR>
+" nnoremap <leader>ee :20Lexplore <bar> :set noscrollbind<CR>
+func! OpenExplorer()
+	if exists("b:netrw_curdir")
+		let subcmd = '"' . substitute(b:netrw_curdir, "/", "\\", "g") . '"'
+	elseif expand("%:p") == ""
+		let subcmd = '"' . expand("%:p:h") . '"'
+	else
+		let subcmd = '/select,"' . expand("%:p") . '"'
+	endif
+	:exe "silent !start explorer " . subcmd
+endfunc
+nnoremap <leader>oe :call OpenExplorer()<CR>
+" nnoremap <leader>oe :silent !start explorer /select,"%:p":h<CR>
 
 "" Commands (and Autocommands) {{{1
 
