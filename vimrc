@@ -308,6 +308,11 @@ nnoremap <silent> <C-k> :call <SID>scroll_other_window(0)<CR>
 
 " nnoremap <leader>ee :20Lexplore <bar> :set noscrollbind<CR>
 func! OpenExplorer()
+	" Windows only for now
+	if !has("win32")
+		return
+	endif
+
 	if exists("b:netrw_curdir")
 		let subcmd = '"' . substitute(b:netrw_curdir, "/", "\\", "g") . '"'
 	elseif expand("%:p") == ""
