@@ -13,15 +13,15 @@ else
 	" Однажды в студеную зимнюю пору
 	" Я из лесу вышел, был сильный мороз.
 	"
-	set gfn=Hack:h12
-	" set gfn=Fira_Mono:h12
+	" set gfn=Hack:h12
+	set gfn=Fira_Mono:h12
 	" set gfn=Consolas:h14
 	" set gfn=PT_Mono:h12
 	" set gfn=Liberation_Mono:h12
 	" set gfn=Iosevka_Extended:h12
-	" set gfn=Iosevka:h12
+	" set gfn=Iosevka:h14
 	" set gfn=Iosevka_SS03:h12
-	" set gfn=Pragmata_Pro:h12
+	" set gfn=Pragmata_Pro:h14
 	" set gfn=Go_Mono:h12
 endif
 
