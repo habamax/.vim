@@ -265,3 +265,19 @@ if !has('nvim')
 	nmap <leader>dbb <Plug>(DBExeLine)
 	noremap <leader>dbs :DBSelect<CR>
 endif
+
+
+
+"" vim lsp {{{1
+"" Doesn't work for me good enough
+" nnoremap <leader>lh :LspHover<CR>
+" nnoremap <leader>ld :LspDefinition<CR>
+
+" if executable('pyls')
+"     " pip install python-language-server
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'pyls',
+"         \ 'cmd': {server_info->['pyls']},
+"         \ 'whitelist': ['python'],
+"         \ })
+" endif
