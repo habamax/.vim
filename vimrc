@@ -170,8 +170,8 @@ set nohlsearch incsearch ignorecase
 " highlight all occurrences of a term being searched/replaced
 augroup hlsearch-incsearch
 	autocmd!
-	autocmd CmdlineEnter /,\?,: :set hlsearch
-	autocmd CmdlineLeave /,\?,: :set nohlsearch
+	autocmd CmdlineEnter /,\? :set hlsearch
+	autocmd CmdlineLeave /,\? :set nohlsearch
 augroup END
 
 set nowrap
