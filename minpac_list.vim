@@ -55,6 +55,10 @@ if exists('*minpac#init')
 	" parenthesis auto-pair, it clashes with tpope's endwise unfortunately.
 	" call minpac#add('tmsvg/pear-tree')
 
+	" preview of :s command
+	call minpac#add('markonm/traces.vim')
+
+
 	"" Completion/Expansion
 	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
 	call minpac#add('honza/vim-snippets', {'type': 'opt'})
@@ -77,6 +81,10 @@ if exists('*minpac#init')
 	call minpac#add('editorconfig/editorconfig-vim')
 	call minpac#add('aklt/plantuml-syntax')
 
+	" doesn't work correctly -- errors are not updated after text changes
+	" call minpac#add('prabirshrestha/async.vim')
+	" call minpac#add('prabirshrestha/vim-lsp')
+
 
 	"" Misc
 	" yog to trigger goyo
@@ -86,6 +94,7 @@ if exists('*minpac#init')
 	" awesome
 	call minpac#add('mbbill/undotree')
 	
+	" http requests...
 	" call minpac#add('diepm/vim-rest-console')
 	" use forked vial
 	" call minpac#add('baverman/vial')
