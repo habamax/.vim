@@ -180,7 +180,8 @@ set linebreak
 set breakindent
 set breakindentopt=sbr " showbreak will be handled correctly
 set virtualedit=block
-set textwidth=0
+set formatoptions=cqj
+set textwidth=78
 
 " neovim specific
 if has('nvim')
@@ -195,8 +196,6 @@ set clipboard=unnamed
 " backspace and cursor keys wrap to previous/next line
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
-set formatoptions=cqj
-set textwidth=78
 
 "" Encryption {{{1
 if has('crypt-blowfish2')
