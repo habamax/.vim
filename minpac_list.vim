@@ -114,6 +114,7 @@ if exists('*minpac#init')
 	"" Colors
 	call minpac#add('nanotech/jellybeans.vim')
 	call minpac#add('morhetz/gruvbox')
+	call minpac#add('davidosomething/vim-colors-meh')
 
 endif
 
