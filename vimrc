@@ -248,7 +248,7 @@ xnoremap <expr> P 'Pgv"'.v:register.'y`>'
 nnoremap <silent> c* :let @/=expand('<cword>')<cr>cgn
 
 " <C-l> redraws the screen and removes any search highlighting.
-" nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
+nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
 
 " Underline current line
