@@ -21,7 +21,8 @@ else
 	" set gfn=Liberation_Mono:h12
 	" set gfn=Iosevka_Extended:h14
 	" set gfn=Iosevka_SS03:h14
-	" set gfn=Pragmata_Pro:h14
+	" set gfn=Pragmata_Pro:h12
+	" set gfn=IBM_Plex_Mono:h12
 	" set gfn=Go_Mono:h12
 endif
 
