@@ -49,14 +49,18 @@ elseif has('python') || has('python3')
 	let g:Lf_ShowHidden = 1
 	let g:Lf_FollowLinks = 1
 	let g:Lf_NormalMap = {"File":   [["u", ':LeaderfFile ..<CR>']]}
+    let g:Lf_PreviewResult = { 'BufTag': 0 }
     let g:Lf_WildIgnore = {
             \ 'dir': ['.svn','.git','.hg'],
             \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', '*.tmp','*.ttf']
             \}
     let g:Lf_MruWildIgnore = copy(g:Lf_WildIgnore)
 	let g:Lf_UseVersionControlTool = 0
-	nnoremap <leader>f/ :Leaderf rg<CR>
+	nnoremap <leader>f/ :Leaderf rg 
 	nnoremap <leader>/ :LeaderfLineAll<CR>
+	nnoremap <leader>f; :LeaderfHistoryCmd<CR>
+	nnoremap <leader>ftt :LeaderfTag<CR>
+	nnoremap <leader>ftb :LeaderfBufTag<CR>
 	nnoremap <leader>fh :LeaderfHelp<CR>
 	nnoremap <leader>fm :LeaderfMru<CR>
 	nnoremap <leader>fs :LeaderfSelf<CR>
@@ -109,7 +113,7 @@ let g:asciidoctor_folding = 1
 let g:asciidoctor_fold_options = 1
 let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql']
 
-fun! AsciidoctorMappings()
+fun! AsciidoctorBufferSetup()
 	nnoremap <buffer> <leader>oo :AsciidoctorOpenRAW<CR>
 	nnoremap <buffer> <leader>op :AsciidoctorOpenPDF<CR>
 	nnoremap <buffer> <leader>oh :AsciidoctorOpenHTML<CR>
@@ -118,10 +122,10 @@ fun! AsciidoctorMappings()
 	nnoremap <buffer> <leader>cp :Asciidoctor2PDF<CR>
 	nnoremap <buffer> <leader>cx :Asciidoctor2DOCX<CR>
 	nnoremap <buffer> <leader>p :AsciidoctorPasteImage<CR>
+	compiler asciidoctor2pdf
 endfun
-augroup asciidoctor
-	au!
-	au BufEnter *.adoc,*.asciidoc call AsciidoctorMappings()
+augroup asciidoctor | au!
+	au BufEnter *.adoc,*.asciidoc call AsciidoctorBufferSetup()
 augroup END
 
 " List Manipulation {{{1

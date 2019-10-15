@@ -80,6 +80,8 @@ if exists('*minpac#init')
 	call minpac#add('udalov/kotlin-vim')
 	call minpac#add('editorconfig/editorconfig-vim')
 	call minpac#add('aklt/plantuml-syntax')
+	call minpac#add('ludovicchabant/vim-gutentags')
+
 
 	" doesn't work correctly -- errors are not updated after text changes
 	" call minpac#add('prabirshrestha/async.vim')
@@ -112,9 +114,9 @@ if exists('*minpac#init')
 	call minpac#add('svermeulen/vim-yoink')
 
 	"" Colors
-	call minpac#add('nanotech/jellybeans.vim')
-	call minpac#add('morhetz/gruvbox')
 	call minpac#add('davidosomething/vim-colors-meh')
+	call minpac#add('lifepillar/vim-solarized8')
+	call minpac#add('lifepillar/vim-gruvbox8')
 
 endif
 
