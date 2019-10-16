@@ -242,6 +242,9 @@ if !has('nvim')
 endif
 
 
+"" vim dispatch {{{1
+let g:dispatch_no_maps = 1
+nnoremap m<CR> :Make!<CR>
 
 "" vim lsc {{{1
 " for python
