@@ -285,3 +285,24 @@ endif
 "         \ 'whitelist': ['python'],
 "         \ })
 " endif
+"" vim lsc {{{1
+" for python
+" pip install 'python-language-server[all]'
+let g:lsc_auto_map = v:true
+let g:lsc_server_commands = { 
+			\'python': {
+			\    'command': 'pyls',
+			\    'log_level': -1,
+			\    'suppress_stderr': v:true
+			\}
+\}
+
+" couldn't make it work for ruby :(
+" let g:lsc_server_commands = { 
+" 			\'python' : 'pyls',
+" 			\'ruby': {
+" 			\    'command': 'solargraph stdio',
+" 			\    'log_level': -1,
+" 			\    'suppress_stderr': v:true
+" 			\}
+" \}
