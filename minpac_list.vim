@@ -73,8 +73,6 @@ if exists('*minpac#init')
 	call minpac#add('andyl/vim-textobj-elixir')
 
 	"" Programming
-	" call minpac#add('w0rp/ale')
-	" call minpac#add('neoclide/coc.nvim')
 	call minpac#add('natebosch/vim-lsc')
 	call minpac#add('elixir-editors/vim-elixir')
 	call minpac#add('mhinz/vim-mix-format')
@@ -82,11 +80,6 @@ if exists('*minpac#init')
 	call minpac#add('editorconfig/editorconfig-vim')
 	call minpac#add('aklt/plantuml-syntax')
 	call minpac#add('ludovicchabant/vim-gutentags')
-
-
-	" doesn't work correctly -- errors are not updated after text changes
-	" call minpac#add('prabirshrestha/async.vim')
-	" call minpac#add('prabirshrestha/vim-lsp')
 
 
 	"" Misc
