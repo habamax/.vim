@@ -255,15 +255,16 @@ let g:lsc_server_commands = {
 			\    'command': 'pyls',
 			\    'log_level': -1,
 			\    'suppress_stderr': v:true
+			\},
+			\'ruby': {
+			\    'command': '127.0.0.1:7658',
+			\    'log_level': -1,
+			\    'suppress_stderr': v:false
 			\}
 \}
 
-" couldn't make it work for ruby :(
-" let g:lsc_server_commands = { 
-" 			\'python' : 'pyls',
-" 			\'ruby': {
-" 			\    'command': 'solargraph stdio',
-" 			\    'log_level': -1,
-" 			\    'suppress_stderr': v:true
-" 			\}
-" \}
+			" \'ruby': {
+			" \    'command': 'solargraph stdio',
+			" \    'log_level': -1,
+			" \    'suppress_stderr': v:false
+			" \}
