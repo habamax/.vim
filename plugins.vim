@@ -88,18 +88,14 @@ endif
 " There will be asciidoctor plugin here
 " let g:asciidoctor_executable = 'asciidoctor'
 
-" use upstream asciidoctor
-let g:asciidoctor_executable = 'ruby C:/Users/maksim.kim/projects/asciidoctor/bin/asciidoctor'
+" use asciidoctorj
+" let g:asciidoctor_executable = "asciidoctorj"
 let g:asciidoctor_extensions = ['asciidoctor-diagram']
 
 " use upstream asciidoctor-pdf
 let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/asciidoctor-pdf/bin/asciidoctor-pdf"
-
-" use upstream asciidoctor-pdf in upstream asciidoctor
-" let g:asciidoctor_pdf_executable = 'ruby C:/Users/maksim.kim/projects/asciidoctor/bin/asciidoctor -r C:/Users/maksim.kim/projects/asciidoctor-pdf/lib/asciidoctor-pdf -b pdf'
-
-" use mojavelinux asciidoctor-pdf
-" let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/mojavelinux-asciidoctor-pdf/bin/asciidoctor-pdf"
+" use asciidoctorj -b pdf
+" let g:asciidoctor_pdf_executable = "asciidoctorj -b pdf"
 
 let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram']
 let g:asciidoctor_pdf_themes_path = '~/docs/.asciidoctor-setup'
