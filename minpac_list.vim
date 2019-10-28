@@ -41,6 +41,9 @@ if exists('*minpac#init')
 	call minpac#add('junegunn/fzf', {'type': 'opt'})
 	call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
 
+	" call minpac#add('liuchengxu/vim-clap')
+
+
 	"" Text manipulation
 	call minpac#add('tommcdo/vim-exchange')
 	call minpac#add('tmhedberg/matchit')
