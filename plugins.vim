@@ -186,7 +186,6 @@ endfu
 "" Supertab
 let g:SuperTabDefaultCompletionType = "context"
 
-
 "" vim-yoink "kill ring" for vim
 nmap <c-n> <plug>(YoinkPostPasteSwapBack)
 nmap <c-p> <plug>(YoinkPostPasteSwapForward)
@@ -258,6 +257,10 @@ let g:lsc_server_commands = {
 			\    'suppress_stderr': v:false
 			\}
 \}
+
+augroup lsc_preview | au!
+	autocmd CompleteDone * silent! pclose
+augroup end
 
 			" \'ruby': {
 			" \    'command': 'solargraph stdio',
