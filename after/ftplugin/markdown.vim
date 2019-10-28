@@ -13,7 +13,11 @@ function! MarkdownFold()
   " Regular headers
   let depth = match(line, '\(^#\+\)\@<=\( .*$\)\@=')
   if depth > 0
-    return ">" . depth
+	" check syntax, it should be markdownH1-6
+	let syncode = synstack(v:lnum, 1)
+	if len(syncode) > 0 && synIDattr(syncode[0], 'name') =~ 'markdown\%(H[1-6]\)'
+		return ">" . depth
+	endif
   endif
 
   " Setext style headings
