@@ -261,3 +261,8 @@ let g:lsc_server_commands = {
 augroup lsc_preview | au!
 	autocmd CompleteDone * silent! pclose
 augroup end
+
+"" vim-CtrlXA
+" integrate with tpope's speeddating 
+nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
+nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
