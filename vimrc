@@ -347,7 +347,7 @@ command! JustOneInnerSpace :let pos=getpos('.')<bar>
 " 1. Vertically split window
 " 2. Offset it one screen
 " 3. Scrollbind
-command! SplitContinue 
+command! ContinueInSplit 
 			\exe "normal zR" 
 			\|set noscrollbind
 			\|vsplit
