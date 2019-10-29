@@ -15,7 +15,7 @@ function! MarkdownFold()
   if depth > 0
 	" check syntax, it should be markdownH1-6
 	let syncode = synstack(v:lnum, 1)
-	if len(syncode) > 0 && synIDattr(syncode[0], 'name') =~ 'markdown\%(H[1-6]\)'
+	if len(syncode) > 0 && synIDattr(syncode[0], 'name') =~ 'markdownH[1-6]'
 		return ">" . depth
 	endif
   endif
