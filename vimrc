@@ -228,7 +228,7 @@ endif
 "" Mappings {{{1
 
 " handy escaping
-inoremap jf <ESC>
+" inoremap jf <ESC>
 " inoremap fj <ESC>
 
 
