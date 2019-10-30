@@ -203,26 +203,17 @@ endif
 
 "" Backup & Undo & Sessions {{{1
 if !has("nvim")
-	let s:other_dir = expand('~/.vimdata')
-	if !isdirectory(s:other_dir)
-		call mkdir(s:other_dir)
-	endif
-	if !isdirectory(s:other_dir.'/backup')
-		call mkdir(s:other_dir.'/backup')
-	endif
-	if !isdirectory(s:other_dir.'/undo')
-		call mkdir(s:other_dir.'/undo')
-	endif
-	if !isdirectory(s:other_dir.'/swap')
-		call mkdir(s:other_dir.'/swap')
-	endif
+	let &directory = expand('~/.vimdata/swap//')
 
 	set backup
-	let &backupdir = s:other_dir . '/backup//'
-	let &directory = s:other_dir . '/swap//,.'
+	let &backupdir = expand('~/.vimdata/backup//')
 
 	set undofile
-	let &undodir = s:other_dir . '/undo//,.'
+	let &undodir = expand('~/.vimdata/undo//')
+
+	if !isdirectory(&undodir) | call mkdir(&undodir, "p") | endif
+	if !isdirectory(&backupdir) | call mkdir(&backupdir, "p") | endif
+	if !isdirectory(&directory) | call mkdir(&directory, "p") | endif
 endif
 
 "" Mappings {{{1
@@ -435,3 +426,4 @@ runtime abbreviations.vim
 if v:version >= 801 || has('nvim')
 	runtime plugins.vim
 endif
+
