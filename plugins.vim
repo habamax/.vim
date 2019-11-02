@@ -57,7 +57,7 @@ elseif has('python') || has('python3')
     let g:Lf_MruWildIgnore = copy(g:Lf_WildIgnore)
 	let g:Lf_UseVersionControlTool = 0
 	nnoremap <leader>f/ :Leaderf rg 
-	nnoremap <leader>/ :LeaderfLineAll<CR>
+	nnoremap <leader>/ :LeaderfLine<CR>
 	nnoremap <leader>f; :LeaderfHistoryCmd<CR>
 	nnoremap <leader>ftt :LeaderfTag<CR>
 	nnoremap <leader>ftb :LeaderfBufTag<CR>
@@ -66,8 +66,6 @@ elseif has('python') || has('python3')
 	nnoremap <leader>fs :LeaderfSelf<CR>
 	nnoremap <leader>fc :LeaderfColorscheme<CR>
 	nnoremap <leader>fdd :LeaderfFile ~/docs<CR>
-	" open .vim or .vimfiles or nvim config directory
-	nnoremap <leader>fdv :exe ':LeaderfFile '.fnamemodify($MYVIMRC, ':p:h')<CR>
 	packadd LeaderF
 else
 	let g:ctrlp_map = ''
@@ -107,7 +105,7 @@ let g:asciidoctor_pdf_fonts_path = '~/docs/.asciidoctor-setup/fonts'
 let g:asciidoctor_img_paste_command = 'gm convert clipboard: %s%s'
 let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 
-let g:asciidoctor_folding = 1
+let g:asciidoctor_folding = 0
 let g:asciidoctor_fold_options = 1
 let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql']
 
