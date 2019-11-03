@@ -32,7 +32,6 @@ if executable('fzf') && 0
 		nnoremap <leader>b :Buffers<CR>
 		nnoremap <leader>fc :Colors<CR>
 		nnoremap <leader>fdd :Files ~/docs<CR>
-		nnoremap <leader>fdv :exe ':Files '.fnamemodify($MYVIMRC, ':p:h')<CR>
 		" [Buffers] Jump to the existing window if possible
 		let g:fzf_buffers_jump = 1
 
