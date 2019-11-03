@@ -201,7 +201,9 @@ if has('crypt-blowfish2')
 	set cryptmethod=blowfish2
 endif
 
-"" Backup & Undo & Sessions {{{1
+"" Paths & Backup & Undo & Sessions {{{1
+set path=.,,**
+
 if !has("nvim")
 	let &directory = expand('~/.vimdata/swap//')
 
