@@ -282,7 +282,7 @@ nnoremap <Leader><tab> <C-^>
 nnoremap <Leader>cd :lcd %:p:h <bar> pwd<CR>
 
 " helper func for scroll other window mappings
-fun! s:scroll_other_window(dir)
+func! s:scroll_other_window(dir)
 	if winnr('$') < 2
 		return
 	endif
@@ -295,7 +295,7 @@ fun! s:scroll_other_window(dir)
 	endif
 	exe cmd
 	wincmd p
-endfu
+endfunc
 
 " scroll other window
 nnoremap <silent> <C-j> :call <SID>scroll_other_window(1)<CR>
@@ -364,11 +364,11 @@ augroup restore_last_cursor_position
 				\ | endif
 augroup END
 
-fun! SetDefaultFiletype()
+func! SetDefaultFiletype()
 	if @% == "" && &filetype == ""
 		setfiletype txt
 	endif
-endfu
+endfunc
 augroup default_filetype
 	autocmd!
 	autocmd BufEnter * call SetDefaultFiletype()

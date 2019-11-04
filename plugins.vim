@@ -108,7 +108,7 @@ let g:asciidoctor_folding = 0
 let g:asciidoctor_fold_options = 1
 let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql']
 
-fun! AsciidoctorBufferSetup()
+func! AsciidoctorBufferSetup()
 	nnoremap <buffer> <leader>oo :AsciidoctorOpenRAW<CR>
 	nnoremap <buffer> <leader>op :AsciidoctorOpenPDF<CR>
 	nnoremap <buffer> <leader>oh :AsciidoctorOpenHTML<CR>
@@ -118,7 +118,7 @@ fun! AsciidoctorBufferSetup()
 	nnoremap <buffer> <leader>cx :Asciidoctor2DOCX<CR>
 	nnoremap <buffer> <leader>p :AsciidoctorPasteImage<CR>
 	compiler asciidoctor2pdf
-endfun
+endfunc
 augroup asciidoctor | au!
 	au BufEnter *.adoc,*.asciidoc call AsciidoctorBufferSetup()
 augroup END
@@ -176,10 +176,10 @@ command! -nargs=1 -complete=customlist,LoadObsessionComplete SA :Obsession ~/.vi
 
 command! -nargs=1 -complete=customlist,LoadObsessionComplete LO :so ~/.vimdata/sessions/<args>
 
-fun! LoadObsessionComplete(A, L, P)
+func! LoadObsessionComplete(A, L, P)
 	let fullpaths = split(globpath("~/.vimdata/sessions/", a:A."*"), "\n")
 	return map(fullpaths, {k,v -> fnamemodify(v, ":t")})
-endfu
+endfunc
 
 
 "" Supertab
