@@ -202,7 +202,7 @@ if has('crypt-blowfish2')
 endif
 
 "" Paths & Backup & Undo & Sessions {{{1
-set path=.,,**
+set path=.,,lib/**,docs/**
 
 if !has("nvim")
 	let &directory = expand('~/.vimdata/swap//')
