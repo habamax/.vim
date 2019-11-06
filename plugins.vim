@@ -265,3 +265,54 @@ augroup end
 " integrate with tpope's speeddating 
 nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
 nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
+
+
+
+"" Outline {{{1
+" temporary WIP
+func! s:rebuild_outline() abort
+	let bufnr = bufnr('%')
+	let outline = []
+
+	let line_idx = 0
+	let buf_lines = getbufline(bufnr, line_idx, '$')
+	for line in buf_lines
+		let match = matchlist(line, '^\(=\+\)\s\+\(.*\)$')
+		if !empty(match)
+			let level = len(match[1]) - 1
+			let line = repeat("\t", level) . match[2]
+			call add(outline, {"line_nr": line_idx, "text": line})
+		endif
+		let line_idx += 1
+	endfor
+	return [bufnr, outline]
+endfunc
+func! s:goto_outline() abort
+	let outline_idx = line('.') - 1
+	let src_idx = b:outline[outline_idx]['line_nr'] + 1
+
+	let bufwinnr = bufwinnr(b:outline_src_bufnr)
+	if bufwinnr == -1
+		exe ':b'.b:outline_src_bufnr . '| normal ' . src_idx . 'gg'
+	else
+		exe 'wincmd c | '. bufwinnr . 'wincmd w | normal ' . src_idx . 'gg'
+	endif
+endfunc
+func! s:show_outline(bufnr, outline) abort
+	exe 'new ' . '[outline]'
+	normal ggdG
+	" file [outline]
+	setl buftype=nofile
+	setl bufhidden=hide
+	setl noswapfile
+
+	let b:outline_src_bufnr = a:bufnr
+	let b:outline = a:outline
+
+	call append(0, map(copy(b:outline), {k,v -> v.text}))
+	nnoremap <buffer> <CR> :call <SID>goto_outline()<CR>
+endfunc
+func! Outline() abort
+	let [bufnr, outline] = s:rebuild_outline()
+	call s:show_outline(bufnr, outline)
+endfunc
