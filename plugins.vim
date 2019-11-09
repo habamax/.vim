@@ -256,6 +256,9 @@ let g:lsc_server_commands = {
 			\    'suppress_stderr': v:false
 			\}
 \}
+			" \'dart': {
+			" \    'command': 'dart C:/Users/maksim.kim/scoop/apps/dart/2.6.0/bin/snapshots/analysis_server.dart.snapshot --lsp'
+			" \},
 
 augroup lsc_preview | au!
 	autocmd CompleteDone * silent! pclose
