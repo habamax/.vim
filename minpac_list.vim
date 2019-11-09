@@ -76,13 +76,16 @@ if exists('*minpac#init')
 	call minpac#add('andyl/vim-textobj-elixir')
 
 	"" Programming
+	call minpac#add('ludovicchabant/vim-gutentags')
+	call minpac#add('editorconfig/editorconfig-vim')
 	call minpac#add('natebosch/vim-lsc')
+	" call minpac#add('natebosch/vim-lsc-dart')
 	call minpac#add('elixir-editors/vim-elixir')
 	call minpac#add('mhinz/vim-mix-format')
 	call minpac#add('udalov/kotlin-vim')
-	call minpac#add('editorconfig/editorconfig-vim')
 	call minpac#add('aklt/plantuml-syntax')
-	call minpac#add('ludovicchabant/vim-gutentags')
+	call minpac#add('dart-lang/dart-vim-plugin')
+
 
 
 	"" Misc
