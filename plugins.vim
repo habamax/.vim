@@ -43,8 +43,7 @@ if has('python') || has('python3')
 	nnoremap <leader>f/ :Leaderf rg 
 	nnoremap <leader>/ :LeaderfLine<CR>
 	nnoremap <leader>f; :LeaderfHistoryCmd<CR>
-	nnoremap <leader>ftt :LeaderfTag<CR>
-	nnoremap <leader>ftb :LeaderfBufTag<CR>
+	nnoremap <leader>ft :LeaderfBufTagAll<CR>
 	nnoremap <leader>fh :LeaderfHelp<CR>
 	nnoremap <leader>fm :LeaderfMru<CR>
 	nnoremap <leader>fs :LeaderfSelf<CR>
@@ -253,6 +252,15 @@ if executable('solargraph')
         \ })
 endif
 
+if executable('dart')
+	let s:dart_lsp_path = fnamemodify(resolve(exepath('dart')), ':h')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'dart',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'dart '.s:dart_lsp_path.'/snapshots/analysis_server.dart.snapshot --lsp']},
+        \ 'initialization_options': {"diagnostics": "true"},
+        \ 'whitelist': ['dart'],
+        \ })
+endif
 
 func! SetLSPMappings()
 	nnoremap <buffer> gd :LspDefinition<CR>
@@ -261,6 +269,7 @@ endfunc
 augroup lsp_mappings | au!
 	au FileType python call SetLSPMappings()
 	au FileType ruby call SetLSPMappings()
+	au FileType dart call SetLSPMappings()
 augroup END
 
 
