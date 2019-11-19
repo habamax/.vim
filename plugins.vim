@@ -41,6 +41,7 @@ if executable('fzf') && 0
 	endtry
 " LeaderF or CtrlP {{{1
 elseif has('python') || has('python3')
+	let g:Lf_WindowPosition = 'popup'
 	let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 	let g:Lf_ShortcutF = '<leader>ff'
 	let g:Lf_Shortcutb = '<leader>b'
@@ -292,3 +293,4 @@ nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 
 "" Outline {{{1
 nnoremap <leader>l :DoOutline<CR>
+
