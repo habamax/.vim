@@ -41,6 +41,7 @@ if exists('*minpac#init')
 	call minpac#add('junegunn/fzf', {'type': 'opt'})
 	call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
 
+	" left for testing (quite bad for windows for now)
 	" call minpac#add('liuchengxu/vim-clap')
 
 
@@ -87,6 +88,7 @@ if exists('*minpac#init')
 	" call minpac#add('natebosch/vim-lsc-dart')
 
 	"" Completion/Expansion
+	call minpac#add('ervandew/supertab')
 	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
 	call minpac#add('honza/vim-snippets', {'type': 'opt'})
 	call minpac#add('mattn/emmet-vim')
@@ -115,11 +117,9 @@ if exists('*minpac#init')
 	call minpac#add('chrisbra/Colorizer')
 	" call minpac#add('RRethy/vim-hexokinase')
 
-	" awesome
-	call minpac#add('ervandew/supertab')
 	" really good implementation of kill-ring
 	call minpac#add('svermeulen/vim-yoink')
-
+	
 	"" Colors
 	call minpac#add('davidosomething/vim-colors-meh')
 	call minpac#add('lifepillar/vim-solarized8')
