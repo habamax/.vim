@@ -62,12 +62,6 @@ if exists('*minpac#init')
 	call minpac#add('markonm/traces.vim')
 
 
-	"" Completion/Expansion
-	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
-	call minpac#add('honza/vim-snippets', {'type': 'opt'})
-	call minpac#add('mattn/emmet-vim')
-	call minpac#add('alvan/vim-closetag')
-
 	"" Text objects
 	call minpac#add('kana/vim-textobj-user')
 	call minpac#add('kana/vim-textobj-indent')
@@ -78,17 +72,25 @@ if exists('*minpac#init')
 	"" Programming
 	call minpac#add('ludovicchabant/vim-gutentags')
 	call minpac#add('editorconfig/editorconfig-vim')
-	call minpac#add('prabirshrestha/vim-lsp')
-	call minpac#add('prabirshrestha/async.vim')
-	" call minpac#add('natebosch/vim-lsc')
-	" call minpac#add('natebosch/vim-lsc-dart')
 	call minpac#add('elixir-editors/vim-elixir')
 	call minpac#add('mhinz/vim-mix-format')
 	call minpac#add('udalov/kotlin-vim')
 	call minpac#add('aklt/plantuml-syntax')
 	call minpac#add('dart-lang/dart-vim-plugin')
 
+	"" Language Server Protocol and completion
+	call minpac#add('prabirshrestha/vim-lsp')
+	call minpac#add('prabirshrestha/async.vim')
+	call minpac#add('prabirshrestha/asyncomplete.vim')
+	call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
+	" call minpac#add('natebosch/vim-lsc')
+	" call minpac#add('natebosch/vim-lsc-dart')
 
+	"" Completion/Expansion
+	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
+	call minpac#add('honza/vim-snippets', {'type': 'opt'})
+	call minpac#add('mattn/emmet-vim')
+	call minpac#add('alvan/vim-closetag')
 
 	"" Misc
 	" yog to trigger goyo
