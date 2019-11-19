@@ -24,28 +24,12 @@ if has('python') || has('python3')
 	packadd ultisnips
 endif
 
-" Let me have fzf just in case... {{{1
-if executable('fzf') && 0
-	try
-		nnoremap <leader>ff :Files<CR>
-		nnoremap <leader>fh :History<CR>
-		nnoremap <leader>b :Buffers<CR>
-		nnoremap <leader>fc :Colors<CR>
-		nnoremap <leader>fdd :Files ~/docs<CR>
-		" [Buffers] Jump to the existing window if possible
-		let g:fzf_buffers_jump = 1
-
-		packadd fzf
-		packadd fzf.vim
-	catch /./
-	endtry
-" LeaderF or CtrlP {{{1
-elseif has('python') || has('python3')
+" LeaderF or Clap {{{1
+if has('python') || has('python3')
 	let g:Lf_WindowPosition = 'popup'
 	let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 	let g:Lf_ShortcutF = '<leader>ff'
 	let g:Lf_Shortcutb = '<leader>b'
-	let g:Lf_WindowHeight = 0.30
 	let g:Lf_ShowHidden = 1
 	let g:Lf_FollowLinks = 1
 	let g:Lf_NormalMap = {"File":   [["u", ':LeaderfFile ..<CR>']]}
@@ -68,18 +52,14 @@ elseif has('python') || has('python3')
 	nnoremap <leader>fdd :LeaderfFile ~/docs<CR>
 	packadd LeaderF
 else
-	let g:ctrlp_map = ''
-	nnoremap <leader>ff :CtrlPMixed<CR>
-	nnoremap <leader>fp :CtrlPBookmarkDir<CR>
-	nnoremap <leader>b :CtrlPBuffer<CR>
-	let g:ctrlp_key_loop = 1
-	if executable('rg')
-		let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-		let g:ctrlp_use_caching = 0
-	elseif has("win32") || has("win64")
-		let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
-	endif
-	packadd ctrlp.vim
+	nnoremap <leader>ff :Clap files<CR>
+	nnoremap <leader>b :Clap buffers<CR>
+	nnoremap <leader>fm :Clap history<CR>
+	nnoremap <leader>f; :Clap hist:<CR>
+	nnoremap <leader>fc :Clap colors<CR>
+	packadd vim-clap
+" TODO: check if vim version without popup, use ctrlp instead. Or just leave
+" it use built in find?
 endif
 
 " Asciidoctor {{{1

@@ -36,13 +36,9 @@ if exists('*minpac#init')
 	call minpac#add('rbong/vim-flog', {'type': 'opt'})
 
 	"" Fuzzy stuff
-	call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
 	call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
-	call minpac#add('junegunn/fzf', {'type': 'opt'})
-	call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
-
-	" left for testing (quite bad for windows for now)
-	" call minpac#add('liuchengxu/vim-clap')
+	" backup (no external dependencies, just newer vim)
+	call minpac#add('liuchengxu/vim-clap', {'type': 'opt'})
 
 
 	"" Text manipulation
