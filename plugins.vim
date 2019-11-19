@@ -240,29 +240,48 @@ endif
 let g:dispatch_no_maps = 1
 nnoremap m<CR> :Make!<CR>
 
-"" vim lsc {{{1
-" for python
-" pip install 'python-language-server[all]'
-let g:lsc_auto_map = v:true
-let g:lsc_server_commands = { 
-			\'python': {
-			\    'command': 'pyls',
-			\    'log_level': -1,
-			\    'suppress_stderr': v:true
-			\},
-			\'ruby': {
-			\    'command': '127.0.0.1:7658',
-			\    'log_level': -1,
-			\    'suppress_stderr': v:false
-			\}
-\}
-			" \'dart': {
-			" \    'command': 'dart C:/Users/maksim.kim/scoop/apps/dart/2.6.0/bin/snapshots/analysis_server.dart.snapshot --lsp'
-			" \},
 
-augroup lsc_preview | au!
+"" vim-lsp {{{1
+let g:lsp_signs_enabled = 0
+let g:lsp_highlight_references_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+
+" https://github.com/prabirshrestha/vim-lsp/issues/568#issuecomment-555364537
+let g:lsp_fold_enabled = v:false
+
+augroup lsp_preview | au!
 	autocmd CompleteDone * silent! pclose
 augroup end
+
+if executable('pyls')
+	" pip install 'python-language-server[all]'
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+
+if executable('solargraph')
+    " gem install solargraph
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+        \ 'initialization_options': {"diagnostics": "true"},
+        \ 'whitelist': ['ruby'],
+        \ })
+endif
+
+
+func! SetLSPMappings()
+	nnoremap <buffer> gd :LspDefinition<CR>
+	nnoremap <buffer> K :LspHover<CR>
+endfunc
+augroup lsp_mappings | au!
+	au FileType python call SetLSPMappings()
+	au FileType ruby call SetLSPMappings()
+augroup END
+
 
 "" vim-CtrlXA
 " integrate with tpope's speeddating 
