@@ -383,6 +383,12 @@ augroup default_filetype
 	autocmd BufEnter * call SetDefaultFiletype()
 augroup END
 
+"" Grepprg {{{1
+if executable('rg')
+	set grepprg=rg\ --vimgrep
+	set grepformat=%f:%l:%c:%m
+endif
+
 "" RU {{{1
 " Keymap внутренняя раскладка
 if has('osx')
