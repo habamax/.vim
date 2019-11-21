@@ -76,7 +76,6 @@ endif
 " set nofoldenable
 " set foldminlines=1 foldlevel=1
 set foldmethod=indent
-set foldlevelstart=99
 set scrolloff=2 sidescrolloff=0
 set display+=lastline
 set tabpagemax=50
