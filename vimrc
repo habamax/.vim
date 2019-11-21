@@ -418,10 +418,8 @@ if has('langmap')
 	set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\~
 	set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
 	set langmap+=№#
-
-	if exists('+langremap')
-		set nolangremap
-	endif
+	" breaks english .
+	" set langmap+=./
 endif
 
 "" Python ext {{{1
