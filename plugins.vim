@@ -228,9 +228,6 @@ let g:lsp_signs_enabled = 0
 let g:lsp_highlight_references_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 
-" https://github.com/prabirshrestha/vim-lsp/issues/568#issuecomment-555364537
-let g:lsp_fold_enabled = v:false
-
 augroup lsp_preview | au!
 	autocmd CompleteDone * silent! pclose
 augroup end
