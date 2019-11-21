@@ -67,3 +67,5 @@ endif
 
 " Mimic toggling behaviour of Tim Popes unimpaired plugin
 nnoremap yot :call ToggleColorscheme()<CR>
+" nnoremap нще :call ToggleColorscheme()<CR>
+nmap нще yot
