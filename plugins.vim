@@ -24,13 +24,11 @@ endif
 
 " LeaderF or Clap {{{1
 if has('python') || has('python3')
-	let g:Lf_WindowPosition = 'popup'
+	let g:Lf_PopupColorscheme = 'gruvbox_material'
+	" let g:Lf_WindowPosition = 'popup'
 	let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-	let g:Lf_ShortcutF = '<leader>ff'
-	let g:Lf_Shortcutb = '<leader>b'
 	let g:Lf_ShowHidden = 1
 	let g:Lf_FollowLinks = 1
-	let g:Lf_NormalMap = {"File":   [["u", ':LeaderfFile ..<CR>']]}
     let g:Lf_PreviewResult = { 'BufTag': 0 }
     let g:Lf_WildIgnore = {
             \ 'dir': ['.svn','.git','.hg'],
@@ -38,24 +36,25 @@ if has('python') || has('python3')
             \}
     let g:Lf_MruWildIgnore = copy(g:Lf_WildIgnore)
 	let g:Lf_UseVersionControlTool = 0
-	nnoremap <leader>f/ :Leaderf rg 
+	" This is set by default
+	" nnoremap <leader>f :LeaderfFile<CR>
+	" nnoremap <leader>b :LeaderfBuffer<CR>
+	nnoremap <leader>а :LeaderfFile<CR>
+	nnoremap <leader>и :LeaderfBuffer<CR>
 	nnoremap <leader>/ :LeaderfLine<CR>
-	nnoremap <leader>f; :LeaderfHistoryCmd<CR>
-	nnoremap <leader>ft :LeaderfBufTagAll<CR>
-	nnoremap <leader>fh :LeaderfHelp<CR>
-	nnoremap <leader>fm :LeaderfMru<CR>
-	nmap <leader>аь <leader>fm
-	nnoremap <leader>fs :LeaderfSelf<CR>
-	nnoremap <leader>fc :LeaderfColorscheme<CR>
-	nnoremap <leader>fdd :LeaderfFile ~/docs<CR>
-	nmap <leader>авв <leader>fdd
+	nnoremap <leader>; :LeaderfHistoryCmd<CR>
+	nnoremap <leader>T :LeaderfBufTagAll<CR>
+	nnoremap <leader>h :LeaderfHelp<CR>
+	nnoremap <leader>m :LeaderfMru<CR>
+	nmap <leader>ь <leader>m
+	nnoremap <leader>c :LeaderfColorscheme<CR>
 	packadd LeaderF
 else
-	nnoremap <leader>ff :Clap files<CR>
+	nnoremap <leader>f :Clap files<CR>
 	nnoremap <leader>b :Clap buffers<CR>
-	nnoremap <leader>fm :Clap history<CR>
-	nnoremap <leader>f; :Clap hist:<CR>
-	nnoremap <leader>fc :Clap colors<CR>
+	nnoremap <leader>m :Clap history<CR>
+	nnoremap <leader>; :Clap hist:<CR>
+	nnoremap <leader>c :Clap colors<CR>
 	packadd vim-clap
 " TODO: check if vim version without popup, use ctrlp instead. Or just leave
 " it use built in find?

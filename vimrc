@@ -288,7 +288,7 @@ tnoremap <esc> <C-\><C-n>
 nnoremap <Leader><tab> <C-^>
 " nnoremap <Leader><leader>t :tabnew<CR>
 
-nnoremap <Leader>cd :lcd %:p:h <bar> pwd<CR>
+" nnoremap <Leader>cd :lcd %:p:h <bar> pwd<CR>
 
 " helper func for scroll other window mappings
 func! s:scroll_other_window(dir)
