@@ -261,19 +261,26 @@ vnoremap * y/<C-R>"<CR>
 
 " edit init file (vimrc) -- nvim's init.vim sources vimrc
 nnoremap <Leader>evi :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/vimrc"<CR>
+nmap <Leader>умш <Leader>evi
 " edit gvim init file (gvimrc) -- nvim doesn't know about $GVIMRC and it's
 " ginit.vim sources gvimrc
 nnoremap <Leader>evg :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/gvimrc"<CR>
+nmap <Leader>умп <Leader>evg
 " edit plugins settings file 
 nnoremap <Leader>evs :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
+nmap <Leader>умы <Leader>evs
 " edit plugins list file
 nnoremap <Leader>evp :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/minpac_list.vim"<CR>
+nmap <Leader>умз <Leader>evp
 " edit global notes file
 nnoremap <Leader>en :e ~/docs/notes/notes.adoc<CR>
+nmap <Leader>ут <Leader>en
 " edit global current journal file
 nnoremap <Leader>ej :e ~/docs/journal/2019.adoc<CR>
+nmap <Leader>уо <Leader>ej
 " edit projects file
 nnoremap <Leader>ep :e ~/docs/projects/project-paths.adoc<CR>
+nmap <Leader>уз <Leader>ep
 
 " built-in terminal
 tnoremap <esc> <C-\><C-n>
