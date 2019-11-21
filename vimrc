@@ -425,17 +425,19 @@ endif
 "" Python ext {{{1
 
 if has('python') || has('python3')
-	" pip install num2range first
-	command! -nargs=* Num2Rubles let @" = Num2Rubles(<f-args>)
 
-	func! Num2Rubles(num)
-	pyx << EOF
-	import num2words
-	words = num2words.num2words(vim.eval("a:num"), lang='ru') + ' рублей 00 копеек'
-	print(words)
-	EOF
-	return pyxeval("words")
-	endfunc
+" pip install num2range first
+command! -nargs=* Num2Rubles let @" = Num2Rubles(<f-args>)
+
+func! Num2Rubles(num)
+pyx << EOF
+import num2words
+words = num2words.num2words(vim.eval("a:num"), lang='ru') + ' рублей 00 копеек'
+print(words)
+EOF
+return pyxeval("words")
+endfunc
+
 endif
 
 "" Load Plugins and Abbreviations {{{1
