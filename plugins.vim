@@ -46,9 +46,11 @@ if has('python') || has('python3')
 	nnoremap <leader>ft :LeaderfBufTagAll<CR>
 	nnoremap <leader>fh :LeaderfHelp<CR>
 	nnoremap <leader>fm :LeaderfMru<CR>
+	nmap <leader>аь <leader>fm
 	nnoremap <leader>fs :LeaderfSelf<CR>
 	nnoremap <leader>fc :LeaderfColorscheme<CR>
 	nnoremap <leader>fdd :LeaderfFile ~/docs<CR>
+	nmap <leader>авв <leader>fdd
 	packadd LeaderF
 else
 	nnoremap <leader>ff :Clap files<CR>
