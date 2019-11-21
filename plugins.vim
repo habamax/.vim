@@ -6,8 +6,6 @@ runtime minpac_list.vim
 " Git packages {{{1
 if executable("git")
 	try
-		nnoremap <leader>gs :Gstatus<CR>
-
 		packadd vim-fugitive
 		packadd vim-flog
 	catch /./
