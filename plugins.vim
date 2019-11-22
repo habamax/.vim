@@ -49,16 +49,15 @@ if has('python') || has('python3')
 	nnoremap <leader>m :LeaderfMru<CR>
 	nmap <leader>ь <leader>m
 	nnoremap <leader>c :LeaderfColorscheme<CR>
-	packadd LeaderF
-else
+	silent! packadd LeaderF
+endif
+if !exists('g:leaderf_loaded')
 	nnoremap <leader>f :Clap files<CR>
 	nnoremap <leader>b :Clap buffers<CR>
 	nnoremap <leader>m :Clap history<CR>
 	nnoremap <leader>; :Clap hist:<CR>
 	nnoremap <leader>c :Clap colors<CR>
-	packadd vim-clap
-" TODO: check if vim version without popup, use ctrlp instead. Or just leave
-" it use built in find?
+	silent! packadd vim-clap
 endif
 
 " Asciidoctor {{{1
