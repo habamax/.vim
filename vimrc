@@ -12,7 +12,7 @@ if has('autocmd')
 	autocmd!
 endif
 if &t_Co > 2 || has("gui_running")
-	syntax on
+	syntax enable
 endif
 
 set hidden
