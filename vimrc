@@ -90,19 +90,25 @@ func! StatusGitBranch()
 	return ''
 endfunc
 func! StatusFiletype()
-		return &filetype
+	return &filetype
+endfunc
+func! StatusWindowNr()
+	if winnr('$') > 1
+		return '{'.winnr().'}'
+	else
+		return ''
 	endif
 endfunc
 
 set laststatus=2
 " set ruler " for default statusline"
-set statusline=%([\%R%M]\ %)
+set statusline=%{StatusWindowNr()} 
+set statusline+=%([\%R%M]\ %)
 set statusline+=%<%f
 set statusline+=%(\ %y%)
 set statusline+=%=
 set statusline+=%([git:%{StatusGitBranch()}]%)
 set statusline+=%4(%p%%%)
-
 " }}}
 
 "" Unicode chars {{{
@@ -221,10 +227,13 @@ endif
 
 "" Mappings {{{1
 
-" handy escaping
-" inoremap jf <ESC>
-" inoremap fj <ESC>
-
+" goto window
+nnoremap <space>1 1<C-w>w
+nnoremap <space>2 2<C-w>w
+nnoremap <space>3 3<C-w>w
+nnoremap <space>4 4<C-w>w
+nnoremap <space>5 5<C-w>w
+nnoremap <space>6 6<C-w>w
 
 " CTRL-U in insert mode deletes a lot.	Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
