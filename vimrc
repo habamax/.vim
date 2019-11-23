@@ -367,6 +367,8 @@ command! ContinueInSplit
 			\|set scrollbind
 
 
+command! CD lcd %:p:h
+
 " Not for Windows
 " Write to a privileged file
 if has("unix") || has("osxdarwin")
