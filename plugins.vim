@@ -5,11 +5,8 @@ runtime minpac_list.vim
 
 " Git packages {{{1
 if executable("git")
-	try
-		packadd vim-fugitive
-		packadd vim-flog
-	catch /./
-	endtry
+	silent! packadd vim-fugitive
+	silent! packadd vim-flog
 endif
 
 " UltiSnips {{{1
