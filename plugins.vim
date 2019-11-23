@@ -261,6 +261,10 @@ endif
 func! SetLSPMappings()
 	nnoremap <buffer> gd :LspDefinition<CR>
 	nnoremap <buffer> K :LspHover<CR>
+	nnoremap <buffer> <C-Space> :LspSignatureHelp<CR>
+	nnoremap <buffer> <leader>lf :LspDocumentFormat<CR>
+	nnoremap <buffer> <leader>la :LspCodeAction<CR>
+	nnoremap <buffer> <leader>ls :LspDocumentSymbol<CR>
 endfunc
 augroup lsp_mappings | au!
 	au FileType python call SetLSPMappings()
