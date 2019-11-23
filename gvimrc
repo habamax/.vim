@@ -8,20 +8,17 @@ elseif has("unix")
 elseif has('nvim')
 	GuiFont! Iosevka:h12
 else
-	set linespace=0
+	set linespace=-1
 	"
 	" Однажды в студеную зимнюю пору
 	" Я из лесу вышел, был сильный мороз.
 	"
 	" set gfn=Hack:h14
 	set gfn=Iosevka:h14
-	" set gfn=Iosevka_SS08:h14
+	" set gfn=Consolas:h14
 	" set gfn=Fira_Mono:h12
-	" set gfn=Consolas:h13
 	" set gfn=PT_Mono:h13
 	" set gfn=Liberation_Mono:h12
-	" set gfn=Iosevka_Extended:h14
-	" set gfn=Iosevka_SS03:h14
 	" set gfn=Pragmata_Pro:h14
 	" set gfn=IBM_Plex_Mono:h12
 	" set gfn=Go_Mono:h12
@@ -37,7 +34,8 @@ endif
 
 " pairs of colorschemes I like to use:
 " light is the first one, dark is the second.
-" let g:duo_themes = [{'name': 'defminus'}, {'name': 'gruvbox', 'bg': 'dark'}]
+" let g:duo_themes = [{'name': 'solarized8', 'bg': 'light'}, {'name': 'gruvbox8', 'bg': 'dark'}]
+" let g:duo_themes = [{'name': 'defminus'}, {'name': 'solarized8', 'bg': 'dark'}]
 " let g:duo_themes = [{'name': 'defminus'}, {'name': 'defnoche'}]
 let g:duo_themes = [{'name': 'defminus'}, {'name': 'lessthan'}]
 func! s:set_colorscheme(color)
