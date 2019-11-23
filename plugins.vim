@@ -25,7 +25,7 @@ endif
 " LeaderF or Clap {{{1
 if has('python') || has('python3')
 	" let g:Lf_PopupColorscheme = 'gruvbox_material'
-	" let g:Lf_WindowPosition = 'popup'
+	let g:Lf_WindowPosition = 'popup'
 	let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 	let g:Lf_WindowHeight = 0.30
 	let g:Lf_ShowHidden = 1
