@@ -47,13 +47,14 @@ if has('python') || has('python3')
 	nnoremap <leader>m :LeaderfMru<CR>
 	nmap <leader>ь <leader>m
 	nnoremap <leader>c :LeaderfColorscheme<CR>
-	silent! packadd LeaderFd
+	silent! packadd LeaderF
 endif
 
 "" Use ctrlp as backup fuzzy finder (no dependencies)
 if !exists('g:leaderf_loaded')
 	nnoremap <leader>f :CtrlPMixed<CR>
 	nnoremap <leader>b :CtrlPBuffer<CR>
+	nnoremap <leader>m :CtrlPMRUFiles<CR>
 
 	let g:ctrlp_key_loop = 1
 	if executable('rg')
