@@ -1,15 +1,15 @@
 " source <sfile>:h/minpac_list.vim
 runtime minpac_list.vim
 
-" Plugin settings
+""" Plugin settings
 
-" Git packages {{{1
+""" Git packages {{{1
 if executable("git")
 	silent! packadd vim-fugitive
 	silent! packadd vim-flog
 endif
 
-" UltiSnips {{{1
+""" UltiSnips {{{1
 if has('python') || has('python3')
 	let g:UltiSnipsExpandTrigger = '<tab>'
 	let g:UltiSnipsJumpForwardTrigger = '<tab>'
@@ -19,7 +19,8 @@ if has('python') || has('python3')
 	packadd ultisnips
 endif
 
-" LeaderF or Others {{{1
+""" Fuzzy finder {{{1
+" Try to load LeaderF first
 if has('python') || has('python3')
 	if exists("*popup_create") || exists("*nvim_open_win")
 		let g:Lf_WindowPosition = 'popup'
@@ -50,7 +51,7 @@ if has('python') || has('python3')
 	silent! packadd LeaderF
 endif
 
-"" Use ctrlp as backup fuzzy finder (no dependencies)
+" Use ctrlp as backup fuzzy finder (no dependencies)
 if !exists('g:leaderf_loaded')
 	nnoremap <leader>f :CtrlPMixed<CR>
 	nnoremap <leader>b :CtrlPBuffer<CR>
@@ -67,6 +68,7 @@ if !exists('g:leaderf_loaded')
 	silent! packadd ctrlp.vim
 endif
 
+" Clap is good... but windows and vim is a second class citizen.
 " if !exists('g:leaderf_loaded')
 " 	nnoremap <leader>f :Clap files<CR>
 " 	nnoremap <leader>b :Clap buffers<CR>
@@ -76,7 +78,7 @@ endif
 " 	silent! packadd vim-clap
 " endif
 
-" Asciidoctor {{{1
+""" Asciidoctor {{{1
 " There will be asciidoctor plugin here
 " let g:asciidoctor_executable = 'asciidoctor'
 
@@ -118,18 +120,19 @@ augroup asciidoctor | au!
 	au BufEnter *.adoc,*.asciidoc call AsciidoctorBufferSetup()
 augroup END
 
-" List Manipulation {{{1
+""" List Manipulation {{{1
 let g:list_man_default_mappings = 1
 
-" EasyAlign {{{1
+""" EasyAlign {{{1
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 vmap ga <Plug>(LiveEasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-" vim-swap settings {{{1
+""" vim-swap settings {{{1
 let g:swap_no_default_key_mappings = 1
-" text objects
+
+""" text objects
 omap i, <Plug>(swap-textobject-i)
 xmap i, <Plug>(swap-textobject-i)
 omap a, <Plug>(swap-textobject-a)
@@ -138,35 +141,35 @@ nmap g< <Plug>(swap-prev)
 nmap g> <Plug>(swap-next)
 nmap g. <Plug>(swap-interactive)
 
-" Goyo && Limelight {{{1
+""" Goyo && Limelight {{{1
 nnoremap yog :Goyo<CR>
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
-" vim-skipit {{{1
+""" vim-skipit {{{1
 imap <A-.> <Plug>(SkipItForward)
 imap <A-,> <Plug>(SkipItBack)
 
-" Undotree {{{1
+""" Undotree {{{1
 nnoremap <leader>u :UndotreeToggle<CR>
 
-" vim-rooter {{{1
+""" vim-rooter {{{1
 let g:rooter_change_directory_for_non_project_files = ''
 let g:rooter_patterns = ['.git', '.git/', 'mix.exs']
 let g:rooter_silent_chdir = 1
 
-" elixir {{{1
+""" elixir {{{1
 " elixir related settings from different plugins
 let g:elixir_mix_test_position = "bottom"
 let g:mix_format_on_save = 1
 
-"" tpope's Markdown {{{1
+""" tpope's Markdown {{{1
 let g:markdown_folding = 1
 
-"" Lisp {{{1
+""" Lisp {{{1
 let g:lisp_rainbow = 1
 
-"" Vim-obsession {{{1
+""" Vim-obsession {{{1
 command! -nargs=1 -complete=customlist,LoadObsessionComplete SA :Obsession ~/.vimdata/sessions/<args>
 
 command! -nargs=1 -complete=customlist,LoadObsessionComplete LO :so ~/.vimdata/sessions/<args>
@@ -177,21 +180,21 @@ func! LoadObsessionComplete(A, L, P)
 endfunc
 
 
-"" Supertab
+""" Supertab {{{1
 let g:SuperTabDefaultCompletionType = "context"
 
-"" vim-yoink "kill ring" for vim
+""" vim-yoink "kill ring" for vim
 nmap <c-n> <plug>(YoinkPostPasteSwapBack)
 nmap <c-p> <plug>(YoinkPostPasteSwapForward)
 
 nmap p <plug>(YoinkPaste_p)
 nmap P <plug>(YoinkPaste_P)
 
-"" netrw
+""" Netrw {{{1
 let g:netrw_liststyle = 0
 let g:netrw_banner = 0
 
-"" Vim dadbod {{{1
+""" Vim dadbod {{{1
 if !has('nvim')
 	let g:dadbods = []
 
@@ -231,12 +234,12 @@ if !has('nvim')
 endif
 
 
-"" vim dispatch {{{1
+""" vim dispatch {{{1
 let g:dispatch_no_maps = 1
 nnoremap m<CR> :Make!<CR>
 
 
-"" vim-lsp {{{1
+""" vim-lsp {{{1
 let g:lsp_signs_enabled = 0
 let g:lsp_highlight_references_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
@@ -289,13 +292,13 @@ augroup lsp_mappings | au!
 augroup END
 
 
-"" vim-CtrlXA
+""" vim-CtrlXA
 " integrate with tpope's speeddating 
 nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
 nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 
 
 
-"" Outline {{{1
+""" Outline {{{1
 nnoremap <leader>l :DoOutline<CR>
 
