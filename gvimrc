@@ -6,7 +6,8 @@ if has("gui_macvim")
 elseif has("unix")
 	set gfn=Hack\ 10,Monospace\ 12
 elseif has('nvim')
-	GuiFont! Iosevka:h12
+	set linespace=-1
+	GuiFont! Iosevka:h14
 else
 	set linespace=-1
 	"
