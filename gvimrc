@@ -55,8 +55,9 @@ func! ToggleColorscheme()
 	call s:set_colorscheme(color)
 endfunc
 
-let s:force_dark = 0
-" Well, if it happens you run vim late, use dark colorscheme
+" If it happens you run vim late, use dark colorscheme
+" Unless you have forced it
+let s:force_dark = 1
 if strftime("%H") >= 20 || strftime("%H") < 7 || s:force_dark
 	call s:set_colorscheme(g:duo_themes[1])
 else
