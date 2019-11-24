@@ -39,6 +39,7 @@ if exists('*minpac#init')
 	call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
 	" backup (no external dependencies, just newer vim)
 	call minpac#add('liuchengxu/vim-clap', {'type': 'opt'})
+	call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
 
 
 	"" Text manipulation

@@ -19,7 +19,7 @@ if has('python') || has('python3')
 	packadd ultisnips
 endif
 
-" LeaderF or Clap {{{1
+" LeaderF or Others {{{1
 if has('python') || has('python3')
 	if exists("*popup_create") || exists("*nvim_open_win")
 		let g:Lf_WindowPosition = 'popup'
@@ -47,17 +47,23 @@ if has('python') || has('python3')
 	nnoremap <leader>m :LeaderfMru<CR>
 	nmap <leader>ь <leader>m
 	nnoremap <leader>c :LeaderfColorscheme<CR>
-	silent! packadd LeaderF
+	silent! packadd LeaderFd
 endif
 
 if !exists('g:leaderf_loaded')
-	nnoremap <leader>f :Clap files<CR>
-	nnoremap <leader>b :Clap buffers<CR>
-	nnoremap <leader>m :Clap history<CR>
-	nnoremap <leader>; :Clap hist:<CR>
-	nnoremap <leader>c :Clap colors<CR>
-	silent! packadd vim-clap
+	nnoremap <leader>f :CtrlPMixed<CR>
+	nnoremap <leader>b :CtrlPBuffer<CR>
+	silent! packadd ctrlp.vim
 endif
+
+" if !exists('g:leaderf_loaded')
+" 	nnoremap <leader>f :Clap files<CR>
+" 	nnoremap <leader>b :Clap buffers<CR>
+" 	nnoremap <leader>m :Clap history<CR>
+" 	nnoremap <leader>; :Clap hist:<CR>
+" 	nnoremap <leader>c :Clap colors<CR>
+" 	silent! packadd vim-clap
+" endif
 
 " Asciidoctor {{{1
 " There will be asciidoctor plugin here
