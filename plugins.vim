@@ -21,8 +21,9 @@ endif
 
 " LeaderF or Clap {{{1
 if has('python') || has('python3')
-	" let g:Lf_PopupColorscheme = 'gruvbox_material'
-	let g:Lf_WindowPosition = 'popup'
+	if exists("*popup_create") || exists("*nvim_open_win")
+		let g:Lf_WindowPosition = 'popup'
+	endif
 	let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 	let g:Lf_WindowHeight = 0.30
 	let g:Lf_ShowHidden = 1
@@ -48,6 +49,7 @@ if has('python') || has('python3')
 	nnoremap <leader>c :LeaderfColorscheme<CR>
 	silent! packadd LeaderF
 endif
+
 if !exists('g:leaderf_loaded')
 	nnoremap <leader>f :Clap files<CR>
 	nnoremap <leader>b :Clap buffers<CR>
