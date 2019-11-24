@@ -58,7 +58,7 @@ if !exists('g:leaderf_loaded')
 	let g:ctrlp_key_loop = 1
 	if executable('rg')
 		let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-		let g:ctrlp_use_caching = 0
+		let g:ctrlp_use_caching = 1
 	elseif has("win32") || has("win64")
 		let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
 	endif
