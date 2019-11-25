@@ -10,18 +10,18 @@ if executable("git")
 endif
 
 """ UltiSnips {{{1
-if has('python') || has('python3')
+if has('nvim') || has('python') || has('python3')
 	let g:UltiSnipsExpandTrigger = '<tab>'
 	let g:UltiSnipsJumpForwardTrigger = '<tab>'
 	let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 	let g:UltiSnipsListSnippets = '<c-tab>'
 
-	packadd ultisnips
+	silent! packadd ultisnips
 endif
 
 """ Fuzzy finder {{{1
 " Try to load LeaderF first
-if has('python') || has('python3')
+if has('nvim') || has('python') || has('python3')
 	if exists("*popup_create") || exists("*nvim_open_win")
 		let g:Lf_WindowPosition = 'popup'
 	endif
@@ -242,6 +242,7 @@ nnoremap m<CR> :Make!<CR>
 
 
 """ vim-lsp {{{1
+let g:lsp_auto_enable = 1
 let g:lsp_signs_enabled = 0
 let g:lsp_highlight_references_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
@@ -304,3 +305,32 @@ nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 """ Outline {{{1
 nnoremap <leader>l :DoOutline<CR>
 
+
+""" My pythoned stuff
+
+if has('nvim') || has('python') || has('python3')
+" pip install num2range first
+command! -nargs=* Num2Rubles let @* = Num2Rubles(<f-args>)
+
+func! Num2Rubles(num)
+pyx << EOF
+from num2words import num2words
+value = int(vim.eval("a:num"))
+
+div = value%10
+if div == 1:
+	ending = 'рубль'
+elif div in range(2, 5):
+	ending = 'рубля'
+else:
+	ending = 'рублей'
+
+words = num2words(value, lang='ru')
+
+result = '{} {} 00 копеек'.format(words, ending)
+print(result)
+EOF
+return pyxeval("words")
+endfunc
+
+endif
