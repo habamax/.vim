@@ -163,7 +163,7 @@ set wildchar=<Tab> wildmenu wildmode=full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 
 " turn off beeping...
-set visualbell
+set novisualbell
 au! GuiEnter * set t_vb=
 set t_vb=
 
@@ -468,4 +468,3 @@ runtime abbreviations.vim
 if v:version >= 801 || has('nvim')
 	runtime plugins.vim
 endif
-
