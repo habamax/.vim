@@ -44,6 +44,8 @@ if has('python') || has('python3')
 	nnoremap <leader>/ :LeaderfLine<CR>
 	nnoremap <leader>; :LeaderfHistoryCmd<CR>
 	nnoremap <leader>T :LeaderfBufTagAll<CR>
+	nnoremap <leader>[ :LeaderfFunction<CR>
+	nnoremap <leader>{ :LeaderfFunctionAll<CR>
 	nnoremap <leader>h :LeaderfHelp<CR>
 	nnoremap <leader>m :LeaderfMru<CR>
 	nmap <leader>ь <leader>m
