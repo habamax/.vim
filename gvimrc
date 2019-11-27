@@ -7,7 +7,7 @@ elseif has("unix")
 	set gfn=Hack\ 10,Monospace\ 12
 elseif has('nvim')
 	set linespace=-1
-	GuiFont! Iosevka:h14
+	set gfn=Iosevka:h14
 else
 	set linespace=-1
 	"
