@@ -51,6 +51,8 @@ if has('nvim') || has('python') || has('python3')
 	nmap <leader>ь <leader>m
 	nnoremap <leader>c :LeaderfColorscheme<CR>
 	silent! packadd LeaderF
+
+	command Docs :LeaderfFile ~/docs
 endif
 
 " Use ctrlp as backup fuzzy finder (no dependencies)
