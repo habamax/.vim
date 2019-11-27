@@ -32,17 +32,14 @@ set fileencoding=utf8
 set fileformats=unix,mac,dos
 set fileformat=unix
 
-"" UI {{{1
+"" (G)UI {{{1
 if !has("gui_running")
 	if exists('+termguicolors')
 		set termguicolors
 	elseif &term =~ "win32"
 		set t_Co=256
 	endif
-	" for terminals that should be dark
-	set bg=dark
-	" if there is my dark theme installed -- use it
-	silent! colorscheme lessthan
+	let s:force_dark = 1
 
 	" to fix cursor shape in WSL bash add 
 	" echo -ne "\e[2 q"
@@ -53,6 +50,65 @@ if !has("gui_running")
 		let &t_EI = "\<Esc>[2 q"
 	endif
 endif
+
+"
+" Однажды в студеную зимнюю пору
+" Я из лесу вышел, был сильный мороз.
+"
+if has("gui_macvim")
+	set gfn=Hack:h12,Menlo:h14
+	set macmeta
+	let macvim_skip_colorscheme = 1
+else
+	set linespace=-1
+	" set gfn=Hack:h14
+	set gfn=Iosevka:h14
+	" set gfn=Consolas:h14
+	" set gfn=Fira_Mono:h12
+	" set gfn=PT_Mono:h13
+	" set gfn=Liberation_Mono:h12
+	" set gfn=Pragmata_Pro:h14
+	" set gfn=IBM_Plex_Mono:h12
+	" set gfn=Go_Mono:h12
+endif
+
+if !has('nvim') && has('gui_running')
+	set columns=999
+	set lines=999
+endif
+
+" pairs of colorschemes I like to use:
+" light is the first one, dark is the second.
+" let g:duo_themes = [{'name': 'solarized8', 'bg': 'light'}, {'name': 'gruvbox8', 'bg': 'dark'}]
+" let g:duo_themes = [{'name': 'defminus'}, {'name': 'solarized8', 'bg': 'dark'}]
+" let g:duo_themes = [{'name': 'defminus'}, {'name': 'defnoche'}]
+let g:duo_themes = [{'name': 'defminus'}, {'name': 'lessthan'}]
+func! s:set_colorscheme(color)
+	if has_key(a:color, 'bg')
+		let &bg = a:color['bg']
+	endif
+	if has_key(a:color, 'name')
+		exe "colorscheme ".a:color['name']
+	endif
+endfunc
+func! ToggleColorscheme()
+	if !exists('g:colors_name')
+		let g:colors_name = 'default'
+	endif
+	let color = filter(copy(g:duo_themes), {k, v -> v['name'] != g:colors_name})[0]
+	call s:set_colorscheme(color)
+endfunc
+
+" If it happens you run vim late, use dark colorscheme
+" Unless you have forced it
+let s:force_dark = 1
+if strftime("%H") >= 20 || strftime("%H") < 7 || s:force_dark
+	call s:set_colorscheme(g:duo_themes[1])
+else
+" Light colors otherwise
+	call s:set_colorscheme(g:duo_themes[0])
+endif
+
 
 " 'I' in shortmess removes intro/welcome screen
 set shortmess+=Ic
@@ -72,10 +128,6 @@ else
 	set diffopt=filler,vertical
 endif
 
-" set completeopt+=menuone,noselect
-" set nofoldenable
-" set foldminlines=1 foldlevel=1
-" set foldmethod=indent
 set scrolloff=2 sidescrolloff=0
 set display+=lastline
 set tabpagemax=50
@@ -294,9 +346,11 @@ nmap <Leader>уз <Leader>ep
 tnoremap <esc> <C-\><C-n>
 
 nnoremap <Leader><tab> <C-^>
-" nnoremap <Leader><leader>t :tabnew<CR>
 
-" nnoremap <Leader>cd :lcd %:p:h <bar> pwd<CR>
+" Mimic toggling behaviour of Tim Popes unimpaired plugin
+nnoremap yot :call ToggleColorscheme()<CR>
+" nnoremap нще :call ToggleColorscheme()<CR>
+nmap нще yot
 
 " helper func for scroll other window mappings
 func! s:scroll_other_window(dir)
