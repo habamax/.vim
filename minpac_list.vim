@@ -117,6 +117,14 @@ if exists('*minpac#init')
 
 	" really good implementation of kill-ring
 	call minpac#add('svermeulen/vim-yoink')
+
+
+	" Multiple cursors
+	call minpac#add('mg979/vim-visual-multi')
+
+	" Firenvim works in windows!
+	" Don't forget to :call firenvim#install(0) after install
+	call minpac#add('glacambre/firenvim')
 	
 	"" Colors
 	call minpac#add('davidosomething/vim-colors-meh')
