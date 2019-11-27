@@ -305,7 +305,19 @@ nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 
 """ Firenvim {{{1
 au BufEnter github.com_*.txt set filetype=markdown
-
+let g:firenvim_config = {
+    \ 'localSettings': {
+        \ 'riot.im': {
+            \ 'selector': '',
+        \ },
+        \ 'slack.com': {
+            \ 'selector': '',
+        \ },
+        \ 'twitter.com': {
+            \ 'selector': '',
+        \ }
+    \ }
+\ }
 
 """ Outline {{{1
 nnoremap <leader>l :DoOutline<CR>
