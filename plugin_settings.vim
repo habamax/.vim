@@ -311,7 +311,8 @@ let g:firenvim_config = {
 
 """ Visual Multi
 let g:VM_maps = {}
-let g:VM_default_mappings = 0
+let g:VM_maps['Find Under']         = '<leader>n'
+let g:VM_maps['Find Subword Under'] = '<leader>n'
 
 """ Outline {{{1
 nnoremap <leader>l :DoOutline<CR>
