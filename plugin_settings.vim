@@ -201,13 +201,10 @@ if !has('nvim')
 	let g:dadbods = []
 
 	" g:dadbods should be populated with
-	"
-	" let db = #{
+	" call add(g:dadbods, = #{
 	" 		\name: "My Database",
 	" 		\url: "postgresql://user:password@url/dbname"
-	" 		\}
-
-	" call add(g:dadbods, db)
+	" 		\})
 
 	runtime mydadbods.vim
 
