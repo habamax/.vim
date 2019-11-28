@@ -265,19 +265,17 @@ endif
 "" Paths & Backup & Undo & Sessions {{{1
 set path=.,,src/**,lib/**,docs/**
 
-if !has("nvim")
-	let &directory = expand('~/.vimdata/swap//')
+let &directory = expand('~/.vimdata/swap//')
 
-	set backup
-	let &backupdir = expand('~/.vimdata/backup//')
+set backup
+let &backupdir = expand('~/.vimdata/backup//')
 
-	set undofile
-	let &undodir = expand('~/.vimdata/undo//')
+set undofile
+let &undodir = expand('~/.vimdata/undo//')
 
-	if !isdirectory(&undodir) | call mkdir(&undodir, "p") | endif
-	if !isdirectory(&backupdir) | call mkdir(&backupdir, "p") | endif
-	if !isdirectory(&directory) | call mkdir(&directory, "p") | endif
-endif
+if !isdirectory(&undodir) | call mkdir(&undodir, "p") | endif
+if !isdirectory(&backupdir) | call mkdir(&backupdir, "p") | endif
+if !isdirectory(&directory) | call mkdir(&directory, "p") | endif
 
 "" Mappings {{{1
 
