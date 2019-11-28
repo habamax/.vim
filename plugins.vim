@@ -1,353 +1,139 @@
-" source <sfile>:h/minpac_list.vim
-runtime minpac_list.vim
+" Use minpac to utilize standard vim package stuff + git
+" First of all minpac should be installed:
+" WIN:
+" git clone https://github.com/k-takata/minpac.git %HOME%/vimfiles/pack/minpac/opt/minpac
+" WIN POWERSHELL:
+" git clone https://github.com/k-takata/minpac.git $HOME/vimfiles/pack/minpac/opt/minpac
+" OTHER:
+" git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
 
-""" Plugin settings
+" Plugins {{{1
+if exists('*minpac#init')
+	call minpac#init()
+	call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-""" Git packages {{{1
-if executable("git")
-	silent! packadd vim-fugitive
-	silent! packadd vim-flog
+	"" Tim Pope is a beast. You better use his stuff ...
+	call minpac#add('tpope/vim-commentary')
+	call minpac#add('tpope/vim-surround')
+	call minpac#add('tpope/vim-repeat')
+	call minpac#add('tpope/vim-dispatch')
+	call minpac#add('tpope/vim-speeddating')
+	call minpac#add('tpope/vim-scriptease')
+	call minpac#add('tpope/vim-unimpaired')
+	call minpac#add('tpope/vim-eunuch')
+	" coerce word with cru :h cr
+	" All Abolish commands defined in ~/{vimfiles|.vim}/after/plugin/abolish.vim
+	call minpac#add('tpope/vim-abolish')
+	call minpac#add('tpope/vim-endwise')
+	" vinegar is small extension to Netrw
+	call minpac#add('tpope/vim-vinegar')
+	call minpac#add('tpope/vim-obsession')
+	" Databases, let's try it
+	call minpac#add('tpope/vim-dadbod')
+
+	"" Git
+	call minpac#add('tpope/vim-fugitive', {'type': 'opt'})
+	call minpac#add('rbong/vim-flog', {'type': 'opt'})
+
+	"" Fuzzy stuff
+	call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
+	" backup (no external dependencies, just newer vim)
+	call minpac#add('liuchengxu/vim-clap', {'type': 'opt'})
+	call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
+
+
+	"" Text manipulation
+	call minpac#add('tommcdo/vim-exchange')
+	call minpac#add('tmhedberg/matchit')
+	" use gsip to sort linewise
+	" use gsib to sort in a parenthesis
+	call minpac#add('christoomey/vim-sort-motion')
+	call minpac#add('junegunn/vim-easy-align')
+	" swap comma separated stuff with `g>` `g<` `gs`
+	" `gs` will probably interfere with vim-sort-motion
+	" map it to `g.`
+	call minpac#add('machakann/vim-swap')
+	" parenthesis auto-pair, it clashes with tpope's endwise unfortunately.
+	" call minpac#add('tmsvg/pear-tree')
+
+	" preview of :s command
+	call minpac#add('markonm/traces.vim')
+
+
+	"" Text objects
+	call minpac#add('kana/vim-textobj-user')
+	call minpac#add('kana/vim-textobj-indent')
+	call minpac#add('kana/vim-textobj-function')
+	call minpac#add('thinca/vim-textobj-function-javascript')
+	call minpac#add('andyl/vim-textobj-elixir')
+
+	"" Programming
+	call minpac#add('ludovicchabant/vim-gutentags')
+	call minpac#add('editorconfig/editorconfig-vim')
+	call minpac#add('elixir-editors/vim-elixir')
+	call minpac#add('mhinz/vim-mix-format')
+	call minpac#add('udalov/kotlin-vim')
+	call minpac#add('aklt/plantuml-syntax')
+	call minpac#add('dart-lang/dart-vim-plugin')
+
+	"" Language Server Protocol and completion
+	call minpac#add('prabirshrestha/vim-lsp')
+	call minpac#add('prabirshrestha/async.vim')
+	call minpac#add('prabirshrestha/asyncomplete.vim')
+	call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
+	" call minpac#add('natebosch/vim-lsc')
+	" call minpac#add('natebosch/vim-lsc-dart')
+
+	"" Completion/Expansion
+	call minpac#add('ervandew/supertab')
+	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
+	call minpac#add('honza/vim-snippets', {'type': 'opt'})
+	call minpac#add('mattn/emmet-vim')
+	call minpac#add('alvan/vim-closetag')
+
+	"" Misc
+	" yog to trigger goyo
+	call minpac#add('junegunn/goyo.vim')
+	call minpac#add('junegunn/limelight.vim')
+
+	call minpac#add('Konfekt/vim-CtrlXA')
+
+
+	" awesome
+	call minpac#add('mbbill/undotree')
+	
+	" VIAL adds ~900ms to nvim startup...
+	" http requests...
+	" call minpac#add('diepm/vim-rest-console')
+	" use forked vial
+	" call minpac#add('baverman/vial')
+	" call minpac#add('baverman/vial-http')
+
+	call minpac#add('airblade/vim-rooter')
+
+	" RGB2Term is nice
+	call minpac#add('chrisbra/Colorizer')
+	" call minpac#add('RRethy/vim-hexokinase')
+
+	" really good implementation of kill-ring
+	call minpac#add('svermeulen/vim-yoink')
+
+
+	" Multiple cursors
+	call minpac#add('mg979/vim-visual-multi')
+
+	" Firenvim works in windows!
+	" Don't forget to :call firenvim#install(0) after install
+	call minpac#add('glacambre/firenvim')
+	
+	"" Colors
+	call minpac#add('davidosomething/vim-colors-meh')
+	call minpac#add('lifepillar/vim-solarized8')
+	call minpac#add('lifepillar/vim-gruvbox8')
+
 endif
 
-""" UltiSnips {{{1
-if has('nvim') || has('python') || has('python3')
-	let g:UltiSnipsExpandTrigger = '<tab>'
-	let g:UltiSnipsJumpForwardTrigger = '<tab>'
-	let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-	let g:UltiSnipsListSnippets = '<c-tab>'
-
-	silent! packadd ultisnips
-endif
-
-""" Fuzzy finder {{{1
-" Try to load LeaderF first
-if has('nvim') || has('python') || has('python3')
-	if exists("*popup_create") || exists("*nvim_open_win")
-		let g:Lf_WindowPosition = 'popup'
-	endif
-	let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-	let g:Lf_WindowHeight = 0.30
-	let g:Lf_ShowHidden = 1
-	let g:Lf_FollowLinks = 1
-    let g:Lf_PreviewResult = { 'BufTag': 0 }
-    let g:Lf_WildIgnore = {
-            \ 'dir': ['.svn','.git','.hg'],
-            \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', '*.tmp','*.ttf']
-            \}
-    let g:Lf_MruWildIgnore = copy(g:Lf_WildIgnore)
-	let g:Lf_UseVersionControlTool = 0
-	" This is set by default
-	" nnoremap <leader>f :LeaderfFile<CR>
-	" nnoremap <leader>b :LeaderfBuffer<CR>
-	nnoremap <leader>а :LeaderfFile<CR>
-	nnoremap <leader>и :LeaderfBuffer<CR>
-	nnoremap <leader>/ :LeaderfLine<CR>
-	nnoremap <leader>; :LeaderfHistoryCmd<CR>
-	nnoremap <leader>T :LeaderfBufTagAll<CR>
-	nnoremap <leader>[ :LeaderfFunction<CR>
-	nnoremap <leader>{ :LeaderfFunctionAll<CR>
-	nnoremap <leader>h :LeaderfHelp<CR>
-	nnoremap <leader>m :LeaderfMru<CR>
-	nmap <leader>ь <leader>m
-	nnoremap <leader>c :LeaderfColorscheme<CR>
-	silent! packadd LeaderF
-
-	command Docs :LeaderfFile ~/docs
-endif
-
-" Use ctrlp as backup fuzzy finder (no dependencies)
-if !exists('g:leaderf_loaded')
-	nnoremap <leader>f :CtrlPMixed<CR>
-	nnoremap <leader>b :CtrlPBuffer<CR>
-	nnoremap <leader>m :CtrlPMRUFiles<CR>
-
-	let g:ctrlp_key_loop = 1
-	if executable('rg')
-		let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-		let g:ctrlp_use_caching = 1
-	elseif has("win32") || has("win64")
-		let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
-	endif
-
-	silent! packadd ctrlp.vim
-endif
-
-" Clap is good... but windows and vim is a second class citizen.
-" if !exists('g:leaderf_loaded')
-" 	nnoremap <leader>f :Clap files<CR>
-" 	nnoremap <leader>b :Clap buffers<CR>
-" 	nnoremap <leader>m :Clap history<CR>
-" 	nnoremap <leader>; :Clap hist:<CR>
-" 	nnoremap <leader>c :Clap colors<CR>
-" 	silent! packadd vim-clap
-" endif
-
-""" Asciidoctor {{{1
-" There will be asciidoctor plugin here
-" let g:asciidoctor_executable = 'asciidoctor'
-
-" use asciidoctorj
-" let g:asciidoctor_executable = "asciidoctorj"
-" let g:asciidoctor_extensions = ['asciidoctor-diagram', 'asciidoctor-bibtex']
-let g:asciidoctor_extensions = ['asciidoctor-diagram']
-
-" use upstream asciidoctor-pdf
-let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/asciidoctor-pdf/bin/asciidoctor-pdf"
-" use asciidoctorj -b pdf
-" let g:asciidoctor_pdf_executable = "asciidoctorj -b pdf"
-
-" let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram', 'asciidoctor-bibtex']
-let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram']
-let g:asciidoctor_pdf_themes_path = '~/docs/.asciidoctor-setup'
-let g:asciidoctor_pdf_fonts_path = '~/docs/.asciidoctor-setup/fonts'
-
-" for OSX `pngpaste` could be used.
-let g:asciidoctor_img_paste_command = 'gm convert clipboard: %s%s'
-let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
-
-let g:asciidoctor_folding = 0
-let g:asciidoctor_fold_options = 1
-let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql']
-
-func! AsciidoctorBufferSetup()
-	nnoremap <buffer> <leader>oo :AsciidoctorOpenRAW<CR>
-	nnoremap <buffer> <leader>op :AsciidoctorOpenPDF<CR>
-	nnoremap <buffer> <leader>oh :AsciidoctorOpenHTML<CR>
-	nnoremap <buffer> <leader>ox :AsciidoctorOpenDOCX<CR>
-	nnoremap <buffer> <leader>ch :Asciidoctor2HTML<CR>
-	nnoremap <buffer> <leader>cp :Asciidoctor2PDF<CR>
-	nnoremap <buffer> <leader>cx :Asciidoctor2DOCX<CR>
-	nnoremap <buffer> <leader>p :AsciidoctorPasteImage<CR>
-	compiler asciidoctor2pdf
-endfunc
-augroup asciidoctor | au!
-	au BufEnter *.adoc,*.asciidoc call AsciidoctorBufferSetup()
-augroup END
-
-""" List Manipulation {{{1
-let g:list_man_default_mappings = 1
-
-""" EasyAlign {{{1
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-vmap ga <Plug>(LiveEasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-""" vim-swap settings {{{1
-let g:swap_no_default_key_mappings = 1
-
-""" text objects
-omap i, <Plug>(swap-textobject-i)
-xmap i, <Plug>(swap-textobject-i)
-omap a, <Plug>(swap-textobject-a)
-xmap a, <Plug>(swap-textobject-a)
-nmap g< <Plug>(swap-prev)
-nmap g> <Plug>(swap-next)
-nmap g. <Plug>(swap-interactive)
-
-""" Goyo && Limelight {{{1
-nnoremap yog :Goyo<CR>
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
-
-""" vim-skipit {{{1
-imap <A-.> <Plug>(SkipItForward)
-imap <A-,> <Plug>(SkipItBack)
-
-""" Undotree {{{1
-nnoremap <leader>u :UndotreeToggle<CR>
-
-""" vim-rooter {{{1
-let g:rooter_change_directory_for_non_project_files = ''
-let g:rooter_patterns = ['.git', '.git/', 'mix.exs']
-let g:rooter_silent_chdir = 1
-
-""" elixir {{{1
-" elixir related settings from different plugins
-let g:elixir_mix_test_position = "bottom"
-let g:mix_format_on_save = 1
-
-""" tpope's Markdown {{{1
-let g:markdown_folding = 1
-
-""" Lisp {{{1
-let g:lisp_rainbow = 1
-
-""" Vim-obsession {{{1
-command! -nargs=1 -complete=customlist,LoadObsessionComplete SA :Obsession ~/.vimdata/sessions/<args>
-
-command! -nargs=1 -complete=customlist,LoadObsessionComplete LO :so ~/.vimdata/sessions/<args>
-
-func! LoadObsessionComplete(A, L, P)
-	let fullpaths = split(globpath("~/.vimdata/sessions/", a:A."*"), "\n")
-	return map(fullpaths, {k,v -> fnamemodify(v, ":t")})
-endfunc
-
-
-""" Supertab {{{1
-let g:SuperTabDefaultCompletionType = "context"
-
-""" vim-yoink "kill ring" for vim
-nmap <c-n> <plug>(YoinkPostPasteSwapBack)
-nmap <c-p> <plug>(YoinkPostPasteSwapForward)
-
-nmap p <plug>(YoinkPaste_p)
-nmap P <plug>(YoinkPaste_P)
-
-""" Netrw {{{1
-let g:netrw_liststyle = 0
-let g:netrw_banner = 0
-
-""" Vim dadbod {{{1
-if !has('nvim')
-	let g:dadbods = []
-
-	" g:dadbods should be populated with
-	"
-	" let db = #{
-	" 		\name: "My Database",
-	" 		\url: "postgresql://user:password@url/dbname"
-	" 		\}
-
-	" call add(g:dadbods, db)
-
-	runtime mydadbods.vim
-
-	command! DBSelect :call popup_menu(map(copy(g:dadbods), {k,v -> v.name}), #{
-				\callback: 'DBSelected'
-				\})
-
-	func! DBSelected(id, result)
-		if a:result != -1
-			let b:db = g:dadbods[a:result-1].url
-			echomsg 'DB ' . g:dadbods[a:result-1].name . ' is selected.'
-		endif
-	endfunc
-
-	"" operator mapping
-
-	xnoremap <expr> <Plug>(DBExe)     db#op_exec()
-	nnoremap <expr> <Plug>(DBExe)     db#op_exec()
-	nnoremap <expr> <Plug>(DBExeLine) db#op_exec() . '_'
-
-	xmap <leader>db  <Plug>(DBExe)
-	nmap <leader>db  <Plug>(DBExe)
-	omap <leader>db  <Plug>(DBExe)
-	nmap <leader>dbb <Plug>(DBExeLine)
-	noremap <leader>dbs :DBSelect<CR>
-endif
-
-
-""" vim dispatch {{{1
-let g:dispatch_no_maps = 1
-nnoremap m<CR> :Make!<CR>
-
-
-""" vim-lsp {{{1
-let g:lsp_auto_enable = 1
-let g:lsp_signs_enabled = 0
-let g:lsp_highlight_references_enabled = 1
-let g:lsp_diagnostics_echo_cursor = 1
-
-augroup lsp_preview | au!
-	autocmd CompleteDone * silent! pclose
-augroup end
-
-if executable('pyls')
-	" pip install 'python-language-server[all]'
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
-
-if executable('solargraph')
-    " gem install solargraph
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'solargraph',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
-        \ 'initialization_options': {"diagnostics": "true"},
-        \ 'whitelist': ['ruby'],
-        \ })
-endif
-
-if executable('dart')
-	let s:dart_lsp_path = fnamemodify(resolve(exepath('dart')), ':h')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'dart',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'dart '.s:dart_lsp_path.'/snapshots/analysis_server.dart.snapshot --lsp']},
-        \ 'initialization_options': {"diagnostics": "true"},
-        \ 'whitelist': ['dart'],
-        \ })
-endif
-
-func! SetLSPMappings()
-	nnoremap <buffer> gd :LspDefinition<CR>
-	nnoremap <buffer> K :LspHover<CR>
-	nnoremap <buffer> <C-Space> :LspSignatureHelp<CR>
-	nnoremap <buffer> <leader>lf :LspDocumentFormat<CR>
-	nnoremap <buffer> <leader>la :LspCodeAction<CR>
-	nnoremap <buffer> <leader>ls :LspDocumentSymbol<CR>
-endfunc
-augroup lsp_mappings | au!
-	au FileType python call SetLSPMappings()
-	au FileType ruby call SetLSPMappings()
-	au FileType dart call SetLSPMappings()
-augroup END
-
-
-""" vim-CtrlXA
-" integrate with tpope's speeddating 
-nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
-nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
-
-
-""" Firenvim {{{1
-au BufEnter github.com_*.txt set filetype=markdown
-let g:firenvim_config = {
-    \ 'localSettings': {
-        \ 'riot.im': {
-            \ 'selector': '',
-        \ },
-        \ 'slack.com': {
-            \ 'selector': '',
-        \ },
-        \ 'twitter.com': {
-            \ 'selector': '',
-        \ }
-    \ }
-\ }
-
-""" Outline {{{1
-nnoremap <leader>l :DoOutline<CR>
-
-
-""" My pythoned stuff
-
-if has('nvim') || has('python') || has('python3')
-" pip install num2range first
-command! -nargs=* Num2Rubles let @* = Num2Rubles(<f-args>)
-
-func! Num2Rubles(num)
-pyx << EOF
-from num2words import num2words
-value = int(vim.eval("a:num"))
-
-div = value%10
-if div == 1:
-	ending = 'рубль'
-elif div in range(2, 5):
-	ending = 'рубля'
-else:
-	ending = 'рублей'
-
-words = num2words(value, lang='ru')
-
-result = '{} {} 00 копеек'.format(words, ending)
-print(result)
-EOF
-return pyxeval("words")
-endfunc
-
-endif
+" Commands to update and clean plugins {{{1
+command! PackUpdate packadd minpac | runtime minpac_list.vim | call minpac#update('', {'do': 'call minpac#status()'})
+command! PackClean  packadd minpac | runtime minpac_list.vim | call minpac#clean()
+command! PackStatus packadd minpac | runtime minpac_list.vim | call minpac#status()

@@ -134,6 +134,8 @@ set tabpagemax=50
 " turn off if you use airline
 set showmode
 
+set conceallevel=3
+
 "" Statusline {{{
 func! StatusGitBranch()
 	if exists('*fugitive#head')
@@ -327,10 +329,10 @@ nmap <Leader>умш <Leader>evi
 nnoremap <Leader>evg :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/gvimrc"<CR>
 nmap <Leader>умп <Leader>evg
 " edit plugins settings file 
-nnoremap <Leader>evs :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
+nnoremap <Leader>evs :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugin_settings.vim"<CR>
 nmap <Leader>умы <Leader>evs
 " edit plugins list file
-nnoremap <Leader>evp :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/minpac_list.vim"<CR>
+nnoremap <Leader>evp :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
 nmap <Leader>умз <Leader>evp
 " edit global notes file
 nnoremap <Leader>en :e ~/docs/notes/notes.adoc<CR>
@@ -498,5 +500,7 @@ endif
 runtime abbreviations.vim
 
 if v:version >= 801 || has('nvim')
-	runtime plugins.vim
+	" runtime plugins.vim
+	source <sfile>:h/plugin_settings.vim
+	source <sfile>:h/plugins.vim
 endif
