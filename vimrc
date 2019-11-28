@@ -72,10 +72,6 @@ else
 	" set gfn=Go_Mono:h12
 endif
 
-if !has('nvim') && has('gui_running')
-	set columns=999
-	set lines=999
-endif
 
 " pairs of colorschemes I like to use:
 " light is the first one, dark is the second.
