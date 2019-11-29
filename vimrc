@@ -72,7 +72,6 @@ else
 	" set gfn=Go_Mono:h12
 endif
 
-
 " pairs of colorschemes I like to use:
 " light is the first one, dark is the second.
 " let g:duo_themes = [{'name': 'solarized8', 'bg': 'light'}, {'name': 'gruvbox8', 'bg': 'dark'}]
@@ -421,6 +420,17 @@ command! ContinueInSplit
 
 
 command! CD lcd %:p:h
+
+if has('nvim')
+	func! s:nvimqt_gui_popup_menu()
+		if get(g:, "GuiLoaded", 0) 
+			GuiPopupmenu 0 
+		endif
+	endfunc
+	augroup NVIM_GUI | au!
+		au VimEnter * :call s:nvimqt_gui_popup_menu()
+	augroup end
+endif
 
 " Not for Windows
 " Write to a privileged file
