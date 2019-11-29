@@ -282,6 +282,9 @@ nnoremap <space>3 3<C-w>w
 nnoremap <space>4 4<C-w>w
 nnoremap <space>5 5<C-w>w
 nnoremap <space>6 6<C-w>w
+nnoremap <space>7 7<C-w>w
+nnoremap <space>8 8<C-w>w
+nnoremap <space>9 9<C-w>w
 
 " CTRL-U in insert mode deletes a lot.	Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
