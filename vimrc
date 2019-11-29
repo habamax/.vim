@@ -311,14 +311,15 @@ nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 func! s:underline(chars)
 	let underline = repeat(a:chars[0], len(getline('.')))
 	let next_line = getline(line('.')+1)
-	if trim(next_line)[0] =~ printf("%s\\|%s", a:chars[0], a:chars[1])
+	if index(a:chars, trim(next_line)[0]) != -1
 		call setline(line('.')+1, underline)
 	else
 		call append('.', underline)
 	endif
 endfunc
-nnoremap <leader>- :call <SID>underline(['-', '='])<CR>
-nnoremap <leader>= :call <SID>underline(['=', '-'])<CR>
+nnoremap <leader>- :call <SID>underline(['-', '=', '~'])<CR>
+nnoremap <leader>= :call <SID>underline(['=', '-', '~'])<CR>
+nnoremap <leader>~ :call <SID>underline(['~', '=', '-'])<CR>
 
 nnoremap <leader><leader>- o<home><ESC>78i-<ESC>
 nnoremap <leader><leader>= o<home><ESC>78i=<ESC>
