@@ -134,6 +134,6 @@ if exists('*minpac#init')
 endif
 
 " Commands to update and clean plugins {{{1
-command! PackUpdate packadd minpac | runtime minpac_list.vim | call minpac#update('', {'do': 'call minpac#status()'})
-command! PackClean  packadd minpac | runtime minpac_list.vim | call minpac#clean()
-command! PackStatus packadd minpac | runtime minpac_list.vim | call minpac#status()
+command! PackUpdate packadd minpac | runtime plugins.vim | call minpac#update('', {'do': 'call minpac#status()'})
+command! PackClean  packadd minpac | runtime plugins.vim | call minpac#clean()
+command! PackStatus packadd minpac | runtime plugins.vim | call minpac#status()
