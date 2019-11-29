@@ -21,6 +21,7 @@ endif
 if has('nvim') || has('python') || has('python3')
 	if exists("*popup_create") || exists("*nvim_open_win")
 		let g:Lf_WindowPosition = 'popup'
+		let g:Lf_PreviewInPopup = 1
 	endif
 	let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 	let g:Lf_WindowHeight = 0.30
