@@ -307,10 +307,19 @@ nnoremap <silent> c* :let @/=expand('<cword>')<cr>cgn
 " <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
-
 " Underline current line
-nnoremap <leader>- "zyy"zp<c-v>$r-
-nnoremap <leader>= "zyy"zp<c-v>$r=
+func! s:underline(chars)
+	let underline = repeat(a:chars[0], len(getline('.')))
+	let next_line = getline(line('.')+1)
+	if trim(next_line)[0] =~ printf("%s\\|%s", a:chars[0], a:chars[1])
+		call setline(line('.')+1, underline)
+	else
+		call append('.', underline)
+	endif
+endfunc
+nnoremap <leader>- :call <SID>underline(['-', '='])<CR>
+nnoremap <leader>= :call <SID>underline(['=', '-'])<CR>
+
 nnoremap <leader><leader>- o<home><ESC>78i-<ESC>
 nnoremap <leader><leader>= o<home><ESC>78i=<ESC>
 
