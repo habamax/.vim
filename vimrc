@@ -309,10 +309,10 @@ nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
 " Underline current line
 func! s:underline(chars)
+	let nextnr = line('.') + 1
 	let underline = repeat(a:chars[0], len(getline('.')))
-	let next_line = getline(line('.')+1)
-	if index(a:chars, trim(next_line)[0]) != -1
-		call setline(line('.')+1, underline)
+	if index(a:chars, trim(getline(nextnr))[0]) != -1
+		call setline(nextnr, underline)
 	else
 		call append('.', underline)
 	endif
