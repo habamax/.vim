@@ -65,8 +65,8 @@ else
 	" set gfn=Hack:h14
 	" set gfn=Consolas:h14
 	" set gfn=PT\ Mono:h14
+	" set gfn=Fira\ Mono:h14
 	" set gfn=IBM\ Plex\ Mono:h14
-	" set gfn=Fira\ Mono:h12
 	" set gfn=Liberation\ Mono:h14
 	" set gfn=Pragmata\ Pro:h14
 endif
