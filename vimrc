@@ -61,15 +61,14 @@ if has("gui_macvim")
 	let macvim_skip_colorscheme = 1
 else
 	set linespace=-1
-	" set gfn=Hack:h14
 	set gfn=Iosevka:h14
+	" set gfn=Hack:h14
 	" set gfn=Consolas:h14
-	" set gfn=Fira_Mono:h12
-	" set gfn=PT_Mono:h13
-	" set gfn=Liberation_Mono:h12
-	" set gfn=Pragmata_Pro:h14
-	" set gfn=IBM_Plex_Mono:h12
-	" set gfn=Go_Mono:h12
+	" set gfn=PT\ Mono:h14
+	" set gfn=IBM\ Plex\ Mono:h14
+	" set gfn=Fira\ Mono:h12
+	" set gfn=Liberation\ Mono:h14
+	" set gfn=Pragmata\ Pro:h14
 endif
 
 " pairs of colorschemes I like to use:
