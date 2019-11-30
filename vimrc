@@ -70,36 +70,13 @@ else
 	" set gfn=Liberation\ Mono:h14
 endif
 
-" pairs of colorschemes I like to use:
-" light is the first one, dark is the second.
-" let g:duo_themes = [{'name': 'solarized8', 'bg': 'light'}, {'name': 'gruvbox8', 'bg': 'dark'}]
-" let g:duo_themes = [{'name': 'defminus'}, {'name': 'solarized8', 'bg': 'dark'}]
-" let g:duo_themes = [{'name': 'defminus'}, {'name': 'defnoche'}]
-let g:duo_themes = [{'name': 'defminus'}, {'name': 'lessthan'}]
-func! s:set_colorscheme(color)
-	if has_key(a:color, 'bg')
-		let &bg = a:color['bg']
-	endif
-	if has_key(a:color, 'name')
-		exe "colorscheme ".a:color['name']
-	endif
-endfunc
-func! ToggleColorscheme()
-	if !exists('g:colors_name')
-		let g:colors_name = 'default'
-	endif
-	let color = filter(copy(g:duo_themes), {k, v -> v['name'] != g:colors_name})[0]
-	call s:set_colorscheme(color)
-endfunc
-
 " If it happens you run vim late, use dark colorscheme
 " Unless you have forced it
-let s:force_dark = 1
+let s:force_dark = 0
 if strftime("%H") >= 20 || strftime("%H") < 7 || s:force_dark
-	call s:set_colorscheme(g:duo_themes[1])
+	colo lessthan
 else
-" Light colors otherwise
-	call s:set_colorscheme(g:duo_themes[0])
+	colo defminus
 endif
 
 
