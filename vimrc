@@ -68,7 +68,6 @@ else
 	" set gfn=Fira\ Mono:h14
 	" set gfn=IBM\ Plex\ Mono:h14
 	" set gfn=Liberation\ Mono:h14
-	" set gfn=Pragmata\ Pro:h14
 endif
 
 " pairs of colorschemes I like to use:
