@@ -81,7 +81,7 @@ endif
 
 " Nice base16 colors are:
 " Default dark
-" Tomorrow (dark and light)
+" Tomorrow
 " Tomorrow night
 " Tomorrow night eighties
 func! s:base16_setup()
