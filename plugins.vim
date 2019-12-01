@@ -21,14 +21,12 @@ if exists('*minpac#init')
 	call minpac#add('tpope/vim-scriptease')
 	call minpac#add('tpope/vim-unimpaired')
 	call minpac#add('tpope/vim-eunuch')
-	" coerce word with cru :h cr
-	" All Abolish commands defined in ~/{vimfiles|.vim}/after/plugin/abolish.vim
-	call minpac#add('tpope/vim-abolish')
 	call minpac#add('tpope/vim-endwise')
 	" vinegar is small extension to Netrw
 	call minpac#add('tpope/vim-vinegar')
+	" Sessions
 	call minpac#add('tpope/vim-obsession')
-	" Databases, let's try it
+	" Databases
 	call minpac#add('tpope/vim-dadbod')
 
 	"" Git
@@ -52,6 +50,7 @@ if exists('*minpac#init')
 	" swap comma separated stuff with `g>` `g<` `gs`
 	" `gs` will probably interfere with vim-sort-motion
 	" map it to `g.`
+	" doesn't play well with neovim.
 	call minpac#add('machakann/vim-swap')
 	" parenthesis auto-pair, it clashes with tpope's endwise unfortunately.
 	" call minpac#add('tmsvg/pear-tree')
@@ -88,7 +87,7 @@ if exists('*minpac#init')
 	call minpac#add('ervandew/supertab')
 	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
 	call minpac#add('honza/vim-snippets', {'type': 'opt'})
-	call minpac#add('mattn/emmet-vim')
+	" call minpac#add('mattn/emmet-vim')
 	call minpac#add('alvan/vim-closetag')
 
 	"" Misc
@@ -112,7 +111,7 @@ if exists('*minpac#init')
 	call minpac#add('airblade/vim-rooter')
 
 	" RGB2Term is nice
-	call minpac#add('chrisbra/Colorizer')
+	" call minpac#add('chrisbra/Colorizer')
 	" call minpac#add('RRethy/vim-hexokinase')
 
 	" really good implementation of kill-ring
@@ -130,6 +129,8 @@ if exists('*minpac#init')
 	call minpac#add('davidosomething/vim-colors-meh')
 	call minpac#add('lifepillar/vim-solarized8')
 	call minpac#add('lifepillar/vim-gruvbox8')
+	call minpac#add('chriskempson/base16-vim')
+
 
 endif
 

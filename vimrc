@@ -79,6 +79,20 @@ else
 	colo defminus
 endif
 
+" Nice base16 colors are:
+" Default dark
+" Tomorrow (dark and light)
+" Tomorrow night
+" Tomorrow night eighties
+func! s:base16_setup()
+	call Base16hi("Title", "", "", "", "", "bold", "")
+	call Base16hi("Statement", "", "", "", "", "NONE", "")
+endfunc
+
+augroup COLORSCHEME_CHANGE | au!
+	au ColorScheme base16* call s:base16_setup()
+augroup end
+
 
 " 'I' in shortmess removes intro/welcome screen
 set shortmess+=Ic
@@ -329,11 +343,6 @@ nmap <Leader>уз <Leader>ep
 tnoremap <esc> <C-\><C-n>
 
 nnoremap <Leader><tab> <C-^>
-
-" Mimic toggling behaviour of Tim Popes unimpaired plugin
-nnoremap yot :call ToggleColorscheme()<CR>
-" nnoremap нще :call ToggleColorscheme()<CR>
-nmap нще yot
 
 " helper func for scroll other window mappings
 func! s:scroll_other_window(dir)
