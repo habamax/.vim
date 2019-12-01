@@ -158,8 +158,7 @@ set statusline+=%4(%p%%%)
 " set listchars=tab:→\ ,eol:┐,trail:·
 " let &showbreak='↳ '
 " Fancy listchars for GUI, ASCII listchars for terminal
-if has("gui_running")
-	" set listchars=tab:>\ ,trail:·,eol:$
+if has("gui_running") || has("nvim")
 	set listchars=tab:⭲\ ,eol:⮠,trail:·
 	" set listchars=tab:│\ ,eol:⮠,trail:·
 	" set listchars=tab:│\ ,eol:$,trail:·
