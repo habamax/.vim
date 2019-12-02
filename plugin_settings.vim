@@ -105,8 +105,8 @@ let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 
 let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql']
 
-" test conceal
 let g:asciidoctor_syntax_conceal = 1
+let g:asciidoctor_folding = 0
 
 func! AsciidoctorBufferSetup()
 	nnoremap <buffer> <leader>oo :AsciidoctorOpenRAW<CR>
@@ -167,7 +167,7 @@ let g:elixir_mix_test_position = "bottom"
 let g:mix_format_on_save = 1
 
 """ tpope's Markdown {{{1
-let g:markdown_folding = 1
+let g:markdown_folding = 0
 
 """ Lisp {{{1
 let g:lisp_rainbow = 1
