@@ -39,7 +39,6 @@ if !has("gui_running")
 	elseif &term =~ "win32"
 		set t_Co=256
 	endif
-	let s:force_dark = 1
 
 	" to fix cursor shape in WSL bash add 
 	" echo -ne "\e[2 q"
@@ -73,7 +72,7 @@ endif
 " If it happens you run vim late, use dark colorscheme
 " Unless you have forced it
 let s:force_dark = 0
-if strftime("%H") >= 20 || strftime("%H") < 7 || s:force_dark
+if strftime("%H") >= 20 || strftime("%H") < 8 || get(s:, "force_dark", 0)
 	colo lessthan
 else
 	colo defminus
