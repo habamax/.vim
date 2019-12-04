@@ -33,7 +33,7 @@ if has('nvim') || has('python') || has('python3')
             \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', '*.tmp','*.ttf']
             \}
     let g:Lf_MruWildIgnore = copy(g:Lf_WildIgnore)
-	let g:Lf_UseVersionControlTool = 0
+	let g:Lf_UseVersionControlTool = 1
 	" This is set by default
 	" nnoremap <leader>f :LeaderfFile<CR>
 	" nnoremap <leader>b :LeaderfBuffer<CR>
@@ -103,7 +103,7 @@ let g:asciidoctor_pdf_fonts_path = '~/docs/.asciidoctor-setup/fonts'
 let g:asciidoctor_img_paste_command = 'gm convert clipboard: %s%s'
 let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 
-let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql']
+let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json']
 
 let g:asciidoctor_syntax_conceal = 1
 let g:asciidoctor_folding = 0
@@ -309,7 +309,8 @@ let g:firenvim_config = {
 let g:VM_maps = {}
 let g:VM_maps['Find Under']         = '<leader>n'
 let g:VM_maps['Find Subword Under'] = '<leader>n'
-
+let g:VM_maps["Select Cursor Down"] = '<M-j>'
+let g:VM_maps["Select Cursor Up"]   = '<M-j>'
 """ Outline {{{1
 nnoremap <leader>l :DoOutline<CR>
 
