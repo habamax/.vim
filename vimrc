@@ -305,9 +305,11 @@ func! s:underline(chars)
 		call append('.', underline)
 	endif
 endfunc
-nnoremap <leader>- :call <SID>underline(['-', '=', '~'])<CR>
-nnoremap <leader>= :call <SID>underline(['=', '-', '~'])<CR>
-nnoremap <leader>~ :call <SID>underline(['~', '=', '-'])<CR>
+nnoremap <leader>- :call <SID>underline(['-', '=', '~', '^', '+'])<CR>
+nnoremap <leader>= :call <SID>underline(['=', '-', '~', '^', '+'])<CR>
+nnoremap <leader>~ :call <SID>underline(['~', '=', '-', '^', '+'])<CR>
+nnoremap <leader>^ :call <SID>underline(['^', '=', '-', '~', '+'])<CR>
+nnoremap <leader>+ :call <SID>underline(['+', '=', '-', '~', '^'])<CR>
 
 nnoremap <leader><leader>- o<home><ESC>78i-<ESC>
 nnoremap <leader><leader>= o<home><ESC>78i=<ESC>
