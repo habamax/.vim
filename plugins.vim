@@ -95,7 +95,7 @@ if exists('*minpac#init')
 	call minpac#add('junegunn/goyo.vim')
 	call minpac#add('junegunn/limelight.vim')
 
-	call minpac#add('Konfekt/vim-CtrlXA')
+	" call minpac#add('Konfekt/vim-CtrlXA')
 
 
 	" awesome

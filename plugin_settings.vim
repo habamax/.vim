@@ -288,10 +288,10 @@ augroup lsp_mappings | au!
 augroup END
 
 
-""" vim-CtrlXA
-" integrate with tpope's speeddating 
-nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
-nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
+" """ vim-CtrlXA
+" " integrate with tpope's speeddating 
+" nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
+" nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 
 
 """ Firenvim {{{1
