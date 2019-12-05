@@ -168,6 +168,7 @@ let g:mix_format_on_save = 1
 
 """ tpope's Markdown {{{1
 let g:markdown_folding = 0
+let g:markdown_fenced_languages = ['dart', 'python', 'ruby']
 
 """ Lisp {{{1
 let g:lisp_rainbow = 1
