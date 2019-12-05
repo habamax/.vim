@@ -234,6 +234,28 @@ nmap <leader>dbb <Plug>(DBExeLine)
 let g:dispatch_no_maps = 1
 nnoremap m<CR> :Make!<CR>
 
+" "" vim lsc {{{1
+" " for python
+" " pip install 'python-language-server[all]'
+" let g:lsc_auto_map = v:true
+" let g:lsc_server_commands = { 
+" 			\'python': {
+" 			\    'command': 'pyls',
+" 			\    'log_level': -1,
+" 			\    'suppress_stderr': v:true
+" 			\},
+" 			\'ruby': {
+" 			\    'command': '127.0.0.1:7658',
+" 			\    'log_level': -1,
+" 			\    'suppress_stderr': v:false
+" 			\},
+" 			\'dart': {
+" 			\    'command': 'C:/Users/maksim.kim/scoop/apps/dart/current/bin/dart C:/Users/maksim.kim/scoop/apps/dart/current/bin/snapshots/analysis_server.dart.snapshot --lsp --instrumentation-log-file=C:/Users/maksim.kim/dart.log'
+" 			\},
+" \}
+" let g:lsc_dart_enable_log = v:true
+
+" augroup lsc_preview | au!
 
 """ vim-lsp {{{1
 let g:lsp_auto_enable = 1
