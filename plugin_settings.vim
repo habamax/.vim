@@ -270,7 +270,24 @@ augroup lsp_preview | au!
 augroup end
 
 if executable('pyls')
-	" pip install 'python-language-server[all]'
+    " au User lsp_setup call lsp#register_server({
+    "     \ 'name': 'pyls_ms',
+    "     \ 'cmd': {server_info->[&shell, &shellcmdflag, 'dotnet C:/prg/pyls_ms/Microsoft.Python.LanguageServer.dll']},
+    "     \ 'whitelist': ['python'],
+    "     \ 'workspace_config': {
+		" \     'enabled': v:true, 
+		" \     'initializationOptions': {
+		" \         'interpreter': {
+		" \              'properties': {
+		" \                  'InterpreterPath': 'python', 
+		" \                  'UseDefaultDatabase': v:true,
+		" \                  'Version': '3.7.4'
+		" \              }
+		" \          }
+		" \      }
+		" \ }
+    "     \ })
+	"" pip install 'python-language-server[all]'
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pyls',
         \ 'cmd': {server_info->['pyls']},
