@@ -11,9 +11,8 @@ filetype plugin indent on
 if has('autocmd')
 	autocmd!
 endif
-if &t_Co > 2 || has("gui_running")
-	syntax enable
-endif
+
+syntax enable
 
 set hidden
 set confirm
@@ -50,26 +49,6 @@ if !has("gui_running")
 	endif
 endif
 
-"
-" Однажды в студеную зимнюю пору
-" Я из лесу вышел, был сильный мороз.
-" З3 -- Z3
-"
-if has("gui_macvim")
-	set gfn=Hack:h12,Menlo:h14
-	set macmeta
-	let macvim_skip_colorscheme = 1
-else
-	set linespace=-1
-	set gfn=Iosevka:h14
-	" set gfn=Hack:h14
-	" set gfn=Consolas:h14
-	" set gfn=IBM\ Plex\ Mono:h14
-	" set gfn=Cascadia\ Code:h14
-	" set gfn=PT\ Mono:h14
-	" set gfn=Fira\ Mono:h14
-	" set gfn=Liberation\ Mono:h14
-endif
 
 " If it happens you run vim late, use dark colorscheme
 " Unless you have forced it
@@ -151,24 +130,16 @@ set statusline+=%4(%p%%%)
 " }}}
 
 "" Unicode chars {{{
-" set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 " UTF-8 symbols, good font needed
 " ⮌⭯⭮⮍⮎⮏⭲╙●↳→│↑←↓↘└┐⤶⤾⤶⤸⬎⮐␊␍⮠⮐
+" set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
 " set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
 " set listchars=tab:⭲\ ,eol:↲,trail:·
 " set listchars=tab:→\ ,eol:┐,trail:·
 " let &showbreak='↳ '
 " Fancy listchars for GUI, ASCII listchars for terminal
-if has("gui_running") || has("nvim")
-	set listchars=tab:⭲\ ,eol:⮠,trail:·
-	" set listchars=tab:│\ ,eol:⮠,trail:·
-	" set listchars=tab:│\ ,eol:$,trail:·
-	" set listchars=tab:│\ ,eol:⮐,trail:·
-	let &showbreak='⮎ '
-	" set list
-else
-	set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
-endif
+set listchars=tab:⭲\ ,eol:⮠,trail:·
+let &showbreak='⮎ '
 
 set fillchars=fold:\ ,vert:│
 
@@ -416,17 +387,6 @@ command! ContinueInSplit
 
 
 command! CD lcd %:p:h
-
-if has('nvim')
-	func! s:nvimqt_gui_popup_menu()
-		if get(g:, "GuiLoaded", 0) 
-			GuiPopupmenu 0 
-		endif
-	endfunc
-	augroup NVIM_GUI | au!
-		au VimEnter * :call s:nvimqt_gui_popup_menu()
-	augroup end
-endif
 
 " Not for Windows
 " Write to a privileged file
