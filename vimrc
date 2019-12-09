@@ -53,6 +53,7 @@ endif
 "
 " Однажды в студеную зимнюю пору
 " Я из лесу вышел, был сильный мороз.
+" З3 -- Z3
 "
 if has("gui_macvim")
 	set gfn=Hack:h12,Menlo:h14
@@ -63,10 +64,10 @@ else
 	set gfn=Iosevka:h14
 	" set gfn=Hack:h14
 	" set gfn=Consolas:h14
+	" set gfn=IBM\ Plex\ Mono:h14
 	" set gfn=Cascadia\ Code:h14
 	" set gfn=PT\ Mono:h14
 	" set gfn=Fira\ Mono:h14
-	" set gfn=IBM\ Plex\ Mono:h14
 	" set gfn=Liberation\ Mono:h14
 endif
 
@@ -81,9 +82,9 @@ endif
 
 " Nice base16 colors are:
 " Default dark
-" Tomorrow
 " Tomorrow night
 " Tomorrow night eighties
+" Oceanicnext
 func! s:base16_setup()
 	call Base16hi("Title", "", "", "", "", "bold", "")
 	call Base16hi("Statement", "", "", "", "", "NONE", "")
