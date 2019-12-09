@@ -163,7 +163,7 @@ if exists('*minpac#init')
 	call minpac#add('tpope/vim-eunuch')
 	call minpac#add('tpope/vim-endwise')
 	" vinegar is small extension to Netrw
-	call minpac#add('tpope/vim-vinegar')
+	" call minpac#add('tpope/vim-vinegar')
 	" Sessions
 	call minpac#add('tpope/vim-obsession')
 	" Databases
@@ -236,6 +236,8 @@ if exists('*minpac#init')
 	call minpac#add('junegunn/limelight.vim')
 
 	" call minpac#add('Konfekt/vim-CtrlXA')
+
+	call minpac#add('justinmk/vim-dirvish')
 
 
 	" awesome

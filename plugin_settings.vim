@@ -195,8 +195,21 @@ nmap p <plug>(YoinkPaste_p)
 nmap P <plug>(YoinkPaste_P)
 
 """ Netrw {{{1
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
 let g:netrw_liststyle = 0
 let g:netrw_banner = 0
+
+""" Dirvish {{{1
+" directory first
+let g:dirvish_mode = ':sort ,^.*[\/],'
+
+if has('gui_running')
+	augroup dirvish_config | autocmd!
+		autocmd FileType dirvish call dirvish#add_icon_fn({p -> p[-1:]=~'/\|\\'?'📂':'📄'})
+	augroup END
+endif
+
 
 """ Vim dadbod {{{1
 let g:dadbods = []
@@ -270,49 +283,49 @@ augroup lsp_preview | au!
 augroup end
 
 if executable('pyls')
-    " au User lsp_setup call lsp#register_server({
-    "     \ 'name': 'pyls_ms',
-    "     \ 'cmd': {server_info->[&shell, &shellcmdflag, 'dotnet C:/prg/pyls_ms/Microsoft.Python.LanguageServer.dll']},
-    "     \ 'whitelist': ['python'],
-    "     \ 'workspace_config': {
-		" \     'enabled': v:true, 
-		" \     'initializationOptions': {
-		" \         'interpreter': {
-		" \              'properties': {
-		" \                  'InterpreterPath': 'python', 
-		" \                  'UseDefaultDatabase': v:true,
-		" \                  'Version': '3.7.4'
-		" \              }
-		" \          }
-		" \      }
-		" \ }
-    "     \ })
+	" au User lsp_setup call lsp#register_server({
+	"     \ 'name': 'pyls_ms',
+	"     \ 'cmd': {server_info->[&shell, &shellcmdflag, 'dotnet C:/prg/pyls_ms/Microsoft.Python.LanguageServer.dll']},
+	"     \ 'whitelist': ['python'],
+	"     \ 'workspace_config': {
+	" \     'enabled': v:true, 
+	" \     'initializationOptions': {
+	" \         'interpreter': {
+	" \              'properties': {
+	" \                  'InterpreterPath': 'python', 
+	" \                  'UseDefaultDatabase': v:true,
+	" \                  'Version': '3.7.4'
+	" \              }
+	" \          }
+	" \      }
+	" \ }
+	"     \ })
 	"" pip install 'python-language-server[all]'
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
+	au User lsp_setup call lsp#register_server({
+				\ 'name': 'pyls',
+				\ 'cmd': {server_info->['pyls']},
+				\ 'whitelist': ['python'],
+				\ })
 endif
 
 if executable('solargraph')
-    " gem install solargraph
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'solargraph',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
-        \ 'initialization_options': {"diagnostics": "true"},
-        \ 'whitelist': ['ruby'],
-        \ })
+	" gem install solargraph
+	au User lsp_setup call lsp#register_server({
+				\ 'name': 'solargraph',
+				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+				\ 'initialization_options': {"diagnostics": "true"},
+				\ 'whitelist': ['ruby'],
+				\ })
 endif
 
 if executable('dart')
 	let s:dart_lsp_path = fnamemodify(resolve(exepath('dart')), ':h')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'dart',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'dart '.s:dart_lsp_path.'/snapshots/analysis_server.dart.snapshot --lsp']},
-        \ 'initialization_options': {"diagnostics": "true"},
-        \ 'whitelist': ['dart'],
-        \ })
+	au User lsp_setup call lsp#register_server({
+				\ 'name': 'dart',
+				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'dart '.s:dart_lsp_path.'/snapshots/analysis_server.dart.snapshot --lsp']},
+				\ 'initialization_options': {"diagnostics": "true"},
+				\ 'whitelist': ['dart'],
+				\ })
 endif
 
 func! SetLSPMappings()
@@ -339,13 +352,13 @@ augroup END
 """ Firenvim {{{1
 au BufEnter github.com_*.txt set filetype=markdown
 let g:firenvim_config = {
-    \ 'localSettings': {
-        \ '.*': {
-            \ 'selector': '',
-            \ 'priority': 0,
-        \ }
-    \ }
-\ }
+			\ 'localSettings': {
+			\ '.*': {
+			\ 'selector': '',
+			\ 'priority': 0,
+			\ }
+			\ }
+			\ }
 
 """ Visual Multi
 let g:VM_maps = {}
@@ -360,21 +373,21 @@ nnoremap <leader>l :DoOutline<CR>
 """ My pythoned stuff
 
 if has('nvim') || has('python') || has('python3')
-" pip install num2range first
-command! -nargs=* Num2Rubles let @* = Num2Rubles(<f-args>)
+	" pip install num2range first
+	command! -nargs=* Num2Rubles let @* = Num2Rubles(<f-args>)
 
-func! Num2Rubles(num)
-pyx << EOF
-from num2words import num2words
-value = int(vim.eval("a:num"))
+	func! Num2Rubles(num)
+		pyx << EOF
+		from num2words import num2words
+		value = int(vim.eval("a:num"))
 
-div = value%10
-if div == 1:
-	ending = 'рубль'
-elif div in range(2, 5):
-	ending = 'рубля'
+		div = value%10
+		if div == 1:
+		ending = 'рубль'
+	elif div in range(2, 5):
+ending = 'рубля'
 else:
-	ending = 'рублей'
+ending = 'рублей'
 
 words = num2words(value, lang='ru')
 
