@@ -134,7 +134,7 @@ if exists('*packager#init')
 	call packager#add('chriskempson/base16-vim')
 endif
 
-command! PackInstall packadd vim-packager | runtime plugins.vim | call packager#install()
-command! -bang PackUpdate packadd vim-packager | runtime plugins.vim | call packager#update({ 'force_hooks': '<bang>' })
-command! PackClean packadd vim-packager | runtime plugins.vim | call packager#clean()
-command! PackStatus packadd vim-packager | runtime plugins.vim | call packager#status()
+command! PackInstall exe "packadd vim-packager | runtime plugins.vim | call packager#install()"
+command! -bang PackUpdate exe "packadd vim-packager | runtime plugins.vim | call packager#update({ 'force_hooks': '<bang>' })"
+command! PackClean exe "packadd vim-packager | runtime plugins.vim | call packager#clean()"
+command! PackStatus exe "packadd vim-packager | runtime plugins.vim | call packager#status()"
