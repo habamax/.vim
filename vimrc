@@ -77,7 +77,7 @@ augroup end
 " 'I' in shortmess removes intro/welcome screen
 set shortmess+=Ic
 set winaltkeys=no
-set guioptions=cme
+set guioptions=cMe
 set showtabline=1
 set cmdheight=1
 set nonumber norelativenumber
