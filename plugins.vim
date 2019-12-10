@@ -42,7 +42,9 @@ if exists('*minpac#init')
 
 	"" Text manipulation
 	call minpac#add('tommcdo/vim-exchange')
-	call minpac#add('tmhedberg/matchit')
+	echom "hello world"
+	call minpac#add('andymass/vim-matchup')
+
 	" use gsip to sort linewise
 	" use gsib to sort in a parenthesis
 	call minpac#add('christoomey/vim-sort-motion')
@@ -182,7 +184,8 @@ if exists('*minpac#init')
 
 	"" Text manipulation
 	call minpac#add('tommcdo/vim-exchange')
-	call minpac#add('tmhedberg/matchit')
+	call minpac#add('andymass/vim-matchup')
+
 	" use gsip to sort linewise
 	" use gsib to sort in a parenthesis
 	call minpac#add('christoomey/vim-sort-motion')
@@ -280,6 +283,7 @@ endif
 command! PackUpdate packadd minpac | runtime plugins.vim | call minpac#update('', {'do': 'call minpac#status()'})
 command! PackClean  packadd minpac | runtime plugins.vim | call minpac#clean()
 command! PackStatus packadd minpac | runtime plugins.vim | call minpac#status()
+
 " " Use vim-packager to utilize standard vim package stuff + git
 " " First of all vim-packager should be installed:
 " " WIN:

@@ -349,6 +349,10 @@ augroup END
 " nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
 
 
+""" vim-matchup
+let g:loaded_matchit = 1
+let g:matchup_matchparen_offscreen = {'method': 'popup'}
+
 """ Firenvim {{{1
 au BufEnter github.com_*.txt set filetype=markdown
 let g:firenvim_config = {
