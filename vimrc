@@ -71,7 +71,7 @@ endfunc
 
 augroup COLORSCHEME_CHANGE | au!
 	au ColorScheme base16* call s:base16_setup()
-augroup end
+augroup END
 
 
 " 'I' in shortmess removes intro/welcome screen
