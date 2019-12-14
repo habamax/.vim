@@ -25,6 +25,10 @@ if has('mouse')
 	set mouse=a
 endif
 
+" Vim and terminals have hard time processing ESCs (laaaag)
+" This helps a lot
+set ttimeoutlen=100
+
 "" Encoding and fileformat {{{1
 set encoding=utf8
 set fileencoding=utf8
