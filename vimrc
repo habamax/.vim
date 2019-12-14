@@ -8,9 +8,8 @@ language messages en_US.UTF-8
 
 filetype plugin indent on
 
-if has('autocmd')
-	autocmd!
-endif
+" Clean all autocommands
+autocmd!
 
 syntax enable
 
@@ -99,7 +98,6 @@ endif
 set scrolloff=2 sidescrolloff=0
 set display+=lastline
 set tabpagemax=50
-" turn off if you use airline
 set showmode
 
 set conceallevel=3
