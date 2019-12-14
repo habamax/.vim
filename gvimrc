@@ -4,7 +4,7 @@
 " З3 -- Z3
 "
 if has("gui_macvim")
-	set gfn=Hack:h12,Menlo:h14
+	set gfn=Fira\ Mono:h14,Menlo:h14
 	set macmeta
 	let macvim_skip_colorscheme = 1
 else
