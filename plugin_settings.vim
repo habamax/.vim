@@ -363,15 +363,17 @@ let g:loaded_matchit = 1
 let g:matchup_matchparen_offscreen = {'method': 'popup'}
 
 """ Firenvim {{{1
-au BufEnter github.com_*.txt set filetype=markdown
-let g:firenvim_config = {
-			\ 'localSettings': {
-			\ '.*': {
-			\ 'selector': '',
-			\ 'priority': 0,
-			\ }
-			\ }
-			\ }
+if has('nvim')
+	au BufEnter github.com_*.txt set filetype=markdown
+	let g:firenvim_config = {
+				\ 'localSettings': {
+				\ '.*': {
+				\ 'selector': '',
+				\ 'priority': 0,
+				\ }
+				\ }
+				\ }
+endif
 
 """ Visual Multi
 let g:VM_maps = {}
@@ -379,6 +381,7 @@ let g:VM_maps['Find Under']         = '<leader>n'
 let g:VM_maps['Find Subword Under'] = '<leader>n'
 let g:VM_maps["Select Cursor Down"] = '<M-j>'
 let g:VM_maps["Select Cursor Up"]   = '<M-j>'
+
 """ Outline {{{1
 nnoremap <leader>l :DoOutline<CR>
 
