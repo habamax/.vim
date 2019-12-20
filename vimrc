@@ -37,7 +37,8 @@ set fileformat=unix
 "" (G)UI {{{1
 if !has("gui_running")
 	if exists('+termguicolors')
-		set termguicolors
+		" for Terminal.app it gives really bad results
+		" set termguicolors
 	elseif &term =~ "win32"
 		set t_Co=256
 	endif
