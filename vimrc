@@ -422,27 +422,18 @@ if executable('rg')
 endif
 
 "" RU {{{1
-" Keymap внутренняя раскладка
+" Keymap внутренняя раскладка + langmap
 if has('osx')
 	set keymap=russian-jcukenmac
+	set langmap=йцукенгшщзхъ;qwertyuiop[]
+	set langmap+=фывапролджэё;asdfghjkl\\;'\\\
+	set langmap+=ячсмитьбю;zxcvbnm\\,.
+	set langmap+=ЙЦУКЕНГШЩЗХЪ;QWERTYUIOP{}
+	set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\|
+	set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
+	set langmap+=№#
 else
 	set keymap=russian-jcukenwin
-endif
-set iminsert=0
-set imsearch=-1
-
-" Langmap
-" Russian langmap for OSX
-" set langmap=йцукенгшщзхъ;qwertyuiop[]
-" set langmap+=фывапролджэё;asdfghjkl\\;'\\\
-" set langmap+=ячсмитьбю;zxcvbnm\\,.
-" set langmap+=ЙЦУКЕНГШЩЗХЪ;QWERTYUIOP{}
-" set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\|
-" set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
-" set langmap+=№#
-
-" Russian langmap for standard PC keyboard
-if has('langmap')
 	set langmap=йцукенгшщзхъ;qwertyuiop[]
 	set langmap+=фывапролджэё;asdfghjkl\\;'\\\
 	set langmap+=ячсмитьбю;zxcvbnm\\,.
@@ -453,12 +444,14 @@ if has('langmap')
 	" breaks english .
 	" set langmap+=./
 endif
+set iminsert=0
+set imsearch=-1
 
 "" Python ext {{{1
 if has('nvim')
-    let g:python3_host_prog  = 'python'
-    let g:loaded_python_provider = 0
-    let g:loaded3_python_provider = 0
+	let g:python3_host_prog  = 'python'
+	let g:loaded_python_provider = 0
+	let g:loaded3_python_provider = 0
 endif
 
 
