@@ -54,13 +54,15 @@ if !has("gui_running")
 endif
 
 
-" If it happens you run vim late, use dark colorscheme
-" Unless you have forced it
-let s:force_dark = 0
-if strftime("%H") >= 20 || strftime("%H") < 8 || get(s:, "force_dark", 0)
-	colo lessthan
-else
+if !has("gui_running") && has("osx")
 	colo defminus
+else
+	" If it happens you run vim late, use dark colorscheme
+	if strftime("%H") >= 20 || strftime("%H") < 8 
+		colo lessthan
+	else
+		colo defminus
+	endif
 endif
 
 " Nice base16 colors are:
