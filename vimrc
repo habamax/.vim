@@ -36,11 +36,8 @@ set fileformat=unix
 
 "" (G)UI {{{1
 if !has("gui_running")
-	if exists('+termguicolors')
-		" for Terminal.app it gives really bad results
-		" set termguicolors
-	elseif &term =~ "win32"
-		set t_Co=256
+	if exists('+termguicolors') && &term =~ "win32"
+		set termguicolors
 	endif
 
 	" to fix cursor shape in WSL bash add 
