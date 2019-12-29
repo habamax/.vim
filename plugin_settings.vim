@@ -284,8 +284,9 @@ augroup lsp_preview | au!
 		autocmd User lsp_float_opened
 			\ call popup_setoptions(lsp#ui#vim#output#getpreviewwinid(),
 			\ {
-			\ 'border': [0, 0, 0, 0],
-			\ 'padding': [0, 1, 1, 1]
+			\ 'border': [1, 1, 1, 1],
+			\ 'borderchars': ['─', '│', '─', '│', '┌', '┐', '┘', '└'],
+			\ 'padding': [0, 0, 0, 0]
 			\ })
 	end
 augroup end
