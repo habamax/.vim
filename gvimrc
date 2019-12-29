@@ -8,19 +8,13 @@ if has("gui_macvim")
 	set macmeta
 	let macvim_skip_colorscheme = 1
 else
-	" For some fonts linespace=-1 looks better.
-	set linespace=-1
-	" set gfn=Iosevka:h14
+	set linespace=0
 	set gfn=Fira\ Mono:h14
-	" set gfn=IBM\ Plex\ Mono:h12
-	" set gfn=IBM\ Plex\ Mono\ Text:h14
-
-	" set linespace&
 	" set gfn=Hack:h14
 	" set gfn=Consolas:h14
+	" set gfn=Iosevka:h14
 	" set gfn=Cascadia\ Code:h14
 	" set gfn=PT\ Mono:h14
-	" set gfn=Liberation\ Mono:h14
 endif
 
 set columns=200
