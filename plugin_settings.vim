@@ -290,52 +290,15 @@ augroup lsp_preview | au!
 	end
 augroup end
 
-
-if executable('pyls')
-	" au User lsp_setup call lsp#register_server({
-	"     \ 'name': 'pyls_ms',
-	"     \ 'cmd': {server_info->[&shell, &shellcmdflag, 'dotnet C:/prg/pyls_ms/Microsoft.Python.LanguageServer.dll']},
-	"     \ 'whitelist': ['python'],
-	"     \ 'workspace_config': {
-	" \     'enabled': v:true, 
-	" \     'initializationOptions': {
-	" \         'interpreter': {
-	" \              'properties': {
-	" \                  'InterpreterPath': 'python', 
-	" \                  'UseDefaultDatabase': v:true,
-	" \                  'Version': '3.7.4'
-	" \              }
-	" \          }
-	" \      }
-	" \ }
-	"     \ })
-	"" pip install 'python-language-server[all]'
-	au User lsp_setup call lsp#register_server({
-				\ 'name': 'pyls',
-				\ 'cmd': {server_info->['pyls']},
-				\ 'whitelist': ['python'],
-				\ })
-endif
-
-if executable('solargraph')
-	" gem install solargraph
-	au User lsp_setup call lsp#register_server({
-				\ 'name': 'solargraph',
-				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
-				\ 'initialization_options': {"diagnostics": "true"},
-				\ 'whitelist': ['ruby'],
-				\ })
-endif
-
-if executable('dart')
-	let s:dart_lsp_path = fnamemodify(resolve(exepath('dart')), ':h')
-	au User lsp_setup call lsp#register_server({
-				\ 'name': 'dart',
-				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'dart '.s:dart_lsp_path.'/snapshots/analysis_server.dart.snapshot --lsp']},
-				\ 'initialization_options': {"diagnostics": "true"},
-				\ 'whitelist': ['dart'],
-				\ })
-endif
+" if executable('dart')
+" 	let s:dart_lsp_path = fnamemodify(resolve(exepath('dart')), ':h')
+" 	au User lsp_setup call lsp#register_server({
+" 				\ 'name': 'dart',
+" 				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'dart '.s:dart_lsp_path.'/snapshots/analysis_server.dart.snapshot --lsp']},
+" 				\ 'initialization_options': {"diagnostics": "true"},
+" 				\ 'whitelist': ['dart'],
+" 				\ })
+" endif
 
 func! SetLSPMappings()
 	nnoremap <buffer> gd :LspDefinition<CR>
