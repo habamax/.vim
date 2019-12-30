@@ -63,10 +63,13 @@ else
 endif
 
 " Nice base16 colors are:
-" Default dark
-" Tomorrow night
 " Tomorrow night eighties
+" Tomorrow night
 " Oceanicnext
+" Darktooth
+" Default dark
+" grayscale-dark/light
+" harmonic-dark
 func! s:base16_setup()
 	call Base16hi("Title", "", "", "", "", "bold", "")
 	call Base16hi("Statement", "", "", "", "", "NONE", "")

@@ -7,7 +7,7 @@
 " OTHER:
 " git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
 
-" Plugins {{{1
+"" Plugins {{{1
 if exists('*minpac#init')
 	call minpac#init()
 	call minpac#add('k-takata/minpac', {'type': 'opt'})
@@ -142,7 +142,7 @@ if exists('*minpac#init')
 	call minpac#add('chriskempson/base16-vim')
 endif
 
-" Commands to update and clean plugins {{{1
+"" Commands to update and clean plugins {{{1
 command! PackUpdate packadd minpac | runtime plugins.vim | call minpac#update('', {'do': 'call minpac#status()'})
 command! PackClean  packadd minpac | runtime plugins.vim | call minpac#clean()
 command! PackStatus packadd minpac | runtime plugins.vim | call minpac#status()
