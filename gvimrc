@@ -9,7 +9,7 @@ if has("gui_macvim")
 	let macvim_skip_colorscheme = 1
 else
 	set linespace=0
-	set gfn=Victor\ Mono:h14
+	set gfn=Victor\ Mono\ Medium:h14
 	" set gfn=Hack:h14
 	" set gfn=Consolas:h14
 	" set gfn=Iosevka:h14
