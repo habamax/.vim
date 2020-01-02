@@ -71,6 +71,7 @@ if !exists('g:leaderf_loaded')
 endif
 
 " Clap is good... but windows and vim is a second class citizen.
+" Only latin is supported, no cyrillyc
 " if !exists('g:leaderf_loaded')
 " 	nnoremap <leader>f :Clap files<CR>
 " 	nnoremap <leader>b :Clap buffers<CR>
