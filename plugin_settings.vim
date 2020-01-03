@@ -70,17 +70,6 @@ if !exists('g:leaderf_loaded')
 	silent! packadd ctrlp.vim
 endif
 
-" Clap is good... but windows and vim is a second class citizen.
-" Only latin is supported, no cyrillyc
-" if !exists('g:leaderf_loaded')
-" 	nnoremap <leader>f :Clap files<CR>
-" 	nnoremap <leader>b :Clap buffers<CR>
-" 	nnoremap <leader>m :Clap history<CR>
-" 	nnoremap <leader>; :Clap hist:<CR>
-" 	nnoremap <leader>c :Clap colors<CR>
-" 	silent! packadd vim-clap
-" endif
-
 """ Asciidoctor {{{1
 " There will be asciidoctor plugin here
 " let g:asciidoctor_executable = 'asciidoctor'
