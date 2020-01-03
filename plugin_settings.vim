@@ -267,18 +267,18 @@ let g:lsp_auto_enable = 1
 " let g:lsp_log_verbose = 1
 " let g:lsp_log_file = expand('~/vimlsp.log')
 
-augroup lsp_preview | au!
-	autocmd CompleteDone * silent! pclose
-	if !has('nvim')
-		autocmd User lsp_float_opened
-			\ call popup_setoptions(lsp#ui#vim#output#getpreviewwinid(),
-			\ {
-			\ 'border': [1, 1, 1, 1],
-			\ 'borderchars': ['─', '│', '─', '│', '┌', '┐', '┘', '└'],
-			\ 'padding': [0, 0, 0, 0]
-			\ })
-	end
-augroup end
+" augroup lsp_preview | au!
+" 	autocmd CompleteDone * silent! pclose
+" 	if !has('nvim')
+" 		autocmd User lsp_float_opened
+" 			\ call popup_setoptions(lsp#ui#vim#output#getpreviewwinid(),
+" 			\ {
+" 			\ 'border': [1, 1, 1, 1],
+" 			\ 'borderchars': ['─', '│', '─', '│', '┌', '┐', '┘', '└'],
+" 			\ 'padding': [0, 0, 0, 0]
+" 			\ })
+" 	end
+" augroup end
 
 " if executable('dart')
 " 	let s:dart_lsp_path = fnamemodify(resolve(exepath('dart')), ':h')
