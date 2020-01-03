@@ -316,7 +316,8 @@ let g:loaded_matchit = 1
 let g:matchup_matchparen_offscreen = {'method': 'popup'}
 
 """ Firenvim {{{1
-if has('nvim')
+if exists('g:started_by_firenvim')
+	packadd firenvim
 	au BufEnter github.com_*.txt set filetype=markdown
 	let g:firenvim_config = {
 				\ 'localSettings': {
