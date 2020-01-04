@@ -56,12 +56,12 @@ func! s:base16_setup()
 	call Base16hi("DirvishPathTail", g:base16_gui0C, "", "", "", "bold", "")
 endfunc
 
-augroup COLORSCHEME_CHANGE | au!
+augroup colorscheme_change | au!
 	au ColorScheme base16* call s:base16_setup()
 augroup END
 
 "" Nice base16 colors are:
-func! FEEL_LUCKY_COLORS() abort
+func! I_AM_FEELING_LUCKY_COLORS() abort
 	let colors = [
 				\ 'base16-tomorrow-night',
 				\ 'base16-oceanicnext',
@@ -73,7 +73,7 @@ func! FEEL_LUCKY_COLORS() abort
 	exe 'colorscheme ' . colors[rand() % len(colors)]
 endfunc
 
-call FEEL_LUCKY_COLORS()
+" call I_AM_FEELING_LUCKY_COLORS()
 
 " My default colors -- when no other colorscheme was setup
 if get(g:, "colors_name", "default") == "default"
