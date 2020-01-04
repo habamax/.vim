@@ -50,34 +50,45 @@ if !has("gui_running")
 	endif
 endif
 
-
-if !has("gui_running") && has("osx")
-	colo defminus
-else
-	" If it happens you run vim late, use dark colorscheme
-	if strftime("%H") >= 20 || strftime("%H") < 8 
-		colo lessthan
-	else
-		colo defminus
-	endif
-endif
-
-" Nice base16 colors are:
-" Tomorrow night eighties
-" Tomorrow night
-" Oceanicnext
-" Darktooth
-" Default dark
-" grayscale-dark/light
-" harmonic-dark
 func! s:base16_setup()
 	call Base16hi("Title", "", "", "", "", "bold", "")
 	call Base16hi("Statement", "", "", "", "", "NONE", "")
+	call Base16hi("DirvishPathTail", g:base16_gui0C, "", "", "", "bold", "")
 endfunc
 
 augroup COLORSCHEME_CHANGE | au!
 	au ColorScheme base16* call s:base16_setup()
 augroup END
+
+"" Nice base16 colors are:
+func! FEEL_LUCKY_COLORS() abort
+	let colors = [
+				\ 'base16-tomorrow-night',
+				\ 'base16-oceanicnext',
+				\ 'base16-harmonic-dark',
+				\ 'base16-tomorrow-night-eighties',
+				\ 'base16-darktooth',
+				\ 'base16-default-dark'
+				\ ]
+	exe 'colorscheme ' . colors[rand() % len(colors)]
+endfunc
+
+call FEEL_LUCKY_COLORS()
+
+" My default colors -- when no other colorscheme was setup
+if get(g:, "colors_name", "default") == "default"
+	if !has("gui_running") && has("osx")
+		colo defminus
+	else
+		" If it happens you run vim late, use dark colorscheme
+		if strftime("%H") >= 20 || strftime("%H") < 8 
+			colo lessthan
+		else
+			colo defminus
+		endif
+	endif
+endif
+
 
 
 " 'I' in shortmess removes intro/welcome screen
