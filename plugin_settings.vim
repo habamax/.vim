@@ -278,7 +278,9 @@ let g:matchup_matchparen_offscreen = {'method': 'popup'}
 """ Firenvim {{{1
 if exists('g:started_by_firenvim')
 	packadd firenvim
+	set gfn=Iosevka\ Slab\ Extended:h12
 	au BufEnter github.com_*.txt set filetype=markdown
+	au BufEnter www.linux.org.ru_*.txt set filetype=markdown
 	let g:firenvim_config = {
 				\ 'localSettings': {
 				\ '.*': {
