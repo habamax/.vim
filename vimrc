@@ -114,7 +114,7 @@ set display+=lastline
 set tabpagemax=50
 set showmode
 
-set conceallevel=3
+set conceallevel=0
 
 "" Statusline {{{
 func! StatusGitBranch()
