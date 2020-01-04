@@ -138,8 +138,6 @@ if exists('*minpac#init')
 	
 
 	"" Colors
-	" call minpac#add('lifepillar/vim-solarized8')
-	" call minpac#add('lifepillar/vim-gruvbox8')
 	call minpac#add('chriskempson/base16-vim')
 endif
 
