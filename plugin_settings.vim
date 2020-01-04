@@ -234,28 +234,6 @@ nmap <leader>dbb <Plug>(DBExeLine)
 let g:dispatch_no_maps = 1
 nnoremap m<CR> :Make!<CR>
 
-" "" vim lsc {{{1
-" " for python
-" " pip install 'python-language-server[all]'
-" let g:lsc_auto_map = v:true
-" let g:lsc_server_commands = { 
-" 			\'python': {
-" 			\    'command': 'pyls',
-" 			\    'log_level': -1,
-" 			\    'suppress_stderr': v:true
-" 			\},
-" 			\'ruby': {
-" 			\    'command': '127.0.0.1:7658',
-" 			\    'log_level': -1,
-" 			\    'suppress_stderr': v:false
-" 			\},
-" 			\'dart': {
-" 			\    'command': 'C:/Users/maksim.kim/scoop/apps/dart/current/bin/dart C:/Users/maksim.kim/scoop/apps/dart/current/bin/snapshots/analysis_server.dart.snapshot --lsp --instrumentation-log-file=C:/Users/maksim.kim/dart.log'
-" 			\},
-" \}
-" let g:lsc_dart_enable_log = v:true
-
-" augroup lsc_preview | au!
 
 """ vim-lsp {{{1
 let g:lsp_auto_enable = 1
@@ -266,15 +244,6 @@ let g:lsp_auto_enable = 1
 
 " augroup lsp_preview | au!
 " 	autocmd CompleteDone * silent! pclose
-" 	if !has('nvim')
-" 		autocmd User lsp_float_opened
-" 			\ call popup_setoptions(lsp#ui#vim#output#getpreviewwinid(),
-" 			\ {
-" 			\ 'border': [1, 1, 1, 1],
-" 			\ 'borderchars': ['─', '│', '─', '│', '┌', '┐', '┘', '└'],
-" 			\ 'padding': [0, 0, 0, 0]
-" 			\ })
-" 	end
 " augroup end
 
 " if executable('dart')
@@ -302,12 +271,6 @@ augroup lsp_mappings | au!
 augroup END
 
 
-" """ vim-CtrlXA
-" " integrate with tpope's speeddating 
-" nmap <Plug>SpeedDatingFallbackUp   <Plug>(CtrlXA-CtrlA)
-" nmap <Plug>SpeedDatingFallbackDown <Plug>(CtrlXA-CtrlX)
-
-
 """ vim-matchup
 let g:loaded_matchit = 1
 let g:matchup_matchparen_offscreen = {'method': 'popup'}
@@ -325,6 +288,7 @@ if exists('g:started_by_firenvim')
 				\ }
 				\ }
 endif
+
 
 """ Visual Multi
 let g:VM_maps = {}
