@@ -131,10 +131,11 @@ if exists('*minpac#init')
 	" call minpac#add('chrisbra/Colorizer')
 	" call minpac#add('RRethy/vim-hexokinase')
 
+	" Embed neovim into firefox textboxes.
 	" Firenvim works in windows!
-	" Don't forget to :call firenvim#install(0) after install
-	" call minpac#add('glacambre/firenvim')
-    call minpac#add('glacambre/firenvim', { 'type': 'opt', 'do': 'packadd firenvim | call firenvim#install(0)'})
+	if has('nvim')
+		call minpac#add('glacambre/firenvim', { 'type': 'opt', 'do': 'packadd firenvim | call firenvim#install(0)'})
+	endif
 	
 
 	"" Colors
