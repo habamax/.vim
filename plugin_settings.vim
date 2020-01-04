@@ -184,13 +184,10 @@ nmap <c-p> <plug>(YoinkPostPasteSwapForward)
 nmap p <plug>(YoinkPaste_p)
 nmap P <plug>(YoinkPaste_P)
 
-""" Netrw {{{1
+""" Netrw -> Dirvish {{{1
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
-let g:netrw_liststyle = 0
-let g:netrw_banner = 0
 
-""" Dirvish {{{1
 " directory first
 let g:dirvish_mode = ':sort ,^.*[\/],'
 
