@@ -107,7 +107,7 @@ if exists('*minpac#init')
 
 
 	"" Completion/Expansion
-	call minpac#add('ervandew/supertab')
+	" call minpac#add('ervandew/supertab')
 	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
 	call minpac#add('honza/vim-snippets', {'type': 'opt'})
 	call minpac#add('alvan/vim-closetag')
