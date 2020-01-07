@@ -177,6 +177,8 @@ set virtualedit=block
 set formatoptions=cqj
 set textwidth=78
 
+set completeopt=menuone,preview
+
 " neovim specific
 if has('nvim')
 	set inccommand=split
