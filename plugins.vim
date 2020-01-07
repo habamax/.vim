@@ -99,6 +99,9 @@ if exists('*minpac#init')
 	call minpac#add('prabirshrestha/async.vim')
 	call minpac#add('prabirshrestha/asyncomplete.vim')
 	call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
+	call minpac#add('prabirshrestha/asyncomplete-buffer.vim')
+	call minpac#add('prabirshrestha/asyncomplete-ultisnips.vim')
+
 	" call minpac#add('natebosch/vim-lsc')
 	" call minpac#add('natebosch/vim-lsc-dart')
 

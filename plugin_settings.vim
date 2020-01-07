@@ -270,8 +270,30 @@ augroup lsp_mappings | au!
 	au FileType dart call SetLSPMappings()
 augroup END
 
+"" asyncomplete {{{1
 
-""" vim-matchup
+" let g:asyncomplete_auto_completeopt = 0
+" let g:asyncomplete_auto_popup = 0
+imap <C-Space> <Plug>(asyncomplete_force_refresh)
+
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_options({
+	\ 'name': 'ultisnips',
+	\ 'whitelist': ['*'],
+	\ 'completor': function('asyncomplete#sources#ultisnips#completor'),
+	\ }))
+
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+    \ 'name': 'buffer',
+    \ 'whitelist': ['*'],
+    \ 'blacklist': ['go'],
+    \ 'completor': function('asyncomplete#sources#buffer#completor'),
+    \ 'config': {
+    \    'max_buffer_size': 5000000,
+    \  },
+    \ }))
+
+
+""" vim-matchup {{{1
 let g:loaded_matchit = 1
 let g:matchup_matchparen_offscreen = {'method': 'popup'}
 
