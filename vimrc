@@ -34,7 +34,7 @@ set fileencoding=utf8
 set fileformats=unix,mac,dos
 set fileformat=unix
 
-"" (G)UI {{{1
+"" UI {{{1
 if !has("gui_running")
 	if exists('+termguicolors') && &term =~ "win32"
 		set termguicolors
@@ -48,47 +48,10 @@ if !has("gui_running")
 		let &t_SR = "\<Esc>[3 q"
 		let &t_EI = "\<Esc>[2 q"
 	endif
+
+	" each machine I use should have their own term_colorscheme.vim file
+	silent! source <sfile>:h/term_colorscheme.vim
 endif
-
-func! s:base16_setup()
-	call Base16hi("Title", "", "", "", "", "bold", "")
-	call Base16hi("Statement", "", "", "", "", "NONE", "")
-	call Base16hi("DirvishPathTail", g:base16_gui0C, "", "", "", "bold", "")
-endfunc
-
-augroup colorscheme_change | au!
-	au ColorScheme base16* call s:base16_setup()
-augroup END
-
-"" Nice base16 colors are:
-func! MY_LUCKY_COLORS() abort
-	let colors = [
-				\ 'base16-tomorrow-night',
-				\ 'base16-oceanicnext',
-				\ 'base16-harmonic-dark',
-				\ 'base16-tomorrow-night-eighties',
-				\ 'base16-darktooth',
-				\ 'base16-default-dark'
-				\ ]
-	exe 'colorscheme ' . colors[rand() % len(colors)]
-endfunc
-
-" call MY_LUCKY_COLORS()
-
-" My default colors -- when no other colorscheme was setup
-if get(g:, "colors_name", "default") == "default"
-	if !has("gui_running") && has("osx")
-		colo defminus
-	else
-		" If it happens you run vim late, use dark colorscheme
-		if strftime("%H") >= 20 || strftime("%H") < 8 
-			colo lessthan
-		else
-			colo defminus
-		endif
-	endif
-endif
-
 
 
 " 'I' in shortmess removes intro/welcome screen
