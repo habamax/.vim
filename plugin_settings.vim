@@ -85,9 +85,10 @@ let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/asciidocto
 " let g:asciidoctor_pdf_executable = "asciidoctorj -b pdf"
 
 " let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram', 'asciidoctor-bibtex']
-let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram']
-let g:asciidoctor_pdf_themes_path = '~/docs/.asciidoctor-setup'
-let g:asciidoctor_pdf_fonts_path = '~/docs/.asciidoctor-setup/fonts'
+" let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram']
+let g:asciidoctor_pdf_extensions = ['C:/Users/maksim.kim/projects/asciidoctor-diagram/lib/asciidoctor-diagram.rb']
+let g:asciidoctor_pdf_themes_path = '~/docs/.asciidoctor-themes'
+" let g:asciidoctor_pdf_fonts_path = '~/docs/.asciidoctor-setup/fonts;GEM_FONTS_DIR'
 
 " for OSX `pngpaste` could be used.
 let g:asciidoctor_img_paste_command = 'gm convert clipboard: %s%s'
