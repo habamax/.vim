@@ -174,7 +174,7 @@ set linebreak
 set breakindent
 set breakindentopt=sbr " showbreak will be handled correctly
 set virtualedit=block
-set formatoptions=cqj
+set formatoptions=cqjl
 set textwidth=78
 
 set completeopt=menuone,preview
