@@ -72,7 +72,7 @@ endif
 
 """ Asciidoctor {{{1
 " There will be asciidoctor plugin here
-" let g:asciidoctor_executable = 'asciidoctor'
+let g:asciidoctor_executable = 'bundle exec asciidoctor'
 
 " use asciidoctorj
 " let g:asciidoctor_executable = "asciidoctorj"
@@ -80,13 +80,14 @@ endif
 let g:asciidoctor_extensions = ['asciidoctor-diagram']
 
 " use upstream asciidoctor-pdf
-let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/asciidoctor-pdf/bin/asciidoctor-pdf"
+" let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/asciidoctor-pdf/bin/asciidoctor-pdf"
+let g:asciidoctor_pdf_executable = "bundle exec asciidoctor-pdf"
 " use asciidoctorj -b pdf
 " let g:asciidoctor_pdf_executable = "asciidoctorj -b pdf"
 
 " let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram', 'asciidoctor-bibtex']
-" let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram']
-let g:asciidoctor_pdf_extensions = ['C:/Users/maksim.kim/projects/asciidoctor-diagram/lib/asciidoctor-diagram.rb']
+" let g:asciidoctor_pdf_extensions = ['C:/Users/maksim.kim/projects/asciidoctor-diagram/lib/asciidoctor-diagram.rb']
+let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram']
 let g:asciidoctor_pdf_themes_path = '~/docs/.asciidoctor-themes'
 " let g:asciidoctor_pdf_fonts_path = '~/docs/.asciidoctor-setup/fonts;GEM_FONTS_DIR'
 
@@ -96,7 +97,7 @@ let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 
 let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json']
 
-let g:asciidoctor_syntax_conceal = 1
+let g:asciidoctor_syntax_conceal = 0
 let g:asciidoctor_folding = 0
 
 func! AsciidoctorBufferSetup()
