@@ -24,9 +24,11 @@ func! MY_LUCKY_COLORS() abort
 endfunc
 
 "" Uncomment if you want fancy colors in your gVim
-call MY_LUCKY_COLORS()
+" call MY_LUCKY_COLORS()
 
-" My default colors -- when no other colorscheme was setup
+colo lessthan
+
+" My timebased default colors -- when no other colorscheme was setup
 if get(g:, "colors_name", "default") == "default"
 	" If it happens you run vim late, use dark colorscheme
 	if strftime("%H") >= 20 || strftime("%H") < 8 
