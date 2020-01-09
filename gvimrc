@@ -1,5 +1,11 @@
 "" Customize base16 colors
 func! s:base16_setup()
+	if '0x'.g:base16_gui00 > 0x777777
+		set bg=light
+	else
+		set bg=dark
+	endif
+
 	call Base16hi("Title", "", "", "", "", "bold", "")
 	call Base16hi("Statement", "", "", "", "", "NONE", "")
 	call Base16hi("DirvishPathTail", g:base16_gui0C, "", "", "", "bold", "")
