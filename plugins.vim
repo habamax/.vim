@@ -139,7 +139,8 @@ if exists('*minpac#init')
 	" Firenvim works in windows!
 	call minpac#add('glacambre/firenvim',
 				\ { 'type': 'opt',
-				\ 'do': 'if has("nvim") | packadd firenvim | call firenvim#install(0) | endif'})
+				\ 'do': 'if has("nvim") | packadd firenvim | call firenvim#install(0) | endif'
+				\ })
 	
 
 	"" Colors
