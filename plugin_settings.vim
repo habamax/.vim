@@ -72,7 +72,7 @@ endif
 
 """ Asciidoctor {{{1
 " There will be asciidoctor plugin here
-let g:asciidoctor_executable = 'bundle exec asciidoctor'
+" let g:asciidoctor_executable = 'bundle exec asciidoctor'
 
 " use asciidoctorj
 " let g:asciidoctor_executable = "asciidoctorj"
@@ -80,8 +80,8 @@ let g:asciidoctor_executable = 'bundle exec asciidoctor'
 let g:asciidoctor_extensions = ['asciidoctor-diagram']
 
 " use upstream asciidoctor-pdf
-" let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/asciidoctor-pdf/bin/asciidoctor-pdf"
-let g:asciidoctor_pdf_executable = "bundle exec asciidoctor-pdf"
+let g:asciidoctor_pdf_executable = "ruby C:/Users/maksim.kim/projects/asciidoctor-pdf/bin/asciidoctor-pdf"
+" let g:asciidoctor_pdf_executable = "bundle exec asciidoctor-pdf"
 " use asciidoctorj -b pdf
 " let g:asciidoctor_pdf_executable = "asciidoctorj -b pdf"
 
