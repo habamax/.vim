@@ -104,9 +104,6 @@ if exists('*minpac#init')
 	call minpac#add('prabirshrestha/asyncomplete-ultisnips.vim')
 	call minpac#add('prabirshrestha/asyncomplete-file.vim')
 
-	" call minpac#add('natebosch/vim-lsc')
-	" call minpac#add('natebosch/vim-lsc-dart')
-
 
 	"" Completion/Expansion
 	" call minpac#add('ervandew/supertab')
@@ -132,7 +129,7 @@ if exists('*minpac#init')
 	" auto cd to your project root folder
 	call minpac#add('airblade/vim-rooter')
 
-	" RGB2Term is nice
+	"" RGB2Term is nice
 	" call minpac#add('chrisbra/Colorizer')
 	" call minpac#add('RRethy/vim-hexokinase')
 
