@@ -177,7 +177,8 @@ set virtualedit=block
 set formatoptions=cqjl
 set textwidth=78
 
-set completeopt=menuone,preview
+set completeopt=menuone
+if !has('nvim') && v:version > 802 | set completeopt+=popup | endif
 
 " neovim specific
 if has('nvim')
