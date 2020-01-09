@@ -244,6 +244,7 @@ let g:lsp_auto_enable = 1
 " let g:lsp_log_verbose = 1
 " let g:lsp_log_file = expand('~/vimlsp.log')
 
+"" mapping `C-w z` also works
 " augroup lsp_preview | au!
 " 	autocmd CompleteDone * silent! pclose
 " augroup end
