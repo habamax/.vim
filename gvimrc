@@ -18,6 +18,8 @@ augroup END
 "" Nice base16 colors are:
 func! MY_LUCKY_COLORS() abort
 	let colors = [
+				\ 'base16-twilight',
+				\ 'base16-one-light',
 				\ 'base16-black-metal-gorgoroth',
 				\ 'base16-tomorrow-night',
 				\ 'base16-oceanicnext',
