@@ -114,6 +114,10 @@ if exists('*minpac#init')
 
 
 	"" Miscelaneous
+
+	" rest console with curl
+	call minpac#add('diepm/vim-rest-console')
+
 	" better vim-matchit
 	call minpac#add('andymass/vim-matchup')
 
