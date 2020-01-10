@@ -100,7 +100,8 @@ if exists('*minpac#init')
 	" use forked as of now
 	" call minpac#add('prabirshrestha/asyncomplete.vim')
 	call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
-	call minpac#add('prabirshrestha/asyncomplete-buffer.vim')
+	" use forked as of now
+	" call minpac#add('prabirshrestha/asyncomplete-buffer.vim')
 	call minpac#add('prabirshrestha/asyncomplete-ultisnips.vim')
 	call minpac#add('prabirshrestha/asyncomplete-file.vim')
 
