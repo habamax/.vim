@@ -8,7 +8,10 @@ func! s:base16_setup()
 
 	call Base16hi("Title", "", "", "", "", "bold", "")
 	call Base16hi("Statement", "", "", "", "", "NONE", "")
+
 	call Base16hi("DirvishPathTail", g:base16_gui0C, "", "", "", "bold", "")
+
+	call Base16hi("Lf_hl_popup_window", "", g:base16_gui00, "", "", "", "")
 endfunc
 
 augroup colorscheme_change | au!
