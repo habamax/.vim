@@ -37,7 +37,8 @@ endfunc
 "" Uncomment if you want fancy colors in your gVim
 " call MY_LUCKY_COLORS()
 
-colo lessthan
+" colorscheme base16-twilight
+colorscheme base16-harmonic-dark
 
 " My timebased default colors -- when no other colorscheme was setup
 if get(g:, "colors_name", "default") == "default"
