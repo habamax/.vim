@@ -1,13 +1,13 @@
 {
 	"Date": {
-		"prefix": ["d"],
+		"prefix": ["date", "today"],
 		"body": [
 			"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE$0"
 		],
 		"description": "Current Date"
 	},
 	"DateTime": {
-		"prefix": ["dt"],
+		"prefix": ["now"],
 		"body": [
 			"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND$0"
 		],
