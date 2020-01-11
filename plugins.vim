@@ -104,7 +104,6 @@ if exists('*minpac#init')
 	" use forked as of now
 	" git clone https://github.com/habamax/asyncomplete-buffer.vim $HOME/vimfiles/pack/habamax/start/asyncomplete-buffer.vim
 	" call minpac#add('prabirshrestha/asyncomplete-buffer.vim')
-	call minpac#add('prabirshrestha/asyncomplete-ultisnips.vim')
 	call minpac#add('prabirshrestha/asyncomplete-file.vim')
 
 
