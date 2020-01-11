@@ -13,6 +13,8 @@ pack/habamax/start/vim-colors-lessthan/
 pack/habamax/start/vim-commentary/
 pack/habamax/start/vial
 /pack/habamax/start/vim-do-outline/
+/pack/habamax/start/asyncomplete-buffer.vim/
+/pack/habamax/start/asyncomplete.vim/
 autoload/plug.vim.old
 .netrwbook
 rplugin.vim
