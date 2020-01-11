@@ -270,7 +270,8 @@ endfunc
 augroup lsp_mappings | au!
 	au FileType python call SetLSPMappings()
 	au FileType ruby call SetLSPMappings()
-	au FileType dart call SetLSPMappings()
+	" au FileType dart call SetLSPMappings()
+	au FileType html call SetLSPMappings()
 augroup END
 
 "" asyncomplete {{{1
