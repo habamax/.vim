@@ -6,16 +6,6 @@ if executable("git")
 	silent! packadd vim-flog
 endif
 
-""" UltiSnips {{{1
-if has('nvim') || has('python') || has('python3')
-	let g:UltiSnipsExpandTrigger = '<tab>'
-	let g:UltiSnipsJumpForwardTrigger = '<tab>'
-	let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-	let g:UltiSnipsListSnippets = '<c-tab>'
-
-	silent! packadd ultisnips
-endif
-
 """ Fuzzy finder {{{1
 " Try to load LeaderF first
 if has('nvim') || has('python') || has('python3')
@@ -281,12 +271,6 @@ augroup END
 imap <C-Space> <Plug>(asyncomplete_force_refresh)
 " inoremap <expr> <CR> pumvisible() ? asyncomplete#close_popup() . "\<CR>" : "\<CR>"
 imap <expr> <CR> pumvisible() ? asyncomplete#close_popup() . "\<CR><Plug>DiscretionaryEnd" : "\<CR><Plug>DiscretionaryEnd"
-
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_options({
-	\ 'name': 'ultisnips',
-	\ 'whitelist': ['*'],
-	\ 'completor': function('asyncomplete#sources#ultisnips#completor'),
-	\ }))
 
 au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
     \ 'name': 'buffer',
