@@ -254,9 +254,9 @@
 			"\tstring(street, 100)",
 			"}",
 			"",
-			"mdc.Party \"1\" --{ \"0..*\" mdc.Address: Party has addresses",
-			"mdc.Party \"1\" --{ \"0..*\" mdc.Document: Party has documents",
-			"mdc.Party \"1\" --{ \"0..*\" mdc.Contact: Party has contacts",
+			"mdc.Party \"1\" --{ \"0..*\" mdc.Address: Party has\\\\naddresses",
+			"mdc.Party \"1\" --{ \"0..*\" mdc.Document: Party has\\\\ndocuments",
+			"mdc.Party \"1\" --{ \"0..*\" mdc.Contact: Party has\\\\ncontacts",
 			"...."
 		],
 		"description": ""
