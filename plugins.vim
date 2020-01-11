@@ -108,16 +108,11 @@ if exists('*minpac#init')
 	call minpac#add('prabirshrestha/asyncomplete-file.vim')
 
 
-	"" Completion/Expansion
-	" call minpac#add('ervandew/supertab')
-	" ultisnips slow down insert mode for russian text with InsertCharPre
-	" autocommand...
-	" I may try using another one...
-	" call minpac#add('SirVer/ultisnips', {'type': 'opt'})
-	" call minpac#add('honza/vim-snippets', {'type': 'opt'})
+	"" Snippets
 	call minpac#add('hrsh7th/vim-vsnip')
 	call minpac#add('hrsh7th/vim-vsnip-integ')
-	" TODO: Check how it should work.
+
+	" Close tags with > and >> in insert mode
 	call minpac#add('alvan/vim-closetag')
 
 
