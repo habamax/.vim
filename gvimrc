@@ -54,13 +54,14 @@ endfunc
 " call MY_LUCKY_COLORS()
 
 " colorscheme base16-twilight
-colorscheme base16-harmonic-dark
+" colorscheme base16-harmonic-dark
 
 " My timebased default colors -- when no other colorscheme was setup
 if get(g:, "colors_name", "default") == "default"
 	" If it happens you run vim late, use dark colorscheme
 	if strftime("%H") >= 20 || strftime("%H") < 8 
-		colorscheme lessthan
+		let my_dark_colors = ['lessthan', 'defnoche']
+		exe 'colorscheme ' . my_dark_colors[rand() % len(my_dark_colors)]
 	else
 		colorscheme defminus
 	endif
