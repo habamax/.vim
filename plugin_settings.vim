@@ -320,6 +320,9 @@ smap <expr> <Tab>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<Tab
 imap <expr> <S-Tab> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 smap <expr> <S-Tab> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 
+""" vim-closetag
+let g:closetag_filetypes = 'html,xhtml,xml'
+
 """ Firenvim {{{1
 if exists('g:started_by_firenvim')
 	packadd firenvim
