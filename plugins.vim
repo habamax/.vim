@@ -117,6 +117,7 @@ if exists('*minpac#init')
 	" call minpac#add('honza/vim-snippets', {'type': 'opt'})
 	call minpac#add('hrsh7th/vim-vsnip')
 	call minpac#add('hrsh7th/vim-vsnip-integ')
+	" TODO: Check how it should work.
 	call minpac#add('alvan/vim-closetag')
 
 
