@@ -108,8 +108,13 @@ if exists('*minpac#init')
 
 	"" Completion/Expansion
 	" call minpac#add('ervandew/supertab')
-	call minpac#add('SirVer/ultisnips', {'type': 'opt'})
-	call minpac#add('honza/vim-snippets', {'type': 'opt'})
+	" ultisnips slow down insert mode for russian text with InsertCharPre
+	" autocommand...
+	" I may try using another one...
+	" call minpac#add('SirVer/ultisnips', {'type': 'opt'})
+	" call minpac#add('honza/vim-snippets', {'type': 'opt'})
+	call minpac#add('hrsh7th/vim-vsnip')
+	call minpac#add('hrsh7th/vim-vsnip-integ')
 	call minpac#add('alvan/vim-closetag')
 
 

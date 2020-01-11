@@ -1,0 +1,11 @@
+{
+  "Function": {
+    "prefix": ["fu"],
+    "body": [
+      "func! ${1:MyFunc}($2) ${3:abort}",
+      "\t$0",
+      "endfunc"
+    ],
+    "description": ""
+  }
+}
