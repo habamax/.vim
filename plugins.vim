@@ -98,9 +98,11 @@ if exists('*minpac#init')
 	call minpac#add('mattn/vim-lsp-icons')
 	call minpac#add('prabirshrestha/async.vim')
 	" use forked as of now
+	" git clone https://github.com/habamax/asyncomplete.vim $HOME/vimfiles/pack/habamax/start/asyncomplete.vim
 	" call minpac#add('prabirshrestha/asyncomplete.vim')
 	call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
 	" use forked as of now
+	" git clone https://github.com/habamax/asyncomplete-buffer.vim $HOME/vimfiles/pack/habamax/start/asyncomplete-buffer.vim
 	" call minpac#add('prabirshrestha/asyncomplete-buffer.vim')
 	call minpac#add('prabirshrestha/asyncomplete-ultisnips.vim')
 	call minpac#add('prabirshrestha/asyncomplete-file.vim')
