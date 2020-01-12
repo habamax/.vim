@@ -150,9 +150,9 @@
 	},
 	
 	"Source": {
-		"prefix": ["src", "source"],
+		"prefix": ["src"],
 		"body": [
-			"[source$1]",
+			"[source${1:,text}]",
 			"----",
 			"$0",
 			"----"
