@@ -71,7 +71,7 @@ endif
 "
 " Однажды в студеную зимнюю пору
 " Я из лесу вышел, был сильный мороз.
-" З3 -- Z3
+" зЗ3 -- Z3
 "
 if has("gui_macvim")
 	set gfn=Iosevka\ Slab\ Extended:h14,Hack:h14,Menlo:h14
@@ -80,11 +80,11 @@ if has("gui_macvim")
 else
 	set linespace=0
 	if rand()%2 == 1
-		" set gfn=Iosevka\ Curly\ Slab\ Extended:h14
-		set gfn=Iosevka\ Slab\ Extended:h14
+		set gfn=Iosevka\ Curly\ Slab\ Extended:h14
+		" set gfn=Iosevka\ Slab\ Extended:h14
 	else
-		" set gfn=Iosevka\ Curly\ Extended:h14
-		set gfn=Iosevka\ Extended:h14
+		set gfn=Iosevka\ Curly\ Extended:h14
+		" set gfn=Iosevka\ Extended:h14
 	endif
 	" set gfn=Iosevka\ Curly:h14
 	" set gfn=Iosevka\ Slab\ Extended:h14
