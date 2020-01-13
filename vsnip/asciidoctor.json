@@ -3,6 +3,7 @@
 		"prefix": ["opts"],
 		"body": [
 			":author: ${1:Maxim Kim}",
+			":compress:",
 			":experimental:",
 			":toc: left",
 			":toclevels: 3",
@@ -27,6 +28,7 @@
 		"prefix": ["optsru"],
 		"body": [
 			":author: ${1:Максим Ким}",
+			":compress:",
 			":experimental:",
 			":toc: left",
 			":toclevels: 3",
