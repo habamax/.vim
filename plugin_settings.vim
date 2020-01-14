@@ -229,6 +229,7 @@ nnoremap m<CR> :Make!<CR>
 
 """ vim-lsp {{{1
 let g:lsp_auto_enable = 1
+let g:lsp_diagnostics_echo_cursor = 1
 " let g:lsp_signs_enabled = 0
 " let g:lsp_highlight_references_enabled = 1
 " let g:lsp_log_verbose = 1
