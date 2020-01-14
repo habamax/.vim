@@ -266,7 +266,6 @@ augroup lsp_mappings | au!
 augroup END
 
 "" asyncomplete {{{1
-
 " let g:asyncomplete_auto_completeopt = 0
 " let g:asyncomplete_auto_popup = 0
 imap <C-Space> <Plug>(asyncomplete_force_refresh)
@@ -274,11 +273,12 @@ imap <C-Space> <Plug>(asyncomplete_force_refresh)
 imap <expr> <CR> pumvisible() ? asyncomplete#close_popup() . "\<CR><Plug>DiscretionaryEnd" : "\<CR><Plug>DiscretionaryEnd"
 
 au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-    \ 'name': 'file',
-    \ 'whitelist': ['*'],
-    \ 'priority': 10,
-    \ 'completor': function('asyncomplete#sources#file#completor')
-    \ }))
+			\ 'name': 'file',
+			\ 'whitelist': ['*'],
+			\ 'priority': 10,
+			\ 'completor': function('asyncomplete#sources#file#completor')
+			\ }))
+
 
 """ vim-matchup {{{1
 let g:loaded_matchit = 1
