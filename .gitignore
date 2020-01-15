@@ -12,6 +12,8 @@ pack/habamax/start/vim-colors-defnoche/
 pack/habamax/start/vim-colors-lessthan/
 pack/habamax/start/vim-commentary/
 pack/habamax/start/vial
+/pack/habamax/start/vim-ft-gdscript/
+/pack/habamax/start/vim-num2words/
 /pack/habamax/start/vim-do-outline/
 /pack/habamax/start/asyncomplete-buffer.vim/
 /pack/habamax/start/asyncomplete.vim/
@@ -23,5 +25,4 @@ rplugin.vim
 *.pyc
 *.temp
 /mydadbods.vim
-/pack/habamax/start/vim-ft-gdscript/
 /tags
