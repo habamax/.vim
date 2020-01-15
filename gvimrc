@@ -63,7 +63,8 @@ if get(g:, "colors_name", "default") == "default"
 		let my_dark_colors = ['lessthan', 'defnoche']
 		exe 'colorscheme ' . my_dark_colors[rand() % len(my_dark_colors)]
 	else
-		colorscheme defminus
+		let light_colors = ['defminus', 'base16-one-light']
+		exe 'colorscheme ' . light_colors[rand() % len(light_colors)]
 	endif
 endif
 
