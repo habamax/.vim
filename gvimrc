@@ -85,8 +85,6 @@ else
 	" set gfn=JetBrains\ Mono:h14
 	" set gfn=Hack:h14
 	" set gfn=Fira\ Mono:h14
-	" set gfn=Iosevka:h14
-	" set gfn=Iosevka\ Slab:h14
 	" set gfn=Consolas:h14
 	" set gfn=Cascadia\ Code:h14
 	" set gfn=PT\ Mono:h14
