@@ -1,3 +1,4 @@
+""" Colors {{{1
 "" Customize base16 colors
 func! s:base16_setup()
 	if '0x'.g:base16_gui00 > 0x777777
@@ -68,6 +69,7 @@ if get(g:, "colors_name", "default") == "default"
 endif
 
 
+""" Fonts {{{1
 "
 " Однажды в студеную зимнюю пору
 " Я из лесу вышел, был сильный мороз.
