@@ -75,13 +75,13 @@ endif
 " зЗ3 -- Z3
 "
 if has("gui_macvim")
-	set gfn=Iosevka\ Curly\ Extended:h14,Hack:h14,Menlo:h14
+	set gfn=Iosevka\ Extended:h14,Hack:h14,Menlo:h14
 	set macmeta
 	let macvim_skip_colorscheme = 1
 else
 	set linespace=0
-	set gfn=Iosevka\ Curly\ Extended:h14
-	" set gfn=Iosevka\ Curly\ Slab\ Extended:h14
+	set gfn=Iosevka\ Extended:h14
+	" set gfn=Iosevka\ SS09\ Extended:h14
 	" set gfn=JetBrains\ Mono:h14
 	" set gfn=Hack:h14
 	" set gfn=Fira\ Mono:h14
