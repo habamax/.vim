@@ -270,6 +270,7 @@ augroup END
 " let g:asyncomplete_auto_popup = 0
 imap <C-Space> <Plug>(asyncomplete_force_refresh)
 " inoremap <expr> <CR> pumvisible() ? asyncomplete#close_popup() . "\<CR>" : "\<CR>"
+" FIXME: When there is no plugin installed <CR> echoes <Plug>DiscretionaryEnd
 imap <expr> <CR> pumvisible() ? asyncomplete#close_popup() . "\<CR><Plug>DiscretionaryEnd" : "\<CR><Plug>DiscretionaryEnd"
 
 au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
