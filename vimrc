@@ -431,11 +431,12 @@ if has('nvim')
 endif
 
 
-"" Load Plugins and Abbreviations {{{1
-runtime abbreviations.vim
+"" Load Other Settings (plugins, etc) {{{1
+silent! source <sfile>:h/abbreviations.vim
+
+silent! source <sfile>:h/colorscheme_setup.vim
 
 if v:version >= 801 || has('nvim')
-	" runtime plugins.vim
 	source <sfile>:h/plugin_settings.vim
 	source <sfile>:h/plugins.vim
 endif
