@@ -235,6 +235,24 @@ vmap ga <Plug>(LiveEasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+""" vim-visual-multi {{{1
+let g:VM_maps = {}
+let g:VM_maps['Find Under']         = '<leader>n'
+let g:VM_maps['Find Subword Under'] = '<leader>n'
+let g:VM_maps["Select Cursor Down"] = '<M-j>'
+let g:VM_maps["Select Cursor Up"]   = '<M-j>'
+
+"" vim-rest-console {{{1
+let g:vrc_auto_format_response_enabled = 1
+let b:vrc_response_default_content_type = 'application/json'
+" let g:vrc_show_command = 1
+let g:vrc_curl_opts = {
+			\ '-sS': '',
+			\ '-i': '',
+			\ '--connect-timeout': 10,
+			\}
+
+
 """ firenvim {{{1
 if exists('g:started_by_firenvim')
 	packadd firenvim
@@ -250,24 +268,6 @@ if exists('g:started_by_firenvim')
 				\	}
 				\ }
 endif
-
-
-""" Visual Multi
-let g:VM_maps = {}
-let g:VM_maps['Find Under']         = '<leader>n'
-let g:VM_maps['Find Subword Under'] = '<leader>n'
-let g:VM_maps["Select Cursor Down"] = '<M-j>'
-let g:VM_maps["Select Cursor Up"]   = '<M-j>'
-
-"" vim-rest-console {{{
-let g:vrc_auto_format_response_enabled = 1
-let b:vrc_response_default_content_type = 'application/json'
-" let g:vrc_show_command = 1
-let g:vrc_curl_opts = {
-			\ '-sS': '',
-			\ '-i': '',
-			\ '--connect-timeout': 10,
-			\}
 
 
 """ elixir {{{1
