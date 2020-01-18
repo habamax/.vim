@@ -49,8 +49,8 @@ if !has("gui_running")
 		let &t_EI = "\<Esc>[2 q"
 	endif
 
-	" each machine I use should have their own term_colorscheme.vim file
-	silent! source <sfile>:h/term_colorscheme.vim
+	" each machine I use should have their own colorscheme_term.vim file
+	silent! source <sfile>:h/colorscheme_term.vim
 endif
 
 
