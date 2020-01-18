@@ -1,3 +1,4 @@
+""" Check after/plugin/init.vim for settings that depends on plugin existence
 """ Plugin settings
 
 """ Git packages {{{1
@@ -117,23 +118,10 @@ nmap ga <Plug>(EasyAlign)
 """ vim-swap settings {{{1
 let g:swap_no_default_key_mappings = 1
 
-""" text objects
-omap i, <Plug>(swap-textobject-i)
-xmap i, <Plug>(swap-textobject-i)
-omap a, <Plug>(swap-textobject-a)
-xmap a, <Plug>(swap-textobject-a)
-nmap g< <Plug>(swap-prev)
-nmap g> <Plug>(swap-next)
-nmap g. <Plug>(swap-interactive)
-
 """ Goyo && Limelight {{{1
 nnoremap yog :Goyo<CR>
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
-
-""" vim-skipit {{{1
-imap <A-.> <Plug>(SkipItForward)
-imap <A-,> <Plug>(SkipItBack)
 
 """ Undotree {{{1
 nnoremap <leader>u :UndotreeToggle<CR>
@@ -165,16 +153,6 @@ func! LoadObsessionComplete(A, L, P)
 	return map(fullpaths, {k,v -> fnamemodify(v, ":t")})
 endfunc
 
-
-""" Supertab {{{1
-let g:SuperTabDefaultCompletionType = "context"
-
-""" vim-yoink "kill ring" for vim
-nmap <c-n> <plug>(YoinkPostPasteSwapBack)
-nmap <c-p> <plug>(YoinkPostPasteSwapForward)
-
-nmap p <plug>(YoinkPaste_p)
-nmap P <plug>(YoinkPaste_P)
 
 """ Netrw -> Dirvish {{{1
 let g:loaded_netrw = 1
@@ -224,7 +202,6 @@ nmap <leader>dbb <Plug>(DBExeLine)
 
 """ vim dispatch {{{1
 let g:dispatch_no_maps = 1
-nnoremap m<CR> :Make!<CR>
 
 
 """ vim-lsp {{{1
@@ -265,21 +242,6 @@ augroup lsp_mappings | au!
 	au FileType html call SetLSPMappings()
 augroup END
 
-"" asyncomplete {{{1
-" let g:asyncomplete_auto_completeopt = 0
-" let g:asyncomplete_auto_popup = 0
-imap <C-Space> <Plug>(asyncomplete_force_refresh)
-" inoremap <expr> <CR> pumvisible() ? asyncomplete#close_popup() . "\<CR>" : "\<CR>"
-" FIXME: When there is no plugin installed <CR> echoes <Plug>DiscretionaryEnd
-imap <expr> <CR> pumvisible() ? asyncomplete#close_popup() . "\<CR><Plug>DiscretionaryEnd" : "\<CR><Plug>DiscretionaryEnd"
-
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-			\ 'name': 'file',
-			\ 'whitelist': ['*'],
-			\ 'priority': 10,
-			\ 'completor': function('asyncomplete#sources#file#completor')
-			\ }))
-
 
 """ vim-matchup {{{1
 let g:loaded_matchit = 1
@@ -287,14 +249,6 @@ let g:matchup_matchparen_offscreen = {'method': 'popup'}
 
 """ vim-vsnip {{{1
 let g:vsnip_snippet_dir = fnamemodify($MYVIMRC, ":p:h") . '/vsnip'
-
-" imap <expr> <C-j>   vsnip#available(1)  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-imap <expr> <Tab>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<Tab>'
-smap <expr> <Tab>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<Tab>'
-" imap <expr> <Tab>   vsnip#available(1)  ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-" smap <expr> <Tab>   vsnip#available(1)  ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-imap <expr> <S-Tab> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-smap <expr> <S-Tab> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 
 """ vim-closetag
 let g:closetag_filetypes = 'html,xhtml,xml'
