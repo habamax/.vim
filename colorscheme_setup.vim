@@ -33,6 +33,14 @@ endfunc
 func! s:solarized8_setup()
 	exe printf("hi lCursor guibg=%s", g:terminal_ansi_colors[3])
 
+	exe printf("hi asciidoctorOption guifg=%s", g:terminal_ansi_colors[11])
+	exe printf("hi asciidoctorBlockOptions guifg=%s", g:terminal_ansi_colors[2])
+	exe printf("hi asciidoctorBlock guifg=%s", g:terminal_ansi_colors[2])
+	exe printf("hi asciidoctorTableCell guifg=%s", g:terminal_ansi_colors[2])
+	exe printf("hi asciidoctorMacro guifg=%s", g:terminal_ansi_colors[2])
+	exe printf("hi asciidoctorListMarker guifg=%s", g:terminal_ansi_colors[3])
+	exe printf("hi asciidoctorIndented guifg=%s", g:terminal_ansi_colors[10])
+
 	exe printf("hi Lf_hl_cursorline guifg=%s", g:terminal_ansi_colors[6])
 	if &bg == 'dark'
 		exe printf("hi Lf_hl_stlName guifg=%s guibg=%s", g:terminal_ansi_colors[0], g:terminal_ansi_colors[14])
