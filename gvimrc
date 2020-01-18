@@ -1,16 +1,23 @@
 """ Colors {{{1
 
-"" Uncomment if you want fancy colors in your gVim
+" If it happens you run vim late, use dark colors
+if strftime("%H") >= 20 || strftime("%H") < 8 
+	set bg=dark
+else
+	set bg=light
+endif
+
+"" Uncomment if you want random base16 colors (mostly) in your gVim
 " call MY_LUCKY_COLORS()
 
 " colorscheme base16-twilight
 " colorscheme base16-harmonic-dark
+
 colorscheme solarized8
 
 " My timebased default colors -- when no other colorscheme was setup
 if get(g:, "colors_name", "default") == "default"
-	" If it happens you run vim late, use dark colorscheme
-	if strftime("%H") >= 20 || strftime("%H") < 8 
+	if &bg == "dark"
 		let my_dark_colors = ['lessthan', 'defnoche']
 		exe 'colorscheme ' . my_dark_colors[rand() % len(my_dark_colors)]
 	else
