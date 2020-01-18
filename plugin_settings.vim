@@ -1,13 +1,13 @@
 """ Check after/plugin/init.vim for settings that depends on plugin existence
 """ Plugin settings
 
-""" Git packages {{{1
+""" Git {{{1
 if executable("git")
 	silent! packadd vim-fugitive
 	silent! packadd vim-flog
 endif
 
-""" Fuzzy finder {{{1
+""" Fuzzy finder (Leaderf and CtrlP) {{{1
 " Try to load LeaderF first
 if has('nvim') || has('python') || has('python3')
 	" if exists("*popup_create") || exists("*nvim_open_win")
@@ -61,7 +61,7 @@ if !exists('g:leaderf_loaded')
 	silent! packadd ctrlp.vim
 endif
 
-""" Asciidoctor {{{1
+""" vim-asciidoctor {{{1
 " There will be asciidoctor plugin here
 " let g:asciidoctor_executable = 'bundle exec asciidoctor'
 
@@ -106,44 +106,19 @@ augroup asciidoctor | au!
 	au BufEnter *.adoc,*.asciidoc call AsciidoctorBufferSetup()
 augroup END
 
-""" List Manipulation {{{1
-let g:list_man_default_mappings = 1
-
-""" EasyAlign {{{1
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-vmap ga <Plug>(LiveEasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-""" vim-swap settings {{{1
+""" vim-swap {{{1
 let g:swap_no_default_key_mappings = 1
-
-""" Goyo && Limelight {{{1
-nnoremap yog :Goyo<CR>
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
-
-""" Undotree {{{1
-nnoremap <leader>u :UndotreeToggle<CR>
 
 """ vim-rooter {{{1
 let g:rooter_change_directory_for_non_project_files = ''
 let g:rooter_patterns = ['.git', '.git/', 'mix.exs']
 let g:rooter_silent_chdir = 1
 
-""" elixir {{{1
-" elixir related settings from different plugins
-let g:elixir_mix_test_position = "bottom"
-let g:mix_format_on_save = 1
-
-""" tpope's Markdown {{{1
+""" vim-markdown {{{1
 let g:markdown_folding = 0
 let g:markdown_fenced_languages = ['dart', 'python', 'ruby']
 
-""" Lisp {{{1
-let g:lisp_rainbow = 1
-
-""" Vim-obsession {{{1
+""" vim-obsession {{{1
 command! -nargs=1 -complete=customlist,LoadObsessionComplete SA :Obsession ~/.vimdata/sessions/<args>
 
 command! -nargs=1 -complete=customlist,LoadObsessionComplete LO :so ~/.vimdata/sessions/<args>
@@ -154,21 +129,7 @@ func! LoadObsessionComplete(A, L, P)
 endfunc
 
 
-""" Netrw -> Dirvish {{{1
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-
-" directory first
-let g:dirvish_mode = ':sort ,^.*[\/],'
-
-if has('gui_running')
-	augroup dirvish_config | autocmd!
-		autocmd FileType dirvish call dirvish#add_icon_fn({p -> p[-1:]=~'/\|\\'?'📂':'📄'})
-	augroup END
-endif
-
-
-""" Vim dadbod {{{1
+""" vim-dadbod {{{1
 let g:dadbods = []
 
 " g:dadbods should be populated with
@@ -200,7 +161,7 @@ omap <leader>db  <Plug>(DBExe)
 nmap <leader>dbb <Plug>(DBExeLine)
 
 
-""" vim dispatch {{{1
+""" vim-dispatch {{{1
 let g:dispatch_no_maps = 1
 
 
@@ -253,7 +214,28 @@ let g:vsnip_snippet_dir = fnamemodify($MYVIMRC, ":p:h") . '/vsnip'
 """ vim-closetag
 let g:closetag_filetypes = 'html,xhtml,xml'
 
-""" Firenvim {{{1
+
+""" vim-dirvish {{{1
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
+" directory first
+let g:dirvish_mode = ':sort ,^.*[\/],'
+
+if has('gui_running')
+	augroup dirvish_config | autocmd!
+		autocmd FileType dirvish call dirvish#add_icon_fn({p -> p[-1:]=~'/\|\\'?'📂':'📄'})
+	augroup END
+endif
+
+
+""" vim-easy-align {{{1
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+vmap ga <Plug>(LiveEasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+""" firenvim {{{1
 if exists('g:started_by_firenvim')
 	packadd firenvim
 	set gfn=Iosevka\ Extended:h12
@@ -288,5 +270,22 @@ let g:vrc_curl_opts = {
 			\}
 
 
-""" Outline {{{1
+""" elixir {{{1
+" elixir related settings from different plugins
+let g:elixir_mix_test_position = "bottom"
+let g:mix_format_on_save = 1
+
+""" List Manipulation {{{1
+let g:list_man_default_mappings = 1
+
+""" Goyo && Limelight {{{1
+nnoremap yog :Goyo<CR>
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+""" undotree {{{1
+nnoremap <leader>u :UndotreeToggle<CR>
+
+
+""" outline {{{1
 nnoremap <leader>l :DoOutline<CR>
