@@ -13,7 +13,6 @@ endif
 " colorscheme base16-twilight
 " colorscheme base16-harmonic-dark
 
-colorscheme solarized8
 
 " My timebased default colors -- when no other colorscheme was setup
 if get(g:, "colors_name", "default") == "default"
@@ -39,7 +38,6 @@ if has("gui_macvim")
 else
 	set linespace=0
 	set gfn=Iosevka\ Extended:h14
-	" set gfn=Iosevka\ SS09\ Extended:h14
 	" set gfn=JetBrains\ Mono:h14
 	" set gfn=Hack:h14
 	" set gfn=Consolas:h14

@@ -147,7 +147,6 @@ if exists('*minpac#init')
 
 	"" Colors
 	call minpac#add('chriskempson/base16-vim')
-	call minpac#add('lifepillar/vim-solarized8')
 endif
 
 "" Commands to update and clean plugins {{{1

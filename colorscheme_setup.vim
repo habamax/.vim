@@ -30,48 +30,8 @@ func! s:base16_setup()
 
 endfunc
 
-func! s:solarized8_setup()
-	exe printf("hi lCursor guibg=%s", g:terminal_ansi_colors[3])
-
-	exe printf("hi asciidoctorOption guifg=%s", g:terminal_ansi_colors[11])
-	exe printf("hi asciidoctorBlockOptions guifg=%s", g:terminal_ansi_colors[2])
-	exe printf("hi asciidoctorBlock guifg=%s", g:terminal_ansi_colors[2])
-	exe printf("hi asciidoctorTableCell guifg=%s", g:terminal_ansi_colors[2])
-	exe printf("hi asciidoctorMacro guifg=%s", g:terminal_ansi_colors[2])
-	exe printf("hi asciidoctorListMarker guifg=%s", g:terminal_ansi_colors[3])
-	exe printf("hi asciidoctorIndented guifg=%s", g:terminal_ansi_colors[10])
-
-	exe printf("hi Lf_hl_cursorline guifg=%s", g:terminal_ansi_colors[6])
-	if &bg == 'dark'
-		exe printf("hi Lf_hl_stlName guifg=%s guibg=%s", g:terminal_ansi_colors[0], g:terminal_ansi_colors[14])
-		exe printf("hi Lf_hl_stlMode guifg=%s guibg=%s", g:terminal_ansi_colors[0], g:terminal_ansi_colors[14])
-		exe printf("hi Lf_hl_stlCategory guifg=%s guibg=%s", g:terminal_ansi_colors[0], g:terminal_ansi_colors[14])
-		exe printf("hi Lf_hl_stlCwd guifg=%s guibg=%s", g:terminal_ansi_colors[0], g:terminal_ansi_colors[14])
-		exe printf("hi Lf_hl_stlNameOnlyMode guifg=%s guibg=%s", g:terminal_ansi_colors[0], g:terminal_ansi_colors[14])
-		exe printf("hi Lf_hl_stlRegexMode guifg=%s guibg=%s", g:terminal_ansi_colors[0], g:terminal_ansi_colors[14])
-		exe printf("hi Lf_hl_stlFullPathMode guifg=%s guibg=%s", g:terminal_ansi_colors[0], g:terminal_ansi_colors[14])
-		exe printf("hi Lf_hl_stlFuzzyMode guifg=%s guibg=%s", g:terminal_ansi_colors[0], g:terminal_ansi_colors[14])
-		exe printf("hi Lf_hl_stlTotal guifg=%s guibg=%s", g:terminal_ansi_colors[0], g:terminal_ansi_colors[14])
-		exe printf("hi Lf_hl_stlLineInfo guifg=%s guibg=%s", g:terminal_ansi_colors[0], g:terminal_ansi_colors[14])
-		exe printf("hi Lf_hl_stlBlank guifg=%s guibg=%s", g:terminal_ansi_colors[0], g:terminal_ansi_colors[14])
-	else
-		exe printf("hi Lf_hl_stlName guifg=%s guibg=%s", g:terminal_ansi_colors[15], g:terminal_ansi_colors[11])
-		exe printf("hi Lf_hl_stlMode guifg=%s guibg=%s", g:terminal_ansi_colors[15], g:terminal_ansi_colors[11])
-		exe printf("hi Lf_hl_stlCategory guifg=%s guibg=%s", g:terminal_ansi_colors[15], g:terminal_ansi_colors[11])
-		exe printf("hi Lf_hl_stlCwd guifg=%s guibg=%s", g:terminal_ansi_colors[15], g:terminal_ansi_colors[11])
-		exe printf("hi Lf_hl_stlNameOnlyMode guifg=%s guibg=%s", g:terminal_ansi_colors[15], g:terminal_ansi_colors[11])
-		exe printf("hi Lf_hl_stlRegexMode guifg=%s guibg=%s", g:terminal_ansi_colors[15], g:terminal_ansi_colors[11])
-		exe printf("hi Lf_hl_stlFullPathMode guifg=%s guibg=%s", g:terminal_ansi_colors[15], g:terminal_ansi_colors[11])
-		exe printf("hi Lf_hl_stlFuzzyMode guifg=%s guibg=%s", g:terminal_ansi_colors[15], g:terminal_ansi_colors[11])
-		exe printf("hi Lf_hl_stlTotal guifg=%s guibg=%s", g:terminal_ansi_colors[15], g:terminal_ansi_colors[11])
-		exe printf("hi Lf_hl_stlLineInfo guifg=%s guibg=%s", g:terminal_ansi_colors[15], g:terminal_ansi_colors[11])
-		exe printf("hi Lf_hl_stlBlank guifg=%s guibg=%s", g:terminal_ansi_colors[15], g:terminal_ansi_colors[11])
-	endif
-
-endfunc
 augroup colorscheme_change | au!
 	au ColorScheme base16* call s:base16_setup()
-	au ColorScheme solarized8* call s:solarized8_setup()
 augroup END
 
 "" Nice base16 colors are:
@@ -86,7 +46,6 @@ func! MY_LUCKY_COLORS() abort
 				\ 'base16-tomorrow-night-eighties',
 				\ 'base16-darktooth',
 				\ 'base16-default-dark',
-				\ 'solarized8'
 				\ ]
 	exe 'colorscheme ' . colors[rand() % len(colors)]
 endfunc
