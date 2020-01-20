@@ -23,14 +23,12 @@ if exists("g:asyncomplete_loaded") " {{{1
 		inoremap <expr> <CR> pumvisible() ? asyncomplete#close_popup() . "\<CR>" : "\<CR>"
 	endif
 
-	if exists("*asyncomplete#sources#file#completor")
-		au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-					\ 'name': 'file',
-					\ 'whitelist': ['*'],
-					\ 'priority': 10,
-					\ 'completor': function('asyncomplete#sources#file#completor')
-					\ }))
-	endif
+	au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+				\ 'name': 'file',
+				\ 'whitelist': ['*'],
+				\ 'priority': 10,
+				\ 'completor': function('asyncomplete#sources#file#completor')
+				\ }))
 endif
 
 
