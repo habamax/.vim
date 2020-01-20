@@ -423,13 +423,6 @@ endif
 set iminsert=0
 set imsearch=-1
 
-"" Python ext {{{1
-if has('nvim')
-	let g:python3_host_prog  = 'python'
-	let g:loaded_python_provider = 0
-	let g:loaded3_python_provider = 0
-endif
-
 
 "" Load Other Settings (plugins, etc) {{{1
 silent! source <sfile>:h/abbreviations.vim
