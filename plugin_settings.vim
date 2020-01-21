@@ -181,6 +181,19 @@ let g:lsp_diagnostics_echo_cursor = 1
 " let g:lsp_log_verbose = 1
 " let g:lsp_log_file = expand('~/vimlsp.log')
 
+augroup lsp_preview | au!
+	autocmd CompleteDone * silent! pclose
+	if !has('nvim')
+		autocmd User lsp_float_opened
+			\ call popup_setoptions(lsp#ui#vim#output#getpreviewwinid(),
+			\ {
+			\ 'border': [1, 1, 1, 1],
+			\ 'borderchars': [' '],
+			\ 'padding': [0, 0, 0, 0]
+			\ })
+	end
+augroup end
+
 "" mapping `C-w z` also works
 " augroup lsp_preview | au!
 " 	autocmd CompleteDone * silent! pclose
