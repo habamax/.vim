@@ -96,7 +96,7 @@ let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 
 let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json']
 
-let g:asciidoctor_syntax_conceal = 0
+let g:asciidoctor_syntax_conceal = 1
 let g:asciidoctor_folding = 0
 
 func! AsciidoctorBufferSetup()
