@@ -113,6 +113,7 @@ func! AsciidoctorBufferSetup()
 	nnoremap <buffer> <leader>p :AsciidoctorPasteImage<CR>
 	compiler asciidoctor2pdf
 endfunc
+
 augroup asciidoctor | au!
 	au BufEnter *.adoc,*.asciidoc call AsciidoctorBufferSetup()
 augroup END
