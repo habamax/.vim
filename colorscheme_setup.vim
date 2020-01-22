@@ -7,6 +7,7 @@ func! s:base16_setup()
 	endif
 
 	call Base16hi("Title", "", "", "", "", "bold", "")
+	call Base16hi("Comment", "", "", "", "", "italic", "")
 	call Base16hi("Statement", "", "", "", "", "NONE", "")
 
 	call Base16hi("DirvishPathTail", g:base16_gui0C, "", g:base16_cterm0C, "", "bold", "")
@@ -39,7 +40,6 @@ func! MY_LUCKY_COLORS() abort
 	let colors = [
 				\ 'base16-twilight',
 				\ 'base16-one-light',
-				\ 'base16-black-metal-gorgoroth',
 				\ 'base16-tomorrow-night',
 				\ 'base16-oceanicnext',
 				\ 'base16-harmonic-dark',

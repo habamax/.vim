@@ -12,6 +12,8 @@ endif
 
 " colorscheme base16-twilight
 " colorscheme base16-harmonic-dark
+colorscheme base16-oceanicnext
+" colorscheme base16-default-dark
 
 
 " My timebased default colors -- when no other colorscheme was setup
@@ -38,8 +40,6 @@ if has("gui_macvim")
 else
 	set linespace=0
 	set gfn=Iosevka\ Extended:h14
-	" set gfn=IBM\ Plex\ Mono:h14
-	" set gfn=IBM\ Plex\ Mono\ Medium:h14
 	" set gfn=Iosevka:h14
 	" set gfn=JetBrains\ Mono:h14
 	" set gfn=Hack:h14
@@ -47,7 +47,6 @@ else
 	" set gfn=Cascadia\ Code:h14
 	" set gfn=Fira\ Mono:h14
 	" set gfn=PT\ Mono:h14
-	" set gfn=Go\ Mono:h14
 endif
 
 set columns=200
