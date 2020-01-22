@@ -97,9 +97,12 @@ let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json']
 
 let g:asciidoctor_syntax_conceal = 1
+let g:asciidoctor_compact_media_links = 1
+let g:asciidoctor_conceal_attributes = 1
 let g:asciidoctor_folding = 0
 
 func! AsciidoctorBufferSetup()
+	setl cole=3
 	nnoremap <buffer> <leader>oo :AsciidoctorOpenRAW<CR>
 	nnoremap <buffer> <leader>op :AsciidoctorOpenPDF<CR>
 	nnoremap <buffer> <leader>oh :AsciidoctorOpenHTML<CR>
