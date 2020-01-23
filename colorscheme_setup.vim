@@ -1,19 +1,71 @@
 "" Customize base16 colors
 func! s:base16_setup()
 	if '0x'.g:base16_gui00 > 0x777777
+	if '0x'.g:base16_gui00 > 0x777777
 		set bg=light
 	else
 		set bg=dark
 	endif
 
+	"" Standard
 	call Base16hi("Title", "", "", "", "", "bold", "")
 	call Base16hi("Comment", "", "", "", "", "italic", "")
 	call Base16hi("Statement", "", "", "", "", "NONE", "")
+	call Base16hi("lCursor", "", g:base16_gui0F, "", "", "", "")
+	call Base16hi("Conceal", g:base16_gui03, "", "", "", "", "")
 
+	"" Dirvish
 	call Base16hi("DirvishPathTail", g:base16_gui0C, "", g:base16_cterm0C, "", "bold", "")
 
-	call Base16hi("lCursor", "", g:base16_gui0F, "", "", "", "")
 
+	"" Asciidoctor
+	call Base16hi("AsciidoctorOption", g:base16_gui03, "", "", "", "", "")
+	call Base16hi("AsciidoctorBlock", g:base16_gui03, "", "", "", "", "")
+	call Base16hi("AsciidoctorBlockOptions", g:base16_gui03, "", "", "", "", "")
+	call Base16hi("AsciidoctorTableCell", g:base16_gui03, "", "", "", "", "")
+	call Base16hi("AsciidoctorLiteralBlock", g:base16_gui04, "", "", "", "", "")
+	call Base16hi("AsciidoctorIndented", g:base16_gui04, "", "", "", "", "")
+
+
+	"" LeaderF
+	call Base16hi("Lf_hl_popup_window", "", g:base16_gui00, "", "", "", "")
+	
+	call Base16hi("Lf_hl_cursorline", g:base16_gui05, "", g:base16_cterm05, "", "", "")
+	call Base16hi("Lf_hl_stlName", g:base16_gui03, g:base16_gui02, g:base16_cterm03, g:base16_cterm02, "", "")
+	call Base16hi("Lf_hl_stlMode", g:base16_gui0E, g:base16_gui02, g:base16_cterm0E, g:base16_cterm02, "", "")
+	call Base16hi("Lf_hl_stlCategory", g:base16_gui03, g:base16_gui01, g:base16_cterm03, g:base16_cterm01, "", "")
+	call Base16hi("Lf_hl_stlCwd", g:base16_gui04, g:base16_gui02, g:base16_cterm04, g:base16_cterm02, "", "")
+	call Base16hi("Lf_hl_stlNameOnlyMode", g:base16_gui03, g:base16_gui02, g:base16_cterm03, g:base16_cterm02, "", "")
+	call Base16hi("Lf_hl_stlRegexMode", g:base16_gui03, g:base16_gui02, g:base16_cterm03, g:base16_cterm02, "", "")
+	call Base16hi("Lf_hl_stlFullPathMode", g:base16_gui03, g:base16_gui02, g:base16_cterm03, g:base16_cterm02, "", "")
+	call Base16hi("Lf_hl_stlFuzzyMode", g:base16_gui03, g:base16_gui02, g:base16_cterm03, g:base16_cterm02, "", "")
+	call Base16hi("Lf_hl_stlTotal", g:base16_gui03, g:base16_gui01, g:base16_cterm03, g:base16_cterm01, "", "")
+	call Base16hi("Lf_hl_stlLineInfo", g:base16_gui03, g:base16_gui01, g:base16_cterm03, g:base16_cterm01, "", "")
+	call Base16hi("Lf_hl_stlBlank", g:base16_gui03, g:base16_gui02, g:base16_cterm03, g:base16_cterm02, "", "")
+
+		set bg=light
+	else
+		set bg=dark
+	endif
+
+	"" Standard
+	call Base16hi("Title", "", "", "", "", "bold", "")
+	call Base16hi("Comment", "", "", "", "", "italic", "")
+	call Base16hi("Statement", "", "", "", "", "NONE", "")
+	call Base16hi("lCursor", "", g:base16_gui0F, "", "", "", "")
+	call Base16hi("Conceal", g:base16_gui03, "", "", "", "", "")
+
+	"" Plugin
+	call Base16hi("DirvishPathTail", g:base16_gui0C, "", g:base16_cterm0C, "", "bold", "")
+	call Base16hi("AsciidoctorOption", g:base16_gui03, "", "", "", "", "")
+	call Base16hi("AsciidoctorBlock", g:base16_gui03, "", "", "", "", "")
+	call Base16hi("AsciidoctorBlockOptions", g:base16_gui03, "", "", "", "", "")
+	call Base16hi("AsciidoctorTableCell", g:base16_gui03, "", "", "", "", "")
+	call Base16hi("AsciidoctorLiteralBlock", g:base16_gui04, "", "", "", "", "")
+	call Base16hi("AsciidoctorIndented", g:base16_gui04, "", "", "", "", "")
+
+
+	"" LeaderF
 	call Base16hi("Lf_hl_popup_window", "", g:base16_gui00, "", "", "", "")
 	
 	call Base16hi("Lf_hl_cursorline", g:base16_gui05, "", g:base16_cterm05, "", "", "")
