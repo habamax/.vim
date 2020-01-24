@@ -49,5 +49,5 @@ else
 	" set gfn=PT\ Mono:h14
 endif
 
-set columns=200
-set lines=200
+set columns=400
+set lines=400
