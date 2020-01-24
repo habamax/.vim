@@ -34,12 +34,13 @@ endif
 " зЗ3 -- russian z,russian Z,number 3
 "
 if has("gui_macvim")
-	set gfn=Iosevka\ Extended:h14,Hack:h14,Menlo:h14
+	set gfn=Iosevka\ Habamax\ Extended:h14,Hack:h14,Menlo:h14
 	set macmeta
 	let macvim_skip_colorscheme = 1
 else
 	set linespace=0
-	set gfn=Iosevka\ Extended:h14
+	set gfn=Iosevka\ Habamax\ Extended:h14
+	" set gfn=Iosevka\ Habamax:h14
 	" set gfn=Iosevka:h14
 	" set gfn=JetBrains\ Mono:h14
 	" set gfn=Hack:h14
