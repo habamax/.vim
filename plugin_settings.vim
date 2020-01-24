@@ -98,7 +98,6 @@ let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json']
 
 let g:asciidoctor_syntax_conceal = 1
 let g:asciidoctor_compact_media_links = 1
-let g:asciidoctor_conceal_attributes = 0
 let g:asciidoctor_folding = 0
 
 func! AsciidoctorBufferSetup()
