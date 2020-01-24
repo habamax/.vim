@@ -31,7 +31,7 @@ endif
 "
 " Однажды в студеную зимнюю пору
 " Я из лесу вышел, был сильный мороз.
-" зЗ3 -- Z3
+" зЗ3 -- russian z,russian Z,number 3
 "
 if has("gui_macvim")
 	set gfn=Iosevka\ Extended:h14,Hack:h14,Menlo:h14
