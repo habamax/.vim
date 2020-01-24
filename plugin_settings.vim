@@ -202,16 +202,6 @@ augroup end
 " 	autocmd CompleteDone * silent! pclose
 " augroup end
 
-" if executable('dart')
-" 	let s:dart_lsp_path = fnamemodify(resolve(exepath('dart')), ':h')
-" 	au User lsp_setup call lsp#register_server({
-" 				\ 'name': 'dart',
-" 				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'dart '.s:dart_lsp_path.'/snapshots/analysis_server.dart.snapshot --lsp']},
-" 				\ 'initialization_options': {"diagnostics": "true"},
-" 				\ 'whitelist': ['dart'],
-" 				\ })
-" endif
-
 func! SetLSPMappings()
 	nnoremap <buffer> gd :LspDefinition<CR>
 	nnoremap <buffer> K :LspHover<CR>
@@ -223,7 +213,7 @@ endfunc
 augroup lsp_mappings | au!
 	au FileType python call SetLSPMappings()
 	au FileType ruby call SetLSPMappings()
-	" au FileType dart call SetLSPMappings()
+	au FileType dart call SetLSPMappings()
 	au FileType html call SetLSPMappings()
 augroup END
 
