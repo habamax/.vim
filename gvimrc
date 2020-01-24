@@ -13,6 +13,7 @@ endif
 " colorscheme base16-twilight
 " colorscheme base16-harmonic-dark
 colorscheme base16-oceanicnext
+" colorscheme base16-one-light
 " colorscheme base16-default-dark
 
 
@@ -29,9 +30,18 @@ endif
 
 """ Fonts {{{1
 "
-" Однажды в студеную зимнюю пору
-" Я из лесу вышел, был сильный мороз.
-" зЗ3 -- russian z,russian Z,number 3
+" Однажды, в студеную зимнюю пору,
+" Я из лесу вышел; был сильный мороз.
+" Гляжу, поднимается медленно в гору
+" Лошадка, везущая хворосту воз.
+"
+" И, шествуюя важно, в спокойствии чинном,
+" Лошадку ведет под уздцы мужичок
+" В больших сапогах, в полушубке овчинном,
+" В больших рукавицах... а сам с ноготок!
+"
+" З3Э -- буква З, цифра 3, буква Э
+" 1Il0OQB8 =-+:
 "
 if has("gui_macvim")
 	set gfn=Iosevka\ Habamax\ Extended:h14,Hack:h14,Menlo:h14
