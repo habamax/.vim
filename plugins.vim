@@ -49,6 +49,8 @@ if exists('*minpac#init')
 	" cxiw .
 	call minpac#add('tommcdo/vim-exchange')
 
+	call minpac#add('wellle/targets.vim')
+
 	" use gsip to sort linewise
 	" use gsib to sort in a parenthesis
 	call minpac#add('christoomey/vim-sort-motion')
