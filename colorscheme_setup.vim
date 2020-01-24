@@ -26,6 +26,7 @@ func! s:base16_setup()
 	call Base16hi("AsciidoctorTableCell", g:base16_gui03, "", "", "", "", "")
 	call Base16hi("AsciidoctorLiteralBlock", g:base16_gui04, "", "", "", "", "")
 	call Base16hi("AsciidoctorIndented", g:base16_gui04, "", "", "", "", "")
+	call Base16hi("AsciidoctorCaption", g:base16_gui09, "", "", "", "", "")
 
 
 	"" LeaderF
