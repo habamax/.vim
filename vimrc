@@ -35,7 +35,7 @@ set fileformats=unix,mac,dos
 set fileformat=unix
 
 "" UI {{{1
-if !has("gui_running")
+if has("gui_running")
 	if exists('+termguicolors') && has("win32")
 		set termguicolors
 	endif
@@ -48,9 +48,6 @@ if !has("gui_running")
 		let &t_SR = "\<Esc>[3 q"
 		let &t_EI = "\<Esc>[2 q"
 	endif
-
-	" each machine I use should have their own colorscheme_term.vim file
-	silent! source <sfile>:h/colorscheme_term.vim
 endif
 
 
@@ -424,7 +421,7 @@ set iminsert=0
 set imsearch=-1
 
 
-"" Load Other Settings (plugins, etc) {{{1
+"" Load Other Settings (plugins, colorscheme, etc) {{{1
 silent! source <sfile>:h/abbreviations.vim
 
 silent! source <sfile>:h/colorscheme_setup.vim

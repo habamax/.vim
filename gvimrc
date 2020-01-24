@@ -1,33 +1,3 @@
-""" Colors {{{1
-
-" If it happens you run vim late, use dark colors
-if strftime("%H") >= 20 || strftime("%H") < 8 
-	set bg=dark
-else
-	set bg=light
-endif
-
-"" Uncomment if you want random base16 colors (mostly) in your gVim
-" call MY_LUCKY_COLORS()
-
-" colorscheme base16-twilight
-" colorscheme base16-harmonic-dark
-colorscheme base16-oceanicnext
-" colorscheme base16-one-light
-" colorscheme base16-default-dark
-
-
-" My timebased default colors -- when no other colorscheme was setup
-if get(g:, "colors_name", "default") == "default"
-	if &bg == "dark"
-		let my_dark_colors = ['lessthan', 'defnoche']
-		exe 'colorscheme ' . my_dark_colors[rand() % len(my_dark_colors)]
-	else
-		colorscheme defminus
-	endif
-endif
-
-
 """ Fonts {{{1
 "
 " Однажды, в студеную зимнюю пору,

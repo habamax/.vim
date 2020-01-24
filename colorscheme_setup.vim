@@ -1,4 +1,4 @@
-"" Customize base16 colors
+""" Customize colors {{{1
 func! s:base16_setup()
 	if '0x'.g:base16_gui00 > 0x777777
 		set bg=light
@@ -50,8 +50,13 @@ func! s:base16_setup()
 
 endfunc
 
+func! s:my_colorschemes_setup() abort
+	hi Comment gui=italic
+endfunc
+
 augroup colorscheme_change | au!
 	au ColorScheme base16* call s:base16_setup()
+	au ColorScheme defminus,defnoche,lessthan call s:my_colorschemes_setup()
 augroup END
 
 "" Nice base16 colors are:
@@ -68,4 +73,35 @@ func! MY_LUCKY_COLORS() abort
 				\ ]
 	exe 'colorscheme ' . colors[rand() % len(colors)]
 endfunc
+
+
+""" Colorschemes {{{1
+
+" If it happens you run vim late, use dark colors
+if strftime("%H") >= 20 || strftime("%H") < 8 
+	set bg=dark
+else
+	set bg=light
+endif
+
+"" Uncomment if you want random base16 colors (mostly) in your gVim
+" call MY_LUCKY_COLORS()
+
+" colorscheme base16-twilight
+" colorscheme base16-harmonic-dark
+colorscheme base16-oceanicnext
+" colorscheme base16-one-light
+" colorscheme base16-default-dark
+
+
+" My timebased default colors -- when no other colorscheme was setup
+if get(g:, "colors_name", "default") == "default"
+	if &bg == "dark"
+		let my_dark_colors = ['lessthan', 'defnoche']
+		exe 'colorscheme ' . my_dark_colors[rand() % len(my_dark_colors)]
+	else
+		colorscheme defminus
+	endif
+endif
+
 
