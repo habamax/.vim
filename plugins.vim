@@ -31,7 +31,6 @@ if exists('*minpac#init')
 
 	"" Git
 	call minpac#add('tpope/vim-fugitive', {'type': 'opt'})
-	" call minpac#add('tpope/vim-fugitive', {'type': 'opt', 'rev': 'job'})
 	call minpac#add('rbong/vim-flog', {'type': 'opt'})
 
 
