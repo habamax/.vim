@@ -18,6 +18,9 @@ func! s:base16_setup()
 	"" Dirvish
 	call Base16hi("DirvishPathTail", g:base16_gui0C, "", g:base16_cterm0C, "", "bold", "")
 
+	"" Fugitive
+	call Base16hi("gitcommitSummary", g:base16_gui0D, "", "", "", "bold", "")
+
 
 	"" Asciidoctor
 	call Base16hi("AsciidoctorOption", g:base16_gui03, "", "", "", "", "")
