@@ -235,9 +235,13 @@ let g:matchup_matchparen_offscreen = {'method': 'popup'}
 """ vim-vsnip {{{1
 let g:vsnip_snippet_dir = fnamemodify($MYVIMRC, ":p:h") . '/vsnip'
 
-""" vim-closetag
+""" vim-closetag {{{1
 let g:closetag_filetypes = 'html,xhtml,xml'
 
+
+""" vim-sandwich {{{1
+" nmap s <Nop>
+" xmap s <Nop>
 
 """ vim-dirvish {{{1
 let g:loaded_netrw = 1
