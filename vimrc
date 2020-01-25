@@ -323,6 +323,8 @@ func! OpenExplorer()
 
 	if exists("b:netrw_curdir")
 		let subcmd = '"' . substitute(b:netrw_curdir, "/", "\\", "g") . '"'
+	elseif exists("b:dirvish")
+		let subcmd = '/select,"' . getline('.') . '"'
 	elseif expand("%:p") == ""
 		let subcmd = '"' . expand("%:p:h") . '"'
 	else
@@ -331,7 +333,6 @@ func! OpenExplorer()
 	:exe "silent !start explorer " . subcmd
 endfunc
 nnoremap <leader>oe :call OpenExplorer()<CR>
-" nnoremap <leader>oe :silent !start explorer /select,"%:p":h<CR>
 
 "" Commands (and Autocommands) {{{1
 
