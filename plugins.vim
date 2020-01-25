@@ -131,6 +131,8 @@ if exists('*minpac#init')
 
 	" NETRW should be this
 	call minpac#add('justinmk/vim-dirvish')
+	" remaps s to sneak, z as operator pending
+	call minpac#add('justinmk/vim-sneak')
 
 	" auto cd to your project root folder
 	call minpac#add('airblade/vim-rooter')
