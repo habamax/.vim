@@ -19,10 +19,14 @@ if has("gui_macvim")
 	let macvim_skip_colorscheme = 1
 else
 	set linespace=0
-	set gfn=Iosevka\ Habamax\ Extended:h14
+	" Random font, because why not? :)
+	let fonts = ["Iosevka\\ Habamax\\ Extended:h14", "JetBrains\\ Mono:h13"]
+	exe "set gfn=".fonts[rand()%len(fonts)]
+
+	" set gfn=Iosevka\ Habamax\ Extended:h14
+	" set gfn=JetBrains\ Mono:h13
 	" set gfn=Iosevka\ Habamax:h14
 	" set gfn=Iosevka:h14
-	" set gfn=JetBrains\ Mono:h14
 	" set gfn=Hack:h14
 	" set gfn=Consolas:h14
 	" set gfn=Cascadia\ Code:h14
