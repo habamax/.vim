@@ -222,7 +222,6 @@ augroup END
 let g:loaded_matchit = 1
 let g:matchup_matchparen_offscreen = {'method': 'popup'}
 let g:matchup_surround_enabled = 1
-omap c% <plug>(matchup-z%)
 
 """ vim-vsnip {{{1
 let g:vsnip_snippet_dir = fnamemodify($MYVIMRC, ":p:h") . '/vsnip'
