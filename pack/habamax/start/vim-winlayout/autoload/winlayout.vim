@@ -5,13 +5,16 @@ let s:resize_cmds=[]
 
 
 func! winlayout#save() abort
-	" FIXME: do not save duplicate layouts
 	" FIXME: rotate up to N (20) layouts?
 	call add(s:layouts, winlayout())
 	call add(s:resize_cmds, winrestcmd())
 	let g:winlayout_index = len(s:layouts) - 1
 	call s:add_buf_to_layout(s:layouts[-1])
-	" echo s:layouts
+	" Delete consecutive duplicate layouts (not sure)
+	if len(s:layouts) > 1 && s:layouts[-1] == s:layouts[-2]
+		call remove(s:layouts, -1)
+		call remove(s:resize_cmds, -1)
+	endif
 endfunc
 
 

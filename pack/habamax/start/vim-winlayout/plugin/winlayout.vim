@@ -4,5 +4,6 @@ nnoremap <F4> :noautocmd call winlayout#restore(1)<CR>
 
 
 augroup winlayout | au!
-	au BufReadPost * :call winlayout#save()
+	au VimEnter,VimResized * :call winlayout#save()
+	au BufAdd,BufRead,WinNew,QuitPre * :call winlayout#save()
 augroup end
