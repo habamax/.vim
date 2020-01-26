@@ -1,19 +1,28 @@
-let g:winlayout_index = -1
+let s:winlayout_max = get(g:, "winlayout_max", 20)
+let s:winlayout_index = -1
 let s:layouts=[]
 let s:resize_cmds=[]
 
-
+func! winlayout#inspect() abort
+	echom s:layouts
+endfunc
 
 func! winlayout#save() abort
-	" FIXME: rotate up to N (20) layouts?
 	call add(s:layouts, winlayout())
 	call add(s:resize_cmds, winrestcmd())
-	let g:winlayout_index = len(s:layouts) - 1
+	let s:winlayout_index = len(s:layouts) - 1
 	call s:add_buf_to_layout(s:layouts[-1])
-	" Delete consecutive duplicate layouts (not sure)
+
+	" Delete consecutive duplicate layouts
 	if len(s:layouts) > 1 && s:layouts[-1] == s:layouts[-2]
 		call remove(s:layouts, -1)
 		call remove(s:resize_cmds, -1)
+	endif
+
+	" Keep only g:winlayout_max layouts
+	if len(s:layouts) > s:winlayout_max
+		call remove(s:layouts, 0)
+		call remove(s:resize_cmds, 0)
 	endif
 endfunc
 
@@ -30,28 +39,27 @@ func! s:add_buf_to_layout(layout) abort
 endfunc
 
 func! winlayout#restore(direction) abort
-	if len(s:layouts) == 0
+	if empty(s:layouts)
 		return
 	endif
 
-	let g:winlayout_index += a:direction
-	if g:winlayout_index < 0 
-		let g:winlayout_index = 0
+	let s:winlayout_index += a:direction
+	if s:winlayout_index < 0 
+		let s:winlayout_index = 0
 	endif
-	if g:winlayout_index >= len(s:layouts)
-		let g:winlayout_index = len(s:layouts) - 1
+	if s:winlayout_index >= len(s:layouts)
+		let s:winlayout_index = len(s:layouts) - 1
 	endif
 
 	
-	" create clean window
-	new
-	wincmd o
+	" Close other windows
+	silent wincmd o
 
 	" recursively restore buffers
-	call s:apply_layout(s:layouts[g:winlayout_index])
+	call s:apply_layout(s:layouts[s:winlayout_index])
 
 	" resize
-	exe s:resize_cmds[g:winlayout_index]
+	exe s:resize_cmds[s:winlayout_index]
 
 endfunc
 
