@@ -9,3 +9,5 @@ augroup winlayout | au!
 	" au VimEnter,VimResized * :call winlayout#save()
 	" au BufAdd,BufRead,BufDelete,WinNew,QuitPre * :call winlayout#save()
 augroup end
+
+command WinlayoutInspect call winlayout#inspect()

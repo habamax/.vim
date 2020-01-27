@@ -4,7 +4,16 @@ let s:layouts=[]
 let s:resize_cmds=[]
 
 func! winlayout#inspect() abort
-	echom s:layouts
+	let @* = json_encode(s:layouts)
+	echom @*
+endfunc
+
+func! s:eq_layouts(layout1, layout2) abort
+	if len(a:layout1) != len(a:layout2)
+		return v:false
+	endif
+
+	return a:layout1 == a:layout2
 endfunc
 
 func! winlayout#save() abort
@@ -14,7 +23,7 @@ func! winlayout#save() abort
 	call s:add_buf_to_layout(s:layouts[-1])
 
 	" Delete consecutive duplicate layouts
-	if len(s:layouts) > 1 && s:layouts[-1] == s:layouts[-2]
+	if len(s:layouts) > 1 && s:eq_layouts(s:layouts[-1], s:layouts[-2])
 		call remove(s:layouts, -1)
 		call remove(s:resize_cmds, -1)
 	endif
@@ -30,7 +39,9 @@ endfunc
 " add bufnr to leaf
 func! s:add_buf_to_layout(layout) abort
 	if a:layout[0] ==# 'leaf'
-		call add(a:layout, winbufnr(a:layout[1]))
+		" replace win_id with buffer number
+		let a:layout[1] = winbufnr(a:layout[1])
+		" call add(a:layout, winbufnr(a:layout[1]))
 	else
 		for child_layout in a:layout[1]
 			call s:add_buf_to_layout(child_layout)
@@ -68,8 +79,8 @@ func! s:apply_layout(layout) abort
 	if a:layout[0] ==# 'leaf'
 
 		" load buffer for leaf
-		if bufexists(a:layout[2])
-			exe printf('b %d', a:layout[2])
+		if bufexists(a:layout[1])
+			exe printf('b %d', a:layout[1])
 		endif
 	else
 
