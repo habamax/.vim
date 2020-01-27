@@ -12,7 +12,8 @@ func! s:base16_setup()
 	call Base16hi("Statement", "", "", "", "", "NONE", "")
 	call Base16hi("lCursor", "", g:base16_gui0F, "", "", "", "")
 	call Base16hi("Conceal", g:base16_gui03, "", "", "", "", "")
-	call Base16hi("NonText", "", "", "", "", "NONE", "")
+	call Base16hi("NonText", g:base16_gui01, "", "", "", "NONE", "")
+	call Base16hi("SpecialKey", g:base16_gui01, "", "", "", "NONE", "")
 	call Base16hi("MatchParen", "", g:base16_gui01, "", "", "", "")
 
 	"" Vimscript
