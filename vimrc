@@ -108,14 +108,16 @@ set statusline+=%4(%p%%%)
 "" Unicode chars {{{
 " UTF-8 symbols, good font needed
 " ⮌⭯⭮⮍⮎⮏⭲╙●↳→│↑←↓↘└┐⤶⤾⤶⤸⬎⮐␊␍⮠⮐
-" set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+,eol:$
+" set listchars=tab:<->,trail:-,extends:>,precedes:<,nbsp:+,eol:$
+" set listchars=tab:>\ ,trail:-,eol:$
 " set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
 " set listchars=tab:⭲\ ,eol:↲,trail:·
-" set listchars=tab:→\ ,eol:┐,trail:·
 " let &showbreak='↳ '
 " Fancy listchars for GUI, ASCII listchars for terminal
-set listchars=tab:⭲\ ,eol:⮠,trail:·
-let &showbreak='⮎ '
+" set listchars=tab:⭲\ ,eol:⮠,trail:·
+" let &showbreak='⮎ '
+set listchars=tab:→\ ,eol:┘,trail:·
+let &showbreak='└ '
 
 set fillchars=fold:\ ,vert:│
 
