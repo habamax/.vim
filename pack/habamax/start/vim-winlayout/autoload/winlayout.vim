@@ -8,25 +8,14 @@ func! winlayout#inspect() abort
 	echom @*
 endfunc
 
-func! s:eq_layouts(layout1, layout2) abort
-	if len(a:layout1) != len(a:layout2)
-		return v:false
-	endif
-
-	return a:layout1 == a:layout2
-endfunc
-
 func! winlayout#save() abort
-	call add(s:layouts, winlayout())
-	call add(s:resize_cmds, winrestcmd())
-	let s:winlayout_index = len(s:layouts) - 1
-	call s:add_buf_to_layout(s:layouts[-1])
-
-	" Delete consecutive duplicate layouts
-	if len(s:layouts) > 1 && s:eq_layouts(s:layouts[-1], s:layouts[-2])
-		call remove(s:layouts, -1)
-		call remove(s:resize_cmds, -1)
+	let l:layout = winlayout()
+	call s:add_buf_to_layout(l:layout)
+	if !empty(s:layouts) && l:layout == s:layouts[-1]
+		return
 	endif
+	call add(s:layouts, l:layout)
+	call add(s:resize_cmds, winrestcmd())
 
 	" Keep only g:winlayout_max layouts
 	if len(s:layouts) > s:winlayout_max
@@ -41,7 +30,6 @@ func! s:add_buf_to_layout(layout) abort
 	if a:layout[0] ==# 'leaf'
 		" replace win_id with buffer number
 		let a:layout[1] = winbufnr(a:layout[1])
-		" call add(a:layout, winbufnr(a:layout[1]))
 	else
 		for child_layout in a:layout[1]
 			call s:add_buf_to_layout(child_layout)
