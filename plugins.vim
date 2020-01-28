@@ -103,7 +103,8 @@ if exists('*minpac#init')
 	" git clone https://github.com/habamax/asyncomplete.vim $HOME/vimfiles/pack/habamax/start/asyncomplete.vim
 	" call minpac#add('prabirshrestha/asyncomplete.vim')
 	call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
-	call minpac#add('prabirshrestha/asyncomplete-file.vim')
+	" hangs... see https://github.com/prabirshrestha/asyncomplete-file.vim/issues/4
+	" call minpac#add('prabirshrestha/asyncomplete-file.vim')
 
 
 	"" Snippets

@@ -23,12 +23,13 @@ if exists("g:asyncomplete_loaded") " {{{1
 		inoremap <expr> <CR> pumvisible() ? asyncomplete#close_popup() . "\<CR>" : "\<CR>"
 	endif
 
-	au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-				\ 'name': 'file',
-				\ 'whitelist': ['*'],
-				\ 'priority': 10,
-				\ 'completor': function('asyncomplete#sources#file#completor')
-				\ }))
+	" buggy. See https://github.com/prabirshrestha/asyncomplete-file.vim/issues/4
+	" au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+	" 			\ 'name': 'file',
+	" 			\ 'whitelist': ['*'],
+	" 			\ 'priority': 10,
+	" 			\ 'completor': function('asyncomplete#sources#file#completor')
+	" 			\ }))
 endif
 
 
