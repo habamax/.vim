@@ -12,5 +12,3 @@ command WinlayoutInspect call winlayout#inspect()
 
 nnoremap <Plug>(WinlayoutBackward) :call winlayout#restore(-1)<CR>
 nnoremap <Plug>(WinlayoutForward) :call winlayout#restore(1)<CR>
-
-
