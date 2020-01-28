@@ -6,8 +6,6 @@ nnoremap <F4> :call winlayout#restore(1)<CR>
 augroup winlayout | au!
 	au BufEnter * :call winlayout#save()
 	au WinNew,QuitPre * :call winlayout#save()
-	" au VimEnter,VimResized * :call winlayout#save()
-	" au BufAdd,BufRead,BufDelete,WinNew,QuitPre * :call winlayout#save()
 augroup end
 
 command WinlayoutInspect call winlayout#inspect()
