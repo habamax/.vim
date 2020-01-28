@@ -179,6 +179,7 @@ let g:dispatch_no_maps = 1
 """ vim-lsp {{{1
 let g:lsp_auto_enable = 1
 let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_semantic_enabled = 1
 " let g:lsp_signs_enabled = 0
 " let g:lsp_highlight_references_enabled = 1
 " let g:lsp_log_verbose = 1
