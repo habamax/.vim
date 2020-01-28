@@ -272,6 +272,12 @@ let g:vrc_curl_opts = {
 			\}
 
 
+"" vim-winlayout {{{1
+
+nmap <F3> <Plug>(WinlayoutBackward)
+nmap <F4> <Plug>(WinlayoutForward)
+
+
 """ firenvim {{{1
 if exists('g:started_by_firenvim')
 	packadd firenvim
