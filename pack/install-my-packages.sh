@@ -8,4 +8,5 @@ git clone https://github.com/habamax/vim-sendtoterm.git ./habamax/start/vim-send
 git clone https://github.com/habamax/vim-colors-defminus.git ./habamax/start/vim-colors-defminus
 git clone https://github.com/habamax/vim-colors-defnoche.git ./habamax/start/vim-colors-defnoche
 git clone https://github.com/habamax/vim-colors-lessthan.git ./habamax/start/vim-colors-lessthan
-
+git clone https://github.com/habamax/vim-winlayout.git ./habamax/start/vim-winlayout
+git clone https://github.com/habamax/vim-num2words.git ./habamax/start/vim-num2words
