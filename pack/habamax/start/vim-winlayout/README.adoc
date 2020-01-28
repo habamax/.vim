@@ -1,3 +1,0 @@
-= Save and restore vim window layouts
-
-Based on link::https://vi.stackexchange.com/a/22545/9333[brilliant dedovski's answer on vim stackexchange].
