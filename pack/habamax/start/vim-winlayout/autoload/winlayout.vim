@@ -3,12 +3,19 @@ let s:winlayout_index = -1
 let s:layouts=[]
 let s:resize_cmds=[]
 
+"" shouldn't save layout if it is being restored
+let s:is_restoring_layout = v:false
+
 func! winlayout#inspect() abort
 	let @* = json_encode(s:layouts)
 	echom @*
 endfunc
 
 func! winlayout#save() abort
+	if s:is_restoring_layout
+		return
+	endif
+
 	let l:layout = winlayout()
 	call s:add_buf_to_layout(l:layout)
 	if !empty(s:layouts) && l:layout == s:layouts[-1]
@@ -38,27 +45,32 @@ func! s:add_buf_to_layout(layout) abort
 endfunc
 
 func! winlayout#restore(direction) abort
-	if empty(s:layouts)
-		return
-	endif
+	let s:is_restoring_layout = v:true
+	try
+		if empty(s:layouts)
+			return
+		endif
 
-	let s:winlayout_index += a:direction
-	if s:winlayout_index < 0 
-		let s:winlayout_index = 0
-	endif
-	if s:winlayout_index >= len(s:layouts)
-		let s:winlayout_index = len(s:layouts) - 1
-	endif
+		let s:winlayout_index += a:direction
+		if s:winlayout_index < 0 
+			let s:winlayout_index = 0
+		endif
+		if s:winlayout_index >= len(s:layouts)
+			let s:winlayout_index = len(s:layouts) - 1
+		endif
 
-	
-	" Close other windows
-	silent wincmd o
+		
+		" Close other windows
+		silent wincmd o
 
-	" recursively restore buffers
-	call s:apply_layout(s:layouts[s:winlayout_index])
+		" recursively restore buffers
+		call s:apply_layout(s:layouts[s:winlayout_index])
 
-	" resize
-	exe s:resize_cmds[s:winlayout_index]
+		" resize
+		exe s:resize_cmds[s:winlayout_index]
+	finally
+		let s:is_restoring_layout = v:false
+	endtry
 
 endfunc
 
