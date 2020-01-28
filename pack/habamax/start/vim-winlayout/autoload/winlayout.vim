@@ -29,6 +29,8 @@ func! winlayout#save() abort
 		call remove(s:layouts, 0)
 		call remove(s:resize_cmds, 0)
 	endif
+
+	let s:winlayout_index = len(s:layouts) - 1
 endfunc
 
 
