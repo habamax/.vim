@@ -17,6 +17,7 @@ pack/habamax/start/vial
 /pack/habamax/start/vim-do-outline/
 /pack/habamax/start/asyncomplete-buffer.vim/
 /pack/habamax/start/asyncomplete.vim/
+/pack/habamax/start/vim-winlayout/
 autoload/plug.vim.old
 .netrwbook
 rplugin.vim
