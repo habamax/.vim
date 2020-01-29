@@ -18,8 +18,9 @@ endif
 "
 " З3Э -- буква З, цифра 3, буква Э
 " 1Il0OQB8 =-+:
-"
+
 set linespace=0
+
 " Random font, because why not? :)
 let s:fonts = ["Iosevka\\ Habamax\\ Extended:h14", "JetBrains\\ Mono:h13"]
 exe "set gfn=".s:fonts[rand()%len(s:fonts)]
@@ -27,14 +28,14 @@ exe "set gfn=".s:fonts[rand()%len(s:fonts)]
 "" These are 2 I like the most atm
 " set gfn=Iosevka\ Habamax\ Extended:h14
 " set gfn=JetBrains\ Mono:h13
-"
+
 "" These are 2 fallback fonts -- really awesome
 " set gfn=Consolas:h14
 " set gfn=Hack:h14
-"
+
 "" No russian italics
 " set gfn=Cascadia\ Code:h14
-"
+
 "" Good but no italics
 " set gfn=Fira\ Mono:h14
 " set gfn=PT\ Mono:h14
