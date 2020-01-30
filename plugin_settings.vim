@@ -39,7 +39,7 @@ if has('nvim') || has('python') || has('python3')
 	nnoremap <leader>а :LeaderfFile<CR>
 	nnoremap <leader>и :LeaderfBuffer<CR>
 	nnoremap <leader>/ :LeaderfLine<CR>
-	nnoremap <leader>; :LeaderfHistoryCmd<CR>
+	nnoremap <leader>; :LeaderfCommand<CR>
 	nnoremap <leader>T :LeaderfBufTagAll<CR>
 	nnoremap <leader>[ :LeaderfFunction<CR>
 	nnoremap <leader>{ :LeaderfFunctionAll<CR>
