@@ -17,6 +17,7 @@ func! s:base16_setup()
 	call Base16hi("MatchParen", "", g:base16_gui01, "", "", "", "")
 
 	"" Vimscript
+	call Base16hi("vimCommand", g:base16_gui0E, "", "", "", "", "")
 	call Base16hi("vimVar", g:base16_gui05, "", "", "", "", "")
 	call Base16hi("vimFBVar", g:base16_gui0C, "", "", "", "", "")
 
