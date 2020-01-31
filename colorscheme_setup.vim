@@ -94,11 +94,12 @@ endif
 "" Uncomment if you want random base16 colors (mostly) in your gVim
 " call MY_LUCKY_COLORS()
 
+" colorscheme base16-oceanicnext
+colorscheme base16-default-dark
 " colorscheme base16-twilight
 " colorscheme base16-harmonic-dark
-colorscheme base16-oceanicnext
 " colorscheme base16-one-light
-" colorscheme base16-default-dark
+" colorscheme base16-snazzy
 
 
 " My timebased default colors -- when no other colorscheme was setup
