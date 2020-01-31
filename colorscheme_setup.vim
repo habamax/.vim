@@ -37,6 +37,10 @@ func! s:base16_setup()
 	call Base16hi("AsciidoctorIndented", g:base16_gui04, "", "", "", "", "")
 	call Base16hi("AsciidoctorCaption", g:base16_gui0B, "", "", "", "", "")
 	call Base16hi("AsciidoctorListMarker", g:base16_gui03, "", "", "", "", "")
+	call Base16hi("AsciidoctorMacro", g:base16_gui0A, "", "", "", "", "")
+	call Base16hi("AsciidoctorAttribute", g:base16_gui0C, "", "", "", "", "")
+	call Base16hi("AsciidoctorCode", g:base16_gui05, g:base16_gui02, "", "", "", "")
+	call Base16hi("Underlined", g:base16_gui0E, "", "", "", "", "")
 
 
 	"" LeaderF
