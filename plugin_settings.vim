@@ -22,7 +22,8 @@ if has('nvim') || has('python') || has('python3')
 	" 	let g:Lf_WindowPosition = 'popup'
 	" 	let g:Lf_PreviewInPopup = 1
 	" endif
-	let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+	" let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+    let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 	let g:Lf_WindowHeight = 0.30
 	let g:Lf_ShowHidden = 1
 	let g:Lf_FollowLinks = 1
@@ -33,6 +34,7 @@ if has('nvim') || has('python') || has('python3')
             \}
     let g:Lf_MruWildIgnore = copy(g:Lf_WildIgnore)
 	let g:Lf_UseVersionControlTool = 1
+	let g:Lf_MruMaxFiles = 500
 	" This is set by default
 	" nnoremap <leader>f :LeaderfFile<CR>
 	" nnoremap <leader>b :LeaderfBuffer<CR>
