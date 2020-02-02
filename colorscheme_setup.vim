@@ -101,7 +101,7 @@ endif
 " call MY_LUCKY_COLORS()
 
 " colorscheme base16-oceanicnext
-colorscheme base16-default-dark
+" colorscheme base16-default-dark
 " colorscheme base16-twilight
 " colorscheme base16-harmonic-dark
 " colorscheme base16-one-light
