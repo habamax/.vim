@@ -1,3 +1,10 @@
+if has('langmap') && exists('+langremap')
+  " Prevent that the langmap option applies to characters that result from a
+  " mapping.  If set (default), this may break plugins (but it's backward
+  " compatible).
+  set nolangremap
+endif
+
 " Keymap внутренняя раскладка + langmap
 if has('osx')
 	set keymap=russian-jcukenmac
