@@ -36,7 +36,7 @@ func! s:base16_setup()
 	call Base16hi("AsciidoctorLiteralBlock", g:base16_gui04, "", "", "", "", "")
 	call Base16hi("AsciidoctorIndented", g:base16_gui04, "", "", "", "", "")
 	call Base16hi("AsciidoctorCaption", g:base16_gui0B, "", "", "", "", "")
-	call Base16hi("AsciidoctorListMarker", g:base16_gui03, "", "", "", "", "")
+	call Base16hi("AsciidoctorListMarker", g:base16_gui09, "", "", "", "", "")
 	call Base16hi("AsciidoctorMacro", g:base16_gui0A, "", "", "", "", "")
 	call Base16hi("AsciidoctorAttribute", g:base16_gui0C, "", "", "", "", "")
 	call Base16hi("AsciidoctorCode", g:base16_gui05, g:base16_gui02, "", "", "", "")
@@ -50,14 +50,16 @@ func! s:base16_setup()
 	call Base16hi("Lf_hl_stlName", g:base16_gui03, g:base16_gui01, g:base16_cterm03, g:base16_cterm02, "", "")
 	call Base16hi("Lf_hl_stlMode", g:base16_gui0E, g:base16_gui02, g:base16_cterm0E, g:base16_cterm02, "", "")
 	call Base16hi("Lf_hl_stlCategory", g:base16_gui04, g:base16_gui01, g:base16_cterm03, g:base16_cterm01, "", "")
-	call Base16hi("Lf_hl_stlCwd", g:base16_gui04, g:base16_gui02, g:base16_cterm04, g:base16_cterm02, "", "")
+
 	call Base16hi("Lf_hl_stlNameOnlyMode", g:base16_gui03, g:base16_gui01, g:base16_cterm03, g:base16_cterm02, "", "")
 	call Base16hi("Lf_hl_stlRegexMode", g:base16_gui03, g:base16_gui01, g:base16_cterm03, g:base16_cterm02, "", "")
 	call Base16hi("Lf_hl_stlFullPathMode", g:base16_gui03, g:base16_gui01, g:base16_cterm03, g:base16_cterm02, "", "")
 	call Base16hi("Lf_hl_stlFuzzyMode", g:base16_gui03, g:base16_gui01, g:base16_cterm03, g:base16_cterm02, "", "")
-	call Base16hi("Lf_hl_stlTotal", g:base16_gui03, g:base16_gui01, g:base16_cterm03, g:base16_cterm01, "", "")
+
+	call Base16hi("Lf_hl_stlCwd", g:base16_gui04, g:base16_gui02, g:base16_cterm04, g:base16_cterm02, "", "")
+	call Base16hi("Lf_hl_stlBlank", g:base16_gui03, g:base16_gui02, g:base16_cterm03, g:base16_cterm02, "", "")
 	call Base16hi("Lf_hl_stlLineInfo", g:base16_gui03, g:base16_gui01, g:base16_cterm03, g:base16_cterm01, "", "")
-	call Base16hi("Lf_hl_stlBlank", g:base16_gui03, g:base16_gui01, g:base16_cterm03, g:base16_cterm02, "", "")
+	call Base16hi("Lf_hl_stlTotal", g:base16_gui03, g:base16_gui01, g:base16_cterm03, g:base16_cterm01, "", "")
 
 endfunc
 
