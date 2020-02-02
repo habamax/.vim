@@ -263,34 +263,34 @@ nnoremap <leader>oe :call OpenExplorer()<CR>
 " remove trailing spaces
 " make a separate plugin for the commands
 command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
-		\:exe 'normal ``'<bar>
-		\:echo 'Remove trailing spaces and ^Ms.'
+			\:exe 'normal ``'<bar>
+			\:echo 'Remove trailing spaces and ^Ms.'
 
 command! JustOneInnerSpace :let pos=getpos('.')<bar>
-		\:silent! s/\S\+\zs\s\+/ /g<bar>
-		\:silent! s/\s$//<bar>
-		\:call setpos('.', pos)<bar>
-		\:nohl<bar>
-		\:echo 'Just one space'
+			\:silent! s/\S\+\zs\s\+/ /g<bar>
+			\:silent! s/\s$//<bar>
+			\:call setpos('.', pos)<bar>
+			\:nohl<bar>
+			\:echo 'Just one space'
 
 " Continuous buffers.
 " 1. Vertically split window
 " 2. Offset it one screen
 " 3. Scrollbind
 command! ContinueInSplit 
-		\exe "normal zR" 
-		\|set noscrollbind
-		\|vsplit
-		\|exe "normal \<c-f>"
-		\|set scrollbind
-		\|wincmd p
-		\|set scrollbind
+			\exe "normal zR" 
+			\|set noscrollbind
+			\|vsplit
+			\|exe "normal \<c-f>"
+			\|set scrollbind
+			\|wincmd p
+			\|set scrollbind
 
 
 command! CD lcd %:p:h
 
 command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		\ | wincmd p | diffthis
+			\ | wincmd p | diffthis
 
 " Not for Windows
 " Write to a privileged file
@@ -300,9 +300,9 @@ endif
 
 augroup restore_last_cursor_position | autocmd!
 	autocmd BufReadPost *
-			\ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-			\ |   exe "normal! g`\""
-			\ | endif
+				\ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+				\ |   exe "normal! g`\""
+				\ | endif
 augroup END
 
 func! SetDefaultFiletype()

@@ -7,4 +7,4 @@ if !&readonly
 endif
 
 " make line continuation `\` less indented (default is *3)
-let g:vim_indent_cont = shiftwidth() * 2
+" let g:vim_indent_cont = shiftwidth() * 2
