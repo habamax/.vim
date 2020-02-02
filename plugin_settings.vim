@@ -3,72 +3,72 @@
 
 "" Python ext {{{1
 if has('nvim')
-	let g:python3_host_prog  = 'python'
-	let g:loaded_python_provider = 0
-	let g:loaded3_python_provider = 0
+    let g:python3_host_prog  = 'python'
+    let g:loaded_python_provider = 0
+    let g:loaded3_python_provider = 0
 endif
 
 
 """ Git {{{1
 if executable("git")
-	silent! packadd vim-fugitive
-	silent! packadd vim-flog
+    silent! packadd vim-fugitive
+    silent! packadd vim-flog
 endif
 
 """ Fuzzy finder (Leaderf and CtrlP) {{{1
 " Try to load LeaderF first
 if has('nvim') || has('python') || has('python3')
-	" if exists("*popup_create") || exists("*nvim_open_win")
-	" 	let g:Lf_WindowPosition = 'popup'
-	" 	let g:Lf_PreviewInPopup = 1
-	" endif
-	" let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+    " if exists("*popup_create") || exists("*nvim_open_win")
+    "   let g:Lf_WindowPosition = 'popup'
+    "   let g:Lf_PreviewInPopup = 1
+    " endif
+    " let g:Lf_StlSeparator = { 'left': '', 'right': '' }
     let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-	let g:Lf_WindowHeight = 0.30
-	let g:Lf_ShowHidden = 1
-	let g:Lf_FollowLinks = 1
+    let g:Lf_WindowHeight = 0.30
+    let g:Lf_ShowHidden = 1
+    let g:Lf_FollowLinks = 1
     let g:Lf_PreviewResult = { 'BufTag': 0 }
     let g:Lf_WildIgnore = {
             \ 'dir': ['.svn','.git','.hg'],
             \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', '*.tmp','*.ttf']
             \}
     let g:Lf_MruWildIgnore = copy(g:Lf_WildIgnore)
-	let g:Lf_UseVersionControlTool = 1
-	let g:Lf_MruMaxFiles = 500
-	" This is set by default
-	" nnoremap <leader>f :LeaderfFile<CR>
-	" nnoremap <leader>b :LeaderfBuffer<CR>
-	nnoremap <leader>а :LeaderfFile<CR>
-	nnoremap <leader>и :LeaderfBuffer<CR>
-	nnoremap <leader>/ :LeaderfLine<CR>
-	nnoremap <leader>; :LeaderfCommand<CR>
-	nnoremap <leader>T :LeaderfBufTagAll<CR>
-	nnoremap <leader>[ :LeaderfFunction<CR>
-	nnoremap <leader>{ :LeaderfFunctionAll<CR>
-	nnoremap <leader>h :LeaderfHelp<CR>
-	nnoremap <leader>m :LeaderfMru<CR>
-	nmap <leader>ь <leader>m
-	nnoremap <leader>c :LeaderfColorscheme<CR>
-	silent! packadd LeaderF
+    let g:Lf_UseVersionControlTool = 1
+    let g:Lf_MruMaxFiles = 500
+    " This is set by default
+    " nnoremap <leader>f :LeaderfFile<CR>
+    " nnoremap <leader>b :LeaderfBuffer<CR>
+    nnoremap <leader>а :LeaderfFile<CR>
+    nnoremap <leader>и :LeaderfBuffer<CR>
+    nnoremap <leader>/ :LeaderfLine<CR>
+    nnoremap <leader>; :LeaderfCommand<CR>
+    nnoremap <leader>T :LeaderfBufTagAll<CR>
+    nnoremap <leader>[ :LeaderfFunction<CR>
+    nnoremap <leader>{ :LeaderfFunctionAll<CR>
+    nnoremap <leader>h :LeaderfHelp<CR>
+    nnoremap <leader>m :LeaderfMru<CR>
+    nmap <leader>ь <leader>m
+    nnoremap <leader>c :LeaderfColorscheme<CR>
+    silent! packadd LeaderF
 
-	command Docs :LeaderfFile ~/docs
+    command Docs :LeaderfFile ~/docs
 endif
 
 " Use ctrlp as backup fuzzy finder (no dependencies)
 if !exists('g:leaderf_loaded')
-	nnoremap <leader>f :CtrlPMixed<CR>
-	nnoremap <leader>b :CtrlPBuffer<CR>
-	nnoremap <leader>m :CtrlPMRUFiles<CR>
+    nnoremap <leader>f :CtrlPMixed<CR>
+    nnoremap <leader>b :CtrlPBuffer<CR>
+    nnoremap <leader>m :CtrlPMRUFiles<CR>
 
-	let g:ctrlp_key_loop = 1
-	if executable('rg')
-		let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-		let g:ctrlp_use_caching = 1
-	elseif has("win32") || has("win64")
-		let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
-	endif
+    let g:ctrlp_key_loop = 1
+    if executable('rg')
+        let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+        let g:ctrlp_use_caching = 1
+    elseif has("win32") || has("win64")
+        let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
+    endif
 
-	silent! packadd ctrlp.vim
+    silent! packadd ctrlp.vim
 endif
 
 """ vim-asciidoctor {{{1
@@ -103,20 +103,20 @@ let g:asciidoctor_compact_media_links = 1
 let g:asciidoctor_folding = 0
 
 func! AsciidoctorBufferSetup()
-	setl cole=3
-	nnoremap <buffer> <leader>oo :AsciidoctorOpenRAW<CR>
-	nnoremap <buffer> <leader>op :AsciidoctorOpenPDF<CR>
-	nnoremap <buffer> <leader>oh :AsciidoctorOpenHTML<CR>
-	nnoremap <buffer> <leader>ox :AsciidoctorOpenDOCX<CR>
-	nnoremap <buffer> <leader>ch :Asciidoctor2HTML<CR>
-	nnoremap <buffer> <leader>cp :Asciidoctor2PDF<CR>
-	nnoremap <buffer> <leader>cx :Asciidoctor2DOCX<CR>
-	nnoremap <buffer> <leader>p :AsciidoctorPasteImage<CR>
-	compiler asciidoctor2pdf
+    setl cole=3
+    nnoremap <buffer> <leader>oo :AsciidoctorOpenRAW<CR>
+    nnoremap <buffer> <leader>op :AsciidoctorOpenPDF<CR>
+    nnoremap <buffer> <leader>oh :AsciidoctorOpenHTML<CR>
+    nnoremap <buffer> <leader>ox :AsciidoctorOpenDOCX<CR>
+    nnoremap <buffer> <leader>ch :Asciidoctor2HTML<CR>
+    nnoremap <buffer> <leader>cp :Asciidoctor2PDF<CR>
+    nnoremap <buffer> <leader>cx :Asciidoctor2DOCX<CR>
+    nnoremap <buffer> <leader>p :AsciidoctorPasteImage<CR>
+    compiler asciidoctor2pdf
 endfunc
 
 augroup asciidoctor | au!
-	au BufEnter *.adoc,*.asciidoc call AsciidoctorBufferSetup()
+    au BufEnter *.adoc,*.asciidoc call AsciidoctorBufferSetup()
 augroup END
 
 """ vim-swap {{{1
@@ -137,8 +137,8 @@ command! -nargs=1 -complete=customlist,LoadObsessionComplete SA :Obsession ~/.vi
 command! -nargs=1 -complete=customlist,LoadObsessionComplete LO :so ~/.vimdata/sessions/<args>
 
 func! LoadObsessionComplete(A, L, P)
-	let fullpaths = split(globpath("~/.vimdata/sessions/", a:A."*"), "\n")
-	return map(fullpaths, {k,v -> fnamemodify(v, ":t")})
+    let fullpaths = split(globpath("~/.vimdata/sessions/", a:A."*"), "\n")
+    return map(fullpaths, {k,v -> fnamemodify(v, ":t")})
 endfunc
 
 
@@ -147,9 +147,9 @@ let g:dadbods = []
 
 " g:dadbods should be populated with
 " call add(g:dadbods, = #{
-" 		\name: "My Database",
-" 		\url: "postgresql://user:password@url/dbname"
-" 		\})
+"       \name: "My Database",
+"       \url: "postgresql://user:password@url/dbname"
+"       \})
 
 runtime mydadbods.vim
 
@@ -157,9 +157,9 @@ command! -nargs=1 -complete=customlist,DBSComplete DBSelect :let b:db = g:dadbod
 
 
 func! DBSComplete(A, L, P)
-	let dadbods = map(copy(g:dadbods), {i, v -> '('.i.') '.v['name']})
-	call filter(dadbods, {_, v -> v =~ '.*' . a:A . '.*'})
-	return dadbods
+    let dadbods = map(copy(g:dadbods), {i, v -> '('.i.') '.v['name']})
+    call filter(dadbods, {_, v -> v =~ '.*' . a:A . '.*'})
+    return dadbods
 endfunc
 
 "" operator mapping
@@ -196,36 +196,36 @@ if !isdirectory(g:lsp_settings_servers_dir) | call mkdir(g:lsp_settings_servers_
 " let g:lsp_log_file = expand('~/vimlsp.log')
 
 augroup lsp_preview | au!
-	autocmd CompleteDone * silent! pclose
-	if !has('nvim')
-		autocmd User lsp_float_opened
-			\ call popup_setoptions(lsp#ui#vim#output#getpreviewwinid(),
-			\ {
-			\ 'border': [1, 1, 1, 1],
-			\ 'borderchars': [' '],
-			\ 'padding': [0, 0, 0, 0]
-			\ })
-	end
+    autocmd CompleteDone * silent! pclose
+    if !has('nvim')
+        autocmd User lsp_float_opened
+            \ call popup_setoptions(lsp#ui#vim#output#getpreviewwinid(),
+            \ {
+            \ 'border': [1, 1, 1, 1],
+            \ 'borderchars': [' '],
+            \ 'padding': [0, 0, 0, 0]
+            \ })
+    end
 augroup end
 
 "" mapping `C-w z` also works
 " augroup lsp_preview | au!
-" 	autocmd CompleteDone * silent! pclose
+"   autocmd CompleteDone * silent! pclose
 " augroup end
 
 func! SetLSPMappings()
-	nnoremap <buffer> gd :LspDefinition<CR>
-	nnoremap <buffer> K :LspHover<CR>
-	nnoremap <buffer> <C-Space> :LspSignatureHelp<CR>
-	nnoremap <buffer> <leader>lf :LspDocumentFormat<CR>
-	nnoremap <buffer> <leader>la :LspCodeAction<CR>
-	nnoremap <buffer> <leader>ls :LspDocumentSymbol<CR>
+    nnoremap <buffer> gd :LspDefinition<CR>
+    nnoremap <buffer> K :LspHover<CR>
+    nnoremap <buffer> <C-Space> :LspSignatureHelp<CR>
+    nnoremap <buffer> <leader>lf :LspDocumentFormat<CR>
+    nnoremap <buffer> <leader>la :LspCodeAction<CR>
+    nnoremap <buffer> <leader>ls :LspDocumentSymbol<CR>
 endfunc
 augroup lsp_mappings | au!
-	au FileType python call SetLSPMappings()
-	au FileType ruby call SetLSPMappings()
-	au FileType dart call SetLSPMappings()
-	au FileType html call SetLSPMappings()
+    au FileType python call SetLSPMappings()
+    au FileType ruby call SetLSPMappings()
+    au FileType dart call SetLSPMappings()
+    au FileType html call SetLSPMappings()
 augroup END
 
 
@@ -254,9 +254,9 @@ let g:loaded_netrwPlugin = 1
 let g:dirvish_mode = ':sort ,^.*[\/],'
 
 if has('gui_running')
-	augroup dirvish_config | autocmd!
-		autocmd FileType dirvish call dirvish#add_icon_fn({p -> p[-1:]=~'/\|\\'?'📂':'📄'})
-	augroup END
+    augroup dirvish_config | autocmd!
+        autocmd FileType dirvish call dirvish#add_icon_fn({p -> p[-1:]=~'/\|\\'?'📂':'📄'})
+    augroup END
 endif
 
 
@@ -278,10 +278,10 @@ let g:vrc_auto_format_response_enabled = 1
 let b:vrc_response_default_content_type = 'application/json'
 " let g:vrc_show_command = 1
 let g:vrc_curl_opts = {
-			\ '-sS': '',
-			\ '-i': '',
-			\ '--connect-timeout': 10,
-			\}
+            \ '-sS': '',
+            \ '-i': '',
+            \ '--connect-timeout': 10,
+            \}
 
 
 "" vim-winlayout {{{1
@@ -292,18 +292,18 @@ nmap <F4> <Plug>(WinlayoutForward)
 
 """ firenvim {{{1
 if exists('g:started_by_firenvim')
-	packadd firenvim
-	set gfn=Iosevka\ Extended:h12
-	au BufEnter github.com_*.txt set filetype=markdown
-	au BufEnter www.linux.org.ru_*.txt set filetype=markdown
-	let g:firenvim_config = {
-				\	'localSettings': {
-				\		'.*': {
-				\			'selector': '',
-				\			'priority': 0,
-				\		}
-				\	}
-				\ }
+    packadd firenvim
+    set gfn=Iosevka\ Extended:h12
+    au BufEnter github.com_*.txt set filetype=markdown
+    au BufEnter www.linux.org.ru_*.txt set filetype=markdown
+    let g:firenvim_config = {
+                \   'localSettings': {
+                \       '.*': {
+                \           'selector': '',
+                \           'priority': 0,
+                \       }
+                \   }
+                \ }
 endif
 
 

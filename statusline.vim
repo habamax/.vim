@@ -1,18 +1,18 @@
 func! StatusGitBranch()
-	if exists('*fugitive#head')
-		return fugitive#head()
-	endif
-	return ''
+    if exists('*fugitive#head')
+        return fugitive#head()
+    endif
+    return ''
 endfunc
 func! StatusFiletype()
-	return &filetype
+    return &filetype
 endfunc
 func! StatusWindowNr()
-	if winnr('$') > 1
-		return '{'.winnr().'}'
-	else
-		return ''
-	endif
+    if winnr('$') > 1
+        return '{'.winnr().'}'
+    else
+        return ''
+    endif
 endfunc
 
 set laststatus=2

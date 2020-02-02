@@ -1,7 +1,7 @@
 """ Mac {{{1
 if has("gui_macvim")
-	set macmeta
-	let macvim_skip_colorscheme = 1
+    set macmeta
+    let macvim_skip_colorscheme = 1
 endif
 
 """ Fonts {{{1
