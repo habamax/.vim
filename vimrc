@@ -155,7 +155,7 @@ au! GuiEnter * set t_vb=
 set t_vb=
 
 "" Text {{{1
-set tabstop=4 softtabstop=-1 shiftwidth=0 noexpandtab smarttab
+set tabstop=8 softtabstop=-1 shiftwidth=0 noexpandtab smarttab
 set shiftround
 set autoindent
 
