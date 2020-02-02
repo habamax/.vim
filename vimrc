@@ -289,6 +289,9 @@ command! ContinueInSplit
 
 command! CD lcd %:p:h
 
+command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+		\ | wincmd p | diffthis
+
 " Not for Windows
 " Write to a privileged file
 if has("unix") || has("osxdarwin")
