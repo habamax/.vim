@@ -26,8 +26,8 @@
 	"Options RU": {
 		"prefix": ["optsru"],
 		"body": [
-			"${1:Maxim Kim}",
-			"v${2:0.1}, $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE${3: : Draft}",
+			"${1:Максим Ким}",
+			"v${2:0.1}, $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE${3: : Предварительный вариант}",
 			":pdf-style: ${4:default}",
 			":doctype: ${5:article}",
 			":toc: left",
