@@ -76,74 +76,12 @@ set showmode
 
 set conceallevel=0
 
-"" Statusline {{{
-func! StatusGitBranch()
-	if exists('*fugitive#head')
-		return fugitive#head()
-	endif
-	return ''
-endfunc
-func! StatusFiletype()
-	return &filetype
-endfunc
-func! StatusWindowNr()
-	if winnr('$') > 1
-		return '{'.winnr().'}'
-	else
-		return ''
-	endif
-endfunc
 
-set laststatus=2
-" set ruler " for default statusline"
-set statusline=%{StatusWindowNr()} 
-set statusline+=%([\%R%M]\ %)
-set statusline+=%<%f
-set statusline+=%(\ %y%)
-set statusline+=%=
-set statusline+=%([git:%{StatusGitBranch()}]%)
-set statusline+=%4(%p%%%)
-" }}}
-
-"" Unicode chars {{{
-" UTF-8 symbols, good font needed
-" ⮌⭯⭮⮍⮎⮏⭲╙●↳→│↑←↓↘└┐⤶⤾⤶⤸⬎⮐␊␍⮠⮐
-" set listchars=tab:<->,trail:-,extends:>,precedes:<,nbsp:+,eol:$
-" set listchars=tab:>\ ,trail:-,eol:$
-" set listchars=tab:→\ ,eol:↲,trail:·,extends:⟩,precedes:⟨
-" set listchars=tab:⭲\ ,eol:↲,trail:·
-" let &showbreak='↳ '
-" Fancy listchars for GUI, ASCII listchars for terminal
-" set listchars=tab:⭲\ ,eol:⮠,trail:·
-" let &showbreak='⮎ '
+"" Unicode chars
 set listchars=tab:→\ ,eol:┘,trail:·
 let &showbreak='└ '
-
 set fillchars=fold:\ ,vert:│
 
-" My fancy foldtext
-set foldtext=MyFoldText()
-func! MyFoldText()
-	let line = getline(v:foldstart)
-
-	" markdown frontmatter -- just take the next line hoping it would be
-	" title: Your title
-	if line =~ '^----*$'
-		let line = getline(v:foldstart+1)
-	endif
-
-	let indent = max([indent(v:foldstart)-v:foldlevel, 1])
-	let lines = (v:foldend - v:foldstart + 1)
-	let strip_line = substitute(line, '^//\|=\+\|["#]\|/\*\|\*/\|{{{\d\=\|title:\s*', '', 'g')
-	let strip_line = substitute(strip_line, '^[[:space:]]*\|[[:space:]]*$', '', 'g')
-	let text = strpart(strip_line, 0, winwidth(0) - v:foldlevel - indent - 6 - strlen(lines))
-	if strlen(strip_line) > strlen(text)
-		let text = text.'…'
-	endif
-	return repeat('•', v:foldlevel) . repeat(' ', indent) . text .' ('. lines .')'
-	" ▸•●□★▢▧▪◆▷▶┄◇□▢○◎
-endfunc
-"}}}
 
 " autocomplete is getting much better :e <tab>...
 set wildchar=<Tab> wildmenu wildmode=full
@@ -197,21 +135,6 @@ set backspace=indent,eol,start whichwrap+=<,>,[,]
 if has('crypt-blowfish2')
 	set cryptmethod=blowfish2
 endif
-
-"" Paths & Backup & Undo & Sessions {{{1
-set path=.,,src/**,lib/**,docs/**
-
-let &directory = expand('~/.vimdata/swap//')
-
-set backup
-let &backupdir = expand('~/.vimdata/backup//')
-
-set undofile
-let &undodir = expand('~/.vimdata/undo//')
-
-if !isdirectory(&undodir) | call mkdir(&undodir, "p") | endif
-if !isdirectory(&backupdir) | call mkdir(&backupdir, "p") | endif
-if !isdirectory(&directory) | call mkdir(&directory, "p") | endif
 
 "" Mappings {{{1
 
@@ -293,8 +216,6 @@ nmap <Leader>уо <Leader>ej
 " built-in terminal
 tnoremap <esc> <C-\><C-n>
 
-nnoremap <Leader><tab> <C-^>
-
 " helper func for scroll other window mappings
 func! s:scroll_other_window(dir)
 	if winnr('$') < 2
@@ -341,28 +262,28 @@ nnoremap <leader>oe :call OpenExplorer()<CR>
 " remove trailing spaces
 " make a separate plugin for the commands
 command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
-			\:exe 'normal ``'<bar>
-			\:echo 'Remove trailing spaces and ^Ms.'
+		\:exe 'normal ``'<bar>
+		\:echo 'Remove trailing spaces and ^Ms.'
 
 command! JustOneInnerSpace :let pos=getpos('.')<bar>
-			\:silent! s/\S\+\zs\s\+/ /g<bar>
-			\:silent! s/\s$//<bar>
-			\:call setpos('.', pos)<bar>
-			\:nohl<bar>
-			\:echo 'Just one space'
+		\:silent! s/\S\+\zs\s\+/ /g<bar>
+		\:silent! s/\s$//<bar>
+		\:call setpos('.', pos)<bar>
+		\:nohl<bar>
+		\:echo 'Just one space'
 
 " Continuous buffers.
 " 1. Vertically split window
 " 2. Offset it one screen
 " 3. Scrollbind
 command! ContinueInSplit 
-			\exe "normal zR" 
-			\|set noscrollbind
-			\|vsplit
-			\|exe "normal \<c-f>"
-			\|set scrollbind
-			\|wincmd p
-			\|set scrollbind
+		\exe "normal zR" 
+		\|set noscrollbind
+		\|vsplit
+		\|exe "normal \<c-f>"
+		\|set scrollbind
+		\|wincmd p
+		\|set scrollbind
 
 
 command! CD lcd %:p:h
@@ -373,12 +294,11 @@ if has("unix") || has("osxdarwin")
 	command! W w !sudo tee "%" > /dev/null
 endif
 
-augroup restore_last_cursor_position
-	autocmd!
+augroup restore_last_cursor_position | autocmd!
 	autocmd BufReadPost *
-				\ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-				\ |   exe "normal! g`\""
-				\ | endif
+			\ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+			\ |   exe "normal! g`\""
+			\ | endif
 augroup END
 
 func! SetDefaultFiletype()
@@ -397,34 +317,15 @@ if executable('rg')
 	set grepformat=%f:%l:%c:%m
 endif
 
-"" RU {{{1
-" Keymap внутренняя раскладка + langmap
-if has('osx')
-	set keymap=russian-jcukenmac
-	set langmap=йцукенгшщзхъ;qwertyuiop[]
-	set langmap+=фывапролджэё;asdfghjkl\\;'\\\
-	set langmap+=ячсмитьбю;zxcvbnm\\,.
-	set langmap+=ЙЦУКЕНГШЩЗХЪ;QWERTYUIOP{}
-	set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\|
-	set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
-	set langmap+=№#
-else
-	set keymap=russian-jcukenwin
-	set langmap=йцукенгшщзхъ;qwertyuiop[]
-	set langmap+=фывапролджэё;asdfghjkl\\;'\\\
-	set langmap+=ячсмитьбю;zxcvbnm\\,.
-	set langmap+=ЙЦУКЕНГШЩЗХЪ;QWERTYUIOP{}
-	set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\~
-	set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
-	set langmap+=№#
-	" breaks english .
-	" set langmap+=./
-endif
-set iminsert=0
-set imsearch=-1
-
-
 "" Load Other Settings (plugins, colorscheme, etc) {{{1
+silent! source <sfile>:h/foldtext.vim
+
+silent! source <sfile>:h/paths.vim
+
+silent! source <sfile>:h/russian.vim
+
+silent! source <sfile>:h/statusline.vim
+
 silent! source <sfile>:h/abbreviations.vim
 
 silent! source <sfile>:h/colorscheme_setup.vim
