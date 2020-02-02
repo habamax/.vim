@@ -111,8 +111,9 @@ endif
 " My timebased default colors -- when no other colorscheme was setup
 if get(g:, "colors_name", "default") == "default"
 	if &bg == "dark"
-		let my_dark_colors = ['lessthan', 'defnoche']
-		exe 'colorscheme ' . my_dark_colors[rand() % len(my_dark_colors)]
+		" let my_dark_colors = ['lessthan', 'defnoche']
+		" exe 'colorscheme ' . my_dark_colors[rand() % len(my_dark_colors)]
+		colorscheme lessthan
 	else
 		colorscheme defminus
 	endif
