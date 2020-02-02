@@ -26,6 +26,7 @@ endif
 
 " Vim and terminals have hard time processing ESCs (laaaag)
 " This helps a lot
+set ttimeout
 set ttimeoutlen=100
 
 "" Encoding and fileformat {{{1
