@@ -159,7 +159,7 @@ inoremap <C-U> <C-G>u<C-U>
 inoremap <C-l> <c-g>u<C-\><C-o>[s<ESC>1z=`]a<c-g>u
 
 " just one space on the line, preserving indent
-nnoremap <leader><leader><leader> :JustOneInnerSpace<CR>
+noremap <leader><leader><leader> :JustOneInnerSpace<CR>
 
 " now it is possible to paste many times over selected text
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
@@ -237,8 +237,6 @@ endfunc
 nnoremap <silent> <C-j> :call <SID>scroll_other_window(1)<CR>
 nnoremap <silent> <C-k> :call <SID>scroll_other_window(0)<CR>
 
-
-" nnoremap <leader>ee :20Lexplore <bar> :set noscrollbind<CR>
 func! OpenExplorer()
     " Windows only for now
     if !has("win32")
@@ -254,7 +252,7 @@ func! OpenExplorer()
     else
         let subcmd = '/select,"' . expand("%:p") . '"'
     endif
-    :exe "silent !start explorer " . subcmd
+    exe "silent !start explorer " . subcmd
 endfunc
 nnoremap <leader>oe :call OpenExplorer()<CR>
 
@@ -266,25 +264,29 @@ command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
             \:exe 'normal ``'<bar>
             \:echo 'Remove trailing spaces and ^Ms.'
 
-command! JustOneInnerSpace :let pos=getpos('.')<bar>
-            \:silent! s/\S\+\zs\s\+/ /g<bar>
-            \:silent! s/\s$//<bar>
-            \:call setpos('.', pos)<bar>
-            \:nohl<bar>
-            \:echo 'Just one space'
+func! JustOneInnerSpace() range
+    let pos=getcurpos()
+    exe printf('silent %d,%ds/\S\+\zs\s\+/ /g', a:firstline, a:lastline)
+    exe printf('silent %d,%ds/\s*$//g', a:firstline, a:lastline)
+    call setpos('.', pos)
+    nohl
+    echo 'Just one space'
+endfunc
+
+command! -range JustOneInnerSpace <line1>,<line2>call JustOneInnerSpace()
 
 " Continuous buffers.
 " 1. Vertically split window
 " 2. Offset it one screen
 " 3. Scrollbind
 command! ContinueInSplit 
-            \exe "normal zR" 
-            \|set noscrollbind
-            \|vsplit
-            \|exe "normal \<c-f>"
-            \|set scrollbind
-            \|wincmd p
-            \|set scrollbind
+            \   exe "normal zR" 
+            \ | set noscrollbind
+            \ | vsplit
+            \ | exe "normal \<c-f>"
+            \ | set scrollbind
+            \ | wincmd p
+            \ | set scrollbind
 
 
 command! CD lcd %:p:h
@@ -322,6 +324,8 @@ if executable('rg')
 endif
 
 "" Load Other Settings (plugins, colorscheme, etc) {{{1
+" silent! source <sfile>:h/f.vim
+
 silent! source <sfile>:h/foldtext.vim
 
 silent! source <sfile>:h/paths.vim
