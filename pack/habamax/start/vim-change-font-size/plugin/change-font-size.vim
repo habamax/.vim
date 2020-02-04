@@ -15,10 +15,18 @@ let g:loaded_change_font_size = 1
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 fun! s:getCurrentFont()
-	let font = matchlist(&guifont, '\(.\{-}\):h\(\d\+\)')
-	if !exists("g:guifont")
-		let g:guifont = &guifont
+    if has('nvim')
+        let guifont = g:GuiFont
+    else
+        let guifont = &guifont
+    endif
+
+    let font = matchlist(guifont, '\(.\{-}\):h\(\d\+\)')
+
+	if !exists("s:orig_guifont")
+		let s:orig_guifont = guifont
 	endif
+
 	return [font[1], font[2]]
 endfu
 
@@ -31,10 +39,11 @@ fun! s:changeFontSize(op)
 	elseif a:op == 'dec'
 		let new_font = fontname.':h'.(fontsize - 1)
 	else
-	 	let new_font = g:guifont
+	 	let new_font = s:orig_guifont
 	endif
 
-	let &guifont = new_font
+    exe printf('set guifont=%s', escape(new_font, ' '))
+
 	wincmd =
 endfu
 
