@@ -324,8 +324,6 @@ if executable('rg')
 endif
 
 "" Load Other Settings (plugins, colorscheme, etc) {{{1
-" silent! source <sfile>:h/f.vim
-
 silent! source <sfile>:h/foldtext.vim
 
 silent! source <sfile>:h/paths.vim
