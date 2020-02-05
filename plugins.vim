@@ -101,7 +101,7 @@ if exists('*minpac#init')
     call minpac#add('prabirshrestha/async.vim')
     " use forked as of now
     " git clone https://github.com/habamax/asyncomplete.vim $HOME/vimfiles/pack/habamax/start/asyncomplete.vim
-    " call minpac#add('prabirshrestha/asyncomplete.vim')
+    call minpac#add('prabirshrestha/asyncomplete.vim')
     call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
     " hangs... see https://github.com/prabirshrestha/asyncomplete-file.vim/issues/4
     " call minpac#add('prabirshrestha/asyncomplete-file.vim')
