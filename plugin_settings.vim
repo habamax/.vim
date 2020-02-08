@@ -226,6 +226,8 @@ augroup lsp_mappings | au!
     au FileType ruby call SetLSPMappings()
     au FileType dart call SetLSPMappings()
     au FileType html call SetLSPMappings()
+    au FileType go call SetLSPMappings()
+    autocmd BufWritePre *.go call execute('LspDocumentFormatSync') | call execute('LspCodeActionSync source.organizeImports')
 augroup END
 
 

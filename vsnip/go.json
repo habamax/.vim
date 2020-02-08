@@ -1,0 +1,15 @@
+{
+	"Main": {
+		"prefix": ["main"],
+		"body": [
+			"package main",
+            "",
+			"import \"fmt\"",
+            "",
+			"func main() {",
+			"\tfmt.Println(\"$0\")",
+			"}"
+		],
+		"description": "package main"
+	}
+}

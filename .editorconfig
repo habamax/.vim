@@ -1,4 +1,4 @@
-root = false
+root = true
 
 # Unix-style newlines with a newline ending every file
 [*]
@@ -14,3 +14,7 @@ indent_size = 4
 [*.rb]
 indent_style = space
 indent_size = 2
+
+[*.go]
+indent_style = tab
+indent_size = 4
