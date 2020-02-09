@@ -1,6 +1,12 @@
 " My fancy foldtext
+" Buffer setup
+" let b:foldlines_padding = v:false
+" let b:foldchar = ''
 set foldtext=MyFoldText()
 func! MyFoldText()
+    let l:foldchar = get(b:, 'foldchar', '•')
+    " ▸•●□★▢▧▪◆▷▶┄◇□▢○◎
+
     let line = getline(v:foldstart)
 
     " markdown frontmatter -- just take the next line hoping it would be
@@ -9,15 +15,28 @@ func! MyFoldText()
         let line = getline(v:foldstart+1)
     endif
 
-    let indent = max([indent(v:foldstart)-v:foldlevel, 1])
-    let lines = (v:foldend - v:foldstart + 1)
+    let indent = indent(v:foldstart)
+
+    let foldlevel = repeat(l:foldchar, v:foldlevel)
+    let foldindent = repeat(' ', max([indent-strchars(foldlevel), strchars(l:foldchar)]))
+    let foldlines = (v:foldend - v:foldstart + 1)
+
     let strip_line = substitute(line, '^//\|=\+\|["#]\|/\*\|\*/\|{{{\d\=\|title:\s*', '', 'g')
     let strip_line = substitute(strip_line, '^[[:space:]]*\|[[:space:]]*$', '', 'g')
-    let text = strpart(strip_line, 0, winwidth(0) - v:foldlevel - indent - 6 - strlen(lines))
-    if strlen(strip_line) > strlen(text)
-        let text = text.'…'
+    let nontextlen = strchars(foldlevel.foldindent.foldlines.' …()')
+    let foldtext = strpart(strip_line, 0, winwidth(0) - nontextlen)
+
+    if get(b:, 'foldlines_padding', v:false)
+        let foldlines_padding = repeat(' ', winwidth(0) - strchars(foldtext) - nontextlen)
+    else
+        let foldlines_padding = ' '
     endif
-    return repeat('•', v:foldlevel) . repeat(' ', indent) . text .' ('. lines .')'
-    " ▸•●□★▢▧▪◆▷▶┄◇□▢○◎
+
+    return printf("%s%s%s …%s(%d)",
+                \ foldlevel,
+                \ foldindent,
+                \ foldtext,
+                \ foldlines_padding,
+                \ foldlines) 
 endfunc
 

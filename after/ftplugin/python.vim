@@ -1,6 +1,9 @@
 " setlocal foldmethod=indent
 " setlocal foldnestmax=2
 
+let b:foldchar = ''
+let b:foldlines_padding = v:true
+
 func! FoldIndent() abort
     let indent = indent(v:lnum)/&sw
     let indent_next = indent(nextnonblank(v:lnum+1))/&sw
