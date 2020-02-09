@@ -295,7 +295,7 @@ nmap <F4> <Plug>(WinlayoutForward)
 """ firenvim {{{1
 if exists('g:started_by_firenvim')
     packadd firenvim
-    set gfn=Iosevka\ Extended:h12
+    set gfn=Iosevka\ Habamax\ Extended:h12
     au BufEnter github.com_*.txt set filetype=markdown
     au BufEnter www.linux.org.ru_*.txt set filetype=markdown
     let g:firenvim_config = {
