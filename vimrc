@@ -264,16 +264,28 @@ command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
             \:exe 'normal ``'<bar>
             \:echo 'Remove trailing spaces and ^Ms.'
 
-func! JustOneInnerSpace() range
+func! JustOneSpace() range
     let pos=getcurpos()
-    exe printf('silent %d,%ds/\S\+\zs\s\+/ /g', a:firstline, a:lastline)
-    exe printf('silent %d,%ds/\s*$//g', a:firstline, a:lastline)
+    " replace non-breaking space to space first
+    exe printf('silent %d,%ds/\%%xA0/ /ge', a:firstline, a:lastline)
+    " replace multiple spaces to a single space (preserving indent)
+    exe printf('silent %d,%ds/\S\+\zs\(\s\|\%%xa0\)\+/ /ge', a:firstline, a:lastline)
+    " remove spaces between closed braces: ) ) -> ))
+    exe printf('silent %d,%ds/)\s\+)\@=/)/ge', a:firstline, a:lastline)
+    " remove spaces between opened braces: ( ( -> ((
+    exe printf('silent %d,%ds/(\s\+(\@=/(/ge', a:firstline, a:lastline)
+    " remove space before closed brace: word ) -> word)
+    exe printf('silent %d,%ds/\s)/)/ge', a:firstline, a:lastline)
+    " remove space after opened brace: ( word -> (word
+    exe printf('silent %d,%ds/(\s/(/ge', a:firstline, a:lastline)
+    " remove space at the end of line
+    exe printf('silent %d,%ds/\s*$//ge', a:firstline, a:lastline)
     call setpos('.', pos)
     nohl
     echo 'Just one space'
 endfunc
 
-command! -range JustOneInnerSpace <line1>,<line2>call JustOneInnerSpace()
+command! -range JustOneSpace <line1>,<line2>call JustOneSpace()
 
 " Continuous buffers.
 " 1. Vertically split window
