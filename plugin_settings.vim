@@ -129,7 +129,7 @@ let g:rooter_silent_chdir = 1
 
 """ vim-markdown {{{1
 let g:markdown_folding = 0
-let g:markdown_fenced_languages = ['dart', 'python', 'ruby']
+let g:markdown_fenced_languages = ['dart', 'python', 'ruby', 'go']
 
 """ vim-obsession {{{1
 command! -nargs=1 -complete=customlist,LoadObsessionComplete SA :Obsession ~/.vimdata/sessions/<args>
