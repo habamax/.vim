@@ -18,16 +18,16 @@ func! MyFoldText()
     let indent = indent(v:foldstart)
 
     let foldlevel = repeat(l:foldchar, v:foldlevel)
-    let foldindent = repeat(' ', max([indent-strchars(foldlevel), strchars(l:foldchar)]))
+    let foldindent = repeat(' ', max([indent-strdisplaywidth(foldlevel), strdisplaywidth(l:foldchar)]))
     let foldlines = (v:foldend - v:foldstart + 1)
 
     let strip_line = substitute(line, '^//\|=\+\|["#]\|/\*\|\*/\|{{{\d\=\|title:\s*', '', 'g')
     let strip_line = substitute(strip_line, '^[[:space:]]*\|[[:space:]]*$', '', 'g')
-    let nontextlen = strchars(foldlevel.foldindent.foldlines.' …()')
-    let foldtext = strpart(strip_line, 0, winwidth(0) - nontextlen)
+    let nontextlen = strdisplaywidth(foldlevel.foldindent.foldlines.' … ()')
+    let foldtext = strcharpart(strip_line, 0, winwidth(0) - nontextlen)
 
     if get(b:, 'foldlines_padding', v:false)
-        let foldlines_padding = repeat(' ', winwidth(0) - strchars(foldtext) - nontextlen)
+        let foldlines_padding = repeat(' ', winwidth(0) - strdisplaywidth(foldtext) - nontextlen)
     else
         let foldlines_padding = ' '
     endif
