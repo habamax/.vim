@@ -99,8 +99,8 @@ let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json']
 
 let g:asciidoctor_syntax_conceal = 1
-let g:asciidoctor_compact_media_links = 1
 let g:asciidoctor_folding = 0
+let g:asciidoctor_fold_options = 0
 
 func! AsciidoctorBufferSetup()
     setl cole=3
@@ -201,9 +201,8 @@ augroup lsp_preview | au!
         autocmd User lsp_float_opened
             \ call popup_setoptions(lsp#ui#vim#output#getpreviewwinid(),
             \ {
-            \ 'border': [1, 1, 1, 1],
-            \ 'borderchars': [' '],
-            \ 'padding': [0, 0, 0, 0]
+            \ 'border': [0, 0, 0, 0],
+            \ 'padding': [0, 1, 0, 1]
             \ })
     end
 augroup end
