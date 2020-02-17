@@ -1,0 +1,13 @@
+{
+    "Summary": {
+        "prefix": ["summary"],
+        "body": [
+            "<details><summary>${1:Summary}</summary><p>",
+            "",
+            "$0",
+            "",
+            "</p></details>"
+        ],
+        "description": "Collapsible GitHub Block"
+    }
+}
