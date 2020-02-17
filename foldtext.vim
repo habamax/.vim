@@ -27,7 +27,7 @@ func! MyFoldText()
     let foldtext = strcharpart(strip_line, 0, winwidth(0) - nontextlen)
 
     if get(b:, 'foldlines_padding', v:false)
-        let foldlines_padding = repeat(' ', winwidth(0) - strdisplaywidth(foldtext) - nontextlen)
+        let foldlines_padding = repeat(' ', winwidth(0) - strdisplaywidth(foldtext) - nontextlen + 1)
     else
         let foldlines_padding = ' '
     endif
