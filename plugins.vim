@@ -89,10 +89,11 @@ if exists('*minpac#init')
 
     "" Filetype & Syntax
     call minpac#add('elixir-editors/vim-elixir')
+    call minpac#add('wlangstroth/vim-racket')
     call minpac#add('udalov/kotlin-vim')
     call minpac#add('aklt/plantuml-syntax')
     call minpac#add('dart-lang/dart-vim-plugin')
-
+  
 
     "" Language Server Protocol and completion
     call minpac#add('prabirshrestha/vim-lsp')
@@ -143,6 +144,9 @@ if exists('*minpac#init')
                 \ 'do': 'if has("nvim") | packadd firenvim | call firenvim#install(0) | endif'
                 \ })
     
+
+    " golden ratio for windows.
+    call minpac#add('camspiers/lens.vim')
 
     "" Colors
     call minpac#add('chriskempson/base16-vim')
