@@ -1,26 +1,21 @@
 func! StatusGitBranch()
-    if exists('*fugitive#head')
-        return fugitive#head()
+    let branch = ''
+    if exists('*FugitiveHead')
+        let branch = FugitiveHead()
+        if !empty(branch)
+            let branch = printf("[%s]", branch)
+        endif
     endif
-    return ''
-endfunc
-func! StatusFiletype()
-    return &filetype
-endfunc
-func! StatusWindowNr()
-    if winnr('$') > 1
-        return '{'.winnr().'}'
-    else
-        return ''
-    endif
+    return branch
 endfunc
 
 set laststatus=2
 " set ruler " for default statusline"
-set statusline=%{StatusWindowNr()} 
-set statusline+=%([\%R%M]\ %)
+
+set statusline=%([\%R%M]\ %)
 set statusline+=%<%f
-set statusline+=%(\ %y%)
 set statusline+=%=
-set statusline+=%([git:%{StatusGitBranch()}]%)
-set statusline+=%4(%p%%%)
+set statusline+=%(\ %y%)
+set statusline+=%(%{StatusGitBranch()}%)
+set statusline+=%6(%l#%c%)
+" set statusline+=%5(%p%%%)
