@@ -254,11 +254,12 @@ let g:loaded_netrwPlugin = 1
 " directory first
 let g:dirvish_mode = ':sort ,^.*[\/],'
 
-if has('gui_running')
-    augroup dirvish_config | autocmd!
-        autocmd FileType dirvish call dirvish#add_icon_fn({p -> p[-1:]=~'/\|\\'?'📂':'📄'})
-    augroup END
-endif
+"" Clears conceal highlighting which is not good.
+" if has('gui_running')
+"     augroup dirvish_config | autocmd!
+"         autocmd FileType dirvish call dirvish#add_icon_fn({p -> p[-1:]=~'/\|\\'?'📂':'📄'})
+"     augroup END
+" endif
 
 
 """ vim-easy-align {{{1
