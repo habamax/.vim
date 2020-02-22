@@ -143,7 +143,7 @@ if exists('*minpac#init')
                 \ { 'type': 'opt',
                 \ 'do': 'if has("nvim") | packadd firenvim | call firenvim#install(0) | endif'
                 \ })
-    
+
 
     " golden ratio for windows.
     call minpac#add('camspiers/lens.vim')
