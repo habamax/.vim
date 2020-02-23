@@ -149,8 +149,10 @@ if exists('*minpac#init')
     call minpac#add('camspiers/lens.vim')
     " call minpac#add('camspiers/animate.vim')
 
-    "" Colors
+    "" Visual
     call minpac#add('chriskempson/base16-vim')
+    call minpac#add('blueyed/vim-diminactive')
+
 endif
 
 "" Commands to update and clean plugins {{{1
