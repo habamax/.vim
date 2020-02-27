@@ -23,7 +23,7 @@ func! MyFoldText()
 
     let strip_line = substitute(line, '^//\|=\+\|["#]\|/\*\|\*/\|{{{\d\=\|title:\s*', '', 'g')
     let strip_line = substitute(strip_line, '^[[:space:]]*\|[[:space:]]*$', '', 'g')
-    let nontextlen = strdisplaywidth(foldlevel.foldindent.foldlines.' … ()')
+    let nontextlen = strdisplaywidth(foldlevel.foldindent.foldlines.' ()')
     let foldtext = strcharpart(strip_line, 0, winwidth(0) - nontextlen)
 
     if get(b:, 'foldlines_padding', v:false)
@@ -32,7 +32,7 @@ func! MyFoldText()
         let foldlines_padding = ' '
     endif
 
-    return printf("%s%s%s …%s(%d)",
+    return printf("%s%s%s%s(%d)",
                 \ foldlevel,
                 \ foldindent,
                 \ foldtext,
