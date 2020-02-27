@@ -141,6 +141,10 @@ endif
 
 "" Mappings {{{1
 
+" remove default 'octal'.
+" good for C-a, C-x wrt 007 and other octal like numbers
+set nrformats=bin,hex
+
 " goto window
 nnoremap <space>1 1<C-w>w
 nnoremap <space>2 2<C-w>w
