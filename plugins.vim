@@ -113,6 +113,7 @@ if exists('*minpac#init')
 
 
     "" Miscelaneous
+    " call minpac#add('easymotion/vim-easymotion')
 
     " rest console with curl
     call minpac#add('diepm/vim-rest-console')
@@ -151,7 +152,7 @@ if exists('*minpac#init')
 
     "" Visual
     call minpac#add('chriskempson/base16-vim')
-    call minpac#add('blueyed/vim-diminactive')
+    " call minpac#add('blueyed/vim-diminactive')
 
 endif
 
