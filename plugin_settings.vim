@@ -15,8 +15,8 @@ if executable("git")
     silent! packadd vim-flog
 endif
 
-""" Fuzzy finder (Leaderf and CtrlP) {{{1
-" Try to load LeaderF first
+""" Fuzzy finder (Clap, Leaderf and CtrlP) {{{1
+" Then try LeaderF if it has what is necessary
 if has('nvim') || has('python') || has('python3')
     " if exists("*popup_create") || exists("*nvim_open_win")
     "   let g:Lf_WindowPosition = 'popup'
@@ -38,15 +38,15 @@ if has('nvim') || has('python') || has('python3')
     " This is set by default
     " nnoremap <leader>f :LeaderfFile<CR>
     " nnoremap <leader>b :LeaderfBuffer<CR>
-    nnoremap <leader>а :LeaderfFile<CR>
-    nnoremap <leader>и :LeaderfBuffer<CR>
-    nnoremap <leader>/ :LeaderfLine<CR>
-    nnoremap <leader>; :LeaderfCommand<CR>
-    nnoremap <leader>T :LeaderfBufTagAll<CR>
-    nnoremap <leader>[ :LeaderfFunction<CR>
-    nnoremap <leader>{ :LeaderfFunctionAll<CR>
-    nnoremap <leader>h :LeaderfHelp<CR>
-    nnoremap <leader>m :LeaderfMru<CR>
+    nnoremap <leader>а :Leaderf file<CR>
+    nnoremap <leader>и :Leaderf buffer<CR>
+    nnoremap <leader>/ :Leaderf line<CR>
+    nnoremap <leader>; :Leaderf command<CR>
+    nnoremap <leader>T :Leaderf tag<CR>
+    nnoremap <leader>[ :Leaderf function<CR>
+    nnoremap <leader>h :Leaderf help<CR>
+    nnoremap <leader>m :Leaderf mru<CR>
+    nnoremap <leader>g :Leaderf rg<CR>
     nmap <leader>ь <leader>m
     nnoremap <leader>c :LeaderfColorscheme<CR>
     silent! packadd LeaderF
@@ -54,8 +54,24 @@ if has('nvim') || has('python') || has('python3')
     command Docs :LeaderfFile ~/docs
 endif
 
+" Then try to load vim-clap first
+if !exists('g:leaderf_loaded') && (has('patch-8.1.2114') || has('nvim-0.4.2'))
+    nnoremap <leader>f :Clap files<CR>
+    nnoremap <leader>b :Clap buffers<CR>
+    nnoremap <leader>/ :Clap blines<CR>
+    nnoremap <leader>; :Clap command<CR>
+    nnoremap <leader>T :Clap tags<CR>
+    nnoremap <leader>h :Clap help<CR>
+    nnoremap <leader>m :Clap history<CR>
+    nnoremap <leader>c :Clap colors<CR>
+    nnoremap <leader>g :Clap grep<CR>
+
+    let g:clap_layout = { 'relative': 'editor' }
+    silent! packadd vim-clap
+endif
+
 " Use ctrlp as backup fuzzy finder (no dependencies)
-if !exists('g:leaderf_loaded')
+if !exists('g:leaderf_loaded') && !exists('g:loaded_clap')
     nnoremap <leader>f :CtrlPMixed<CR>
     nnoremap <leader>b :CtrlPBuffer<CR>
     nnoremap <leader>m :CtrlPMRUFiles<CR>
@@ -96,7 +112,9 @@ let g:asciidoctor_pdf_themes_path = '~/docs/.asciidoctor-themes'
 let g:asciidoctor_img_paste_command = 'gm convert clipboard: %s%s'
 let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 
-let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json']
+" let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json']
+let g:asciidoctor_fenced_languages = ['python', 'c', 'javascript']
+let g:asciidoctor_syntax_indented = 0
 
 let g:asciidoctor_syntax_conceal = 1
 let g:asciidoctor_folding = 0
