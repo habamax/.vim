@@ -112,9 +112,12 @@ let g:asciidoctor_pdf_themes_path = '~/docs/.asciidoctor-themes'
 let g:asciidoctor_img_paste_command = 'gm convert clipboard: %s%s'
 let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 
-" let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json']
-let g:asciidoctor_fenced_languages = ['python', 'c', 'javascript']
-let g:asciidoctor_syntax_indented = 0
+let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json']
+" let g:asciidoctor_fenced_languages = ['python', 'c', 'javascript']
+" let g:asciidoctor_syntax_indented = 0
+
+let g:asciidoctor_pandoc_other_params = '--toc'
+let g:asciidoctor_pandoc_data_dir = '~/docs/.pandoc'
 
 let g:asciidoctor_syntax_conceal = 1
 let g:asciidoctor_folding = 0
