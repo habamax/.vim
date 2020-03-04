@@ -17,4 +17,4 @@ set statusline+=%<%f
 set statusline+=%=
 set statusline+=%(\ %y%)
 set statusline+=%(%{StatusGitBranch()}%)
-set statusline+=%3c#%4(%p%%%)
+set statusline+=%3v#%4(%p%%%)
