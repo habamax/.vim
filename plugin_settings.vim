@@ -205,7 +205,7 @@ let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_semantic_enabled = 1
 
 " prefer microsoft implementation of pyls 
-let g:lsp_settings_python = 'pyls-ms'
+let g:lsp_settings_filetype_python = 'pyls-ms'
 let g:lsp_settings_servers_dir = fnamemodify($MYVIMRC, ":p:h") . "/lsp-servers/"
 if !isdirectory(g:lsp_settings_servers_dir) | call mkdir(g:lsp_settings_servers_dir, "p") | endif
 
