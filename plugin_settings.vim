@@ -22,8 +22,8 @@ if has('nvim') || has('python') || has('python3')
     "   let g:Lf_WindowPosition = 'popup'
     "   let g:Lf_PreviewInPopup = 1
     " endif
-    " let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-    let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+    let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+    " let g:Lf_StlSeparator = { 'left': '', 'right': '' }
     let g:Lf_WindowHeight = 0.30
     let g:Lf_ShowHidden = 1
     let g:Lf_FollowLinks = 1
@@ -206,8 +206,10 @@ let g:lsp_semantic_enabled = 1
 
 " prefer microsoft implementation of pyls 
 let g:lsp_settings_filetype_python = 'pyls-ms'
-let g:lsp_settings_servers_dir = fnamemodify($MYVIMRC, ":p:h") . "/lsp-servers/"
-if !isdirectory(g:lsp_settings_servers_dir) | call mkdir(g:lsp_settings_servers_dir, "p") | endif
+" let g:lsp_settings_servers_dir = fnamemodify($MYVIMRC, ":p:h") . "/lsp-servers/"
+" if !isdirectory(g:lsp_settings_servers_dir) 
+"     call mkdir(g:lsp_settings_servers_dir, "p") 
+" endif
 
 " let g:lsp_signs_enabled = 0
 " let g:lsp_highlight_references_enabled = 1
@@ -316,7 +318,7 @@ nmap <F4> <Plug>(WinlayoutForward)
 """ firenvim {{{1
 if exists('g:started_by_firenvim')
     packadd firenvim
-    set gfn=Iosevka\ Habamax\ Extended:h12
+    set gfn=Iosevka\ Habamax:h12
     au BufEnter github.com_*.txt set filetype=markdown
     au BufEnter www.linux.org.ru_*.txt set filetype=markdown
     let g:firenvim_config = {
