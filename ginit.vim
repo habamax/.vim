@@ -1,6 +1,6 @@
 GuiLinespace 0
 GuiPopupmenu 0 
-GuiFont! Iosevka\ Habamax\ Extended:h14
+GuiFont! Iosevka\ Habamax:h14
 " GuiFont! IBM\ Plex\ Mono:h14
 
 nnoremap <silent> <C-6> <C-^>
