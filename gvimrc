@@ -26,8 +26,8 @@ set linespace=0
 " exe "set gfn=".s:fonts[rand()%len(s:fonts)]
 
 "" These are 2 I like the most atm
-" set gfn=Iosevka\ Habamax:h14
-set gfn=JetBrains\ Mono:h14
+set gfn=Iosevka\ Habamax:h14
+" set gfn=JetBrains\ Mono:h14
 
 "" These are 2 fallback fonts -- really awesome
 " set gfn=Consolas:h14
