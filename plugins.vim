@@ -52,8 +52,7 @@ if exists('*minpac#init')
     call minpac#add('wellle/targets.vim')
 
     " use gsip to sort linewise
-    " use gsib to sort in a parenthesis
-    call minpac#add('christoomey/vim-sort-motion')
+    " call minpac#add('christoomey/vim-sort-motion')
 
     call minpac#add('junegunn/vim-easy-align')
 
@@ -149,7 +148,6 @@ if exists('*minpac#init')
 
     " golden ratio for windows.
     call minpac#add('camspiers/lens.vim')
-    " call minpac#add('camspiers/animate.vim')
 
     "" Visual
     call minpac#add('chriskempson/base16-vim')
