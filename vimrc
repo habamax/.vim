@@ -217,7 +217,7 @@ nmap <Leader>умз <Leader>evp
 nnoremap <Leader>en :e ~/docs/notes/notes.adoc<CR>
 nmap <Leader>ут <Leader>en
 " edit global current journal file
-nnoremap <Leader>ej :e ~/docs/journal/2019.adoc<CR>
+nnoremap <Leader>ej :e ~/docs/journal/2020.adoc<CR>
 nmap <Leader>уо <Leader>ej
 
 " built-in terminal
