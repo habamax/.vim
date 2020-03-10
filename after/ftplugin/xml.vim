@@ -1,2 +1,4 @@
 " Use xmlstarlet (`scoop install xmlstarlet`):
-command -buffer Format :%!xml format --indent-tab
+if executable('xml')
+    command -buffer Format :%!xml format --indent-tab
+endif
