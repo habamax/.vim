@@ -264,6 +264,13 @@ nnoremap <leader>oe :call OpenExplorer()<CR>
 
 "" Commands (and Autocommands) {{{1
 
+" Sort operator {{{1
+function! Sort(type, ...)
+    '[,']sort
+endfunction
+nmap <silent> gs :set opfunc=Sort<CR>g@
+vmap <silent> gs :sort<CR>
+
 " remove trailing spaces
 " make a separate plugin for the commands
 command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>

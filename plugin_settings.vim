@@ -351,11 +351,3 @@ nnoremap <leader>u :UndotreeToggle<CR>
 
 """ outline {{{1
 nnoremap <leader>l :DoOutline<CR>
-
-
-
-" Sort operator {{{1
-function! Sort(type, ...)
-    '[,']sort
-endfunction
-nmap <silent> gs :set opfunc=Sort<CR>g@
