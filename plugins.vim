@@ -150,7 +150,7 @@ if exists('*minpac#init')
     call minpac#add('camspiers/lens.vim')
 
     "" Visual
-    call minpac#add('chriskempson/base16-vim')
+    " call minpac#add('chriskempson/base16-vim')
     " call minpac#add('blueyed/vim-diminactive')
 
 endif
