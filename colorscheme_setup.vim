@@ -114,10 +114,11 @@ if get(g:, "colors_name", "default") == "default"
         " let my_dark_colors = ['lessthan', 'defnoche']
         " exe 'colorscheme ' . my_dark_colors[rand() % len(my_dark_colors)]
         " colorscheme lessthan
-        colorscheme defnoche
+        " colorscheme defnoche
     else
-        colorscheme defminus
+        " colorscheme defminus
     endif
 endif
 
+colorscheme habamax
 
