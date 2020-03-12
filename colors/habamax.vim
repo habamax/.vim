@@ -64,6 +64,7 @@ hi Directory gui=bold
 " hi! link WildMenu PmenuSel
 hi! link FoldColumn Folded
 hi! link CursorColumn CursorLine
+hi! link QuickFixLine CursorLine
 hi SignColumn guibg=NONE
 hi lCursor guibg=#ff7070
 hi link TabLine StatusLineNC
