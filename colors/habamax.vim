@@ -3,6 +3,12 @@
 " Name:       habamax
 " Maintainer: Maxim Kim <habamax@gmail.com>
 " License:    MIT, but who cares? This is colorscheme.
+"
+" Syntax colors stays default
+" - backgrounds are different
+" - bold and italic are added and removed from here and there
+" - chrome is different (statuslines, folding, etc)
+" - colors for plugins I use (leaderf etc)
 
 hi clear
 if exists('syntax_on')
@@ -18,18 +24,19 @@ endif
 let g:colors_name = 'habamax'
 
 if &background == 'light'
-    " hi Normal guibg=#ecf5ec guifg=#000000
-    hi Normal guibg=#e9f5ec guifg=#000000
+    " hi Normal guibg=#ffffff guifg=#000000
+    hi Normal guibg=#f7fefa guifg=#000000
     hi EndOfBuffer guibg=NONE guifg=#e0e0e0
     hi Statusline guibg=#707080 guifg=#ffffff gui=NONE
     hi StatuslineNC guibg=#707080 guifg=#c0c0c0 gui=NONE
     hi VertSplit guibg=#707080 guifg=#c0c0c0 gui=NONE
     hi Title guifg=#e0385b
 
-    hi Pmenu guibg=#c7d5cc gui=NONE
-    hi PmenuSel guibg=#b0c0b0 gui=NONE
+    hi Pmenu guibg=#d7e5dc gui=NONE
+    hi PmenuSel guibg=#b7c7b7 gui=NONE
     hi PmenuSbar guibg=#bcbcbc
     hi PmenuThumb guibg=#585858
+
 else
     hi Normal guibg=#202531 guifg=#dedede
     hi EndOfBuffer guibg=NONE guifg=#404551
