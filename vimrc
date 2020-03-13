@@ -264,7 +264,7 @@ nnoremap <leader>oe :call OpenExplorer()<CR>
 
 "" Commands (and Autocommands) {{{1
 
-" Sort operator {{{1
+" Sort operator
 function! Sort(type, ...)
     '[,']sort
 endfunction
