@@ -16,12 +16,14 @@ if executable("git")
 endif
 
 """ Fuzzy finder (Clap, Leaderf and CtrlP) {{{1
-" Then try LeaderF if it has what is necessary
+" Try LeaderF first
 if has('nvim') || has('python') || has('python3')
-    " if exists("*popup_create") || exists("*nvim_open_win")
-    "   let g:Lf_WindowPosition = 'popup'
-    "   let g:Lf_PreviewInPopup = 1
-    " endif
+    if exists("*popup_create") || exists("*nvim_open_win")
+      let g:Lf_WindowPosition = 'popup'
+      let g:Lf_PreviewInPopup = 1
+      let g:Lf_PopupWidth = 0.75
+      let g:Lf_PopupHeight = 0.5
+    endif
     let g:Lf_StlSeparator = { 'left': '', 'right': '' }
     " let g:Lf_StlSeparator = { 'left': '', 'right': '' }
     let g:Lf_WindowHeight = 0.30
@@ -54,7 +56,7 @@ if has('nvim') || has('python') || has('python3')
     command Docs :LeaderfFile ~/docs
 endif
 
-" Then try to load vim-clap first
+" Then try to load vim-clap
 if !exists('g:leaderf_loaded') && (has('patch-8.1.2114') || has('nvim-0.4.2'))
     nnoremap <leader>f :Clap files<CR>
     nnoremap <leader>b :Clap buffers<CR>
