@@ -33,7 +33,7 @@ if &background == 'light'
     hi PmenuSbar guibg=#bcbcbc
     hi PmenuThumb guibg=#585858
 
-    hi Folded guibg=#d0d4d0 guifg=fg gui=NONE
+    hi Folded guibg=#e0e4e0 guifg=#454945 gui=NONE
     hi Visual guibg=#d0d9ea gui=NONE
 else
     hi Normal guibg=#202531 guifg=#dedede
