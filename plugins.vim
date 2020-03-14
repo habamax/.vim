@@ -39,7 +39,7 @@ if exists('*minpac#init')
     " backup (no external dependencies)
     call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
     " After installation run :Clap install_binary!
-    call minpac#add('liuchengxu/vim-clap', {'type': 'opt'})
+    " call minpac#add('liuchengxu/vim-clap', {'type': 'opt'})
 
 
     "" Text manipulation
