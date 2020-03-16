@@ -145,6 +145,19 @@ endif
 " good for C-a, C-x wrt 007 and other octal like numbers
 set nrformats=bin,hex
 
+" Capitalize word
+nnoremap <A-c> gUiwlguww
+" UPPERCASE word
+nnoremap <A-u> gUiww
+" lowercase word
+nnoremap <A-l> guiww
+" Capitalize word in insert mode
+inoremap <A-c> <C-o>gUiw<C-o>l<C-o>guw<C-o>w
+" UPPERCASE word in insert mode
+inoremap <A-u> <C-o>gUiw<C-o>w
+" lowercase word in insert mode
+inoremap <A-l> <C-o>guiw<C-o>w
+
 " goto window
 nnoremap <space>1 1<C-w>w
 nnoremap <space>2 2<C-w>w
