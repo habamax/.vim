@@ -34,7 +34,11 @@ if &background == 'light'
     hi PmenuThumb guibg=#585858
 
     hi Folded guibg=#e0e4e0 guifg=#454945 gui=NONE
-    hi Visual guibg=#d0d9ea gui=NONE
+    hi Visual guibg=#d0d9ea gui=NONE ctermfg=NONE cterm=NONE
+    hi LineNr guibg=NONE guifg=#97a49c
+
+    hi CursorLine guibg=gray90 gui=NONE cterm=NONE
+    hi CursorLineNr guibg=NONE guifg=#767982 gui=NONE cterm=NONE
 else
     hi Normal guibg=#202531 guifg=#dedede
     hi EndOfBuffer guibg=NONE guifg=#404551
@@ -49,10 +53,10 @@ else
     hi PmenuThumb guibg=#585858
 
     hi Folded guibg=#303440 guifg=fg gui=NONE
-    hi Visual guibg=#394e71 guifg=NONE
+    hi Visual guibg=#394e71 guifg=NONE ctermfg=NONE cterm=NONE 
     hi LineNr guibg=NONE guifg=#a1c2aa
 
-    hi CursorLine guibg=#303440
+    hi CursorLine guibg=#303440 gui=NONE cterm=NONE
     hi CursorLineNr guibg=NONE guifg=#767982 gui=NONE
 
     hi Underlined guifg=#96b0d8 gui=underline guisp=#60708c
