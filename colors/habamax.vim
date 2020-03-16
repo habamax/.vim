@@ -1,4 +1,4 @@
-" habamax.vim -- colorscheme with almost default syntax highlighting
+" habamax.vim -- GUI colorscheme with almost default syntax highlighting
 "
 " Name:       habamax
 " Maintainer: Maxim Kim <habamax@gmail.com>
@@ -9,6 +9,9 @@
 " - bold and italic styles are added and removed here and there
 " - chrome is different (statuslines, folding, etc)
 " - colors for plugins I use (leaderf etc)
+" 
+" Works OK for gui and with set termguicolors
+" Otherwise it is kind of meh, but readable (uses default 16 colors palette)
 
 hi clear
 if exists('syntax_on')
@@ -21,11 +24,11 @@ if &background == 'light'
     " hi Normal guibg=#ffffff guifg=#000000
     " hi Normal guibg=#e9f5ec guifg=#000000
     " hi Normal guibg=#f9fffb guifg=#000000
-    hi Normal guibg=#fcfffc guifg=#000000
-    hi EndOfBuffer guibg=NONE guifg=#e0e0e0
-    hi Statusline guibg=#707080 guifg=#ffffff gui=NONE cterm=NONE
-    hi StatuslineNC guibg=#707080 guifg=#c0c0c0 gui=NONE cterm=NONE
-    hi VertSplit guibg=#707080 guifg=#c0c0c0 gui=NONE cterm=NONE
+    hi Normal guibg=#fcfffc guifg=#000000 ctermbg=15 ctermfg=16
+    hi EndOfBuffer guifg=#e0e0e0 guibg=NONE ctermfg=7 ctermbg=NONE
+    hi Statusline guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
+    hi StatuslineNC guibg=#707080 guifg=#c0c0c0 gui=NONE ctermbg=8 ctermfg=7 cterm=NONE
+    hi VertSplit guibg=#707080 guifg=#c0c0c0 gui=NONE ctermbg=8 ctermfg=7 cterm=NONE
     hi Title guifg=#e0385b
 
     hi Pmenu guibg=#d7e5dc gui=NONE
@@ -34,17 +37,17 @@ if &background == 'light'
     hi PmenuThumb guibg=#585858
 
     hi Folded guibg=#e0e4e0 guifg=#454945 gui=NONE
-    hi Visual guibg=#d0d9ea gui=NONE ctermfg=NONE cterm=NONE
+    hi Visual guibg=#d0d9ea gui=NONE ctermbg=fg ctermfg=bg
     hi LineNr guibg=NONE guifg=#97a49c
 
-    hi CursorLine guibg=gray90 gui=NONE cterm=NONE
-    hi CursorLineNr guibg=NONE guifg=#767982 gui=NONE cterm=NONE
+    hi CursorLine guibg=gray90 gui=NONE ctermbg=7 cterm=NONE
+    hi CursorLineNr guibg=NONE guifg=#767982 gui=NONE ctermbg=7 cterm=NONE
 else
-    hi Normal guibg=#202531 guifg=#dedede
-    hi EndOfBuffer guibg=NONE guifg=#404551
-    hi Statusline guibg=#333b4f guifg=#dedede gui=NONE cterm=NONE
-    hi StatuslineNC guibg=#333b4f guifg=#636b7f gui=NONE cterm=NONE
-    hi VertSplit guibg=#333b4f guifg=#636b7f gui=NONE cterm=NONE
+    hi Normal guibg=#202531 guifg=#dedede ctermbg=0 ctermfg=15
+    hi EndOfBuffer guibg=NONE guifg=#404551 ctermbg=NONE ctermfg=8
+    hi Statusline guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
+    hi StatuslineNC guibg=#333b4f guifg=#636b7f gui=NONE ctermbg=8 ctermfg=7 cterm=NONE
+    hi VertSplit guibg=#333b4f guifg=#636b7f gui=NONE ctermbg=8 ctermfg=7 cterm=NONE
     hi Title guifg=#f0486b
 
     hi Pmenu guibg=#333b4f gui=NONE
@@ -53,20 +56,20 @@ else
     hi PmenuThumb guibg=#585858
 
     hi Folded guibg=#303440 guifg=fg gui=NONE
-    hi Visual guibg=#394e71 guifg=NONE ctermfg=NONE cterm=NONE 
+    hi Visual guibg=#394e71 guifg=NONE ctermbg=fg ctermfg=bg
     hi LineNr guibg=NONE guifg=#a1c2aa
 
-    hi CursorLine guibg=#303440 gui=NONE cterm=NONE
-    hi CursorLineNr guibg=NONE guifg=#767982 gui=NONE
+    hi CursorLine guibg=#303440 gui=NONE ctermbg=7 cterm=NONE
+    hi CursorLineNr guibg=NONE guifg=#767982 gui=NONE ctermbg=7 cterm=NONE
 
     hi Underlined guifg=#96b0d8 gui=underline guisp=#60708c
     hi Error guibg=#633e43 guifg=NONE
 endif
 
-hi Comment guifg=#777777 gui=italic
-hi Conceal guifg=#777777 guibg=NONE gui=NONE
-hi Statement gui=NONE
-hi Type gui=NONE
+hi Comment guibg=NONE guifg=#777777 gui=italic ctermfg=8 cterm=NONE
+hi Conceal guibg=NONE guifg=#777777 gui=NONE ctermfg=8 cterm=NONE
+hi Statement gui=NONE cterm=NONE
+hi Type gui=NONE cterm=NONE
 
 hi Directory gui=bold
 
