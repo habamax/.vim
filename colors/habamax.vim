@@ -36,7 +36,7 @@ if &background == 'light'
     hi PmenuSbar guibg=#bcbcbc
     hi PmenuThumb guibg=#585858
 
-    hi Folded guibg=#e0e4e0 guifg=#454945 gui=NONE
+    hi Folded guibg=#e0e4e0 guifg=#454945 gui=underline
     hi Visual guibg=#d0d9ea gui=NONE ctermbg=fg ctermfg=bg
     hi LineNr guibg=NONE guifg=#97a49c
 
@@ -55,7 +55,7 @@ else
     hi PmenuSbar guibg=#bcbcbc
     hi PmenuThumb guibg=#585858
 
-    hi Folded guibg=#303440 guifg=fg gui=NONE
+    hi Folded guibg=#303440 guifg=#909590 gui=underline
     hi Visual guibg=#394e71 guifg=NONE ctermbg=fg ctermfg=bg
     hi LineNr guibg=NONE guifg=#a1c2aa
 
