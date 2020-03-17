@@ -1,6 +1,5 @@
 if exists("g:neovide")
-    let g:neovide_fullscreen=v:true
-    silent! source <sfile>:h/gvimrc
+    set guifont=Iosevka\ Habamax:h18
 else
     GuiLinespace 0
     GuiPopupmenu 0 

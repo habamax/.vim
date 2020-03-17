@@ -378,7 +378,7 @@ silent! source <sfile>:h/colorscheme_setup.vim
 
 " XXX: it should read ginit.vim by default but doesn't do it... yet.
 if exists("g:neovide")
-    silent! source <sfile>:h/gvimrc
+    silent! source <sfile>:h/ginit.vim
 endif
 
 if v:version >= 801 || has('nvim')
