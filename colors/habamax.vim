@@ -20,7 +20,7 @@ endif
 
 let g:colors_name = 'habamax'
 
-if &background == 'light'
+if &background == 'light' " {{{1
     " hi Normal guibg=#ffffff guifg=#000000
     " hi Normal guibg=#e9f5ec guifg=#000000
     " hi Normal guibg=#f9fffb guifg=#000000
@@ -40,7 +40,7 @@ if &background == 'light'
     hi Visual guibg=#d0d9ea gui=NONE ctermbg=fg ctermfg=bg
     hi LineNr guibg=NONE guifg=#97a49c
 
-else
+else " {{{1
     hi Normal guibg=#202531 guifg=#dedede ctermbg=0 ctermfg=15
     hi EndOfBuffer guibg=NONE guifg=#404551 ctermbg=NONE ctermfg=8
     hi Statusline guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
@@ -61,14 +61,15 @@ else
     hi Error guibg=#633e43 guifg=NONE
 endif
 
+" Syntax Highlighting {{{1
 hi Comment guibg=NONE guifg=#777777 gui=italic ctermfg=8 cterm=NONE
 hi Conceal guibg=NONE guifg=#777777 gui=NONE ctermfg=8 cterm=NONE
 hi Statement gui=NONE cterm=NONE
 hi Type gui=NONE cterm=NONE
 
-hi Directory gui=bold
 
-" hi! link WildMenu PmenuSel
+" Light and Dark Chrome {{{1
+hi Directory gui=bold
 hi! link FoldColumn Folded
 hi! link NonText EndOfBuffer
 hi CursorLine guibg=NONE gui=underline ctermbg=NONE cterm=underline
@@ -82,7 +83,7 @@ hi link TabLineFill TabLine
 hi link TabLineSel Normal
 
 
-""" Plugins
+""" Plugins {{{1
 
 "" Asciidoctor
 if &background == 'light'
