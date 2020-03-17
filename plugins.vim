@@ -124,6 +124,9 @@ if exists('*minpac#init')
     " preview of :s command
     call minpac#add('markonm/traces.vim')
 
+    " fast fold
+    call minpac#add('Konfekt/FastFold')
+
     " yog to trigger goyo
     call minpac#add('junegunn/goyo.vim')
     call minpac#add('junegunn/limelight.vim')
