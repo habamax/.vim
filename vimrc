@@ -376,6 +376,10 @@ silent! source <sfile>:h/abbreviations.vim
 
 silent! source <sfile>:h/colorscheme_setup.vim
 
+if exists("g:neovide")
+    silent! source <sfile>:h/gvimrc
+endif
+
 if v:version >= 801 || has('nvim')
     source <sfile>:h/plugin_settings.vim
     source <sfile>:h/plugins.vim
