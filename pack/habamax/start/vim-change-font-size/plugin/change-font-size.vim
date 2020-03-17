@@ -4,7 +4,8 @@
 if exists("g:loaded_change_font_size") || &cp || v:version < 700
 	finish
 endif
-if !(has("gui_running") || get(g:, "GuiLoaded", 0))
+
+if !(has("gui_running") || get(g:, "GuiLoaded", 0) || get(g:, "neovide", v:false))
 	finish
 endif
 
@@ -15,7 +16,7 @@ let g:loaded_change_font_size = 1
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 fun! s:getCurrentFont()
-    if has('nvim')
+    if has('nvim') && !exists("g:neovide")
         let guifont = g:GuiFont
     else
         let guifont = &guifont
