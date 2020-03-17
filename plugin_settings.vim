@@ -122,8 +122,8 @@ let g:asciidoctor_pandoc_other_params = '--toc'
 let g:asciidoctor_pandoc_data_dir = '~/docs/.pandoc'
 
 let g:asciidoctor_syntax_conceal = 1
-let g:asciidoctor_folding = 0
-let g:asciidoctor_fold_options = 0
+let g:asciidoctor_folding = 1
+let g:asciidoctor_fold_options = 1
 
 func! AsciidoctorBufferSetup()
     setl cole=3
@@ -136,6 +136,7 @@ func! AsciidoctorBufferSetup()
     nnoremap <buffer> <leader>cx :Asciidoctor2DOCX<CR>
     nnoremap <buffer> <leader>p :AsciidoctorPasteImage<CR>
     compiler asciidoctor2pdf
+    let b:foldtext_stripregex = '^=\+'
 endfunc
 
 augroup asciidoctor | au!
