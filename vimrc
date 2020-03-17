@@ -161,6 +161,13 @@ inoremap <A-u> <C-o>gUiw<C-o>w
 " lowercase word in insert mode
 inoremap <A-l> <C-o>guiw<C-o>w
 
+" Move line up/down
+nnoremap <silent> <C-j> :<C-u>move+1<CR>==
+nnoremap <silent> <C-k> :<C-u>move-2<CR>==
+" Move selected lines up/down
+xnoremap <silent> <C-j> :move'>+<CR>gv=gv
+xnoremap <silent> <C-k> :move-2<CR>gv=gv
+
 " goto window
 nnoremap <space>1 1<C-w>w
 nnoremap <space>2 2<C-w>w
