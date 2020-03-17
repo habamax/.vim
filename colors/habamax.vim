@@ -40,8 +40,6 @@ if &background == 'light'
     hi Visual guibg=#d0d9ea gui=NONE ctermbg=fg ctermfg=bg
     hi LineNr guibg=NONE guifg=#97a49c
 
-    hi CursorLine guibg=gray90 gui=NONE ctermbg=7 cterm=NONE
-    hi CursorLineNr guibg=NONE guifg=#767982 gui=NONE ctermbg=7 cterm=NONE
 else
     hi Normal guibg=#202531 guifg=#dedede ctermbg=0 ctermfg=15
     hi EndOfBuffer guibg=NONE guifg=#404551 ctermbg=NONE ctermfg=8
@@ -59,9 +57,6 @@ else
     hi Visual guibg=#394e71 guifg=NONE ctermbg=fg ctermfg=bg
     hi LineNr guibg=NONE guifg=#a1c2aa
 
-    hi CursorLine guibg=#303440 gui=NONE ctermbg=7 cterm=NONE
-    hi CursorLineNr guibg=NONE guifg=#767982 gui=NONE ctermbg=7 cterm=NONE
-
     hi Underlined guifg=#96b0d8 gui=underline guisp=#60708c
     hi Error guibg=#633e43 guifg=NONE
 endif
@@ -76,7 +71,9 @@ hi Directory gui=bold
 " hi! link WildMenu PmenuSel
 hi! link FoldColumn Folded
 hi! link NonText EndOfBuffer
+hi CursorLine guibg=NONE gui=underline ctermbg=NONE cterm=underline
 hi! link CursorColumn CursorLine
+hi! link CursorLineNr CursorLine
 hi! link QuickFixLine CursorLine
 hi SignColumn guibg=NONE
 hi lCursor guibg=#ff7070
