@@ -86,9 +86,9 @@ hi link TabLineSel Normal
 
 "" Asciidoctor
 if &background == 'light'
-    hi asciidoctorIndented guifg=#555555 gui=NONE
+    hi asciidoctorIndented guifg=#555555 gui=NONE ctermbg=7 cterm=NONE
 else
-    hi asciidoctorIndented guifg=#999999 gui=NONE
+    hi asciidoctorIndented guifg=#999999 gui=NONE ctermbg=8 cterm=NONE
 endif
 
 "" LeaderF
