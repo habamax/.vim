@@ -217,23 +217,23 @@ nnoremap <leader><leader>= o<home><ESC>78i=<ESC>
 vnoremap * y/<C-R>"<CR>
 
 " edit init file (vimrc) -- nvim's init.vim sources vimrc
-nnoremap <Leader>evi :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/vimrc"<CR>
+nnoremap <silent> <Leader>evi :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/vimrc"<CR>
 nmap <Leader>умш <Leader>evi
 " edit gvim init file (gvimrc) -- nvim doesn't know about $GVIMRC and it's
 " ginit.vim sources gvimrc
-nnoremap <Leader>evg :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/gvimrc"<CR>
+nnoremap <silent> <Leader>evg :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/gvimrc"<CR>
 nmap <Leader>умп <Leader>evg
 " edit plugins settings file 
-nnoremap <Leader>evs :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugin_settings.vim"<CR>
+nnoremap <silent> <Leader>evs :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugin_settings.vim"<CR>
 nmap <Leader>умы <Leader>evs
 " edit plugins list file
-nnoremap <Leader>evp :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
+nnoremap <silent> <Leader>evp :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
 nmap <Leader>умз <Leader>evp
 " edit global notes file
-nnoremap <Leader>en :e ~/docs/notes/notes.adoc<CR>
+nnoremap <silent> <Leader>en :e ~/docs/notes/notes.adoc<CR>
 nmap <Leader>ут <Leader>en
 " edit global current journal file
-nnoremap <Leader>ej :e ~/docs/journal/2020.adoc<CR>
+nnoremap <silent> <Leader>ej :e ~/docs/journal/2020.adoc<CR>
 nmap <Leader>уо <Leader>ej
 
 " built-in terminal
