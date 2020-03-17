@@ -2,10 +2,14 @@
 " Buffer setup
 " let b:foldlines_padding = v:false
 " let b:foldchar = ''
+" let b:foldtext_stripregex = ^//\|=\+\|["#]\|/\*\|\*/\|{{{\d\=\|title:\s*
+
+" let line = substitute(line, '^//\|=\+\|["#]\|/\*\|\*/\|{{{\d\=\|title:\s*', '', 'g')
+
 set foldtext=MyFoldText()
 func! MyFoldText()
     let l:foldchar = get(b:, 'foldchar', '•')
-    " ▸•●□★▢▧▪◆▷▶┄◇□▢○◎
+    let l:strip_regex = get(b:, 'foldtext_stripregex', '')
 
     let line = getline(v:foldstart)
 
@@ -21,10 +25,19 @@ func! MyFoldText()
     let foldindent = repeat(' ', max([indent-strdisplaywidth(foldlevel), strdisplaywidth(l:foldchar)]))
     let foldlines = (v:foldend - v:foldstart + 1)
 
-    let strip_line = substitute(line, '^//\|=\+\|["#]\|/\*\|\*/\|{{{\d\=\|title:\s*', '', 'g')
-    let strip_line = substitute(strip_line, '^[[:space:]]*\|[[:space:]]*$', '', 'g')
+    " always strip away commentstring and {{{
+    let strip_comment_regex = '\%(^\s*' 
+                \. substitute(&commentstring, '\s*%s\s*', '', '')
+                \. '*\s*\)'
+    let strip_fold_regex = '\%(\s*{{{\d*\s*\)' 
+    let line = substitute(line, strip_comment_regex.'\|'.strip_fold_regex, '', 'g')
+    let g:mess=l:strip_regex
+    if l:strip_regex != ""
+        let line = substitute(line, l:strip_regex, '', 'g')
+        let line = substitute(line, '^[[:space:]]*\|[[:space:]]*$', '', 'g')
+    endif
     let nontextlen = strdisplaywidth(foldlevel.foldindent.foldlines.' ()')
-    let foldtext = strcharpart(strip_line, 0, winwidth(0) - nontextlen)
+    let foldtext = strcharpart(line, 0, winwidth(0) - nontextlen)
 
     if get(b:, 'foldlines_padding', v:false)
         let foldlines_padding = repeat(' ', winwidth(0) - strdisplaywidth(foldtext) - nontextlen + 1)
