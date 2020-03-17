@@ -36,10 +36,9 @@ if &background == 'light' " {{{1
     hi PmenuSbar guibg=#bcbcbc
     hi PmenuThumb guibg=#585858
 
-    hi Folded guibg=#e0e4e0 guifg=#454945 gui=underline
+    hi Folded guibg=#e0e4e0 guifg=#454945 gui=underline guisp=#454945
     hi Visual guibg=#d0d9ea gui=NONE ctermbg=fg ctermfg=bg
     hi LineNr guibg=NONE guifg=#97a49c
-
 else " {{{1
     hi Normal guibg=#202531 guifg=#dedede ctermbg=0 ctermfg=15
     hi EndOfBuffer guibg=NONE guifg=#404551 ctermbg=NONE ctermfg=8
@@ -53,7 +52,7 @@ else " {{{1
     hi PmenuSbar guibg=#bcbcbc
     hi PmenuThumb guibg=#585858
 
-    hi Folded guibg=#303440 guifg=#909590 gui=underline
+    hi Folded guibg=#303440 guifg=#909590 gui=underline guisp=#909590
     hi Visual guibg=#394e71 guifg=NONE ctermbg=fg ctermfg=bg
     hi LineNr guibg=NONE guifg=#a1c2aa
 
@@ -72,7 +71,7 @@ hi Type gui=NONE cterm=NONE
 hi Directory gui=bold
 hi! link FoldColumn Folded
 hi! link NonText EndOfBuffer
-hi CursorLine guibg=NONE gui=underline ctermbg=NONE cterm=underline
+hi CursorLine guibg=NONE gui=underline ctermbg=NONE cterm=underline guisp=fg
 hi! link CursorColumn CursorLine
 hi! link CursorLineNr CursorLine
 hi! link QuickFixLine CursorLine
