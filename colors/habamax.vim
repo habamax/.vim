@@ -39,6 +39,8 @@ if &background == 'light' " {{{1
     hi Folded guibg=#e0e4e0 guifg=#454945 gui=underline guisp=#454945
     hi Visual guibg=#d0d9ea gui=NONE ctermbg=fg ctermfg=bg
     hi LineNr guibg=NONE guifg=#97a49c
+    " tone down Constant
+    hi Constant guifg=#b02cb0
 else " {{{1
     hi Normal guibg=#202531 guifg=#dedede ctermbg=0 ctermfg=15
     hi EndOfBuffer guibg=NONE guifg=#404551 ctermbg=NONE ctermfg=8
