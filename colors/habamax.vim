@@ -40,6 +40,8 @@ if &background == 'light' " {{{1
     hi Visual guibg=#d0d9ea gui=NONE ctermbg=fg ctermfg=bg
     hi LineNr guibg=NONE guifg=#97a49c
 
+    hi Underlined gui=underline guisp=SlateBlue
+
     hi Error guibg=#e07070 guifg=bg
     hi Todo guifg=fg gui=bold
 
