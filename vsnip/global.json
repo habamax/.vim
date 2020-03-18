@@ -25,7 +25,7 @@
         "description": "53 words"
     },
     "Lorem Ipsum 2": {
-        "prefix": ["lorem2"],
+        "prefix": ["lorem2", "ipsum"],
         "body": [
             "Ut sed lacus id mauris mattis lobortis. Aliquam ut nisl eu neque viverra",
             "pretium. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam",
