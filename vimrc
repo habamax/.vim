@@ -263,8 +263,8 @@ func! s:scroll_other_window(dir)
 endfunc
 
 " scroll other window
-nnoremap <silent> <C-j> :call <SID>scroll_other_window(1)<CR>
-nnoremap <silent> <C-k> :call <SID>scroll_other_window(0)<CR>
+" nnoremap <silent> <C-j> :call <SID>scroll_other_window(1)<CR>
+" nnoremap <silent> <C-k> :call <SID>scroll_other_window(0)<CR>
 
 func! OpenExplorer()
     " Windows only for now
