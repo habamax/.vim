@@ -41,6 +41,8 @@ if &background == 'light' " {{{1
     hi LineNr guibg=NONE guifg=#97a49c
 
     hi Error guibg=#e07070 guifg=bg
+    hi Todo guifg=fg gui=bold
+
     " tone down Constant
     hi Constant guifg=#b02cb0
 else " {{{1
@@ -62,6 +64,7 @@ else " {{{1
 
     hi Underlined guifg=#96b0d8 gui=underline guisp=#60708c
     hi Error guibg=#633e43 guifg=NONE
+    hi Todo guifg=bg gui=bold
 endif
 
 " Syntax Highlighting {{{1
