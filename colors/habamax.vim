@@ -53,7 +53,7 @@ else " {{{1
     hi Statusline guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
     hi StatuslineNC guibg=#333b4f guifg=#636b7f gui=NONE ctermbg=8 ctermfg=7 cterm=NONE
     hi VertSplit guibg=#333b4f guifg=#636b7f gui=NONE ctermbg=8 ctermfg=7 cterm=NONE
-    hi Title guifg=#f0486b
+    hi Title guifg=#ff5b7b
 
     hi Pmenu guibg=#333b4f gui=NONE
     hi PmenuSel guibg=#41485b gui=NONE
