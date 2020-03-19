@@ -21,9 +21,6 @@ endif
 let g:colors_name = 'habamax'
 
 if &background == 'light' " {{{1
-    " hi Normal guibg=#ffffff guifg=#000000
-    " hi Normal guibg=#e9f5ec guifg=#000000
-    " hi Normal guibg=#f9fffb guifg=#000000
     hi Normal guibg=#fcfffc guifg=#000000 ctermbg=15 ctermfg=16
     hi EndOfBuffer guifg=#e0e0e0 guibg=NONE ctermfg=7 ctermbg=NONE
     hi Statusline guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
