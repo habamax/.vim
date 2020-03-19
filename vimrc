@@ -285,6 +285,30 @@ func! OpenExplorer()
 endfunc
 nnoremap <leader>oe :call OpenExplorer()<CR>
 
+
+func! OSopen(word) abort
+    " Windows only for now
+    if !has("win32")
+        return
+    endif
+    let word = a:word
+    if word =~ '^[~.$].*'
+        let word = expand(word)
+    endif
+    " TODO: check if barebone url
+    " TODO: check if path or a filename
+    " TODO: check and extract asciidoctor url
+    " TODO: check and extract markdown url
+    exe printf("silent !start %s", word)
+endfunc
+
+" http://ya.ru
+" ~/docs
+" $HOME/docs
+" C:/Users/maksim.kim/docs
+" .
+nnoremap gx :call OSopen(expand('<cWORD>'))<CR>
+
 "" Commands (and Autocommands) {{{1
 
 " Sort operator
