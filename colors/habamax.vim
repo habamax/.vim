@@ -93,6 +93,9 @@ hi link TabLineSel Normal
 
 """ Plugins {{{1
 
+"" Fugitive
+hi link gitCommitSummary Title
+
 "" Asciidoctor
 if &background == 'light'
     hi asciidoctorIndented guifg=#555555 gui=NONE ctermbg=7 cterm=NONE
