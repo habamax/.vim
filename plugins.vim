@@ -152,10 +152,6 @@ if exists('*minpac#init')
     " golden ratio for windows.
     call minpac#add('camspiers/lens.vim')
 
-    "" Visual
-    " call minpac#add('chriskempson/base16-vim')
-    " call minpac#add('blueyed/vim-diminactive')
-
 endif
 
 "" Commands to update and clean plugins {{{1
