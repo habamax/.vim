@@ -17,5 +17,6 @@ else
     set bg=light
 endif
 
+let g:habamax_flat = v:true
 colorscheme habamax
 
