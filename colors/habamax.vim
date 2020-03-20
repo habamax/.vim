@@ -122,6 +122,29 @@ if &background == 'light'
 else
     hi asciidoctorIndented guifg=#999999 gui=NONE ctermbg=8 cterm=NONE
 endif
+if get(g:, "habamax_flat", 0)
+    hi! link asciidoctorListMarker Statement
+    hi! link asciidoctorOrderedListMarker Statement
+    hi! link asciidoctorListContinuation Statement
+    hi! link asciidoctorIndented Statement
+    hi! link asciidoctorPlus Statement
+    hi! link asciidoctorPageBreak Statement
+    hi! link asciidoctorCallout Statement
+    hi! link asciidoctorCalloutDesc Statement
+    hi! link asciidoctorListingBlock asciidoctorIndented
+    hi! link asciidoctorLiteralBlock asciidoctorIndented
+
+    hi! link asciidoctorAttribute Statement
+    hi! link asciidoctorCode Constant
+    hi! link asciidoctorBlock Statement
+    hi! link asciidoctorOption Statement
+    hi! link asciidoctorBlockOptions Statement
+    hi! link asciidoctorTableSep Statement
+    hi! link asciidoctorTableCell Statement
+    hi! link asciidoctorTableEmbed Statement
+    hi! link asciidoctorInlineAnchor Statement
+endif
+
 
 "" LeaderF
 hi link Lf_hl_bufDirname Comment
