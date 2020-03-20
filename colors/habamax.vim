@@ -113,6 +113,7 @@ hi lCursor guibg=#ff7070
 hi link TabLine StatusLineNC
 hi link TabLineFill TabLine
 hi link TabLineSel Normal
+hi MatchParen guifg=fg ctermfg=fg
 
 
 """ Plugins {{{1
