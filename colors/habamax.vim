@@ -26,7 +26,8 @@ endif
 
 let g:colors_name = 'habamax'
 
-if &background == 'light' " {{{1
+"" Light colors {{{
+if &background == 'light'
     hi Normal guibg=#fcfffc guifg=#000000 ctermbg=15 ctermfg=16
     hi EndOfBuffer guifg=#e0e0e0 guibg=NONE ctermfg=7 ctermbg=NONE
     hi Statusline guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
@@ -55,7 +56,9 @@ if &background == 'light' " {{{1
         " tone down Constant
         hi Constant guifg=#b02cb0
     endif
-else " {{{1
+
+ " Dark colors {{{1
+ else
     hi Normal guibg=#202531 guifg=#dedede ctermbg=0 ctermfg=15
     hi EndOfBuffer guibg=NONE guifg=#404551 ctermbg=NONE ctermfg=8
     hi Statusline guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
@@ -82,7 +85,7 @@ else " {{{1
     endif
 endif
 
-" Syntax Highlighting {{{1
+" Common Syntax Highlighting {{{1
 hi Comment guibg=NONE guifg=#777777 gui=italic ctermfg=8 cterm=NONE
 hi Conceal guibg=NONE guifg=#777777 gui=NONE ctermfg=8 cterm=NONE
 hi Statement gui=NONE cterm=NONE
@@ -96,7 +99,7 @@ if get(g:, "habamax_flat", 0)
 endif
 
 
-" Light and Dark Chrome {{{1
+" Common Chrome {{{1
 hi Directory gui=bold
 hi! link FoldColumn Folded
 hi! link NonText EndOfBuffer
@@ -122,6 +125,8 @@ if &background == 'light'
 else
     hi asciidoctorIndented guifg=#999999 gui=NONE ctermbg=8 cterm=NONE
 endif
+
+"" Flat Syntax
 if get(g:, "habamax_flat", 0)
     hi! link asciidoctorListMarker Statement
     hi! link asciidoctorOrderedListMarker Statement
@@ -133,7 +138,6 @@ if get(g:, "habamax_flat", 0)
     hi! link asciidoctorCalloutDesc Statement
     hi! link asciidoctorListingBlock asciidoctorIndented
     hi! link asciidoctorLiteralBlock asciidoctorIndented
-
     hi! link asciidoctorAttribute Statement
     hi! link asciidoctorCode Constant
     hi! link asciidoctorBlock Statement
@@ -143,8 +147,13 @@ if get(g:, "habamax_flat", 0)
     hi! link asciidoctorTableCell Statement
     hi! link asciidoctorTableEmbed Statement
     hi! link asciidoctorInlineAnchor Statement
-endif
 
+    hi! link pythonInclude Statement
+
+    hi! link rubyInclude Statement
+    hi! link rubyDefine Statement
+    hi! link rubyStringDelimiter Constant
+endif
 
 "" LeaderF
 hi link Lf_hl_bufDirname Comment
