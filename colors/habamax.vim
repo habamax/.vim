@@ -154,6 +154,17 @@ if get(g:, "habamax_flat", 0)
     hi! link rubyInclude Statement
     hi! link rubyDefine Statement
     hi! link rubyStringDelimiter Constant
+
+    hi fugitiveUntrackedHeading gui=bold cterm=bold
+    hi fugitiveUnstagedHeading gui=bold cterm=bold
+    hi fugitiveStagedHeading gui=bold cterm=bold
+    hi fugitiveHeading gui=bold cterm=bold
+    hi fugitiveHeader gui=bold cterm=bold
+    hi! link fugitiveUntrackedModifier Statement
+    hi! link fugitiveUnstagedModifier Statement
+    hi! link fugitiveStagedModifier Statement
+    hi! link fugitiveHash Statement
+    hi! link fugitiveSymbolicRef Statement
 endif
 
 "" LeaderF
