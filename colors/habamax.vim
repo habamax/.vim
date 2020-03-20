@@ -41,6 +41,7 @@ if &background == 'light'
     hi PmenuThumb guibg=#585858
 
     hi Folded guibg=#e0e4e0 guifg=#454945 gui=underline guisp=#454945
+    hi FoldColumn guibg=#e0e4e0 guifg=#454945 gui=NONE
     hi Visual guibg=#d0d9ea gui=NONE ctermbg=fg ctermfg=bg
     hi LineNr guibg=NONE guifg=#97a49c
 
@@ -72,6 +73,7 @@ if &background == 'light'
     hi PmenuThumb guibg=#585858
 
     hi Folded guibg=#303440 guifg=#909590 gui=underline guisp=#909590
+    hi FoldColumn guibg=#303440 guifg=#909590 gui=NONE
     hi Visual guibg=#394e71 guifg=NONE ctermbg=fg ctermfg=bg
     hi LineNr guibg=NONE guifg=#a1c2aa
 
@@ -101,7 +103,6 @@ endif
 
 " Common Chrome {{{1
 hi Directory gui=bold
-hi! link FoldColumn Folded
 hi! link NonText EndOfBuffer
 hi CursorLine guibg=NONE gui=underline ctermbg=NONE cterm=underline guisp=fg
 hi! link CursorColumn CursorLine
