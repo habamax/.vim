@@ -17,6 +17,7 @@
 " make it FLAT:
 " * comments
 " * statements
+" * constants
 
 hi clear
 if exists('syntax_on')
@@ -49,6 +50,7 @@ if &background == 'light' " {{{1
 
     if get(g:, "habamax_flat", 0)
         hi Statement guifg=#5c5f5c
+        hi Constant guifg=#5c5f5c
     else
         " tone down Constant
         hi Constant guifg=#b02cb0
@@ -76,6 +78,7 @@ else " {{{1
 
     if get(g:, "habamax_flat", 0)
         hi Statement guifg=#9095a1 ctermfg=7
+        hi Constant guifg=#9095a1 ctermfg=7
     endif
 endif
 
@@ -87,7 +90,6 @@ hi Type gui=NONE cterm=NONE
 
 if get(g:, "habamax_flat", 0)
     hi clear Type
-    hi clear Constant
     hi clear Identifier
     hi clear PreProc
     hi clear Special
