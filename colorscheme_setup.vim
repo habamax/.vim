@@ -12,15 +12,18 @@ augroup END
 
 " If it happens you run vim late, use dark colors
 if strftime("%H") >= 20 || strftime("%H") < 8 
+    " flat colors... or not
+    if !has('nvim')
+        let g:habamax_flat = rand()%2
+    else
+        let g:habamax_flat = v:true
+    endif
     set bg=dark
 else
     set bg=light
+    let g:habamax_flat = v:false
 endif
 
-" flat colors... or not
-if !has('nvim')
-    let g:habamax_flat = rand()%2
-endif
 
 colorscheme habamax
 
