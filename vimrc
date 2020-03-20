@@ -122,12 +122,6 @@ set textwidth=78
 set completeopt=menuone
 if !has('nvim') && v:version > 802 | set completeopt+=popup | endif
 
-" neovim specific
-" NOTE: traces.vim looks better for me
-" if has('nvim')
-"     set inccommand=split
-" endif
-
 set spelllang=ru,en
 set nospell
 
