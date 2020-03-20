@@ -17,6 +17,12 @@ else
     set bg=light
 endif
 
-let g:habamax_flat = v:true
+" flat colors... or not
+if !has('nvim')
+    let g:habamax_flat = rand()%2
+endif
+
 colorscheme habamax
 
+" mimic tpope's unimpaired with toggling options
+nnoremap yof :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
