@@ -12,6 +12,11 @@
 " 
 " Works OK for gui and with set termguicolors
 " Otherwise it is kind of meh, but readable (uses default 16 colors palette)
+"
+" if g:habamax_flat is set to v:true
+" make it FLAT:
+" * comments
+" * statements
 
 hi clear
 if exists('syntax_on')
@@ -42,8 +47,12 @@ if &background == 'light' " {{{1
     hi Error guibg=#e07070 guifg=bg
     hi Todo guifg=fg gui=bold
 
-    " tone down Constant
-    hi Constant guifg=#b02cb0
+    if get(g:, "habamax_flat", 0)
+        hi Statement guifg=#5c5f5c
+    else
+        " tone down Constant
+        hi Constant guifg=#b02cb0
+    endif
 else " {{{1
     hi Normal guibg=#202531 guifg=#dedede ctermbg=0 ctermfg=15
     hi EndOfBuffer guibg=NONE guifg=#404551 ctermbg=NONE ctermfg=8
@@ -64,6 +73,10 @@ else " {{{1
     hi Underlined guifg=#96b0d8 gui=underline guisp=#60708c
     hi Error guibg=#633e43 guifg=NONE
     hi Todo guifg=bg gui=bold
+
+    if get(g:, "habamax_flat", 0)
+        hi Statement guifg=#9095a1 ctermfg=7
+    endif
 endif
 
 " Syntax Highlighting {{{1
@@ -71,6 +84,14 @@ hi Comment guibg=NONE guifg=#777777 gui=italic ctermfg=8 cterm=NONE
 hi Conceal guibg=NONE guifg=#777777 gui=NONE ctermfg=8 cterm=NONE
 hi Statement gui=NONE cterm=NONE
 hi Type gui=NONE cterm=NONE
+
+if get(g:, "habamax_flat", 0)
+    hi clear Type
+    hi clear Constant
+    hi clear Identifier
+    hi clear PreProc
+    hi clear Special
+endif
 
 
 " Light and Dark Chrome {{{1
