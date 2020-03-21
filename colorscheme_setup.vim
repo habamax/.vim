@@ -28,4 +28,4 @@ endif
 colorscheme habamax
 
 " mimic tpope's unimpaired with toggling options
-nnoremap yof :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
+nnoremap <silent> yof :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
