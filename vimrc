@@ -62,8 +62,7 @@ set guioptions=cMe
 set showtabline=1
 set cmdheight=1
 set nonumber norelativenumber
-" set winminwidth=0 winminheight=0
-" set winminwidth=10 winheight=5 winminheight=5
+set winminwidth=10 winheight=5 winminheight=5
 set lazyredraw
 set splitbelow
 set splitright
