@@ -1,10 +1,14 @@
-" My fancy foldtext
-" Buffer setup
+"" My fancy foldtext
+" Per buffer setup:
+"
+" add padding to fold line count (pad to the right)
 " let b:foldlines_padding = v:false
+"
+" char to be used for folding
 " let b:foldchar = ''
-" let b:foldtext_stripregex = ^//\|=\+\|["#]\|/\*\|\*/\|{{{\d\=\|title:\s*
-
-" let line = substitute(line, '^//\|=\+\|["#]\|/\*\|\*/\|{{{\d\=\|title:\s*', '', 'g')
+"
+" additional regexp to strip foldtext (example for asciidoctor buffers)
+" let b:foldtext_stripregex = '^=\+'
 
 set foldtext=MyFoldText()
 func! MyFoldText()
