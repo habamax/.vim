@@ -1,11 +1,14 @@
 "" My fancy foldtext
 " Per buffer setup:
 "
+" char to be used for folding
+" let b:foldchar = ''
+"
 " add padding to fold line count (pad to the right)
 " let b:foldlines_padding = v:false
 "
-" char to be used for folding
-" let b:foldchar = ''
+" strip leading comment chars
+" let b:foldtext_strip_comments = v:true
 "
 " additional regexp to strip foldtext (example for asciidoctor buffers)
 " let b:foldtext_stripregex = '^=\+'
@@ -13,6 +16,7 @@
 set foldtext=MyFoldText()
 func! MyFoldText()
     let foldchar = get(b:, 'foldchar', '•')
+    let strip_comments = get(b:, 'foldtext_strip_comments', v:false)
     let strip_regex = get(b:, 'foldtext_stripregex', '')
 
     let line = getline(v:foldstart)
@@ -29,12 +33,14 @@ func! MyFoldText()
     let foldindent = repeat(' ', max([indent-strdisplaywidth(foldlevel), strdisplaywidth(foldchar)]))
     let foldlines = (v:foldend - v:foldstart + 1)
 
-    " always strip away commentstring and {{{
-    let strip_comment_regex = '\%(^\s*' 
+    " always strip away fold markers
+    let strip_regex = '\%(\s*{{{\d*\s*\)'
+    if strip_comments
+        let strip_regex .= '\|\%(^\s*'
                 \. substitute(&commentstring, '\s*%s\s*', '', '')
                 \. '*\s*\)'
-    let strip_fold_regex = '\%(\s*{{{\d*\s*\)' 
-    let line = substitute(line, strip_comment_regex.'\|'.strip_fold_regex, '', 'g')
+    endif
+    let line = substitute(line, strip_regex, '', 'g')
     if strip_regex != ""
         let line = substitute(line, strip_regex, '', 'g')
         let line = substitute(line, '^[[:space:]]*\|[[:space:]]*$', '', 'g')
