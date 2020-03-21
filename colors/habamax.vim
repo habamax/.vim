@@ -150,6 +150,12 @@ if get(g:, "habamax_flat", 0)
     hi! link asciidoctorTableEmbed Statement
     hi! link asciidoctorInlineAnchor Statement
 
+    hi! link helpHeader Title
+    hi! link helpSectionDelim Constant
+    hi! link helpOption Constant
+    hi! link helpHyperTextJump Underlined
+    hi! link helpUrl Underlined
+
     hi! link pythonInclude Statement
 
     hi! link rubyInclude Statement
