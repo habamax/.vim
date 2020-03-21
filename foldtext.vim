@@ -12,8 +12,8 @@
 
 set foldtext=MyFoldText()
 func! MyFoldText()
-    let l:foldchar = get(b:, 'foldchar', '•')
-    let l:strip_regex = get(b:, 'foldtext_stripregex', '')
+    let foldchar = get(b:, 'foldchar', '•')
+    let strip_regex = get(b:, 'foldtext_stripregex', '')
 
     let line = getline(v:foldstart)
 
@@ -25,8 +25,8 @@ func! MyFoldText()
 
     let indent = indent(v:foldstart)
 
-    let foldlevel = repeat(l:foldchar, v:foldlevel)
-    let foldindent = repeat(' ', max([indent-strdisplaywidth(foldlevel), strdisplaywidth(l:foldchar)]))
+    let foldlevel = repeat(foldchar, v:foldlevel)
+    let foldindent = repeat(' ', max([indent-strdisplaywidth(foldlevel), strdisplaywidth(foldchar)]))
     let foldlines = (v:foldend - v:foldstart + 1)
 
     " always strip away commentstring and {{{
@@ -35,9 +35,8 @@ func! MyFoldText()
                 \. '*\s*\)'
     let strip_fold_regex = '\%(\s*{{{\d*\s*\)' 
     let line = substitute(line, strip_comment_regex.'\|'.strip_fold_regex, '', 'g')
-    let g:mess=l:strip_regex
-    if l:strip_regex != ""
-        let line = substitute(line, l:strip_regex, '', 'g')
+    if strip_regex != ""
+        let line = substitute(line, strip_regex, '', 'g')
         let line = substitute(line, '^[[:space:]]*\|[[:space:]]*$', '', 'g')
     endif
     let nontextlen = strdisplaywidth(foldlevel.foldindent.foldlines.' ()')
