@@ -1,5 +1,5 @@
 if exists("g:neovide")
-    set guifont=Iosevka\ Habamax:h18
+    set guifont=Iosevka\ Habamax:h20
 else
     GuiLinespace 0
     GuiPopupmenu 0 
