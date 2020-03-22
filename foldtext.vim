@@ -45,8 +45,9 @@ func! MyFoldText()
     " additional per buffer strip
     if strip_add_regex != ""
         let line = substitute(line, strip_add_regex, '', 'g')
-        let line = substitute(line, '^[[:space:]]*\|[[:space:]]*$', '', 'g')
     endif
+
+    let line = trim(line)
 
     let nontextlen = strdisplaywidth(foldlevel.foldindent.foldlines.' ()')
     let foldtext = strcharpart(line, 0, winwidth(0) - nontextlen)
