@@ -15,6 +15,9 @@ if strftime("%H") >= 20 || strftime("%H") < 8
     " flat colors... or not
     if !has('nvim')
         let g:habamax_flat = rand()%2
+        if !g:habamax_flat
+            let g:habamax_godot = rand()%2
+        endif
     else
         let g:habamax_flat = v:true
     endif
