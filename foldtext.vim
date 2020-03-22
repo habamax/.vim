@@ -11,13 +11,13 @@
 " let b:foldtext_strip_comments = v:true
 "
 " additional regexp to strip foldtext (example for asciidoctor buffers)
-" let b:foldtext_stripregex = '^=\+'
+" let b:foldtext_strip_add_regex = '^=\+'
 
 set foldtext=MyFoldText()
 func! MyFoldText()
     let foldchar = get(b:, 'foldchar', '•')
     let strip_comments = get(b:, 'foldtext_strip_comments', v:false)
-    let strip_regex = get(b:, 'foldtext_stripregex', '')
+    let strip_add_regex = get(b:, 'foldtext_strip_add_regex', '')
 
     let line = getline(v:foldstart)
 
@@ -41,10 +41,13 @@ func! MyFoldText()
                 \. '*\s*\)'
     endif
     let line = substitute(line, strip_regex, '', 'g')
-    if strip_regex != ""
-        let line = substitute(line, strip_regex, '', 'g')
+
+    " additional per buffer strip
+    if strip_add_regex != ""
+        let line = substitute(line, strip_add_regex, '', 'g')
         let line = substitute(line, '^[[:space:]]*\|[[:space:]]*$', '', 'g')
     endif
+
     let nontextlen = strdisplaywidth(foldlevel.foldindent.foldlines.' ()')
     let foldtext = strcharpart(line, 0, winwidth(0) - nontextlen)
 

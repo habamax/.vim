@@ -136,7 +136,7 @@ func! AsciidoctorBufferSetup()
     nnoremap <buffer> <leader>cx :Asciidoctor2DOCX<CR>
     nnoremap <buffer> <leader>p :AsciidoctorPasteImage<CR>
     compiler asciidoctor2pdf
-    let b:foldtext_stripregex = '^=\+'
+    let b:foldtext_strip_add_regex = '^=\+'
 endfunc
 
 augroup asciidoctor | au!
