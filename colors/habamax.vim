@@ -107,12 +107,18 @@ if &background == 'light'
     hi diffText guibg=#2f2f09 guifg=NONE gui=NONE
     hi diffDelete guibg=#492929 guifg=#707070 gui=NONE
 
+    if get(g:, "habamax_godot", 0)
+        hi Comment guibg=NONE guifg=#7e8189 gui=italic ctermfg=8 cterm=NONE
+        hi Conceal guibg=NONE guifg=#7e8189 gui=NONE ctermfg=8 cterm=NONE
+    else
+        hi Comment guibg=NONE guifg=#777777 gui=italic ctermfg=8 cterm=NONE
+        hi Conceal guibg=NONE guifg=#777777 gui=NONE ctermfg=8 cterm=NONE
+    endif
+    
     if get(g:, "habamax_flat", 0)
         hi Statement guifg=#9095a1 ctermfg=7
         hi Constant guifg=#9095a1 ctermfg=7
     elseif get(g:, "habamax_godot", 0)
-        hi Comment guibg=NONE guifg=#7e8189 gui=italic ctermfg=8 cterm=NONE
-        hi Conceal guibg=NONE guifg=#7e8189 gui=NONE ctermfg=8 cterm=NONE
         hi Constant guifg=#a1ffe0 gui=NONE
         hi String guifg=#ffeca1 gui=NONE
         hi Identifier guifg=#66e6ff gui=NONE
@@ -122,9 +128,6 @@ if &background == 'light'
         hi Structure guifg=#8effda gui=NONE
         hi Typedef guifg=#42ffc2 gui=NONE
         hi Special guifg=#bce0ff gui=NONE
-    else
-        hi Comment guibg=NONE guifg=#777777 gui=italic ctermfg=8 cterm=NONE
-        hi Conceal guibg=NONE guifg=#777777 gui=NONE ctermfg=8 cterm=NONE
     endif
 endif
 
