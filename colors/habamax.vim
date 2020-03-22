@@ -4,7 +4,7 @@
 " Maintainer: Maxim Kim <habamax@gmail.com>
 " License:    MIT, but who cares? This is colorscheme.
 "
-" Syntax colors stays default
+" Syntax colors stays default, except:
 " - backgrounds are different
 " - bold and italic styles are added and removed here and there
 " - chrome is different (statuslines, folding, etc)
@@ -13,11 +13,23 @@
 " Works OK for gui and with set termguicolors
 " Otherwise it is kind of meh, but readable (uses default 16 colors palette)
 "
-" if g:habamax_flat is set to v:true
+"
+" 
+" ==============================================================================
+"
+" Sometimes I want my syntax to be 'boring'.
+" let g:habamax_flat = v:true
 " make it FLAT:
 " * comments
 " * statements
 " * constants
+"
+"
+" ==============================================================================
+"
+" Sometimes I want syntax to be 'fancy'. Make it look like Godot game engine:
+" let g:habamax_godot = v:true
+" use godot colors for dark background
 
 hi clear
 if exists('syntax_on')
@@ -95,12 +107,22 @@ if &background == 'light'
     if get(g:, "habamax_flat", 0)
         hi Statement guifg=#9095a1 ctermfg=7
         hi Constant guifg=#9095a1 ctermfg=7
+    elseif get(g:, "habamax_godot", 0)
+        hi Constant guifg=#a1ffe0 gui=NONE
+        hi String guifg=#ffeca1 gui=NONE
+        hi Identifier guifg=#66e6ff gui=NONE
+        hi Statement guifg=#ff7085 gui=NONE
+        hi PreProc guifg=#63c259 gui=NONE
+        hi Type guifg=#c6ffed gui=NONE
+        hi Structure guifg=#8effda gui=NONE
+        hi Typedef guifg=#42ffc2 gui=NONE
+        hi Special guifg=#bce0ff gui=NONE
     endif
 endif
 
 " Common Syntax Highlighting {{{1
-hi Comment guibg=NONE guifg=#777777 gui=italic ctermfg=8 cterm=NONE
-hi Conceal guibg=NONE guifg=#777777 gui=NONE ctermfg=8 cterm=NONE
+hi Comment guibg=NONE guifg=#7e8189 gui=italic ctermfg=8 cterm=NONE
+hi Conceal guibg=NONE guifg=#7e8189 gui=NONE ctermfg=8 cterm=NONE
 hi Statement gui=NONE cterm=NONE
 hi Type gui=NONE cterm=NONE
 
