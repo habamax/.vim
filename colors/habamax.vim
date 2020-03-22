@@ -76,6 +76,9 @@ if &background == 'light'
         hi Constant guifg=#b02cb0
     endif
 
+    hi Comment guibg=NONE guifg=#777777 gui=italic ctermfg=8 cterm=NONE
+    hi Conceal guibg=NONE guifg=#777777 gui=NONE ctermfg=8 cterm=NONE
+
  " Dark colors {{{1
  else
     hi Normal guibg=#202531 guifg=#dedede ctermbg=0 ctermfg=15
@@ -108,6 +111,8 @@ if &background == 'light'
         hi Statement guifg=#9095a1 ctermfg=7
         hi Constant guifg=#9095a1 ctermfg=7
     elseif get(g:, "habamax_godot", 0)
+        hi Comment guibg=NONE guifg=#7e8189 gui=italic ctermfg=8 cterm=NONE
+        hi Conceal guibg=NONE guifg=#7e8189 gui=NONE ctermfg=8 cterm=NONE
         hi Constant guifg=#a1ffe0 gui=NONE
         hi String guifg=#ffeca1 gui=NONE
         hi Identifier guifg=#66e6ff gui=NONE
@@ -117,12 +122,14 @@ if &background == 'light'
         hi Structure guifg=#8effda gui=NONE
         hi Typedef guifg=#42ffc2 gui=NONE
         hi Special guifg=#bce0ff gui=NONE
+    else
+        hi Comment guibg=NONE guifg=#777777 gui=italic ctermfg=8 cterm=NONE
+        hi Conceal guibg=NONE guifg=#777777 gui=NONE ctermfg=8 cterm=NONE
     endif
 endif
 
-" Common Syntax Highlighting {{{1
-hi Comment guibg=NONE guifg=#7e8189 gui=italic ctermfg=8 cterm=NONE
-hi Conceal guibg=NONE guifg=#7e8189 gui=NONE ctermfg=8 cterm=NONE
+" Dark and Light Syntax Highlighting {{{1
+
 hi Statement gui=NONE cterm=NONE
 hi Type gui=NONE cterm=NONE
 
