@@ -50,6 +50,12 @@ if &background == 'light'
     hi Error guibg=#e07070 guifg=bg
     hi Todo guifg=fg gui=bold
 
+    "" Diff
+    hi diffAdd guibg=#c9f9c9
+    hi diffChange guibg=#f9f9c9
+    hi diffText guibg=#f9d999 guifg=NONE gui=NONE
+    hi diffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
+
     if get(g:, "habamax_flat", 0)
         hi Statement guifg=#5c5f5c
         hi Constant guifg=#5c5f5c
@@ -80,6 +86,11 @@ if &background == 'light'
     hi Underlined guifg=#96b0d8 gui=underline guisp=#60708c
     hi Error guibg=#633e43 guifg=NONE
     hi Todo guifg=bg gui=bold
+
+    hi diffAdd guibg=#294929
+    hi diffChange guibg=#4f4719
+    hi diffText guibg=#2f2f09 guifg=NONE gui=NONE
+    hi diffDelete guibg=#492929 guifg=#707070 gui=NONE
 
     if get(g:, "habamax_flat", 0)
         hi Statement guifg=#9095a1 ctermfg=7
@@ -172,6 +183,10 @@ if get(g:, "habamax_flat", 0)
     hi! link fugitiveStagedModifier Statement
     hi! link fugitiveHash Statement
     hi! link fugitiveSymbolicRef Statement
+    hi! link diffRemoved diffDelete
+    hi! link diffAdded diffAdd
+    hi! link diffLine diffChange
+    hi! link diffSubname diffChange
 endif
 
 "" LeaderF
