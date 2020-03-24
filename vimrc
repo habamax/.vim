@@ -18,10 +18,6 @@ set browsedir=buffer
 
 let mapleader = "\<Space>"
 
-if has('mouse')
-    set mouse=a
-endif
-
 " Vim and terminals have hard time processing ESCs (laaaag)
 " This helps a lot
 set ttimeout
@@ -49,6 +45,9 @@ if !has("gui_running")
     endif
 endif
 
+if has('mouse')
+    set mouse=a
+endif
 
 " 'I' in shortmess removes intro/welcome screen
 set shortmess+=Ic
