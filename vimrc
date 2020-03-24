@@ -137,17 +137,17 @@ endif
 set nrformats=bin,hex
 
 " Capitalize word
-nnoremap <A-c> gUiwlguww
+nnoremap <A-c> ebgUiwlguww
 " UPPERCASE word
-nnoremap <A-u> gUiww
+nnoremap <A-u> ebgUiww
 " lowercase word
-nnoremap <A-l> guiww
+nnoremap <A-l> ebguiww
 " Capitalize word in insert mode
-inoremap <A-c> <C-o>gUiw<C-o>l<C-o>guw<C-o>w
+inoremap <A-c> <C-o>e<C-o>b<C-o>gUiw<C-o>l<C-o>guw<C-o>w
 " UPPERCASE word in insert mode
-inoremap <A-u> <C-o>gUiw<C-o>w
+inoremap <A-u> <C-o>e<C-o>b<C-o>gUiw<C-o>w
 " lowercase word in insert mode
-inoremap <A-l> <C-o>guiw<C-o>w
+inoremap <A-l> <C-o>e<C-o>b<C-o>guiw<C-o>w
 
 " Move line up/down
 nnoremap <silent> <C-k> :<C-u>silent! exe "move-2"<CR>==
