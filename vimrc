@@ -88,10 +88,11 @@ set fillchars=fold:\ ,vert:│
 set wildchar=<Tab> wildmenu wildmode=full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 
-" turn off beeping...
-set visualbell
-au! GuiEnter * set t_vb=
-set t_vb=
+" turn off beeping... oldfashioned way
+" set visualbell
+" au! GuiEnter * set t_vb=
+" set t_vb=
+set belloff=all
 
 "" Text {{{1
 set tabstop=8 softtabstop=-1 shiftwidth=4 expandtab smarttab
