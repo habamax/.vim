@@ -9,9 +9,14 @@ augroup END
 
 
 """ Colorschemes {{{1
+let force_dark = v:true
 
 " If it happens you run vim late or in linux or use terminal, use dark colors
-if strftime("%H") >= 20 || strftime("%H") < 8 || has('linux') || !has('gui_running')
+if force_dark
+            \ || strftime("%H") >= 20
+            \ || strftime("%H") < 8
+            \ || has('linux')
+            \ || !has('gui_running')
     " flat colors... or not
     if !has('nvim')
         let g:habamax_flat = rand()%2
