@@ -226,11 +226,13 @@ nmap <Leader>умы <Leader>evs
 " edit plugins list file
 nnoremap <silent> <Leader>evp :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
 nmap <Leader>умз <Leader>evp
+
+"" g:HOME is in paths.vim
 " edit global notes file
-nnoremap <silent> <Leader>en :e ~/docs/notes/notes.adoc<CR>
+nnoremap <silent> <Leader>en :exe printf('e %s/docs/notes/notes.adoc', g:HOME)<CR>
 nmap <Leader>ут <Leader>en
 " edit global current journal file
-nnoremap <silent> <Leader>ej :e ~/docs/journal/2020.adoc<CR>
+nnoremap <silent> <Leader>ej :exe printf('e %s/docs/journal/2020.adoc', g:HOME)<CR>
 nmap <Leader>уо <Leader>ej
 
 " built-in terminal
