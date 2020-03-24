@@ -58,7 +58,7 @@ if has('nvim') || has('python') || has('python3')
     nnoremap <leader>c :LeaderfColorscheme<CR>
     silent! packadd LeaderF
 
-    command Docs :exe printf('LeaderfFile %s/docs', g:HOME)
+    command Docs :exe printf('Leaderf file %s/docs', g:HOME)
 endif
 
 " Then try to load vim-clap
