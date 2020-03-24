@@ -37,10 +37,7 @@ set fileformat=unix
 
 "" UI {{{1
 if !has("gui_running")
-    " if exists('+termguicolors') && has("win32")
-    "     set termguicolors
-    " endif
-    if has('nvim')
+    if has("linux") || has("nvim")
         set termguicolors
     endif
 
