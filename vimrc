@@ -1,7 +1,6 @@
 " Author: Maxim Kim <habamax@gmail.com>
 
 "" Must have {{{1
-set nocompatible
 
 " Everything will be in English
 language messages en_US.UTF-8
