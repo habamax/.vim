@@ -89,7 +89,7 @@ set wildchar=<Tab> wildmenu wildmode=full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 
 " turn off beeping...
-set novisualbell
+set visualbell
 au! GuiEnter * set t_vb=
 set t_vb=
 
