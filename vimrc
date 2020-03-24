@@ -17,7 +17,6 @@ set confirm
 set browsedir=buffer
 
 let mapleader = "\<Space>"
-let maplocalleader = "\<BS>"
 
 if has('mouse')
     set mouse=a
