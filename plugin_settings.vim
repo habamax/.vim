@@ -9,6 +9,11 @@ if has('nvim')
 endif
 
 
+""" vim-gutentags {{{1
+if executable("ctags")
+    silent! packadd vim-gutentags
+endif
+
 """ Git {{{1
 if executable("git")
     silent! packadd vim-fugitive

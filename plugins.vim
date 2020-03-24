@@ -81,7 +81,7 @@ if exists('*minpac#init')
 
 
     "" Programming
-    call minpac#add('ludovicchabant/vim-gutentags')
+    call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
     call minpac#add('editorconfig/editorconfig-vim')
     call minpac#add('mhinz/vim-mix-format')
     call minpac#add('AndrewRadev/splitjoin.vim')
