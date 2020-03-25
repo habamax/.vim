@@ -30,21 +30,6 @@ set fileformats=unix,mac,dos
 set fileformat=unix
 
 "" UI {{{1
-if !has("gui_running")
-    if has("linux") || has("nvim")
-        set termguicolors
-    endif
-
-    " to fix cursor shape in WSL bash add 
-    " echo -ne "\e[2 q"
-    " to .bashrc
-    if &term =~ "xterm"
-        let &t_SI = "\<Esc>[6 q"
-        let &t_SR = "\<Esc>[3 q"
-        let &t_EI = "\<Esc>[2 q"
-    endif
-endif
-
 if has('mouse')
     set mouse=a
 endif

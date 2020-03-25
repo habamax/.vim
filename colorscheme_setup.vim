@@ -8,13 +8,31 @@ augroup colorscheme_change | au!
 augroup END
 
 
-""" Colorschemes {{{1
+"" Terminals {{{1
+if !has("gui_running")
 
-"" Fix vim termguicolors for tmux
-if &term =~# '^screen'
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    " Fix vim termguicolors for tmux
+    if &term =~# '^screen'
+        let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    endif
+
+    if has("linux") || has("nvim")
+        set termguicolors
+    endif
+
+    " to fix cursor shape in WSL bash add 
+    " echo -ne "\e[2 q"
+    " to .bashrc
+    if &term =~ "xterm"
+        let &t_SI = "\<Esc>[6 q"
+        let &t_SR = "\<Esc>[3 q"
+        let &t_EI = "\<Esc>[2 q"
+    endif
 endif
+
+
+""" Colorschemes {{{1
 
 "" Kind of random of 0 or 1 values
 func! s:rand_bool() abort
