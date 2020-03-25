@@ -12,7 +12,10 @@ augroup END
 if !has("gui_running")
 
     " Fix vim termguicolors for tmux
-    if &term =~# '^screen'
+    " NOTE: your .tmux.conf should have:
+    " set -g default-terminal "screen-256color"
+    " set -ag terminal-overrides ',xterm-256color:Tc'
+    if &term =~# '^screen' || &term =~# '^xterm-256'
         let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
         let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     endif
