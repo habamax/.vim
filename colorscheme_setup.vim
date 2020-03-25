@@ -58,7 +58,7 @@ else
 endif
 
 let g:habamax_flat = v:false
-let g:habamax_godot = v:true
+let g:habamax_godot = v:false
 colorscheme habamax
 
 " mimic tpope's unimpaired with toggling options
