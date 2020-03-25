@@ -17,6 +17,12 @@ if !has("gui_running")
         let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     endif
 
+    " Fix vim cursor shape in tmux
+    if exists("$TMUX")
+        let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
+        let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
+    endif
+
     if has("linux") || has("nvim")
         set termguicolors
     endif
