@@ -9,6 +9,16 @@ augroup END
 
 
 """ Colorschemes {{{1
+
+"" Kind of random of 0 or 1 values
+func! s:rand_bool() abort
+    if exists('*rand')
+        return rand() % 2
+    else
+        return localtime() % 2
+    endif
+endfunc
+
 let force_dark = v:true
 
 " If it happens you run vim late or in linux or use terminal, use dark colors
@@ -18,13 +28,9 @@ if force_dark
             \ || has('linux')
             \ || !has('gui_running')
     " flat colors... or not
-    if !has('nvim')
-        let g:habamax_flat = rand()%2
-        if !g:habamax_flat
-            let g:habamax_godot = rand()%2
-        endif
-    else
-        let g:habamax_flat = v:true
+    let g:habamax_flat = s:rand_bool()
+    if !g:habamax_flat
+        let g:habamax_godot = s:rand_bool()
     endif
     set bg=dark
 else
