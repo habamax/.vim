@@ -43,15 +43,6 @@ endif
 
 """ Colorschemes {{{1
 
-"" Kind of random of 0 or 1 values
-func! s:rand_bool() abort
-    if exists('*rand')
-        return rand() % 2
-    else
-        return localtime() % 2
-    endif
-endfunc
-
 let force_dark = v:true
 
 " If it happens you run vim late or in linux or use terminal, use dark colors
@@ -61,18 +52,15 @@ if force_dark
             \ || has('linux')
             \ || !has('gui_running')
     " flat colors... or not
-    let g:habamax_flat = s:rand_bool()
-    if !g:habamax_flat
-        let g:habamax_godot = s:rand_bool()
-    endif
     set bg=dark
 else
     set bg=light
-    let g:habamax_flat = v:false
 endif
 
-
+let g:habamax_flat = v:false
+let g:habamax_godot = v:true
 colorscheme habamax
 
 " mimic tpope's unimpaired with toggling options
 nnoremap <silent> yof :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
+nnoremap <silent> yot :let g:habamax_godot = !g:habamax_godot <bar> colo habamax<CR>
