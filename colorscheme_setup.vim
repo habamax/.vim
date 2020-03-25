@@ -10,6 +10,12 @@ augroup END
 
 """ Colorschemes {{{1
 
+"" Fix vim termguicolors for tmux
+if &term =~# '^screen'
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
 "" Kind of random of 0 or 1 values
 func! s:rand_bool() abort
     if exists('*rand')
