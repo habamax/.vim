@@ -128,8 +128,8 @@ if exists('*minpac#init')
     call minpac#add('Konfekt/FastFold')
 
     " yog to trigger goyo
-    call minpac#add('junegunn/goyo.vim')
-    call minpac#add('junegunn/limelight.vim')
+    " call minpac#add('junegunn/goyo.vim')
+    " call minpac#add('junegunn/limelight.vim')
 
     " NETRW should be this
     call minpac#add('justinmk/vim-dirvish')
