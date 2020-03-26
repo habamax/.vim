@@ -27,6 +27,7 @@ if exists('*minpac#init')
     call minpac#add('tpope/vim-obsession')
     " Databases
     call minpac#add('tpope/vim-dadbod')
+    call minpac#add('kristijanhusak/vim-dadbod-ui')
 
 
     "" Git
