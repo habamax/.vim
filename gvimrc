@@ -21,10 +21,6 @@ endif
 
 set linespace=0
 
-" Random font, because why not? :)
-" let s:fonts = ["Iosevka\\ Habamax\\ Extended:h14", "JetBrains\\ Mono:h13"]
-" exe "set gfn=".s:fonts[rand()%len(s:fonts)]
-
 "" These are 2 I like the most atm
 set gfn=Iosevka\ Habamax:h14
 " set gfn=JetBrains\ Mono:h14
