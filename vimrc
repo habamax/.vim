@@ -34,7 +34,6 @@ if has('mouse')
     set mouse=a
 endif
 
-" 'I' in shortmess removes intro/welcome screen
 set shortmess+=Ic
 set winaltkeys=no
 set guioptions=cMe
