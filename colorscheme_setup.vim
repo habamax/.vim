@@ -70,4 +70,4 @@ colorscheme habamax
 
 " mimic tpope's unimpaired with toggling options
 nnoremap <silent> yof :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
-nnoremap <silent> yot :let g:habamax_godot = !g:habamax_godot <bar> colo habamax<CR>
+nnoremap <silent> yog :let g:habamax_godot = !g:habamax_godot <bar> colo habamax<CR>
