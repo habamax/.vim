@@ -120,18 +120,21 @@ endif
 " good for C-a, C-x wrt 007 and other octal like numbers
 set nrformats=bin,hex
 
+func! Uppercase_word() abort
+endfunc
+
 " Capitalize word
-nnoremap <A-c> ebgUiwlguww
+nnoremap <A-c> :call text#capitalize_word()<CR>
 " UPPERCASE word
-nnoremap <A-u> ebgUiww
+nnoremap <A-u> :call text#uppercase_word()<CR>
 " lowercase word
-nnoremap <A-l> ebguiww
+nnoremap <A-l> :call text#lowercase_word()<CR>
 " Capitalize word in insert mode
-inoremap <A-c> <C-o>e<C-o>b<C-o>gUiw<C-o>l<C-o>guw<C-o>w
+inoremap <A-c> <C-\><C-o>:call text#capitalize_word()<CR>
 " UPPERCASE word in insert mode
-inoremap <A-u> <C-o>e<C-o>b<C-o>gUiw<C-o>w
+inoremap <A-u> <C-\><C-o>:call text#uppercase_word()<CR>
 " lowercase word in insert mode
-inoremap <A-l> <C-o>e<C-o>b<C-o>guiw<C-o>w
+inoremap <A-l> <C-\><C-o>:call text#lowercase_word()<CR>
 
 " Move line up/down
 nnoremap <silent> <C-k> :<C-u>silent! exe "move-2"<CR>==

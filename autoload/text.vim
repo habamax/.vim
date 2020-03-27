@@ -40,3 +40,40 @@ func! text#underline(chars)
         call append('.', underline)
     endif
 endfunc
+
+
+"" Capitalize Word under cursor and goto next
+func! text#capitalize_word() abort
+    call s:position_cursor_on_word()
+    normal! gUiwlguww
+endfunc
+
+
+"" Uppercase WORD under cursor and goto next
+func! text#uppercase_word() abort
+    call s:position_cursor_on_word()
+    normal! gUiww
+endfunc
+
+
+"" Lowercase word under cursor and goto next
+func! text#lowercase_word() abort
+    call s:position_cursor_on_word()
+    normal! guiww
+endfunc
+
+
+"" Helper function to properly position cursor before Capitalize, Uppercase or
+"" lowercase
+func! s:position_cursor_on_word() abort
+    let cursor_text = strcharpart(getline('.'), virtcol('.')-1, 2)
+    if cursor_text !~ '^\S\s*\|$'
+        normal! eb
+    elseif cursor_text =~ '^\s[[:punct:]]'
+        normal! el
+    elseif cursor_text =~ '^\s'
+        normal! e
+    elseif cursor_text =~ '^[[:punct:]]'
+        normal! w
+    endif
+endfunc
