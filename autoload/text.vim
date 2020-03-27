@@ -26,6 +26,7 @@ func! text#fix() range
     " echo 'Just one space'
 endfunc
 
+
 "" Underline current line with chars[0]
 "" If current line is already underlined with one the chars[1..]
 "" Replace it with char[0]
