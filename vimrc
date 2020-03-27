@@ -211,8 +211,8 @@ nmap <Leader>уо <Leader>ej
 tnoremap <esc> <C-\><C-n>
 
 " scroll other window
-" nnoremap <silent> <C-j> :call win#scroll_other(1)<CR>
-" nnoremap <silent> <C-k> :call win#scroll_other(0)<CR>
+nnoremap <silent> <C-Space> :call win#scroll_other(1)<CR>
+nnoremap <silent> <C-S-Space> :call win#scroll_other(0)<CR>
 
 " open explorer where current file is located
 nnoremap <leader>oe :call os#show_file()<CR>
