@@ -5,7 +5,7 @@
 " License:    MIT, but who cares? This is colorscheme.
 "
 " Syntax colors stays default, except:
-" - backgrounds are different
+" - backgrounds are different unless you want to be conservative
 " - bold and italic styles are added and removed here and there
 " - chrome is different (statuslines, folding, etc)
 " - colors for plugins I use (leaderf etc)
@@ -30,6 +30,14 @@
 " Sometimes I want syntax to be 'fancy'. Make it look like Godot game engine:
 " let g:habamax_godot = v:true
 " use godot colors for dark background
+"
+" ==============================================================================
+"
+"
+" To be even more boring with black background as dark and white background as
+" light, use:
+" let g:habamax_conservative = v:true
+"
 
 hi clear
 if exists('syntax_on')
@@ -40,7 +48,11 @@ let g:colors_name = 'habamax'
 
 "" Light colors {{{
 if &background == 'light'
-    hi Normal guibg=#fcfffc guifg=#000000 ctermbg=15 ctermfg=16
+    if get(g:, "habamax_conservative", v:false)
+        hi Normal guibg=#ffffff guifg=#000000 ctermbg=15 ctermfg=16
+    else
+        hi Normal guibg=#fcfffc guifg=#000000 ctermbg=15 ctermfg=16
+    endif
     hi EndOfBuffer guifg=#e0e0e0 guibg=NONE ctermfg=7 ctermbg=NONE
     hi Statusline guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
     hi StatuslineNC guibg=#707080 guifg=#c0c0c0 gui=NONE ctermbg=8 ctermfg=7 cterm=NONE
@@ -81,7 +93,11 @@ if &background == 'light'
 
  " Dark colors {{{1
  else
-    hi Normal guibg=#202531 guifg=#dedede ctermbg=0 ctermfg=15
+    if get(g:, "habamax_conservative", v:false)
+        hi Normal guibg=#000000 guifg=#dedede ctermbg=0 ctermfg=15
+    else
+        hi Normal guibg=#202531 guifg=#dedede ctermbg=0 ctermfg=15
+    endif
     hi EndOfBuffer guibg=NONE guifg=#404551 ctermbg=NONE ctermfg=8
     hi Statusline guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
     hi StatuslineNC guibg=#333b4f guifg=#636b7f gui=NONE ctermbg=8 ctermfg=7 cterm=NONE
