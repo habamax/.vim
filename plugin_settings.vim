@@ -124,7 +124,7 @@ let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json']
 " let g:asciidoctor_syntax_indented = 0
 
 let g:asciidoctor_pandoc_other_params = '--toc'
-let g:asciidoctor_pandoc_data_dir = '~/docs/.pandoc'
+let g:asciidoctor_pandoc_data_dir = g:HOME . '/docs/.pandoc'
 
 let g:asciidoctor_syntax_conceal = 1
 let g:asciidoctor_folding = 1
