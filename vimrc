@@ -160,7 +160,7 @@ inoremap <C-U> <C-G>u<C-U>
 inoremap <C-l> <c-g>u<C-\><C-o>[s<ESC>1z=`]a<c-g>u
 
 " just one space on the line, preserving indent
-noremap <leader><leader><leader> :JustOneSpace<CR>
+noremap <leader><leader><leader> :FixText<CR>
 
 " now it is possible to paste many times over selected text
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
@@ -173,21 +173,11 @@ xnoremap <expr> P 'Pgv"'.v:register.'y`>'
 " <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
-" Underline current line
-func! s:underline(chars)
-    let nextnr = line('.') + 1
-    let underline = repeat(a:chars[0], strchars(getline('.')))
-    if index(a:chars, trim(getline(nextnr))[0]) != -1
-        call setline(nextnr, underline)
-    else
-        call append('.', underline)
-    endif
-endfunc
-nnoremap <leader>- :call <SID>underline(['-', '=', '~', '^', '+'])<CR>
-nnoremap <leader>= :call <SID>underline(['=', '-', '~', '^', '+'])<CR>
-nnoremap <leader>~ :call <SID>underline(['~', '=', '-', '^', '+'])<CR>
-nnoremap <leader>^ :call <SID>underline(['^', '=', '-', '~', '+'])<CR>
-nnoremap <leader>+ :call <SID>underline(['+', '=', '-', '~', '^'])<CR>
+nnoremap <leader>- :call text#underline(['-', '=', '~', '^', '+'])<CR>
+nnoremap <leader>= :call text#underline(['=', '-', '~', '^', '+'])<CR>
+nnoremap <leader>~ :call text#underline(['~', '=', '-', '^', '+'])<CR>
+nnoremap <leader>^ :call text#underline(['^', '=', '-', '~', '+'])<CR>
+nnoremap <leader>+ :call text#underline(['+', '=', '-', '~', '^'])<CR>
 
 nnoremap <leader><leader>- o<home><ESC>78i-<ESC>
 nnoremap <leader><leader>= o<home><ESC>78i=<ESC>
@@ -220,70 +210,13 @@ nmap <Leader>уо <Leader>ej
 " built-in terminal
 tnoremap <esc> <C-\><C-n>
 
-" helper func for scroll other window mappings
-func! s:scroll_other_window(dir)
-    if winnr('$') < 2
-        return
-    endif
-    wincmd w
-    let cmd = "normal ".winheight(0)/2
-    if a:dir
-        let cmd .= "\<c-e>"
-    else
-        let cmd .= "\<c-y>"
-    endif
-    exe cmd
-    wincmd p
-endfunc
-
 " scroll other window
-" nnoremap <silent> <C-j> :call <SID>scroll_other_window(1)<CR>
-" nnoremap <silent> <C-k> :call <SID>scroll_other_window(0)<CR>
+" nnoremap <silent> <C-j> :call win#scroll_other(1)<CR>
+" nnoremap <silent> <C-k> :call win#scroll_other(0)<CR>
 
-func! OpenExplorer()
-    " Windows only for now
-    if !has("win32")
-        return
-    endif
-
-    if exists("b:netrw_curdir")
-        let subcmd = '"' . substitute(b:netrw_curdir, "/", "\\", "g") . '"'
-    elseif exists("b:dirvish")
-        let subcmd = '/select,"' . getline('.') . '"'
-    elseif expand("%:p") == ""
-        let subcmd = '"' . expand("%:p:h") . '"'
-    else
-        let subcmd = '/select,"' . expand("%:p") . '"'
-    endif
-    exe "silent !start explorer " . subcmd
-endfunc
-nnoremap <leader>oe :call OpenExplorer()<CR>
-
-
-func! OSopen(word) abort
-    " Windows only for now
-    if !has("win32")
-        return
-    endif
-    let word = a:word
-    if word =~ '^[~.$].*'
-        let word = expand(word)
-    endif
-    " TODO: check if barebone url
-    " TODO: check if path or a filename
-    " TODO: check and extract asciidoctor url
-    " TODO: check and extract markdown url
-    exe printf("silent !start %s", word)
-endfunc
-
-" http://ya.ru
-" ~/docs
-" $HOME/docs
-" C:/Users/maksim.kim/docs
-" .
-nnoremap gx :call OSopen(expand('<cWORD>'))<CR>
-
-"" Commands (and Autocommands) {{{1
+" open explorer where current file is located
+nnoremap <leader>oe :call os#show_file()<CR>
+nnoremap gx :call os#open_url(expand('<cWORD>'))<CR>
 
 " Sort operator
 func! Sort(type, ...)
@@ -292,33 +225,16 @@ endfunc
 nmap <silent> gs :set opfunc=Sort<CR>g@
 vmap <silent> gs :sort<CR>
 
+
+"" Commands (and Autocommands) {{{1
+
 " remove trailing spaces
 command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
             \:exe 'normal ``'<bar>
             \:echo 'Remove trailing spaces and ^Ms.'
 
-func! JustOneSpace() range
-    let pos=getcurpos()
-    " replace non-breaking space to space first
-    exe printf('silent %d,%ds/\%%xA0/ /ge', a:firstline, a:lastline)
-    " replace multiple spaces to a single space (preserving indent)
-    exe printf('silent %d,%ds/\S\+\zs\(\s\|\%%xa0\)\+/ /ge', a:firstline, a:lastline)
-    " remove spaces between closed braces: ) ) -> ))
-    exe printf('silent %d,%ds/)\s\+)\@=/)/ge', a:firstline, a:lastline)
-    " remove spaces between opened braces: ( ( -> ((
-    exe printf('silent %d,%ds/(\s\+(\@=/(/ge', a:firstline, a:lastline)
-    " remove space before closed brace: word ) -> word)
-    exe printf('silent %d,%ds/\s)/)/ge', a:firstline, a:lastline)
-    " remove space after opened brace: ( word -> (word
-    exe printf('silent %d,%ds/(\s/(/ge', a:firstline, a:lastline)
-    " remove space at the end of line
-    exe printf('silent %d,%ds/\s*$//ge', a:firstline, a:lastline)
-    call setpos('.', pos)
-    nohl
-    echo 'Just one space'
-endfunc
 
-command! -range JustOneSpace <line1>,<line2>call JustOneSpace()
+command! -range FixText <line1>,<line2>call text#fix()
 
 " Continuous buffers.
 " 1. Vertically split window
