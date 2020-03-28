@@ -120,9 +120,6 @@ endif
 " good for C-a, C-x wrt 007 and other octal like numbers
 set nrformats=bin,hex
 
-func! Uppercase_word() abort
-endfunc
-
 " Capitalize word
 nnoremap <A-c> :call text#capitalize_word()<CR>
 " UPPERCASE word
