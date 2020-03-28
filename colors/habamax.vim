@@ -5,7 +5,7 @@
 " License:    MIT, but who cares? This is colorscheme.
 "
 " Syntax colors stays default, except:
-" - backgrounds are different unless you want to be conservative
+" - backgrounds are different
 " - bold and italic styles are added and removed here and there
 " - chrome is different (statuslines, folding, etc)
 " - colors for plugins I use (leaderf etc)
@@ -36,7 +36,7 @@
 "
 " To be even more boring with black background as dark and white background as
 " light, use:
-" let g:habamax_conservative = v:true
+" let g:habamax_contrast = v:true
 "
 
 hi clear
@@ -48,7 +48,7 @@ let g:colors_name = 'habamax'
 
 "" Light colors {{{
 if &background == 'light'
-    if get(g:, "habamax_conservative", v:false)
+    if get(g:, "habamax_contrast", v:false)
         hi Normal guibg=#ffffff guifg=#000000 ctermbg=15 ctermfg=16
     else
         hi Normal guibg=#fcfffc guifg=#000000 ctermbg=15 ctermfg=16
@@ -93,7 +93,7 @@ if &background == 'light'
 
  " Dark colors {{{1
  else
-    if get(g:, "habamax_conservative", v:false)
+    if get(g:, "habamax_contrast", v:false)
         hi Normal guibg=#000000 guifg=#dedede ctermbg=0 ctermfg=15
     else
         hi Normal guibg=#202531 guifg=#dedede ctermbg=0 ctermfg=15

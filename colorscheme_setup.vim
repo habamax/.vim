@@ -66,9 +66,10 @@ endif
 
 let g:habamax_flat = v:false
 let g:habamax_godot = v:false
-let g:habamax_conservative = v:true
+let g:habamax_contrast = v:false
 colorscheme habamax
 
 " mimic tpope's unimpaired with toggling options
 nnoremap <silent> yof :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
 nnoremap <silent> yog :let g:habamax_godot = !g:habamax_godot <bar> colo habamax<CR>
+nnoremap <silent> yoz :let g:habamax_contrast = !g:habamax_contrast <bar> colo habamax<CR>
