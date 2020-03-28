@@ -1,3 +1,15 @@
+"" Return true if vim is in WSL environment
+func! os#is_wsl() abort
+    if has('unix')
+        let lines = readfile("/proc/version")
+        if lines[0] =~ "Microsoft"
+            return 1
+        endif
+    endif
+    return 0
+endfunc
+
+
 "" Open explorer/finder/fm where current file is located
 func! os#show_file() abort
     " Windows only for now
