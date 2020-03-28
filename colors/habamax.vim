@@ -112,8 +112,8 @@ if &background == 'light'
     hi PmenuSbar guibg=#bcbcbc
     hi PmenuThumb guibg=#585858
 
-    hi TabLine guibg=#4e4e4e gui=underline cterm=underline
-    hi TabLineFill guibg=#4e4e4e guifg=fg gui=underline ctermfg=fg ctermbg=8 cterm=underline term=NONE
+    hi TabLine guibg=#434b5f gui=underline cterm=underline
+    hi TabLineFill guibg=#434b5f guifg=fg gui=underline ctermfg=fg ctermbg=8 cterm=underline term=NONE
 
     hi Folded guibg=#303440 guifg=#909590 gui=NONE guisp=NONE
     hi FoldColumn guibg=#303440 guifg=#909590 gui=NONE
