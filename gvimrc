@@ -21,20 +21,13 @@ endif
 
 set linespace=0
 
-"" These are 2 I like the most atm
-set gfn=Iosevka\ Habamax:h14
+"" Iosevka (customized) is currently my favorite font.
+set gfn=Iosevka\ Habamax:h14,Consolas:h14,Liberation\ Mono:h14
+
+"" These are 3 awesome fonts I sometimes use
 " set gfn=JetBrains\ Mono:h14
-
-"" These are 2 fallback fonts -- really awesome
 " set gfn=Consolas:h14
-" set gfn=Hack:h14
+" set gfn=Liberation\ Mono:h14
 
-"" No russian italics
-" set gfn=Cascadia\ Code:h14
-
-"" Good but no italics
-" set gfn=Fira\ Mono:h14
-" set gfn=PT\ Mono:h14
-
-set columns=400
-set lines=400
+set columns=999
+set lines=999
