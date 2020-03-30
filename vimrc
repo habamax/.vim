@@ -223,7 +223,7 @@ vmap <silent> gs :sort<CR>
 "" Commands (and Autocommands) {{{1
 
 " Open (n)vim config
-command! Vimrc :only
+command! Vimrc :silent only
             \<bar>:exe printf("e %s/vimrc", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:exe printf("vs %s/plugin_settings.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:exe printf("vs %s/gvimrc", fnamemodify($MYVIMRC, ":p:h"))
