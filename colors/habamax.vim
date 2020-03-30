@@ -170,6 +170,7 @@ endif
 " Common Chrome {{{1
 hi Directory gui=bold
 hi! link NonText EndOfBuffer
+hi! link SpecialKey EndOfBuffer
 hi! link CursorColumn CursorLine
 hi! link CursorLineNr CursorLine
 hi! link QuickFixLine CursorLine
