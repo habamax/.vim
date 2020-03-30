@@ -56,6 +56,7 @@ if has('nvim') || has('python') || has('python3')
     silent! packadd LeaderF
 
     command! Docs :exe printf('Leaderf file %s/docs', g:HOME)
+    command! VimConfigs :exe printf('Leaderf file %s', fnamemodify($MYVIMRC, ":p:h"))
 endif
 
 " Then try to load vim-clap

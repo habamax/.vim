@@ -235,6 +235,9 @@ command! Vimrc :silent only
 " Open docs folder
 command! Docs :exe printf('e %s/docs', g:HOME)
 
+" Open vim config folder
+command! VimConfigs :exe printf('e %s', fnamemodify($MYVIMRC, ":p:h"))
+
 " remove trailing spaces
 command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
             \:exe 'normal! ``'<bar>
