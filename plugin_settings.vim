@@ -389,3 +389,8 @@ let g:dbs = [
 augroup autosize_windows | au!
     au BufWinEnter * silent! call lens#run()
 augroup end
+
+for letter in split('HJKL', '\zs')
+    exe printf("nnoremap <C-w>%s <C-w>%s:silent! call lens#run()<CR>",
+                \ letter, letter)
+endfor
