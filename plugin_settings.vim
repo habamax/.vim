@@ -345,13 +345,10 @@ endif
 let g:elixir_mix_test_position = "bottom"
 let g:mix_format_on_save = 1
 
+
 """ List Manipulation {{{1
 let g:list_man_default_mappings = 1
 
-""" Goyo && Limelight {{{1
-" nnoremap yog :Goyo<CR>
-" autocmd! User GoyoEnter Limelight
-" autocmd! User GoyoLeave Limelight!
 
 """ undotree {{{1
 nnoremap <leader>u :UndotreeToggle<CR>
