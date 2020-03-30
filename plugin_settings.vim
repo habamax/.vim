@@ -363,3 +363,8 @@ nnoremap <leader>l :DoOutline<CR>
 let g:dbs = [
             \ { 'name': 'dev', 'url': 'postgres://postgres@localhost:5432/postgres' }
             \ ]
+
+""" vim-lens {{{1
+augroup autosize_windows | au!
+    au BufWinEnter * silent! call lens#run()
+augroup end
