@@ -240,7 +240,7 @@ command! Docs :exe printf('e %s/docs', g:HOME)
 
 " remove trailing spaces
 command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
-            \:exe 'normal ``'<bar>
+            \:exe 'normal! ``'<bar>
             \:echo 'Remove trailing spaces and ^Ms.'
 
 
