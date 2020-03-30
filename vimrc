@@ -141,15 +141,9 @@ xnoremap <silent> <C-k> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
 xnoremap <silent> <C-j> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 
 " goto window
-nnoremap <space>1 1<C-w>w
-nnoremap <space>2 2<C-w>w
-nnoremap <space>3 3<C-w>w
-nnoremap <space>4 4<C-w>w
-nnoremap <space>5 5<C-w>w
-nnoremap <space>6 6<C-w>w
-nnoremap <space>7 7<C-w>w
-nnoremap <space>8 8<C-w>w
-nnoremap <space>9 9<C-w>w
+for wnr in range(1, 9)
+    exe printf("nnoremap <space>%s %s<C-w>w", wnr, wnr)
+endfor
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
