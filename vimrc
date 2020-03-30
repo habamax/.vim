@@ -36,7 +36,7 @@ endif
 
 set shortmess+=Ic
 set winaltkeys=no
-set guioptions=cMe
+set guioptions=cM
 set showtabline=1
 set cmdheight=1
 set nonumber norelativenumber
