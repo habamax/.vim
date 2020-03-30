@@ -261,6 +261,27 @@ augroup lsp_mappings | au!
 augroup END
 
 
+" "" coc.nvim {{{1
+
+" " Highlight the symbol and its references when holding the cursor.
+" autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" " Use K to show documentation in preview window.
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocAction('doHover')
+"   endif
+" endfunction
+
+" " Formatting selected code.
+" nmap <leader>af :call CocActionAsync("format")<CR>
+
+" nmap <silent> gd <Plug>(coc-definition)
+
 """ vim-matchup {{{1
 let g:loaded_matchit = 1
 let g:matchup_matchparen_offscreen = {'method': 'popup'}

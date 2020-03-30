@@ -104,6 +104,9 @@ if exists('*minpac#init')
     call minpac#add('prabirshrestha/asyncomplete.vim')
     call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
 
+    "" general completion works better then asyncomplete
+    "" everything else is worse than vim-lsp
+    " call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 
     "" Snippets
     call minpac#add('hrsh7th/vim-vsnip')
