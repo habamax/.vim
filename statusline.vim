@@ -12,7 +12,7 @@ endfunc
 set laststatus=2
 " set ruler " for default statusline"
 
-set statusline=%(%{misc#unicode_number(winnr())}%)
+set statusline=%#StatusLine#%(%{misc#unicode_number(winnr())}%)%*
 set statusline+=%([\%R%M]%)
 set statusline+=%<%f
 set statusline+=%=
