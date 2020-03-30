@@ -296,6 +296,7 @@ silent! source <sfile>:h/paths.vim
 silent! source <sfile>:h/russian.vim
 
 silent! source <sfile>:h/statusline.vim
+silent! source <sfile>:h/tabline.vim
 
 silent! source <sfile>:h/abbreviations.vim
 
