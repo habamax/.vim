@@ -1,5 +1,6 @@
 func! Tabline()
     let s = ''
+
     for i in range(tabpagenr('$'))
         let tab = i + 1
         let winnr = tabpagewinnr(tab)
