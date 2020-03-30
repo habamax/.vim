@@ -168,6 +168,7 @@ endif
 
 
 " Common Chrome {{{1
+hi TabLineSel gui=NONE
 hi Directory gui=bold
 hi! link NonText EndOfBuffer
 hi! link SpecialKey EndOfBuffer
