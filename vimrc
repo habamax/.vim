@@ -177,17 +177,24 @@ vnoremap * y/<C-R>"<CR>
 
 " edit init file (vimrc) -- nvim's init.vim sources vimrc
 nnoremap <silent> <Leader>evi :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/vimrc"<CR>
-nmap <Leader>умш <Leader>evi
 " edit gvim init file (gvimrc) -- nvim doesn't know about $GVIMRC and it's
 " ginit.vim sources gvimrc
 nnoremap <silent> <Leader>evg :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/gvimrc"<CR>
-nmap <Leader>умп <Leader>evg
 " edit plugins settings file 
 nnoremap <silent> <Leader>evs :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugin_settings.vim"<CR>
-nmap <Leader>умы <Leader>evs
 " edit plugins list file
 nnoremap <silent> <Leader>evp :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
-nmap <Leader>умз <Leader>evp
+
+
+" Directory ~/docs 
+nnoremap <silent> <Leader>dd :Docs<CR>
+" Directory ~/vimfiles or ~/.vim 
+nnoremap <silent> <Leader>dv :VimConfigs<CR>
+
+" guard <Leader>d not to delete accidentally
+nnoremap <silent> <Leader>d <nop>
+nnoremap <silent> d<Leader> <nop>
+
 
 "" g:HOME is in paths.vim
 " edit global notes file

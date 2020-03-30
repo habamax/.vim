@@ -45,8 +45,6 @@ if has('nvim') || has('python') || has('python3')
     " This is set by default
     " nnoremap <leader>f :LeaderfFile<CR>
     " nnoremap <leader>b :LeaderfBuffer<CR>
-    nnoremap <leader>а :Leaderf file<CR>
-    nnoremap <leader>и :Leaderf buffer<CR>
     nnoremap <leader>/ :Leaderf line<CR>
     nnoremap <leader>; :Leaderf command<CR>
     nnoremap <leader>T :Leaderf tag<CR>
@@ -54,7 +52,6 @@ if has('nvim') || has('python') || has('python3')
     nnoremap <leader>h :Leaderf help<CR>
     nnoremap <leader>m :Leaderf mru<CR>
     nnoremap <leader>g :Leaderf rg<CR>
-    nmap <leader>ь <leader>m
     nnoremap <leader>c :LeaderfColorscheme<CR>
     silent! packadd LeaderF
 
