@@ -21,7 +21,7 @@ endif
 
 set linespace=0
 
-"" Iosevka (customized) is currently my favorite font.
+"" Iosevka (customized extended) is preffered
 set guifont=Iosevka\ Habamax:h14
             \,JetBrains\ Mono:h14
             \,Consolas:h14
