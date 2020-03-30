@@ -30,7 +30,7 @@
       "prefix": ["au"],
       "body": [
           "augroup ${1:augroup_name} | au!",
-          " au ${2:BufRead,BufNewFile} ${3:*.ext} ${0}",
+          "\tau ${2:BufRead,BufNewFile} ${3:*.ext} ${0}",
           "augroup end"
       ],
       "description": ""
