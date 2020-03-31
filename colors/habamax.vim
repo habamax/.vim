@@ -48,6 +48,12 @@ let g:colors_name = 'habamax'
 
 "" Light colors {{{
 if &background == 'light'
+    let g:terminal_ansi_colors =
+                \ ['#000000', '#800000', '#008000', '#808000',
+                \ '#000080', '#800080', '#008080', '#c0c0c0',
+                \ '#808080', '#ff0000', '#00b000', '#0000ff',
+                \ '#ff00ff', '#00ffff', '#ffffff', '#000000']
+
     if get(g:, "habamax_contrast", v:false)
         hi Normal guibg=#ffffff guifg=#000000 ctermbg=15 ctermfg=16
     else
@@ -94,8 +100,14 @@ if &background == 'light'
     hi Comment guibg=NONE guifg=#777777 gui=italic ctermfg=8 cterm=NONE
     hi Conceal guibg=NONE guifg=#777777 gui=NONE ctermfg=8 cterm=NONE
 
- " Dark colors {{{1
- else
+    " Dark colors {{{1
+else
+    let g:terminal_ansi_colors =
+                \ ['#000000', '#a05050', '#50a050', '#a0a050',
+                \ '#5050a0', '#a050a0', '#50a0a0', '#c0c0c0',
+                \ '#808080', '#ff7070', '#70ff70', '#7070ff',
+                \ '#ff70ff', '#70ffff', '#ffffff', '#000000']
+
     if get(g:, "habamax_contrast", v:false)
         hi Normal guibg=#000000 guifg=#dedede ctermbg=0 ctermfg=15
     else
@@ -137,7 +149,7 @@ if &background == 'light'
         hi Comment guibg=NONE guifg=#777777 gui=italic ctermfg=8 cterm=NONE
         hi Conceal guibg=NONE guifg=#777777 gui=NONE ctermfg=8 cterm=NONE
     endif
-    
+
     if get(g:, "habamax_flat", 0)
         hi Statement guifg=#9095a1 ctermfg=7
         hi Constant guifg=#9095a1 ctermfg=7
