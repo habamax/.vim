@@ -31,6 +31,7 @@ if has('nvim') || has('python') || has('python3')
     " endif
     let g:Lf_StlSeparator = { 'left': '', 'right': '' }
     " let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+    let g:Lf_ShowDevIcons = 0
     let g:Lf_WindowHeight = 0.30
     let g:Lf_ShowHidden = 1
     let g:Lf_FollowLinks = 1
