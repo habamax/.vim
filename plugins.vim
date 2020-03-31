@@ -41,6 +41,8 @@ if exists('*minpac#init')
     call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
     " After installation run :Clap install_binary!
     " call minpac#add('liuchengxu/vim-clap', {'type': 'opt'})
+    call minpac#add('junegunn/fzf', {'type': 'opt'})
+    call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
 
 
     "" Text manipulation
