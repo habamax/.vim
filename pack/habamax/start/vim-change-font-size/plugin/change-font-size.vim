@@ -49,6 +49,9 @@ fun! s:changeFontSize(op)
 
     exe printf('set guifont=%s', escape(new_font, ' '))
 
+    if get(g:, "change_font_window_max", v:true)
+        set lines=999 columns=999
+    endif
 	wincmd =
 endfu
 
