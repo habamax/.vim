@@ -134,11 +134,11 @@ inoremap <A-u> <ESC>:call text#uppercase_word()<CR>a
 inoremap <A-l> <ESC>:call text#lowercase_word()<CR>a
 
 " Move line up/down
-nnoremap <silent> <C-k> :<C-u>silent! exe "move-2"<CR>==
-nnoremap <silent> <C-j> :<C-u>silent! exe "move+1"<CR>==
+nnoremap <silent> <M-k> :<C-u>silent! exe "move-2"<CR>==
+nnoremap <silent> <M-j> :<C-u>silent! exe "move+1"<CR>==
 " Move selected lines up/down
-xnoremap <silent> <C-k> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
-xnoremap <silent> <C-j> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
+xnoremap <silent> <M-k> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
+xnoremap <silent> <M-j> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 
 " goto window
 for wnr in range(1, 9)
@@ -208,8 +208,8 @@ nmap <Leader>уо <Leader>ej
 tnoremap <esc> <C-\><C-n>
 
 " scroll other window
-nnoremap <silent> <C-Space> :call win#scroll_other(1)<CR>
-nnoremap <silent> <C-S-Space> :call win#scroll_other(0)<CR>
+nnoremap <silent> <C-j> :call win#scroll_other(1)<CR>
+nnoremap <silent> <C-k> :call win#scroll_other(0)<CR>
 
 " open explorer where current file is located
 nnoremap <leader>oe :call os#show_file()<CR>

@@ -323,8 +323,8 @@ nmap ga <Plug>(EasyAlign)
 let g:VM_maps = {}
 let g:VM_maps['Find Under']         = '<leader>n'
 let g:VM_maps['Find Subword Under'] = '<leader>n'
-let g:VM_maps["Select Cursor Down"] = '<M-j>'
-let g:VM_maps["Select Cursor Up"]   = '<M-j>'
+let g:VM_maps["Select Cursor Down"] = '<M-J>'
+let g:VM_maps["Select Cursor Up"]   = '<M-K>'
 
 "" vim-rest-console {{{1
 let g:vrc_auto_format_response_enabled = 1
