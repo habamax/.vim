@@ -48,11 +48,51 @@ let g:colors_name = 'habamax'
 
 "" Light colors {{{
 if &background == 'light'
-    let g:terminal_ansi_colors =
-                \ ['#000000', '#800000', '#008000', '#808000',
-                \ '#000080', '#800080', '#008080', '#c0c0c0',
-                \ '#808080', '#ff0000', '#00b000', '#0000ff',
-                \ '#ff00ff', '#00ffff', '#ffffff', '#000000']
+
+    " Neovim terminal colours
+    if has("nvim")
+        let g:terminal_color_0 =  "#fcfffc"
+        let g:terminal_color_1 =  "#ca1243"
+        let g:terminal_color_2 =  "#50a14f"
+        let g:terminal_color_3 =  "#c18401"
+        let g:terminal_color_4 =  "#4078f2"
+        let g:terminal_color_5 =  "#a626a4"
+        let g:terminal_color_6 =  "#0184bc"
+        let g:terminal_color_7 =  "#383a42"
+        let g:terminal_color_8 =  "#a0a1a7"
+        let g:terminal_color_9 =  "#ca1243"
+        let g:terminal_color_10 = "#50a14f"
+        let g:terminal_color_11 = "#c18401"
+        let g:terminal_color_12 = "#4078f2"
+        let g:terminal_color_13 = "#a626a4"
+        let g:terminal_color_14 = "#0184bc"
+        let g:terminal_color_15 = "#090a0b"
+        let g:terminal_color_background = g:terminal_color_0
+        let g:terminal_color_foreground = g:terminal_color_5
+        if &background == "light"
+            let g:terminal_color_background = g:terminal_color_7
+            let g:terminal_color_foreground = g:terminal_color_2
+        endif
+    elseif has("terminal")
+        let g:terminal_ansi_colors = [
+                    \ "#fcfffc",
+                    \ "#ca1243",
+                    \ "#50a14f",
+                    \ "#c18401",
+                    \ "#4078f2",
+                    \ "#a626a4",
+                    \ "#0184bc",
+                    \ "#383a42",
+                    \ "#a0a1a7",
+                    \ "#ca1243",
+                    \ "#50a14f",
+                    \ "#c18401",
+                    \ "#4078f2",
+                    \ "#a626a4",
+                    \ "#0184bc",
+                    \ "#090a0b",
+                    \ ]
+    endif
 
     if get(g:, "habamax_contrast", v:false)
         hi Normal guibg=#ffffff guifg=#000000 ctermbg=15 ctermfg=16
