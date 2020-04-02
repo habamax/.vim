@@ -47,13 +47,14 @@ if has('nvim') || has('python') || has('python3')
     " nnoremap <leader>f :LeaderfFile<CR>
     " nnoremap <leader>b :LeaderfBuffer<CR>
     nnoremap <leader>/ :Leaderf line<CR>
-    nnoremap <leader>; :Leaderf command<CR>
+    nnoremap <leader>: :Leaderf command<CR>
     nnoremap <leader>T :Leaderf tag<CR>
     nnoremap <leader>[ :Leaderf function<CR>
     nnoremap <leader>h :Leaderf help<CR>
     nnoremap <leader>m :Leaderf mru<CR>
     nnoremap <leader>g :Leaderf rg<CR>
     nnoremap <leader>c :LeaderfColorscheme<CR>
+    nnoremap <leader>; :Leaderf cmdHistory<CR>
     silent! packadd LeaderF
 
     command! Docs :exe printf('Leaderf file %s/docs', g:HOME)
