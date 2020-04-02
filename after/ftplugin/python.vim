@@ -1,3 +1,8 @@
+if executable('yapf')
+    command -buffer Format :%!yapf
+endif
+
+
 let b:foldchar = ''
 let b:foldlines_padding = v:true
 
