@@ -184,6 +184,8 @@ nnoremap <silent> <Leader>evg :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/gvimrc
 nnoremap <silent> <Leader>evs :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugin_settings.vim"<CR>
 " edit plugins list file
 nnoremap <silent> <Leader>evp :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
+" Close other files, open vimrc, plugin_settings.vim and gvimrc
+nnoremap <silent> <Leader>evv :Vimrc<CR>
 
 
 " Directory ~/docs 
