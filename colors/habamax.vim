@@ -126,15 +126,20 @@ if &background == 'light'
     hi diffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
 
     if get(g:, "habamax_flat", 0)
-        hi Statement guifg=#5c5f5c
-        hi Constant guifg=#5c5f5c
+        hi Statement guifg=#4c6f6c ctermfg=8
+        hi Constant guifg=#4c6f6c ctermfg=8
+        hi Directory guifg=#4c6f6c ctermfg=8
+        hi Comment ctermfg=7
+        hi Conceal ctermfg=7
     else
         " tone down Constant
         hi Constant guifg=#b02cb0
+        hi Comment ctermfg=8
+        hi Conceal ctermfg=8
     endif
 
-    hi Comment guibg=NONE guifg=#777777 gui=italic ctermfg=8 cterm=NONE
-    hi Conceal guibg=NONE guifg=#777777 gui=NONE ctermfg=8 cterm=NONE
+    hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
+    hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
 
     " Dark colors {{{1
 else
@@ -224,6 +229,7 @@ else
     if get(g:, "habamax_flat", 0)
         hi Statement guifg=#9095a1 ctermfg=7
         hi Constant guifg=#9095a1 ctermfg=7
+        hi Directory guifg=#9095a1 ctermfg=7
     elseif get(g:, "habamax_godot", 0)
         hi Constant guifg=#a1ffe0 gui=NONE
         hi String guifg=#ffeca1 gui=NONE
