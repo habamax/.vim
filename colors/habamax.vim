@@ -41,7 +41,7 @@
 
 hi clear
 if exists('syntax_on')
-	syntax reset
+    syntax reset
 endif
 
 let g:colors_name = 'habamax'
@@ -67,12 +67,8 @@ if &background == 'light'
         let g:terminal_color_13 = "#a626a4"
         let g:terminal_color_14 = "#0184bc"
         let g:terminal_color_15 = "#090a0b"
-        let g:terminal_color_background = g:terminal_color_0
-        let g:terminal_color_foreground = g:terminal_color_5
-        if &background == "light"
-            let g:terminal_color_background = g:terminal_color_7
-            let g:terminal_color_foreground = g:terminal_color_2
-        endif
+        let g:terminal_color_background = g:terminal_color_7
+        let g:terminal_color_foreground = g:terminal_color_2
     elseif has("terminal")
         let g:terminal_ansi_colors = [
                     \ "#fcfffc",
@@ -142,11 +138,46 @@ if &background == 'light'
 
     " Dark colors {{{1
 else
-    let g:terminal_ansi_colors =
-                \ ['#000000', '#a05050', '#50a050', '#a0a050',
-                \ '#5050a0', '#a050a0', '#50a0a0', '#c0c0c0',
-                \ '#808080', '#ff7070', '#70ff70', '#7070ff',
-                \ '#ff70ff', '#70ffff', '#ffffff', '#000000']
+    " Neovim terminal colours
+    if has("nvim")
+        let g:terminal_color_0 =  "#202531"
+        let g:terminal_color_1 =  "#ab4642"
+        let g:terminal_color_2 =  "#a1b56c"
+        let g:terminal_color_3 =  "#f7ca88"
+        let g:terminal_color_4 =  "#7cafc2"
+        let g:terminal_color_5 =  "#ba8baf"
+        let g:terminal_color_6 =  "#86c1b9"
+        let g:terminal_color_7 =  "#d8d8d8"
+        let g:terminal_color_8 =  "#585858"
+        let g:terminal_color_9 =  "#ab4642"
+        let g:terminal_color_10 = "#a1b56c"
+        let g:terminal_color_11 = "#f7ca88"
+        let g:terminal_color_12 = "#7cafc2"
+        let g:terminal_color_13 = "#ba8baf"
+        let g:terminal_color_14 = "#86c1b9"
+        let g:terminal_color_15 = "#f8f8f8"
+        let g:terminal_color_background = g:terminal_color_0
+        let g:terminal_color_foreground = g:terminal_color_5
+    elseif has("terminal")
+        let g:terminal_ansi_colors = [
+                    \ "#202531",
+                    \ "#ab4642",
+                    \ "#a1b56c",
+                    \ "#f7ca88",
+                    \ "#7cafc2",
+                    \ "#ba8baf",
+                    \ "#86c1b9",
+                    \ "#d8d8d8",
+                    \ "#585858",
+                    \ "#ab4642",
+                    \ "#a1b56c",
+                    \ "#f7ca88",
+                    \ "#7cafc2",
+                    \ "#ba8baf",
+                    \ "#86c1b9",
+                    \ "#f8f8f8",
+                    \ ]
+    endif
 
     if get(g:, "habamax_contrast", v:false)
         hi Normal guibg=#000000 guifg=#dedede ctermbg=0 ctermfg=15
