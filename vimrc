@@ -143,6 +143,7 @@ xnoremap <silent> <M-j> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 " goto window
 for wnr in range(1, 9)
     exe printf("nnoremap <space>%s %s<C-w>w", wnr, wnr)
+    exe printf("nnoremap %s<space> %s<C-w>w", wnr, wnr)
     exe printf("nnoremap <M-%s> %s<C-w>w", wnr, wnr)
 endfor
 
