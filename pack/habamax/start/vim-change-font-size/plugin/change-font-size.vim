@@ -1,5 +1,5 @@
-" change-font-size.vim - Create directories on file save
-" Maintainer:   Maxim Kim <habamax@gmail.com>
+"" change-font-size.vim - Change GUI font size (gvim and neovim-qt)
+"" Maintainer:   Maxim Kim <habamax@gmail.com>
 
 if exists("g:loaded_change_font_size") || &cp || v:version < 700
 	finish
