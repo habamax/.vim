@@ -184,7 +184,7 @@ nnoremap <silent> <Leader>evg :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/gvimrc
 nnoremap <silent> <Leader>evs :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugin_settings.vim"<CR>
 " edit plugins list file
 nnoremap <silent> <Leader>evp :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
-" Close other files, open vimrc, plugin_settings.vim and gvimrc
+" Close other files, open 4 main vim configs
 nnoremap <silent> <Leader>evv :Vimrc<CR>
 
 
@@ -227,11 +227,13 @@ vmap <silent> gs :sort<CR>
 
 "" Commands (and Autocommands) {{{1
 
-" Open (n)vim config
+" Open (n)vim configs
 command! Vimrc :silent only
             \<bar>:exe printf("e %s/vimrc", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:exe printf("vs %s/plugin_settings.vim", fnamemodify($MYVIMRC, ":p:h"))
-            \<bar>:exe printf("vs %s/gvimrc", fnamemodify($MYVIMRC, ":p:h"))
+            \<bar>:exe printf("sp %s/gvimrc", fnamemodify($MYVIMRC, ":p:h"))
+            \<bar>:1wincmd w 
+            \<bar>:exe printf("sp %s/plugins.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:1wincmd w 
 
 " Open docs folder
