@@ -106,7 +106,8 @@ if &background == 'light'
     hi PmenuSbar guibg=#bcbcbc
     hi PmenuThumb guibg=#585858
 
-    hi TabLineFill guibg=#d3d3d3 guifg=fg gui=underline ctermfg=fg ctermbg=7 cterm=underline term=NONE
+    hi TabLine guibg=#d3d3d3 gui=NONE cterm=NONE
+    hi TabLineFill guibg=#d3d3d3 guifg=fg gui=NONE ctermfg=fg ctermbg=7 cterm=NONE term=NONE
 
     hi Folded guibg=#e0e4e0 guifg=#454945 gui=NONE guisp=NONE
     hi FoldColumn guibg=#e0e4e0 guifg=#454945 gui=NONE
@@ -200,8 +201,8 @@ else
     hi PmenuSbar guibg=#bcbcbc
     hi PmenuThumb guibg=#585858
 
-    hi TabLine guibg=#434b5f gui=underline cterm=underline
-    hi TabLineFill guibg=#434b5f guifg=fg gui=underline ctermfg=fg ctermbg=8 cterm=underline term=NONE
+    hi TabLine guibg=#434b5f gui=NONE cterm=NONE
+    hi TabLineFill guibg=#434b5f guifg=fg gui=NONE ctermfg=fg ctermbg=8 cterm=NONE term=NONE
 
     hi Folded guibg=#303440 guifg=#909590 gui=NONE guisp=NONE
     hi FoldColumn guibg=#303440 guifg=#909590 gui=NONE
