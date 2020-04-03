@@ -127,11 +127,11 @@ nnoremap <A-u> :call text#uppercase_word()<CR>
 " lowercase word
 nnoremap <A-l> :call text#lowercase_word()<CR>
 " Capitalize word in insert mode
-inoremap <A-c> <ESC>:call text#capitalize_word()<CR>a
+inoremap <A-c> <ESC>:call text#capitalize_word(v:true)<CR>
 " UPPERCASE word in insert mode
-inoremap <A-u> <ESC>:call text#uppercase_word()<CR>a
+inoremap <A-u> <ESC>:call text#uppercase_word(v:true)<CR>
 " lowercase word in insert mode
-inoremap <A-l> <ESC>:call text#lowercase_word()<CR>a
+inoremap <A-l> <ESC>:call text#lowercase_word(v:true)<CR>
 
 " Move line up/down
 nnoremap <silent> <M-k> :<C-u>silent! exe "move-2"<CR>==

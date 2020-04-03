@@ -43,23 +43,32 @@ endfunc
 
 
 "" Capitalize Word under cursor and goto next
-func! text#capitalize_word() abort
+func! text#capitalize_word(...) abort
     call s:position_cursor_on_word()
     normal! gUiwlguww
+    if get(a:, 1, v:false)
+        call s:start_insert()
+    endif
 endfunc
 
 
 "" Uppercase WORD under cursor and goto next
-func! text#uppercase_word() abort
+func! text#uppercase_word(...) abort
     call s:position_cursor_on_word()
     normal! gUiww
+    if get(a:, 1, v:false)
+        call s:start_insert()
+    endif
 endfunc
 
 
 "" Lowercase word under cursor and goto next
-func! text#lowercase_word() abort
+func! text#lowercase_word(...) abort
     call s:position_cursor_on_word()
     normal! guiww
+    if get(a:, 1, v:false)
+        call s:start_insert()
+    endif
 endfunc
 
 
@@ -76,4 +85,38 @@ func! s:position_cursor_on_word() abort
     elseif cursor_text =~ '^[[:punct:]]'
         normal! w
     endif
+endfunc
+
+
+"" Return v:true if char under cursor is on of punctuation
+func! s:is_punct() abort
+    let cursor_text = strcharpart(getline('.'), virtcol('.')-1, 1)
+    if cursor_text =~ '[[:punct:]]'
+        return v:true
+    endif
+
+    return v:false
+endfunc
+
+
+"" Return v:true if cursor is next to end of file
+func! s:is_last() abort
+    if virtcol('.') == virtcol('$') - 1
+        return v:true
+    endif
+
+    return v:false
+endfunc
+
+
+"" Start insert mode
+func! s:start_insert() abort
+    if s:is_last()
+        startinsert!
+        return
+    endif
+    if s:is_punct()
+        normal! l
+    endif
+    startinsert
 endfunc
