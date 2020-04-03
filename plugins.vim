@@ -119,7 +119,6 @@ if exists('*minpac#init')
 
 
     "" Miscelaneous
-    " call minpac#add('easymotion/vim-easymotion')
 
     " rest console with curl
     call minpac#add('diepm/vim-rest-console')
