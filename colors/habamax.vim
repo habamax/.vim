@@ -29,14 +29,13 @@
 "
 " Sometimes I want syntax to be 'fancy'.
 " let g:habamax_fancy = v:true
-" use base16-default variation colors for dark background
-" use one-light variation colors for light background
+" * dark: use some of syntax colors of base16-default
+" * light: use some of syntax colors of base16-one-light
 "
 "
 " ==============================================================================
 "
-" To be even more boring with black background as dark and white background as
-" light, use:
+" To add more contrast, use:
 " let g:habamax_contrast = v:true
 "
 
