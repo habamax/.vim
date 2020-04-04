@@ -153,7 +153,7 @@ if exists('*minpac#init')
                 \ })
 
 
-    " golden ratio for windows.
+    " Autosize windows
     call minpac#add('camspiers/lens.vim')
 
 endif
