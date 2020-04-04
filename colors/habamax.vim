@@ -134,34 +134,34 @@ if &background == 'light'
         hi Comment ctermfg=7
         hi Conceal ctermfg=7
     elseif get(g:, "habamax_fancy", 0)
-        hi Statement guifg=#ca1243
-        hi Character guifg=#ca1243
+        hi Statement guifg=#ca1243 gui=NONE
+        hi Character guifg=#ca1243 gui=NONE
 
-        hi Operator guifg=#383a42
+        hi Operator guifg=#383a42 gui=NONE
 
-        hi Constant guifg=#d75f00
-        hi Boolean guifg=#d75f00
-        hi Float guifg=#d75f00
-        hi Number guifg=#d75f00
+        hi Constant guifg=#d75f00 gui=NONE
+        hi Boolean guifg=#d75f00 gui=NONE
+        hi Float guifg=#d75f00 gui=NONE
+        hi Number guifg=#d75f00 gui=NONE
 
-        hi PreProc guifg=#c18401
-        hi Label guifg=#c18401
-        hi Repeat guifg=#c18401
-        hi StorageClass guifg=#c18401
-        hi Tag guifg=#c18401
-        hi Typedef guifg=#c18401
-        hi Type guifg=#c18401
+        hi PreProc guifg=#c18401 gui=NONE
+        hi Label guifg=#c18401 gui=NONE
+        hi Repeat guifg=#c18401 gui=NONE
+        hi StorageClass guifg=#c18401 gui=NONE
+        hi Tag guifg=#c18401 gui=NONE
+        hi Typedef guifg=#c18401 gui=NONE
+        hi Type guifg=#c18401 gui=NONE
 
-        hi Conditional guifg=#a626a4
-        hi Keyword guifg=#a626a4
-        hi Structure guifg=#a626a4
-        hi Define guifg=#a626a4
+        hi Conditional guifg=#a626a4 gui=NONE
+        hi Keyword guifg=#a626a4 gui=NONE
+        hi Structure guifg=#a626a4 gui=NONE
+        hi Define guifg=#a626a4 gui=NONE
 
-        hi String guifg=#50a14f
-        hi Special guifg=#0184bc
-        hi Delimiter guifg=#986801
-        hi Identifier guifg=#4078f2
-        hi Directory guifg=#4078f2
+        hi String guifg=#50a14f gui=NONE
+        hi Special guifg=#0184bc gui=NONE
+        hi Delimiter guifg=#986801 gui=NONE
+        hi Identifier guifg=#4078f2 gui=NONE
+        hi Directory guifg=#4078f2 gui=bold
     else
         " tone down Constant
         hi Constant guifg=#b02cb0
@@ -254,34 +254,34 @@ else
         hi Constant guifg=#9095a1 ctermfg=7
         hi Directory guifg=#9095a1 ctermfg=7
     elseif get(g:, "habamax_fancy", 0)
-        hi Statement guifg=#db7672
-        hi Character guifg=#db7672
+        hi Statement guifg=#db7672 gui=NONE
+        hi Character guifg=#db7672 gui=NONE
 
-        hi Operator guifg=#d8d8d8
+        hi Operator guifg=#d8d8d8 gui=NONE
 
-        hi Constant guifg=#dc9656
-        hi Boolean guifg=#dc9656
-        hi Float guifg=#dc9656
-        hi Number guifg=#dc9656
+        hi Constant guifg=#dc9656 gui=NONE
+        hi Boolean guifg=#dc9656 gui=NONE
+        hi Float guifg=#dc9656 gui=NONE
+        hi Number guifg=#dc9656 gui=NONE
 
-        hi PreProc guifg=#f7ca88
-        hi Label guifg=#f7ca88
-        hi Repeat guifg=#f7ca88
-        hi StorageClass guifg=#f7ca88
-        hi Tag guifg=#f7ca88
-        hi Typedef guifg=#f7ca88
-        hi Type guifg=#f7ca88
+        hi PreProc guifg=#f7ca88 gui=NONE
+        hi Label guifg=#f7ca88 gui=NONE
+        hi Repeat guifg=#f7ca88 gui=NONE
+        hi StorageClass guifg=#f7ca88 gui=NONE
+        hi Tag guifg=#f7ca88 gui=NONE
+        hi Typedef guifg=#f7ca88 gui=NONE
+        hi Type guifg=#f7ca88 gui=NONE
 
-        hi Conditional guifg=#ba8baf
-        hi Keyword guifg=#ba8baf
-        hi Structure guifg=#ba8baf
-        hi Define guifg=#ba8baf
+        hi Conditional guifg=#ba8baf gui=NONE
+        hi Keyword guifg=#ba8baf gui=NONE
+        hi Structure guifg=#ba8baf gui=NONE
+        hi Define guifg=#ba8baf gui=NONE
 
-        hi String guifg=#a1b56c
-        hi Special guifg=#86c1b9
-        hi Delimiter guifg=#a16946
-        hi Identifier guifg=#7cafc2
-        hi Directory guifg=#7cafc2
+        hi String guifg=#a1b56c gui=NONE
+        hi Special guifg=#86c1b9 gui=NONE
+        hi Delimiter guifg=#a16946 gui=NONE
+        hi Identifier guifg=#7cafc2 gui=NONE
+        hi Directory guifg=#7cafc2 gui=bold
     endif
 
     hi Comment guibg=NONE guifg=#777777 gui=italic ctermfg=8 cterm=NONE
