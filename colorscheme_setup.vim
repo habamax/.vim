@@ -74,6 +74,6 @@ let g:habamax_contrast = v:false
 colorscheme habamax
 
 " mimic tpope's unimpaired with toggling options
-nnoremap <silent> yof :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
-nnoremap <silent> yoF :let g:habamax_fancy = !g:habamax_fancy <bar> colo habamax<CR>
+nnoremap <silent> yoF :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
+nnoremap <silent> yof :let g:habamax_fancy = !g:habamax_fancy <bar> colo habamax<CR>
 nnoremap <silent> yot :let g:habamax_contrast = !g:habamax_contrast <bar> colo habamax<CR>
