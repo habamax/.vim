@@ -114,7 +114,7 @@ if &background == 'light'
     hi FoldColumn guibg=#e0e4e0 guifg=#454945 gui=NONE
     hi Visual guibg=#d0d9ea gui=NONE ctermbg=fg ctermfg=bg
     hi LineNr guibg=NONE guifg=#97a49c
-    hi CursorLine guibg=#f0f5f0 guifg=NONE
+    hi CursorLine guibg=#f0f5f0 guifg=NONE gui=NONE cterm=NONE
 
     hi Underlined gui=underline guisp=SlateBlue
 
@@ -238,7 +238,7 @@ else
     hi FoldColumn guibg=#303440 guifg=#909590 gui=NONE
     hi Visual guibg=#394e71 guifg=NONE ctermbg=fg ctermfg=bg
     hi LineNr guibg=NONE guifg=#a1c2aa
-    hi CursorLine guibg=#333844 guifg=NONE
+    hi CursorLine guibg=#333844 guifg=NONE gui=NONE cterm=NONE
 
     hi Underlined guifg=#96b0d8 gui=underline guisp=#60708c
     hi Error guibg=#633e43 guifg=NONE
