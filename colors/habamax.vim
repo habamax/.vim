@@ -100,7 +100,7 @@ if &background == 'light'
     hi Statusline guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
     hi StatuslineNC guibg=#707080 guifg=#c0c0c0 gui=NONE ctermbg=8 ctermfg=7 cterm=NONE
     hi VertSplit guibg=#707080 guifg=#c0c0c0 gui=NONE ctermbg=8 ctermfg=7 cterm=NONE
-    hi Title guifg=#e0385b
+    hi Title guifg=#e0385b gui=bold cterm=bold
 
     hi Pmenu guibg=#d7e5dc gui=NONE
     hi PmenuSel guibg=#b7c7b7 gui=NONE
@@ -224,7 +224,7 @@ else
     hi Statusline guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
     hi StatuslineNC guibg=#333b4f guifg=#636b7f gui=NONE ctermbg=8 ctermfg=7 cterm=NONE
     hi VertSplit guibg=#333b4f guifg=#636b7f gui=NONE ctermbg=8 ctermfg=7 cterm=NONE
-    hi Title guifg=#ff5b7b
+    hi Title guifg=#ff5b7b gui=bold cterm=bold
 
     hi Pmenu guibg=#333b4f gui=NONE
     hi PmenuSel guibg=#41485b gui=NONE
