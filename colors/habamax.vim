@@ -27,12 +27,13 @@
 "
 " ==============================================================================
 "
-" Sometimes I want syntax to be 'fancy'. Make it look like Godot game engine:
-" let g:habamax_godot = v:true
-" use godot colors for dark background
+" Sometimes I want syntax to be 'fancy'.
+" let g:habamax_fancy = v:true
+" use base16-default variation colors for dark background
+" use one-light variation colors for light background
+"
 "
 " ==============================================================================
-"
 "
 " To be even more boring with black background as dark and white background as
 " light, use:
@@ -132,6 +133,35 @@ if &background == 'light'
         hi Directory guifg=#4c6f6c ctermfg=8
         hi Comment ctermfg=7
         hi Conceal ctermfg=7
+    elseif get(g:, "habamax_fancy", 0)
+        hi Statement guifg=#ca1243
+        hi Character guifg=#ca1243
+
+        hi Operator guifg=#383a42
+
+        hi Constant guifg=#d75f00
+        hi Boolean guifg=#d75f00
+        hi Float guifg=#d75f00
+        hi Number guifg=#d75f00
+
+        hi PreProc guifg=#c18401
+        hi Label guifg=#c18401
+        hi Repeat guifg=#c18401
+        hi StorageClass guifg=#c18401
+        hi Tag guifg=#c18401
+        hi Typedef guifg=#c18401
+        hi Type guifg=#c18401
+
+        hi Conditional guifg=#a626a4
+        hi Keyword guifg=#a626a4
+        hi Structure guifg=#a626a4
+        hi Define guifg=#a626a4
+
+        hi String guifg=#50a14f
+        hi Special guifg=#0184bc
+        hi Delimiter guifg=#986801
+        hi Identifier guifg=#4078f2
+        hi Directory guifg=#4078f2
     else
         " tone down Constant
         hi Constant guifg=#b02cb0
@@ -219,29 +249,44 @@ else
     hi diffText guibg=#2f2f09 guifg=NONE gui=NONE
     hi diffDelete guibg=#492929 guifg=#707070 gui=NONE
 
-    if get(g:, "habamax_godot", 0)
-        hi Comment guibg=NONE guifg=#7e8189 gui=italic ctermfg=8 cterm=NONE
-        hi Conceal guibg=NONE guifg=#7e8189 gui=NONE ctermfg=8 cterm=NONE
-    else
-        hi Comment guibg=NONE guifg=#777777 gui=italic ctermfg=8 cterm=NONE
-        hi Conceal guibg=NONE guifg=#777777 gui=NONE ctermfg=8 cterm=NONE
-    endif
-
     if get(g:, "habamax_flat", 0)
         hi Statement guifg=#9095a1 ctermfg=7
         hi Constant guifg=#9095a1 ctermfg=7
         hi Directory guifg=#9095a1 ctermfg=7
-    elseif get(g:, "habamax_godot", 0)
-        hi Constant guifg=#a1ffe0 gui=NONE
-        hi String guifg=#ffeca1 gui=NONE
-        hi Identifier guifg=#66e6ff gui=NONE
-        hi Statement guifg=#ff7085 gui=NONE
-        hi PreProc guifg=#63c259 gui=NONE
-        hi Type guifg=#c6ffed gui=NONE
-        hi Structure guifg=#8effda gui=NONE
-        hi Typedef guifg=#42ffc2 gui=NONE
-        hi Special guifg=#bce0ff gui=NONE
+    elseif get(g:, "habamax_fancy", 0)
+        hi Statement guifg=#db7672
+        hi Character guifg=#db7672
+
+        hi Operator guifg=#d8d8d8
+
+        hi Constant guifg=#dc9656
+        hi Boolean guifg=#dc9656
+        hi Float guifg=#dc9656
+        hi Number guifg=#dc9656
+
+        hi PreProc guifg=#f7ca88
+        hi Label guifg=#f7ca88
+        hi Repeat guifg=#f7ca88
+        hi StorageClass guifg=#f7ca88
+        hi Tag guifg=#f7ca88
+        hi Typedef guifg=#f7ca88
+        hi Type guifg=#f7ca88
+
+        hi Conditional guifg=#ba8baf
+        hi Keyword guifg=#ba8baf
+        hi Structure guifg=#ba8baf
+        hi Define guifg=#ba8baf
+
+        hi String guifg=#a1b56c
+        hi Special guifg=#86c1b9
+        hi Delimiter guifg=#a16946
+        hi Identifier guifg=#7cafc2
+        hi Directory guifg=#7cafc2
     endif
+
+    hi Comment guibg=NONE guifg=#777777 gui=italic ctermfg=8 cterm=NONE
+    hi Conceal guibg=NONE guifg=#777777 gui=NONE ctermfg=8 cterm=NONE
+
 endif
 
 " Dark and Light Syntax Highlighting {{{1
@@ -375,7 +420,7 @@ hi link Lf_hl_stlBlank Statusline
 
 
 " Leaderf Popup
-hi! link Lf_hl_popup_window GodotoNormal
+hi! link Lf_hl_popup_window Normal
 hi! link Lf_hl_popup_inputMode StatusLineNC
 hi! link Lf_hl_popup_inputText StatusLine
 hi! link Lf_hl_popup_prompt StatusLine
