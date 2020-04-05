@@ -11,18 +11,23 @@
 Nothing fancy, just to keep it safe and available.
 
 == Colors
+
+=== defminus
+
 Usually I prefer light background colors.
 
 .https://github.com/habamax/vim-colors-defminus[vim-defminus]
 image::img_README_1.png[]
+
+
+=== defnoche
 
 But sometimes there is a room for a dark background.
 
 .https://github.com/habamax/vim-colors-defnoche[vim-defnoche]
 image::img_README_2.png[]
 
-
-.Toggling between both with `yot`
+.Toggling between defminus and defnoche with `yot`
 [source,vim]
 --------
 
@@ -38,3 +43,161 @@ exe "colorscheme ".g:duo_themes[0]
 nnoremap yot :call ToggleColorscheme()<CR>
 
 --------
+
+=== habamax colorshceme
+
+That is my personal uber colorscheme, not meant to be shared as complete
+separate colorscheme for everyone (GUI or termguioptions only).
+
+All variations are in a single `colors/habamax.vim`.
+
+Setting contrast option makes background black for dark and white for light.
+
+[source,vim]
+------------------------------------------------------------------------------
+let g:habamax_flat = v:false
+let g:habamax_fancy = v:false
+let g:habamax_contrast = v:false
+colorscheme habamax
+
+" mimic tpope's unimpaired with toggling options
+nnoremap <silent> yoF :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
+nnoremap <silent> yof :let g:habamax_fancy = !g:habamax_fancy <bar> colo habamax<CR>
+nnoremap <silent> yot :let g:habamax_contrast = !g:habamax_contrast <bar> colo habamax<CR>
+------------------------------------------------------------------------------
+
+
+==== habamax default
+
+Use default syntax colors, except comments and tuned down string colors for
+light background.
+
+
+```vim
+set background=dark
+let g:habamax_flat = v:false
+let g:habamax_fancy = v:false
+let g:habamax_contrast = v:false
+colorscheme habamax
+```
+
+image::img_README_5.png[]
+
+```vim
+set background=dark
+let g:habamax_flat = v:false
+let g:habamax_fancy = v:false
+let g:habamax_contrast = v:true
+colorscheme habamax
+```
+
+image::img_README_9.png[]
+
+```vim
+set background=light
+let g:habamax_flat = v:false
+let g:habamax_fancy = v:false
+let g:habamax_contrast = v:false
+colorscheme habamax
+```
+
+image::img_README_6.png[]
+
+```vim
+set background=light
+let g:habamax_flat = v:false
+let g:habamax_fancy = v:false
+let g:habamax_contrast = v:true
+colorscheme habamax
+```
+
+image::img_README_10.png[]
+
+
+==== habamax fancy
+
+Use base16-default-dark colors to adjust syntax for dark background and
+base16-one-light for light one.
+
+
+```vim
+set background=dark
+let g:habamax_flat = v:false
+let g:habamax_fancy = v:true
+let g:habamax_contrast = v:false
+colorscheme habamax
+```
+
+image::img_README_3.png[]
+
+```vim
+set background=dark
+let g:habamax_flat = v:false
+let g:habamax_fancy = v:true
+let g:habamax_contrast = v:true
+colorscheme habamax
+```
+
+image::img_README_11.png[]
+
+```vim
+set background=light
+let g:habamax_flat = v:false
+let g:habamax_fancy = v:true
+let g:habamax_contrast = v:false
+colorscheme habamax
+```
+
+image::img_README_4.png[]
+
+```vim
+set background=light
+let g:habamax_flat = v:false
+let g:habamax_fancy = v:true
+let g:habamax_contrast = v:true
+colorscheme habamax
+```
+
+image::img_README_14.png[]
+
+
+==== habamax flat
+
+When you feel there is too much color in your vim.
+
+```vim
+set background=dark
+let g:habamax_flat = v:true
+let g:habamax_contrast = v:false
+colorscheme habamax
+```
+
+image::img_README_7.png[]
+
+```vim
+set background=dark
+let g:habamax_flat = v:true
+let g:habamax_contrast = v:true
+colorscheme habamax
+```
+
+image::img_README_12.png[]
+
+
+```vim
+set background=light
+let g:habamax_flat = v:true
+let g:habamax_contrast = v:false
+colorscheme habamax
+```
+
+image::img_README_8.png[]
+
+```vim
+set background=light
+let g:habamax_flat = v:true
+let g:habamax_contrast = v:true
+colorscheme habamax
+```
+
+image::img_README_13.png[]
