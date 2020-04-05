@@ -379,11 +379,11 @@ nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>l :DoOutline<CR>
 
 
-""" DBUI {{{1
-" this is for test purposes only
-let g:dbs = [
-            \ { 'name': 'dev', 'url': 'postgres://postgres@localhost:5432/postgres' }
-            \ ]
+" """ DBUI {{{1
+" " this is for test purposes only
+" let g:dbs = [
+"             \ { 'name': 'dev', 'url': 'postgres://postgres@localhost:5432/postgres' }
+"             \ ]
 
 """ vim-lens {{{1
 augroup autosize_windows | au!
