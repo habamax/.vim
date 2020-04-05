@@ -46,7 +46,7 @@ nnoremap yot :call ToggleColorscheme()<CR>
 
 === habamax colorshceme
 
-That is my personal uber colorscheme, not meant to be shared as complete
+This is my personal uber colorscheme, not meant to be shared as complete
 separate colorscheme for everyone (GUI or termguioptions only).
 
 All variations are in a single `colors/habamax.vim`.
@@ -69,8 +69,8 @@ nnoremap <silent> yot :let g:habamax_contrast = !g:habamax_contrast <bar> colo h
 
 ==== habamax default
 
-Use default syntax colors, except comments and tuned down string colors for
-light background.
+Use mostly default syntax colors -- comments are gray and string color is toned
+down for light background.
 
 
 ```vim
@@ -163,7 +163,7 @@ image::img_README_14.png[]
 
 ==== habamax flat
 
-When you feel there is too much color in your vim.
+When you feel your vim is too colorful.
 
 ```vim
 set background=dark
