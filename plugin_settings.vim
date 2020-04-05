@@ -62,23 +62,23 @@ if has('nvim') || has('python') || has('python3')
 endif
 
 " Then try to load vim-clap
-if !exists('g:leaderf_loaded') && (has('patch-8.1.2114') || has('nvim-0.4.2'))
-    nnoremap <leader>f :Clap files<CR>
-    nnoremap <leader>b :Clap buffers<CR>
-    nnoremap <leader>/ :Clap blines<CR>
-    nnoremap <leader>; :Clap command<CR>
-    nnoremap <leader>T :Clap tags<CR>
-    nnoremap <leader>h :Clap help<CR>
-    nnoremap <leader>m :Clap history<CR>
-    nnoremap <leader>c :Clap colors<CR>
-    nnoremap <leader>g :Clap grep<CR>
+if !exists('g:leaderf_loaded') && executable('fzf')
+    nnoremap <leader>f :Files<CR>
+    nnoremap <leader>b :Buffers<CR>
+    nnoremap <leader>/ :Lines<CR>
+    nnoremap <leader>: :Commands<CR>
+    nnoremap <leader>T :Tags<CR>
+    nnoremap <leader>h :Help<CR>
+    nnoremap <leader>m :History<CR>
+    nnoremap <leader>c :Colors<CR>
+    nnoremap <leader>g :Rg<CR>
 
-    let g:clap_layout = { 'relative': 'editor' }
-    silent! packadd vim-clap
+    silent! packadd fzf
+    silent! packadd fzf.vim
 endif
 
 " Use ctrlp as backup fuzzy finder (no dependencies)
-if !exists('g:leaderf_loaded') && !exists('g:loaded_clap')
+if !exists('g:leaderf_loaded') && !exists('g:loaded_fzf')
     nnoremap <leader>f :CtrlPMixed<CR>
     nnoremap <leader>b :CtrlPBuffer<CR>
     nnoremap <leader>m :CtrlPMRUFiles<CR>
