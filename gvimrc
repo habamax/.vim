@@ -23,13 +23,13 @@ set linespace=0
 
 "" Iosevka (customized extended) is preffered
 set guifont=Iosevka\ Habamax:h14
-            \,JetBrains\ Mono:h14
+            \,JetBrains\ Mono\ NL:h14
             \,Consolas:h14
             \,Liberation\ Mono:h14
 
 "" These are a lot of awesome fonts...
 "" 3 of my favorite
-" set gfn=JetBrains\ Mono:h14
+" set gfn=JetBrains\ Mono\ NL:h14
 " set gfn=Consolas:h14
 " set gfn=Liberation\ Mono:h14
 
