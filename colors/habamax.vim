@@ -129,6 +129,7 @@ if &background == 'light'
     if get(g:, "habamax_flat", 0)
         hi Statement guifg=#4c6f6c ctermfg=8
         hi Constant guifg=#4c6f6c ctermfg=8
+        hi PreProc guifg=#4c6f6c ctermfg=8
         hi Directory guifg=#4c6f6c ctermfg=8
         hi Comment ctermfg=7
         hi Conceal ctermfg=7
@@ -241,6 +242,7 @@ else
     if get(g:, "habamax_flat", 0)
         hi Statement guifg=#9095a1 ctermfg=7
         hi Constant guifg=#9095a1 ctermfg=7
+        hi PreProc guifg=#9095a1 ctermfg=7
         hi Directory guifg=#9095a1 ctermfg=7
     elseif get(g:, "habamax_fancy", 0)
         hi Identifier guifg=#7cafc2 gui=NONE cterm=NONE
@@ -276,7 +278,7 @@ hi Type gui=NONE cterm=NONE
 if get(g:, "habamax_flat", 0)
     hi clear Type
     hi clear Identifier
-    hi clear PreProc
+    " hi clear PreProc
     hi clear Special
 endif
 
@@ -313,52 +315,6 @@ if &background == 'light'
     hi asciidoctorIndented guifg=#555555 gui=NONE ctermbg=7 cterm=NONE
 else
     hi asciidoctorIndented guifg=#999999 gui=NONE ctermbg=8 cterm=NONE
-endif
-
-"" Flat Syntax
-if get(g:, "habamax_flat", 0)
-    hi fugitiveUntrackedHeading gui=bold cterm=bold
-    hi fugitiveUnstagedHeading gui=bold cterm=bold
-    hi fugitiveStagedHeading gui=bold cterm=bold
-    hi fugitiveHeading gui=bold cterm=bold
-    hi fugitiveHeader gui=bold cterm=bold
-    hi! link fugitiveUntrackedModifier Statement
-    hi! link fugitiveUnstagedModifier Statement
-    hi! link fugitiveStagedModifier Statement
-    hi! link fugitiveHash Statement
-    hi! link fugitiveSymbolicRef Statement
-
-    hi! link asciidoctorListMarker Statement
-    hi! link asciidoctorOrderedListMarker Statement
-    hi! link asciidoctorListContinuation Statement
-    hi! link asciidoctorIndented Statement
-    hi! link asciidoctorPlus Statement
-    hi! link asciidoctorPageBreak Statement
-    hi! link asciidoctorCallout Statement
-    hi! link asciidoctorCalloutDesc Statement
-    hi! link asciidoctorListingBlock asciidoctorIndented
-    hi! link asciidoctorLiteralBlock asciidoctorIndented
-    hi! link asciidoctorAttribute Statement
-    hi! link asciidoctorCode Constant
-    hi! link asciidoctorBlock Statement
-    hi! link asciidoctorOption Statement
-    hi! link asciidoctorBlockOptions Statement
-    hi! link asciidoctorTableSep Statement
-    hi! link asciidoctorTableCell Statement
-    hi! link asciidoctorTableEmbed Statement
-    hi! link asciidoctorInlineAnchor Statement
-
-    hi! link helpHeader Title
-    hi! link helpSectionDelim Constant
-    hi! link helpOption Constant
-    hi! link helpHyperTextJump Underlined
-    hi! link helpUrl Underlined
-
-    hi! link pythonInclude Statement
-
-    hi! link rubyInclude Statement
-    hi! link rubyDefine Statement
-    hi! link rubyStringDelimiter Constant
 endif
 
 "" LeaderF
