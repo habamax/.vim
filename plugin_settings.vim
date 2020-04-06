@@ -82,6 +82,15 @@ if !exists('g:leaderf_loaded') && !exists('g:loaded_fzf')
     nnoremap <leader>f :CtrlPMixed<CR>
     nnoremap <leader>b :CtrlPBuffer<CR>
     nnoremap <leader>m :CtrlPMRUFiles<CR>
+    nnoremap <leader>/ <nop>
+    nnoremap <leader>: <nop>
+    nnoremap <leader>T <nop>
+    nnoremap <leader>[ <nop>
+    nnoremap <leader>h <nop>
+    nnoremap <leader>m <nop>
+    nnoremap <leader>g <nop>
+    nnoremap <leader>c <nop>
+    nnoremap <leader>; <nop>
 
     let g:ctrlp_key_loop = 1
     if executable('rg')
