@@ -107,7 +107,7 @@ if &background == 'light'
         hi Normal guibg=#fcfffc guifg=#000000 ctermbg=15 ctermfg=16
         hi CursorLine guibg=#f0f5f0 guifg=NONE gui=NONE cterm=NONE
     endif
-    hi EndOfBuffer guifg=#e0e0e0 guibg=NONE ctermfg=7 ctermbg=NONE
+    hi EndOfBuffer guifg=#d0d0d0 guibg=NONE ctermfg=7 ctermbg=NONE
     hi Statusline guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
     hi StatuslineNC guibg=#707080 guifg=#c0c0c0 gui=NONE ctermbg=8 ctermfg=7 cterm=NONE
     hi VertSplit guibg=#707080 guifg=#c0c0c0 gui=NONE ctermbg=8 ctermfg=7 cterm=NONE
