@@ -127,7 +127,7 @@ if &background == 'light'
     hi Underlined gui=underline guisp=SlateBlue
 
     hi Error guibg=#e07070 guifg=bg
-    hi Todo guifg=fg gui=bold
+    hi Todo guibg=#e0e070 guifg=fg gui=bold
 
     "" Diff
     hi diffAdd guibg=#c9f9c9
@@ -240,7 +240,7 @@ else " Dark colors {{{1
 
     hi Underlined guifg=#96b0d8 gui=underline guisp=#60708c
     hi Error guibg=#633e43 guifg=NONE
-    hi Todo guifg=bg gui=bold
+    hi Todo guibg=#93933e guifg=bg gui=bold
 
     hi diffAdd guibg=#294929
     hi diffChange guibg=#4f4719
