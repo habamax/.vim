@@ -99,8 +99,7 @@ if &background == 'light'
     if get(g:, "habamax_contrast", v:false)
         hi Normal guibg=#ffffff guifg=#000000 ctermbg=15 ctermfg=16
     elseif get(g:, "habamax_dirty", v:false)
-        " hi Normal guibg=#eaefeb guifg=#000000 ctermbg=15 ctermfg=16
-        hi Normal guibg=#e9ecea guifg=#000000 ctermbg=15 ctermfg=16
+        hi Normal guibg=#f2f5f2 guifg=#000000 ctermbg=15 ctermfg=16
     else
         hi Normal guibg=#fcfffc guifg=#000000 ctermbg=15 ctermfg=16
     endif
@@ -128,6 +127,7 @@ if &background == 'light'
 
     hi Error guibg=#e07070 guifg=bg
     hi Todo guibg=#e0e070 guifg=fg gui=bold
+    hi MatchParen guibg=#abf0f0 guifg=fg gui=NONE
 
     "" Diff
     hi diffAdd guibg=#c9f9c9
