@@ -98,10 +98,14 @@ if &background == 'light'
 
     if get(g:, "habamax_contrast", v:false)
         hi Normal guibg=#ffffff guifg=#000000 ctermbg=15 ctermfg=16
+        hi CursorLine guibg=#f0f5f0 guifg=NONE gui=NONE cterm=NONE
     elseif get(g:, "habamax_dirty", v:false)
         hi Normal guibg=#f2f5f2 guifg=#000000 ctermbg=15 ctermfg=16
+        " hi Normal guibg=#f5f5eb guifg=#000000 ctermbg=15 ctermfg=16
+        hi CursorLine guibg=#e5eae5 guifg=NONE gui=NONE cterm=NONE
     else
         hi Normal guibg=#fcfffc guifg=#000000 ctermbg=15 ctermfg=16
+        hi CursorLine guibg=#f0f5f0 guifg=NONE gui=NONE cterm=NONE
     endif
     hi EndOfBuffer guifg=#e0e0e0 guibg=NONE ctermfg=7 ctermbg=NONE
     hi Statusline guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
@@ -121,7 +125,6 @@ if &background == 'light'
     hi FoldColumn guibg=#e0e4e0 guifg=#454945 gui=NONE
     hi Visual guibg=#d0d9ea gui=NONE ctermbg=fg ctermfg=bg
     hi LineNr guibg=NONE guifg=#97a49c
-    hi CursorLine guibg=#f0f5f0 guifg=NONE gui=NONE cterm=NONE
 
     hi Underlined gui=underline guisp=SlateBlue
 
