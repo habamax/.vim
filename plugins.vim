@@ -154,7 +154,8 @@ if exists('*minpac#init')
 
 
     " Autosize windows
-    call minpac#add('camspiers/lens.vim')
+    " call minpac#add('camspiers/lens.vim')
+    call minpac#add('habamax/lens.vim', {'branch': 'fix-resize'})
 
 endif
 
