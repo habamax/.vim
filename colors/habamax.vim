@@ -38,6 +38,12 @@
 " To add more contrast, use:
 " let g:habamax_contrast = v:true
 "
+"
+" ==============================================================================
+"
+" To make light not so light add
+" let g:habamax_dirty = v:true
+"
 
 hi clear
 if exists('syntax_on')
@@ -92,6 +98,9 @@ if &background == 'light'
 
     if get(g:, "habamax_contrast", v:false)
         hi Normal guibg=#ffffff guifg=#000000 ctermbg=15 ctermfg=16
+    elseif get(g:, "habamax_dirty", v:false)
+        " hi Normal guibg=#eaefeb guifg=#000000 ctermbg=15 ctermfg=16
+        hi Normal guibg=#e9ecea guifg=#000000 ctermbg=15 ctermfg=16
     else
         hi Normal guibg=#fcfffc guifg=#000000 ctermbg=15 ctermfg=16
     endif
@@ -162,8 +171,7 @@ if &background == 'light'
     hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
     hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
 
-    " Dark colors {{{1
-else
+else " Dark colors {{{1
     " Neovim terminal colours
     if has("nvim")
         let g:terminal_color_0 = "#202531"

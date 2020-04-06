@@ -71,6 +71,7 @@ endif
 let g:habamax_flat = v:false
 let g:habamax_fancy = v:true
 let g:habamax_contrast = v:false
+let g:habamax_dirty = v:true
 colorscheme habamax
 
 " mimic tpope's unimpaired with toggling options
