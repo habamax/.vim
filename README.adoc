@@ -44,7 +44,7 @@ nnoremap yot :call ToggleColorscheme()<CR>
 
 --------
 
-=== habamax colorshceme
+=== habamax colorscheme
 
 This is my personal uber colorscheme, not meant to be shared as complete
 separate colorscheme for everyone (GUI or termguioptions only).
