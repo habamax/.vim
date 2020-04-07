@@ -12,6 +12,8 @@ if exists('*minpac#init')
     call minpac#init()
     call minpac#add('k-takata/minpac', {'type': 'opt'})
 
+    "" Test, add my plugins here and check if development would also work
+    call minpac#add('habamax/vim-evalvim')
 
     "" Tim Pope is a beast. You better use his stuff ...
     call minpac#add('tpope/vim-commentary')
