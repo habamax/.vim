@@ -100,7 +100,7 @@ if &background == 'light'
         hi Normal guibg=#ffffff guifg=#000000 ctermbg=15 ctermfg=16
         hi CursorLine guibg=#f0f5f0 guifg=NONE gui=NONE cterm=NONE
     elseif get(g:, "habamax_dirty", v:false)
-        hi Normal guibg=#f2f7f2 guifg=#000000 ctermbg=15 ctermfg=16
+        hi Normal guibg=#f1f3f2 guifg=#000000 ctermbg=15 ctermfg=16
         " hi Normal guibg=#f5f5eb guifg=#000000 ctermbg=15 ctermfg=16
         hi CursorLine guibg=#e5eae5 guifg=NONE gui=NONE cterm=NONE
     else
