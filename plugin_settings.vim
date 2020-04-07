@@ -293,7 +293,7 @@ augroup END
 
 """ vim-matchup {{{1
 let g:loaded_matchit = 1
-let g:matchup_matchparen_offscreen = {'method': 'popup'}
+let g:matchup_matchparen_offscreen = {'method': 'popup', 'highlight': 'MatchParen'}
 let g:matchup_surround_enabled = 1
 let g:matchup_enabled = 1
 
