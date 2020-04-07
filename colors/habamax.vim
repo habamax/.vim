@@ -101,7 +101,6 @@ if &background == 'light'
         hi CursorLine guibg=#f0f5f0 guifg=NONE gui=NONE cterm=NONE
     elseif get(g:, "habamax_dirty", v:false)
         hi Normal guibg=#f1f3f2 guifg=#000000 ctermbg=15 ctermfg=16
-        " hi Normal guibg=#f5f5eb guifg=#000000 ctermbg=15 ctermfg=16
         hi CursorLine guibg=#e5eae5 guifg=NONE gui=NONE cterm=NONE
     else
         hi Normal guibg=#fcfffc guifg=#000000 ctermbg=15 ctermfg=16
@@ -165,8 +164,6 @@ if &background == 'light'
 
         hi Directory guifg=#4078f2 gui=bold cterm=bold
     else
-        " tone down Constant
-        hi Constant guifg=#b02cb0
         hi Comment ctermfg=8
         hi Conceal ctermfg=8
     endif
