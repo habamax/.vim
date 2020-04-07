@@ -12,8 +12,21 @@ if exists('*minpac#init')
     call minpac#init()
     call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-    "" Test, add my plugins here and check if development would also work
-    call minpac#add('habamax/vim-evalvim')
+    "" Add my plugins
+    " call minpac#add('habamax/vim-list-man')
+    " call minpac#add('habamax/vim-change-font-size')
+    call minpac#add('habamax/vim-asciidoctor', {'rev': 'master'})
+    call minpac#add('habamax/vim-evalvim', {'rev': 'master'})
+    call minpac#add('habamax/vim-colors-defminus', {'rev': 'master'})
+    call minpac#add('habamax/vim-colors-defnoche', {'rev': 'master'})
+    call minpac#add('habamax/vim-colors-lessthan', {'rev': 'master'})
+    call minpac#add('habamax/vim-do-outline', {'rev': 'master'})
+    call minpac#add('habamax/vim-elixir-mix-test', {'rev': 'master'})
+    call minpac#add('habamax/vim-ft-gdscript', {'rev': 'master'})
+    call minpac#add('habamax/vim-num2words', {'rev': 'master'})
+    call minpac#add('habamax/vim-sendtoterm', {'rev': 'master'})
+    call minpac#add('habamax/vim-winlayout', {'rev': 'master'})
+
 
     "" Tim Pope is a beast. You better use his stuff ...
     call minpac#add('tpope/vim-commentary')
