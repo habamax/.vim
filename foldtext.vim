@@ -47,7 +47,7 @@ func! MyFoldText()
         let line = substitute(line, strip_add_regex, '', 'g')
     endif
 
-    let line = trim(line)
+    let line = substitute(line, '^\s*\|\s*$', '', 'g')
 
     let nontextlen = strdisplaywidth(foldlevel.foldindent.foldlines.' ()')
     let foldtext = strcharpart(line, 0, winwidth(0) - nontextlen)
