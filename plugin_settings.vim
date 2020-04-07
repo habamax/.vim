@@ -403,3 +403,5 @@ for letter in split('HJKL', '\zs')
     exe printf("nnoremap <C-w>%s <C-w>%s:silent! call lens#run()<CR>",
                 \ letter, letter)
 endfor
+""" vim-evalvim {{{1
+let g:evalvim_mappings = v:true
