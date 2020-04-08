@@ -68,9 +68,11 @@ else
     set bg=light
 endif
 
+"" tag::colors[]
 let g:habamax_flat = v:false
 let g:habamax_fancy = v:true
 let g:habamax_contrast = v:false
+" g:habamax_dirty -- will make light background a bit darker
 let g:habamax_dirty = v:true
 colorscheme habamax
 
@@ -98,3 +100,4 @@ func! s:habamax_next_contrast() abort
    endif
    colorscheme habamax
 endfunc
+"" end::colors[]

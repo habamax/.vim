@@ -23,17 +23,7 @@ Setting contrast option makes background black for dark and white for light.
 
 [source,vim]
 ------------------------------------------------------------------------------
-let g:habamax_flat = v:false
-let g:habamax_fancy = v:false
-let g:habamax_contrast = v:false
-" g:habamax_dirty -- will make light background a bit dirty unless contrast is true
-let g:habamax_dirty = v:false
-colorscheme habamax
-
-" mimic tpope's unimpaired with toggling options
-nnoremap <silent> yoF :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
-nnoremap <silent> yof :let g:habamax_fancy = !g:habamax_fancy <bar> colo habamax<CR>
-nnoremap <silent> yot :let g:habamax_contrast = !g:habamax_contrast <bar> colo habamax<CR>
+include::colorscheme_setup.vim[tag=colors]
 ------------------------------------------------------------------------------
 
 image::https://user-images.githubusercontent.com/234774/78786934-38110300-79b2-11ea-91b8-332a9dd4fe0e.gif[]
