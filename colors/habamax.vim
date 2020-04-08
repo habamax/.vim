@@ -130,6 +130,7 @@ if &background == 'light'
     hi Error guibg=#e07070 guifg=bg
     hi Todo guibg=#e0e070 guifg=fg gui=bold
     hi MatchParen guibg=#abf0f0 guifg=fg gui=NONE
+    hi Search guibg=#f7f770
 
     "" Diff
     hi diffAdd guibg=#c9f9c9
