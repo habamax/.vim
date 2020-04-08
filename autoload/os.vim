@@ -9,6 +9,23 @@ func! os#is_wsl() abort
     return 0
 endfunc
 
+"" Return Windows path from WSL
+func! os#wsl_to_windows_path(path) abort
+    if !os#is_wsl()
+        return a:path
+    endif
+
+    if !executable('wslpath')
+        return a:path
+    endif
+
+    let res = systemlist('wslpath -w ' . a:path)
+    if !empty(res)
+        return res[0]
+    else
+        return a:path
+    endif
+endfunc
 
 "" Open explorer/finder/fm where current file is located
 func! os#show_file() abort
