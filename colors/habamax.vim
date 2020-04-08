@@ -241,6 +241,7 @@ else " Dark colors {{{1
     hi Underlined guifg=#96b0d8 gui=underline guisp=#60708c
     hi Error guibg=#633e43 guifg=NONE
     hi Todo guibg=#93933e guifg=bg gui=bold
+    hi MatchParen guibg=#006060 guifg=fg gui=NONE
 
     hi diffAdd guibg=#294929
     hi diffChange guibg=#4f4719
