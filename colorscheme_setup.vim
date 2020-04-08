@@ -68,7 +68,6 @@ else
     set bg=light
 endif
 
-"" tag::colors[]
 let g:habamax_flat = v:false
 let g:habamax_fancy = v:true
 let g:habamax_contrast = v:false
@@ -100,4 +99,3 @@ func! s:habamax_next_contrast() abort
    endif
    colorscheme habamax
 endfunc
-"" end::colors[]
