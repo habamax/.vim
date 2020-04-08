@@ -12,6 +12,34 @@ Nothing fancy, just to keep it safe and available.
 
 == Colors
 
+=== habamax colorscheme
+
+This is my personal uber colorscheme, not meant to be shared as complete
+separate colorscheme for everyone (GUI or termguioptions only).
+
+All variations are in a single `colors/habamax.vim`.
+
+Setting contrast option makes background black for dark and white for light.
+
+[source,vim]
+------------------------------------------------------------------------------
+let g:habamax_flat = v:false
+let g:habamax_fancy = v:false
+let g:habamax_contrast = v:false
+" g:habamax_dirty -- will make light background a bit dirty unless contrast is true
+let g:habamax_dirty = v:false
+colorscheme habamax
+
+" mimic tpope's unimpaired with toggling options
+nnoremap <silent> yoF :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
+nnoremap <silent> yof :let g:habamax_fancy = !g:habamax_fancy <bar> colo habamax<CR>
+nnoremap <silent> yot :let g:habamax_contrast = !g:habamax_contrast <bar> colo habamax<CR>
+------------------------------------------------------------------------------
+
+image::https://user-images.githubusercontent.com/234774/78786934-38110300-79b2-11ea-91b8-332a9dd4fe0e.gif[]
+
+
+
 === defminus
 
 Usually I prefer light background colors.
@@ -44,185 +72,3 @@ nnoremap yot :call ToggleColorscheme()<CR>
 
 --------
 
-=== habamax colorscheme
-
-This is my personal uber colorscheme, not meant to be shared as complete
-separate colorscheme for everyone (GUI or termguioptions only).
-
-All variations are in a single `colors/habamax.vim`.
-
-Setting contrast option makes background black for dark and white for light.
-
-[source,vim]
-------------------------------------------------------------------------------
-let g:habamax_flat = v:false
-let g:habamax_fancy = v:false
-let g:habamax_contrast = v:false
-" g:habamax_dirty -- will make light background a bit dirty unless contrast is true
-let g:habamax_dirty = v:false
-colorscheme habamax
-
-" mimic tpope's unimpaired with toggling options
-nnoremap <silent> yoF :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
-nnoremap <silent> yof :let g:habamax_fancy = !g:habamax_fancy <bar> colo habamax<CR>
-nnoremap <silent> yot :let g:habamax_contrast = !g:habamax_contrast <bar> colo habamax<CR>
-------------------------------------------------------------------------------
-
-
-==== habamax default
-
-Use mostly default syntax colors -- comments are gray and string color is toned
-down for light background.
-
-
-[source,vim]
-------------------------------------------------------------------------------
-set background=dark
-let g:habamax_flat = v:false
-let g:habamax_fancy = v:false
-let g:habamax_contrast = v:false
-let g:habamax_dirty = v:false
-colorscheme habamax
-------------------------------------------------------------------------------
-
-image::img_README_5.png[]
-
-[source,vim]
-------------------------------------------------------------------------------
-set background=dark
-let g:habamax_flat = v:false
-let g:habamax_fancy = v:false
-let g:habamax_contrast = v:true
-colorscheme habamax
-------------------------------------------------------------------------------
-
-image::img_README_9.png[]
-
-[source,vim]
-------------------------------------------------------------------------------
-set background=light
-let g:habamax_flat = v:false
-let g:habamax_fancy = v:false
-let g:habamax_contrast = v:false
-let g:habamax_dirty = v:false
-colorscheme habamax
-------------------------------------------------------------------------------
-
-image::img_README_6.png[]
-
-[source,vim]
-------------------------------------------------------------------------------
-set background=light
-let g:habamax_flat = v:false
-let g:habamax_fancy = v:false
-let g:habamax_contrast = v:true
-let g:habamax_dirty = v:false
-colorscheme habamax
-------------------------------------------------------------------------------
-
-image::img_README_10.png[]
-
-
-==== habamax fancy
-
-Use base16-default-dark colors to adjust syntax for dark background and
-base16-one-light for light one.
-
-
-[source,vim]
-------------------------------------------------------------------------------
-set background=dark
-let g:habamax_flat = v:false
-let g:habamax_fancy = v:true
-let g:habamax_contrast = v:false
-let g:habamax_dirty = v:false
-colorscheme habamax
-------------------------------------------------------------------------------
-
-image::img_README_3.png[]
-
-[source,vim]
-------------------------------------------------------------------------------
-set background=dark
-let g:habamax_flat = v:false
-let g:habamax_fancy = v:true
-let g:habamax_contrast = v:true
-let g:habamax_dirty = v:false
-colorscheme habamax
-------------------------------------------------------------------------------
-
-image::img_README_11.png[]
-
-[source,vim]
-------------------------------------------------------------------------------
-set background=light
-let g:habamax_flat = v:false
-let g:habamax_fancy = v:true
-let g:habamax_contrast = v:false
-let g:habamax_dirty = v:false
-colorscheme habamax
-------------------------------------------------------------------------------
-
-image::img_README_4.png[]
-
-[source,vim]
-------------------------------------------------------------------------------
-set background=light
-let g:habamax_flat = v:false
-let g:habamax_fancy = v:true
-let g:habamax_contrast = v:true
-let g:habamax_dirty = v:false
-colorscheme habamax
-------------------------------------------------------------------------------
-
-image::img_README_14.png[]
-
-
-==== habamax flat
-
-When you feel your vim is too colorful.
-
-[source,vim]
-------------------------------------------------------------------------------
-set background=dark
-let g:habamax_flat = v:true
-let g:habamax_contrast = v:false
-let g:habamax_dirty = v:false
-colorscheme habamax
-------------------------------------------------------------------------------
-
-image::img_README_7.png[]
-
-[source,vim]
-------------------------------------------------------------------------------
-set background=dark
-let g:habamax_flat = v:true
-let g:habamax_contrast = v:true
-let g:habamax_dirty = v:false
-colorscheme habamax
-------------------------------------------------------------------------------
-
-image::img_README_12.png[]
-
-
-[source,vim]
-------------------------------------------------------------------------------
-set background=light
-let g:habamax_flat = v:true
-let g:habamax_contrast = v:false
-let g:habamax_dirty = v:false
-colorscheme habamax
-------------------------------------------------------------------------------
-
-image::img_README_8.png[]
-
-[source,vim]
-------------------------------------------------------------------------------
-set background=light
-let g:habamax_flat = v:true
-let g:habamax_contrast = v:true
-let g:habamax_dirty = v:false
-colorscheme habamax
-------------------------------------------------------------------------------
-
-image::img_README_13.png[]
