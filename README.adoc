@@ -12,21 +12,20 @@ Nothing fancy, just to keep it safe and available.
 
 == Colors
 
-=== habamax colorscheme
-
-This is my personal uber colorscheme, not meant to be shared as complete
-separate colorscheme for everyone (GUI or termguioptions only).
+I use my personal uber colorscheme, not meant to be shared as complete
+separate thing suitable for everyone (GUI or termguioptions only).
 
 All variations are in a single `colors/habamax.vim`.
 
-Setting contrast option makes background black for dark and white for light.
-
 [source,vim]
 ------------------------------------------------------------------------------
+" g:habamax_flat -- turn syntax colors to flat mode
 let g:habamax_flat = v:false
+" g:habamax_fancy -- turn syntax colors to variations of base16-default-dark and base16-one-light
 let g:habamax_fancy = v:true
+" g:habamax_contrast -- turn light background white and dark background black
 let g:habamax_contrast = v:false
-" g:habamax_dirty -- will make light background a bit darker
+" g:habamax_dirty -- turn light background a bit darker
 let g:habamax_dirty = v:true
 colorscheme habamax
 
@@ -59,36 +58,4 @@ endfunc
 image::https://user-images.githubusercontent.com/234774/78786934-38110300-79b2-11ea-91b8-332a9dd4fe0e.gif[]
 
 
-
-=== defminus
-
-Usually I prefer light background colors.
-
-.https://github.com/habamax/vim-colors-defminus[vim-defminus]
-image::img_README_1.png[]
-
-
-=== defnoche
-
-But sometimes there is a room for a dark background.
-
-.https://github.com/habamax/vim-colors-defnoche[vim-defnoche]
-image::img_README_2.png[]
-
-.Toggling between defminus and defnoche with `yot`
-[source,vim]
---------
-
-let g:duo_themes = ['defminus', 'defnoche']
-fun! ToggleColorscheme()
-	let color = filter(copy(g:duo_themes), {k,v-> v != g:colors_name})[0]
-	exe "colorscheme ".color
-endf
-
-exe "colorscheme ".g:duo_themes[0]
-
-" Mimic toggling behaviour of Tim Popes unimpaired plugin
-nnoremap yot :call ToggleColorscheme()<CR>
-
---------
 
