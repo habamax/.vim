@@ -2,7 +2,7 @@
 
 "" Must have {{{1
 
-" Everything will be in English
+" Make vim speak English
 language messages en_US.UTF-8
 
 filetype plugin indent on
@@ -18,29 +18,18 @@ set browsedir=buffer
 
 let mapleader = "\<Space>"
 
-" Vim and terminals have hard time processing ESCs (laaaag)
-" This helps a lot
-set ttimeout
-set ttimeoutlen=100
-
-"" Encoding and fileformat {{{1
 set encoding=utf8
 set fileencoding=utf8
 set fileformats=unix,mac,dos
 set fileformat=unix
 
 "" UI {{{1
-if has('mouse')
-    set mouse=a
-endif
-
 set shortmess+=Ic
 set winaltkeys=no
 set guioptions=cM
 set showtabline=1
 set cmdheight=1
 set nonumber norelativenumber
-" set winminwidth=10 winheight=5 winminheight=5
 set lazyredraw
 set splitbelow
 set splitright
@@ -58,12 +47,10 @@ set showmode
 
 set conceallevel=0
 
-
 "" Unicode chars
 set listchars=tab:→\ ,eol:┘,trail:·
 let &showbreak='└ '
 set fillchars=fold:\ ,vert:│
-
 
 " autocomplete is getting much better :e <tab>...
 set wildchar=<Tab> wildmenu wildmode=full
@@ -75,18 +62,16 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 " set t_vb=
 set belloff=all
 
+set completeopt=menuone
+if !has('nvim') && v:version > 802 | set completeopt+=popup | endif
+
+
 "" Text {{{1
 set tabstop=8 softtabstop=-1 shiftwidth=4 expandtab smarttab
 set shiftround
 set autoindent
 
 set nohlsearch incsearch ignorecase
-" highlight all occurrences of a term being searched/replaced
-augroup hlsearch-incsearch
-    autocmd!
-    autocmd CmdlineEnter /,\? :set hlsearch
-    autocmd CmdlineLeave /,\? :set nohlsearch
-augroup END
 
 set nowrap
 set nojoinspaces
@@ -97,22 +82,37 @@ set virtualedit=block
 set formatoptions=cqjl
 set textwidth=78
 
-set completeopt=menuone
-if !has('nvim') && v:version > 802 | set completeopt+=popup | endif
-
 set spelllang=ru,en
 set nospell
 
-set clipboard=unnamed
+
+"" Misc {{{1
+
+" ripgrep as grepprg
+if executable('rg')
+    set grepprg=rg\ --vimgrep
+    set grepformat=%f:%l:%c:%m
+endif
+
+if has('mouse')
+    set mouse=a
+endif
+
+" vim and terminals have hard time processing ESCs (laaaag)
+" this helps a lot
+set ttimeout
+set ttimeoutlen=100
+
+set clipboard=unnamedplus
 
 " backspace and cursor keys wrap to previous/next line
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
-
-"" Encryption {{{1
+" better encryption
 if has('crypt-blowfish2')
     set cryptmethod=blowfish2
 endif
+
 
 "" Mappings {{{1
 
@@ -229,6 +229,13 @@ vmap <silent> gs :sort<CR>
 
 "" Commands (and Autocommands) {{{1
 
+" highlight all occurrences of a term being searched/replaced
+augroup hlsearch-incsearch
+    autocmd!
+    autocmd CmdlineEnter /,\? :set hlsearch
+    autocmd CmdlineLeave /,\? :set nohlsearch
+augroup END
+
 " Open (n)vim configs
 command! Vimrc :silent only
             \<bar>:exe printf("e %s/vimrc", fnamemodify($MYVIMRC, ":p:h"))
@@ -294,11 +301,6 @@ augroup default_filetype
     autocmd BufEnter * call SetDefaultFiletype()
 augroup END
 
-"" Grepprg {{{1
-if executable('rg')
-    set grepprg=rg\ --vimgrep
-    set grepformat=%f:%l:%c:%m
-endif
 
 "" Load Other Settings (plugins, colorscheme, etc) {{{1
 silent! source <sfile>:h/foldtext.vim
