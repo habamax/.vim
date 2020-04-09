@@ -407,3 +407,8 @@ for letter in split('HJKL', '\zs')
 endfor
 """ vim-evalvim {{{1
 let g:evalvim_mappings = v:true
+
+""" quick-scope {{{1
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+hi! link QuickScopePrimary Search
+hi! link QuickScopeSecondary IncSearch
