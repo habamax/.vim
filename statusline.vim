@@ -12,10 +12,12 @@ endfunc
 set laststatus=2
 " set ruler " for default statusline"
 
+" let g:status_bright_winnr = 1
+
 if get(g:, "status_bright_winnr", v:false)
-    set statusline=%#StatusLine#%(%{misc#unicode_number(winnr())}%)%*
+    set statusline=%#StatusLine#%{misc#unicode_number(winnr())}%*
 else
-    set statusline=%(%{misc#unicode_number(winnr())}%)
+    set statusline=%{misc#unicode_number(winnr())}
 endif
 set statusline+=%([\%R%M]%)
 set statusline+=%<%f
