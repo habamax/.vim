@@ -169,8 +169,7 @@ xnoremap <expr> p 'pgv"'.v:register.'y`>'
 xnoremap <expr> P 'Pgv"'.v:register.'y`>'
 
 " <C-l> redraws the screen and removes any search highlighting.
-" nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
-nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR>:redraw!<CR>
+nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
 nnoremap <leader>- :call text#underline(['-', '=', '~', '^', '+'])<CR>
 nnoremap <leader>= :call text#underline(['=', '-', '~', '^', '+'])<CR>
