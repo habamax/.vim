@@ -136,7 +136,9 @@ if exists('*minpac#init')
 
     "" Miscelaneous
     " visually enhance f, F, t, T navigation
-    call minpac#add('unblevable/quick-scope')
+    " call minpac#add('unblevable/quick-scope')
+
+    call minpac#add('justinmk/vim-sneak')
 
     " rest console with curl
     call minpac#add('diepm/vim-rest-console')
