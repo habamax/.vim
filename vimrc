@@ -2,8 +2,11 @@
 
 "" Must have {{{1
 
+
 " Make vim speak English
 language messages en_US.UTF-8
+
+autocmd!
 
 filetype plugin indent on
 
@@ -20,8 +23,6 @@ set fileencoding=utf8
 set fileformats=unix,mac,dos
 set fileformat=unix
 
-" Clean all autocommands
-autocmd!
 
 
 "" UI {{{1
