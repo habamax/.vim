@@ -73,29 +73,38 @@ let g:habamax_fancy = v:true
 let g:habamax_contrast = v:false
 " g:habamax_dirty -- will make light background a bit darker
 let g:habamax_dirty = v:true
+" handy if you use it with transparent terminals
+let g:habamax_transparent = get(g:, "habamax_transparent", v:false)
 colorscheme habamax
 
 " mimic tpope's unimpaired with toggling options
 nnoremap <silent> yoF :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
 nnoremap <silent> yof :let g:habamax_fancy = !g:habamax_fancy <bar> colo habamax<CR>
 nnoremap <silent> yot :call <SID>habamax_next_contrast()<CR>
+nnoremap <silent> yoT :let g:habamax_transparent = !g:habamax_transparent <bar> colo habamax<CR>
 
 "" loop over habamax contrast settings
 func! s:habamax_next_contrast() abort
-   if &background == 'light'
-       " ring of (->regular -> dirty -> contrast->)
-       if !g:habamax_contrast && !g:habamax_dirty
-           let g:habamax_contrast = v:false
-           let g:habamax_dirty = v:true
-       elseif !g:habamax_contrast && g:habamax_dirty
-           let g:habamax_contrast = v:true
-           let g:habamax_dirty = v:false
-       else
-           let g:habamax_contrast = v:false
-           let g:habamax_dirty = v:false
-       endif
-   else
-       let g:habamax_contrast = !g:habamax_contrast
-   endif
-   colorscheme habamax
+    if get(g:, "habamax_transparent", v:false)
+        return
+    endif
+    if &background == 'light'
+        " ring of (->regular -> dirty -> contrast->)
+        if !g:habamax_contrast && !g:habamax_dirty
+            let g:habamax_contrast = v:false
+            let g:habamax_dirty = v:true
+            echo "habamax dirty"
+        elseif !g:habamax_contrast && g:habamax_dirty
+            let g:habamax_contrast = v:true
+            let g:habamax_dirty = v:false
+            echo "habamax contrast white"
+        else
+            let g:habamax_contrast = v:false
+            let g:habamax_dirty = v:false
+            echo "habamax white green"
+        endif
+    else
+        let g:habamax_contrast = !g:habamax_contrast
+    endif
+    colorscheme habamax
 endfunc

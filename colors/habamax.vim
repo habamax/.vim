@@ -96,7 +96,9 @@ if &background == 'light'
                     \ ]
     endif
 
-    if get(g:, "habamax_contrast", v:false)
+    if get(g:, "habamax_transparent", v:false)
+        hi Normal NONE
+    elseif get(g:, "habamax_contrast", v:false)
         hi Normal guibg=#ffffff guifg=#000000 ctermbg=15 ctermfg=16
         hi CursorLine guibg=#f0f5f0 guifg=NONE gui=NONE cterm=NONE
     elseif get(g:, "habamax_dirty", v:false)
@@ -118,18 +120,18 @@ if &background == 'light'
     hi PmenuThumb guibg=#585858
 
     hi TabLine guibg=#d3d3d3 gui=NONE cterm=NONE
-    hi TabLineFill guibg=#d3d3d3 guifg=fg gui=NONE ctermfg=fg ctermbg=7 cterm=NONE term=NONE
+    hi TabLineFill guibg=#d3d3d3 guifg=NONE gui=NONE ctermfg=NONE ctermbg=7 cterm=NONE term=NONE
 
     hi Folded guibg=#e0e4e0 guifg=#454945 gui=NONE guisp=NONE
     hi FoldColumn guibg=#e0e4e0 guifg=#454945 gui=NONE
-    hi Visual guibg=#d0d9ea gui=NONE ctermbg=fg ctermfg=bg
+    hi Visual guibg=#d0d9ea gui=NONE ctermbg=NONE ctermfg=NONE
     hi LineNr guibg=NONE guifg=#97a49c
 
     hi Underlined gui=underline guisp=SlateBlue
 
-    hi Error guibg=#e07070 guifg=bg
-    hi Todo guibg=#e0e070 guifg=fg gui=bold
-    hi MatchParen guibg=#abf0f0 guifg=fg gui=NONE
+    hi Error guibg=#e07070 guifg=NONE
+    hi Todo guibg=#e0e070 guifg=NONE gui=bold
+    hi MatchParen guibg=#abf0f0 guifg=NONE gui=NONE
     hi Search guibg=#f7f770
 
     "" Diff
@@ -214,7 +216,9 @@ else " Dark colors {{{1
                     \ ]
     endif
 
-    if get(g:, "habamax_contrast", v:false)
+    if get(g:, "habamax_transparent", v:false)
+        hi Normal NONE
+    elseif get(g:, "habamax_contrast", v:false)
         hi Normal guibg=#000000 guifg=#dedede ctermbg=0 ctermfg=15
     else
         hi Normal guibg=#202531 guifg=#dedede ctermbg=0 ctermfg=15
@@ -231,18 +235,18 @@ else " Dark colors {{{1
     hi PmenuThumb guibg=#585858
 
     hi TabLine guibg=#434b5f gui=NONE cterm=NONE
-    hi TabLineFill guibg=#434b5f guifg=fg gui=NONE ctermfg=fg ctermbg=8 cterm=NONE term=NONE
+    hi TabLineFill guibg=#434b5f guifg=NONE gui=NONE ctermfg=NONE ctermbg=8 cterm=NONE term=NONE
 
     hi Folded guibg=#303440 guifg=#909590 gui=NONE guisp=NONE
     hi FoldColumn guibg=#303440 guifg=#909590 gui=NONE
-    hi Visual guibg=#394e71 guifg=NONE ctermbg=fg ctermfg=bg
+    hi Visual guibg=#394e71 guifg=NONE ctermbg=NONE ctermfg=NONE
     hi LineNr guibg=NONE guifg=#a1c2aa
     hi CursorLine guibg=#333844 guifg=NONE gui=NONE cterm=NONE
 
     hi Underlined guifg=#96b0d8 gui=underline guisp=#60708c
     hi Error guibg=#633e43 guifg=NONE
-    hi Todo guibg=#93933e guifg=bg gui=bold
-    hi MatchParen guibg=#006060 guifg=fg gui=NONE
+    hi Todo guibg=#93933e guifg=NONE gui=bold
+    hi MatchParen guibg=#006060 guifg=NONE gui=NONE
 
     hi diffAdd guibg=#294929
     hi diffChange guibg=#4f4719
@@ -308,7 +312,7 @@ hi lCursor guibg=#ff7070
 hi link TabLine StatusLineNC
 hi link TabLineFill TabLine
 hi link TabLineSel Normal
-hi MatchParen guifg=fg ctermfg=fg
+hi MatchParen guifg=NONE ctermfg=NONE
 
 
 """ Plugins {{{1
@@ -342,7 +346,7 @@ hi link Lf_hl_buftagDirname Comment
 hi link Lf_hl_buftagCode Comment
 hi link Lf_hl_helpTagfile Comment
 hi link Lf_hl_gtagsFileName Comment
-hi Lf_hl_cursorline guifg=fg
+hi Lf_hl_cursorline guifg=NONE
 
 " Leaderf "chrome"
 hi link Lf_hl_stlName StatuslineNC

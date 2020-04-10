@@ -28,3 +28,4 @@ rplugin.vim
 /mydadbods.vim
 /tags
 /lsp-servers/
+/local.vim
