@@ -7,9 +7,6 @@ language messages en_US.UTF-8
 
 filetype plugin indent on
 
-" Clean all autocommands
-autocmd!
-
 syntax enable
 
 set hidden
@@ -22,6 +19,10 @@ set encoding=utf8
 set fileencoding=utf8
 set fileformats=unix,mac,dos
 set fileformat=unix
+
+" Clean all autocommands
+autocmd!
+
 
 "" UI {{{1
 set shortmess+=Ic
