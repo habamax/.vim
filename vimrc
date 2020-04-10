@@ -105,7 +105,11 @@ endif
 set ttimeout
 set ttimeoutlen=100
 
-set clipboard=unnamedplus
+if has('win32')
+    set clipboard=unnamed
+else
+    set clipboard=unnamedplus
+endif
 
 " backspace and cursor keys wrap to previous/next line
 set backspace=indent,eol,start whichwrap+=<,>,[,]
