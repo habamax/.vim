@@ -44,6 +44,8 @@ func! os#show_file() abort
         let subcmd = '/select,"' . expand("%:p") . '"'
     endif
     exe "silent !start explorer " . subcmd
+
+    " nnoremap gx :call job_start('cmd /c start '.expand("<cfile>"))<CR>
 endfunc
 
 
