@@ -27,8 +27,8 @@ set guifont=Iosevka\ Habamax:h14
             \,Consolas:h14
             \,Liberation\ Mono:h14
 
-"" These are a lot of awesome fonts...
-"" 3 of my favorite
+"" There are a lot of awesome fonts...
+"" My favorite 3 after Iosevka
 " set gfn=JetBrains\ Mono\ NL:h14
 " set gfn=Consolas:h14
 " set gfn=Liberation\ Mono:h14
