@@ -2,7 +2,6 @@
 
 "" Must have {{{1
 
-
 " Make vim speak English
 language messages en_US.UTF-8
 
@@ -22,7 +21,6 @@ set encoding=utf8
 set fileencoding=utf8
 set fileformats=unix,mac,dos
 set fileformat=unix
-
 
 
 "" UI {{{1
