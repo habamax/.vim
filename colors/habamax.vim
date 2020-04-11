@@ -178,7 +178,7 @@ else " Dark colors {{{1
     " Neovim terminal colours
     if has("nvim")
         let g:terminal_color_0 = "#202531"
-        let g:terminal_color_1 = "#ab4642"
+        let g:terminal_color_1 = "#db7672"
         let g:terminal_color_2 = "#a1b56c"
         let g:terminal_color_3 = "#f7ca88"
         let g:terminal_color_4 = "#7cafc2"
@@ -186,7 +186,7 @@ else " Dark colors {{{1
         let g:terminal_color_6 = "#86c1b9"
         let g:terminal_color_7 = "#d8d8d8"
         let g:terminal_color_8 = "#585858"
-        let g:terminal_color_9 = "#ab4642"
+        let g:terminal_color_9 = "#db7672"
         let g:terminal_color_10 = "#a1b56c"
         let g:terminal_color_11 = "#f7ca88"
         let g:terminal_color_12 = "#7cafc2"
@@ -198,7 +198,7 @@ else " Dark colors {{{1
     elseif has("terminal")
         let g:terminal_ansi_colors = [
                     \ "#202531",
-                    \ "#ab4642",
+                    \ "#db7672",
                     \ "#a1b56c",
                     \ "#f7ca88",
                     \ "#7cafc2",
@@ -206,7 +206,7 @@ else " Dark colors {{{1
                     \ "#86c1b9",
                     \ "#d8d8d8",
                     \ "#585858",
-                    \ "#ab4642",
+                    \ "#db7672",
                     \ "#a1b56c",
                     \ "#f7ca88",
                     \ "#7cafc2",
