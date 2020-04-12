@@ -172,6 +172,7 @@ if exists('*minpac#init')
     " call minpac#add('camspiers/lens.vim')
     call minpac#add('habamax/lens.vim', {'branch': 'fix-resize'})
 
+    call minpac#add('morhetz/gruvbox')
 endif
 
 "" Commands to update and clean plugins {{{1
