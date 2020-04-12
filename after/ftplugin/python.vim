@@ -4,7 +4,6 @@ endif
 
 
 let b:foldchar = ''
-let b:foldlines_padding = v:true
 
 func! FoldIndent() abort
     let indent = indent(v:lnum)/&sw

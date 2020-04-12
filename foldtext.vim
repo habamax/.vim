@@ -4,9 +4,6 @@
 " char to be used for folding
 " let b:foldchar = ''
 "
-" add padding to fold line count (pad to the right)
-" let b:foldlines_padding = v:false
-"
 " strip leading comment chars
 " let b:foldtext_strip_comments = v:true
 "
@@ -52,11 +49,7 @@ func! MyFoldText()
     let nontextlen = strdisplaywidth(foldlevel.foldindent.foldlines.' ()')
     let foldtext = strcharpart(line, 0, winwidth(0) - nontextlen)
 
-    if get(b:, 'foldlines_padding', v:false)
-        let foldlines_padding = repeat(' ', winwidth(0) - strdisplaywidth(foldtext) - nontextlen + 1)
-    else
-        let foldlines_padding = ' '
-    endif
+    let foldlines_padding = ' '
 
     return printf("%s%s%s%s(%d)",
                 \ foldlevel,
