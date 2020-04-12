@@ -1,7 +1,18 @@
+"" vim or nvim job
+func! os#job(cmd) abort
+    if exists("*job_start")
+        call job_start(a:cmd)
+    elseif exists("*jobstart")
+        call jobstart(a:cmd)
+    endif
+endfunc
+
+
 "" Return true if vim is in WSL environment
 func! os#is_wsl() abort
     return exists("$WSLENV")
 endfunc
+
 
 "" Return Windows path from WSL
 func! os#wsl_to_windows_path(path) abort
@@ -20,6 +31,7 @@ func! os#wsl_to_windows_path(path) abort
         return a:path
     endif
 endfunc
+
 
 "" Open explorer(/finder/thunar...) where current file is located
 "" Only for win and wsl for now.
@@ -40,16 +52,9 @@ func! os#file_manager() abort
             let path = os#wsl_to_windows_path(path)
         endif
 
-        " exec 'silent !cmd.exe /c start explorer.exe /select,"' . path . '"'
-        " silent exec '!start explorer.exe /select,"' . path . '"'
-
-        let cmd = 'cmd.exe /c explorer.exe /select,"' . path . '"'
-        if exists("*job_start")
-            call job_start(cmd)
-        elseif exists("*jobstart")
-            call jobstart(cmd)
-        endif
-
+        call os#job('cmd.exe /c explorer.exe /select,"' . path . '"')
+    else
+        echomsg "Not yet implemented!"
     endif
 endfunc
 
@@ -76,5 +81,3 @@ func! os#open_url(word) abort
     exe printf("silent !start %s", word)
     " nnoremap gx :call job_start('cmd.exe /c start '.expand("<cfile>"))<CR>
 endfunc
-
-
