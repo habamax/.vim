@@ -21,25 +21,36 @@ func! os#wsl_to_windows_path(path) abort
     endif
 endfunc
 
-"" Open explorer/finder/fm where current file is located
-func! os#show_file() abort
+"" Open explorer(/finder/thunar...) where current file is located
+"" Only for win and wsl for now.
+func! os#file_manager() abort
     " Windows only for now
-    if !has("win32")
-        return
-    endif
+    if has("win32") || os#is_wsl()
+        if exists("b:netrw_curdir")
+            let path = substitute(b:netrw_curdir, "/", "\\", "g")
+        elseif exists("b:dirvish")
+            let path = getline('.')
+        elseif expand("%:p") == ""
+            let path = expand("%:p:h")
+        else
+            let path = expand("%:p")
+        endif
 
-    if exists("b:netrw_curdir")
-        let subcmd = '"' . substitute(b:netrw_curdir, "/", "\\", "g") . '"'
-    elseif exists("b:dirvish")
-        let subcmd = '/select,"' . getline('.') . '"'
-    elseif expand("%:p") == ""
-        let subcmd = '"' . expand("%:p:h") . '"'
-    else
-        let subcmd = '/select,"' . expand("%:p") . '"'
-    endif
-    exe "silent !start explorer " . subcmd
+        if os#is_wsl()
+            let path = os#wsl_to_windows_path(path)
+        endif
 
-    " nnoremap gx :call job_start('cmd /c start '.expand("<cfile>"))<CR>
+        " exec 'silent !cmd.exe /c start explorer.exe /select,"' . path . '"'
+        " silent exec '!start explorer.exe /select,"' . path . '"'
+
+        let cmd = 'cmd.exe /c explorer.exe /select,"' . path . '"'
+        if exists("*job_start")
+            call job_start(cmd)
+        elseif exists("*jobstart")
+            call jobstart(cmd)
+        endif
+
+    endif
 endfunc
 
 
@@ -63,6 +74,7 @@ func! os#open_url(word) abort
     " TODO: check and extract asciidoctor url
     " TODO: check and extract markdown url
     exe printf("silent !start %s", word)
+    " nnoremap gx :call job_start('cmd.exe /c start '.expand("<cfile>"))<CR>
 endfunc
 
 
