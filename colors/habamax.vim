@@ -346,7 +346,13 @@ hi link Lf_hl_buftagDirname Comment
 hi link Lf_hl_buftagCode Comment
 hi link Lf_hl_helpTagfile Comment
 hi link Lf_hl_gtagsFileName Comment
-hi Lf_hl_cursorline guifg=NONE
+
+" This exact highlight group for leaderf can only be overwritten with linking
+" another group which is not what I would expect from 
+" :highlight def Lf_hl_cursorline
+" definition
+hi DumbNONE guifg=NONE
+hi link Lf_hl_cursorline DumbNONE
 
 " Leaderf "chrome"
 hi link Lf_hl_stlName StatuslineNC
