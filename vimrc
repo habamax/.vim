@@ -71,7 +71,8 @@ set tabstop=8 softtabstop=-1 shiftwidth=4 expandtab smarttab
 set shiftround
 set autoindent
 
-set nohlsearch incsearch ignorecase
+set nohlsearch incsearch
+set ignorecase smartcase
 
 set nowrap
 set nojoinspaces
