@@ -138,6 +138,9 @@ if exists('*minpac#init')
     " rest console with curl
     call minpac#add('diepm/vim-rest-console')
 
+    " gof (filemanager) and got (terminal)
+    call minpac#add('justinmk/vim-gtfo')
+
     " better vim-matchit
     call minpac#add('andymass/vim-matchup')
 
