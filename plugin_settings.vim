@@ -268,6 +268,10 @@ augroup lsp_mappings | au!
     " autocmd BufWritePre *.go call execute('LspDocumentFormatSync') | call execute('LspCodeActionSync source.organizeImports')
 augroup END
 
+"" asyncomplete {{{1
+let g:asyncomplete_auto_popup = 0
+imap <M-Space> <Plug>(asyncomplete_force_refresh)
+
 
 " "" coc.nvim {{{1
 
