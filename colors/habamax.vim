@@ -369,9 +369,15 @@ hi link Lf_hl_stlNameOnlyMode StatuslineNC
 hi link Lf_hl_stlRegexMode StatuslineNC
 hi link Lf_hl_stlFullPathMode StatuslineNC
 hi link Lf_hl_stlFuzzyMode StatuslineNC
-hi link Lf_hl_stlCwd Statusline
+if &background == 'dark'
+    hi Lf_hl_stlCwd guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
+    hi Lf_hl_stlBlank guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
+else
+    hi Lf_hl_stlCwd guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
+    hi Lf_hl_stlBlank guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
+endif
+
 hi link Lf_hl_stlTotal StatuslineNC
-hi link Lf_hl_stlBlank Statusline
 
 
 " Leaderf Popup
