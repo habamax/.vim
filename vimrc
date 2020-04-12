@@ -220,7 +220,7 @@ tnoremap <esc> <C-\><C-n>
 nnoremap <silent> <C-j> :call win#scroll_other(1)<CR>
 nnoremap <silent> <C-k> :call win#scroll_other(0)<CR>
 
-nnoremap gof :call os#file_manager()<CR>
+nnoremap <silent> gof :call os#file_manager()<CR>
 nnoremap gx :call os#open_url(expand('<cWORD>'))<CR>
 
 " Sort operator
