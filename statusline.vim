@@ -1,3 +1,17 @@
+set laststatus=2
+" let g:status_bright_winnr = 1
+" set ruler " for default statusline"
+
+
+func! StatusIM() abort
+    if &iminsert == 0
+        return '[EN]'
+    else
+        return '[RU]'
+    endif
+endfunc
+
+
 func! StatusGitBranch()
     let branch = ''
     if exists('*FugitiveHead')
@@ -9,10 +23,6 @@ func! StatusGitBranch()
     return branch
 endfunc
 
-set laststatus=2
-" set ruler " for default statusline"
-
-" let g:status_bright_winnr = 1
 
 if get(g:, "status_bright_winnr", v:false)
     set statusline=%#StatusLine#%{misc#unicode_number(winnr())}%*
@@ -22,6 +32,7 @@ endif
 set statusline+=%([\%R%M]%)
 set statusline+=%<%f
 set statusline+=%=
-set statusline+=%(\ %y%)
+set statusline+=%(%{StatusIM()}%)
+set statusline+=%y
 set statusline+=%(%{StatusGitBranch()}%)
 set statusline+=%3v#%4(%p%%%)
