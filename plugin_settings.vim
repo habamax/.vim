@@ -44,7 +44,7 @@ if executable('fzf')
     command! VimConfigs :exe printf('Files %s', fnamemodify($MYVIMRC, ":p:h"))
 
     augroup my_fzf | au!
-        au FileType fzf tnoremap <buffer> <esc> <c-c>
+        au FileType fzf tnoremap <buffer> <esc> <c-g>
     augroup end
 endif
 
