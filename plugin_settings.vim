@@ -115,6 +115,9 @@ if !exists('g:leaderf_loaded') && !exists('g:loaded_fzf')
         let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
     endif
 
+    " Allow non english input
+    let g:ctrlp_key_loop = 1
+
     silent! packadd ctrlp.vim
 endif
 
