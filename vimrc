@@ -101,8 +101,8 @@ endif
 
 " vim and terminals have hard time processing ESCs (laaaag)
 " this helps a lot
-set ttimeout
-set ttimeoutlen=100
+set nottimeout
+" set ttimeoutlen=50
 
 if has('win32')
     set clipboard=unnamed
