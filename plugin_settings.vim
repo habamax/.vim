@@ -14,11 +14,13 @@ if executable("ctags")
     silent! packadd vim-gutentags
 endif
 
+
 """ Git {{{1
 if executable("git")
     silent! packadd vim-fugitive
     silent! packadd vim-flog
 endif
+
 
 """ Fuzzy finder (FZF, Leaderf and CtrlP) {{{1
 " Use FZF first
@@ -116,6 +118,7 @@ if !exists('g:leaderf_loaded') && !exists('g:loaded_fzf')
     silent! packadd ctrlp.vim
 endif
 
+
 """ vim-asciidoctor {{{1
 " There will be asciidoctor plugin here
 " let g:asciidoctor_executable = 'bundle exec asciidoctor'
@@ -170,17 +173,21 @@ augroup asciidoctor | au!
     au BufEnter *.adoc,*.asciidoc call AsciidoctorBufferSetup()
 augroup END
 
+
 """ vim-swap {{{1
 let g:swap_no_default_key_mappings = 1
+
 
 """ vim-rooter {{{1
 let g:rooter_change_directory_for_non_project_files = ''
 let g:rooter_patterns = ['.git', '.git/', 'mix.exs']
 let g:rooter_silent_chdir = 1
 
+
 """ vim-markdown {{{1
 let g:markdown_folding = 0
 let g:markdown_fenced_languages = ['python', 'go', 'dart']
+
 
 """ vim-obsession {{{1
 command! -nargs=1 -complete=customlist,LoadObsessionComplete SA :Obsession ~/.vimdata/sessions/<args>
@@ -213,8 +220,8 @@ func! DBSComplete(A, L, P)
     return dadbods
 endfunc
 
-"" operator mapping
 
+"" operator mapping
 xnoremap <expr> <Plug>(DBExe)     db#op_exec()
 nnoremap <expr> <Plug>(DBExe)     db#op_exec()
 nnoremap <expr> <Plug>(DBExeLine) db#op_exec() . '_'
@@ -281,6 +288,7 @@ augroup lsp_mappings | au!
     " autocmd BufWritePre *.go call execute('LspDocumentFormatSync') | call execute('LspCodeActionSync source.organizeImports')
 augroup END
 
+
 "" asyncomplete {{{1
 let g:asyncomplete_auto_popup = 0
 imap <M-Space> <Plug>(asyncomplete_force_refresh)
@@ -307,22 +315,21 @@ imap <M-Space> <Plug>(asyncomplete_force_refresh)
 
 " nmap <silent> gd <Plug>(coc-definition)
 
+
 """ vim-matchup {{{1
 let g:loaded_matchit = 1
 let g:matchup_matchparen_offscreen = {'method': 'popup', 'highlight': 'MatchParen'}
 let g:matchup_surround_enabled = 1
 let g:matchup_enabled = 1
 
+
 """ vim-vsnip {{{1
 let g:vsnip_snippet_dir = fnamemodify($MYVIMRC, ":p:h") . '/vsnip'
+
 
 """ vim-closetag {{{1
 let g:closetag_filetypes = 'html,xhtml,xml'
 
-
-""" vim-sandwich {{{1
-" nmap s <Nop>
-" xmap s <Nop>
 
 """ vim-dirvish {{{1
 let g:loaded_netrw = 1
@@ -331,13 +338,6 @@ let g:loaded_netrwPlugin = 1
 " directory first
 let g:dirvish_mode = ':sort ,^.*[\/],'
 
-"" Clears conceal highlighting which is not good.
-" if has('gui_running')
-"     augroup dirvish_config | autocmd!
-"         autocmd FileType dirvish call dirvish#add_icon_fn({p -> p[-1:]=~'/\|\\'?'📂':'📄'})
-"     augroup END
-" endif
-
 
 """ vim-easy-align {{{1
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -345,12 +345,14 @@ vmap ga <Plug>(LiveEasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+
 """ vim-visual-multi {{{1
 let g:VM_maps = {}
 let g:VM_maps['Find Under']         = '<leader>n'
 let g:VM_maps['Find Subword Under'] = '<leader>n'
 let g:VM_maps["Select Cursor Down"] = '<M-J>'
 let g:VM_maps["Select Cursor Up"]   = '<M-K>'
+
 
 "" vim-rest-console {{{1
 let g:vrc_auto_format_response_enabled = 1
@@ -412,6 +414,7 @@ nnoremap <leader>l :DoOutline<CR>
 "             \ { 'name': 'dev', 'url': 'postgres://postgres@localhost:5432/postgres' }
 "             \ ]
 
+
 """ vim-lens {{{1
 augroup autosize_windows | au!
     au BufWinEnter * silent! call lens#run()
@@ -421,6 +424,8 @@ for letter in split('HJKL', '\zs')
     exe printf("nnoremap <C-w>%s <C-w>%s:silent! call lens#run()<CR>",
                 \ letter, letter)
 endfor
+
+
 """ vim-evalvim {{{1
 let g:evalvim_mappings = v:true
 
