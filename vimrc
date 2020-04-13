@@ -214,7 +214,7 @@ nnoremap <silent> <Leader>ej :exe printf('e %s/docs/journal/2020.adoc', g:HOME)<
 nmap <Leader>уо <Leader>ej
 
 " built-in terminal
-tnoremap <esc> <C-\><C-n>
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<C-\><C-n>"
 
 " scroll other window
 nnoremap <silent> <C-j> :call win#scroll_other(1)<CR>
