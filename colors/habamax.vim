@@ -105,8 +105,8 @@ if &background == 'light'
         hi Normal guibg=#f1f3f2 guifg=#000000 ctermbg=15 ctermfg=16
         hi CursorLine guibg=#e5eae5 guifg=NONE gui=NONE cterm=NONE
     else
-        hi Normal guibg=#fcfffc guifg=#000000 ctermbg=15 ctermfg=16
-        hi CursorLine guibg=#f0f5f0 guifg=NONE gui=NONE cterm=NONE
+        hi Normal guibg=#fafaf8 guifg=#000000 ctermbg=15 ctermfg=16
+        hi CursorLine guibg=#eaefea guifg=NONE gui=NONE cterm=NONE
     endif
     hi EndOfBuffer guifg=#d0d0d0 guibg=NONE ctermfg=7 ctermbg=NONE
     hi Statusline guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE

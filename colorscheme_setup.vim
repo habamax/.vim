@@ -72,7 +72,7 @@ let g:habamax_flat = v:false
 let g:habamax_fancy = v:true
 let g:habamax_contrast = v:false
 " g:habamax_dirty -- will make light background a bit darker
-let g:habamax_dirty = v:true
+let g:habamax_dirty = v:false
 " handy if you use it with transparent terminals
 let g:habamax_transparent = get(g:, "habamax_transparent", v:false)
 colorscheme habamax
