@@ -20,9 +20,29 @@ if executable("git")
     silent! packadd vim-flog
 endif
 
-""" Fuzzy finder (Clap, Leaderf and CtrlP) {{{1
-" Try LeaderF first
-if has('nvim') || has('python') || has('python3')
+""" Fuzzy finder (FZF, Leaderf and CtrlP) {{{1
+" Use FZF first
+if executable('fzf')
+    nnoremap <leader>f :Files<CR>
+    nnoremap <leader>b :Buffers<CR>
+    nnoremap <leader>/ :Lines<CR>
+    nnoremap <leader>: :Commands<CR>
+    nnoremap <leader>T :Tags<CR>
+    nnoremap <leader>h :Help<CR>
+    nnoremap <leader>m :History<CR>
+    nnoremap <leader>c :Colors<CR>
+    nnoremap <leader>g :Rg<CR>
+
+    silent! packadd fzf
+    silent! packadd fzf.vim
+
+    command! Docs :exe printf('Files %s/docs', g:HOME)
+    command! VimConfigs :exe printf('Files %s', fnamemodify($MYVIMRC, ":p:h"))
+endif
+
+
+" Then try LeaderF
+if !exists('g:loaded_fzf') && (has('nvim') || has('python') || has('python3'))
     " if exists("*popup_create") || exists("*nvim_open_win")
     "   let g:Lf_WindowPosition = 'popup'
     "   let g:Lf_PreviewInPopup = 1
@@ -61,21 +81,6 @@ if has('nvim') || has('python') || has('python3')
     command! VimConfigs :exe printf('Leaderf file %s', fnamemodify($MYVIMRC, ":p:h"))
 endif
 
-" Then try to load vim-clap
-if !exists('g:leaderf_loaded') && executable('fzf')
-    nnoremap <leader>f :Files<CR>
-    nnoremap <leader>b :Buffers<CR>
-    nnoremap <leader>/ :Lines<CR>
-    nnoremap <leader>: :Commands<CR>
-    nnoremap <leader>T :Tags<CR>
-    nnoremap <leader>h :Help<CR>
-    nnoremap <leader>m :History<CR>
-    nnoremap <leader>c :Colors<CR>
-    nnoremap <leader>g :Rg<CR>
-
-    silent! packadd fzf
-    silent! packadd fzf.vim
-endif
 
 " Use ctrlp as backup fuzzy finder (no dependencies)
 if !exists('g:leaderf_loaded') && !exists('g:loaded_fzf')
