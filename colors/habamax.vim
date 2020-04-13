@@ -316,6 +316,10 @@ hi MatchParen guifg=NONE ctermfg=NONE
 
 
 """ Plugins {{{1
+"" FZF.vim statusline
+hi! link fzf1 StatusLine
+hi! link fzf2 StatusLine
+hi! link fzf3 StatusLine
 
 "" Fugitive
 hi link gitCommitSummary Title
