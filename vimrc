@@ -102,7 +102,7 @@ endif
 " vim and terminals have hard time processing ESCs (laaaag)
 " this helps a lot
 set ttimeout
-set ttimeoutlen=0
+set ttimeoutlen=50
 
 if has('win32')
     set clipboard=unnamed
@@ -214,7 +214,7 @@ nnoremap <silent> <Leader>ej :exe printf('e %s/docs/journal/2020.adoc', g:HOME)<
 nmap <Leader>уо <Leader>ej
 
 " built-in terminal
-tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<C-\><C-n>"
+tnoremap <esc> <C-\><C-n>
 
 " scroll other window
 nnoremap <silent> <C-j> :call win#scroll_other(1)<CR>

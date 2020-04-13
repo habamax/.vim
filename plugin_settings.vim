@@ -38,6 +38,10 @@ if executable('fzf')
 
     command! Docs :exe printf('Files %s/docs', g:HOME)
     command! VimConfigs :exe printf('Files %s', fnamemodify($MYVIMRC, ":p:h"))
+
+    augroup my_fzf | au!
+        au FileType fzf tnoremap <buffer> <esc> <c-c>
+    augroup end
 endif
 
 
