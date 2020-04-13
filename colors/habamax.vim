@@ -141,10 +141,10 @@ if &background == 'light'
     hi diffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
 
     if get(g:, "habamax_flat", 0)
-        hi Statement guifg=#4c6f6c ctermfg=8
-        hi Constant guifg=#4c6f6c ctermfg=8
-        hi PreProc guifg=#4c6f6c ctermfg=8
-        hi Directory guifg=#4c6f6c ctermfg=8
+        hi Statement guifg=#677777 ctermfg=8
+        hi Constant guifg=#677777 ctermfg=8
+        hi PreProc guifg=#677777 ctermfg=8
+        hi Directory guifg=#677777 ctermfg=8
         hi Comment ctermfg=7
         hi Conceal ctermfg=7
     elseif get(g:, "habamax_fancy", 0)
