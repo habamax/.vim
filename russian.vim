@@ -32,6 +32,7 @@ set iminsert=0
 set imsearch=-1
 
 
-inoremap <silent> <M-space> <C-^>
-nnoremap <silent> <M-space> :let &iminsert = !&iminsert<CR>
-xnoremap <silent> <M-space> :<C-U>let &iminsert = !&iminsert<CR>gv
+cnoremap <silent> <C-l> <C-^>
+inoremap <silent> <C-l> <C-^>
+" nnoremap <silent> <M-space> :let &iminsert = !&iminsert<CR>
+" xnoremap <silent> <M-space> :<C-U>let &iminsert = !&iminsert<CR>gv

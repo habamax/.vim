@@ -158,7 +158,8 @@ inoremap <C-U> <C-G>u<C-U>
 
 " spell correction for the first suggested
 " https://castel.dev/post/lecture-notes-1/
-inoremap <C-l> <c-g>u<C-\><C-o>[s<ESC>1z=`]a<c-g>u
+inoremap <C-s> <c-g>u<C-\><C-o>[s<ESC>1z=`]a<c-g>u
+
 
 " just one space on the line, preserving indent
 noremap <leader><leader><leader> :FixText<CR>
