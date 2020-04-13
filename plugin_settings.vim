@@ -35,9 +35,7 @@ if executable('fzf')
     nnoremap <leader>c :Colors<CR>
     nnoremap <leader>g :Rg<CR>
 
-    if has('win32')
-        let g:fzf_preview_window = ''
-    endif
+    let g:fzf_preview_window = ''
 
     silent! packadd fzf
     silent! packadd fzf.vim
