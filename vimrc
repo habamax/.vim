@@ -121,6 +121,22 @@ endif
 
 "" Mappings {{{1
 
+" Force yourself to use new mapping...
+inoremap <ESC> <nop>
+cnoremap <ESC> <nop>
+xnoremap <ESC> <nop>
+
+" inoremap fj <ESC>
+" cnoremap fj <C-c>
+" xnoremap fj <ESC>
+" inoremap jf <ESC>
+" cnoremap jf <C-c>
+" xnoremap jf <ESC>
+
+inoremap ii <ESC>
+cnoremap ii <C-c>
+xnoremap ii <ESC>
+
 " remove default 'octal'.
 " good for C-a, C-x wrt 007 and other octal like numbers
 set nrformats=bin,hex
