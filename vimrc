@@ -126,22 +126,24 @@ endif
 "" period of time longer then necessary. Dejavu from the times I used emacs...
 
 "" But before emacs I was a vimmer with a CapsLock mapped to Escape...
-"" Do it again and get rid of this ii mappings, which works, portable but I
+"" Do it again and keep this ii mappings, which works, portable ... but I
 "" can't get used to them
 
 " Force yourself to use new mapping...
 " inoremap <ESC> <nop>
 " cnoremap <ESC> <nop>
 " xnoremap <ESC> <nop>
-" tnoremap <ESC> <nop>
 
-" inoremap ii <ESC>
-" cnoremap ii <C-c>
-" xnoremap ii <ESC>
+inoremap ii <ESC>
+cnoremap ii <C-c>
+xnoremap ii <ESC>
+inoremap шш <ESC>
+cnoremap шш <C-c>
+xnoremap шш <ESC>
 
 " built-in terminal
 tnoremap <esc> <C-\><C-n>
-" tnoremap ii <C-\><C-n>
+tnoremap ii <C-\><C-n>
 
 
 " remove default 'octal'.
