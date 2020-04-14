@@ -125,6 +125,7 @@ endif
 inoremap <ESC> <nop>
 cnoremap <ESC> <nop>
 xnoremap <ESC> <nop>
+" tnoremap <ESC> <nop>
 
 " inoremap fj <ESC>
 " cnoremap fj <C-c>
@@ -136,6 +137,11 @@ xnoremap <ESC> <nop>
 inoremap ii <ESC>
 cnoremap ii <C-c>
 xnoremap ii <ESC>
+
+" built-in terminal
+" tnoremap <esc> <C-\><C-n>
+tnoremap ii <C-\><C-n>
+
 
 " remove default 'octal'.
 " good for C-a, C-x wrt 007 and other octal like numbers
@@ -231,9 +237,6 @@ nmap <Leader>ут <Leader>en
 " edit global current journal file
 nnoremap <silent> <Leader>ej :exe printf('e %s/docs/journal/2020.adoc', g:HOME)<CR>
 nmap <Leader>уо <Leader>ej
-
-" built-in terminal
-tnoremap <esc> <C-\><C-n>
 
 " scroll other window
 nnoremap <silent> <C-j> :call win#scroll_other(1)<CR>
