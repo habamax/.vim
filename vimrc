@@ -121,26 +121,27 @@ endif
 
 "" Mappings {{{1
 
+"" Well, I think that my problem was that I had CapsLock mapped to Ctrl.
+"" It made me use it quite often with my pinky in very unnatural position for
+"" period of time longer then necessary. Dejavu from the times I used emacs...
+
+"" But before emacs I was a vimmer with a CapsLock mapped to Escape...
+"" Do it again and get rid of this ii mappings, which works, portable but I
+"" can't get used to them
+
 " Force yourself to use new mapping...
-inoremap <ESC> <nop>
-cnoremap <ESC> <nop>
-xnoremap <ESC> <nop>
+" inoremap <ESC> <nop>
+" cnoremap <ESC> <nop>
+" xnoremap <ESC> <nop>
 " tnoremap <ESC> <nop>
 
-" inoremap fj <ESC>
-" cnoremap fj <C-c>
-" xnoremap fj <ESC>
-" inoremap jf <ESC>
-" cnoremap jf <C-c>
-" xnoremap jf <ESC>
-
-inoremap ii <ESC>
-cnoremap ii <C-c>
-xnoremap ii <ESC>
+" inoremap ii <ESC>
+" cnoremap ii <C-c>
+" xnoremap ii <ESC>
 
 " built-in terminal
-" tnoremap <esc> <C-\><C-n>
-tnoremap ii <C-\><C-n>
+tnoremap <esc> <C-\><C-n>
+" tnoremap ii <C-\><C-n>
 
 
 " remove default 'octal'.
