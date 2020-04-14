@@ -316,10 +316,12 @@ hi MatchParen guifg=NONE ctermfg=NONE
 
 
 """ Plugins {{{1
+
 "" FZF.vim statusline
 hi! link fzf1 StatusLine
 hi! link fzf2 StatusLine
 hi! link fzf3 StatusLine
+
 
 "" Fugitive
 hi link gitCommitSummary Title
@@ -328,6 +330,7 @@ hi! link diffAdded diffAdd
 hi! link diffLine diffChange
 hi! link diffSubname diffChange
 
+
 "" Asciidoctor
 if &background == 'light'
     hi asciidoctorIndented guifg=#555555 gui=NONE ctermbg=7 cterm=NONE
@@ -335,74 +338,74 @@ else
     hi asciidoctorIndented guifg=#999999 gui=NONE ctermbg=8 cterm=NONE
 endif
 
-" "" LeaderF
-" hi link Lf_hl_bufDirname Comment
-" hi link Lf_hl_funcDirname Comment
-" hi link Lf_hl_rgFilename Comment
-" hi link Lf_hl_rgTagFile Comment
-" hi link Lf_hl_tagFile Comment
-" hi link Lf_hl_tagType Comment
-" hi link Lf_hl_tagKeyword Comment
-" hi link Lf_hl_buftagKind Comment
-" hi link Lf_hl_buftagScopeType Comment
-" hi link Lf_hl_buftagScope Comment
-" hi link Lf_hl_buftagDirname Comment
-" hi link Lf_hl_buftagCode Comment
-" hi link Lf_hl_helpTagfile Comment
-" hi link Lf_hl_gtagsFileName Comment
 
-" " This exact highlight group for leaderf can only be overwritten with linking
-" " another group which is not what I would expect from 
-" " :highlight def Lf_hl_cursorline
-" " definition
-" hi DumbNONE guifg=NONE
-" hi link Lf_hl_cursorline DumbNONE
+"" LeaderF
+hi link Lf_hl_bufDirname Comment
+hi link Lf_hl_funcDirname Comment
+hi link Lf_hl_rgFilename Comment
+hi link Lf_hl_rgTagFile Comment
+hi link Lf_hl_tagFile Comment
+hi link Lf_hl_tagType Comment
+hi link Lf_hl_tagKeyword Comment
+hi link Lf_hl_buftagKind Comment
+hi link Lf_hl_buftagScopeType Comment
+hi link Lf_hl_buftagScope Comment
+hi link Lf_hl_buftagDirname Comment
+hi link Lf_hl_buftagCode Comment
+hi link Lf_hl_helpTagfile Comment
+hi link Lf_hl_gtagsFileName Comment
 
-" " Leaderf "chrome"
-" hi link Lf_hl_stlName StatuslineNC
-" hi link Lf_hl_stlMode StatuslineNC
-" hi link Lf_hl_stlCategory StatuslineNC
-" hi link Lf_hl_stlSeparator0 StatuslineNC
-" hi link Lf_hl_stlSeparator1 StatuslineNC
-" hi link Lf_hl_stlSeparator2 StatuslineNC
-" hi link Lf_hl_stlSeparator3 StatuslineNC
-" hi link Lf_hl_stlSeparator4 StatuslineNC
-" hi link Lf_hl_stlSeparator5 StatuslineNC
-" hi link Lf_hl_stlLineInfo StatuslineNC
-" hi link Lf_hl_stlNameOnlyMode StatuslineNC
-" hi link Lf_hl_stlRegexMode StatuslineNC
-" hi link Lf_hl_stlFullPathMode StatuslineNC
-" hi link Lf_hl_stlFuzzyMode StatuslineNC
-" if &background == 'dark'
-"     hi Lf_hl_stlCwd guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
-"     hi Lf_hl_stlBlank guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
-" else
-"     hi Lf_hl_stlCwd guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
-"     hi Lf_hl_stlBlank guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
-" endif
+" This exact highlight group for leaderf can only be overwritten with linking
+" another group which is not what I would expect from 
+" :highlight def Lf_hl_cursorline
+" definition
+hi DumbNONE guifg=NONE
+hi link Lf_hl_cursorline DumbNONE
 
-" hi link Lf_hl_stlTotal StatuslineNC
+" Leaderf "chrome"
+hi link Lf_hl_stlName StatuslineNC
+hi link Lf_hl_stlMode StatuslineNC
+hi link Lf_hl_stlCategory StatuslineNC
+hi link Lf_hl_stlSeparator0 StatuslineNC
+hi link Lf_hl_stlSeparator1 StatuslineNC
+hi link Lf_hl_stlSeparator2 StatuslineNC
+hi link Lf_hl_stlSeparator3 StatuslineNC
+hi link Lf_hl_stlSeparator4 StatuslineNC
+hi link Lf_hl_stlSeparator5 StatuslineNC
+hi link Lf_hl_stlLineInfo StatuslineNC
+hi link Lf_hl_stlNameOnlyMode StatuslineNC
+hi link Lf_hl_stlRegexMode StatuslineNC
+hi link Lf_hl_stlFullPathMode StatuslineNC
+hi link Lf_hl_stlFuzzyMode StatuslineNC
+if &background == 'dark'
+    hi Lf_hl_stlCwd guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
+    hi Lf_hl_stlBlank guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
+else
+    hi Lf_hl_stlCwd guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
+    hi Lf_hl_stlBlank guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
+endif
 
+hi link Lf_hl_stlTotal StatuslineNC
 
-" " Leaderf Popup
-" hi! link Lf_hl_popup_window Normal
-" hi! link Lf_hl_popup_inputMode StatusLineNC
-" hi! link Lf_hl_popup_inputText StatusLine
-" hi! link Lf_hl_popup_prompt StatusLine
-" hi! link Lf_hl_popup_spin StatusLineNC
-" hi! link Lf_hl_popup_mode StatusLineNC
-" hi! link Lf_hl_popup_category StatusLineNC
-" hi! link Lf_hl_popup_cwd StatusLine
-" hi! link Lf_hl_popup_separator0 StatusLineNC
-" hi! link Lf_hl_popup_separator1 StatusLineNC
-" hi! link Lf_hl_popup_separator2 StatusLineNC
-" hi! link Lf_hl_popup_separator3 StatusLineNC
-" hi! link Lf_hl_popup_separator4 StatusLineNC
-" hi! link Lf_hl_popup_separator5 StatusLineNC
-" hi! link Lf_hl_popup_lineInfo StatusLineNC
-" hi! link Lf_hl_popup_nameOnlyMode StatusLineNC
-" hi! link Lf_hl_popup_regexMode StatusLineNC
-" hi! link Lf_hl_popup_fullPathMode StatusLineNC
-" hi! link Lf_hl_popup_fuzzyMode StatusLineNC
-" hi! link Lf_hl_popup_total StatusLineNC
-" hi! link Lf_hl_popup_blank StatusLineNC
+" Leaderf Popup
+hi! link Lf_hl_popup_window Normal
+hi! link Lf_hl_popup_inputMode StatusLineNC
+hi! link Lf_hl_popup_inputText StatusLine
+hi! link Lf_hl_popup_prompt StatusLine
+hi! link Lf_hl_popup_spin StatusLineNC
+hi! link Lf_hl_popup_mode StatusLineNC
+hi! link Lf_hl_popup_category StatusLineNC
+hi! link Lf_hl_popup_cwd StatusLine
+hi! link Lf_hl_popup_separator0 StatusLineNC
+hi! link Lf_hl_popup_separator1 StatusLineNC
+hi! link Lf_hl_popup_separator2 StatusLineNC
+hi! link Lf_hl_popup_separator3 StatusLineNC
+hi! link Lf_hl_popup_separator4 StatusLineNC
+hi! link Lf_hl_popup_separator5 StatusLineNC
+hi! link Lf_hl_popup_lineInfo StatusLineNC
+hi! link Lf_hl_popup_nameOnlyMode StatusLineNC
+hi! link Lf_hl_popup_regexMode StatusLineNC
+hi! link Lf_hl_popup_fullPathMode StatusLineNC
+hi! link Lf_hl_popup_fuzzyMode StatusLineNC
+hi! link Lf_hl_popup_total StatusLineNC
+hi! link Lf_hl_popup_blank StatusLineNC

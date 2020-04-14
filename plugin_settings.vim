@@ -22,35 +22,10 @@ if executable("git")
 endif
 
 
-""" Fuzzy finder (FZF, Leaderf and CtrlP) {{{1
-" Use FZF first
-if executable('fzf')
-    nnoremap <leader>f :Files<CR>
-    nnoremap <leader>b :Buffers<CR>
-    nnoremap <leader>/ :Lines<CR>
-    nnoremap <leader>: :Commands<CR>
-    nnoremap <leader>T :Tags<CR>
-    nnoremap <leader>h :Help<CR>
-    nnoremap <leader>m :History<CR>
-    nnoremap <leader>c :Colors<CR>
-    nnoremap <leader>g :Rg<CR>
+""" Fuzzy finder (LeaderF, FZF and CtrlP) {{{1
 
-    let g:fzf_preview_window = ''
-
-    silent! packadd fzf
-    silent! packadd fzf.vim
-
-    command! Docs :exe printf('Files %s/docs', g:HOME)
-    command! VimConfigs :exe printf('Files %s', fnamemodify($MYVIMRC, ":p:h"))
-
-    augroup my_fzf | au!
-        au FileType fzf tnoremap <buffer> <esc> <c-g>
-    augroup end
-endif
-
-
-" Then try LeaderF
-if !exists('g:loaded_fzf') && (has('nvim') || has('python') || has('python3'))
+" Try LeaderF
+if (has('nvim') || has('python') || has('python3'))
     " if exists("*popup_create") || exists("*nvim_open_win")
     "   let g:Lf_WindowPosition = 'popup'
     "   let g:Lf_PreviewInPopup = 1
@@ -58,7 +33,6 @@ if !exists('g:loaded_fzf') && (has('nvim') || has('python') || has('python3'))
     "   let g:Lf_PopupHeight = 0.5
     " endif
     let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-    " let g:Lf_StlSeparator = { 'left': '', 'right': '' }
     let g:Lf_ShowDevIcons = 0
     let g:Lf_WindowHeight = 0.30
     let g:Lf_ShowHidden = 1
@@ -88,6 +62,34 @@ if !exists('g:loaded_fzf') && (has('nvim') || has('python') || has('python3'))
     command! Docs :exe printf('Leaderf file %s/docs', g:HOME)
     command! VimConfigs :exe printf('Leaderf file %s', fnamemodify($MYVIMRC, ":p:h"))
 endif
+
+
+" Try FZF
+if !exists('g:leaderf_loaded') && executable('fzf')
+    nnoremap <leader>f :Files<CR>
+    nnoremap <leader>b :Buffers<CR>
+    nnoremap <leader>/ :Lines<CR>
+    nnoremap <leader>: :Commands<CR>
+    nnoremap <leader>T :Tags<CR>
+    nnoremap <leader>h :Help<CR>
+    nnoremap <leader>m :History<CR>
+    nnoremap <leader>c :Colors<CR>
+    nnoremap <leader>g :Rg<CR>
+
+    let g:fzf_preview_window = ''
+
+    silent! packadd fzf
+    silent! packadd fzf.vim
+
+    command! Docs :exe printf('Files %s/docs', g:HOME)
+    command! VimConfigs :exe printf('Files %s', fnamemodify($MYVIMRC, ":p:h"))
+
+    augroup my_fzf | au!
+        au FileType fzf tnoremap <buffer> <esc> <c-g>
+    augroup end
+endif
+
+
 
 
 " Use ctrlp as backup fuzzy finder (no dependencies)
