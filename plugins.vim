@@ -52,13 +52,16 @@ if exists('*minpac#init')
 
 
     "" Fuzzy stuff
+    " install optional dependency: ./install.bat or ./install.sh
+    " from package root
     call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
-    " backup (no external dependencies)
-    call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
-    " After installation run :Clap install_binary!
-    " call minpac#add('liuchengxu/vim-clap', {'type': 'opt'})
+    " FZF is quite good, but not really polished for windows users
     call minpac#add('junegunn/fzf', {'type': 'opt'})
     call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
+    " backup (no external dependencies)
+    call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
+    " clap is... buggy but has potential
+    " call minpac#add('liuchengxu/vim-clap', {'type': 'opt'})
 
 
     "" Text manipulation
