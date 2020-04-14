@@ -94,14 +94,6 @@ if exists('*minpac#init')
     call minpac#add('mg979/vim-visual-multi')
 
 
-    "" Text objects
-    call minpac#add('kana/vim-textobj-user')
-    call minpac#add('kana/vim-textobj-indent')
-    call minpac#add('kana/vim-textobj-function')
-    call minpac#add('thinca/vim-textobj-function-javascript')
-    call minpac#add('andyl/vim-textobj-elixir')
-
-
     "" Programming
     call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
     call minpac#add('editorconfig/editorconfig-vim')
