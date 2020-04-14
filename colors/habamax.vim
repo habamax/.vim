@@ -385,7 +385,7 @@ hi link Lf_hl_stlTotal StatuslineNC
 hi! link Lf_hl_popup_window Normal
 hi! link Lf_hl_popup_inputMode StatusLineNC
 hi! link Lf_hl_popup_inputText StatusLine
-hi! link Lf_hl_popup_prompt StatusLine
+hi! link Lf_hl_popup_prompt StatusLineNC
 hi! link Lf_hl_popup_spin StatusLineNC
 hi! link Lf_hl_popup_mode StatusLineNC
 hi! link Lf_hl_popup_category StatusLineNC
@@ -402,4 +402,4 @@ hi! link Lf_hl_popup_regexMode StatusLineNC
 hi! link Lf_hl_popup_fullPathMode StatusLineNC
 hi! link Lf_hl_popup_fuzzyMode StatusLineNC
 hi! link Lf_hl_popup_total StatusLineNC
-hi! link Lf_hl_popup_blank StatusLineNC
+hi! link Lf_hl_popup_blank StatusLine
