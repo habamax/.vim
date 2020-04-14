@@ -431,4 +431,3 @@ endfor
 
 """ vim-evalvim {{{1
 let g:evalvim_mappings = v:true
-
