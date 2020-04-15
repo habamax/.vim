@@ -174,6 +174,7 @@ xnoremap <silent> <M-j> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 
 " Arguably more ergonomic window management -- avoid ctrl
 nnoremap <leader>ww :wincmd w<CR>
+nnoremap <leader>wo :wincmd o<CR>
 nnoremap <leader>wv :wincmd v<CR>
 nnoremap <leader>ws :wincmd s<CR>
 nnoremap <leader>wc :wincmd c<CR>
