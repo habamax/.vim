@@ -8,10 +8,6 @@ if exists("g:yoinkInitialized") " {{{1
     nmap P <plug>(YoinkPaste_P)
 endif
 
-if exists("g:loaded_skipit") " {{{1
-    imap <A-.> <Plug>(SkipItForward)
-    imap <A-,> <Plug>(SkipItBack)
-endif
 
 if exists("g:asyncomplete_loaded") " {{{1
     " let g:asyncomplete_log_file = expand("~/vim-asyncomplete.log")
@@ -20,6 +16,22 @@ if exists("g:asyncomplete_loaded") " {{{1
 
     imap <expr> <M-n> !pumvisible() ? '<Plug>(asyncomplete_force_refresh)' : "\<C-n>"
     imap <expr> <M-p> !pumvisible() ? '<Plug>(asyncomplete_force_refresh)' : "\<C-p>"
+
+    " fix bad asyncopmlete behaviour of hijacing completeopt
+    func! MyAsynCtrlP()
+        if !pumvisible()
+            setl completeopt=menuone
+        endif
+        return "\<C-p>"
+    endfunc
+    func! MyAsynCtrlN()
+        if !pumvisible()
+            setl completeopt=menuone
+        endif
+        return "\<C-n>"
+    endfunc
+    inoremap <expr> <C-p> MyAsynCtrlP()
+    inoremap <expr> <C-n> MyAsynCtrlN()
 
     if exists("g:loaded_endwise")
         imap <expr> <CR> pumvisible() ? asyncomplete#close_popup() . "\<CR><Plug>DiscretionaryEnd" : "\<CR><Plug>DiscretionaryEnd"
