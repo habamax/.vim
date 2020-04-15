@@ -116,6 +116,8 @@ if exists('*minpac#init')
     call minpac#add('prabirshrestha/async.vim')
     call minpac#add('prabirshrestha/asyncomplete.vim')
     call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
+    call minpac#add('ervandew/supertab')
+
 
     "" general completion works better then asyncomplete
     "" everything else is worse than vim-lsp

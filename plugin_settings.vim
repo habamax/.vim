@@ -292,9 +292,13 @@ augroup lsp_mappings | au!
 augroup END
 
 
-"" asyncomplete {{{1
-let g:asyncomplete_auto_popup = 0
-imap <M-n> <Plug>(asyncomplete_force_refresh)
+"" supertab {{{1
+let g:SuperTabDefaultCompletionType = 'context'
+autocmd FileType *
+            \ if &omnifunc != '' |
+            \   call SuperTabChain(&omnifunc, "<c-p>") |
+            \ endif
+
 
 
 " "" coc.nvim {{{1
