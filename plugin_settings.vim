@@ -57,6 +57,8 @@ if (has('nvim') || has('python') || has('python3'))
     nnoremap <leader>g :Leaderf rg<CR>
     nnoremap <leader>c :LeaderfColorscheme<CR>
     nnoremap <leader>; :Leaderf cmdHistory<CR>
+
+    let g:Lf_CommandMap = {'<C-]>': ['<C-V>']}
     silent! packadd LeaderF
 
     command! Docs :exe printf('Leaderf file %s/docs', g:HOME)
