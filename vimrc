@@ -183,24 +183,24 @@ nnoremap <silent> <M-j> :<C-u>silent! exe "move+1"<CR>==
 xnoremap <silent> <M-k> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
 xnoremap <silent> <M-j> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 
-" Arguably more ergonomic window management -- avoid ctrl
-nnoremap <leader>ww :wincmd w<CR>
-nnoremap <leader>wo :wincmd o<CR>
-nnoremap <leader>wv :wincmd v<CR>
-nnoremap <leader>ws :wincmd s<CR>
-nnoremap <leader>wn :wincmd n<CR>
-nnoremap <leader>wc :wincmd c<CR>
-nnoremap <leader>wq :wincmd q<CR>
-nnoremap <leader>wr :wincmd r<CR>
-nnoremap <leader>wx :wincmd x<CR>
-nnoremap <leader>wh :wincmd h<CR>
-nnoremap <leader>wj :wincmd j<CR>
-nnoremap <leader>wk :wincmd k<CR>
-nnoremap <leader>wl :wincmd l<CR>
-nnoremap <leader>wH :wincmd H<CR>
-nnoremap <leader>wJ :wincmd J<CR>
-nnoremap <leader>wK :wincmd K<CR>
-nnoremap <leader>wL :wincmd L<CR>
+" " Arguably more ergonomic window management -- avoid ctrl
+" nnoremap <leader>ww :wincmd w<CR>
+" nnoremap <leader>wo :wincmd o<CR>
+" nnoremap <leader>wv :wincmd v<CR>
+" nnoremap <leader>ws :wincmd s<CR>
+" nnoremap <leader>wn :wincmd n<CR>
+" nnoremap <leader>wc :wincmd c<CR>
+" nnoremap <leader>wq :wincmd q<CR>
+" nnoremap <leader>wr :wincmd r<CR>
+" nnoremap <leader>wx :wincmd x<CR>
+" nnoremap <leader>wh :wincmd h<CR>
+" nnoremap <leader>wj :wincmd j<CR>
+" nnoremap <leader>wk :wincmd k<CR>
+" nnoremap <leader>wl :wincmd l<CR>
+" nnoremap <leader>wH :wincmd H<CR>
+" nnoremap <leader>wJ :wincmd J<CR>
+" nnoremap <leader>wK :wincmd K<CR>
+" nnoremap <leader>wL :wincmd L<CR>
 
 " goto window
 for wnr in range(1, 9)
