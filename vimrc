@@ -162,6 +162,13 @@ nnoremap <silent> <M-j> :<C-u>silent! exe "move+1"<CR>==
 xnoremap <silent> <M-k> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
 xnoremap <silent> <M-j> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 
+inoremap <A-b> <C-left>
+inoremap <A-f> <C-right>
+inoremap <A-a> <Home>
+inoremap <A-e> <End>
+inoremap <A-w> <C-w>
+inoremap <A-d> <C-o>dw
+
 " " Arguably more ergonomic window management -- avoid ctrl
 " nnoremap <leader>ww :wincmd w<CR>
 " nnoremap <leader>wo :wincmd o<CR>
