@@ -178,7 +178,7 @@ nnoremap <leader>wo :wincmd o<CR>
 nnoremap <leader>wv :wincmd v<CR>
 nnoremap <leader>ws :wincmd s<CR>
 nnoremap <leader>wc :wincmd c<CR>
-nnoremap <leader>wq :wincmd c<CR>
+nnoremap <leader>wq :wincmd q<CR>
 nnoremap <leader>wr :wincmd r<CR>
 nnoremap <leader>wx :wincmd x<CR>
 nnoremap <leader>wh :wincmd h<CR>
