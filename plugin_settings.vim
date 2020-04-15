@@ -86,6 +86,8 @@ if !exists('g:leaderf_loaded') && executable('fzf')
 
     augroup my_fzf | au!
         au FileType fzf tnoremap <buffer> <esc> <c-g>
+        au FileType fzf tnoremap <buffer> ii <c-g>
+        au FileType fzf tnoremap <buffer> шш <c-g>
     augroup end
 endif
 
