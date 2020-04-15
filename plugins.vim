@@ -91,7 +91,7 @@ if exists('*minpac#init')
     " Italiano Vero -- mg979 has contributed a lot to vim-asciidoctor
     " And coincidently he does a very good implementation of multiple cursors
     " a like plugin
-    call minpac#add('mg979/vim-visual-multi')
+    " call minpac#add('mg979/vim-visual-multi')
 
 
     "" Programming

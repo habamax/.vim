@@ -357,12 +357,12 @@ vmap ga <Plug>(LiveEasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 
-""" vim-visual-multi {{{1
-let g:VM_maps = {}
-let g:VM_maps['Find Under']         = '<leader>n'
-let g:VM_maps['Find Subword Under'] = '<leader>n'
-let g:VM_maps["Select Cursor Down"] = '<M-J>'
-let g:VM_maps["Select Cursor Up"]   = '<M-K>'
+" """ vim-visual-multi {{{1
+" let g:VM_maps = {}
+" let g:VM_maps['Find Under']         = '<leader>n'
+" let g:VM_maps['Find Subword Under'] = '<leader>n'
+" let g:VM_maps["Select Cursor Down"] = '<M-J>'
+" let g:VM_maps["Select Cursor Up"]   = '<M-K>'
 
 
 "" vim-rest-console {{{1
