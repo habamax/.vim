@@ -169,6 +169,12 @@ inoremap <A-e> <End>
 inoremap <A-w> <C-w>
 inoremap <A-d> <C-o>dw
 
+cnoremap <A-b> <C-left>
+cnoremap <A-f> <C-right>
+cnoremap <A-a> <Home>
+cnoremap <A-e> <End>
+cnoremap <A-w> <C-w>
+
 " " Arguably more ergonomic window management -- avoid ctrl
 " nnoremap <leader>ww :wincmd w<CR>
 " nnoremap <leader>wo :wincmd o<CR>
