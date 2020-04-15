@@ -104,6 +104,8 @@ endif
 set ttimeout
 set ttimeoutlen=10
 
+" better ii as escape experience
+set timeoutlen=500
 
 if has('win32')
     set clipboard=unnamed
@@ -142,10 +144,18 @@ inoremap шш <ESC>
 cnoremap шш <C-c>
 xnoremap шш <ESC>
 
-" built-in terminal
+" inoremap ,, <ESC>
+" cnoremap ,, <C-c>
+" xnoremap ,, <ESC>
+" inoremap бб <ESC>
+" cnoremap бб <C-c>
+" xnoremap бб <ESC>
+
 tnoremap <esc> <C-\><C-n>
 tnoremap ii <C-\><C-n>
-
+tnoremap шш <C-\><C-n>
+" tnoremap ,, <C-\><C-n>
+" tnoremap бб <C-\><C-n>
 
 " remove default 'octal'.
 " good for C-a, C-x wrt 007 and other octal like numbers
