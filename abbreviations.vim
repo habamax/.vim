@@ -1,10 +1,16 @@
+func! Eatchar(pat)
+    let c = nr2char(getchar(0))
+    return (c =~ a:pat) ? '' : c
+endfunc
+
 inorea haba@ habamax@gmail.com
 
-inorea хъ []<Left>
-inorea ХЪ {}<Left>
-inorea ЭЭ ""<Left>
-inorea ээ ''<Left>
-inorea ёё ``<Left>
+inorea хъ []<Left><C-R>=Eatchar('\s')<CR>
+inorea ХЪ {}<Left><C-R>=Eatchar('\s')<CR>
+inorea ЭЭ ""<Left><C-R>=Eatchar('\s')<CR>
+inorea ээ ''<Left><C-R>=Eatchar('\s')<CR>
+inorea ёё ``<Left><C-R>=Eatchar('\s')<CR>
+
 
 inorea -Ю ->
 inorea -ю ->
