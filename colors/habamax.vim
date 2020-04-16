@@ -325,10 +325,10 @@ hi! link fzf3 StatusLine
 
 "" Fugitive
 hi link gitCommitSummary Title
-hi! link diffRemoved diffDelete
-hi! link diffAdded diffAdd
+hi diffAdded guifg=#20a020 gui=NONE
+hi diffRemoved guifg=#e02020 gui=NONE
 hi! link diffLine diffChange
-hi! link diffSubname diffChange
+hi! link diffSubname diffText
 
 
 "" Asciidoctor
