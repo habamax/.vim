@@ -159,8 +159,8 @@ let g:asciidoctor_pandoc_other_params = '--toc'
 let g:asciidoctor_pandoc_data_dir = g:HOME . '/docs/.pandoc'
 
 let g:asciidoctor_syntax_conceal = 1
-let g:asciidoctor_folding = 1
-let g:asciidoctor_fold_options = 1
+" let g:asciidoctor_folding = 1
+" let g:asciidoctor_fold_options = 1
 
 func! AsciidoctorBufferSetup()
     setl cole=3
