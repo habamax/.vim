@@ -187,7 +187,7 @@ cnoremap <A-p> <C-p>
 cnoremap <A-n> <C-n>
 
 " Arguably more ergonomic window management -- avoid control-w
-" Some keyboards I use doesn't have right Control...
+" Some keyboards I use don't have right Control...
 " On the other hand anyone me included should avoid single
 " hand chords with only left hand -- Ctrl-w mappings.
 nnoremap <leader>ww :wincmd w<CR>
