@@ -5,9 +5,11 @@ if has('langmap') && exists('+langremap')
   set nolangremap
 endif
 
-" Keymap внутренняя раскладка + langmap
+" Keymap внутренняя раскладка + langmap (который надо использовать по
+" минимуму)
 if has('osx')
     set keymap=russian-jcukenmac
+
     set langmap=йцукенгшщзхъ;qwertyuiop[]
     set langmap+=фывапролджэё;asdfghjkl\\;'\\\
     set langmap+=ячсмитьбю;zxcvbnm\\,.
@@ -17,6 +19,7 @@ if has('osx')
     set langmap+=№#
 else
     set keymap=russian-jcukenwin
+
     set langmap=йцукенгшщзхъ;qwertyuiop[]
     set langmap+=фывапролджэё;asdfghjkl\\;'\\\
     set langmap+=ячсмитьбю;zxcvbnm\\,.
@@ -30,3 +33,6 @@ endif
 
 set iminsert=0
 set imsearch=-1
+
+inoremap <M-6> <C-^>
+nnoremap <silent> <M-6> :let &iminsert = !&iminsert<CR>
