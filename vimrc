@@ -168,6 +168,7 @@ inoremap <A-a> <Home>
 inoremap <A-e> <End>
 inoremap <A-w> <C-w>
 inoremap <A-d> <Del>
+inoremap <A-h> <C-h>
 
 cnoremap <A-b> <C-left>
 cnoremap <A-f> <C-right>
@@ -175,6 +176,7 @@ cnoremap <A-a> <Home>
 cnoremap <A-e> <End>
 cnoremap <A-w> <C-w>
 cnoremap <A-d> <Del>
+cnoremap <A-h> <C-h>
 cnoremap <A-p> <C-p>
 cnoremap <A-n> <C-n>
 
