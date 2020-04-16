@@ -175,6 +175,8 @@ cnoremap <A-a> <Home>
 cnoremap <A-e> <End>
 cnoremap <A-w> <C-w>
 cnoremap <A-d> <Del>
+cnoremap <A-p> <C-p>
+cnoremap <A-n> <C-n>
 
 " goto window
 for wnr in range(1, 9)
