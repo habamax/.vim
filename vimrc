@@ -292,6 +292,11 @@ vmap <silent> gs :sort<CR>
 
 "" Commands (and Autocommands) {{{1
 
+cabbr ц w
+cabbr й q
+cabbr цй wq
+cabbr ив bd
+
 " highlight all occurrences of a term being searched/replaced
 augroup hlsearch-incsearch
     autocmd!
