@@ -35,4 +35,5 @@ set iminsert=0
 set imsearch=-1
 
 inoremap <M-6> <C-^>
+cnoremap <M-6> <C-^>
 nnoremap <silent> <M-6> :let &iminsert = !&iminsert<CR>
