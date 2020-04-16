@@ -104,9 +104,6 @@ endif
 set ttimeout
 set ttimeoutlen=10
 
-" better ii as escape experience
-set timeoutlen=500
-
 if has('win32')
     set clipboard=unnamed
 else
