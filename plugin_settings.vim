@@ -28,11 +28,11 @@ endif
 if !exists('g:leaderf_loaded') && executable('fzf')
     nnoremap <leader>f :Files<CR>
     nnoremap <leader>b :Buffers<CR>
-    nnoremap <leader>/ :Lines<CR>
+    nnoremap <leader>/ :BLines<CR>
     nnoremap <leader>: :Commands<CR>
     nnoremap <leader>T :Tags<CR>
-    nnoremap <leader>h :Help<CR>
-    nnoremap <leader>m :History<CR>
+    nnoremap <F1> :Help<CR>
+    nnoremap <leader>h :History<CR>
     nnoremap <leader>c :Colors<CR>
     nnoremap <leader>g :Rg<CR>
 
@@ -92,8 +92,8 @@ if !exists("g:loaded_fzf") && (has('nvim') || has('python') || has('python3'))
     nnoremap <leader>: :Leaderf command<CR>
     nnoremap <leader>T :Leaderf tag<CR>
     nnoremap <leader>[ :Leaderf function<CR>
-    nnoremap <leader>h :Leaderf help<CR>
-    nnoremap <leader>m :Leaderf mru<CR>
+    nnoremap <F1> :Leaderf help<CR>
+    nnoremap <leader>h :Leaderf mru<CR>
     nnoremap <leader>g :Leaderf rg<CR>
     nnoremap <leader>c :LeaderfColorscheme<CR>
     nnoremap <leader>; :Leaderf cmdHistory<CR>
@@ -111,7 +111,7 @@ endif
 if !exists('g:leaderf_loaded') && !exists('g:loaded_fzf')
     nnoremap <leader>f :CtrlPMixed<CR>
     nnoremap <leader>b :CtrlPBuffer<CR>
-    nnoremap <leader>m :CtrlPMRUFiles<CR>
+    nnoremap <leader>h :CtrlPMRUFiles<CR>
     nnoremap <leader>/ <nop>
     nnoremap <leader>: <nop>
     nnoremap <leader>T <nop>
@@ -179,9 +179,7 @@ func! AsciidoctorBufferSetup()
     nnoremap <buffer> <leader>op :AsciidoctorOpenPDF<CR>
     nnoremap <buffer> <leader>oh :AsciidoctorOpenHTML<CR>
     nnoremap <buffer> <leader>ox :AsciidoctorOpenDOCX<CR>
-    nnoremap <buffer> <leader>ch :Asciidoctor2HTML<CR>
-    nnoremap <buffer> <leader>cp :Asciidoctor2PDF<CR>
-    nnoremap <buffer> <leader>cx :Asciidoctor2DOCX<CR>
+    nnoremap <buffer> <leader>mm :Asciidoctor2PDF<CR>
     nnoremap <buffer> <leader>p :AsciidoctorPasteImage<CR>
     compiler asciidoctor2pdf
     let b:foldtext_strip_add_regex = '^=\+'
