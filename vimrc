@@ -358,6 +358,8 @@ augroup restore_last_cursor_position | autocmd!
                 \ | endif
 augroup END
 
+
+" Set default filetype for new buffers
 func! SetDefaultFiletype()
     if @% == "" && &filetype == ""
         setfiletype txt
