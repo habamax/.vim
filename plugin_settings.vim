@@ -38,9 +38,9 @@ if !exists('g:leaderf_loaded') && executable('fzf')
 
     let g:fzf_preview_window = ''
     let g:fzf_action = {
-                \ 'ctrl-t': 'tab split',
-                \ 'ctrl-x': 'split',
-                \ 'ctrl-v': 'vsplit' }
+                \ 'alt-t': 'tab split',
+                \ 'alt-s': 'split',
+                \ 'alt-v': 'vsplit' }
 
     if executable('fdfind')
         let $FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git'
