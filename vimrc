@@ -137,6 +137,9 @@ tnoremap <esc> <C-\><C-n>
 " good for C-a, C-x wrt 007 and other octal like numbers
 set nrformats=bin,hex
 
+" general mapping to be used for different filetypes
+nnoremap <leader>m <nop>
+
 nnoremap <leader><tab> <C-^>
 
 " Capitalize word
