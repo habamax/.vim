@@ -38,6 +38,14 @@ if !exists('g:leaderf_loaded') && executable('fzf')
 
     let g:fzf_preview_window = ''
 
+    if executable('fdfind')
+        let $FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git'
+    elseif executable('fd')
+        let $FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+    elseif executable('rg')
+        let $FZF_DEFAULT_COMMAND='rg --files'
+    endif
+
     silent! packadd fzf
     silent! packadd fzf.vim
 
