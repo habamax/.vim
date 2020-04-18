@@ -12,7 +12,6 @@ filetype plugin indent on
 syntax enable
 
 set hidden
-set confirm
 set browsedir=buffer
 
 let mapleader = "\<Space>"
@@ -44,6 +43,8 @@ set scrolloff=2 sidescrolloff=0
 set display+=lastline
 set tabpagemax=50
 set showmode
+
+set confirm
 
 set conceallevel=0
 
