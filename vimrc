@@ -122,8 +122,6 @@ endif
 
 "" Mappings {{{1
 
-tnoremap <esc> <C-\><C-n>
-
 " inoremap ii <ESC>
 " cnoremap ii <C-c>
 " xnoremap ii <ESC>
