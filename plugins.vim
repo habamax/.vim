@@ -173,6 +173,8 @@ if exists('*minpac#init')
     call minpac#add('habamax/lens.vim', {'branch': 'fix-resize'})
 
     call minpac#add('morhetz/gruvbox')
+    call minpac#add('nanotech/jellybeans.vim')
+
 endif
 
 "" Commands to update and clean plugins {{{1
