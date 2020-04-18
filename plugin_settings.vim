@@ -51,7 +51,8 @@ if !exists('g:leaderf_loaded') && executable('fzf')
                 \ 'ctrl-x': 'split',
                 \ 'ctrl-v': 'vsplit' }
 
-    let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+    let $FZF_DEFAULT_OPTS = '--bind ctrl-a:toggle-all --bind ctrl-u:clear-selection'
+    " let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
     if executable('fdfind')
         let $FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --no-ignore-vcs --exclude .git'
