@@ -21,15 +21,15 @@ endif
 
 set linespace=0
 
-" "" Iosevka (customized extended) is preffered
-" set guifont=Iosevka\ Habamax:h14
-"             \,JetBrains\ Mono\ NL:h14
-"             \,Consolas:h14
-"             \,Liberation\ Mono:h14
+"" Iosevka (customized extended) is preferred
+set guifont=Iosevka\ Habamax:h14
+            \,JetBrains\ Mono\ NL:h14
+            \,Consolas:h14
+            \,Liberation\ Mono:h14
 
 "" There are a lot of awesome fonts...
 "" My favorite 3 after Iosevka
-set gfn=JetBrains\ Mono\ NL:h14
+" set gfn=JetBrains\ Mono\ NL:h14
 " set gfn=Consolas:h14
 " set gfn=Liberation\ Mono:h14
 
