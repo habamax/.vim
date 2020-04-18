@@ -13,16 +13,3 @@ func! win#scroll_other(dir) abort
     exe cmd
     wincmd p
 endfunc
-
-
-"" Resize current window to width and height
-"" make other windows equal size if possible
-func! win#resize(width, height) abort
-    exe "vertical resize " . a:width
-    exe "resize " a:height
-    setlocal winfixwidth
-    setlocal winfixheight
-    wincmd =
-    setlocal nowinfixwidth
-    setlocal nowinfixheight
-endfunc
