@@ -142,17 +142,17 @@ nnoremap <leader>m <nop>
 nnoremap <leader><tab> <C-^>
 
 " Capitalize word
-nnoremap <silent> <A-c> :call text#capitalize_word()<CR>
+nnoremap <silent> <M-c> :call text#capitalize_word()<CR>
 " UPPERCASE word
-nnoremap <silent> <A-u> :call text#uppercase_word()<CR>
+nnoremap <silent> <M-u> :call text#uppercase_word()<CR>
 " lowercase word
-nnoremap <silent> <A-l> :call text#lowercase_word()<CR>
+nnoremap <silent> <M-l> :call text#lowercase_word()<CR>
 " Capitalize word in insert mode
-inoremap <silent> <A-c> <ESC>:call text#capitalize_word(v:true)<CR>
+inoremap <silent> <M-c> <ESC>:call text#capitalize_word(v:true)<CR>
 " UPPERCASE word in insert mode
-inoremap <silent> <A-u> <ESC>:call text#uppercase_word(v:true)<CR>
+inoremap <silent> <M-u> <ESC>:call text#uppercase_word(v:true)<CR>
 " lowercase word in insert mode
-inoremap <silent> <A-l> <ESC>:call text#lowercase_word(v:true)<CR>
+inoremap <silent> <M-l> <ESC>:call text#lowercase_word(v:true)<CR>
 
 " Move line up/down
 nnoremap <silent> <M-k> :<C-u>silent! exe "move-2"<CR>==
@@ -162,28 +162,28 @@ xnoremap <silent> <M-k> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
 xnoremap <silent> <M-j> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 
 
-nnoremap <A-f> <C-f>
-xnoremap <A-f> <C-f>
-nnoremap <A-b> <C-b>
-xnoremap <A-b> <C-b>
+nnoremap <M-f> <C-f>
+xnoremap <M-f> <C-f>
+nnoremap <M-b> <C-b>
+xnoremap <M-b> <C-b>
 
-inoremap <A-b> <C-left>
-inoremap <A-f> <C-right>
-inoremap <A-a> <Home>
-inoremap <A-e> <End>
-inoremap <A-w> <C-w>
-inoremap <A-d> <Del>
-inoremap <A-h> <C-h>
+inoremap <M-b> <C-left>
+inoremap <M-f> <C-right>
+inoremap <M-a> <Home>
+inoremap <M-e> <End>
+inoremap <M-w> <C-w>
+inoremap <M-d> <Del>
+inoremap <M-h> <C-h>
 
-cnoremap <A-b> <C-left>
-cnoremap <A-f> <C-right>
-cnoremap <A-a> <Home>
-cnoremap <A-e> <End>
-cnoremap <A-w> <C-w>
-cnoremap <A-d> <Del>
-cnoremap <A-h> <C-h>
-cnoremap <A-p> <C-p>
-cnoremap <A-n> <C-n>
+cnoremap <M-b> <C-left>
+cnoremap <M-f> <C-right>
+cnoremap <M-a> <Home>
+cnoremap <M-e> <End>
+cnoremap <M-w> <C-w>
+cnoremap <M-d> <Del>
+cnoremap <M-h> <C-h>
+cnoremap <M-p> <C-p>
+cnoremap <M-n> <C-n>
 
 " Arguably more ergonomic window management -- avoid control-w
 " Some keyboards I use don't have right Control...
