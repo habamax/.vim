@@ -208,6 +208,9 @@ nnoremap <leader>wH :wincmd H<CR>
 nnoremap <leader>wJ :wincmd J<CR>
 nnoremap <leader>wK :wincmd K<CR>
 nnoremap <leader>wL :wincmd L<CR>
+nnoremap <leader>w= :wincmd =<CR>
+nnoremap <leader>w. :10wincmd ><CR>
+nnoremap <leader>w, :10wincmd <<CR>
 
 " goto window
 for wnr in range(1, 9)
