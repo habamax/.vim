@@ -119,6 +119,10 @@ if has('crypt-blowfish2')
     set cryptmethod=blowfish2
 endif
 
+" remove default 'octal'.
+" good for C-a, C-x wrt 007 and other octal like numbers
+set nrformats=bin,hex
+
 
 "" Mappings {{{1
 
@@ -131,10 +135,6 @@ endif
 
 " tnoremap ii <C-\><C-n>
 " tnoremap шш <C-\><C-n>
-
-" remove default 'octal'.
-" good for C-a, C-x wrt 007 and other octal like numbers
-set nrformats=bin,hex
 
 " general mapping to be used for different filetypes
 nnoremap <leader>m <nop>
