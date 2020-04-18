@@ -54,11 +54,11 @@ if !exists('g:leaderf_loaded') && executable('fzf')
     let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
     if executable('fdfind')
-        let $FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git'
+        let $FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --no-ignore-vcs --exclude .git'
     elseif executable('fd')
-        let $FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+        let $FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --no-ignore-vcs --exclude .git'
     elseif executable('rg')
-        let $FZF_DEFAULT_COMMAND='rg --files'
+        let $FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs'
     endif
 
     silent! packadd fzf
