@@ -100,13 +100,13 @@ if &background == 'light'
         hi Normal NONE
     elseif get(g:, "habamax_contrast", v:false)
         hi Normal guibg=#ffffff guifg=#000000 ctermbg=15 ctermfg=16
-        hi CursorLine guibg=#f0f5f0 guifg=NONE gui=NONE cterm=NONE
+        hi CursorLine guibg=#f0f5f0 guifg=NONE gui=NONE cterm=NONE term=NONE
     elseif get(g:, "habamax_dirty", v:false)
         hi Normal guibg=#f1f3f2 guifg=#000000 ctermbg=15 ctermfg=16
-        hi CursorLine guibg=#e5eae5 guifg=NONE gui=NONE cterm=NONE
+        hi CursorLine guibg=#e5eae5 guifg=NONE gui=NONE cterm=NONE term=NONE
     else
         hi Normal guibg=#fafaf8 guifg=#000000 ctermbg=15 ctermfg=16
-        hi CursorLine guibg=#eaefea guifg=NONE gui=NONE cterm=NONE
+        hi CursorLine guibg=#eaefea guifg=NONE gui=NONE cterm=NONE term=NONE
     endif
     hi EndOfBuffer guifg=#d0d0d0 guibg=NONE ctermfg=7 ctermbg=NONE
     hi Statusline guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
@@ -125,8 +125,7 @@ if &background == 'light'
     hi Folded guibg=#e0e4e0 guifg=#454945 gui=NONE guisp=NONE
     hi FoldColumn guibg=#e0e4e0 guifg=#454945 gui=NONE
     hi Visual guibg=#d0d9ea gui=NONE ctermbg=NONE ctermfg=NONE
-    hi LineNr guibg=NONE guifg=#97a49c
-    hi CursorLineNr guibg=NONE guifg=#97a49c gui=bold cterm=bold
+    hi LineNr guibg=NONE guifg=#5f6571 gui=NONE cterm=NONE term=NONE
 
     hi Underlined gui=underline guisp=SlateBlue
 
@@ -241,9 +240,8 @@ else " Dark colors {{{1
     hi Folded guibg=#303440 guifg=#909590 gui=NONE guisp=NONE
     hi FoldColumn guibg=#303440 guifg=#909590 gui=NONE
     hi Visual guibg=#394e71 guifg=NONE ctermbg=NONE ctermfg=NONE
-    hi LineNr guibg=NONE guifg=#a1c2aa
-    hi CursorLineNr guibg=NONE guifg=#a1c2aa gui=bold cterm=bold
-    hi CursorLine guibg=#333844 guifg=NONE gui=NONE cterm=NONE
+    hi LineNr guibg=NONE guifg=#5f6571 gui=NONE cterm=NONE term=NONE
+    hi CursorLine guibg=#333844 guifg=NONE gui=NONE cterm=NONE term=NONE
 
     hi Underlined guifg=#96b0d8 gui=underline guisp=#60708c
     hi Error guibg=#633e43 guifg=NONE
@@ -307,6 +305,7 @@ hi Directory gui=bold
 hi! link NonText EndOfBuffer
 hi! link SpecialKey EndOfBuffer
 hi! link CursorColumn CursorLine
+hi! link CursorLineNr CursorLine
 hi! link QuickFixLine CursorLine
 hi SignColumn guibg=NONE
 hi lCursor guibg=#ff7070
