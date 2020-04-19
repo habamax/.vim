@@ -141,10 +141,13 @@ if &background == 'light'
     hi diffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
 
     if get(g:, "habamax_flat", 0)
+        hi Directory guifg=#677777 ctermfg=8
         hi Statement guifg=#677777 ctermfg=8
         hi Constant guifg=#677777 ctermfg=8
         hi PreProc guifg=#677777 ctermfg=8
-        hi Directory guifg=#677777 ctermfg=8
+        hi Type guifg=#677777 ctermfg=8
+        hi Special guifg=#677777 ctermfg=8
+        hi clear Identifier
         hi Comment ctermfg=7
         hi Conceal ctermfg=7
     elseif get(g:, "habamax_fancy", 0)
@@ -254,10 +257,13 @@ else " Dark colors {{{1
     hi diffDelete guibg=#492929 guifg=#707070 gui=NONE
 
     if get(g:, "habamax_flat", 0)
+        hi Directory guifg=#9095a1 ctermfg=7
         hi Statement guifg=#9095a1 ctermfg=7
         hi Constant guifg=#9095a1 ctermfg=7
         hi PreProc guifg=#9095a1 ctermfg=7
-        hi Directory guifg=#9095a1 ctermfg=7
+        hi Type guifg=#9095a1 ctermfg=7
+        hi Special guifg=#9095a1 ctermfg=7
+        hi clear Identifier
     elseif get(g:, "habamax_fancy", 0)
         hi Identifier guifg=#7cafc2 gui=NONE cterm=NONE
 
@@ -288,13 +294,6 @@ endif
 
 hi Statement gui=NONE cterm=NONE
 hi Type gui=NONE cterm=NONE
-
-if get(g:, "habamax_flat", 0)
-    hi clear Type
-    hi clear Identifier
-    " hi clear PreProc
-    hi clear Special
-endif
 
 
 " Common Chrome {{{1
