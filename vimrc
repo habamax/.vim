@@ -161,6 +161,8 @@ nnoremap <silent> <M-j> :<C-u>silent! exe "move+1"<CR>==
 xnoremap <silent> <M-k> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
 xnoremap <silent> <M-j> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 
+nnoremap <M-v> <C-v>
+xnoremap <M-v> <C-v>
 
 nnoremap <M-f> <C-f>
 xnoremap <M-f> <C-f>
