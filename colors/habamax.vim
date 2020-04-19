@@ -5,6 +5,7 @@
 " License:    MIT, but who cares? This is colorscheme.
 "
 " Syntax colors stays default, except:
+" - comments are grey
 " - backgrounds are different
 " - bold and italic styles are added and removed here and there
 " - chrome is different (statuslines, folding, etc)
