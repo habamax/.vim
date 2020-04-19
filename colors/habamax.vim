@@ -290,10 +290,12 @@ else " Dark colors {{{1
 
 endif
 
-" Dark and Light Syntax Highlighting {{{1
+" Common Highlighting {{{1
 
 hi Statement gui=NONE cterm=NONE
 hi Type gui=NONE cterm=NONE
+
+hi! link helpHyperTextJump Underlined
 
 
 " Common Chrome {{{1
