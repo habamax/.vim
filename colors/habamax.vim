@@ -144,9 +144,9 @@ if &background == 'light'
         hi Directory guifg=#677777 ctermfg=8
         hi Statement guifg=#677777 ctermfg=8
         hi Constant guifg=#677777 ctermfg=8
-        hi PreProc guifg=#677777 ctermfg=8
-        hi Type guifg=#677777 ctermfg=8
-        hi Special guifg=#677777 ctermfg=8
+        hi clear PreProc
+        hi clear Type
+        hi clear Special
         hi clear Identifier
         hi Comment ctermfg=7
         hi Conceal ctermfg=7
@@ -260,9 +260,9 @@ else " Dark colors {{{1
         hi Directory guifg=#9095a1 ctermfg=7
         hi Statement guifg=#9095a1 ctermfg=7
         hi Constant guifg=#9095a1 ctermfg=7
-        hi PreProc guifg=#9095a1 ctermfg=7
-        hi Type guifg=#9095a1 ctermfg=7
-        hi Special guifg=#9095a1 ctermfg=7
+        hi clear PreProc
+        hi clear Type
+        hi clear Special
         hi clear Identifier
     elseif get(g:, "habamax_fancy", 0)
         hi Identifier guifg=#7cafc2 gui=NONE cterm=NONE
@@ -296,9 +296,6 @@ hi Statement gui=NONE cterm=NONE
 hi Type gui=NONE cterm=NONE
 
 hi! link helpHyperTextJump Underlined
-
-hi link vimGroup Normal
-hi link vimOption Normal
 
 " Common Chrome {{{1
 hi TabLineSel gui=NONE
