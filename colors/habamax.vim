@@ -297,6 +297,8 @@ hi Type gui=NONE cterm=NONE
 
 hi! link helpHyperTextJump Underlined
 
+hi link vimGroup Normal
+hi link vimOption Normal
 
 " Common Chrome {{{1
 hi TabLineSel gui=NONE
