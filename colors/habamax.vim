@@ -327,7 +327,7 @@ hi! link fzf3 StatusLine
 "" Fugitive
 hi link gitCommitSummary Title
 hi diffAdded guifg=#20a020 gui=NONE
-hi diffRemoved guifg=#e02020 gui=NONE
+hi diffRemoved guifg=#ff5050 gui=NONE
 hi! link diffLine diffChange
 hi! link diffSubname diffText
 
