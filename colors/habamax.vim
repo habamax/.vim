@@ -323,14 +323,6 @@ hi! link fzf1 StatusLine
 hi! link fzf2 StatusLine
 hi! link fzf3 StatusLine
 
-let g:fzf_colors =
-            \ {
-            \ 'fg+': ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-            \ 'bg+': ['bg', 'CursorLine', 'CursorColumn'],
-            \ 'hl+': ['fg', 'Statement']
-            \ }
-
-
 
 "" Fugitive
 hi link gitCommitSummary Title
