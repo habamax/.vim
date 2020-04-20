@@ -100,13 +100,13 @@ if &background == 'light'
     if get(g:, "habamax_transparent", v:false)
         hi Normal NONE
     elseif get(g:, "habamax_contrast", v:false)
-        hi Normal guibg=#ffffff guifg=#000000 ctermbg=15 ctermfg=16
+        hi Normal guibg=#ffffff guifg=#000000 ctermbg=NONE ctermfg=NONE
         hi CursorLine guibg=#f0f5f0 guifg=NONE gui=NONE cterm=NONE term=NONE
     elseif get(g:, "habamax_dirty", v:false)
-        hi Normal guibg=#f1f3f2 guifg=#000000 ctermbg=15 ctermfg=16
+        hi Normal guibg=#f1f3f2 guifg=#000000 ctermbg=NONE ctermfg=NONE
         hi CursorLine guibg=#e5eae5 guifg=NONE gui=NONE cterm=NONE term=NONE
     else
-        hi Normal guibg=#fafaf8 guifg=#000000 ctermbg=15 ctermfg=16
+        hi Normal guibg=#fafaf8 guifg=#000000 ctermbg=NONE ctermfg=NONE
         hi CursorLine guibg=#eaefea guifg=NONE gui=NONE cterm=NONE term=NONE
     endif
     hi EndOfBuffer guifg=#d0d0d0 guibg=NONE ctermfg=7 ctermbg=NONE
@@ -223,9 +223,9 @@ else " Dark colors {{{1
     if get(g:, "habamax_transparent", v:false)
         hi Normal NONE
     elseif get(g:, "habamax_contrast", v:false)
-        hi Normal guibg=#000000 guifg=#dedede ctermbg=0 ctermfg=15
+        hi Normal guibg=#000000 guifg=#dedede ctermbg=NONE ctermfg=NONE
     else
-        hi Normal guibg=#202531 guifg=#dedede ctermbg=0 ctermfg=15
+        hi Normal guibg=#202531 guifg=#dedede ctermbg=NONE ctermfg=NONE
     endif
     hi EndOfBuffer guibg=NONE guifg=#404551 ctermbg=NONE ctermfg=8
     hi Statusline guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
@@ -323,6 +323,13 @@ hi! link fzf1 StatusLine
 hi! link fzf2 StatusLine
 hi! link fzf3 StatusLine
 
+let g:fzf_colors =
+            \ {
+            \ 'fg+': ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+            \ 'bg+': ['bg', 'CursorLine', 'CursorColumn'],
+            \ 'hl+': ['fg', 'Statement'],
+            \ 'gutter': ['bg', 'Normal']
+            \ }
 
 "" Fugitive
 hi link gitCommitSummary Title
