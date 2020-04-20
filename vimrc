@@ -90,6 +90,8 @@ set nospell
 
 "" Misc {{{1
 
+set sessionoptions=buffers,curdir,tabpages,winsize
+
 " ripgrep as grepprg
 if executable('rg')
     set grepprg=rg\ --vimgrep
