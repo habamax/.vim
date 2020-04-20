@@ -1,7 +1,4 @@
 """ Customize colors {{{1
-func! s:my_colorschemes_setup() abort
-    hi Comment gui=italic
-endfunc
 
 func! s:habamax_setup() abort
     if !get(g:, "habamax_flat", 0) && exists("*asciidoctor#force_default_colors")
@@ -10,7 +7,6 @@ func! s:habamax_setup() abort
 endfunc
 
 augroup colorscheme_change | au!
-    au ColorScheme defminus,defnoche,lessthan call s:my_colorschemes_setup()
     au ColorScheme habamax call s:habamax_setup()
 augroup END
 

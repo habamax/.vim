@@ -142,6 +142,7 @@ if &background == 'light'
     hi diffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
 
     if get(g:, "habamax_flat", 0)
+        hi Title guifg=#000000 gui=bold cterm=bold
         hi Directory guifg=#677777 ctermfg=8
         hi Statement guifg=#677777 ctermfg=8
         hi Constant guifg=#677777 ctermfg=8
@@ -258,6 +259,7 @@ else " Dark colors {{{1
     hi diffDelete guibg=#492929 guifg=#707070 gui=NONE
 
     if get(g:, "habamax_flat", 0)
+        hi Title guifg=#ffffff gui=bold cterm=bold
         hi Directory guifg=#9095a1 ctermfg=7
         hi Statement guifg=#9095a1 ctermfg=7
         hi Constant guifg=#9095a1 ctermfg=7
@@ -345,6 +347,14 @@ if &background == 'light'
 else
     hi asciidoctorIndented guifg=#999999 gui=NONE ctermbg=8 cterm=NONE
 endif
+if get(g:, "habamax_flat", v:false)
+    hi link asciidoctorOption Statement
+    hi link asciidoctorBlock Statement
+    hi link asciidoctorAttribute Statement
+    hi link asciidoctorTableCell Statement
+    hi link asciidoctorInlineAnchor Statement
+    hi link asciidoctorBlockOptions Statement
+end
 
 
 "" LeaderF
