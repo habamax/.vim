@@ -324,8 +324,8 @@ augroup hlsearch-incsearch
 augroup END
 
 " Open (n)vim configs
-command! Vimrc :silent only
-            \<bar>:exe printf("e %s/vimrc", fnamemodify($MYVIMRC, ":p:h"))
+command! Init :silent only
+            \<bar>:exe printf("e %s/init.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:exe printf("vs %s/plugin_settings.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:exe printf("sp %s/gvimrc", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:1wincmd w 
