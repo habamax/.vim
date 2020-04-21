@@ -179,29 +179,29 @@ inoremap <silent> <S-M-j> <ESC>:<C-u>silent! exe "move+1"<CR>==gi
 xnoremap <silent> <S-M-k> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
 xnoremap <silent> <S-M-j> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 
-nnoremap <M-v> <C-v>
-xnoremap <M-v> <C-v>
+" nnoremap <M-v> <C-v>
+" xnoremap <M-v> <C-v>
 
 nnoremap <M-f> <C-f>
 xnoremap <M-f> <C-f>
 nnoremap <M-b> <C-b>
 xnoremap <M-b> <C-b>
 
-inoremap <M-b> <C-left>
-inoremap <M-f> <C-right>
-inoremap <M-a> <Home>
-inoremap <M-e> <End>
-inoremap <M-w> <C-w>
-inoremap <M-d> <Del>
+" inoremap <M-b> <C-left>
+" inoremap <M-f> <C-right>
+" inoremap <M-a> <Home>
+" inoremap <M-e> <End>
+" inoremap <M-w> <C-w>
+" inoremap <M-d> <Del>
 
-cnoremap <M-b> <C-left>
-cnoremap <M-f> <C-right>
-cnoremap <M-a> <Home>
-cnoremap <M-e> <End>
-cnoremap <M-w> <C-w>
-cnoremap <M-d> <Del>
-cnoremap <M-p> <C-p>
-cnoremap <M-n> <C-n>
+" cnoremap <M-b> <C-left>
+" cnoremap <M-f> <C-right>
+" cnoremap <M-a> <Home>
+" cnoremap <M-e> <End>
+" cnoremap <M-w> <C-w>
+" cnoremap <M-d> <Del>
+" cnoremap <M-p> <C-p>
+" cnoremap <M-n> <C-n>
 
 "" Window mangament
 " switch to previous window
