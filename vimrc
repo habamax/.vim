@@ -185,6 +185,10 @@ cnoremap <M-n> <C-n>
 " Some keyboards I use don't have right Control...
 " On the other hand anyone me included should avoid single
 " hand chords with only left hand -- Ctrl-w mappings.
+tnoremap <M-o> <C-\><C-N><C-w>w
+nnoremap <M-o> <C-w>w
+inoremap <M-o> <C-\><C-N><C-w>w
+
 nnoremap <leader>ww :wincmd w<CR>
 nnoremap <leader>wo :wincmd o<CR>
 nnoremap <leader>wv :wincmd v<CR>
