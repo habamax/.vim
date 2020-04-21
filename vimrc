@@ -128,16 +128,6 @@ set nrformats=bin,hex
 
 "" Mappings {{{1
 
-" inoremap ii <ESC>
-" cnoremap ii <C-c>
-" xnoremap ii <ESC>
-" inoremap шш <ESC>
-" cnoremap шш <C-c>
-" xnoremap шш <ESC>
-
-" tnoremap ii <C-\><C-n>
-" tnoremap шш <C-\><C-n>
-
 " general mapping to be used for different filetypes
 nnoremap <leader>m <nop>
 
