@@ -266,53 +266,45 @@ let g:dispatch_no_tmux_make = 1
 
 
 """ vim-lsp {{{1
-let g:lsp_auto_enable = 1
-let g:lsp_diagnostics_echo_cursor = 1
-let g:lsp_semantic_enabled = 1
+" let g:lsp_auto_enable = 1
+" let g:lsp_diagnostics_echo_cursor = 1
+" let g:lsp_semantic_enabled = 1
 
-" prefer microsoft implementation of pyls 
-let g:lsp_settings_filetype_python = 'pyls-ms'
-
-" let g:lsp_signs_enabled = 0
-" let g:lsp_highlight_references_enabled = 1
+" " prefer microsoft implementation of pyls 
+" let g:lsp_settings_filetype_python = 'pyls-ms'
 
 " logging for debug
 " let g:lsp_log_verbose = 1
 " let g:lsp_log_file = expand('~/vimlsp.log')
 
-augroup lsp_preview | au!
-    autocmd CompleteDone * silent! pclose
-    if !has('nvim')
-        autocmd User lsp_float_opened
-            \ call popup_setoptions(lsp#ui#vim#output#getpreviewwinid(),
-            \ {
-            \ 'border': [0, 0, 0, 0],
-            \ 'padding': [0, 1, 0, 1]
-            \ })
-    end
-augroup end
-
-"" mapping `C-w z` also works
 " augroup lsp_preview | au!
-"   autocmd CompleteDone * silent! pclose
+"     autocmd CompleteDone * silent! pclose
+"     if !has('nvim')
+"         autocmd User lsp_float_opened
+"             \ call popup_setoptions(lsp#ui#vim#output#getpreviewwinid(),
+"             \ {
+"             \ 'border': [0, 0, 0, 0],
+"             \ 'padding': [0, 1, 0, 1]
+"             \ })
+"     end
 " augroup end
 
-func! SetLSPMappings()
-    nnoremap <buffer> gd :LspDefinition<CR>
-    nnoremap <buffer> K :LspHover<CR>
-    nnoremap <buffer> <C-Space> :LspSignatureHelp<CR>
-    nnoremap <buffer> <leader>lf :LspDocumentFormat<CR>
-    nnoremap <buffer> <leader>la :LspCodeAction<CR>
-    nnoremap <buffer> <leader>ls :LspDocumentSymbol<CR>
-endfunc
-augroup lsp_mappings | au!
-    au FileType python call SetLSPMappings()
-    au FileType ruby call SetLSPMappings()
-    au FileType dart call SetLSPMappings()
-    au FileType html call SetLSPMappings()
-    au FileType go call SetLSPMappings()
-    " autocmd BufWritePre *.go call execute('LspDocumentFormatSync') | call execute('LspCodeActionSync source.organizeImports')
-augroup END
+" func! SetLSPMappings()
+"     nnoremap <buffer> gd :LspDefinition<CR>
+"     nnoremap <buffer> K :LspHover<CR>
+"     nnoremap <buffer> <C-Space> :LspSignatureHelp<CR>
+"     nnoremap <buffer> <leader>lf :LspDocumentFormat<CR>
+"     nnoremap <buffer> <leader>la :LspCodeAction<CR>
+"     nnoremap <buffer> <leader>ls :LspDocumentSymbol<CR>
+" endfunc
+" augroup lsp_mappings | au!
+"     au FileType python call SetLSPMappings()
+"     au FileType ruby call SetLSPMappings()
+"     au FileType dart call SetLSPMappings()
+"     au FileType html call SetLSPMappings()
+"     au FileType go call SetLSPMappings()
+"     " autocmd BufWritePre *.go call execute('LspDocumentFormatSync') | call execute('LspCodeActionSync source.organizeImports')
+" augroup END
 
 
 "" supertab {{{1
