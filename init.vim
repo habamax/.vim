@@ -382,23 +382,23 @@ augroup END
 "" Load Other Settings (plugins, colorscheme, etc) {{{1
 
 " local machine settings, shouldn't be in the git repo
-silent! source <sfile>:h/local.vim
+silent! source local.vim
 
-silent! source <sfile>:h/foldtext.vim
+source foldtext.vim
 
-silent! source <sfile>:h/paths.vim
+source paths.vim
 
-silent! source <sfile>:h/russian.vim
+source russian.vim
 
-silent! source <sfile>:h/statusline.vim
+source statusline.vim
 
-silent! source <sfile>:h/tabline.vim
+source tabline.vim
 
-silent! source <sfile>:h/abbreviations.vim
+source abbreviations.vim
 
-silent! source <sfile>:h/colorscheme_setup.vim
+source colorscheme_setup.vim
 
 if v:version >= 801 || has('nvim')
-    source <sfile>:h/plugin_settings.vim
-    source <sfile>:h/plugins.vim
+    source plugin_settings.vim
+    source plugins.vim
 endif
