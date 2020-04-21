@@ -149,6 +149,8 @@ inoremap <silent> <M-l> <ESC>:call text#lowercase_word(v:true)<CR>
 " Move line up/down
 nnoremap <silent> <M-k> :<C-u>silent! exe "move-2"<CR>==
 nnoremap <silent> <M-j> :<C-u>silent! exe "move+1"<CR>==
+inoremap <silent> <M-k> <ESC>:<C-u>silent! exe "move-2"<CR>==gi
+inoremap <silent> <M-j> <ESC>:<C-u>silent! exe "move+1"<CR>==gi
 " Move selected lines up/down
 xnoremap <silent> <M-k> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
 xnoremap <silent> <M-j> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
