@@ -382,7 +382,7 @@ augroup END
 "" Load Other Settings (plugins, colorscheme, etc) {{{1
 
 " local machine settings, shouldn't be in the git repo
-source <sfile>:h/local.vim
+silent! source <sfile>:h/local.vim
 
 source <sfile>:h/foldtext.vim
 
