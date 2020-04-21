@@ -228,20 +228,6 @@ nnoremap <M-j> <C-w>j
 nnoremap <M-k> <C-w>k
 nnoremap <M-l> <C-w>l
 
-" move windows
-tnoremap <M-H> <C-\><C-N><C-w>H
-tnoremap <M-J> <C-\><C-N><C-w>J
-tnoremap <M-K> <C-\><C-N><C-w>K
-tnoremap <M-L> <C-\><C-N><C-w>L
-inoremap <M-H> <C-\><C-N><C-w>H
-inoremap <M-J> <C-\><C-N><C-w>J
-inoremap <M-K> <C-\><C-N><C-w>K
-inoremap <M-L> <C-\><C-N><C-w>L
-nnoremap <M-H> <C-w>H
-nnoremap <M-J> <C-w>J
-nnoremap <M-K> <C-w>K
-nnoremap <M-L> <C-w>L
-
 " goto window
 for wnr in range(1, 9)
     exe printf("nnoremap <space>%s %s<C-w>w", wnr, wnr)
