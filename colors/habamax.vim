@@ -1,11 +1,10 @@
-" habamax.vim -- GUI colorscheme with almost default syntax highlighting
+" habamax.vim -- GUI colorscheme with default syntax highlighting
 "
 " Name:       habamax
 " Maintainer: Maxim Kim <habamax@gmail.com>
 " License:    MIT, but who cares? This is colorscheme.
 "
-" Syntax colors stays default, except:
-" - comments are grey
+" Syntax colors stays default, but:
 " - backgrounds are different
 " - bold and italic styles are added and removed here and there
 " - chrome is different (statuslines, folding, etc)
@@ -100,13 +99,13 @@ if &background == 'light'
     if get(g:, "habamax_transparent", v:false)
         hi Normal NONE
     elseif get(g:, "habamax_contrast", v:false)
-        hi Normal guibg=#ffffff guifg=#000000 ctermbg=NONE ctermfg=NONE
+        hi Normal guibg=#ffffff guifg=#000000 ctermbg=white ctermfg=black
         hi CursorLine guibg=#f0f5f0 guifg=NONE gui=NONE cterm=NONE term=NONE
     elseif get(g:, "habamax_dirty", v:false)
-        hi Normal guibg=#f1f3f2 guifg=#000000 ctermbg=NONE ctermfg=NONE
+        hi Normal guibg=#f1f3f2 guifg=#000000 ctermbg=white ctermfg=black
         hi CursorLine guibg=#e5eae5 guifg=NONE gui=NONE cterm=NONE term=NONE
     else
-        hi Normal guibg=#fafaf8 guifg=#000000 ctermbg=NONE ctermfg=NONE
+        hi Normal guibg=#fafaf8 guifg=#000000 ctermbg=white ctermfg=black
         hi CursorLine guibg=#eaefea guifg=NONE gui=NONE cterm=NONE term=NONE
     endif
     hi EndOfBuffer guifg=#d0d0d0 guibg=NONE ctermfg=7 ctermbg=NONE
@@ -125,7 +124,7 @@ if &background == 'light'
 
     hi Folded guibg=#e0e4e0 guifg=#454945 gui=NONE guisp=NONE
     hi FoldColumn guibg=#e0e4e0 guifg=#454945 gui=NONE
-    hi Visual guibg=#d0d9ea gui=NONE ctermbg=NONE ctermfg=NONE
+    hi Visual guibg=#d0d9ea gui=NONE
     hi LineNr guibg=NONE guifg=#5f6571 gui=NONE cterm=NONE term=NONE
 
     hi Underlined gui=underline guisp=SlateBlue
@@ -150,8 +149,8 @@ if &background == 'light'
         hi clear PreProc
         hi clear Type
         hi clear Identifier
-        hi Comment ctermfg=7
-        hi Conceal ctermfg=7
+        hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
+        hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
     elseif get(g:, "habamax_fancy", 0)
         hi Identifier guifg=#4078f2 gui=NONE cterm=NONE
 
@@ -171,13 +170,11 @@ if &background == 'light'
         hi Operator guifg=#383a42 gui=NONE cterm=NONE
 
         hi Directory guifg=#4078f2 gui=bold cterm=bold
-    else
-        hi Comment ctermfg=8
-        hi Conceal ctermfg=8
+
+        hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
+        hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
     endif
 
-    hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
-    hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
 
 else " Dark colors {{{1
     " Neovim terminal colours
@@ -224,9 +221,9 @@ else " Dark colors {{{1
     if get(g:, "habamax_transparent", v:false)
         hi Normal NONE
     elseif get(g:, "habamax_contrast", v:false)
-        hi Normal guibg=#000000 guifg=#dedede ctermbg=NONE ctermfg=NONE
+        hi Normal guibg=#000000 guifg=#dedede ctermbg=black ctermfg=white
     else
-        hi Normal guibg=#202531 guifg=#dedede ctermbg=NONE ctermfg=NONE
+        hi Normal guibg=#202531 guifg=#dedede ctermbg=black ctermfg=white
     endif
     hi EndOfBuffer guibg=NONE guifg=#404551 ctermbg=NONE ctermfg=8
     hi Statusline guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
@@ -244,7 +241,7 @@ else " Dark colors {{{1
 
     hi Folded guibg=#303440 guifg=#909590 gui=NONE guisp=NONE
     hi FoldColumn guibg=#303440 guifg=#909590 gui=NONE
-    hi Visual guibg=#394e71 guifg=NONE ctermbg=NONE ctermfg=NONE
+    hi Visual guibg=#394e71 guifg=NONE
     hi LineNr guibg=NONE guifg=#5f6571 gui=NONE cterm=NONE term=NONE
     hi CursorLine guibg=#333844 guifg=NONE gui=NONE cterm=NONE term=NONE
 
@@ -267,6 +264,8 @@ else " Dark colors {{{1
         hi clear PreProc
         hi clear Type
         hi clear Identifier
+        hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
+        hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
     elseif get(g:, "habamax_fancy", 0)
         hi Identifier guifg=#7cafc2 gui=NONE cterm=NONE
 
@@ -286,10 +285,10 @@ else " Dark colors {{{1
         hi Operator guifg=#d8d8d8 gui=NONE cterm=NONE
 
         hi Directory guifg=#7cafc2 gui=bold cterm=bold
-    endif
 
-    hi Comment guibg=NONE guifg=#777777 gui=italic ctermfg=8 cterm=NONE
-    hi Conceal guibg=NONE guifg=#777777 gui=NONE ctermfg=8 cterm=NONE
+        hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
+        hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
+    endif
 
 endif
 
