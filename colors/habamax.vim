@@ -349,9 +349,9 @@ hi! link diffSubname diffText
 
 "" Asciidoctor
 if &background == 'light'
-    hi asciidoctorIndented guifg=#555555 gui=NONE ctermbg=7 cterm=NONE
+    hi asciidoctorIndented guifg=#555555 gui=NONE ctermfg=1 cterm=NONE
 else
-    hi asciidoctorIndented guifg=#999999 gui=NONE ctermbg=8 cterm=NONE
+    hi asciidoctorIndented guifg=#999999 gui=NONE ctermfg=1 cterm=NONE
 endif
 if get(g:, "habamax_flat", v:false)
     hi link asciidoctorOption Statement
