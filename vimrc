@@ -137,6 +137,18 @@ if !has('nvim') && !has('gui_running') && !has('win32')
         exec "imap \e".c." <A-".c.">"
         let c = nr2char(1+char2nr(c))
     endw
+    let c='A'
+    while c <= 'Z'
+        exec "set <A-".c.">=\e".c
+        exec "imap \e".c." <A-".c.">"
+        let c = nr2char(1+char2nr(c))
+    endw
+    let c='0'
+    while c <= '9'
+        exec "set <A-".c.">=\e".c
+        exec "imap \e".c." <A-".c.">"
+        let c = nr2char(1+char2nr(c))
+    endw
 endif
 
 " general mapping to be used for different filetypes
@@ -149,22 +161,23 @@ nnoremap <silent> <M-c> :call text#capitalize_word()<CR>
 " UPPERCASE word
 nnoremap <silent> <M-u> :call text#uppercase_word()<CR>
 " lowercase word
-nnoremap <silent> <M-l> :call text#lowercase_word()<CR>
+nnoremap <silent> <M-U> :call text#lowercase_word()<CR>
 " Capitalize word in insert mode
 inoremap <silent> <M-c> <ESC>:call text#capitalize_word(v:true)<CR>
 " UPPERCASE word in insert mode
 inoremap <silent> <M-u> <ESC>:call text#uppercase_word(v:true)<CR>
 " lowercase word in insert mode
-inoremap <silent> <M-l> <ESC>:call text#lowercase_word(v:true)<CR>
+inoremap <silent> <M-U> <ESC>:call text#lowercase_word(v:true)<CR>
+
 
 " Move line up/down
-nnoremap <silent> <M-k> :<C-u>silent! exe "move-2"<CR>==
-nnoremap <silent> <M-j> :<C-u>silent! exe "move+1"<CR>==
-inoremap <silent> <M-k> <ESC>:<C-u>silent! exe "move-2"<CR>==gi
-inoremap <silent> <M-j> <ESC>:<C-u>silent! exe "move+1"<CR>==gi
+nnoremap <silent> <S-M-k> :<C-u>silent! exe "move-2"<CR>==
+nnoremap <silent> <S-M-j> :<C-u>silent! exe "move+1"<CR>==
+inoremap <silent> <S-M-k> <ESC>:<C-u>silent! exe "move-2"<CR>==gi
+inoremap <silent> <S-M-j> <ESC>:<C-u>silent! exe "move+1"<CR>==gi
 " Move selected lines up/down
-xnoremap <silent> <M-k> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
-xnoremap <silent> <M-j> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
+xnoremap <silent> <S-M-k> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
+xnoremap <silent> <S-M-j> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 
 nnoremap <M-v> <C-v>
 xnoremap <M-v> <C-v>
@@ -180,7 +193,6 @@ inoremap <M-a> <Home>
 inoremap <M-e> <End>
 inoremap <M-w> <C-w>
 inoremap <M-d> <Del>
-inoremap <M-h> <C-h>
 
 cnoremap <M-b> <C-left>
 cnoremap <M-f> <C-right>
@@ -188,14 +200,27 @@ cnoremap <M-a> <Home>
 cnoremap <M-e> <End>
 cnoremap <M-w> <C-w>
 cnoremap <M-d> <Del>
-cnoremap <M-h> <C-h>
 cnoremap <M-p> <C-p>
 cnoremap <M-n> <C-n>
 
-" switch to other window
-tnoremap <M-o> <C-\><C-N><C-w>w
-nnoremap <M-o> <C-w>w
-inoremap <M-o> <C-\><C-N><C-w>w
+" switch to previous window
+tnoremap <M-o> <C-\><C-N><C-w>p
+nnoremap <M-o> <C-w>p
+inoremap <M-o> <C-\><C-N><C-w>p
+
+tnoremap <M-h> <C-\><C-N><C-w>h
+tnoremap <M-j> <C-\><C-N><C-w>j
+tnoremap <M-k> <C-\><C-N><C-w>k
+tnoremap <M-l> <C-\><C-N><C-w>l
+inoremap <M-h> <C-\><C-N><C-w>h
+inoremap <M-j> <C-\><C-N><C-w>j
+inoremap <M-k> <C-\><C-N><C-w>k
+inoremap <M-l> <C-\><C-N><C-w>l
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
+
 
 " goto window
 for wnr in range(1, 9)
