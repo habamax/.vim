@@ -128,6 +128,17 @@ set nrformats=bin,hex
 
 "" Mappings {{{1
 
+" Fix Alt mappings for terminal vim
+" https://stackoverflow.com/questions/6778961/alt-key-shortcuts-not-working-on-gnome-terminal-with-vim/10216459#10216459
+if !has('nvim') && !has('gui_running') && !has('win32')
+    let c='a'
+    while c <= 'z'
+        exec "set <A-".c.">=\e".c
+        exec "imap \e".c." <A-".c.">"
+        let c = nr2char(1+char2nr(c))
+    endw
+endif
+
 " general mapping to be used for different filetypes
 nnoremap <leader>m <nop>
 
