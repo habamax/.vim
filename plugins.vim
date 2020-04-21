@@ -106,10 +106,6 @@ if exists('*minpac#init')
     call minpac#add('ervandew/supertab')
 
 
-    "" general completion works better then asyncomplete
-    "" everything else is worse than vim-lsp
-    " call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
-
     "" Snippets
     call minpac#add('hrsh7th/vim-vsnip')
     " it is quite slow to startup

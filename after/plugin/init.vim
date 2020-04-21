@@ -1,13 +1,5 @@
 "" Settings that depends on plugin existence
 
-if exists("g:yoinkInitialized") " {{{1
-    nmap <c-n> <plug>(YoinkPostPasteSwapBack)
-    nmap <c-p> <plug>(YoinkPostPasteSwapForward)
-
-    nmap p <plug>(YoinkPaste_p)
-    nmap P <plug>(YoinkPaste_P)
-endif
-
 
 if exists("g:asyncomplete_loaded") " {{{1
     " let g:asyncomplete_log_file = expand("~/vim-asyncomplete.log")
