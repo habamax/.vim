@@ -181,34 +181,10 @@ cnoremap <M-h> <C-h>
 cnoremap <M-p> <C-p>
 cnoremap <M-n> <C-n>
 
-" Arguably more ergonomic window management -- avoid control-w
-" Some keyboards I use don't have right Control...
-" On the other hand anyone me included should avoid single
-" hand chords with only left hand -- Ctrl-w mappings.
+" switch to other window
 tnoremap <M-o> <C-\><C-N><C-w>w
 nnoremap <M-o> <C-w>w
 inoremap <M-o> <C-\><C-N><C-w>w
-
-nnoremap <leader>ww :wincmd w<CR>
-nnoremap <leader>wo :wincmd o<CR>
-nnoremap <leader>wv :wincmd v<CR>
-nnoremap <leader>ws :wincmd s<CR>
-nnoremap <leader>wn :wincmd n<CR>
-nnoremap <leader>wc :wincmd c<CR>
-nnoremap <leader>wq :wincmd q<CR>
-nnoremap <leader>wr :wincmd r<CR>
-nnoremap <leader>wx :wincmd x<CR>
-nnoremap <leader>wh :wincmd h<CR>
-nnoremap <leader>wj :wincmd j<CR>
-nnoremap <leader>wk :wincmd k<CR>
-nnoremap <leader>wl :wincmd l<CR>
-nnoremap <leader>wH :wincmd H<CR>
-nnoremap <leader>wJ :wincmd J<CR>
-nnoremap <leader>wK :wincmd K<CR>
-nnoremap <leader>wL :wincmd L<CR>
-nnoremap <leader>w= :wincmd =<CR>
-nnoremap <leader>w. :10wincmd ><CR>
-nnoremap <leader>w, :10wincmd <<CR>
 
 " goto window
 for wnr in range(1, 9)
