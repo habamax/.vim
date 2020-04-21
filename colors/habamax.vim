@@ -173,6 +173,8 @@ if &background == 'light'
 
         hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
         hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
+    else
+        hi Comment gui=italic
     endif
 
 
@@ -288,6 +290,8 @@ else " Dark colors {{{1
 
         hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
         hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
+    else
+        hi Comment gui=italic
     endif
 
 endif
