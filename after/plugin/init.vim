@@ -58,11 +58,10 @@ endif
 
 
 if exists("g:loaded_swap") " {{{1
-    " there is targets.vim, let's check it
-    " omap i, <Plug>(swap-textobject-i)
-    " xmap i, <Plug>(swap-textobject-i)
-    " omap a, <Plug>(swap-textobject-a)
-    " xmap a, <Plug>(swap-textobject-a)
+    omap i, <Plug>(swap-textobject-i)
+    xmap i, <Plug>(swap-textobject-i)
+    omap a, <Plug>(swap-textobject-a)
+    xmap a, <Plug>(swap-textobject-a)
     nmap g< <Plug>(swap-prev)
     nmap g> <Plug>(swap-next)
     nmap g. <Plug>(swap-interactive)

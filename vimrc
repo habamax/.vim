@@ -87,6 +87,8 @@ set textwidth=78
 set spelllang=ru,en
 set nospell
 
+set commentstring=
+
 
 "" Misc {{{1
 
@@ -107,11 +109,6 @@ endif
 set ttimeout
 set ttimeoutlen=10
 
-if has('win32')
-    set clipboard=unnamed
-else
-    set clipboard=unnamedplus
-endif
 
 " backspace and cursor keys wrap to previous/next line
 set backspace=indent,eol,start whichwrap+=<,>,[,]
@@ -379,18 +376,6 @@ augroup restore_last_cursor_position | autocmd!
                 \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
                 \ |   exe "normal! g`\""
                 \ | endif
-augroup END
-
-
-" Set default filetype for new buffers
-func! SetDefaultFiletype()
-    if @% == "" && &filetype == ""
-        setfiletype txt
-    endif
-endfunc
-augroup default_filetype
-    autocmd!
-    autocmd BufEnter * call SetDefaultFiletype()
 augroup END
 
 

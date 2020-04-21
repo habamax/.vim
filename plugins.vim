@@ -34,7 +34,6 @@ if exists('*minpac#init')
     call minpac#add('tpope/vim-surround')
     call minpac#add('tpope/vim-repeat')
     call minpac#add('tpope/vim-dispatch')
-    call minpac#add('tpope/vim-speeddating')
     call minpac#add('tpope/vim-scriptease')
     call minpac#add('tpope/vim-unimpaired')
     call minpac#add('tpope/vim-eunuch')
@@ -42,7 +41,7 @@ if exists('*minpac#init')
     " Sessions
     call minpac#add('tpope/vim-obsession')
     " Databases
-    call minpac#add('tpope/vim-dadbod')
+    " call minpac#add('tpope/vim-dadbod')
     " call minpac#add('kristijanhusak/vim-dadbod-ui')
 
 
@@ -60,8 +59,6 @@ if exists('*minpac#init')
     call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
     " backup (no external dependencies)
     call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
-    " clap is... buggy but has potential
-    " call minpac#add('liuchengxu/vim-clap', {'type': 'opt'})
 
 
     "" Text manipulation
@@ -71,11 +68,6 @@ if exists('*minpac#init')
     " cxiw .
     call minpac#add('tommcdo/vim-exchange')
 
-    call minpac#add('wellle/targets.vim')
-
-    " use gsip to sort linewise
-    " call minpac#add('christoomey/vim-sort-motion')
-
     call minpac#add('junegunn/vim-easy-align')
 
     " swap comma separated stuff with `g>` `g<` `gs`
@@ -83,9 +75,6 @@ if exists('*minpac#init')
     " map it to `g.`
     " doesn't play well with neovim.
     call minpac#add('machakann/vim-swap')
-
-    " really good implementation of kill-ring
-    call minpac#add('svermeulen/vim-yoink')
 
     " Multiple cursors
     " Italiano Vero -- mg979 has contributed a lot to vim-asciidoctor
@@ -103,19 +92,17 @@ if exists('*minpac#init')
 
     "" Filetype & Syntax
     call minpac#add('elixir-editors/vim-elixir')
-    call minpac#add('wlangstroth/vim-racket')
-    call minpac#add('udalov/kotlin-vim')
     call minpac#add('aklt/plantuml-syntax')
-    call minpac#add('dart-lang/dart-vim-plugin')
+    " call minpac#add('dart-lang/dart-vim-plugin')
   
 
     "" Language Server Protocol and completion
-    call minpac#add('prabirshrestha/vim-lsp')
-    call minpac#add('mattn/vim-lsp-settings')
-    call minpac#add('mattn/vim-lsp-icons')
-    call minpac#add('prabirshrestha/async.vim')
-    call minpac#add('prabirshrestha/asyncomplete.vim')
-    call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
+    " call minpac#add('prabirshrestha/vim-lsp')
+    " call minpac#add('mattn/vim-lsp-settings')
+    " call minpac#add('mattn/vim-lsp-icons')
+    " call minpac#add('prabirshrestha/async.vim')
+    " call minpac#add('prabirshrestha/asyncomplete.vim')
+    " call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
     call minpac#add('ervandew/supertab')
 
 
@@ -125,7 +112,8 @@ if exists('*minpac#init')
 
     "" Snippets
     call minpac#add('hrsh7th/vim-vsnip')
-    call minpac#add('hrsh7th/vim-vsnip-integ')
+    " it is quite slow to startup
+    " call minpac#add('hrsh7th/vim-vsnip-integ')
 
     " Close tags with > and >> in insert mode
     call minpac#add('alvan/vim-closetag')
@@ -138,27 +126,16 @@ if exists('*minpac#init')
     " gof (filemanager) and got (terminal)
     call minpac#add('justinmk/vim-gtfo')
 
-    " better vim-matchit
-    call minpac#add('andymass/vim-matchup')
-
     " preview of :s command
     call minpac#add('markonm/traces.vim')
-
-    " fast fold
-    call minpac#add('Konfekt/FastFold')
 
     " NETRW should be this
     call minpac#add('justinmk/vim-dirvish')
 
     call minpac#add('vifm/vifm.vim')
 
-
     " auto cd to your project root folder
     call minpac#add('airblade/vim-rooter')
-
-    "" RGB2Term is nice
-    " call minpac#add('chrisbra/Colorizer')
-    " call minpac#add('RRethy/vim-hexokinase')
 
     " Embed neovim into firefox textboxes.
     " Firenvim works in windows!
@@ -171,6 +148,10 @@ if exists('*minpac#init')
     " Autosize windows
     " call minpac#add('camspiers/lens.vim')
     call minpac#add('habamax/lens.vim', {'branch': 'fix-resize'})
+
+
+    call minpac#add('dstein64/vim-startuptime')
+
 
     call minpac#add('lifepillar/vim-gruvbox8')
     call minpac#add('lifepillar/vim-solarized8')

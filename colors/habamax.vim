@@ -403,6 +403,7 @@ hi link Lf_hl_stlFullPathMode StatuslineNC
 hi link Lf_hl_stlFuzzyMode StatuslineNC
 hi link Lf_hl_stlCwd Statusline
 hi link Lf_hl_stlBlank Statusline
+hi link Lf_hl_stlSpin StatuslineNC
 hi link Lf_hl_stlTotal StatuslineNC
 
 " Leaderf Popup

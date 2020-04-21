@@ -348,10 +348,10 @@ autocmd FileType *
 
 
 """ vim-matchup {{{1
-let g:loaded_matchit = 1
-let g:matchup_matchparen_offscreen = {'method': 'popup', 'highlight': 'MatchParen'}
-let g:matchup_surround_enabled = 1
-let g:matchup_enabled = 1
+" let g:loaded_matchit = 1
+" let g:matchup_matchparen_offscreen = {'method': 'popup', 'highlight': 'MatchParen'}
+" let g:matchup_surround_enabled = 1
+" let g:matchup_enabled = 1
 
 
 """ vim-vsnip {{{1
@@ -451,10 +451,10 @@ augroup autosize_windows | au!
     au BufWinEnter * silent! call lens#run()
 augroup end
 
-for letter in split('HJKL', '\zs')
-    exe printf("nnoremap <C-w>%s <C-w>%s:silent! call lens#run()<CR>",
-                \ letter, letter)
-endfor
+" for letter in split('HJKL', '\zs')
+"     exe printf("nnoremap <C-w>%s <C-w>%s:silent! call lens#run()<CR>",
+"                 \ letter, letter)
+" endfor
 
 
 """ vim-evalvim {{{1
