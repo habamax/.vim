@@ -203,11 +203,18 @@ cnoremap <M-d> <Del>
 cnoremap <M-p> <C-p>
 cnoremap <M-n> <C-n>
 
+"" Window mangament
 " switch to previous window
 tnoremap <M-o> <C-\><C-N><C-w>p
 nnoremap <M-o> <C-w>p
 inoremap <M-o> <C-\><C-N><C-w>p
 
+" close window
+tnoremap <M-q> <C-\><C-N><C-w>q
+nnoremap <M-q> <C-w>q
+inoremap <M-q> <C-\><C-N><C-w>q
+
+" switch to windows
 tnoremap <M-h> <C-\><C-N><C-w>h
 tnoremap <M-j> <C-\><C-N><C-w>j
 tnoremap <M-k> <C-\><C-N><C-w>k
@@ -221,6 +228,19 @@ nnoremap <M-j> <C-w>j
 nnoremap <M-k> <C-w>k
 nnoremap <M-l> <C-w>l
 
+" move windows
+tnoremap <M-H> <C-\><C-N><C-w>H
+tnoremap <M-J> <C-\><C-N><C-w>J
+tnoremap <M-K> <C-\><C-N><C-w>K
+tnoremap <M-L> <C-\><C-N><C-w>L
+inoremap <M-H> <C-\><C-N><C-w>H
+inoremap <M-J> <C-\><C-N><C-w>J
+inoremap <M-K> <C-\><C-N><C-w>K
+inoremap <M-L> <C-\><C-N><C-w>L
+nnoremap <M-H> <C-w>H
+nnoremap <M-J> <C-w>J
+nnoremap <M-K> <C-w>K
+nnoremap <M-L> <C-w>L
 
 " goto window
 for wnr in range(1, 9)
