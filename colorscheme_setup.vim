@@ -82,9 +82,8 @@ nnoremap <silent> yoT :let g:habamax_transparent = !g:habamax_transparent <bar> 
 "" loop over habamax contrast settings
 func! s:habamax_next_contrast() abort
     if get(g:, "habamax_transparent", v:false)
-        return
-    endif
-    if &background == 'light'
+        let g:habamax_transparent = v:false
+    elseif &background == 'light'
         " ring of (->regular -> dirty -> contrast->)
         if !g:habamax_contrast && !g:habamax_dirty
             let g:habamax_contrast = v:false
