@@ -29,7 +29,7 @@ if !exists('g:leaderf_loaded') && executable('fzf')
     nnoremap <leader>f :Files<CR>
     nnoremap <leader>b :Buffers<CR>
     nnoremap <leader>/ :BLines<CR>
-    nnoremap <leader>: :Commands<CR>
+    nnoremap <leader>; :Commands<CR>
     nnoremap <leader>T :Tags<CR>
     nnoremap <F1> :Help<CR>
     nnoremap <leader>h :History<CR>
@@ -100,14 +100,14 @@ if !exists("g:loaded_fzf") && (has('nvim') || has('python') || has('python3'))
     " nnoremap <leader>f :LeaderfFile<CR>
     " nnoremap <leader>b :LeaderfBuffer<CR>
     nnoremap <leader>/ :Leaderf line<CR>
-    nnoremap <leader>: :Leaderf command<CR>
+    nnoremap <leader>; :Leaderf command<CR>
     nnoremap <leader>T :Leaderf tag<CR>
     nnoremap <leader>[ :Leaderf function<CR>
     nnoremap <F1> :Leaderf help<CR>
     nnoremap <leader>h :Leaderf mru<CR>
     nnoremap <leader>g :Leaderf rg<CR>
     nnoremap <leader>c :LeaderfColorscheme<CR>
-    nnoremap <leader>; :Leaderf cmdHistory<CR>
+    nnoremap <leader>: :Leaderf cmdHistory<CR>
 
     let g:Lf_CommandMap = {'<C-]>': ['<C-V>']}
     silent! packadd LeaderF
