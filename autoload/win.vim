@@ -109,12 +109,13 @@ func! win#layout_save(...) abort
 	let s:layout = winlayout()
 	let s:cursor = [winnr(), getcurpos()]
 	call s:add_buf_to_layout(s:layout)
+    return "Layout is saved"
 endfunc
 
 
 func! win#layout_restore() abort
     if empty(s:layout)
-        return
+        return "No saved layout to restore"
     endif
 
     " Close other windows
@@ -132,6 +133,7 @@ func! win#layout_restore() abort
     " set cursor
     call setpos('.', s:cursor[1])
 
+    return "Layout is restored"
 endfunc
 
 " add bufnr to leaf

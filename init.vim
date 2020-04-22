@@ -233,8 +233,8 @@ for wnr in range(1, 9)
 endfor
 
 
-nnoremap <silent> <F3> :call win#layout_save()<CR>:echo "Layout is saved"<CR>
-nnoremap <silent> <F4> :call win#layout_restore()<CR>:echo "Layout is restored"<CR>
+nnoremap <silent> <F3> :echo win#layout_save()<CR>
+nnoremap <silent> <F4> :echo win#layout_restore()<CR>
 nnoremap <silent> <F5> :echo win#layout_toggle()<CR>
 
 
