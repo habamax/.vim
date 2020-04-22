@@ -77,11 +77,7 @@ func! win#layout_toggle() abort
         let layout_echo .= "Tiled layout"
     endif
 
-    if exists('g:lens#loaded')
-        call lens#run()
-    else
-        wincmd =
-    endif
+    call win#lens()
 
     return layout_echo
 endfunc
