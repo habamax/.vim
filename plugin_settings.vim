@@ -433,16 +433,5 @@ nnoremap <leader>l :DoOutline<CR>
 "             \ ]
 
 
-""" vim-lens {{{1
-augroup autosize_windows | au!
-    au BufWinEnter * silent! call lens#run()
-augroup end
-
-" for letter in split('HJKL', '\zs')
-"     exe printf("nnoremap <C-w>%s <C-w>%s:silent! call lens#run()<CR>",
-"                 \ letter, letter)
-" endfor
-
-
 """ vim-evalvim {{{1
 let g:evalvim_mappings = v:true

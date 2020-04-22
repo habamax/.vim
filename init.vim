@@ -402,6 +402,11 @@ augroup restore_last_cursor_position | autocmd!
 augroup END
 
 
+augroup autosize_windows | au!
+    au BufWinEnter,WinEnter * silent! call win#lens()
+augroup end
+
+
 "" Load Other Settings (plugins, colorscheme, etc) {{{1
 
 " local machine settings, shouldn't be in the git repo

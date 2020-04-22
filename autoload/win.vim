@@ -15,6 +15,29 @@ func! win#scroll_other(dir) abort
 endfunc
 
 
+"" Autosize windows.
+"" There is lens.vim plugin but essentially this simplified version could be used
+"" instead. Original lens.vim laaaags if switched to a huge file, it
+"" calculates target width consuming whole file into memory....
+""
+"" Add following lines somewhere in you vimrc:
+"" augroup autosize_windows | au!
+""     au BufWinEnter,WinEnter * silent! call win#comfy()
+"" augroup end
+func! win#lens() abort
+    let width = max([90, winwidth(0)])
+    let height = max([20, winheight(0)])
+
+    execute 'vertical resize ' . width
+    execute 'resize ' . height
+    setlocal winfixheight
+    setlocal winfixwidth
+    wincmd =
+    setlocal nowinfixheight
+    setlocal nowinfixwidth
+endfunction
+
+
 "" 4 layouts
 "" layout 1: even horizontal
 "" layout 2: even vertical
