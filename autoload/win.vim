@@ -1,10 +1,10 @@
-"" Scroll other window mappings
+"" Scroll other(previous) window
 func! win#scroll_other(dir) abort
     if winnr('$') < 2
         return
     endif
-    wincmd w
-    let cmd = "normal ".winheight(0)/2
+    wincmd p
+    let cmd = "normal ".winheight(0)
     if a:dir
         let cmd .= "\<c-e>"
     else
