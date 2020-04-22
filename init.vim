@@ -293,7 +293,7 @@ nnoremap <silent> <Leader>evs :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugin
 " edit plugins list file
 nnoremap <silent> <Leader>evp :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
 " Close other files, open 4 main vim configs
-nnoremap <silent> <Leader>evv :Vimrc<CR>
+nnoremap <silent> <Leader>evv :Init<CR>
 
 
 " Directory ~/docs 
