@@ -94,6 +94,13 @@ set commentstring=
 
 "" Misc {{{1
 
+" neovim loads clipboard.vim at startup having this option set
+" and it makes startup slower.
+" vim doesn' have this problem
+if !has("nvim") 
+    set clipboard=unnamed
+endif
+
 set sessionoptions=buffers,curdir,tabpages,winsize
 
 " ripgrep as grepprg
