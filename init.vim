@@ -49,6 +49,8 @@ set confirm
 set conceallevel=0
 
 "" Unicode chars
+" set listchars=tab:→\ ,eol:┘,trail:·
+" let &showbreak='└ '
 set listchars=tab:→\ ,eol:↲,trail:·
 let &showbreak='↳ '
 set fillchars=fold:\ ,vert:│
