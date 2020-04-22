@@ -239,6 +239,8 @@ nnoremap <leader>ws <C-w>s
 nnoremap <leader>wv <C-w>v
 nnoremap <leader>wn <C-w>n
 nnoremap <leader>wo <C-w>o
+" maximize window
+nnoremap <leader>wm <C-w>_<C-w>\|
 
 " goto window
 for wnr in range(1, 9)
