@@ -233,7 +233,7 @@ for wnr in range(1, 9)
 endfor
 
 
-nnoremap <F5> :call win#toggle_layout()<CR>
+nnoremap <silent> <F6> :call win#toggle_layout()<CR>
 
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
