@@ -232,6 +232,10 @@ for wnr in range(1, 9)
     exe printf("nnoremap <M-%s> %s<C-w>w", wnr, wnr)
 endfor
 
+
+nnoremap <F5> :call win#toggle_layout()<CR>
+
+
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
