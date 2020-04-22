@@ -38,7 +38,7 @@ func! win#lens() abort
 endfunction
 
 
-"" 4 layouts
+"" 5 layouts
 "" layout 1: even horizontal
 "" layout 2: even vertical
 "" layout 3: main horizontal
