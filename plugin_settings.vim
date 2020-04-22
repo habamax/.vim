@@ -389,11 +389,6 @@ let g:vrc_set_default_mapping = 1
 let g:vrc_trigger = '<leader>ee'
 
 
-"" vim-winlayout {{{1
-
-nmap <F3> <Plug>(WinlayoutBackward)
-nmap <F4> <Plug>(WinlayoutForward)
-
 
 """ firenvim {{{1
 if exists('g:started_by_firenvim')
