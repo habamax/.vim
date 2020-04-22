@@ -238,6 +238,7 @@ nnoremap <leader>q <C-w>q
 nnoremap <leader>ws <C-w>s
 nnoremap <leader>wv <C-w>v
 nnoremap <leader>wn <C-w>n
+nnoremap <leader>wo <C-w>o
 
 " goto window
 for wnr in range(1, 9)
