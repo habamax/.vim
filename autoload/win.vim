@@ -71,7 +71,7 @@ func! win#tile() abort
 
     let half = len(buffers)/2
 
-    for bnr in range(0, half-1)
+    for bnr in range(half)
         split
         call add(windows, win_getid())
         exe printf("buffer %s", buffers[bnr])
