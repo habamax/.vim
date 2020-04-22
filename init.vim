@@ -227,7 +227,7 @@ nnoremap <M-j> <C-w>j
 nnoremap <M-k> <C-w>k
 nnoremap <M-l> <C-w>l
 
-nnoremap <leader>wq <C-w>q
+nnoremap <leader>q <C-w>q
 nnoremap <leader>ws <C-w>s
 nnoremap <leader>wv <C-w>v
 nnoremap <leader>wn <C-w>n
