@@ -48,6 +48,7 @@ if exists('*minpac#init')
     "" Git
     call minpac#add('tpope/vim-fugitive', {'type': 'opt'})
     call minpac#add('rbong/vim-flog', {'type': 'opt'})
+    call minpac#add('airblade/vim-gitgutter', {'type': 'opt'})
 
 
     "" Fuzzy stuff
