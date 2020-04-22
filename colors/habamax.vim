@@ -339,13 +339,15 @@ if !has('win32')
 endif
 
 
-"" Fugitive
+"" Fugitive && Gitgutter
 hi link gitCommitSummary Title
 hi diffAdded guifg=#20a020 gui=NONE
 hi diffRemoved guifg=#ff5050 gui=NONE
 hi! link diffLine diffChange
 hi! link diffSubname diffText
-
+hi! link GitGutterAdd diffAdded
+hi! link GitGutterDelete diffRemoved
+hi! GitGutterChange guifg=#c18401
 
 "" Asciidoctor
 if &background == 'light'
