@@ -177,13 +177,13 @@ inoremap <silent> <M-U> <ESC>:call text#lowercase_word(v:true)<CR>
 
 
 " Move line up/down
-nnoremap <silent> <S-M-k> :<C-u>silent! exe "move-2"<CR>==
-nnoremap <silent> <S-M-j> :<C-u>silent! exe "move+1"<CR>==
-inoremap <silent> <S-M-k> <ESC>:<C-u>silent! exe "move-2"<CR>==gi
-inoremap <silent> <S-M-j> <ESC>:<C-u>silent! exe "move+1"<CR>==gi
+nnoremap <silent> <C-S-k> :<C-u>silent! exe "move-2"<CR>==
+nnoremap <silent> <C-S-j> :<C-u>silent! exe "move+1"<CR>==
+inoremap <silent> <C-S-k> <ESC>:<C-u>silent! exe "move-2"<CR>==gi
+inoremap <silent> <C-S-j> <ESC>:<C-u>silent! exe "move+1"<CR>==gi
 " Move selected lines up/down
-xnoremap <silent> <S-M-k> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
-xnoremap <silent> <S-M-j> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
+xnoremap <silent> <C-S-k> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
+xnoremap <silent> <C-S-j> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 
 " nnoremap <M-v> <C-v>
 " xnoremap <M-v> <C-v>
