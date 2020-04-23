@@ -25,8 +25,14 @@ endfunc
 ""     au BufWinEnter,WinEnter * silent! call win#comfy()
 "" augroup end
 func! win#lens() abort
-    let width = max([90, winwidth(0)])
-    let height = max([20, winheight(0)])
+    let width = max([
+                \ get(g:, "win_pref_width", 90),
+                \ winwidth(0)
+                \ ])
+    let height = max([
+                \ get(g: "win_pref_height", 20),
+                \ winheight(0)
+                \ ])
 
     execute 'vertical resize ' . width
     execute 'resize ' . height
