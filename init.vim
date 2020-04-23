@@ -185,8 +185,8 @@ inoremap <silent> <M-n> <ESC>:<C-u>silent! exe "move+1"<CR>==gi
 xnoremap <silent> <M-p> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
 xnoremap <silent> <M-n> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 
-" nnoremap <M-v> <C-v>
-" xnoremap <M-v> <C-v>
+nnoremap <M-v> <C-v>
+xnoremap <M-v> <C-v>
 
 nnoremap <M-f> <C-f>
 xnoremap <M-f> <C-f>
