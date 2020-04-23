@@ -288,13 +288,6 @@ vnoremap * y/<C-R>"<CR>
 
 " edit init file (vimrc) -- nvim's init.vim sources vimrc
 nnoremap <silent> <Leader>evi :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/init.vim"<CR>
-" edit gvim init file (gvimrc) -- nvim doesn't know about $GVIMRC and it's
-" ginit.vim sources gvimrc
-nnoremap <silent> <Leader>evg :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/gvimrc"<CR>
-" edit plugins settings file 
-nnoremap <silent> <Leader>evs :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugin_settings.vim"<CR>
-" edit plugins list file
-nnoremap <silent> <Leader>evp :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/plugins.vim"<CR>
 " Close other files, open 4 main vim configs
 nnoremap <silent> <Leader>evv :Init<CR>
 
@@ -312,10 +305,8 @@ nnoremap <silent> d<Leader> <nop>
 "" g:HOME is in paths.vim
 " edit global notes file
 nnoremap <silent> <Leader>en :exe printf('e %s/docs/notes/notes.adoc', g:HOME)<CR>
-nmap <Leader>ут <Leader>en
 " edit global current journal file
 nnoremap <silent> <Leader>ej :exe printf('e %s/docs/journal/2020.adoc', g:HOME)<CR>
-nmap <Leader>уо <Leader>ej
 
 " scroll other window
 nnoremap <silent> <C-j> :call win#scroll_other(1)<CR>
