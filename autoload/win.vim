@@ -25,12 +25,16 @@ endfunc
 ""     au BufWinEnter,WinEnter * silent! call win#comfy()
 "" augroup end
 func! win#lens() abort
+    if s:is_lens_disabled()
+        return
+    endif
+
     let width = max([
-                \ get(g:, "win_pref_width", 90),
+                \ get(g:, "lens_pref_width", 90),
                 \ winwidth(0)
                 \ ])
     let height = max([
-                \ get(g: "win_pref_height", 20),
+                \ get(g:, "lens_pref_height", 20),
                 \ winheight(0)
                 \ ])
 
@@ -42,6 +46,23 @@ func! win#lens() abort
     setlocal nowinfixheight
     setlocal nowinfixwidth
 endfunction
+
+
+func! s:is_lens_disabled() abort
+    " do not resize floating windows
+    if exists('*nvim_win_get_config')
+        if nvim_win_get_config(0)['relative'] != ''
+            return v:true
+        endif
+    endif
+
+    " do not resize windows with filetype
+    if index(get(g:, "lens_disabled_filetypes", []), &filetype) != -1
+        return v:true
+    endif
+
+    return v:false
+endfunc
 
 
 "" 5 layouts
@@ -130,10 +151,10 @@ let s:winrestcmd = ""
 let s:cursor = []
 
 func! win#layout_save(...) abort
-	let s:winrestcmd = winrestcmd()
-	let s:layout = winlayout()
-	let s:cursor = [winnr(), getcurpos()]
-	call s:add_buf_to_layout(s:layout)
+    let s:winrestcmd = winrestcmd()
+    let s:layout = winlayout()
+    let s:cursor = [winnr(), getcurpos()]
+    call s:add_buf_to_layout(s:layout)
     return "Layout is saved"
 endfunc
 
