@@ -177,13 +177,13 @@ inoremap <silent> <M-U> <ESC>:call text#lowercase_word(v:true)<CR>
 
 
 " Move line up/down
-nnoremap <silent> <C-S-k> :<C-u>silent! exe "move-2"<CR>==
-nnoremap <silent> <C-S-j> :<C-u>silent! exe "move+1"<CR>==
-inoremap <silent> <C-S-k> <ESC>:<C-u>silent! exe "move-2"<CR>==gi
-inoremap <silent> <C-S-j> <ESC>:<C-u>silent! exe "move+1"<CR>==gi
+nnoremap <silent> <M-p> :<C-u>silent! exe "move-2"<CR>==
+nnoremap <silent> <M-n> :<C-u>silent! exe "move+1"<CR>==
+inoremap <silent> <M-p> <ESC>:<C-u>silent! exe "move-2"<CR>==gi
+inoremap <silent> <M-n> <ESC>:<C-u>silent! exe "move+1"<CR>==gi
 " Move selected lines up/down
-xnoremap <silent> <C-S-k> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
-xnoremap <silent> <C-S-j> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
+xnoremap <silent> <M-p> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
+xnoremap <silent> <M-n> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 
 " nnoremap <M-v> <C-v>
 " xnoremap <M-v> <C-v>
@@ -309,8 +309,8 @@ nnoremap <silent> <Leader>en :exe printf('e %s/docs/notes/notes.adoc', g:HOME)<C
 nnoremap <silent> <Leader>ej :exe printf('e %s/docs/journal/2020.adoc', g:HOME)<CR>
 
 " scroll other window
-nnoremap <silent> <C-j> :call win#scroll_other(1)<CR>
-nnoremap <silent> <C-k> :call win#scroll_other(0)<CR>
+nnoremap <silent> <M-F> :call win#scroll_other(1)<CR>
+nnoremap <silent> <M-B> :call win#scroll_other(0)<CR>
 
 nnoremap <silent> gof :call os#file_manager()<CR>
 nnoremap gx :call os#open_url(expand('<cWORD>'))<CR>
