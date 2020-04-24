@@ -160,7 +160,7 @@ endif
 " general mapping to be used for different filetypes
 nnoremap <leader>m <nop>
 
-nnoremap <leader><tab> <C-^>
+nnoremap <BS> <C-^>
 
 " Capitalize word
 nnoremap <silent> <M-c> :call text#capitalize_word()<CR>
@@ -259,6 +259,8 @@ nnoremap <silent> <F5> :echo win#layout_toggle()<CR>
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
+nnoremap Y y$
+
 " spell correction for the first suggested
 " https://castel.dev/post/lecture-notes-1/
 inoremap <M-s> <c-g>u<C-\><C-o>[s<ESC>1z=`]a<c-g>u
@@ -270,6 +272,10 @@ nnoremap <leader><leader><leader> :FixText<CR>
 " now it is possible to paste many times over selected text
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
 xnoremap <expr> P 'Pgv"'.v:register.'y`>'
+
+" shift right and left
+xnoremap > >gv
+xnoremap < <gv
 
 " <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
