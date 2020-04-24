@@ -19,7 +19,6 @@ endif
 if executable("git")
     silent! packadd vim-fugitive
     silent! packadd vim-flog
-    silent! packadd vim-gitgutter
 endif
 
 
