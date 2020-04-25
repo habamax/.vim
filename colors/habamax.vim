@@ -313,7 +313,7 @@ hi! link SpecialKey EndOfBuffer
 hi! link CursorColumn CursorLine
 hi! link CursorLineNr CursorLine
 hi! link QuickFixLine CursorLine
-hi SignColumn guibg=NONE
+hi SignColumn guibg=NONE ctermbg=NONE
 hi lCursor guibg=#ff7070
 hi link TabLine StatusLineNC
 hi link TabLineFill TabLine
