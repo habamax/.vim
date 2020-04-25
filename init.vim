@@ -28,7 +28,8 @@ set winaltkeys=no
 set guioptions=cM
 set showtabline=1
 set cmdheight=1
-set nonumber norelativenumber
+set signcolumn=yes
+set number norelativenumber
 set nolazyredraw
 set splitbelow
 set splitright
