@@ -227,24 +227,24 @@ endfunc
 
 
 """ vim-dadbod {{{1
-let g:dadbods = []
+" let g:dadbods = []
 
-" g:dadbods should be populated with
-" call add(g:dadbods, = #{
-"       \name: "My Database",
-"       \url: "postgresql://user:password@url/dbname"
-"       \})
+"" g:dadbods should be populated with
+"" call add(g:dadbods, = #{
+""       \name: "My Database",
+""       \url: "postgresql://user:password@url/dbname"
+""       \})
 
-runtime mydadbods.vim
+" runtime mydadbods.vim
 
-command! -nargs=1 -complete=customlist,DBSComplete DBSelect :let b:db = g:dadbods[matchstr("<args>", '^(\zs\d\+\ze)')].url
+" command! -nargs=1 -complete=customlist,DBSComplete DBSelect :let b:db = g:dadbods[matchstr("<args>", '^(\zs\d\+\ze)')].url
 
 
-func! DBSComplete(A, L, P)
-    let dadbods = map(copy(g:dadbods), {i, v -> '('.i.') '.v['name']})
-    call filter(dadbods, {_, v -> v =~ '.*' . a:A . '.*'})
-    return dadbods
-endfunc
+" func! DBSComplete(A, L, P)
+"     let dadbods = map(copy(g:dadbods), {i, v -> '('.i.') '.v['name']})
+"     call filter(dadbods, {_, v -> v =~ '.*' . a:A . '.*'})
+"     return dadbods
+" endfunc
 
 
 "" operator mapping
@@ -263,86 +263,6 @@ let g:dispatch_no_maps = 1
 " tmux in alacritty wsl debian makes vim "bad" sized in the end
 " vim doesn't resize back after tmux pane is closed.
 let g:dispatch_no_tmux_make = 1
-
-
-""" vim-lsp {{{1
-" let g:lsp_auto_enable = 1
-" let g:lsp_diagnostics_echo_cursor = 1
-" let g:lsp_semantic_enabled = 1
-
-" " prefer microsoft implementation of pyls 
-" let g:lsp_settings_filetype_python = 'pyls-ms'
-
-" logging for debug
-" let g:lsp_log_verbose = 1
-" let g:lsp_log_file = expand('~/vimlsp.log')
-
-" augroup lsp_preview | au!
-"     autocmd CompleteDone * silent! pclose
-"     if !has('nvim')
-"         autocmd User lsp_float_opened
-"             \ call popup_setoptions(lsp#ui#vim#output#getpreviewwinid(),
-"             \ {
-"             \ 'border': [0, 0, 0, 0],
-"             \ 'padding': [0, 1, 0, 1]
-"             \ })
-"     end
-" augroup end
-
-" func! SetLSPMappings()
-"     nnoremap <buffer> gd :LspDefinition<CR>
-"     nnoremap <buffer> K :LspHover<CR>
-"     nnoremap <buffer> <C-Space> :LspSignatureHelp<CR>
-"     nnoremap <buffer> <leader>lf :LspDocumentFormat<CR>
-"     nnoremap <buffer> <leader>la :LspCodeAction<CR>
-"     nnoremap <buffer> <leader>ls :LspDocumentSymbol<CR>
-" endfunc
-" augroup lsp_mappings | au!
-"     au FileType python call SetLSPMappings()
-"     au FileType ruby call SetLSPMappings()
-"     au FileType dart call SetLSPMappings()
-"     au FileType html call SetLSPMappings()
-"     au FileType go call SetLSPMappings()
-"     " autocmd BufWritePre *.go call execute('LspDocumentFormatSync') | call execute('LspCodeActionSync source.organizeImports')
-" augroup END
-
-
-"" supertab {{{1
-" let g:SuperTabDefaultCompletionType = 'context'
-" autocmd FileType *
-"             \ if &omnifunc != '' |
-"             \   call SuperTabChain(&omnifunc, "<c-p>") |
-"             \ endif
-
-
-
-" "" coc.nvim {{{1
-
-" " Highlight the symbol and its references when holding the cursor.
-" autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" " Use K to show documentation in preview window.
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" function! s:show_documentation()
-"   if (index(['vim','help'], &filetype) >= 0)
-"     execute 'h '.expand('<cword>')
-"   else
-"     call CocAction('doHover')
-"   endif
-" endfunction
-
-" " Formatting selected code.
-" nmap <leader>af :call CocActionAsync("format")<CR>
-
-" nmap <silent> gd <Plug>(coc-definition)
-
-
-""" vim-matchup {{{1
-" let g:loaded_matchit = 1
-" let g:matchup_matchparen_offscreen = {'method': 'popup', 'highlight': 'MatchParen'}
-" let g:matchup_surround_enabled = 1
-" let g:matchup_enabled = 1
 
 
 """ vim-vsnip {{{1
