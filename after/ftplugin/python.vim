@@ -5,21 +5,22 @@ endif
 
 let b:foldchar = ''
 
-func! FoldIndent() abort
-    let indent = indent(v:lnum)/&sw
-    let indent_next = indent(nextnonblank(v:lnum+1))/&sw
+func! HabaPythonFold() abort
     let line = getline(v:lnum)
-
-    if indent_next > indent && line !~ '^\s*$'
-        return ">" . (indent+1)
-        return "<" . (indent+1)
-    elseif indent != 0
-        return indent
-    else 
+    if line =~? '^\s*$'
         return -1
     endif
+
+    let indent = indent(v:lnum) / &sw
+    let indent_next = indent(nextnonblank(v:lnum+1))/&sw
+
+    if indent_next > indent && line =~ ':\s*$'
+        return ">" . indent_next
+    else
+        return indent
+    endif
 endfunc
-setlocal foldexpr=FoldIndent()
+setlocal foldexpr=HabaPythonFold()
 setlocal foldmethod=expr
 setlocal foldignore=
 
