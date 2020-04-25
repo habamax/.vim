@@ -308,11 +308,11 @@ let g:dispatch_no_tmux_make = 1
 
 
 "" supertab {{{1
-let g:SuperTabDefaultCompletionType = 'context'
-autocmd FileType *
-            \ if &omnifunc != '' |
-            \   call SuperTabChain(&omnifunc, "<c-p>") |
-            \ endif
+" let g:SuperTabDefaultCompletionType = 'context'
+" autocmd FileType *
+"             \ if &omnifunc != '' |
+"             \   call SuperTabChain(&omnifunc, "<c-p>") |
+"             \ endif
 
 
 
@@ -417,12 +417,31 @@ nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>l :DoOutline<CR>
 
 
-" """ DBUI {{{1
-" " this is for test purposes only
-" let g:dbs = [
-"             \ { 'name': 'dev', 'url': 'postgres://postgres@localhost:5432/postgres' }
-"             \ ]
-
-
 """ vim-evalvim {{{1
 let g:evalvim_mappings = v:true
+
+""" nvim-lsp {{{1
+
+" if has("nvim")
+
+"     silent! packadd nvim-lsp
+
+"     if executable('gopls')
+"         lua require'nvim_lsp'.gopls.setup{}
+"         augroup omni_py | au!
+"             au FileType go setl omnifunc=v:lua.vim.lsp.omnifunc
+"         augroup end
+"     endif
+"     if executable('pyls')
+"         lua require'nvim_lsp'.pyls.setup{}
+"         augroup omni_py | au!
+"             au FileType python setl omnifunc=v:lua.vim.lsp.omnifunc
+"         augroup end
+"     endif
+
+"     lua require'nvim_lsp'.gdscript.setup{}
+"     augroup omni_py | au!
+"         au FileType gdscript setl omnifunc=v:lua.vim.lsp.omnifunc
+"     augroup end
+
+" endif

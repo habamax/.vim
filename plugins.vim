@@ -97,13 +97,19 @@ if exists('*minpac#init')
   
 
     "" Language Server Protocol and completion
+
+    call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
+
+    " can't make it work for me
+    " call minpac#add('neovim/nvim-lsp', { 'type': 'opt' })
+
     " call minpac#add('prabirshrestha/vim-lsp')
     " call minpac#add('mattn/vim-lsp-settings')
     " call minpac#add('mattn/vim-lsp-icons')
     " call minpac#add('prabirshrestha/async.vim')
     " call minpac#add('prabirshrestha/asyncomplete.vim')
     " call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
-    call minpac#add('ervandew/supertab')
+    " call minpac#add('ervandew/supertab')
 
 
     "" Snippets
