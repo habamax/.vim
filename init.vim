@@ -268,6 +268,7 @@ inoremap <M-s> <c-g>u<C-\><C-o>[s<ESC>1z=`]a<c-g>u
 
 " just one space on the line, preserving indent
 nnoremap <leader><leader><leader> :FixText<CR>
+xnoremap <leader><leader><leader> :FixText<CR>
 
 " now it is possible to paste many times over selected text
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
