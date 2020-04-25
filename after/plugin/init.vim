@@ -42,16 +42,20 @@ endif
 
 
 if exists("g:did_coc_loaded") " {{{1
+    " :CocInstall coc-vimlsp
+    " :CocInstall coc-python
+    " :CocInstall coc-godot
+
     inoremap <silent><expr> <TAB>
                 \ pumvisible() ? "\<C-n>" :
-                \ <SID>check_back_space() ? "\<TAB>" :
+                \ habacoc#check_back_space() ? "\<TAB>" :
                 \ coc#refresh()
     inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
-    function! s:check_back_space() abort
-        let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~# '\s'
-    endfunction
+    augroup coc_settings | au!
+        autocmd CursorHold * silent call CocActionAsync('highlight')
+        autocmd FileType gdscript,vim call habacoc#mappings()
+    augroup end
 endif
 
 
