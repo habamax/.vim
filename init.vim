@@ -162,6 +162,8 @@ endif
 nnoremap <leader>m <nop>
 
 nnoremap <BS> <C-^>
+" killall buffers except current one
+nnoremap <M-BS> :%bd<CR><C-^>:bd#<CR>
 
 " Capitalize word
 nnoremap <silent> <M-c> :call text#capitalize_word()<CR>
