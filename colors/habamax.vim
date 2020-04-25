@@ -365,6 +365,32 @@ if get(g:, "habamax_flat", v:false)
     hi link asciidoctorTableCell Statement
     hi link asciidoctorInlineAnchor Statement
     hi link asciidoctorBlockOptions Statement
+
+    hi link fugitiveHeading Statement
+    hi link fugitiveStagedHeading Statement
+    hi link fugitiveUnstagedHeading Statement
+    hi link fugitiveUntrackedHeading Statement
+    hi link fugitiveHash Statement
+    hi link fugitiveModifier Statement
+    hi link fugitiveUntrackedModifier Statement
+    hi link fugitiveUnstagedModifier Statement
+    hi link fugitiveStagedModifier Statement
+else
+    " restore default fugitive colors (as of 2020-04-25)
+    hi link fugitiveHeader Label
+    hi link fugitiveHeading PreProc
+    hi link fugitiveUntrackedHeading PreCondit
+    hi link fugitiveUnstagedHeading Macro
+    hi link fugitiveStagedHeading Include
+    hi link fugitiveModifier Type
+    hi link fugitiveUntrackedModifier StorageClass
+    hi link fugitiveUnstagedModifier Structure
+    hi link fugitiveStagedModifier Typedef
+    hi link fugitiveInstruction Type
+    hi link fugitiveStop Function
+    hi link fugitiveHash Identifier
+    hi link fugitiveSymbolicRef Function
+    hi link fugitiveCount Number
 end
 
 
