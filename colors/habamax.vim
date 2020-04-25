@@ -349,6 +349,9 @@ hi! link GitGutterAdd diffAdded
 hi! link GitGutterDelete diffRemoved
 hi! GitGutterChange guifg=#c18401 ctermfg=yellow
 
+"" Coc.nvim
+hi! link CocErrorSign diffRemoved
+
 "" Asciidoctor
 if &background == 'light'
     hi asciidoctorIndented guifg=#555555 gui=NONE ctermfg=1 cterm=NONE
