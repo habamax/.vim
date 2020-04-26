@@ -365,11 +365,3 @@ let g:evalvim_mappings = v:true
 "     augroup end
 
 " endif
-
-
-""" nnn {{{1
-if executable('nnn')
-    let g:nnn#set_default_mappings = 1
-    let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
-    silent! packadd nnn.vim
-endif
