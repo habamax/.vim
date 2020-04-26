@@ -365,3 +365,9 @@ let g:evalvim_mappings = v:true
 "     augroup end
 
 " endif
+
+
+""" Vifm {{{1
+if executable("vifm")
+    silent! packadd vifm.vim
+endif
