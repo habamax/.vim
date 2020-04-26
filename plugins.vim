@@ -134,7 +134,8 @@ if exists('*minpac#init')
     " NETRW should be this
     call minpac#add('justinmk/vim-dirvish')
 
-    call minpac#add('vifm/vifm.vim')
+    " nnn filemanager
+    call minpac#add('mcchrish/nnn.vim')
 
     " auto cd to your project root folder
     call minpac#add('airblade/vim-rooter')

@@ -365,3 +365,9 @@ let g:evalvim_mappings = v:true
 "     augroup end
 
 " endif
+
+
+""" nnn {{{1
+let g:nnn#set_default_mappings = 0
+nnoremap <leader>n :NnnPicker %:p:h<CR>
+let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
