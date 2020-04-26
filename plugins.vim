@@ -135,7 +135,9 @@ if exists('*minpac#init')
     call minpac#add('justinmk/vim-dirvish')
 
     " nnn filemanager
-    call minpac#add('mcchrish/nnn.vim')
+    if executable('nnn')
+        call minpac#add('mcchrish/nnn.vim', {'type': 'opt'})
+    endif
 
     " auto cd to your project root folder
     call minpac#add('airblade/vim-rooter')
