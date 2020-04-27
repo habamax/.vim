@@ -45,6 +45,10 @@ if !exists('g:leaderf_loaded') && executable('fzf')
         cc
     endfunction
 
+    " doesn't play nice with transparent background and vim
+    " https://github.com/vim/vim/issues/2361
+    let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.6 } }
+
     let g:fzf_action = {
                 \ 'ctrl-q': function('s:build_quickfix_list'),
                 \ 'ctrl-t': 'tab split',
