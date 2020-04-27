@@ -148,12 +148,6 @@ if !has('nvim') && !has('gui_running') && !has('win32')
         exec "imap \e".c." <A-".c.">"
         let c = nr2char(1+char2nr(c))
     endw
-    let c='A'
-    while c <= 'Z'
-        exec "set <A-".c.">=\e".c
-        exec "imap \e".c." <A-".c.">"
-        let c = nr2char(1+char2nr(c))
-    endw
     let c='0'
     while c <= '9'
         exec "set <A-".c.">=\e".c
