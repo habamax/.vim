@@ -69,7 +69,7 @@ if !exists('g:leaderf_loaded') && executable('fzf')
     silent! packadd fzf
     silent! packadd fzf.vim
 
-    command! Docs :exe printf('Files %s/docs', g:HOME)
+    command! Docs :exe printf('Files %sdocs', g:HOME)
     command! VimConfigs :exe printf('Files %s', fnamemodify($MYVIMRC, ":p:h"))
 
     " remove delay when close fzf with escape
