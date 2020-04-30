@@ -40,8 +40,8 @@ if exists('*minpac#init')
     " Sessions
     call minpac#add('tpope/vim-obsession')
     " Databases
-    " call minpac#add('tpope/vim-dadbod')
-    " call minpac#add('kristijanhusak/vim-dadbod-ui')
+    call minpac#add('tpope/vim-dadbod')
+    call minpac#add('kristijanhusak/vim-dadbod-ui')
 
 
     "" Git

@@ -251,16 +251,6 @@ endfunc
 " endfunc
 
 
-"" operator mapping
-xnoremap <expr> <Plug>(DBExe)     db#op_exec()
-nnoremap <expr> <Plug>(DBExe)     db#op_exec()
-nnoremap <expr> <Plug>(DBExeLine) db#op_exec() . '_'
-
-xmap <leader>db  <Plug>(DBExe)
-nmap <leader>db  <Plug>(DBExe)
-omap <leader>db  <Plug>(DBExe)
-nmap <leader>dbb <Plug>(DBExeLine)
-
 
 """ vim-dispatch {{{1
 let g:dispatch_no_maps = 1
