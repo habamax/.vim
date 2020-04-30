@@ -54,7 +54,9 @@ set list
 " set listchars=tab:→\ ,eol:┘,trail:·
 " set listchars=tab:⇥\ ,eol:↲,trail:·
 " let &showbreak='└ '
-set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:␣,trail:·
+" set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:␣,trail:·
+set listchars=tab:›\ ,extends:→,precedes:←,nbsp:␣,trail:·
+" set listchars=tab:│\ ,extends:›,precedes:‹,nbsp:␣,trail:·
 " set listchars=tab:▸\ ,extends:›,precedes:‹,nbsp:␣,trail:·
 " set listchars=tab:›\ ,eol:↲,trail:·
 let &showbreak='↪ '
@@ -349,7 +351,7 @@ augroup END
 command! Init :silent only
             \<bar>:exe printf("e %s/init.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:exe printf("vs %s/plugin_settings.vim", fnamemodify($MYVIMRC, ":p:h"))
-            \<bar>:exe printf("sp %s/gvimrc", fnamemodify($MYVIMRC, ":p:h"))
+            \<bar>:exe printf("sp %s/after/plugin/init.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:1wincmd w 
             \<bar>:exe printf("sp %s/plugins.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:1wincmd w 
