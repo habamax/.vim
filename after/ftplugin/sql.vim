@@ -1,5 +1,6 @@
 " npm i -g sql-formatter-cli
 if executable('sql-formatter-cli')
+    setlocal formatprg=sql-formatter-cli
     command -buffer Format :%!sql-formatter-cli
 endif
 
