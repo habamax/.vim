@@ -93,7 +93,7 @@ if exists('*minpac#init')
     call minpac#add('elixir-editors/vim-elixir')
     call minpac#add('aklt/plantuml-syntax')
     " call minpac#add('dart-lang/dart-vim-plugin')
-  
+
 
     "" Language Server Protocol and completion
 
