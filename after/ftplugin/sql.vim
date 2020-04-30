@@ -1,8 +1,6 @@
-" Install sqlparse first
-" `pip install --upgrade sqlparse`
-" Now you can gggqG to reformat current sql buffer
-if executable('sqlformat')
-    setlocal formatprg=sqlformat\ -s\ -a\ --keywords\ upper\ --wrap_after\ 120\ -
+" npm i -g sql-formatter-cli
+if executable('sql-formatter-cli')
+    command -buffer Format :%!sql-formatter-cli
 endif
 
 " setlocal commentstring=--\ %s
