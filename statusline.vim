@@ -23,14 +23,8 @@ func! StatusGitBranch()
     return branch
 endfunc
 
-
-if get(g:, "status_bright_winnr", v:false)
-    set statusline=%#StatusLine#%{misc#unicode_number(winnr())}%*
-else
-    set statusline=%{misc#unicode_number(winnr())}
-endif
-set statusline+=%([\%R%M]%)
-set statusline+=%<%f
+set statusline=%([\%R%M]%)
+set statusline+=%f%<
 set statusline+=%=
 set statusline+=%(%{StatusIM()}%)
 set statusline+=%y

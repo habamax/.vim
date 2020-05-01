@@ -11,7 +11,7 @@ func! Tabline()
 
         let s .= '%' . tab . 'T'
         let s .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
-        let s .= ' ' . misc#unicode_number(tab, v:true)
+        let s .= ' '
         let s .= (bufname != '' ? fnamemodify(bufname, ':t') . ' ' : '[No Name] ')
 
         if bufmodified
