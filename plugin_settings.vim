@@ -27,6 +27,7 @@ endif
 " Try FZF
 if !exists('g:leaderf_loaded') && executable('fzf')
     nnoremap <leader>f :Files<CR>
+    nnoremap <leader>F :GFiles<CR>
     nnoremap <leader>b :Buffers<CR>
     nnoremap <leader>/ :BLines<CR>
     nnoremap <leader>; :Commands<CR>
