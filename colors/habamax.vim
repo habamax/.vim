@@ -1,4 +1,4 @@
-" habamax.vim -- GUI colorscheme with default syntax highlighting
+" habamax.vim -- GUI colorscheme with default syntax highlighting {{{
 "
 " Name:       habamax
 " Maintainer: Maxim Kim <habamax@gmail.com>
@@ -44,6 +44,7 @@
 " To make light not so light add
 " let g:habamax_dirty = v:true
 "
+" }}}
 
 hi clear
 if exists('syntax_on')
@@ -177,8 +178,8 @@ if &background == 'light'
         hi Comment gui=italic
     endif
 
-
-else " Dark colors {{{1
+" Dark colors {{{1
+else
     " Neovim terminal colours
     if has("nvim")
         let g:terminal_color_0 = "#202531"
