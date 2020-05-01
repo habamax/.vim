@@ -51,7 +51,7 @@ func! MyFoldText()
 
     let foldlines_padding = ' '
 
-    return printf("%s%s%s%s(%d)",
+    return printf("%s%s%s%s(%d) ",
                 \ foldlevel,
                 \ foldindent,
                 \ foldtext,

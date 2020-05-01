@@ -60,7 +60,7 @@ set listchars=tab:›\ ,extends:→,precedes:←,nbsp:␣,trail:·
 " set listchars=tab:▸\ ,extends:›,precedes:‹,nbsp:␣,trail:·
 " set listchars=tab:›\ ,eol:↲,trail:·
 let &showbreak='↪ '
-set fillchars=fold:\ ,vert:│
+" set fillchars=fold:\-,vert:│
 
 " autocomplete is getting much better :e <tab>...
 set wildchar=<Tab> wildmenu wildmode=full
