@@ -14,12 +14,10 @@ syntax enable
 set hidden
 set browsedir=buffer
 
-let mapleader = "\<Space>"
-
 set encoding=utf8
 set fileencoding=utf8
-set fileformats=unix,mac,dos
 set fileformat=unix
+set fileformats=unix,mac,dos
 
 
 "" UI {{{1
@@ -140,6 +138,9 @@ set nrformats=bin,hex
 
 
 "" Mappings {{{1
+
+let mapleader = "\<Space>"
+
 
 " Fix Alt mappings for terminal vim
 " https://stackoverflow.com/questions/6778961/alt-key-shortcuts-not-working-on-gnome-terminal-with-vim/10216459#10216459
