@@ -305,7 +305,8 @@ hi Type gui=NONE cterm=NONE
 hi! link helpHyperTextJump Underlined
 
 " Common Chrome {{{1
-hi Folded guibg=NONE guifg=fg gui=bold guisp=NONE
+" hi Folded guibg=NONE guifg=fg gui=bold guisp=NONE
+hi Folded guibg=NONE guifg=fg gui=italic guisp=NONE
 hi link FoldColumn Folded
 hi TabLineSel gui=NONE
 hi StatuslineTerm gui=NONE
