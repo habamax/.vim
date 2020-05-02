@@ -123,7 +123,7 @@ if &background == 'light'
     hi TabLine guibg=#d3d3d3 gui=NONE cterm=NONE
     hi TabLineFill guibg=#d3d3d3 guifg=NONE gui=NONE ctermfg=NONE ctermbg=7 cterm=NONE term=NONE
 
-    hi Folded guibg=#e0e4e0 guifg=#454945 gui=NONE guisp=NONE
+    " hi Folded guibg=#e0e4e0 guifg=#454945 gui=NONE guisp=NONE
     " hi Folded guibg=NONE guifg=#454945 gui=bold guisp=NONE
     hi Visual guibg=#d0d9ea gui=NONE
     hi LineNr guibg=NONE guifg=#5f6571 gui=NONE cterm=NONE term=NONE
@@ -242,7 +242,7 @@ else
     hi TabLine guibg=#434b5f gui=NONE cterm=NONE
     hi TabLineFill guibg=#434b5f guifg=NONE gui=NONE ctermfg=NONE ctermbg=8 cterm=NONE term=NONE
 
-    hi Folded guibg=#303440 guifg=#909590 gui=NONE guisp=NONE
+    " hi Folded guibg=#303440 guifg=#909590 gui=NONE guisp=NONE
     " hi Folded guibg=NONE guifg=#909590 gui=bold guisp=NONE
     hi Visual guibg=#394e71 guifg=NONE
     hi LineNr guibg=NONE guifg=#5f6571 gui=NONE cterm=NONE term=NONE
@@ -305,6 +305,7 @@ hi Type gui=NONE cterm=NONE
 hi! link helpHyperTextJump Underlined
 
 " Common Chrome {{{1
+hi Folded guibg=NONE guifg=fg gui=bold guisp=NONE
 hi link FoldColumn Folded
 hi TabLineSel gui=NONE
 hi StatuslineTerm gui=NONE
