@@ -231,28 +231,6 @@ func! LoadObsessionComplete(A, L, P)
 endfunc
 
 
-""" vim-dadbod {{{1
-" let g:dadbods = []
-
-"" g:dadbods should be populated with
-"" call add(g:dadbods, = #{
-""       \name: "My Database",
-""       \url: "postgresql://user:password@url/dbname"
-""       \})
-
-" runtime mydadbods.vim
-
-" command! -nargs=1 -complete=customlist,DBSComplete DBSelect :let b:db = g:dadbods[matchstr("<args>", '^(\zs\d\+\ze)')].url
-
-
-" func! DBSComplete(A, L, P)
-"     let dadbods = map(copy(g:dadbods), {i, v -> '('.i.') '.v['name']})
-"     call filter(dadbods, {_, v -> v =~ '.*' . a:A . '.*'})
-"     return dadbods
-" endfunc
-
-
-
 """ vim-dispatch {{{1
 let g:dispatch_no_maps = 1
 " tmux in alacritty wsl debian makes vim "bad" sized in the end
