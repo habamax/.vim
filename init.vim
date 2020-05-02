@@ -297,6 +297,8 @@ nnoremap <leader><leader>= o<home><ESC>78i=<ESC>
 " find visually selected text
 vnoremap * y/<C-R>"<CR>
 
+nnoremap <leader>z zA
+
 " edit init file (vimrc) -- nvim's init.vim sources vimrc
 nnoremap <silent> <Leader>evi :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/init.vim"<CR>
 " Close other files, open 4 main vim configs
