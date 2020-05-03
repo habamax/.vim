@@ -255,6 +255,12 @@ endfor
 
 
 nnoremap <silent> <F2> :echo win#layout_toggle()<CR>
+nnoremap <silent> <leader>w1 :echo win#layout_horizontal()<CR>
+nnoremap <silent> <leader>w2 :echo win#layout_vertical()<CR>
+nnoremap <silent> <leader>w3 :echo win#layout_main_horizontal()<CR>
+nnoremap <silent> <leader>w4 :echo win#layout_main_vertical()<CR>
+nnoremap <silent> <leader>w5 :echo win#layout_tile()<CR>
+
 nnoremap <silent> <F11> :echo win#layout_save()<CR>
 nnoremap <silent> <F12> :echo win#layout_restore()<CR>
 

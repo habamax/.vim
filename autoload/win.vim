@@ -15,7 +15,7 @@ func! win#scroll_other(dir) abort
 endfunc
 
 
-"" Autosize windows.
+"" Autosize windows. {{{1
 "" There is lens.vim plugin but essentially this simplified version could be used
 "" instead. Original lens.vim laaaags if switched to a huge file, it
 "" calculates target width consuming whole file into memory....
@@ -75,39 +75,61 @@ endfunc
 func! win#layout_toggle() abort
     let layout_echo = ""
     let win_layout = get(t:, "window_layout", 5)
-    let winid = win_getid()
 
     if win_layout == 5
-        windo wincmd L
-        call win_gotoid(winid)
+        let layout_echo = win#layout_horizontal()
         let t:window_layout = 1
-        let layout_echo .= "Even horizontal layout"
     elseif win_layout == 1
-        windo wincmd K
-        call win_gotoid(winid)
+        let layout_echo = win#layout_vertical()
         let t:window_layout = 2
-        let layout_echo .= "Even vertical layout"
     elseif win_layout == 2
-        windo wincmd L
-        call win_gotoid(winid)
-        wincmd K
+        let layout_echo = win#layout_main_horizontal()
         let t:window_layout = 3
-        let layout_echo .= "Main horizontal layout"
     elseif win_layout == 3
-        windo wincmd K
-        call win_gotoid(winid)
-        wincmd H
+        let layout_echo = win#layout_main_vertical()
         let t:window_layout = 4
-        let layout_echo .= "Main vertical layout"
     elseif win_layout == 4
-        call win#layout_tile()
+        let layout_echo = win#layout_tile()
         let t:window_layout = 5
-        let layout_echo .= "Tiled layout"
     endif
 
     call win#lens()
 
     return layout_echo
+endfunc
+
+
+func! win#layout_horizontal() abort
+    let winid = win_getid()
+    windo wincmd L
+    call win_gotoid(winid)
+    return "Even horizontal layout"
+endfunc
+
+
+func! win#layout_vertical() abort
+    let winid = win_getid()
+    windo wincmd K
+    call win_gotoid(winid)
+    return "Even vertical layout"
+endfunc
+
+
+func! win#layout_main_horizontal() abort
+    let winid = win_getid()
+    windo wincmd L
+    call win_gotoid(winid)
+    wincmd K
+    return "Main horizontal layout"
+endfunc
+
+
+func! win#layout_main_vertical() abort
+    let winid = win_getid()
+    windo wincmd K
+    call win_gotoid(winid)
+    wincmd H
+    return "Main vertical layout"
 endfunc
 
 
@@ -142,10 +164,13 @@ func! win#layout_tile() abort
     endfor
 
     call win_gotoid(windows[0])
+
+    return "Tiled layout"
 endfunc
 
 
 
+""" Save and Restore window layout {{{1
 
 let s:layout = []
 let s:winrestcmd = ""
@@ -182,6 +207,7 @@ func! win#layout_restore() abort
 
     return "Layout is restored"
 endfunc
+
 
 " add bufnr to leaf
 func! s:add_buf_to_layout(layout) abort
