@@ -51,13 +51,10 @@ endif
 
 """ Colorschemes {{{1
 
-if exists('g:started_by_firenvim')
+if exists('g:started_by_firenvim') || has('gui_running')
     set bg=light
-elseif strftime("%H") >= 20 || strftime("%H") < 8
-            \ || has('linux') || !has('gui_running')
-    set bg=dark
 else
-    set bg=light
+    set bg=dark
 endif
 
 let g:habamax_flat = get(g:, "habamax_flat", v:false)
