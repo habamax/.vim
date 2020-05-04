@@ -1,4 +1,4 @@
-" Use minpac to utilize standard vim package stuff + git
+" Use minpac to utilize standard vim package stuff + git {{{1
 " First of all minpac should be installed:
 " WIN:
 " git clone https://github.com/k-takata/minpac.git %HOME%/vimfiles/pack/minpac/opt/minpac
