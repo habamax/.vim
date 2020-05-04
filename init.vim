@@ -192,10 +192,10 @@ xnoremap <silent> <M-n> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 nnoremap <M-v> <C-v>
 xnoremap <M-v> <C-v>
 
-nnoremap <M-f> <C-f>
-xnoremap <M-f> <C-f>
-nnoremap <M-b> <C-b>
-xnoremap <M-b> <C-b>
+nnoremap <M-f> <C-d>
+xnoremap <M-f> <C-d>
+nnoremap <M-b> <C-u>
+xnoremap <M-b> <C-u>
 
 " inoremap <M-b> <C-left>
 " inoremap <M-f> <C-right>
