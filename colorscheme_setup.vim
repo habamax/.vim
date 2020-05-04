@@ -51,14 +51,10 @@ endif
 
 """ Colorschemes {{{1
 
-let force_dark = v:false
-
-" If it happens you run vim late or in linux or use terminal, use dark colors
-if force_dark
-            \ || strftime("%H") >= 20
-            \ || strftime("%H") < 8
-            \ || has('linux')
-            \ || !has('gui_running')
+if exists('g:started_by_firenvim')
+    set bg=light
+elseif strftime("%H") >= 20 || strftime("%H") < 8
+            \ || has('linux') || !has('gui_running')
     set bg=dark
 else
     set bg=light
