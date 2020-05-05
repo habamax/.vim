@@ -159,8 +159,11 @@ if !has('nvim') && !has('gui_running') && !has('win32')
     endw
 endif
 
-" general mapping to be used for different filetypes
+" guards
 nnoremap <leader>m <nop>
+nnoremap <leader>o <nop>
+nnoremap <Leader>d <nop>
+nnoremap d<Leader> <nop>
 
 nnoremap <BS> <C-^>
 " killall buffers except current one
@@ -306,9 +309,7 @@ vnoremap * y/<C-R>"<CR>
 nnoremap <leader>z zA
 
 " edit init file (vimrc) -- nvim's init.vim sources vimrc
-nnoremap <silent> <Leader>evi :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/init.vim"<CR>
-" Close other files, open 4 main vim configs
-nnoremap <silent> <Leader>evv :Init<CR>
+nnoremap <silent> <Leader>oi :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/init.vim"<CR>
 
 
 " Directory ~/docs 
@@ -316,9 +317,6 @@ nnoremap <silent> <Leader>dd :Docs<CR>
 " Directory ~/vimfiles or ~/.vim 
 nnoremap <silent> <Leader>dv :VimConfigs<CR>
 
-" guard <Leader>d not to delete accidentally
-nnoremap <silent> <Leader>d <nop>
-nnoremap <silent> d<Leader> <nop>
 
 
 "" g:HOME is in paths.vim
