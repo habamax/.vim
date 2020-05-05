@@ -217,16 +217,6 @@ xnoremap <M-b> <C-u>
 " cnoremap <M-n> <C-n>
 
 "" Window mangament
-" switch to previous window
-tnoremap <M-o> <C-\><C-N><C-w>p
-nnoremap <M-o> <C-w>p
-inoremap <M-o> <C-\><C-N><C-w>p
-
-" close window
-tnoremap <M-q> <C-\><C-N><C-w>q
-nnoremap <M-q> <C-w>q
-inoremap <M-q> <C-\><C-N><C-w>q
-
 " switch to windows
 tnoremap <M-h> <C-\><C-N><C-w>h
 tnoremap <M-j> <C-\><C-N><C-w>j
