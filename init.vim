@@ -321,9 +321,9 @@ nnoremap <silent> <Leader>dv :VimConfigs<CR>
 
 "" g:HOME is in paths.vim
 " edit global notes file
-nnoremap <silent> <Leader>en :exe printf('e %s/docs/notes/notes.adoc', g:HOME)<CR>
+nnoremap <silent> <Leader>on :exe printf('e %s/docs/notes/notes.adoc', g:HOME)<CR>
 " edit global current journal file
-nnoremap <silent> <Leader>ej :exe printf('e %s/docs/journal/2020.adoc', g:HOME)<CR>
+nnoremap <silent> <Leader>oj :exe printf('e %s/docs/journal/2020.adoc', g:HOME)<CR>
 
 " scroll other window
 nnoremap <silent> <M-F> :call win#scroll_other(1)<CR>
