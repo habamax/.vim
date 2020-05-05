@@ -190,12 +190,12 @@ let g:asciidoctor_syntax_conceal = 1
 
 func! AsciidoctorBufferSetup()
     setl cole=3
-    nnoremap <buffer> <leader>oo :AsciidoctorOpenRAW<CR>
-    nnoremap <buffer> <leader>op :AsciidoctorOpenPDF<CR>
-    nnoremap <buffer> <leader>oh :AsciidoctorOpenHTML<CR>
-    nnoremap <buffer> <leader>ox :AsciidoctorOpenDOCX<CR>
-    nnoremap <buffer> <leader>ec :Asciidoctor2PDF<CR>
-    nnoremap <buffer> <leader>p :AsciidoctorPasteImage<CR>
+    nnoremap <buffer> <leader>eoo :AsciidoctorOpenRAW<CR>
+    nnoremap <buffer> <leader>eoh :AsciidoctorOpenHTML<CR>
+    nnoremap <buffer> <leader>eox :AsciidoctorOpenDOCX<CR>
+    nnoremap <buffer> <leader>eop :AsciidoctorOpenPDF<CR>
+    nnoremap <buffer> <leader>emp :Asciidoctor2PDF<CR>
+    nnoremap <buffer> <leader>ep :AsciidoctorPasteImage<CR>
     compiler asciidoctor2pdf
     let b:foldtext_strip_add_regex = '^=\+'
 endfunc
