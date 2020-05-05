@@ -28,7 +28,7 @@ set showtabline=1
 set cmdheight=1
 set signcolumn=yes
 set number norelativenumber
-set nolazyredraw
+set lazyredraw
 set splitbelow
 set splitright
 set helpheight=0

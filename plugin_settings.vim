@@ -194,7 +194,7 @@ func! AsciidoctorBufferSetup()
     nnoremap <buffer> <leader>op :AsciidoctorOpenPDF<CR>
     nnoremap <buffer> <leader>oh :AsciidoctorOpenHTML<CR>
     nnoremap <buffer> <leader>ox :AsciidoctorOpenDOCX<CR>
-    nnoremap <buffer> <leader>mm :Asciidoctor2PDF<CR>
+    nnoremap <buffer> <leader>ec :Asciidoctor2PDF<CR>
     nnoremap <buffer> <leader>p :AsciidoctorPasteImage<CR>
     compiler asciidoctor2pdf
     let b:foldtext_strip_add_regex = '^=\+'
@@ -235,7 +235,7 @@ endfunc
 let g:dispatch_no_maps = 1
 " tmux in alacritty wsl debian makes vim "bad" sized in the end
 " vim doesn't resize back after tmux pane is closed.
-" let g:dispatch_no_tmux_make = 1
+let g:dispatch_no_tmux_make = 1
 
 
 """ vim-vsnip {{{1
