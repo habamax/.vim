@@ -300,6 +300,7 @@ let g:mix_format_on_save = 1
 
 """ listopad {{{1
 let g:listopad_default_mappings = 1
+let g:listopad_auto_archive = 1
 
 
 """ undotree {{{1
