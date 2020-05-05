@@ -33,12 +33,17 @@ fun! s:toggle_checkbox(lnum)
 endfu
 
 fun! listopad#toggle_checkboxes(line1, line2)
-    for lnum in range(a:line2, a:line1, -1)
-        call s:toggle_checkbox(lnum)
-        if get(g:, "listopad_auto_archive", v:false)
-            call s:list_item_archive(lnum)
-        endif
-    endfor
+    let save_cursor = getcurpos()
+    try
+        for lnum in range(a:line2, a:line1, -1)
+            call s:toggle_checkbox(lnum)
+            if get(g:, "listopad_auto_archive", v:false)
+                call s:list_item_archive(lnum)
+            endif
+        endfor
+    finally
+        call setpos('.', save_cursor)
+    endtry
 endfu
 
 " operator pending...
