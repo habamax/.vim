@@ -7,6 +7,7 @@ let s:rx_bullets = '^\(\%(\s*[-*]\+\s\+\)\|\%(\s*\d\+\.\s\+\)\)'
 " let s:rx_bullets = '^\(\s*[-*]\+\s*\)'
 let s:rx_empty_checkbox = '\(\s*\[ \?\]\+\s*\)'
 let s:rx_marked_checkbox = '\(\s*\[[Xx]\]\+\s*\)'
+let s:rx_archive = '^\(#\|=\)\+ DONE'
 
 """ List checkboxes {{{1
 func! s:is_list_item(line) abort
@@ -84,12 +85,16 @@ func! s:list_item_archive(lnum) abort
     endif
 
     " identify archive placement
-    let archive_pos = search("ARCHIVE", "nW")
+    let archive_pos = search(s:rx_archive, "nW")
     if archive_pos == 0
         return
     endif
+
     " move list item under archive placements
     exe 'move'.archive_pos
+    let dt = printf("`[DONE: %s]` ", strftime("%Y-%m-%d %H:%M"))
+    exe printf('s/%s/&%s', s:rx_marked_checkbox, dt)
+    call append(archive_pos-1, '')
 endfunc
 
 
