@@ -307,11 +307,9 @@ nnoremap <silent> <Leader>dv :VimConfigs<CR>
 
 
 "" g:HOME is in paths.vim
-" edit global todo file
+" open global todo file
 nnoremap <silent> <Leader>ot :exe printf('e %s/docs/todo.adoc', g:HOME)<CR>
-" " edit global notes file
-" nnoremap <silent> <Leader>on :exe printf('e %s/docs/notes/notes.adoc', g:HOME)<CR>
-" edit global current journal file
+" open global journal file
 nnoremap <silent> <Leader>oj :exe printf('e %s/docs/journal/2020.adoc', g:HOME)<CR>
 
 " scroll other window
