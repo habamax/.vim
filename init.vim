@@ -280,7 +280,7 @@ vnoremap * y/<C-R>"<CR>
 nnoremap <leader>z zA
 
 " edit init file (vimrc) -- nvim's init.vim sources vimrc
-nnoremap <silent> <Leader>oi :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/init.vim"<CR>
+nnoremap <silent> <Leader>ei :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/init.vim"<CR>
 
 
 " Directory ~/docs 
@@ -291,10 +291,10 @@ nnoremap <silent> <Leader>dv :VimConfigs<CR>
 
 
 "" g:HOME is in paths.vim
-" open global todo file
-nnoremap <silent> <Leader>ot :exe printf('e %s/docs/todo.adoc', g:HOME)<CR>
-" open global journal file
-nnoremap <silent> <Leader>oj :exe printf('e %s/docs/journal/2020.adoc', g:HOME)<CR>
+" edit global todo file
+nnoremap <silent> <Leader>et :exe printf('e %s/docs/todo.adoc', g:HOME)<CR>
+" edit global journal file
+nnoremap <silent> <Leader>ej :exe printf('e %s/docs/journal/2020.adoc', g:HOME)<CR>
 
 " scroll other window
 nnoremap <silent> <M-F> :call win#scroll_other(1)<CR>
