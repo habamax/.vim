@@ -262,8 +262,6 @@ nnoremap <silent> <F12> :echo win#layout_restore()<CR>
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-nnoremap Y y$
-
 " spell correction for the first suggested
 " https://castel.dev/post/lecture-notes-1/
 inoremap <M-s> <c-g>u<C-\><C-o>[s<ESC>1z=`]a<c-g>u
