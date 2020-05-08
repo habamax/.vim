@@ -39,6 +39,8 @@ if !exists('g:leaderf_loaded') && executable('fzf')
 
     let g:fzf_preview_window = ''
 
+    " By default TAB is to select/deselect current item, but more could be
+    " added:
     " CTRL-A CTRL-Q to select all and build quickfix list
     function! s:build_quickfix_list(lines)
         call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
