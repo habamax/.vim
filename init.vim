@@ -199,22 +199,6 @@ xnoremap <M-f> <C-d>
 nnoremap <M-b> <C-u>
 xnoremap <M-b> <C-u>
 
-" inoremap <M-b> <C-left>
-" inoremap <M-f> <C-right>
-" inoremap <M-a> <Home>
-" inoremap <M-e> <End>
-" inoremap <M-w> <C-w>
-" inoremap <M-d> <Del>
-
-" cnoremap <M-b> <C-left>
-" cnoremap <M-f> <C-right>
-" cnoremap <M-a> <Home>
-" cnoremap <M-e> <End>
-" cnoremap <M-w> <C-w>
-" cnoremap <M-d> <Del>
-" cnoremap <M-p> <C-p>
-" cnoremap <M-n> <C-n>
-
 "" Window mangament
 " switch to windows
 tnoremap <M-h> <C-\><C-N><C-w>h
