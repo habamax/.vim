@@ -188,22 +188,6 @@ let g:asciidoctor_syntax_conceal = 1
 " let g:asciidoctor_folding = 1
 " let g:asciidoctor_fold_options = 1
 
-func! AsciidoctorBufferSetup()
-    setl cole=3
-    nnoremap <buffer> <leader>eoo :AsciidoctorOpenRAW<CR>
-    nnoremap <buffer> <leader>eoh :AsciidoctorOpenHTML<CR>
-    nnoremap <buffer> <leader>eox :AsciidoctorOpenDOCX<CR>
-    nnoremap <buffer> <leader>eop :AsciidoctorOpenPDF<CR>
-    nnoremap <buffer> <leader>emp :Asciidoctor2PDF<CR>
-    nnoremap <buffer> <leader>ep :AsciidoctorPasteImage<CR>
-    compiler asciidoctor2pdf
-    let b:foldtext_strip_add_regex = '^=\+'
-endfunc
-
-augroup asciidoctor | au!
-    au BufEnter *.adoc,*.asciidoc call AsciidoctorBufferSetup()
-augroup END
-
 
 """ vim-swap {{{1
 let g:swap_no_default_key_mappings = 1
