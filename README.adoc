@@ -58,4 +58,19 @@ endfunc
 image::https://user-images.githubusercontent.com/234774/78786934-38110300-79b2-11ea-91b8-332a9dd4fe0e.gif[]
 
 
+== Simple Todos
 
+I don't need org-mode like uber feature rich solution. Simple todo lists
+with checkboxes are more than enough for me.
+
+image::https://user-images.githubusercontent.com/234774/81433875-f40a4d00-916d-11ea-881d-174b9a6b5f50.gif[]
+
+
+== Active Window Autosize && Windows Layouts
+
+Make active window 90x20 chars, and others equally even if possible (inspired
+by lens.vim plugin).
+
+Add predefined layouts, like tmux.
+
+image::https://user-images.githubusercontent.com/234774/81434657-33856900-916f-11ea-9d36-fa5d9b2ff176.gif[]
