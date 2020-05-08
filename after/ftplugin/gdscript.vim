@@ -8,6 +8,6 @@ nnoremap <buffer> <F5> :GodotRun<CR>
 nnoremap <buffer> <F6> :GodotRunCurrent<CR>
 nnoremap <buffer> <F7> :GodotRunFZF<CR>
 
-nnoremap <buffer> <leader>er :GodotRun<CR>
-nnoremap <buffer> <leader>ee :GodotRunCurrent<CR>
-nnoremap <buffer> <leader>ef :GodotRunFZF<CR>
+nnoremap <buffer> <leader>mr :GodotRun<CR>
+nnoremap <buffer> <leader>mm :GodotRunCurrent<CR>
+nnoremap <buffer> <leader>mf :GodotRunFZF<CR>
