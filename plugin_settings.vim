@@ -39,8 +39,6 @@ if !exists('g:leaderf_loaded') && executable('fzf')
 
     let g:fzf_preview_window = ''
 
-    " By default TAB is to select/deselect current item, but more could be
-    " added:
     " CTRL-A CTRL-Q to select all and build quickfix list
     function! s:build_quickfix_list(lines)
         call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
@@ -58,6 +56,8 @@ if !exists('g:leaderf_loaded') && executable('fzf')
                 \ 'ctrl-x': 'split',
                 \ 'ctrl-v': 'vsplit' }
 
+    " By default TAB is to select/deselect current item.
+    " Make ctrl-a to toggle all, and ctrl-u to clear all 
     let $FZF_DEFAULT_OPTS = '--bind ctrl-a:toggle-all --bind ctrl-u:clear-selection'
     " let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
