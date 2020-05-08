@@ -153,7 +153,6 @@ endif
 
 
 """ vim-asciidoctor {{{1
-" There will be asciidoctor plugin here
 " let g:asciidoctor_executable = 'bundle exec asciidoctor'
 
 " use asciidoctorj
