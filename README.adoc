@@ -13,7 +13,7 @@ Nothing fancy, just to keep it safe and available.
 == Colors
 
 I use my personal uber colorscheme, not meant to be shared as complete
-separate thing suitable for everyone (GUI or termguioptions only).
+separate thing suitable for everyone (GUI or termguicolors only).
 
 All variations are in a single `colors/habamax.vim`.
 
