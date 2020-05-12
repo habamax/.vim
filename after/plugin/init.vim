@@ -54,7 +54,7 @@ if exists("g:did_coc_loaded") " {{{1
 
     augroup coc_settings | au!
         autocmd CursorHold * silent call CocActionAsync('highlight')
-        autocmd FileType gdscript,vim call habacoc#mappings()
+        autocmd FileType gdscript,vim,go,python call habacoc#mappings()
     augroup end
 endif
 
