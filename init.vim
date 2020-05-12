@@ -381,7 +381,7 @@ augroup END
 
 
 augroup autosize_windows | au!
-    au BufWinEnter,WinEnter * silent! call win#lens()
+    au WinEnter * silent! call win#lens()
 augroup end
 
 
