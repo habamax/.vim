@@ -112,7 +112,6 @@ if &background == 'light'
     hi Statusline guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
     hi StatuslineNC guibg=#707080 guifg=#c0c0c0 gui=NONE ctermbg=8 ctermfg=16 cterm=NONE
     hi VertSplit guibg=#707080 guifg=#707080 gui=NONE ctermbg=8 ctermfg=8 cterm=NONE
-    hi Title guifg=#e0385b gui=bold cterm=bold
 
     hi Pmenu guibg=#d7e5dc gui=NONE
     hi PmenuSel guibg=#b7c7b7 gui=NONE
@@ -172,6 +171,8 @@ if &background == 'light'
 
         hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
         hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
+
+        hi Title guifg=#e0385b gui=bold cterm=bold
     endif
 
 " Dark colors {{{1
@@ -228,7 +229,6 @@ else
     hi Statusline guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
     hi StatuslineNC guibg=#333b4f guifg=#636b7f gui=NONE ctermbg=8 ctermfg=16 cterm=NONE
     hi VertSplit guibg=#333b4f guifg=#333b4f gui=NONE ctermbg=8 ctermfg=8 cterm=NONE
-    hi Title guifg=#ff5b7b gui=bold cterm=bold
 
     hi Pmenu guibg=#333b4f gui=NONE
     hi PmenuSel guibg=#41485b gui=NONE
@@ -286,6 +286,8 @@ else
 
         hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
         hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
+
+        hi Title guifg=#ff5b7b gui=bold cterm=bold
     endif
 
 endif
