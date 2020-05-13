@@ -6,7 +6,6 @@
 "
 " Syntax colors stays default, but:
 " - backgrounds are different
-" - bold and italic styles are added and removed here and there
 " - chrome is different (statuslines, folding, etc)
 " - colors for plugins I use (leaderf etc)
 " 
@@ -173,8 +172,6 @@ if &background == 'light'
 
         hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
         hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
-    else
-        hi Comment gui=italic
     endif
 
 " Dark colors {{{1
@@ -289,16 +286,11 @@ else
 
         hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
         hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
-    else
-        hi Comment gui=italic
     endif
 
 endif
 
 " Common Highlighting {{{1
-
-hi Statement gui=NONE cterm=NONE
-hi Type gui=NONE cterm=NONE
 
 hi! link helpHyperTextJump Underlined
 
@@ -359,22 +351,24 @@ else
     hi asciidoctorIndented guifg=#999999 gui=NONE ctermfg=1 cterm=NONE
 endif
 if get(g:, "habamax_flat", v:false)
-    hi link asciidoctorOption Statement
-    hi link asciidoctorBlock Statement
-    hi link asciidoctorAttribute Statement
-    hi link asciidoctorTableCell Statement
-    hi link asciidoctorInlineAnchor Statement
-    hi link asciidoctorBlockOptions Statement
+    hi link asciidoctorOption Constant
+    hi link asciidoctorBlock Constant
+    hi link asciidoctorAttribute Constant
+    hi link asciidoctorTableCell Constant
+    hi link asciidoctorInlineAnchor Constant
+    hi link asciidoctorBlockOptions Constant
+    hi link asciidoctorOrderedListMarker Constant
+    hi link asciidoctorListMarker Constant
 
-    hi link fugitiveHeading Statement
-    hi link fugitiveStagedHeading Statement
-    hi link fugitiveUnstagedHeading Statement
-    hi link fugitiveUntrackedHeading Statement
-    hi link fugitiveHash Statement
-    hi link fugitiveModifier Statement
-    hi link fugitiveUntrackedModifier Statement
-    hi link fugitiveUnstagedModifier Statement
-    hi link fugitiveStagedModifier Statement
+    hi link fugitiveHeading Constant
+    hi link fugitiveStagedHeading Constant
+    hi link fugitiveUnstagedHeading Constant
+    hi link fugitiveUntrackedHeading Constant
+    hi link fugitiveHash Constant
+    hi link fugitiveModifier Constant
+    hi link fugitiveUntrackedModifier Constant
+    hi link fugitiveUnstagedModifier Constant
+    hi link fugitiveStagedModifier Constant
 else
     " restore default fugitive colors (as of 2020-04-25)
     hi link fugitiveHeader Label
