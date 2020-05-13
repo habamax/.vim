@@ -168,18 +168,15 @@ nnoremap <BS> <C-^>
 " killall buffers except current one
 nnoremap <M-BS> :%bd<CR><C-^>:bd#<CR>
 
-" Capitalize word
-nnoremap <silent> <M-c> :call text#capitalize_word()<CR>
-" UPPERCASE word
-nnoremap <silent> <M-u> :call text#uppercase_word()<CR>
-" lowercase word
-nnoremap <silent> <M-U> :call text#lowercase_word()<CR>
-" Capitalize word in insert mode
-inoremap <silent> <M-c> <ESC>:call text#capitalize_word(v:true)<CR>
+" UPPERCASE WORD
+nnoremap <silent> <M-u> gUiWW
+" lowercase WORD
+nnoremap <silent> <M-U> guiWW
+
 " UPPERCASE word in insert mode
-inoremap <silent> <M-u> <ESC>:call text#uppercase_word(v:true)<CR>
+inoremap <silent> <M-u> <ESC>gUiw`]a
 " lowercase word in insert mode
-inoremap <silent> <M-U> <ESC>:call text#lowercase_word(v:true)<CR>
+inoremap <silent> <M-U> <ESC>guiw`]a
 
 
 " Move line up/down
