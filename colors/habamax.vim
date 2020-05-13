@@ -390,6 +390,12 @@ else
 end
 
 
+
+finish
+"" I don't use leaderf at the moment so just stop here 2020-05-13
+"" Check in 6+ months and delete it
+
+
 "" LeaderF
 hi link Lf_hl_bufDirname Comment
 hi link Lf_hl_funcDirname Comment
