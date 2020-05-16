@@ -111,7 +111,8 @@ if &background == 'light'
     hi EndOfBuffer guifg=#d0d0d0 guibg=NONE ctermfg=7 ctermbg=NONE
     hi Statusline guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
     hi StatuslineNC guibg=#707080 guifg=#c0c0c0 gui=NONE ctermbg=8 ctermfg=16 cterm=NONE
-    hi VertSplit guibg=#707080 guifg=#c0c0c0 gui=NONE ctermbg=8 ctermfg=8 cterm=NONE
+    " hi VertSplit guibg=#707080 guifg=#c0c0c0 gui=NONE ctermbg=8 ctermfg=8 cterm=NONE
+    hi VertSplit guibg=NONE guifg=#c0c0c0 gui=NONE ctermbg=8 ctermfg=8 cterm=NONE
 
     hi Pmenu guibg=#d7e5dc gui=NONE
     hi PmenuSel guibg=#b7c7b7 gui=NONE
@@ -228,7 +229,8 @@ else
     hi EndOfBuffer guibg=NONE guifg=#404551 ctermbg=NONE ctermfg=8
     hi Statusline guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
     hi StatuslineNC guibg=#333b4f guifg=#636b7f gui=NONE ctermbg=8 ctermfg=16 cterm=NONE
-    hi VertSplit guibg=#333b4f guifg=#636b7f gui=NONE ctermbg=8 ctermfg=8 cterm=NONE
+    " hi VertSplit guibg=#333b4f guifg=#636b7f gui=NONE ctermbg=8 ctermfg=8 cterm=NONE
+    hi VertSplit guibg=NONE guifg=#636b7f gui=NONE ctermbg=8 ctermfg=8 cterm=NONE
 
     hi Pmenu guibg=#333b4f gui=NONE
     hi PmenuSel guibg=#41485b gui=NONE
