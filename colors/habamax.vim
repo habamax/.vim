@@ -309,9 +309,6 @@ hi! link CursorLineNr CursorLine
 hi! link QuickFixLine CursorLine
 hi SignColumn guibg=NONE ctermbg=NONE
 hi lCursor guibg=#ff7070
-hi link TabLine StatusLineNC
-hi link TabLineFill TabLine
-hi link TabLineSel Normal
 hi MatchParen guifg=NONE ctermfg=NONE
 
 
