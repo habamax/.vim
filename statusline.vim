@@ -1,5 +1,4 @@
 set laststatus=2
-" let g:status_bright_winnr = 1
 " set ruler " for default statusline"
 
 let s:sep = '┊'
