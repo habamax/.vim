@@ -41,8 +41,9 @@ func! StatusRight()
 endfunc
 
 
-set statusline=%f%<
+set statusline=%f
 set statusline+=%{StatusMod()}
+set statusline+=%<
 set statusline+=%=
 set statusline+=%{StatusRight()}
 set statusline+=%5(%p%%%)
