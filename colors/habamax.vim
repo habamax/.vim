@@ -299,7 +299,7 @@ endif
 hi! link helpHyperTextJump Underlined
 
 " Common Chrome {{{1
-hi link FoldColumn Folded
+hi! link FoldColumn LineNr
 hi TabLineSel gui=NONE
 hi StatuslineTerm gui=NONE
 hi StatuslineTermNC gui=NONE
