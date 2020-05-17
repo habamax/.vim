@@ -2,58 +2,47 @@ set laststatus=2
 " let g:status_bright_winnr = 1
 " set ruler " for default statusline"
 
-
-func! StatusIM() abort
-    if &iminsert == 0
-        return '  EN |'
-    else
-        return '  RU |'
-    endif
-endfunc
-
-
-func! StatusGitBranch()
-    let branch = ''
-    if exists('*FugitiveHead')
-        let branch = FugitiveHead()
-        if !empty(branch)
-            let branch = printf("  git:%s", branch)
-        endif
-    endif
-    return branch
-endfunc
-
-
-func! StatusFT()
-    if &ft != ''
-        return printf("  %s |", &ft)
-    endif
-    return ''
-endfunc
+let s:sep = '┊'
 
 
 func! StatusMod()
     if &modified
-        return "+ "
+        return "*"
     endif
     return ''
 endfunc
 
 
-func! StatusMisc()
-    let misc = ''
-    if &readonly
-        let misc .= "  RO |"
+func! StatusRight()
+    let right = s:sep
+
+    if &iminsert == 0
+        let right .= ' EN '.s:sep
+    else
+        let right .= ' RU '.s:sep
     endif
-    return misc
+
+    if &readonly
+        let right .= ' RO '.s:sep
+    endif
+
+    if &ft != ''
+        let right .= printf(" %s %s", &ft, s:sep)
+    endif
+
+    if exists('*FugitiveHead')
+        let branch = FugitiveHead()
+        if !empty(branch)
+            let right .= printf(" git:%s %s", branch, s:sep)
+        endif
+    endif
+
+    return right
 endfunc
 
 
-set statusline=%{StatusMod()}
-set statusline+=%f%<
+set statusline=%f%<
+set statusline+=%{StatusMod()}
 set statusline+=%=
-set statusline+=%{StatusIM()}
-set statusline+=%{StatusMisc()}
-set statusline+=%{StatusFT()}
-set statusline+=%{StatusGitBranch()}
+set statusline+=%{StatusRight()}
 set statusline+=%5(%p%%%)
