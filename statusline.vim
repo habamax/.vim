@@ -5,9 +5,9 @@ set laststatus=2
 
 func! StatusIM() abort
     if &iminsert == 0
-        return '[EN]'
+        return '  EN |'
     else
-        return '[RU]'
+        return '  RU |'
     endif
 endfunc
 
@@ -17,16 +17,43 @@ func! StatusGitBranch()
     if exists('*FugitiveHead')
         let branch = FugitiveHead()
         if !empty(branch)
-            let branch = printf("[%s]", branch)
+            let branch = printf("  git:%s", branch)
         endif
     endif
     return branch
 endfunc
 
-set statusline=%([\%R%M]%)
+
+func! StatusFT()
+    if &ft != ''
+        return printf("  %s |", &ft)
+    endif
+    return ''
+endfunc
+
+
+func! StatusMod()
+    if &modified
+        return "+ "
+    endif
+    return ''
+endfunc
+
+
+func! StatusMisc()
+    let misc = ''
+    if &readonly
+        let misc .= "  RO |"
+    endif
+    return misc
+endfunc
+
+
+set statusline=%{StatusMod()}
 set statusline+=%f%<
 set statusline+=%=
-set statusline+=%(%{StatusIM()}%)
-set statusline+=%y
-set statusline+=%(%{StatusGitBranch()}%)
-set statusline+=%3v#%4(%p%%%)
+set statusline+=%{StatusIM()}
+set statusline+=%{StatusMisc()}
+set statusline+=%{StatusFT()}
+set statusline+=%{StatusGitBranch()}
+set statusline+=%5(%p%%%)
