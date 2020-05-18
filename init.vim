@@ -26,7 +26,7 @@ set winaltkeys=no
 set guioptions=cM
 set showtabline=1
 set cmdheight=1
-set number norelativenumber
+set nonumber norelativenumber
 set lazyredraw
 set splitbelow
 set splitright
