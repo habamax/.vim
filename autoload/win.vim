@@ -29,8 +29,10 @@ func! win#lens() abort
         return
     endif
 
+    let default_width = s:win_default_width(80)
+
     let width = max([
-                \ get(g:, "lens_pref_width", 90),
+                \ get(g:, "lens_pref_width", default_width),
                 \ winwidth(0)
                 \ ])
     let height = max([
@@ -47,6 +49,39 @@ func! win#lens() abort
     setlocal nowinfixwidth
     normal! zzze
 endfunction
+
+
+"" Return width of a signcolumn
+func! s:signcolumn_width() abort
+    let sc = matchlist(&signcolumn, '\(yes\|auto\)\%(:\(\d\)\)\?')
+
+    if empty(sc)
+        return 0
+    endif
+
+    if sc[1] == "yes"
+        return (sc[2] == '' ? 2 : sc[2])
+    endif
+
+    if sc[1] == "auto" && !empty(sign_getplaced("%")[0].signs)
+        return (sc[2] == '' ? 2 : sc[2])
+    endif
+endfunc
+
+
+"" Return default window width (including linenr and signcolumn)
+func! s:win_default_width(width) abort
+    let width = a:width
+    if &number || &relativenumber
+        let width += max([strlen(line('$')), &numberwidth])
+    endif
+    if &foldcolumn
+        let width += max([1, &foldcolumn])
+    endif
+    let width += s:signcolumn_width()
+    return width
+endfunc
+
 
 
 func! s:is_lens_disabled() abort
