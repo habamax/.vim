@@ -161,9 +161,9 @@ nnoremap <BS> <C-^>
 nnoremap <M-BS> :%bd<CR><C-^>:bd#<CR>
 
 " UPPERCASE WORD
-nnoremap <silent> <M-u> gUiWW
+nnoremap <silent> <M-u> gUiww
 " lowercase WORD
-nnoremap <silent> <M-U> guiWW
+nnoremap <silent> <M-U> guiww
 
 " UPPERCASE word in insert mode
 inoremap <silent> <M-u> <ESC>gUiw`]a
