@@ -212,7 +212,6 @@ nnoremap <leader>wm <C-w>_<C-w>\|
 for wnr in range(1, 9)
     exe printf("nnoremap <space>%s %s<C-w>w", wnr, wnr)
     exe printf("nnoremap %s<space> %s<C-w>w", wnr, wnr)
-    exe printf("nnoremap <M-%s> %s<C-w>w", wnr, wnr)
 endfor
 
 
