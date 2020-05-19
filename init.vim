@@ -12,7 +12,6 @@ filetype plugin indent on
 syntax enable
 
 set hidden
-set browsedir=buffer
 
 set encoding=utf8
 set fileencoding=utf8
