@@ -51,12 +51,6 @@ endif
 
 """ Colorschemes {{{1
 
-if exists('g:started_by_firenvim') || has('gui_running')
-    set bg=light
-else
-    set bg=dark
-endif
-
 let g:habamax_flat = get(g:, "habamax_flat", v:false)
 let g:habamax_fancy = get(g:, "habamax_fancy", v:true)
 let g:habamax_contrast = get(g:, "habamax_contrast", v:false)
@@ -64,6 +58,8 @@ let g:habamax_contrast = get(g:, "habamax_contrast", v:false)
 let g:habamax_dirty = get(g:, "habamax_dirty", v:false)
 " handy if you use it with transparent terminals
 let g:habamax_transparent = get(g:, "habamax_transparent", v:false)
+
+set bg=dark
 colorscheme habamax
 
 " mimic tpope's unimpaired with toggling options
