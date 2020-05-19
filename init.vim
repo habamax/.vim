@@ -5,8 +5,6 @@
 " Make vim speak English
 language messages en_US.UTF-8
 
-autocmd!
-
 filetype plugin indent on
 
 syntax enable
@@ -300,6 +298,8 @@ vmap <silent> gs :sort<CR>
 
 
 "" Commands (and Autocommands) {{{1
+
+autocmd!
 
 cabbr ц w
 cabbr й q
