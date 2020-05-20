@@ -49,7 +49,6 @@ set conceallevel=0
 set list
 set listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
 let &showbreak='╰ '
-set fillchars=fold:-,vert:│
 
 " autocomplete is getting much better :e <tab>...
 set wildchar=<Tab> wildmenu wildmode=full
