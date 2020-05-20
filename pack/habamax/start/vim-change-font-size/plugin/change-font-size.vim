@@ -2,13 +2,13 @@
 "" Maintainer:   Maxim Kim <habamax@gmail.com>
 
 if exists("g:loaded_change_font_size") || &cp || v:version < 700
-	finish
+    finish
 endif
 
 let s:is_gui_neovim = get(g:, "GuiLoaded", v:false) || get(g:, "neovide", v:false)
 
 if !(has("gui_running") || s:is_gui_neovim)
-	finish
+    finish
 endif
 
 let s:is_guifont = has("gui_running") || get(g:, "neovide", v:false)
@@ -28,31 +28,31 @@ fun! s:getCurrentFont()
 
     let font = matchlist(guifont, '\(.\{-}\):h\(\d\+\)')
 
-	if !exists("s:orig_guifont")
-		let s:orig_guifont = guifont
-	endif
+    if !exists("s:orig_guifont")
+        let s:orig_guifont = guifont
+    endif
 
-	return [font[1], font[2]]
+    return [font[1], font[2]]
 endfu
 
 
 fun! s:changeFontSize(op)
-	let [fontname,fontsize] = s:getCurrentFont()
+    let [fontname,fontsize] = s:getCurrentFont()
 
-	if a:op == 'inc'
-		let new_font = fontname.':h'.(fontsize + 1)
-	elseif a:op == 'dec'
-		let new_font = fontname.':h'.(fontsize - 1)
-	else
-	 	let new_font = s:orig_guifont
-	endif
+    if a:op == 'inc'
+        let new_font = fontname.':h'.(fontsize + 1)
+    elseif a:op == 'dec'
+        let new_font = fontname.':h'.(fontsize - 1)
+    else
+        let new_font = s:orig_guifont
+    endif
 
     exe printf('set guifont=%s', escape(new_font, ' '))
 
     if get(g:, "change_font_window_max", v:true)
         set lines=999 columns=999
     endif
-	wincmd =
+    wincmd =
 endfu
 
 " looks like this is windows only
