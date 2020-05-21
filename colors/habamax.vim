@@ -358,6 +358,7 @@ if get(g:, "habamax_flat", v:false)
     hi link asciidoctorBlockOptions Constant
     hi link asciidoctorOrderedListMarker Constant
     hi link asciidoctorListMarker Constant
+    hi link asciidoctorMacro Constant
 
     hi link fugitiveHeading Constant
     hi link fugitiveStagedHeading Constant
