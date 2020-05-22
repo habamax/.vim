@@ -5,8 +5,6 @@
 " Make vim speak English
 language messages en_US.UTF-8
 
-autocmd!
-
 filetype plugin indent on
 
 syntax enable
