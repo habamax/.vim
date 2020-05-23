@@ -25,7 +25,6 @@ set linespace=0
 set guifont=Iosevka\ Habamax:h13
             \,JetBrains\ Mono\ NL:h13
             \,Consolas:h13
-            \,Liberation\ Mono:h13
 
 "" There are a lot of awesome fonts...
 " set gfn=JetBrains\ Mono\ NL:h13
