@@ -313,9 +313,9 @@ augroup END
 " Open (n)vim configs
 command! Init :silent only
             \<bar>:exe printf("e %s/init.vim", fnamemodify($MYVIMRC, ":p:h"))
-            \<bar>:exe printf("vs %s/plugin_settings.vim", fnamemodify($MYVIMRC, ":p:h"))
+            \<bar>:exe printf("vs %s/packages.vim", fnamemodify($MYVIMRC, ":p:h"))
+            \<bar>:exe printf("vs %s/packages_setup.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:exe printf("vs %s/after/plugin/init.vim", fnamemodify($MYVIMRC, ":p:h"))
-            \<bar>:exe printf("vs %s/plugins.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:1wincmd w 
 
 " Open docs folder
