@@ -59,7 +59,6 @@ let g:habamax_dirty = get(g:, "habamax_dirty", v:false)
 " handy if you use it with transparent terminals
 let g:habamax_transparent = get(g:, "habamax_transparent", v:false)
 
-set bg=dark
 colorscheme habamax
 
 " mimic tpope's unimpaired with toggling options
