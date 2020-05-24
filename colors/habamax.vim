@@ -1,20 +1,16 @@
-" habamax.vim -- GUI colorscheme with default syntax highlighting {{{
+" habamax.vim -- GUI colorscheme {{{
 "
-" Name:       habamax
-" Maintainer: Maxim Kim <habamax@gmail.com>
-" License:    MIT, but who cares? This is colorscheme.
+" Name: habamax
+" Author: Maxim Kim <habamax@gmail.com>
+" License: MIT, but who cares? This is colorscheme.
+" URL: https://github.com/habamax/.vim/
+" Description: Colors to please my eyes.
+" Syntax colors are based on base16-default-dark and base16-onelight
 "
-" Syntax colors stays default, but:
-" - backgrounds are different
-" - chrome is different (statuslines, folding, etc)
-" - colors for plugins I use (leaderf etc)
-" 
 " Works OK for gui and with set termguicolors
 " Otherwise it is kind of meh, but readable (uses default 16 colors palette)
-"
-"
 " 
-" ==============================================================================
+" ------------------------------------------------------------------------------
 "
 " Sometimes I want my syntax to be 'boring'.
 " let g:habamax_flat = v:true
@@ -23,25 +19,10 @@
 " * statements
 " * constants
 "
-"
-" ==============================================================================
-"
-" Sometimes I want syntax to be 'fancy'.
-" let g:habamax_fancy = v:true
-" * dark: use some of syntax colors of base16-default
-" * light: use some of syntax colors of base16-one-light
-"
-"
-" ==============================================================================
+" ------------------------------------------------------------------------------
 "
 " To add more contrast, use:
 " let g:habamax_contrast = v:true
-"
-"
-" ==============================================================================
-"
-" To make light not so light add
-" let g:habamax_dirty = v:true
 "
 " }}}
 
@@ -101,12 +82,11 @@ if &background == 'light'
     elseif get(g:, "habamax_contrast", v:false)
         hi Normal guibg=#ffffff guifg=#000000 ctermbg=white ctermfg=black
         hi CursorLine guibg=#f0f5f0 guifg=NONE gui=NONE cterm=NONE term=NONE
-    elseif get(g:, "habamax_dirty", v:false)
+    else
         hi Normal guibg=#f1f3f2 guifg=#000000 ctermbg=white ctermfg=black
         hi CursorLine guibg=#e5eae5 guifg=NONE gui=NONE cterm=NONE term=NONE
-    else
-        hi Normal guibg=#fafaf8 guifg=#000000 ctermbg=white ctermfg=black
-        hi CursorLine guibg=#eaefea guifg=NONE gui=NONE cterm=NONE term=NONE
+        " hi Normal guibg=#fafaf8 guifg=#000000 ctermbg=white ctermfg=black
+        " hi CursorLine guibg=#eaefea guifg=NONE gui=NONE cterm=NONE term=NONE
     endif
     hi EndOfBuffer guifg=#d0d0d0 guibg=NONE ctermfg=7 ctermbg=NONE
     hi Statusline guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
@@ -149,7 +129,7 @@ if &background == 'light'
         hi clear Identifier
         hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
         hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
-    elseif get(g:, "habamax_fancy", 0)
+    else
         hi Identifier guifg=#4078f2 gui=NONE cterm=NONE
 
         hi Statement guifg=#a626a4 gui=NONE cterm=NONE
@@ -264,7 +244,7 @@ else
         hi clear Identifier
         hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
         hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
-    elseif get(g:, "habamax_fancy", 0)
+    else
         hi Identifier guifg=#7cafc2 gui=NONE cterm=NONE
 
         hi Statement guifg=#ba8baf gui=NONE cterm=NONE
