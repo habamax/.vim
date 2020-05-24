@@ -45,4 +45,4 @@ set statusline+=%{StatusMod()}
 set statusline+=%<
 set statusline+=%=
 set statusline+=%{StatusRight()}
-set statusline+=%5(%p%%%)
+set statusline+=%4(%p%%%)
