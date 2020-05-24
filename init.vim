@@ -387,6 +387,6 @@ source <sfile>:h/abbreviations.vim
 source <sfile>:h/colorscheme_setup.vim
 
 if v:version >= 801 || has('nvim')
-    source <sfile>:h/plugin_settings.vim
-    source <sfile>:h/plugins.vim
+    source <sfile>:h/packages_setup.vim
+    source <sfile>:h/packages.vim
 endif
