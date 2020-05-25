@@ -110,7 +110,9 @@ if &background == 'light'
     hi Error guibg=#e07070 guifg=NONE
     hi Todo guibg=#e0e070 guifg=NONE gui=bold
     hi MatchParen guibg=#abf0f0 guifg=NONE gui=NONE
-    hi Search guibg=#f7f770
+    hi Search guibg=#c18401 guifg=bg gui=NONE cterm=NONE
+    hi IncSearch guibg=#d75f00 guifg=bg gui=NONE cterm=NONE
+    hi WildMenu guibg=#c18401 guifg=bg gui=NONE cterm=NONE
 
     "" Diff
     hi diffAdd guibg=#c9f9c9
@@ -227,6 +229,9 @@ else
     hi Error guibg=#633e43 guifg=NONE
     hi Todo guibg=#93933e guifg=#202531 gui=bold
     hi MatchParen guibg=#006060 guifg=NONE gui=NONE
+    hi Search guibg=#f7ca88 guifg=#262b37 gui=NONE cterm=NONE
+    hi IncSearch guibg=#dc9656 guifg=#262b37 gui=NONE cterm=NONE
+    hi WildMenu guibg=#f7ca88 guifg=#262b37 gui=NONE cterm=NONE
 
     hi diffAdd guibg=#294929
     hi diffChange guibg=#4f4719
