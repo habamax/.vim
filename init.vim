@@ -88,7 +88,7 @@ set commentstring=
 " neovim loads clipboard.vim at startup having this option set
 " and it makes startup slower.
 " vim doesn't have this problem
-if !has("nvim") 
+if !has("nvim")
     set clipboard=unnamed
 endif
 
@@ -266,9 +266,9 @@ nnoremap <leader>z zA
 nnoremap <silent> <Leader>ei :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/init.vim"<CR>
 
 
-" Directory ~/docs 
+" Directory ~/docs
 nnoremap <silent> <Leader>dd :Docs<CR>
-" Directory ~/vimfiles or ~/.vim 
+" Directory ~/vimfiles or ~/.vim
 nnoremap <silent> <Leader>dv :VimConfigs<CR>
 
 
@@ -314,7 +314,7 @@ command! Init :silent only
             \<bar>:exe printf("vs %s/packages.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:exe printf("vs %s/packages_setup.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:exe printf("vs %s/after/plugin/init.vim", fnamemodify($MYVIMRC, ":p:h"))
-            \<bar>:1wincmd w 
+            \<bar>:1wincmd w
 
 " Open docs folder
 command! Docs :exe printf('e %s/docs', g:HOME)
@@ -334,8 +334,8 @@ command! -range FixText <line1>,<line2>call text#fix()
 " 1. Vertically split window
 " 2. Offset it one screen
 " 3. Scrollbind
-command! ContinueInSplit 
-            \   exe "normal zR" 
+command! ContinueInSplit
+            \   exe "normal zR"
             \ | set noscrollbind
             \ | vsplit
             \ | exe "normal \<c-f>"
