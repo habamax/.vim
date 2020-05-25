@@ -75,6 +75,15 @@ if !exists('g:leaderf_loaded') && executable('fzf')
     command! Docs :exe printf('Files %s/docs', g:HOME)
     command! VimConfigs :exe printf('Files %s', fnamemodify($MYVIMRC, ":p:h"))
 
+    "" HelpRg command -- like helpgrep but with FZF and ripgrep
+    let g:paths = uniq(sort(split(globpath(&runtimepath, 'pack/', 1), '\n')))
+    call add(g:paths, expand($VIMRUNTIME))
+    command! -bang -nargs=* HelpRg
+                \ call fzf#vim#grep(
+                \   'rg --column --line-number --no-heading --color=always --smart-case -g "*doc*.txt" "" '. join(g:paths), 1,
+                \   {}, <bang>0)
+
+
     " remove delay when close fzf with escape
     augroup my_fzf | au!
         au FileType fzf tnoremap <buffer> <esc> <c-g>
