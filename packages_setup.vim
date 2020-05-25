@@ -105,48 +105,6 @@ if !exists('g:leaderf_loaded') && executable('fzf')
 endif
 
 
-" Try LeaderF
-if !exists("g:loaded_fzf") && (has('nvim') || has('python') || has('python3'))
-    " if exists("*popup_create") || exists("*nvim_open_win")
-    "   let g:Lf_WindowPosition = 'popup'
-    "   let g:Lf_PreviewInPopup = 1
-    "   let g:Lf_PopupWidth = 0.75
-    "   let g:Lf_PopupHeight = 0.5
-    " endif
-    let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-    let g:Lf_ShowDevIcons = 0
-    let g:Lf_WindowHeight = 0.30
-    let g:Lf_ShowHidden = 1
-    let g:Lf_FollowLinks = 1
-    let g:Lf_PreviewResult = { 'BufTag': 0 }
-    let g:Lf_WildIgnore = {
-            \ 'dir': ['.svn','.git','.hg'],
-            \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]', '*.tmp','*.ttf']
-            \}
-    let g:Lf_MruWildIgnore = copy(g:Lf_WildIgnore)
-    let g:Lf_UseVersionControlTool = 1
-    let g:Lf_MruMaxFiles = 500
-    " This is set by default
-    " nnoremap <leader>f :LeaderfFile<CR>
-    " nnoremap <leader>b :LeaderfBuffer<CR>
-    nnoremap <leader>/ :Leaderf line<CR>
-    nnoremap <leader>; :Leaderf command<CR>
-    nnoremap <leader>T :Leaderf tag<CR>
-    nnoremap <leader>[ :Leaderf function<CR>
-    nnoremap <F1> :Leaderf help<CR>
-    nnoremap <leader>h :Leaderf mru<CR>
-    nnoremap <leader>g :Leaderf rg<CR>
-    nnoremap <leader>c :LeaderfColorscheme<CR>
-    nnoremap <leader>: :Leaderf cmdHistory<CR>
-
-    let g:Lf_CommandMap = {'<C-]>': ['<C-V>']}
-    silent! packadd LeaderF
-
-    command! Docs :exe printf('Leaderf file %s/docs', g:HOME)
-    command! VimConfigs :exe printf('Leaderf file %s', fnamemodify($MYVIMRC, ":p:h"))
-endif
-
-
 " Use ctrlp as backup fuzzy finder (no dependencies)
 if !exists('g:leaderf_loaded') && !exists('g:loaded_fzf')
     nnoremap <leader>f :CtrlPMixed<CR>
