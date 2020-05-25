@@ -272,9 +272,6 @@ else
 
 endif
 
-" Common Highlighting {{{1
-
-hi! link helpHyperTextJump Underlined
 
 " Common Chrome {{{1
 hi! link FoldColumn LineNr
