@@ -55,8 +55,8 @@ if exists('*minpac#init')
     call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
     " FZF is quite good, but not really polished for windows users
     call minpac#add('junegunn/fzf', {'type': 'opt'})
-    " call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
-    call minpac#add('habamax/fzf.vim', {'type': 'opt'})
+    call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
+    " call minpac#add('habamax/fzf.vim', {'type': 'opt'})
     " backup (no external dependencies)
     call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
 
