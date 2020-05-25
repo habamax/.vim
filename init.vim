@@ -61,7 +61,6 @@ set belloff=all
 set completeopt=menuone
 if !has('nvim') && v:version > 802 | set completeopt+=popup | endif
 
-
 "" Text {{{1
 set tabstop=8 softtabstop=-1 shiftwidth=4 expandtab smarttab
 set shiftround
@@ -364,6 +363,13 @@ augroup END
 augroup autosize_windows | au!
     au WinEnter * silent! call win#lens()
 augroup end
+
+
+if exists('##TextYankPost') && has('nvim')
+    augroup hi_yanktext | au!
+        au TextYankPost * silent! lua require'vim.highlight'.on_yank('Search', 200)
+    augroup end
+endif
 
 
 "" Load Other Settings (plugins, colorscheme, etc) {{{1
