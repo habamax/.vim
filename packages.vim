@@ -50,9 +50,6 @@ if exists('*minpac#init')
 
 
     "" Fuzzy stuff
-    " install optional dependency: ./install.bat or ./install.sh
-    " from package root
-    call minpac#add('Yggdroot/LeaderF', {'type': 'opt'})
     " FZF is quite good, but not really polished for windows users
     call minpac#add('junegunn/fzf', {'type': 'opt'})
     call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
