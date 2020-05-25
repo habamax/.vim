@@ -76,11 +76,13 @@ if !exists('g:leaderf_loaded') && executable('fzf')
     command! VimConfigs :exe printf('Files %s', fnamemodify($MYVIMRC, ":p:h"))
 
     "" HelpRg command -- like helpgrep but with FZF and ripgrep
-    let g:paths = uniq(sort(split(globpath(&runtimepath, 'pack/', 1), '\n')))
-    call add(g:paths, expand($VIMRUNTIME))
+    func! HelpRgCommand() abort
+        let helppaths = uniq(sort(split(globpath(&runtimepath, 'doc/', 1), '\n')))
+        return 'rg --column --line-number --no-heading --color=always --smart-case -g "*.txt" "" '. join(helppaths)
+    endfunc
     command! -bang -nargs=* HelpRg
                 \ call fzf#vim#grep(
-                \   'rg --column --line-number --no-heading --color=always --smart-case -g "*doc*.txt" "" '. join(g:paths), 1,
+                \   HelpRgCommand(), 1,
                 \   {}, <bang>0)
 
 
