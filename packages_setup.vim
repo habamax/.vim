@@ -32,7 +32,7 @@ if !exists('g:leaderf_loaded') && executable('fzf')
     nnoremap <leader>/ :BLines<CR>
     nnoremap <leader>; :Commands<CR>
     nnoremap <leader>T :Tags<CR>
-    nnoremap <F1> :HelpRg<CR>
+    nnoremap <F1> :call FZFHelp()<CR>
     nnoremap <leader>h :History<CR>
     nnoremap <leader>c :Colors<CR>
     nnoremap <leader>g :Rg<CR>
@@ -84,6 +84,18 @@ if !exists('g:leaderf_loaded') && executable('fzf')
                 \ call fzf#vim#grep(
                 \   HelpRgCommand(), 1,
                 \   {}, <bang>0)
+
+    func! s:helptag_sink(line)
+        let [tag, file] = split(a:line, "\t")[0:1]
+        execute 'help' tag
+    endfunc
+
+    func! FZFHelp(...)
+        let tags = uniq(sort(split(globpath(&runtimepath, 'doc/tags', 1), '\n')))
+        return fzf#run(fzf#wrap({
+                    \ 'source':  'rg --no-filename ".*" '.join(map(tags, 'fzf#shellescape(v:val)')),
+                    \ 'sink': function('s:helptag_sink')}))
+    endfunc
 
 
     " remove delay when close fzf with escape
