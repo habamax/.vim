@@ -1,13 +1,25 @@
 """ Customize colors {{{1
 
-func! s:habamax_setup() abort
+func! s:asciidoctor_default() abort
     if !get(g:, "habamax_flat", 0) && exists("*asciidoctor#force_default_colors")
         call asciidoctor#force_default_colors()
     endif
 endfunc
 
+func! s:default_setup() abort
+    if get(g:, "colors_name", "default") != 'default'
+        return
+    endif
+    if &background == "dark"
+        hi Normal guibg=black guifg=white ctermbg=black ctermfg=white
+    else
+        hi Normal guibg=white guifg=black ctermbg=white ctermfg=black
+    endif
+endfunc
+
 augroup colorscheme_change | au!
-    au ColorScheme habamax call s:habamax_setup()
+    au ColorScheme * call s:asciidoctor_default()
+    au OptionSet background call s:default_setup()
 augroup END
 
 
