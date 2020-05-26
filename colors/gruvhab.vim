@@ -1,8 +1,6 @@
-" Name:         Gruvhab (gruvbox simplified)
-" Description:  Retro groove color scheme originally designed by morhetz
-" Author:       morhetz <morhetz@gmail.com>
-" Maintainer:   Maxim Kim <habamax@gmail.com>
-
+" Name: Gruvhab (gruvbox simplified)
+" Desc: Retro groove colorscheme originally designed by morhetz <morhetz@gmail.com>
+" Author: Maxim Kim <habamax@gmail.com>
 
 hi clear
 if exists('syntax_on')
@@ -10,7 +8,6 @@ if exists('syntax_on')
 endif
 
 let g:colors_name = 'gruvhab'
-
 
 if &background ==# 'dark'
     if has('nvim')
@@ -76,7 +73,7 @@ if &background ==# 'dark'
     hi DiffDelete guifg=#fb4934 guibg=#282828 guisp=NONE gui=reverse cterm=reverse
     hi DiffText guifg=#fabd2f guibg=#282828 guisp=NONE gui=reverse cterm=reverse
     hi Directory guifg=#b8bb26 guibg=NONE guisp=NONE gui=bold cterm=bold
-    hi EndOfBuffer guifg=#282828 guibg=NONE guisp=NONE gui=NONE cterm=NONE
+    hi EndOfBuffer guifg=#504945 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi IncSearch guifg=#fe8019 guibg=#282828 guisp=NONE gui=reverse cterm=reverse
     hi ModeMsg guifg=#fabd2f guibg=NONE guisp=NONE gui=bold cterm=bold
     hi MoreMsg guifg=#fabd2f guibg=NONE guisp=NONE gui=bold cterm=bold
@@ -191,7 +188,7 @@ else
     hi DiffDelete guifg=#9d0006 guibg=#fbf1c7 guisp=NONE gui=reverse cterm=reverse
     hi DiffText guifg=#b57614 guibg=#fbf1c7 guisp=NONE gui=reverse cterm=reverse
     hi Directory guifg=#79740e guibg=NONE guisp=NONE gui=bold cterm=bold
-    hi EndOfBuffer guifg=#fbf1c7 guibg=NONE guisp=NONE gui=NONE cterm=NONE
+    hi EndOfBuffer guifg=#d5c4a1 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi IncSearch guifg=#af3a03 guibg=#fbf1c7 guisp=NONE gui=reverse cterm=reverse
     hi ModeMsg guifg=#b57614 guibg=NONE guisp=NONE gui=bold cterm=bold
     hi MoreMsg guifg=#b57614 guibg=NONE guisp=NONE gui=bold cterm=bold
@@ -254,4 +251,3 @@ hi! link Tag Special
 hi! link lCursor Cursor
 hi! link iCursor Cursor
 hi! link vCursor Cursor
-
