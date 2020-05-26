@@ -22,6 +22,7 @@ endfunc
 
 augroup colorscheme_change | au!
     au ColorScheme * call s:asciidoctor_default()
+    au ColorScheme default call s:default_setup()
     au OptionSet background call s:default_setup()
 augroup END
 
