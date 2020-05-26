@@ -88,9 +88,9 @@ set commentstring=
 " neovim loads clipboard.vim at startup having this option set
 " and it makes startup slower.
 " vim doesn't have this problem
-if !has("nvim")
-    set clipboard=unnamed
-endif
+" if !has("nvim")
+"     set clipboard=unnamed
+" endif
 
 set sessionoptions=buffers,curdir,tabpages,winsize
 
