@@ -12,8 +12,10 @@ func! s:default_setup() abort
     endif
     if &background == "dark"
         hi Normal guibg=black guifg=white ctermbg=black ctermfg=white
+        hi Visual guibg=#505050 guifg=NONE
     else
         hi Normal guibg=white guifg=black ctermbg=white ctermfg=black
+        hi Visual guibg=#d0d0d0 guifg=NONE
     endif
 endfunc
 
