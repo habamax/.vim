@@ -1,4 +1,4 @@
-" Name: Gruvhab (gruvbox simplified)
+" Name: Gruvmin (gruvbox simplified GUI colorscheme)
 " Desc: Retro groove colorscheme originally designed by morhetz <morhetz@gmail.com>
 " Author: Maxim Kim <habamax@gmail.com>
 
@@ -7,7 +7,7 @@ if exists('syntax_on')
     syntax reset
 endif
 
-let g:colors_name = 'gruvhab'
+let g:colors_name = 'gruvmin'
 
 if &background ==# 'dark'
     if has('nvim')
