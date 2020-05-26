@@ -311,8 +311,8 @@ augroup END
 " Open (n)vim configs
 command! Init :silent only
             \<bar>:exe printf("e %s/init.vim", fnamemodify($MYVIMRC, ":p:h"))
-            \<bar>:exe printf("vs %s/packages.vim", fnamemodify($MYVIMRC, ":p:h"))
-            \<bar>:exe printf("vs %s/packages_setup.vim", fnamemodify($MYVIMRC, ":p:h"))
+            \<bar>:exe printf("vs %s/pack_list.vim", fnamemodify($MYVIMRC, ":p:h"))
+            \<bar>:exe printf("vs %s/pack_setup.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:exe printf("vs %s/after/plugin/init.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:1wincmd w
 
@@ -392,6 +392,6 @@ source <sfile>:h/abbreviations.vim
 source <sfile>:h/colorscheme_setup.vim
 
 if v:version >= 801 || has('nvim')
-    source <sfile>:h/packages_setup.vim
-    source <sfile>:h/packages.vim
+    source <sfile>:h/pack_setup.vim
+    source <sfile>:h/pack_list.vim
 endif
