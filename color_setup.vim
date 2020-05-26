@@ -20,9 +20,15 @@ func! s:default_setup() abort
     hi VertSplit guibg=fg guifg=NONE gui=NONE
 endfunc
 
+func! s:base_setup() abort
+    hi Comment gui=italic
+    hi Title gui=bold
+endfunc
+
 augroup colorscheme_change | au!
     au ColorScheme * call s:asciidoctor_default()
     au ColorScheme default call s:default_setup()
+    au ColorScheme apprentice call s:base_setup()
     au OptionSet background call s:default_setup()
 augroup END
 
