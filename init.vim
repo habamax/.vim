@@ -389,7 +389,7 @@ source <sfile>:h/tabline.vim
 
 source <sfile>:h/abbreviations.vim
 
-source <sfile>:h/colorscheme_setup.vim
+source <sfile>:h/color_setup.vim
 
 if v:version >= 801 || has('nvim')
     source <sfile>:h/pack_setup.vim
