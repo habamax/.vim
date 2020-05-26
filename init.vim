@@ -301,13 +301,6 @@ cabbr й q
 cabbr цй wq
 cabbr ив bd
 
-" highlight all occurrences of a term being searched/replaced
-augroup hlsearch-incsearch
-    autocmd!
-    autocmd CmdlineEnter /,\? :set hlsearch
-    autocmd CmdlineLeave /,\? :set nohlsearch
-augroup END
-
 " Open (n)vim configs
 command! Init :silent only
             \<bar>:exe printf("e %s/init.vim", fnamemodify($MYVIMRC, ":p:h"))
@@ -352,15 +345,21 @@ if has("unix") || has("osxdarwin")
     command! W w !sudo tee "%" > /dev/null
 endif
 
-augroup restore_last_cursor_position | autocmd!
-    autocmd BufReadPost *
+" highlight all occurrences of a term being searched/replaced
+augroup hlsearch | au!
+    au CmdlineEnter /,\? :set hlsearch
+    au CmdlineLeave /,\? :set nohlsearch
+augroup end
+
+augroup restore_pos | au!
+    au BufReadPost *
                 \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
                 \ |   exe "normal! g`\""
                 \ | endif
-augroup END
+augroup end
 
 
-augroup autosize_windows | au!
+augroup win_autosize | au!
     au WinEnter * silent! call win#lens()
 augroup end
 
