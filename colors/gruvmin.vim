@@ -95,7 +95,7 @@ if &background ==# 'dark'
     hi Error guifg=#fb4934 guibg=#282828 guisp=NONE gui=bold,reverse cterm=bold,reverse
     hi Exception guifg=#fb4934 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Float guifg=#d3869b guibg=NONE guisp=NONE gui=NONE cterm=NONE
-    hi Function guifg=#b8bb26 guibg=NONE guisp=NONE gui=NONE cterm=NONE
+    hi Function guifg=#83a598 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Identifier guifg=#83a598 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Ignore guifg=fg guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Include guifg=#8ec07c guibg=NONE guisp=NONE gui=NONE cterm=NONE
@@ -210,7 +210,7 @@ else
     hi Error guifg=#9d0006 guibg=#fbf1c7 guisp=NONE gui=bold,reverse cterm=bold,reverse
     hi Exception guifg=#9d0006 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Float guifg=#8f3f71 guibg=NONE guisp=NONE gui=NONE cterm=NONE
-    hi Function guifg=#79740e guibg=NONE guisp=NONE gui=NONE cterm=NONE
+    hi Function guifg=#076678 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Identifier guifg=#076678 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Ignore guifg=fg guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Include guifg=#427b58 guibg=NONE guisp=NONE gui=NONE cterm=NONE
