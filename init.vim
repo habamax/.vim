@@ -340,9 +340,9 @@ command! ContinueInSplit
             \ | wincmd p
             \ | set scrollbind
 
-command! -range=% VP call misc#vpaste(<line1>, <line2>)
-command! -range=% IX call misc#ix(<line1>, <line2>)
-command! -range=% CB call misc#clbin(<line1>, <line2>)
+command! -range=% PasteVP call misc#vpaste(<line1>, <line2>)
+command! -range=% PasteIX call misc#ix(<line1>, <line2>)
+command! -range=% PasteCL call misc#clbin(<line1>, <line2>)
 
 command! CD lcd %:p:h
 
