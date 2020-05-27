@@ -149,7 +149,6 @@ if exists('*minpac#init')
 
     call minpac#add('lifepillar/vim-gruvbox8')
     call minpac#add('lifepillar/vim-solarized8')
-    call minpac#add('nanotech/jellybeans.vim')
     call minpac#add('romainl/Apprentice')
 
 endif
