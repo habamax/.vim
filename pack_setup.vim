@@ -241,6 +241,12 @@ let g:vrc_trigger = '<leader><leader>e'
 command! FormatREST call misc#vrc_format_rest_as_json()
 
 
+"" vim-traces {{{1
+" don't load traces plugin if inccommand is set up
+if has('nvim') && &inccommand != ''
+    let g:traces_enabled = v:false
+endif
+
 
 """ firenvim {{{1
 if exists('g:started_by_firenvim')

@@ -34,6 +34,10 @@ else
     set diffopt=filler,vertical
 endif
 
+if has('nvim')
+    set inccommand=nosplit
+endif
+
 set scrolloff=2 sidescrolloff=0
 set display+=lastline
 set tabpagemax=50
