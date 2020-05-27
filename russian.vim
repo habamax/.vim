@@ -1,8 +1,8 @@
 if has('langmap') && exists('+langremap')
   " Prevent that the langmap option applies to characters that result from a
-  " mapping.  If set (default), this may break plugins (but it's backward
-  " compatible).
-  set nolangremap
+  " mapping.
+  " https://github.com/vim/vim/issues/3018
+  set langremap
 endif
 
 " Keymap внутренняя раскладка + langmap (который надо использовать по
