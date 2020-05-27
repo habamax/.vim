@@ -40,6 +40,10 @@ endfunc
 "" Paste lines from current buffer to vpaste.net
 "" Save URL in clipboard.
 func! misc#vpaste(line1, line2) abort
+    if !executable('curl')
+        echom "curl is not available!"
+        return
+    endif
     let result = system('curl -s -F "text=<-" "http://vpaste.net/"',
                 \ join(getline(a:line1, a:line2), "\n")) 
     let @* = substitute(result, "\n$", "", "")
