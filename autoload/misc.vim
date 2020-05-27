@@ -51,6 +51,13 @@ func! misc#ix(line1, line2) abort
     echom "Pasted as " .. @*
 endfunc
 
+"" Paste lines from current buffer to clbin.com
+"" Save URL in clipboard.
+func! misc#clbin(line1, line2) abort
+    let @* = s:paste_curl('https://clbin.com/', 'clbin=<-', a:line1, a:line2)
+    echom "Pasted as " .. @*
+endfunc
+
 "" Helper function to use curl for pastebin like websites
 func! s:paste_curl(url, param, line1, line2) abort
     if !executable('curl')
