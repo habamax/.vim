@@ -238,6 +238,7 @@ let g:vrc_curl_opts = {
             \}
 let g:vrc_set_default_mapping = 1
 let g:vrc_trigger = '<leader>mm'
+command! FormatREST call misc#vrc_format_rest_as_json()
 
 
 

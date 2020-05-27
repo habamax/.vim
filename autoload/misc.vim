@@ -19,3 +19,19 @@ func! misc#unicode_number(num, ...) abort
     endif
     return num
 endfunc
+
+
+"" Format JSON response VRC plugin provides
+func! misc#vrc_format_rest_as_json() abort
+    if bufname() != '__REST_response__'
+        echom "Should only format __REST_response buffers!"
+        return
+    endif
+    setlocal ma
+    if getline(1) =~ '^HTTP'
+        normal ggdap
+    endif
+    set ft=json
+    " This command is defined in after/ftplugin/json.vim
+    Format
+endfunc
