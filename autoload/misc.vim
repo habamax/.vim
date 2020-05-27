@@ -35,3 +35,13 @@ func! misc#vrc_format_rest_as_json() abort
     " This command is defined in after/ftplugin/json.vim
     Format
 endfunc
+
+
+"" Paste lines from current buffer to vpaste.net
+"" Save URL in clipboard.
+func! misc#vpaste(line1, line2) abort
+    let result = system('curl -s -F "text=<-" "http://vpaste.net/"',
+                \ join(getline(a:line1, a:line2), "\n")) 
+    let @* = substitute(result, "\n$", "", "")
+    echom "Pasted as " .. @*
+endfunc
