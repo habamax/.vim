@@ -56,7 +56,7 @@ let &showbreak='╰ '
 set wildchar=<Tab> wildmenu wildmode=full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 
-" turn off beeping... oldfashioned way
+" turn off beeping... Old-fashioned way
 " set visualbell
 " au! GuiEnter * set t_vb=
 " set t_vb=
