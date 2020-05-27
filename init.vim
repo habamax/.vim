@@ -51,14 +51,11 @@ set list
 set listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
 let &showbreak='╰ '
 
-" autocomplete is getting much better :e <tab>...
 set wildchar=<Tab> wildmenu wildmode=full
+" to use in cnoremaps
+set wildcharm=<C-z>
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 
-" turn off beeping... Old-fashioned way
-" set visualbell
-" au! GuiEnter * set t_vb=
-" set t_vb=
 set belloff=all
 
 set completeopt=menuone
@@ -148,10 +145,8 @@ endif
 let mapleader = "\<Space>"
 
 " smooth searching
-" ask romainl on vimrc
-" https://github.com/romainl/minivimrc/blob/c2fe3362a60e8e0d3f5b01aad8ce5f6660455872/vimrc#L116
-" cnoremap <expr> <Tab>   getcmdtype() == "/" \|\| getcmdtype() == "?" ? "<CR>/<C-r>/" : "<C-z>"
-" cnoremap <expr> <S-Tab> getcmdtype() == "/" \|\| getcmdtype() == "?" ? "<CR>?<C-r>/" : "<S-Tab>"
+cnoremap <expr> <Tab>   getcmdtype() == "/" \|\| getcmdtype() == "?" ? "<CR>/<C-r>/" : "<C-z>"
+cnoremap <expr> <S-Tab> getcmdtype() == "/" \|\| getcmdtype() == "?" ? "<CR>?<C-r>/" : "<S-Tab>"
 
 nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
