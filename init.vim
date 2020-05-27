@@ -6,8 +6,7 @@
 language messages en_US.UTF-8
 
 filetype plugin indent on
-
-syntax enable
+syntax on
 
 set hidden
 
@@ -129,9 +128,6 @@ set nrformats=bin,hex
 
 "" Mappings {{{1
 
-let mapleader = "\<Space>"
-
-
 " Fix Alt mappings for terminal vim
 " https://stackoverflow.com/questions/6778961/alt-key-shortcuts-not-working-on-gnome-terminal-with-vim/10216459#10216459
 if !has('nvim') && !has('gui_running') && !has('win32')
@@ -149,6 +145,27 @@ if !has('nvim') && !has('gui_running') && !has('win32')
     endw
 endif
 
+let mapleader = "\<Space>"
+
+" smooth searching
+" ask romainl on vimrc
+" https://github.com/romainl/minivimrc/blob/c2fe3362a60e8e0d3f5b01aad8ce5f6660455872/vimrc#L116
+" cnoremap <expr> <Tab>   getcmdtype() == "/" \|\| getcmdtype() == "?" ? "<CR>/<C-r>/" : "<C-z>"
+" cnoremap <expr> <S-Tab> getcmdtype() == "/" \|\| getcmdtype() == "?" ? "<CR>?<C-r>/" : "<S-Tab>"
+
+nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
+
+" pair expansion
+inoremap (<CR> (<CR>)<Esc>O
+inoremap (;    (<CR>);<Esc>O
+inoremap (,    (<CR>),<Esc>O
+inoremap {<CR> {<CR>}<Esc>O
+inoremap {;    {<CR>};<Esc>O
+inoremap {,    {<CR>},<Esc>O
+inoremap [<CR> [<CR>]<Esc>O
+inoremap [;    [<CR>];<Esc>O
+inoremap [,    [<CR>],<Esc>O
+
 " guards
 nnoremap <leader>m <nop>
 nnoremap <leader>o <nop>
@@ -156,7 +173,7 @@ nnoremap <Leader>d <nop>
 nnoremap d<Leader> <nop>
 
 nnoremap <BS> <C-^>
-" killall buffers except current one
+" kill-all buffers except current one
 nnoremap <M-BS> :%bd<CR><C-^>:bd#<CR>
 
 " UPPERCASE WORD
@@ -187,7 +204,7 @@ xnoremap <M-f> <C-d>
 nnoremap <M-b> <C-u>
 xnoremap <M-b> <C-u>
 
-"" Window mangament
+"" Window management
 " switch to windows
 tnoremap <M-h> <C-\><C-N><C-w>h
 tnoremap <M-j> <C-\><C-N><C-w>j
