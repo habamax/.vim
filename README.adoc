@@ -21,37 +21,26 @@ All variations are in a single `colors/habamax.vim`.
 ------------------------------------------------------------------------------
 " g:habamax_flat -- turn syntax colors to flat mode
 let g:habamax_flat = v:false
-" g:habamax_fancy -- turn syntax colors to variations of base16-default-dark and base16-one-light
-let g:habamax_fancy = v:true
 " g:habamax_contrast -- turn light background white and dark background black
 let g:habamax_contrast = v:false
-" g:habamax_dirty -- turn light background a bit darker
-let g:habamax_dirty = v:true
+" handy if you use it with transparent terminals
+let g:habamax_transparent = v:false
+
 colorscheme habamax
 
 " mimic tpope's unimpaired with toggling options
-nnoremap <silent> yoF :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
-nnoremap <silent> yof :let g:habamax_fancy = !g:habamax_fancy <bar> colo habamax<CR>
+nnoremap <silent> yof :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
 nnoremap <silent> yot :call <SID>habamax_next_contrast()<CR>
+nnoremap <silent> yoT :let g:habamax_transparent = !g:habamax_transparent <bar> colo habamax<CR>
 
 "" loop over habamax contrast settings
 func! s:habamax_next_contrast() abort
-   if &background == 'light'
-       " ring of (->regular -> dirty -> contrast->)
-       if !g:habamax_contrast && !g:habamax_dirty
-           let g:habamax_contrast = v:false
-           let g:habamax_dirty = v:true
-       elseif !g:habamax_contrast && g:habamax_dirty
-           let g:habamax_contrast = v:true
-           let g:habamax_dirty = v:false
-       else
-           let g:habamax_contrast = v:false
-           let g:habamax_dirty = v:false
-       endif
-   else
-       let g:habamax_contrast = !g:habamax_contrast
-   endif
-   colorscheme habamax
+    if get(g:, "habamax_transparent", v:false)
+        let g:habamax_transparent = v:false
+    else
+        let g:habamax_contrast = !g:habamax_contrast
+    endif
+    colorscheme habamax
 endfunc
 ------------------------------------------------------------------------------
 
