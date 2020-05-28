@@ -103,14 +103,6 @@ if exists('*minpac#init')
     " can't make it work for me
     " call minpac#add('neovim/nvim-lsp', { 'type': 'opt' })
 
-    " call minpac#add('prabirshrestha/vim-lsp')
-    " call minpac#add('mattn/vim-lsp-settings')
-    " call minpac#add('mattn/vim-lsp-icons')
-    " call minpac#add('prabirshrestha/async.vim')
-    " call minpac#add('prabirshrestha/asyncomplete.vim')
-    " call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
-
-
     "" Snippets
     call minpac#add('hrsh7th/vim-vsnip')
     " it is quite slow to startup
