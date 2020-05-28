@@ -113,6 +113,9 @@ if exists('*minpac#init')
 
 
     "" Miscelaneous
+    " enhance [I ]I [D ]D
+    call minpac#add('romainl/vim-qlist')
+
     " rest console with curl
     call minpac#add('diepm/vim-rest-console')
 
