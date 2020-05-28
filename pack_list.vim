@@ -97,6 +97,9 @@ if exists('*minpac#init')
 
     call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 
+    " backup general <tab> completion
+    call minpac#add('lifepillar/vim-mucomplete')
+
     " can't make it work for me
     " call minpac#add('neovim/nvim-lsp', { 'type': 'opt' })
 
@@ -106,7 +109,6 @@ if exists('*minpac#init')
     " call minpac#add('prabirshrestha/async.vim')
     " call minpac#add('prabirshrestha/asyncomplete.vim')
     " call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
-    " call minpac#add('ervandew/supertab')
 
 
     "" Snippets
