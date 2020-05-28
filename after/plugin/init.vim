@@ -8,21 +8,12 @@ if exists("g:loaded_vsnip") " {{{1
 endif
 
 
-if exists("g:did_coc_loaded") " {{{1
+if exists("g:did_coc_loaded") && g:coc_start_at_startup " {{{1
     " :CocInstall coc-vimlsp
     " :CocInstall coc-python
     " :CocInstall coc-godot
 
-    inoremap <silent><expr> <TAB>
-                \ pumvisible() ? "\<C-n>" :
-                \ habacoc#check_back_space() ? "\<TAB>" :
-                \ coc#refresh()
-    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-    augroup coc_settings | au!
-        autocmd CursorHold * silent call CocActionAsync('highlight')
-        autocmd FileType gdscript,go,python call habacoc#mappings()
-    augroup end
+    call habacoc#setup()
 endif
 
 

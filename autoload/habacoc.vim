@@ -1,4 +1,18 @@
-func! habacoc#check_back_space() abort
+func! habacoc#setup()
+    CocStart
+    inoremap <silent><expr> <TAB>
+                \ pumvisible() ? "\<C-n>" :
+                \ <sid>check_back_space() ? "\<TAB>" :
+                \ coc#refresh()
+    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+    augroup coc_settings | au!
+        autocmd CursorHold * silent call CocActionAsync('highlight')
+        autocmd FileType gdscript,go,python call habacoc#mappings()
+    augroup end
+endfunc
+
+func! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunc
