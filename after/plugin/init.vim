@@ -8,7 +8,7 @@ if exists("g:loaded_vsnip") " {{{1
 endif
 
 
-if exists("g:did_coc_loaded") && g:coc_start_at_startup " {{{1
+if exists("g:did_coc_loaded") && get(g:, "coc_start_at_startup", v:true) " {{{1
     " :CocInstall coc-vimlsp
     " :CocInstall coc-python
     " :CocInstall coc-godot
