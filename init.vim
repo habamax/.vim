@@ -239,6 +239,10 @@ nnoremap <silent> <leader>w5 :echo win#layout_tile()<CR>
 nnoremap <silent> <F11> :echo win#layout_save()<CR>
 nnoremap <silent> <F12> :echo win#layout_restore()<CR>
 
+onoremap <silent>ii :<C-u>call text#indent_object(v:true)<CR>
+onoremap <silent>ai :<C-u>call text#indent_object(v:false)<CR>
+xnoremap <silent>ii <ESC>:call text#indent_object(v:true)<CR><ESC>gv
+xnoremap <silent>ai <ESC>:call text#indent_object(v:false)<CR><ESC>gv
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.

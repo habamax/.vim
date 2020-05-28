@@ -40,3 +40,65 @@ func! text#underline(chars)
         call append('.', underline)
     endif
 endfunc
+
+
+"" Indent text object
+"" Useful for python-like indentation based programming lanugages
+func! text#indent_object(inner)
+    if getline('.') =~ '^\s*$'
+        let ln_start = s:detect_nearest_line()
+        let ln_end = ln_start
+    else
+        let ln_start = line('.')
+        let ln_end = ln_start
+    endif
+
+    let indent = indent(ln_start)
+
+    while indent <= indent(ln_start)
+                \ && ln_start > 0
+        let ln_start = prevnonblank(ln_start-1)
+    endwhile
+    if a:inner
+        let ln_start = s:nextnonblank(ln_start+1)
+    endif
+
+    while indent <= indent(ln_end)
+                \ && ln_end < line('$')
+        let ln_end = s:nextnonblank(ln_end+1)
+    endwhile
+
+    if indent > indent(ln_end)
+        if a:inner
+            let ln_end = prevnonblank(ln_end-1)
+        else
+            let ln_end = ln_end-1
+        endif
+    endif
+
+    exe ln_end
+    normal! V
+    exe ln_start
+
+endfunc
+
+
+func! s:nextnonblank(lnum) abort
+    let res = nextnonblank(a:lnum)
+    if res == 0
+        let res = line('$')
+    endif
+    return res
+endfunc
+
+
+func! s:detect_nearest_line() abort
+    let lnum = line('.')
+    let nline = s:nextnonblank(lnum)
+    let pline = prevnonblank(lnum)
+    if abs(nline - lnum) > abs(pline - lnum)
+        return pline
+    else
+        return nline
+    endif
+endfunc
