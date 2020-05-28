@@ -22,7 +22,7 @@ if executable("git")
 endif
 
 
-""" Fuzzy finder (LeaderF, FZF and CtrlP) {{{1
+""" Fuzzy finder (FZF and CtrlP) {{{1
 
 " Try FZF
 if !exists('g:leaderf_loaded') && executable('fzf')
@@ -106,7 +106,7 @@ endif
 
 
 " Use ctrlp as backup fuzzy finder (no dependencies)
-if !exists('g:leaderf_loaded') && !exists('g:loaded_fzf')
+if !exists('g:loaded_fzf')
     nnoremap <leader>f :CtrlPMixed<CR>
     nnoremap <leader>b :CtrlPBuffer<CR>
     nnoremap <leader>h :CtrlPMRUFiles<CR>
