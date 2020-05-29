@@ -48,8 +48,8 @@ if &background ==# 'dark'
     hi ColorColumn guifg=NONE guibg=#3c3836 guisp=NONE gui=NONE cterm=NONE
     hi Comment guifg=#928374 guibg=NONE guisp=NONE gui=italic cterm=italic
     hi CursorLine guifg=NONE guibg=#3c3836 guisp=NONE gui=NONE cterm=NONE
-    hi Error guifg=#fb4934 guibg=#282828 guisp=NONE gui=bold,reverse cterm=bold,reverse
-    hi ErrorMsg guifg=#282828 guibg=#fb4934 guisp=NONE gui=bold cterm=bold
+    hi Error guifg=#282828 guibg=#fb4934 guisp=NONE gui=NONE cterm=NONE
+    hi ErrorMsg guifg=#282828 guibg=#fb4934 guisp=NONE gui=NONE cterm=NONE
     hi Folded guifg=#928374 guibg=#3c3836 guisp=NONE gui=italic cterm=italic
     hi LineNr guifg=#7c6f64 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi MatchParen guifg=NONE guibg=#665c54 guisp=NONE gui=bold,underline cterm=bold,underline
@@ -94,7 +94,6 @@ if &background ==# 'dark'
     hi Define guifg=#8ec07c guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Debug guifg=#fb4934 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Delimiter guifg=#fe8019 guibg=NONE guisp=NONE gui=NONE cterm=NONE
-    hi Error guifg=#fb4934 guibg=#282828 guisp=NONE gui=bold,reverse cterm=bold,reverse
     hi Exception guifg=#fb4934 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Float guifg=#d3869b guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Function guifg=#83a598 guibg=NONE guisp=NONE gui=NONE cterm=NONE
@@ -163,8 +162,8 @@ else
     hi ColorColumn guifg=NONE guibg=#ebdbb2 guisp=NONE gui=NONE cterm=NONE
     hi Comment guifg=#928374 guibg=NONE guisp=NONE gui=italic cterm=italic
     hi CursorLine guifg=NONE guibg=#ebdbb2 guisp=NONE gui=NONE cterm=NONE
-    hi Error guifg=#9d0006 guibg=#fbf1c7 guisp=NONE gui=bold,reverse cterm=bold,reverse
-    hi ErrorMsg guifg=#fbf1c7 guibg=#9d0006 guisp=NONE gui=bold cterm=bold
+    hi Error guifg=#fbf1c7 guibg=#9d0006 guisp=NONE gui=NONE cterm=NONE
+    hi ErrorMsg guifg=#fbf1c7 guibg=#9d0006 guisp=NONE gui=NONE cterm=NONE
     hi Folded guifg=#928374 guibg=#ebdbb2 guisp=NONE gui=italic cterm=italic
     hi LineNr guifg=#a89984 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi MatchParen guifg=NONE guibg=#bdae93 guisp=NONE gui=bold,underline cterm=bold,underline
@@ -209,7 +208,6 @@ else
     hi Define guifg=#427b58 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Debug guifg=#9d0006 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Delimiter guifg=#af3a03 guibg=NONE guisp=NONE gui=NONE cterm=NONE
-    hi Error guifg=#9d0006 guibg=#fbf1c7 guisp=NONE gui=bold,reverse cterm=bold,reverse
     hi Exception guifg=#9d0006 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Float guifg=#8f3f71 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi Function guifg=#076678 guibg=NONE guisp=NONE gui=NONE cterm=NONE
