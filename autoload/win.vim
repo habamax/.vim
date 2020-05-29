@@ -53,7 +53,7 @@ func! win#lens() abort
     wincmd =
     setlocal nowinfixheight
     setlocal nowinfixwidth
-    normal! zzze
+    normal! ze
 endfunction
 
 
