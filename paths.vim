@@ -1,4 +1,4 @@
-"" Paths & Backup & Undo & Sessions
+"" Swap & Backup & Undo
 set path=.,,src/**,lib/**,docs/**
 
 let &directory = expand('~/.vimdata/swap//')
