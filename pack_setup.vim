@@ -32,23 +32,23 @@ if !exists('g:leaderf_loaded') && executable('fzf')
     nnoremap <leader>/ :BLines<CR>
     nnoremap <leader>; :Commands<CR>
     nnoremap <leader>T :Tags<CR>
-    nnoremap <F1> :call FZFHelp()<CR>
-    nnoremap <leader>h :History<CR>
+    nnoremap <leader>h :call FZFHelp()<CR>
+    nnoremap <leader>m :History<CR>
     nnoremap <leader>c :Colors<CR>
     nnoremap <leader>g :Rg<CR>
 
     let g:fzf_preview_window = ''
 
     " CTRL-A CTRL-Q to select all and build quickfix list
-    function! s:build_quickfix_list(lines)
+    func! s:build_quickfix_list(lines)
         call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
         copen
         cc
-    endfunction
+    endfunc
 
     " doesn't play nice with transparent background and vim
     " https://github.com/vim/vim/issues/2361
-    let g:fzf_layout = { 'window': { 'width': 0.85, 'height': 0.8 } }
+    let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.7 } }
 
     let g:fzf_action = {
                 \ 'ctrl-q': function('s:build_quickfix_list'),
@@ -109,7 +109,7 @@ endif
 if !exists('g:loaded_fzf')
     nnoremap <leader>f :CtrlPMixed<CR>
     nnoremap <leader>b :CtrlPBuffer<CR>
-    nnoremap <leader>h :CtrlPMRUFiles<CR>
+    nnoremap <leader>m :CtrlPMRUFiles<CR>
     nnoremap <leader>/ <nop>
     nnoremap <leader>: <nop>
     nnoremap <leader>T <nop>
