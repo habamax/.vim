@@ -1,8 +1,6 @@
 " Author: Maxim Kim <habamax@gmail.com>
 
 "" Must have {{{1
-
-" Make vim speak English
 language messages en_US.UTF-8
 
 filetype plugin indent on
@@ -10,87 +8,53 @@ syntax on
 
 set hidden
 
+set belloff=all
+
 set encoding=utf8
+
+"" Essential {{{1
+set tabstop=8 softtabstop=-1 shiftwidth=4 expandtab smarttab shiftround
+set autoindent
+set nohlsearch incsearch ignorecase
+
 set fileencoding=utf8
 set fileformat=unix
 set fileformats=unix,mac,dos
 
-
-"" UI {{{1
 set shortmess+=Ic
-set winaltkeys=no
-set guioptions=cM
-set showtabline=1
-set cmdheight=1
-set nonumber norelativenumber
 set lazyredraw
-set splitbelow
-set splitright
-set helpheight=0
-if !has('nvim') && has('patch-8.1.360')
-    set diffopt=internal,filler,vertical,algorithm:patience
-else
-    set diffopt=filler,vertical
-endif
-
-if has('nvim')
-    set inccommand=nosplit
-endif
-
+set splitbelow splitright
 set scrolloff=2 sidescrolloff=0
-set display+=lastline
-set tabpagemax=50
-set showmode
-
-set confirm
-
+set display=truncate
 set conceallevel=0
+set completeopt=menuone
+set list listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
+set breakindent breakindentopt=sbr showbreak=╰
+set nowrap
+set nojoinspaces
+set virtualedit=block
+set formatoptions=cqjl
 
-"" Unicode chars
-set list
-set listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
-let &showbreak='╰ '
+" vim and terminals have hard time processing ESCs (laaaag)
+" this helps a lot
+set ttimeout ttimeoutlen=10
+
+" backspace and cursor keys wrap to previous/next line
+set backspace=indent,eol,start whichwrap+=<,>,[,]
 
 set wildchar=<Tab> wildmenu wildmode=full
 " to use in cnoremaps
 set wildcharm=<C-z>
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 
-set belloff=all
 
-set completeopt=menuone
-if !has('nvim') && v:version > 802 | set completeopt+=popup | endif
-
-"" Text {{{1
-set tabstop=8 softtabstop=-1 shiftwidth=4 expandtab smarttab
-set shiftround
-set autoindent
-
-set nohlsearch incsearch
-set ignorecase smartcase
-
-set nowrap
-set nojoinspaces
-set linebreak
-set breakindent
-set breakindentopt=sbr " showbreak will be handled correctly
-set virtualedit=block
-set formatoptions=cqjl
+"" Nice to have {{{1
+set confirm
 
 set spelllang=ru,en
 set nospell
 
 set commentstring=
-
-
-"" Misc {{{1
-
-" neovim loads clipboard.vim at startup having this option set
-" and it makes startup slower.
-" vim doesn't have this problem
-" if !has("nvim")
-"     set clipboard=unnamed
-" endif
 
 set sessionoptions=buffers,curdir,tabpages,winsize
 
@@ -100,28 +64,18 @@ if executable('rg')
     set grepformat=%f:%l:%c:%m
 endif
 
-if has('mouse')
-    set mouse=a
-endif
+if has('mouse') | set mouse=a | endif
 
-" vim and terminals have hard time processing ESCs (laaaag)
-" this helps a lot
-set ttimeout
-set ttimeoutlen=10
-
-
-" backspace and cursor keys wrap to previous/next line
-set backspace=indent,eol,start whichwrap+=<,>,[,]
-
-" better encryption
-if has('crypt-blowfish2')
-    set cryptmethod=blowfish2
-endif
-
-" remove default 'octal'.
 " good for C-a, C-x wrt 007 and other octal like numbers
 set nrformats=bin,hex
 
+if !has('nvim') && has('patch-8.1.360')
+    set diffopt+=vertical,algorithm:patience
+else
+    set diffopt+=vertical
+endif
+
+if has('nvim') | set inccommand=nosplit | endif
 
 "" Mappings {{{1
 

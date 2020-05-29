@@ -1,3 +1,9 @@
+set columns=999
+set lines=999
+
+set winaltkeys=no
+set guioptions=cM
+
 """ Mac {{{1
 if has("gui_macvim")
     set macmeta
@@ -29,7 +35,3 @@ set guifont=Iosevka\ Habamax:h13
 "" There are a lot of awesome fonts...
 " set gfn=JetBrains\ Mono\ NL:h13
 " set gfn=Consolas:h13
-
-
-set columns=999
-set lines=999
