@@ -404,7 +404,7 @@ if exists('##TextYankPost') && has('nvim')
 endif
 
 
-"" Load Other Settings (plugins, colorscheme, etc) {{{1
+"" Plugins, colors, etc {{{1
 
 " local machine settings, shouldn't be in the git repo
 silent! source <sfile>:h/local.vim
