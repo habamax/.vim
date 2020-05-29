@@ -1,3 +1,8 @@
+"" Name: autoload/text.vim
+"" Author: Maxim Kim <habamax@gmail.com>
+"" Desc: Text manipulation functions.
+
+
 "" Fix text:
 "" * replace non-breaking spaces to spaces
 "" * replace multiple spaces to a single space (preserving indent)

@@ -1,4 +1,6 @@
-"" Share text using pastebin like services.
+"" Name: autoload/share.vim
+"" Author: Maxim Kim <habamax@gmail.com>
+"" Desc: Share text using pastebin like services.
 "" Example commands:
 "" command! -range=% PasteVP call share#vpaste(<line1>, <line2>)
 "" command! -range=% PasteIX call share#ix(<line1>, <line2>)

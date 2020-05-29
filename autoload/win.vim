@@ -1,3 +1,9 @@
+"" Name: autoload/win.vim
+"" Author: Maxim Kim <habamax@gmail.com>
+"" Desc: Windows manipulation functions.
+
+
+
 "" Scroll other(previous) window
 func! win#scroll_other(dir) abort
     if winnr('$') < 2
