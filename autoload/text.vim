@@ -44,7 +44,7 @@ endfunc
 
 "" Indent text object
 "" Useful for python-like indentation based programming lanugages
-func! text#indent_object(inner)
+func! text#obj_indent(inner)
     if getline('.') =~ '^\s*$'
         let ln_start = s:detect_nearest_line()
         let ln_end = ln_start

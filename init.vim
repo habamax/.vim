@@ -240,10 +240,10 @@ nnoremap <silent> <F11> :echo win#layout_save()<CR>
 nnoremap <silent> <F12> :echo win#layout_restore()<CR>
 
 "" text objects
-onoremap <silent>ii :<C-u>call text#indent_object(v:true)<CR>
-onoremap <silent>ai :<C-u>call text#indent_object(v:false)<CR>
-xnoremap <silent>ii <ESC>:call text#indent_object(v:true)<CR><ESC>gv
-xnoremap <silent>ai <ESC>:call text#indent_object(v:false)<CR><ESC>gv
+onoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
+onoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
+xnoremap <silent>ii <ESC>:call text#obj_indent(v:true)<CR><ESC>gv
+xnoremap <silent>ai <ESC>:call text#obj_indent(v:false)<CR><ESC>gv
 
 func! s:number()
     call search('\d\([^0-9\.]\|$\)', 'cW')
