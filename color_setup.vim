@@ -35,6 +35,7 @@ augroup END
 
 "" Terminals {{{1
 if !has("gui_running")
+    set termguicolors
 
     " Fix vim termguicolors for tmux
     " NOTE: your .tmux.conf should have:
@@ -54,10 +55,6 @@ if !has("gui_running")
     if exists("$TMUX")
         let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
         let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
-    endif
-
-    if has("linux") || has("nvim")
-        set termguicolors
     endif
 
     " to fix cursor shape in WSL bash add 
