@@ -75,6 +75,7 @@ let g:habamax_contrast = get(g:, "habamax_contrast", v:false)
 " handy if you use it with transparent terminals
 let g:habamax_transparent = get(g:, "habamax_transparent", v:false)
 
+set background=dark
 colorscheme habamax
 
 " mimic tpope's unimpaired with toggling options
