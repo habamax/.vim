@@ -26,3 +26,8 @@ if exists("g:loaded_swap") " {{{1
     nmap g> <Plug>(swap-next)
     nmap g. <Plug>(swap-interactive)
 endif
+
+if exists("g:loaded_winlayout")
+    nmap <F3> <Plug>(WinlayoutBackward)
+    nmap <F4> <Plug>(WinlayoutForward)
+endif
