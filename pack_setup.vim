@@ -72,7 +72,7 @@ if !exists('g:leaderf_loaded') && executable('fzf')
     silent! packadd fzf
     silent! packadd fzf.vim
 
-    command! Docs :exe printf('Files %s/docs', g:HOME)
+    command! Docs :call fzf#run(fzf#wrap({'source': 'git ls-files', 'dir': printf('%s/docs', g:HOME), 'sink': 'e'}), 1)
     command! VimConfigs :exe printf('Files %s', fnamemodify($MYVIMRC, ":p:h"))
 
     "" HelpRg command -- like helpgrep but with FZF and ripgrep
