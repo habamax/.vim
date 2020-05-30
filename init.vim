@@ -1,6 +1,6 @@
 " Author: Maxim Kim <habamax@gmail.com>
 
-"" Must have {{{1
+"" Must-have {{{1
 language messages en_US.UTF-8
 
 filetype plugin indent on
@@ -12,7 +12,7 @@ set belloff=all
 
 set encoding=utf8
 
-"" Essential {{{1
+"" Should-have {{{1
 set tabstop=8 softtabstop=-1 shiftwidth=4 expandtab smarttab shiftround
 set autoindent
 set nohlsearch incsearch ignorecase
@@ -21,6 +21,14 @@ set fileencoding=utf8
 set fileformat=unix
 set fileformats=unix,mac,dos
 
+" vim and terminals have hard time processing ESCs (laaaag)
+" this helps a lot
+set ttimeout ttimeoutlen=10
+
+" backspace and cursor keys wrap to previous/next line
+set backspace=indent,eol,start whichwrap+=<,>,[,]
+
+"" Nice-to-have {{{1
 set shortmess+=Ic
 set lazyredraw
 set splitbelow splitright
@@ -35,20 +43,6 @@ set nojoinspaces
 set virtualedit=block
 set formatoptions=cqjl
 
-" vim and terminals have hard time processing ESCs (laaaag)
-" this helps a lot
-set ttimeout ttimeoutlen=10
-
-" backspace and cursor keys wrap to previous/next line
-set backspace=indent,eol,start whichwrap+=<,>,[,]
-
-set wildchar=<Tab> wildmenu wildmode=full
-" to use in cnoremaps
-set wildcharm=<C-z>
-set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
-
-
-"" Nice to have {{{1
 set confirm
 
 set spelllang=ru,en
@@ -57,6 +51,11 @@ set nospell
 set commentstring=
 
 set sessionoptions=buffers,curdir,tabpages,winsize
+
+set wildchar=<Tab> wildmenu wildmode=full
+" to use in cnoremaps
+set wildcharm=<C-z>
+set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 
 " ripgrep as grepprg
 if executable('rg')
