@@ -16,6 +16,7 @@ set encoding=utf8
 set tabstop=8 softtabstop=-1 shiftwidth=4 expandtab smarttab shiftround
 set autoindent
 set nohlsearch incsearch ignorecase
+set virtualedit=block
 
 set fileencoding=utf8
 set fileformat=unix
@@ -40,16 +41,12 @@ set list listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
 set breakindent breakindentopt=sbr showbreak=╰
 set nowrap
 set nojoinspaces
-set virtualedit=block
 set formatoptions=cqjl
-
 set confirm
-
-set spelllang=ru,en
-set nospell
-
+set nospell spelllang=ru,en
 set commentstring=
-
+" good for C-a, C-x wrt 007 and other octal like numbers
+set nrformats=bin,hex
 set sessionoptions=buffers,curdir,tabpages,winsize
 
 set wildchar=<Tab> wildmenu wildmode=full
@@ -64,9 +61,6 @@ if executable('rg')
 endif
 
 if has('mouse') | set mouse=a | endif
-
-" good for C-a, C-x wrt 007 and other octal like numbers
-set nrformats=bin,hex
 
 if !has('nvim') && has('patch-8.1.360')
     set diffopt+=vertical,algorithm:patience
