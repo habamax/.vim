@@ -59,21 +59,38 @@ func! text#obj_indent(inner)
     endif
 
     let indent = indent(ln_start)
+    if indent > 0
+        while indent(ln_start) >= indent
+                    \ && ln_start > 0
+            let ln_start = prevnonblank(ln_start-1)
+        endwhile
 
-    while indent <= indent(ln_start)
-                \ && ln_start > 0
-        let ln_start = prevnonblank(ln_start-1)
-    endwhile
+        while indent(ln_end) >= indent
+                    \ && ln_end < line('$')
+            let ln_end = s:nextnonblank(ln_end+1)
+        endwhile
+    else
+        while indent(ln_start) == 0
+                    \ && ln_start > 0
+                    \ && getline(ln_start) !~ '^\s*$'
+            let ln_start -= 1
+        endwhile
+
+        while indent(ln_end) == 0
+                    \ && ln_end < line('$')
+                    \ && getline(ln_end) !~ '^\s*$'
+            let ln_end += 1
+        endwhile
+        while indent(ln_end) > 0 || getline(ln_end) =~ '^\s*$'
+                    \ && ln_end < line('$')
+            let ln_end = s:nextnonblank(ln_end+1)
+        endwhile
+    endif
+
     if a:inner
         let ln_start = s:nextnonblank(ln_start+1)
     endif
-
-    while indent <= indent(ln_end)
-                \ && ln_end < line('$')
-        let ln_end = s:nextnonblank(ln_end+1)
-    endwhile
-
-    if indent > indent(ln_end)
+    if indent > indent(ln_end) || indent == 0
         if a:inner
             let ln_end = prevnonblank(ln_end-1)
         else
