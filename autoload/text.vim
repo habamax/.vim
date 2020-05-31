@@ -87,7 +87,7 @@ func! text#obj_indent(inner)
         endwhile
     endif
 
-    if a:inner
+    if a:inner || indent == 0
         let ln_start = s:nextnonblank(ln_start+1)
     endif
     if indent > indent(ln_end) || indent == 0
