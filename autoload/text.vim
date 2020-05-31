@@ -90,7 +90,7 @@ func! text#obj_indent(inner)
     if a:inner || indent == 0
         let ln_start = s:nextnonblank(ln_start+1)
     endif
-    if indent > indent(ln_end) || indent == 0
+    if (indent > indent(ln_end) || indent == 0) && ln_end > ln_start
         if a:inner
             let ln_end = prevnonblank(ln_end-1)
         else
@@ -118,7 +118,7 @@ func! s:detect_nearest_line() abort
     let lnum = line('.')
     let nline = s:nextnonblank(lnum)
     let pline = prevnonblank(lnum)
-    if abs(nline - lnum) > abs(pline - lnum)
+    if abs(nline - lnum) > abs(pline - lnum) || getline(nline) =~ '^\s*$'
         return pline
     else
         return nline
