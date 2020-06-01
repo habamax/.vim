@@ -39,6 +39,7 @@ set conceallevel=0
 set completeopt=menuone
 set list listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
 set breakindent breakindentopt=sbr showbreak=╰
+set nowrap
 set nojoinspaces
 set formatoptions=cqjl
 set confirm
