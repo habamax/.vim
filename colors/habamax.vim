@@ -38,7 +38,7 @@ if &background == 'light'
 
     " Neovim terminal colours
     if has("nvim")
-        let g:terminal_color_0 = "#eff1f5"
+        let g:terminal_color_0 = "#f5f6f7"
         let g:terminal_color_1 = "#ca1243"
         let g:terminal_color_2 = "#50a14f"
         let g:terminal_color_3 = "#c18401"
@@ -58,7 +58,7 @@ if &background == 'light'
         let g:terminal_color_foreground = g:terminal_color_2
     elseif has("terminal")
         let g:terminal_ansi_colors = [
-                    \ "#eff1f5",
+                    \ "#f5f6f7",
                     \ "#ca1243",
                     \ "#50a14f",
                     \ "#c18401",
@@ -82,7 +82,7 @@ if &background == 'light'
     elseif get(g:, "habamax_contrast", v:false)
         hi Normal guibg=#ffffff guifg=#000000 ctermbg=white ctermfg=black
     else
-        hi Normal guibg=#eff1f5 guifg=#000000 ctermbg=white ctermfg=black
+        hi Normal guibg=#f5f6f7 guifg=#000000 ctermbg=white ctermfg=black
     endif
     hi EndOfBuffer guifg=#d0d0d0 guibg=NONE ctermfg=7 ctermbg=NONE
     hi Statusline guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
