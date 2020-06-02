@@ -7,27 +7,14 @@ filetype plugin indent on
 syntax on
 
 set hidden
-
 set belloff=all
-
-set encoding=utf8
-
-"" Should-have {{{1
+set encoding=utf8 fileencoding=utf8 fileformat=unix fileformats=unix,mac,dos
 set tabstop=8 softtabstop=-1 shiftwidth=4 expandtab smarttab shiftround
 set autoindent
 set nohlsearch incsearch ignorecase
 set virtualedit=block
-
-set fileencoding=utf8
-set fileformat=unix
-set fileformats=unix,mac,dos
-
-" vim and terminals have hard time processing ESCs (laaaag)
-" this helps a lot
 set ttimeout ttimeoutlen=10
-
-" backspace and cursor keys wrap to previous/next line
-set backspace=indent,eol,start whichwrap+=<,>,[,]
+set backspace=indent,eol,start
 
 "" Nice-to-have {{{1
 set shortmess+=Ic
