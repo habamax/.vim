@@ -38,7 +38,7 @@ if &background == 'light'
 
     " Neovim terminal colours
     if has("nvim")
-        let g:terminal_color_0 = "#fcfffc"
+        let g:terminal_color_0 = "#eff1f5"
         let g:terminal_color_1 = "#ca1243"
         let g:terminal_color_2 = "#50a14f"
         let g:terminal_color_3 = "#c18401"
@@ -58,7 +58,7 @@ if &background == 'light'
         let g:terminal_color_foreground = g:terminal_color_2
     elseif has("terminal")
         let g:terminal_ansi_colors = [
-                    \ "#fcfffc",
+                    \ "#eff1f5",
                     \ "#ca1243",
                     \ "#50a14f",
                     \ "#c18401",
