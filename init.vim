@@ -32,7 +32,6 @@ set backspace=indent,eol,start
 set confirm
 set nospell spelllang=ru,en
 set commentstring=
-" good for C-a, C-x wrt 007 and other octal like numbers
 set nrformats=bin,hex
 set sessionoptions=buffers,curdir,tabpages,winsize
 
