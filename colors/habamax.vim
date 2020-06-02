@@ -81,13 +81,8 @@ if &background == 'light'
         hi Normal NONE
     elseif get(g:, "habamax_contrast", v:false)
         hi Normal guibg=#ffffff guifg=#000000 ctermbg=white ctermfg=black
-        hi CursorLine guibg=#f0f5f0 guifg=NONE gui=NONE cterm=NONE term=NONE
     else
-        " hi Normal guibg=#f1f3f2 guifg=#000000 ctermbg=white ctermfg=black
-        " hi CursorLine guibg=#e5eae5 guifg=NONE gui=NONE cterm=NONE term=NONE
-
         hi Normal guibg=#eff1f5 guifg=#000000 ctermbg=white ctermfg=black
-        hi CursorLine guibg=#e0e4e4 guifg=NONE gui=NONE cterm=NONE term=NONE
     endif
     hi EndOfBuffer guifg=#d0d0d0 guibg=NONE ctermfg=7 ctermbg=NONE
     hi Statusline guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
@@ -96,9 +91,6 @@ if &background == 'light'
 
     hi Pmenu guibg=#d5d7da gui=NONE
     hi PmenuSel guibg=#c5c7c7 gui=NONE
-    " hi Pmenu guibg=#d7e5dc gui=NONE
-    " hi PmenuSel guibg=#b7c7b7 gui=NONE
-
     hi PmenuSbar guibg=#bcbcbc
     hi PmenuThumb guibg=#585858
 
@@ -108,6 +100,7 @@ if &background == 'light'
     hi Folded guibg=#e0e4e4 guifg=#454945 gui=NONE guisp=NONE
     hi Visual guibg=#d0d9ea gui=NONE
     hi LineNr guibg=NONE guifg=#5f6571 gui=NONE cterm=NONE term=NONE
+    hi CursorLine guibg=#e0e4e4 guifg=NONE gui=NONE cterm=NONE term=NONE
 
     hi Underlined gui=underline guisp=SlateBlue
 
