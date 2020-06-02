@@ -7,14 +7,13 @@ filetype plugin indent on
 syntax on
 
 set hidden
-set belloff=all
 set encoding=utf8 fileencoding=utf8 fileformat=unix fileformats=unix,dos
 set tabstop=8 softtabstop=-1 shiftwidth=4 expandtab smarttab shiftround
-set autoindent
 set nohlsearch incsearch ignorecase
+set autoindent
 set virtualedit=block
 set ttimeout ttimeoutlen=10
-set backspace=indent,eol,start
+set belloff=all
 
 "" Nice-to-have {{{1
 set shortmess+=Ic
@@ -29,6 +28,7 @@ set breakindent breakindentopt=sbr showbreak=╰
 set nowrap
 set nojoinspaces
 set formatoptions=cqjl
+set backspace=indent,eol,start
 set confirm
 set nospell spelllang=ru,en
 set commentstring=
