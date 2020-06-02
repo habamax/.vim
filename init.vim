@@ -8,7 +8,7 @@ syntax on
 
 set hidden
 set belloff=all
-set encoding=utf8 fileencoding=utf8 fileformat=unix fileformats=unix,mac,dos
+set encoding=utf8 fileencoding=utf8 fileformat=unix fileformats=unix,dos
 set tabstop=8 softtabstop=-1 shiftwidth=4 expandtab smarttab shiftround
 set autoindent
 set nohlsearch incsearch ignorecase
