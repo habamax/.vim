@@ -126,9 +126,9 @@ if &background == 'light'
 
     if get(g:, "habamax_flat", 0)
         hi Title guifg=#000000 gui=bold cterm=bold
-        hi Directory guifg=#677777 ctermfg=8
-        hi Statement guifg=#677777 gui=NONE ctermfg=8 cterm=NONE
-        hi Constant guifg=#677777 gui=NONE ctermfg=8 cterm=NONE
+        hi Directory guifg=#475767 ctermfg=8
+        hi Statement guifg=#475767 gui=NONE ctermfg=8 cterm=NONE
+        hi Constant guifg=#475767 gui=NONE ctermfg=8 cterm=NONE
         hi clear Special
         hi clear PreProc
         hi clear Type
