@@ -83,25 +83,29 @@ if &background == 'light'
         hi Normal guibg=#ffffff guifg=#000000 ctermbg=white ctermfg=black
         hi CursorLine guibg=#f0f5f0 guifg=NONE gui=NONE cterm=NONE term=NONE
     else
-        hi Normal guibg=#f1f3f2 guifg=#000000 ctermbg=white ctermfg=black
-        hi CursorLine guibg=#e5eae5 guifg=NONE gui=NONE cterm=NONE term=NONE
-        " hi Normal guibg=#fafaf8 guifg=#000000 ctermbg=white ctermfg=black
-        " hi CursorLine guibg=#eaefea guifg=NONE gui=NONE cterm=NONE term=NONE
+        " hi Normal guibg=#f1f3f2 guifg=#000000 ctermbg=white ctermfg=black
+        " hi CursorLine guibg=#e5eae5 guifg=NONE gui=NONE cterm=NONE term=NONE
+
+        hi Normal guibg=#eff1f5 guifg=#000000 ctermbg=white ctermfg=black
+        hi CursorLine guibg=#e0e4e4 guifg=NONE gui=NONE cterm=NONE term=NONE
     endif
     hi EndOfBuffer guifg=#d0d0d0 guibg=NONE ctermfg=7 ctermbg=NONE
     hi Statusline guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
     hi StatuslineNC guibg=#707080 guifg=#c0c0c0 gui=NONE ctermbg=8 ctermfg=16 cterm=NONE
     hi VertSplit guibg=#707080 guifg=#707080 gui=NONE ctermbg=8 ctermfg=8 cterm=NONE
 
-    hi Pmenu guibg=#d7e5dc gui=NONE
-    hi PmenuSel guibg=#b7c7b7 gui=NONE
+    hi Pmenu guibg=#d5d7da gui=NONE
+    hi PmenuSel guibg=#c5c7c7 gui=NONE
+    " hi Pmenu guibg=#d7e5dc gui=NONE
+    " hi PmenuSel guibg=#b7c7b7 gui=NONE
+
     hi PmenuSbar guibg=#bcbcbc
     hi PmenuThumb guibg=#585858
 
     hi TabLine guibg=#d3d3d3 gui=NONE cterm=NONE
     hi TabLineFill guibg=#d3d3d3 guifg=NONE gui=NONE ctermfg=NONE ctermbg=7 cterm=NONE term=NONE
 
-    hi Folded guibg=#e0e4e0 guifg=#454945 gui=NONE guisp=NONE
+    hi Folded guibg=#e0e4e4 guifg=#454945 gui=NONE guisp=NONE
     hi Visual guibg=#d0d9ea gui=NONE
     hi LineNr guibg=NONE guifg=#5f6571 gui=NONE cterm=NONE term=NONE
 
