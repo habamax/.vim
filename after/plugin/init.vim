@@ -29,7 +29,7 @@ if exists("g:loaded_swap") " {{{1
     let g:swap#rules = deepcopy(g:swap#default_rules)
     let g:swap#rules += [
                 \   {
-                \     'descripsion': 'Reorder the space-delimited EN/RU word under the cursor in normal mode.',
+                \     'description': 'Reorder the space-delimited EN/RU word under the cursor in normal mode.',
                 \     'mode': 'n',
                 \     'body': '\%([a-zA-Zа-яА-Я[:alnum:]]\+\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]]\+\)\?',
                 \     'delimiter': ['\s\+'],
