@@ -104,7 +104,7 @@ if &background == 'light'
 
     hi Underlined gui=underline guisp=SlateBlue
 
-    hi Error guibg=#e07070 guifg=NONE
+    hi Error guibg=#e07070 guifg=bg gui=NONE
     hi Todo guibg=#e0e070 guifg=NONE gui=bold
     hi MatchParen guibg=#abf0f0 guifg=NONE gui=NONE
     hi Search guibg=#c18401 guifg=bg gui=NONE cterm=NONE
