@@ -290,6 +290,7 @@ command! ContinueInSplit
             \ | set scrollbind
 
 command! -range=% PasteVP call share#vpaste(<line1>, <line2>)
+command! -range=% PasteDP call share#dpaste(<line1>, <line2>)
 command! -range=% PasteIX call share#ix(<line1>, <line2>)
 command! -range=% PasteCL call share#clbin(<line1>, <line2>)
 
