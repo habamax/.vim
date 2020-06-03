@@ -56,6 +56,7 @@ endif
 
 if has('nvim') | set inccommand=nosplit | endif
 
+
 "" Mappings {{{1
 
 " Fix Alt mappings for terminal vim
