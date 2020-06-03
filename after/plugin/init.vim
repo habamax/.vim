@@ -25,6 +25,25 @@ if exists("g:loaded_swap") " {{{1
     nmap g< <Plug>(swap-prev)
     nmap g> <Plug>(swap-next)
     nmap g. <Plug>(swap-interactive)
+
+    let g:swap#rules = deepcopy(g:swap#default_rules)
+    let g:swap#rules += [
+                \   {
+                \     'descripsion': 'Reorder the space-delimited EN/RU word under the cursor in normal mode.',
+                \     'mode': 'n',
+                \     'body': '\%([a-zA-Zа-яА-Я[:alnum:]]\+\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]]\+\)\?',
+                \     'delimiter': ['\s\+'],
+                \     'priority': -50
+                \   },
+                \
+                \   {
+                \     'description': 'Reorder the comma-delimited EN/RU word under the cursor in normal mode.',
+                \     'mode': 'n',
+                \     'body': '\%([a-zA-Zа-яА-Я[:alnum:]]\+,\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]]\+\)\?',
+                \     'delimiter': ['\s*,\s*'],
+                \     'priority': -10
+                \   }]
+
 endif
 
 if exists("g:loaded_winlayout")
