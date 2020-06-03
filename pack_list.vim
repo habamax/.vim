@@ -59,7 +59,6 @@ if exists('*minpac#init')
     " backup (no external dependencies)
     call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
 
-
     "" Text manipulation
     " must have
     call minpac#add('mbbill/undotree')
@@ -72,7 +71,6 @@ if exists('*minpac#init')
     " swap comma separated stuff with `g>` `g<` `gs`
     " `gs` will probably interfere with vim-sort-motion
     " map it to `g.`
-    " doesn't play well with neovim.
     call minpac#add('machakann/vim-swap')
 
     " Multiple cursors
