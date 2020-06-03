@@ -4,14 +4,6 @@ set laststatus=2
 let s:sep = '┊'
 
 
-func! StatusMod()
-    if &modified
-        return "*"
-    endif
-    return ''
-endfunc
-
-
 func! StatusRight()
     let right = s:sep
 
@@ -40,9 +32,21 @@ func! StatusRight()
 endfunc
 
 
-set statusline=%f
-set statusline+=%{StatusMod()}
-set statusline+=%<
-set statusline+=%=
-set statusline+=%{StatusRight()}
-set statusline+=%4(%p%%%)
+func! SetStatusline(active) abort
+    if a:active
+        setlocal statusline=%f
+        setlocal statusline+=%{&mod?'*':''}
+        setlocal statusline+=%<
+        setlocal statusline+=%=
+        setlocal statusline+=%{StatusRight()}
+        setlocal statusline+=%4(%p%%%)
+    else
+        setlocal statusline=%f
+    endif
+endfunc
+
+
+augroup statusline | au!
+    au BufEnter,WinEnter * :call SetStatusline(v:true)
+    au BufLeave,WinLeave * :call SetStatusline(v:false)
+augroup end
