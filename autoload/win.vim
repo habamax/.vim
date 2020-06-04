@@ -28,7 +28,7 @@ endfunc
 ""
 "" Add following lines somewhere in you vimrc:
 "" augroup autosize_windows | au!
-""     au BufWinEnter,WinEnter * silent! call win#comfy()
+""     au BufWinEnter,WinEnter * silent! call win#lens()
 "" augroup end
 func! win#lens() abort
     if s:is_lens_disabled()
