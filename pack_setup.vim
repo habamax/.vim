@@ -281,7 +281,9 @@ nnoremap <leader>u :UndotreeToggle<CR>
 
 
 """ outline {{{1
-nnoremap <leader>l :DoOutline<CR>
+augroup do_outline | au!
+    au BufRead,BufNewFile *.adoc,*.md nnoremap <buffer> <leader><leader>l :DoOutline<CR>
+augroup end
 
 
 """ vim-evalvim {{{1
