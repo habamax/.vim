@@ -144,7 +144,8 @@ if &background == 'light'
 
         hi Type guifg=#ca1243 gui=NONE cterm=NONE
 
-        hi Operator guifg=#383a42 gui=NONE cterm=NONE
+        " hi Operator guifg=#383a42 gui=NONE cterm=NONE
+        hi Operator guifg=#c18401 gui=NONE cterm=NONE
 
         hi Directory guifg=#4078f2 gui=bold cterm=bold
 
@@ -262,7 +263,8 @@ else
 
         hi Type guifg=#db7672 gui=NONE cterm=NONE
 
-        hi Operator guifg=#d8d8d8 gui=NONE cterm=NONE
+        " hi Operator guifg=#d8d8d8 gui=NONE cterm=NONE
+        hi Operator guifg=#f7ca88 gui=NONE cterm=NONE
 
         hi Directory guifg=#7cafc2 gui=bold cterm=bold
 
