@@ -26,7 +26,7 @@ endfunc
 "" instead. Original lens.vim laaaags if switched to a huge file, it
 "" calculates target width consuming whole file into memory....
 ""
-"" Add following lines somewhere in you vimrc:
+"" Add following lines somewhere in your vimrc:
 "" augroup autosize_windows | au!
 ""     au BufWinEnter,WinEnter * silent! call win#lens()
 "" augroup end
