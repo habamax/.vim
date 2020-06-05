@@ -29,4 +29,4 @@ setlocal formatlistpat+=^\\s*[*]\\+\\s\\+
 setlocal formatlistpat+=\\\|
 setlocal formatlistpat+=^\\s*[.]\\+\\s\\+
 
-setlocal textwidth=78
+setlocal textwidth=80
