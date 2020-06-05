@@ -1,9 +1,10 @@
+setl textwidth=80
 setl keywordprg=:help
-setl foldenable 
+setl foldenable
 setl foldmethod=marker
 setl foldlevel=1
 if !&readonly
-	setlocal ff=unix
+    setlocal ff=unix
 endif
 
 let b:foldtext_strip_comments = v:true
