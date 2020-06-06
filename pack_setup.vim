@@ -25,7 +25,7 @@ endif
 """ Fuzzy finder (FZF and CtrlP) {{{1
 
 " Try FZF
-if !exists('g:leaderf_loaded') && executable('fzf')
+if executable('fzf')
     nnoremap <leader>f :Files<CR>
     nnoremap <leader>F :GFiles<CR>
     nnoremap <leader>b :Buffers<CR>
