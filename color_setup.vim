@@ -33,9 +33,9 @@ augroup colorscheme_change | au!
 augroup END
 
 
-"" Terminals {{{1
-if !has("gui_running")
-    set termguicolors
+"" Terminal {{{1
+set termguicolors
+if !has("gui_running") && !has('nvim')
 
     " Fix vim termguicolors for tmux
     " NOTE: your .tmux.conf should have:
