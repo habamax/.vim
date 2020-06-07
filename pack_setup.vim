@@ -187,11 +187,11 @@ let g:markdown_fenced_languages = ['python', 'go']
 
 
 """ vim-obsession {{{1
-command! -nargs=1 -complete=customlist,LoadObsessionComplete SA :Obsession ~/.vimdata/sessions/<args>
+command! -nargs=1 -complete=customlist,ObsessionComplete SA :Obsession ~/.vimdata/sessions/<args>
 
-command! -nargs=1 -complete=customlist,LoadObsessionComplete LO :so ~/.vimdata/sessions/<args>
+command! -nargs=1 -complete=customlist,ObsessionComplete LO :so ~/.vimdata/sessions/<args>
 
-func! LoadObsessionComplete(A, L, P)
+func! ObsessionComplete(A, L, P)
     let fullpaths = split(globpath("~/.vimdata/sessions/", a:A."*"), "\n")
     return map(fullpaths, {k,v -> fnamemodify(v, ":t")})
 endfunc
