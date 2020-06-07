@@ -39,8 +39,6 @@ if exists('*minpac#init')
     call minpac#add('tpope/vim-eunuch')
     call minpac#add('tpope/vim-endwise')
     call minpac#add('tpope/vim-speeddating')
-    " Sessions
-    call minpac#add('tpope/vim-obsession')
     " Databases
     call minpac#add('tpope/vim-dadbod')
     call minpac#add('kristijanhusak/vim-dadbod-ui')

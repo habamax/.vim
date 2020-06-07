@@ -186,17 +186,6 @@ let g:markdown_folding = 0
 let g:markdown_fenced_languages = ['python', 'go']
 
 
-""" vim-obsession {{{1
-command! -nargs=1 -complete=customlist,ObsessionComplete SA :Obsession ~/.vimdata/sessions/<args>
-
-command! -nargs=1 -complete=customlist,ObsessionComplete LO :so ~/.vimdata/sessions/<args>
-
-func! ObsessionComplete(A, L, P)
-    let fullpaths = split(globpath("~/.vimdata/sessions/", a:A."*"), "\n")
-    return map(fullpaths, {k,v -> fnamemodify(v, ":t")})
-endfunc
-
-
 """ vim-dispatch {{{1
 let g:dispatch_no_maps = 1
 " tmux in alacritty wsl debian makes vim "bad" sized in the end

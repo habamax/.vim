@@ -296,6 +296,15 @@ command! -range=% PasteCL call share#clbin(<line1>, <line2>)
 
 command! CD lcd %:p:h
 
+"" Save and Load sessions
+command! -nargs=1 -complete=customlist,SessionComplete SS :mksession ~/.vimdata/sessions/<args>
+command! -nargs=1 -complete=customlist,SessionComplete LL :so ~/.vimdata/sessions/<args>
+func! SessionComplete(A, L, P)
+    let fullpaths = split(globpath("~/.vimdata/sessions/", a:A."*"), "\n")
+    return map(fullpaths, {k,v -> fnamemodify(v, ":t")})
+endfunc
+
+
 " Not for Windows
 " Write to a privileged file
 if has("unix") || has("osxdarwin")
