@@ -13,7 +13,7 @@ let g:colors_name = 'gruvbase'
 
 if &background ==# 'dark'
     if has('nvim')
-        let g:terminal_color_0 = '#282828'
+        let g:terminal_color_0 = '#1d2021'
         let g:terminal_color_1 = '#cc241d'
         let g:terminal_color_2 = '#98971a'
         let g:terminal_color_3 = '#d79921'
@@ -31,7 +31,7 @@ if &background ==# 'dark'
         let g:terminal_color_15 = '#ebdbb2'
     else
         let g:terminal_ansi_colors = [
-                    \ '#282828', '#cc241d', '#98971a', '#d79921',
+                    \ '#1d2021', '#cc241d', '#98971a', '#d79921',
                     \ '#458588', '#b16286', '#689d6a', '#a89984',
                     \ '#928374', '#fb4934', '#b8bb26', '#fabd2f',
                     \ '#83a598', '#d3869b', '#8ec07c', '#ebdbb2']
@@ -39,18 +39,18 @@ if &background ==# 'dark'
     if get(g:, 'gruvhab_transparent', 0) && !has('gui_running')
         hi Normal guifg=#ebdbb2 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     else
-        hi Normal guifg=#ebdbb2 guibg=#282828 guisp=NONE gui=NONE cterm=NONE
+        hi Normal guifg=#ebdbb2 guibg=#1d2021 guisp=NONE gui=NONE cterm=NONE
     endif
     hi CursorLineNr guifg=#fabd2f guibg=#3c3836 guisp=NONE gui=NONE cterm=NONE
     hi FoldColumn guifg=#928374 guibg=#3c3836 guisp=NONE gui=NONE cterm=NONE
     hi SignColumn guifg=#ebdbb2 guibg=#3c3836 guisp=NONE gui=NONE cterm=NONE
-    hi VertSplit guifg=#504945 guibg=#504945 guisp=NONE gui=NONE cterm=NONE
+    hi VertSplit guifg=#3c3836 guibg=#3c3836 guisp=NONE gui=NONE cterm=NONE
     hi ColorColumn guifg=NONE guibg=#3c3836 guisp=NONE gui=NONE cterm=NONE
     hi Comment guifg=#928374 guibg=NONE guisp=NONE gui=italic cterm=italic
     hi CursorLine guifg=NONE guibg=#3c3836 guisp=NONE gui=NONE cterm=NONE
     hi Error guifg=#282828 guibg=#fb4934 guisp=NONE gui=NONE cterm=NONE
     hi ErrorMsg guifg=#282828 guibg=#fb4934 guisp=NONE gui=NONE cterm=NONE
-    hi Folded guifg=#928374 guibg=#3c3836 guisp=NONE gui=italic cterm=italic
+    hi Folded guifg=#928374 guibg=#282828 guisp=NONE gui=italic cterm=italic
     hi LineNr guifg=#7c6f64 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi MatchParen guifg=NONE guibg=#665c54 guisp=NONE gui=bold,underline cterm=bold,underline
     hi NonText guifg=#504945 guibg=NONE guisp=NONE gui=NONE cterm=NONE
@@ -59,8 +59,8 @@ if &background ==# 'dark'
     hi PmenuSel guifg=#504945 guibg=#83a598 guisp=NONE gui=bold cterm=bold
     hi PmenuThumb guifg=NONE guibg=#7c6f64 guisp=NONE gui=NONE cterm=NONE
     hi SpecialKey guifg=#928374 guibg=NONE guisp=NONE gui=NONE cterm=NONE
-    hi StatusLine guifg=#ebdbb2 guibg=#504945 guisp=NONE gui=bold cterm=bold
-    hi StatusLineNC guifg=#a89984 guibg=#504945 guisp=NONE gui=NONE cterm=NONE
+    hi StatusLine guifg=#ebdbb2 guibg=#3c3836 guisp=NONE gui=bold cterm=bold
+    hi StatusLineNC guifg=#a89984 guibg=#3c3836 guisp=NONE gui=NONE cterm=NONE
     hi TabLine guifg=#7c6f64 guibg=#3c3836 guisp=NONE gui=NONE cterm=NONE
     hi TabLineFill guifg=#7c6f64 guibg=#3c3836 guisp=NONE gui=NONE cterm=NONE
     hi TabLineSel guifg=#b8bb26 guibg=#3c3836 guisp=NONE gui=NONE cterm=NONE
@@ -127,7 +127,7 @@ if &background ==# 'dark'
 else
     " Light background
     if has('nvim')
-        let g:terminal_color_0 = '#fbf1c7'
+        let g:terminal_color_0 = '#f9f5d7'
         let g:terminal_color_1 = '#cc241d'
         let g:terminal_color_2 = '#98971a'
         let g:terminal_color_3 = '#d79921'
@@ -145,7 +145,7 @@ else
         let g:terminal_color_15 = '#3c3836'
     else
         let g:terminal_ansi_colors = [
-                    \ '#fbf1c7', '#cc241d', '#98971a', '#d79921',
+                    \ '#f9f5d7', '#cc241d', '#98971a', '#d79921',
                     \ '#458588', '#b16286', '#689d6a', '#7c6f64',
                     \ '#928374', '#9d0006', '#79740e', '#b57614',
                     \ '#076678', '#8f3f71', '#427b58', '#3c3836']
@@ -153,18 +153,18 @@ else
     if get(g:, 'gruvhab_transparent', 0) && !has('gui_running')
         hi Normal guifg=#3c3836 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     else
-        hi Normal guifg=#3c3836 guibg=#fbf1c7 guisp=NONE gui=NONE cterm=NONE
+        hi Normal guifg=#3c3836 guibg=#f9f5d7 guisp=NONE gui=NONE cterm=NONE
     endif
     hi CursorLineNr guifg=#b57614 guibg=#ebdbb2 guisp=NONE gui=NONE cterm=NONE
     hi FoldColumn guifg=#928374 guibg=#ebdbb2 guisp=NONE gui=NONE cterm=NONE
     hi SignColumn guifg=#3c3836 guibg=#ebdbb2 guisp=NONE gui=NONE cterm=NONE
-    hi VertSplit guifg=#d5c4a1 guibg=#d5c4a1 guisp=NONE gui=NONE cterm=NONE
+    hi VertSplit guifg=#ebdbb2 guibg=#ebdbb2 guisp=NONE gui=NONE cterm=NONE
     hi ColorColumn guifg=NONE guibg=#ebdbb2 guisp=NONE gui=NONE cterm=NONE
     hi Comment guifg=#928374 guibg=NONE guisp=NONE gui=italic cterm=italic
     hi CursorLine guifg=NONE guibg=#ebdbb2 guisp=NONE gui=NONE cterm=NONE
     hi Error guifg=#fbf1c7 guibg=#9d0006 guisp=NONE gui=NONE cterm=NONE
     hi ErrorMsg guifg=#fbf1c7 guibg=#9d0006 guisp=NONE gui=NONE cterm=NONE
-    hi Folded guifg=#928374 guibg=#ebdbb2 guisp=NONE gui=italic cterm=italic
+    hi Folded guifg=#7c6f64 guibg=#fbf1c7 guisp=NONE gui=italic cterm=italic
     hi LineNr guifg=#a89984 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     hi MatchParen guifg=NONE guibg=#bdae93 guisp=NONE gui=bold,underline cterm=bold,underline
     hi NonText guifg=#d5c4a1 guibg=NONE guisp=NONE gui=NONE cterm=NONE
@@ -173,8 +173,8 @@ else
     hi PmenuSel guifg=#d5c4a1 guibg=#076678 guisp=NONE gui=bold cterm=bold
     hi PmenuThumb guifg=NONE guibg=#a89984 guisp=NONE gui=NONE cterm=NONE
     hi SpecialKey guifg=#928374 guibg=NONE guisp=NONE gui=NONE cterm=NONE
-    hi StatusLine guifg=#3c3836 guibg=#d5c4a1 guisp=NONE gui=bold cterm=bold
-    hi StatusLineNC guifg=#7c6f64 guibg=#d5c4a1 guisp=NONE gui=NONE cterm=NONE
+    hi StatusLine guifg=#3c3836 guibg=#ebdbb2 guisp=NONE gui=bold cterm=bold
+    hi StatusLineNC guifg=#7c6f64 guibg=#ebdbb2 guisp=NONE gui=NONE cterm=NONE
     hi TabLine guifg=#a89984 guibg=#ebdbb2 guisp=NONE gui=NONE cterm=NONE
     hi TabLineFill guifg=#a89984 guibg=#ebdbb2 guisp=NONE gui=NONE cterm=NONE
     hi TabLineSel guifg=#79740e guibg=#ebdbb2 guisp=NONE gui=NONE cterm=NONE
