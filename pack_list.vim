@@ -144,7 +144,6 @@ if exists('*minpac#init')
     call minpac#add('dstein64/vim-startuptime')
 
 
-    call minpac#add('lifepillar/vim-gruvbox8')
     call minpac#add('lifepillar/vim-solarized8')
     call minpac#add('romainl/Apprentice')
 
