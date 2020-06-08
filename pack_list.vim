@@ -133,12 +133,11 @@ if exists('*minpac#init')
 
     " Embed neovim into firefox textboxes.
     " Firenvim works in windows!
-    if has("nvim")
-        call minpac#add('glacambre/firenvim',
-                    \ { 'type': 'opt',
-                    \ 'do': 'packadd firenvim | call firenvim#install(0)'
-                    \ })
-    endif
+    call minpac#add('glacambre/firenvim',
+                \ {
+                \ 'type': 'opt',
+                \ 'do': 'if has("nvim") | packadd firenvim | call firenvim#install(0) | endif'
+                \ })
 
 
     call minpac#add('dstein64/vim-startuptime')
