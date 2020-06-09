@@ -256,8 +256,8 @@ cabbr ив bd
 " Open (n)vim configs
 command! Init :silent only
             \<bar>:exe printf("e %s/init.vim", fnamemodify($MYVIMRC, ":p:h"))
-            \<bar>:exe printf("vs %s/pack_list.vim", fnamemodify($MYVIMRC, ":p:h"))
-            \<bar>:exe printf("vs %s/pack_setup.vim", fnamemodify($MYVIMRC, ":p:h"))
+            \<bar>:exe printf("vs %s/plugin/pack_list.vim", fnamemodify($MYVIMRC, ":p:h"))
+            \<bar>:exe printf("vs %s/plugin/pack_setup.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:exe printf("vs %s/after/plugin/init.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:1wincmd w
 
