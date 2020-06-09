@@ -85,17 +85,17 @@ if &background == 'light'
         hi Normal guibg=#fafafa guifg=#000000 ctermbg=white ctermfg=black
     endif
     hi EndOfBuffer guifg=#d0d0d0 guibg=NONE ctermfg=7 ctermbg=NONE
-    hi Statusline guibg=#707080 guifg=#ffffff gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
-    hi StatuslineNC guibg=#707080 guifg=#c0c0c0 gui=NONE ctermbg=8 ctermfg=16 cterm=NONE
-    hi VertSplit guibg=#707080 guifg=#707080 gui=NONE ctermbg=8 ctermfg=8 cterm=NONE
+    hi Statusline guibg=#cacbcc guifg=#000000 gui=bold ctermbg=8 ctermfg=15 cterm=NONE
+    hi StatuslineNC guibg=#cacbcc guifg=#707070 gui=NONE ctermbg=8 ctermfg=16 cterm=NONE
+    hi VertSplit guibg=#cacbcc guifg=#cacbcc gui=NONE ctermbg=8 ctermfg=8 cterm=NONE
 
     hi Pmenu guibg=#d5d7da gui=NONE
     hi PmenuSel guibg=#c5c7c7 gui=NONE
     hi PmenuSbar guibg=#bcbcbc
     hi PmenuThumb guibg=#585858
 
-    hi TabLine guibg=#d3d3d3 gui=NONE cterm=NONE
-    hi TabLineFill guibg=#d3d3d3 guifg=NONE gui=NONE ctermfg=NONE ctermbg=7 cterm=NONE term=NONE
+    hi TabLine guibg=#cacbcc gui=NONE cterm=NONE
+    hi TabLineFill guibg=#cacbcc guifg=NONE gui=NONE ctermfg=NONE ctermbg=7 cterm=NONE term=NONE
 
     hi Folded guibg=#e0e4e4 guifg=#454945 gui=NONE guisp=NONE
     hi Visual guibg=#d0d9ea gui=NONE
@@ -206,7 +206,7 @@ else
         hi Normal guibg=#202531 guifg=#dedede ctermbg=black ctermfg=white
     endif
     hi EndOfBuffer guibg=NONE guifg=#404551 ctermbg=NONE ctermfg=8
-    hi Statusline guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
+    hi Statusline guibg=#333b4f guifg=#dedede gui=bold ctermbg=8 ctermfg=15 cterm=bold
     hi StatuslineNC guibg=#333b4f guifg=#636b7f gui=NONE ctermbg=8 ctermfg=16 cterm=NONE
     hi VertSplit guibg=#333b4f guifg=#333b4f gui=NONE ctermbg=8 ctermfg=8 cterm=NONE
 
@@ -215,8 +215,8 @@ else
     hi PmenuSbar guibg=#bcbcbc
     hi PmenuThumb guibg=#585858
 
-    hi TabLine guibg=#434b5f gui=NONE cterm=NONE
-    hi TabLineFill guibg=#434b5f guifg=NONE gui=NONE ctermfg=NONE ctermbg=8 cterm=NONE term=NONE
+    hi TabLine guibg=#333b4f gui=NONE cterm=NONE
+    hi TabLineFill guibg=#333b4f guifg=NONE gui=NONE ctermfg=NONE ctermbg=8 cterm=NONE term=NONE
 
     hi Folded guibg=#262b37 guifg=#909590 gui=NONE guisp=NONE
     hi Visual guibg=#394e71 guifg=NONE
