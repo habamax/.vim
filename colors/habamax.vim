@@ -295,15 +295,12 @@ hi MatchParen guifg=NONE ctermfg=NONE
 
 """ Plugins {{{1
 
-"" Fugitive && Gitgutter
+"" Fugitive
 hi link gitCommitSummary Title
 hi diffAdded guifg=#20a020 gui=NONE ctermfg=green
 hi diffRemoved guifg=#ff5050 gui=NONE ctermfg=red
 hi! link diffLine diffChange
 hi! link diffSubname diffText
-hi! link GitGutterAdd diffAdded
-hi! link GitGutterDelete diffRemoved
-hi! GitGutterChange guifg=#c18401 ctermfg=yellow
 
 "" Coc.nvim
 hi! link CocErrorSign diffRemoved
