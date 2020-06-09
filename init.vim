@@ -1,2 +1,0 @@
-source <sfile>:h/vimrc
-
