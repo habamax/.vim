@@ -70,10 +70,9 @@ endif
 
 """ Colorschemes {{{1
 
-let g:habamax_flat = get(g:, "habamax_flat", v:false)
-let g:habamax_contrast = get(g:, "habamax_contrast", v:false)
-" handy if you use it with transparent terminals
-let g:habamax_transparent = get(g:, "habamax_transparent", v:false)
+let g:habamax_flat = v:false
+let g:habamax_contrast = v:false
+let g:habamax_transparent = v:false
 
 set background=dark
 colorscheme habamax
