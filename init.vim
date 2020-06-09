@@ -323,11 +323,9 @@ augroup restore_pos | au!
                 \ | endif
 augroup end
 
-
 augroup win_autosize | au!
     au WinEnter * silent! call win#lens()
 augroup end
-
 
 if exists('##TextYankPost') && has('nvim')
     augroup hi_yanktext | au!
