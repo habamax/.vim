@@ -286,7 +286,6 @@ func! SessionComplete(A, L, P)
     return map(fullpaths, {k,v -> fnamemodify(v, ":t")})
 endfunc
 
-
 " Not for Windows
 " Write to a privileged file
 if has("unix") || has("osxdarwin")
