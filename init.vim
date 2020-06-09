@@ -226,11 +226,10 @@ nnoremap <silent> <Leader>dv :VimConfigs<CR>
 
 
 
-"" g:HOME is in paths.vim
 " edit global todo file
-nnoremap <silent> <Leader>et :exe printf('e %s/docs/todo.adoc', g:HOME)<CR>
+nnoremap <silent> <Leader>et :exe printf('e %s/docs/todo.adoc', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
 " edit global journal file
-nnoremap <silent> <Leader>ej :exe printf('e %s/docs/journal/2020.adoc', g:HOME)<CR>
+nnoremap <silent> <Leader>ej :exe printf('e %s/docs/journal/2020.adoc', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
 
 " scroll other window
 nnoremap <silent> <M-F> :call win#scroll_other(1)<CR>
@@ -263,7 +262,7 @@ command! Init :silent only
             \<bar>:1wincmd w
 
 " Open docs folder
-command! Docs :exe printf('e %s/docs', g:HOME)
+command! Docs :exe printf('e %s/docs', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))
 
 " Open vim config folder
 command! VimConfigs :exe printf('e %s', fnamemodify($MYVIMRC, ":p:h"))
@@ -334,29 +333,4 @@ if exists('##TextYankPost') && has('nvim')
     augroup hi_yanktext | au!
         au TextYankPost * silent! lua require'vim.highlight'.on_yank('Search', 200)
     augroup end
-endif
-
-
-"" Plugins, colors, etc {{{1
-
-" local machine settings, shouldn't be in the git repo
-silent! source <sfile>:h/local.vim
-
-source <sfile>:h/foldtext.vim
-
-source <sfile>:h/paths.vim
-
-source <sfile>:h/russian.vim
-
-source <sfile>:h/statusline.vim
-
-source <sfile>:h/tabline.vim
-
-source <sfile>:h/abbreviations.vim
-
-source <sfile>:h/color_setup.vim
-
-if v:version >= 801 || has('nvim')
-    source <sfile>:h/pack_setup.vim
-    source <sfile>:h/pack_list.vim
 endif
