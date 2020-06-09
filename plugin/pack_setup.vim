@@ -56,6 +56,16 @@ if executable('fzf')
                 \ 'ctrl-x': 'split',
                 \ 'ctrl-v': 'vsplit' }
 
+    if !has('win32')
+        let g:fzf_colors =
+                    \ {
+                    \ 'fg+': ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+                    \ 'bg+': ['bg', 'CursorLine', 'CursorColumn'],
+                    \ 'hl+': ['fg', 'Statement'],
+                    \ 'gutter': ['bg', 'Normal']
+                    \ }
+    endif
+
     " By default TAB is to select/deselect current item.
     " Make ctrl-a to toggle all, and ctrl-u to clear all 
     let $FZF_DEFAULT_OPTS = '--bind ctrl-a:toggle-all --bind ctrl-u:clear-selection'

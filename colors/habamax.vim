@@ -295,22 +295,6 @@ hi MatchParen guifg=NONE ctermfg=NONE
 
 """ Plugins {{{1
 
-"" FZF.vim statusline
-hi! link fzf1 StatusLine
-hi! link fzf2 StatusLine
-hi! link fzf3 StatusLine
-
-if !has('win32')
-    let g:fzf_colors =
-                \ {
-                \ 'fg+': ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-                \ 'bg+': ['bg', 'CursorLine', 'CursorColumn'],
-                \ 'hl+': ['fg', 'Statement'],
-                \ 'gutter': ['bg', 'Normal']
-                \ }
-endif
-
-
 "" Fugitive && Gitgutter
 hi link gitCommitSummary Title
 hi diffAdded guifg=#20a020 gui=NONE ctermfg=green
