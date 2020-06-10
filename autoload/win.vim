@@ -184,7 +184,7 @@ func! win#layout_tile() abort
         endif
     endfor
 
-    only
+    silent only
     call add(windows, win_getid())
 
     let half = len(buffers)/2
