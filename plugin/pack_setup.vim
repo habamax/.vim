@@ -85,16 +85,6 @@ if executable('fzf')
     command! Docs :call fzf#run(fzf#wrap({'source': 'git ls-files', 'dir': printf('%s/docs', empty($DOCSHOME)?expand('~'):expand($DOCSHOME)), 'sink': 'e'}), 1)
     command! VimConfigs :exe printf('Files %s', fnamemodify($MYVIMRC, ":p:h"))
 
-    "" HelpRg command -- like helpgrep but with FZF and ripgrep
-    " func! HelpRgCommand() abort
-    "     let helppaths = uniq(sort(split(globpath(&runtimepath, 'doc/', 1), '\n')))
-    "     return 'rg --column --line-number --no-heading --color=always --smart-case -g "*.txt" "" '. join(helppaths)
-    " endfunc
-    " command! -bang -nargs=* HelpRg
-    "             \ call fzf#vim#grep(
-    "             \   HelpRgCommand(), 1,
-    "             \   {}, <bang>0)
-
     func! s:helptag_sink(line)
         let [tag, file] = split(a:line, "\t")[0:1]
         execute 'help' tag
