@@ -36,7 +36,7 @@ endif
 
 " Fix Alt mappings for terminal vim
 " https://stackoverflow.com/questions/6778961/alt-key-shortcuts-not-working-on-gnome-terminal-with-vim/10216459#10216459
-if !has('nvim') && !has('gui_running') && !has('win32')
+if !has('win32')
     let c='a'
     while c <= 'z'
         exec "set <A-".c.">=\e".c
