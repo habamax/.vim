@@ -5,7 +5,6 @@
 " License: MIT, but who cares? This is colorscheme.
 " URL: https://github.com/habamax/.vim/
 " Description: Colors to please my eyes.
-" Syntax colors are based on base16-default-dark and base16-onelight
 "
 " Works OK for gui and with set termguicolors
 " Otherwise it is kind of meh, but readable (uses default 16 colors palette)
@@ -131,7 +130,7 @@ if &background == 'light'
     else
         hi Identifier guifg=#4078f2 gui=NONE cterm=NONE
 
-        hi Statement guifg=#a626a4 gui=NONE cterm=NONE
+        hi Statement guifg=#ca1243 gui=NONE cterm=NONE
 
         hi Constant guifg=#d75f00 gui=NONE cterm=NONE
         hi String guifg=#50a14f gui=NONE cterm=NONE
@@ -142,9 +141,8 @@ if &background == 'light'
         hi Tag guifg=#c18401 gui=NONE cterm=NONE
         hi Delimiter guifg=#986801 gui=NONE cterm=NONE
 
-        hi Type guifg=#ca1243 gui=NONE cterm=NONE
+        hi Type guifg=#a626a4 gui=NONE cterm=NONE
 
-        " hi Operator guifg=#383a42 gui=NONE cterm=NONE
         hi Operator guifg=#c18401 gui=NONE cterm=NONE
 
         hi Directory guifg=#4078f2 gui=bold cterm=bold
@@ -160,18 +158,18 @@ else
     " Neovim terminal colours
     if has("nvim")
         let g:terminal_color_0 = "#202531"
-        let g:terminal_color_1 = "#db7672"
+        let g:terminal_color_1 = "#fa7585"
         let g:terminal_color_2 = "#a1b56c"
         let g:terminal_color_3 = "#f7ca88"
-        let g:terminal_color_4 = "#7cafc2"
+        let g:terminal_color_4 = "#5ab0fa"
         let g:terminal_color_5 = "#ba8baf"
         let g:terminal_color_6 = "#86c1b9"
         let g:terminal_color_7 = "#d8d8d8"
         let g:terminal_color_8 = "#585858"
-        let g:terminal_color_9 = "#db7672"
+        let g:terminal_color_9 = "#fa7585"
         let g:terminal_color_10 = "#a1b56c"
         let g:terminal_color_11 = "#f7ca88"
-        let g:terminal_color_12 = "#7cafc2"
+        let g:terminal_color_12 = "#5ab0fa"
         let g:terminal_color_13 = "#ba8baf"
         let g:terminal_color_14 = "#86c1b9"
         let g:terminal_color_15 = "#f8f8f8"
@@ -180,18 +178,18 @@ else
     elseif has("terminal")
         let g:terminal_ansi_colors = [
                     \ "#202531",
-                    \ "#db7672",
+                    \ "#fa7585",
                     \ "#a1b56c",
                     \ "#f7ca88",
-                    \ "#7cafc2",
+                    \ "#5ab0fa",
                     \ "#ba8baf",
                     \ "#86c1b9",
                     \ "#d8d8d8",
                     \ "#585858",
-                    \ "#db7672",
+                    \ "#fa7585",
                     \ "#a1b56c",
                     \ "#f7ca88",
-                    \ "#7cafc2",
+                    \ "#5ab0fa",
                     \ "#ba8baf",
                     \ "#86c1b9",
                     \ "#f8f8f8",
@@ -248,9 +246,9 @@ else
         hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
         hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
     else
-        hi Identifier guifg=#7cafc2 gui=NONE cterm=NONE
+        hi Identifier guifg=#5ab0fa gui=NONE cterm=NONE
 
-        hi Statement guifg=#ba8baf gui=NONE cterm=NONE
+        hi Statement guifg=#fa7585 gui=NONE cterm=NONE
 
         hi Constant guifg=#dc9656 gui=NONE cterm=NONE
         hi String guifg=#a1b56c gui=NONE cterm=NONE
@@ -261,12 +259,11 @@ else
         hi Tag guifg=#f7ca88 gui=NONE cterm=NONE
         hi Delimiter guifg=#a16946 gui=NONE cterm=NONE
 
-        hi Type guifg=#db7672 gui=NONE cterm=NONE
+        hi Type guifg=#ba8baf gui=NONE cterm=NONE
 
-        " hi Operator guifg=#d8d8d8 gui=NONE cterm=NONE
         hi Operator guifg=#f7ca88 gui=NONE cterm=NONE
 
-        hi Directory guifg=#7cafc2 gui=bold cterm=bold
+        hi Directory guifg=#5ab0fa gui=bold cterm=bold
 
         hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
         hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
