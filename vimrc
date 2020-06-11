@@ -18,7 +18,6 @@ set belloff=all
 "" Nice-to-have {{{1
 set shortmess+=Ic
 set lazyredraw
-set splitbelow splitright
 set scrolloff=2 sidescrolloff=0
 set display=truncate
 set completeopt=menuone
