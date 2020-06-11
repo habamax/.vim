@@ -34,7 +34,6 @@ let g:colors_name = 'habamax'
 
 "" Light colors {{{
 if &background == 'light'
-
     " Neovim terminal colours
     if has("nvim")
         let g:terminal_color_0 = "#fafafa"
@@ -114,42 +113,21 @@ if &background == 'light'
     hi diffText guibg=#f9d999 guifg=NONE gui=NONE
     hi diffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
 
-    if get(g:, "habamax_flat", 0)
-        hi Title guifg=#000000 gui=bold cterm=bold
-        hi Directory guifg=#475767 ctermfg=8
-        hi Statement guifg=#475767 gui=NONE ctermfg=8 cterm=NONE
-        hi Constant guifg=#475767 gui=NONE ctermfg=8 cterm=NONE
-        hi clear Special
-        hi clear PreProc
-        hi clear Type
-        hi clear Identifier
-        hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
-        hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
-    else
-        hi Identifier guifg=#2c5ff5 gui=NONE cterm=NONE
+    hi Identifier guifg=#2c5ff5 gui=NONE cterm=NONE
+    hi Statement guifg=#ca1243 gui=NONE cterm=NONE
+    hi Constant guifg=#d75f00 gui=NONE cterm=NONE
+    hi String guifg=#2a871f gui=NONE cterm=NONE
+    hi PreProc guifg=#c18401 gui=NONE cterm=NONE
+    hi Special guifg=#0184bc gui=NONE cterm=NONE
+    hi Tag guifg=#c18401 gui=NONE cterm=NONE
+    hi Delimiter guifg=#986801 gui=NONE cterm=NONE
+    hi Type guifg=#a626a4 gui=NONE cterm=NONE
+    hi Operator guifg=#c18401 gui=NONE cterm=NONE
+    hi Directory guifg=#2c5ff5 gui=bold cterm=bold
+    hi Comment guibg=NONE guifg=#777887 gui=italic cterm=NONE
+    hi Conceal guibg=NONE guifg=#777887 gui=NONE cterm=NONE
 
-        hi Statement guifg=#ca1243 gui=NONE cterm=NONE
-
-        hi Constant guifg=#d75f00 gui=NONE cterm=NONE
-        hi String guifg=#2a871f gui=NONE cterm=NONE
-
-        hi PreProc guifg=#c18401 gui=NONE cterm=NONE
-
-        hi Special guifg=#0184bc gui=NONE cterm=NONE
-        hi Tag guifg=#c18401 gui=NONE cterm=NONE
-        hi Delimiter guifg=#986801 gui=NONE cterm=NONE
-
-        hi Type guifg=#a626a4 gui=NONE cterm=NONE
-
-        hi Operator guifg=#c18401 gui=NONE cterm=NONE
-
-        hi Directory guifg=#2c5ff5 gui=bold cterm=bold
-
-        hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
-        hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
-
-        hi Title guifg=#e0385b gui=bold cterm=bold
-    endif
+    hi Title guifg=#e0385b gui=bold cterm=bold
 
 " Dark colors {{{1
 else
@@ -230,43 +208,21 @@ else
     hi diffText guibg=#2f2f09 guifg=NONE gui=NONE
     hi diffDelete guibg=#492929 guifg=#707070 gui=NONE
 
-    if get(g:, "habamax_flat", 0)
-        hi Title guifg=#ffffff gui=bold cterm=bold
-        hi Directory guifg=#9095a1 ctermfg=7
-        hi Statement guifg=#9095a1 gui=NONE ctermfg=7 cterm=NONE
-        hi Constant guifg=#9095a1 gui=NONE ctermfg=7 cterm=NONE
-        hi clear Special
-        hi clear PreProc
-        hi clear Type
-        hi clear Identifier
-        hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
-        hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
-    else
-        hi Identifier guifg=#5ab0fa gui=NONE cterm=NONE
+    hi Identifier guifg=#5ab0fa gui=NONE cterm=NONE
+    hi Statement guifg=#fa7585 gui=NONE cterm=NONE
+    hi Constant guifg=#dc9656 gui=NONE cterm=NONE
+    hi String guifg=#a1b56c gui=NONE cterm=NONE
+    hi PreProc guifg=#f7ca88 gui=NONE cterm=NONE
+    hi Special guifg=#86c1b9 gui=NONE cterm=NONE
+    hi Tag guifg=#f7ca88 gui=NONE cterm=NONE
+    hi Delimiter guifg=#a16946 gui=NONE cterm=NONE
+    hi Type guifg=#ba8baf gui=NONE cterm=NONE
+    hi Operator guifg=#f7ca88 gui=NONE cterm=NONE
+    hi Directory guifg=#5ab0fa gui=bold cterm=bold
+    hi Comment guibg=NONE guifg=#6d7079 gui=italic cterm=NONE
+    hi Conceal guibg=NONE guifg=#6d7079 gui=NONE cterm=NONE
 
-        hi Statement guifg=#fa7585 gui=NONE cterm=NONE
-
-        hi Constant guifg=#dc9656 gui=NONE cterm=NONE
-        hi String guifg=#a1b56c gui=NONE cterm=NONE
-
-        hi PreProc guifg=#f7ca88 gui=NONE cterm=NONE
-
-        hi Special guifg=#86c1b9 gui=NONE cterm=NONE
-        hi Tag guifg=#f7ca88 gui=NONE cterm=NONE
-        hi Delimiter guifg=#a16946 gui=NONE cterm=NONE
-
-        hi Type guifg=#ba8baf gui=NONE cterm=NONE
-
-        hi Operator guifg=#f7ca88 gui=NONE cterm=NONE
-
-        hi Directory guifg=#5ab0fa gui=bold cterm=bold
-
-        hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
-        hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
-
-        hi Title guifg=#ff5b7b gui=bold cterm=bold
-    endif
-
+    hi Title guifg=#ff5b7b gui=bold cterm=bold
 endif
 
 
@@ -298,41 +254,41 @@ hi! link diffSubname diffText
 "" Coc.nvim
 hi! link CocErrorSign diffRemoved
 
-"" Asciidoctor
-if get(g:, "habamax_flat", v:false)
-    hi link asciidoctorOption Constant
-    hi link asciidoctorBlock Constant
-    hi link asciidoctorAttribute Constant
-    hi link asciidoctorTableCell Constant
-    hi link asciidoctorInlineAnchor Constant
-    hi link asciidoctorBlockOptions Constant
-    hi link asciidoctorOrderedListMarker Constant
-    hi link asciidoctorListMarker Constant
-    hi link asciidoctorMacro Constant
+" "" Asciidoctor
+" if get(g:, "habamax_flat", v:false)
+"     hi link asciidoctorOption Constant
+"     hi link asciidoctorBlock Constant
+"     hi link asciidoctorAttribute Constant
+"     hi link asciidoctorTableCell Constant
+"     hi link asciidoctorInlineAnchor Constant
+"     hi link asciidoctorBlockOptions Constant
+"     hi link asciidoctorOrderedListMarker Constant
+"     hi link asciidoctorListMarker Constant
+"     hi link asciidoctorMacro Constant
 
-    hi link fugitiveHeading Constant
-    hi link fugitiveStagedHeading Constant
-    hi link fugitiveUnstagedHeading Constant
-    hi link fugitiveUntrackedHeading Constant
-    hi link fugitiveHash Constant
-    hi link fugitiveModifier Constant
-    hi link fugitiveUntrackedModifier Constant
-    hi link fugitiveUnstagedModifier Constant
-    hi link fugitiveStagedModifier Constant
-else
-    " restore default fugitive colors (as of 2020-04-25)
-    hi link fugitiveHeader Label
-    hi link fugitiveHeading PreProc
-    hi link fugitiveUntrackedHeading PreCondit
-    hi link fugitiveUnstagedHeading Macro
-    hi link fugitiveStagedHeading Include
-    hi link fugitiveModifier Type
-    hi link fugitiveUntrackedModifier StorageClass
-    hi link fugitiveUnstagedModifier Structure
-    hi link fugitiveStagedModifier Typedef
-    hi link fugitiveInstruction Type
-    hi link fugitiveStop Function
-    hi link fugitiveHash Identifier
-    hi link fugitiveSymbolicRef Function
-    hi link fugitiveCount Number
-end
+"     hi link fugitiveHeading Constant
+"     hi link fugitiveStagedHeading Constant
+"     hi link fugitiveUnstagedHeading Constant
+"     hi link fugitiveUntrackedHeading Constant
+"     hi link fugitiveHash Constant
+"     hi link fugitiveModifier Constant
+"     hi link fugitiveUntrackedModifier Constant
+"     hi link fugitiveUnstagedModifier Constant
+"     hi link fugitiveStagedModifier Constant
+" else
+"     " restore default fugitive colors (as of 2020-04-25)
+"     hi link fugitiveHeader Label
+"     hi link fugitiveHeading PreProc
+"     hi link fugitiveUntrackedHeading PreCondit
+"     hi link fugitiveUnstagedHeading Macro
+"     hi link fugitiveStagedHeading Include
+"     hi link fugitiveModifier Type
+"     hi link fugitiveUntrackedModifier StorageClass
+"     hi link fugitiveUnstagedModifier Structure
+"     hi link fugitiveStagedModifier Typedef
+"     hi link fugitiveInstruction Type
+"     hi link fugitiveStop Function
+"     hi link fugitiveHash Identifier
+"     hi link fugitiveSymbolicRef Function
+"     hi link fugitiveCount Number
+" end

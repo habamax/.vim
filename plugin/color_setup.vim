@@ -43,7 +43,6 @@ set background=dark
 colorscheme habamax
 
 " mimic tpope's unimpaired with toggling options
-nnoremap <silent> yof :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
 nnoremap <silent> yot :call <SID>habamax_next_contrast()<CR>
 nnoremap <silent> yoT :let g:habamax_transparent = !g:habamax_transparent <bar> colo habamax<CR>
 
