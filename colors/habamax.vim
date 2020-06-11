@@ -306,11 +306,6 @@ hi! link diffSubname diffText
 hi! link CocErrorSign diffRemoved
 
 "" Asciidoctor
-if &background == 'light'
-    hi asciidoctorIndented guifg=#555555 gui=NONE ctermfg=1 cterm=NONE
-else
-    hi asciidoctorIndented guifg=#999999 gui=NONE ctermfg=1 cterm=NONE
-endif
 if get(g:, "habamax_flat", v:false)
     hi link asciidoctorOption Constant
     hi link asciidoctorBlock Constant
