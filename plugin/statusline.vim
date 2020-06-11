@@ -24,7 +24,7 @@ func! StatusRight()
     if exists('*FugitiveHead')
         let branch = FugitiveHead()
         if !empty(branch)
-            let right .= printf(" git:%s %s", branch, s:sep)
+            let right .= printf(" ∵ %s %s ", branch, s:sep)
         endif
     endif
 
