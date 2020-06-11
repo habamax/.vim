@@ -53,8 +53,6 @@ if &background == 'light'
         let g:terminal_color_13 = "#a626a4"
         let g:terminal_color_14 = "#0184bc"
         let g:terminal_color_15 = "#090a0b"
-        let g:terminal_color_background = g:terminal_color_7
-        let g:terminal_color_foreground = g:terminal_color_2
     elseif has("terminal")
         let g:terminal_ansi_colors = [
                     \ "#fafafa",
@@ -128,13 +126,11 @@ if &background == 'light'
         hi Comment guibg=NONE guifg=#777777 gui=italic cterm=NONE
         hi Conceal guibg=NONE guifg=#777777 gui=NONE cterm=NONE
     else
-        " hi Identifier guifg=#4078f2 gui=NONE cterm=NONE
         hi Identifier guifg=#2c5ff5 gui=NONE cterm=NONE
 
         hi Statement guifg=#ca1243 gui=NONE cterm=NONE
 
         hi Constant guifg=#d75f00 gui=NONE cterm=NONE
-        " hi String guifg=#50a14f gui=NONE cterm=NONE
         hi String guifg=#2a871f gui=NONE cterm=NONE
 
         hi PreProc guifg=#c18401 gui=NONE cterm=NONE
@@ -175,8 +171,6 @@ else
         let g:terminal_color_13 = "#ba8baf"
         let g:terminal_color_14 = "#86c1b9"
         let g:terminal_color_15 = "#f8f8f8"
-        let g:terminal_color_background = g:terminal_color_0
-        let g:terminal_color_foreground = g:terminal_color_5
     elseif has("terminal")
         let g:terminal_ansi_colors = [
                     \ "#202531",
