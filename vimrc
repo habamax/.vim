@@ -158,6 +158,11 @@ endfunc
 xnoremap in :<C-u>call <SID>number()<CR>
 onoremap in :<C-u>normal vin<CR>
 
+"" line text object
+xnoremap il g_o^
+onoremap il :<C-u>normal vil<CR>
+xnoremap al $o0
+onoremap al :<C-u>normal val<CR>
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
