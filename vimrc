@@ -32,6 +32,7 @@ set nospell spelllang=ru,en
 set commentstring=
 set nrformats=bin,hex
 set sessionoptions=buffers,curdir,tabpages,winsize
+set foldmethod=indent foldlevelstart=99
 
 set wildchar=<Tab> wildmenu wildmode=full
 " to use in cnoremaps
