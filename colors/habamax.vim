@@ -240,6 +240,7 @@ hi! link QuickFixLine CursorLine
 hi SignColumn guibg=NONE ctermbg=NONE
 hi lCursor guibg=#ff7070
 hi MatchParen guifg=NONE ctermfg=NONE
+hi link qfFileName Comment
 
 
 """ Plugins {{{1
