@@ -8,17 +8,6 @@
 "
 " Works OK for gui and with set termguicolors
 " Otherwise it is kind of meh, but readable (uses default 16 colors palette)
-" 
-" ------------------------------------------------------------------------------
-"
-" Sometimes I want my syntax to be 'boring'.
-" let g:habamax_flat = v:true
-" make it FLAT:
-" * comments
-" * statements
-" * constants
-"
-" ------------------------------------------------------------------------------
 "
 " To add more contrast, use:
 " let g:habamax_contrast = v:true
