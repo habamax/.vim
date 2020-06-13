@@ -22,7 +22,7 @@ set scrolloff=2 sidescrolloff=0
 set display=truncate
 set completeopt=menuone
 set list listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
-set breakindent breakindentopt=sbr showbreak=╰
+set linebreak breakindent breakindentopt=sbr showbreak=╰
 set nowrap
 set nojoinspaces
 set formatoptions=cqjl
