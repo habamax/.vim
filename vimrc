@@ -33,6 +33,7 @@ set commentstring=
 set nrformats=bin,hex
 set sessionoptions=buffers,curdir,tabpages,winsize
 set foldmethod=indent foldlevelstart=99
+set diffopt+=vertical
 
 set wildchar=<Tab> wildmenu wildmode=full
 " to use in cnoremaps
@@ -46,12 +47,6 @@ if executable('rg')
 endif
 
 if has('mouse') | set mouse=a | endif
-
-if !has('nvim') && has('patch-8.1.360')
-    set diffopt+=vertical,algorithm:patience
-else
-    set diffopt+=vertical
-endif
 
 if has('nvim') | set inccommand=nosplit | endif
 
