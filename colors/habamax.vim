@@ -70,7 +70,7 @@ if &background == 'light'
         hi Normal guibg=#fafafa guifg=#000000 ctermbg=white ctermfg=black
     endif
     hi EndOfBuffer guifg=#d0d0d0 guibg=NONE ctermfg=7 ctermbg=NONE
-    hi Statusline guibg=#cacbcc guifg=#000000 gui=bold ctermbg=8 ctermfg=15 cterm=NONE
+    hi Statusline guibg=#cacbcc guifg=#000000 gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
     hi StatuslineNC guibg=#cacbcc guifg=#707070 gui=NONE ctermbg=8 ctermfg=16 cterm=NONE
     hi VertSplit guibg=#cacbcc guifg=#cacbcc gui=NONE ctermbg=8 ctermfg=8 cterm=NONE
 
@@ -167,7 +167,7 @@ else
         hi Normal guibg=#202531 guifg=#dedede ctermbg=black ctermfg=white
     endif
     hi EndOfBuffer guibg=NONE guifg=#404551 ctermbg=NONE ctermfg=8
-    hi Statusline guibg=#333b4f guifg=#dedede gui=bold ctermbg=8 ctermfg=15 cterm=bold
+    hi Statusline guibg=#333b4f guifg=#dedede gui=NONE ctermbg=8 ctermfg=15 cterm=NONE
     hi StatuslineNC guibg=#333b4f guifg=#636b7f gui=NONE ctermbg=8 ctermfg=16 cterm=NONE
     hi VertSplit guibg=#333b4f guifg=#333b4f gui=NONE ctermbg=8 ctermfg=8 cterm=NONE
 
