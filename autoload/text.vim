@@ -81,8 +81,8 @@ func! text#obj_indent(inner)
                     \ && getline(ln_end) !~ '^\s*$'
             let ln_end += 1
         endwhile
-        while indent(ln_end) > 0 || getline(ln_end) =~ '^\s*$'
-                    \ && ln_end < line('$')
+        while indent(ln_end) > 0 && getline(ln_end) !~ '^\s*$'
+                    \ && ln_end <= line('$')
             let ln_end = s:nextnonblank(ln_end+1)
         endwhile
     endif
@@ -108,7 +108,7 @@ endfunc
 func! s:nextnonblank(lnum) abort
     let res = nextnonblank(a:lnum)
     if res == 0
-        let res = line('$')
+        let res = line('$')+1
     endif
     return res
 endfunc
