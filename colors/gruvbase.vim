@@ -36,7 +36,7 @@ if &background ==# 'dark'
                     \ '#928374', '#fb4934', '#b8bb26', '#fabd2f',
                     \ '#83a598', '#d3869b', '#8ec07c', '#ebdbb2']
     endif
-    if get(g:, 'gruvhab_transparent', 0) && !has('gui_running')
+    if get(g:, 'gruvbase_transparent', 0) && !has('gui_running')
         hi Normal guifg=#ebdbb2 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     else
         hi Normal guifg=#ebdbb2 guibg=#1d2021 guisp=NONE gui=NONE cterm=NONE
@@ -150,7 +150,7 @@ else
                     \ '#928374', '#9d0006', '#79740e', '#b57614',
                     \ '#076678', '#8f3f71', '#427b58', '#3c3836']
     endif
-    if get(g:, 'gruvhab_transparent', 0) && !has('gui_running')
+    if get(g:, 'gruvbase_transparent', 0) && !has('gui_running')
         hi Normal guifg=#3c3836 guibg=NONE guisp=NONE gui=NONE cterm=NONE
     else
         hi Normal guifg=#3c3836 guibg=#f9f5d7 guisp=NONE gui=NONE cterm=NONE
