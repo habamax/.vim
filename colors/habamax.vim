@@ -126,7 +126,7 @@ else
         let g:terminal_color_1 = "#fa7585"
         let g:terminal_color_2 = "#a1b56c"
         let g:terminal_color_3 = "#f7ca88"
-        let g:terminal_color_4 = "#6aa6da"
+        let g:terminal_color_4 = "#6aa6ca"
         let g:terminal_color_5 = "#ba8baf"
         let g:terminal_color_6 = "#86c1b9"
         let g:terminal_color_7 = "#d8d8d8"
@@ -134,7 +134,7 @@ else
         let g:terminal_color_9 = "#fa7585"
         let g:terminal_color_10 = "#a1b56c"
         let g:terminal_color_11 = "#f7ca88"
-        let g:terminal_color_12 = "#6aa6da"
+        let g:terminal_color_12 = "#6aa6ca"
         let g:terminal_color_13 = "#ba8baf"
         let g:terminal_color_14 = "#86c1b9"
         let g:terminal_color_15 = "#f8f8f8"
@@ -144,7 +144,7 @@ else
                     \ "#fa7585",
                     \ "#a1b56c",
                     \ "#f7ca88",
-                    \ "#6aa6da",
+                    \ "#6aa6ca",
                     \ "#ba8baf",
                     \ "#86c1b9",
                     \ "#d8d8d8",
@@ -152,7 +152,7 @@ else
                     \ "#fa7585",
                     \ "#a1b56c",
                     \ "#f7ca88",
-                    \ "#6aa6da",
+                    \ "#6aa6ca",
                     \ "#ba8baf",
                     \ "#86c1b9",
                     \ "#f8f8f8",
@@ -197,7 +197,7 @@ else
     hi diffText guibg=#2f2f09 guifg=NONE gui=NONE
     hi diffDelete guibg=#492929 guifg=#707070 gui=NONE
 
-    hi Identifier guifg=#6aa6da gui=NONE cterm=NONE
+    hi Identifier guifg=#6aa6ca gui=NONE cterm=NONE
     hi Statement guifg=#fa7585 gui=NONE cterm=NONE
     hi Constant guifg=#dc9656 gui=NONE cterm=NONE
     hi String guifg=#a1b56c gui=NONE cterm=NONE
@@ -207,7 +207,7 @@ else
     hi Delimiter guifg=#a16946 gui=NONE cterm=NONE
     hi Type guifg=#ba8baf gui=NONE cterm=NONE
     hi Operator guifg=#f7ca88 gui=NONE cterm=NONE
-    hi Directory guifg=#6aa6da gui=bold cterm=bold
+    hi Directory guifg=#6aa6ca gui=bold cterm=bold
     hi Comment guibg=NONE guifg=#6d7079 gui=italic cterm=NONE
     hi Conceal guibg=NONE guifg=#6d7079 gui=NONE cterm=NONE
 
