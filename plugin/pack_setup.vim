@@ -163,6 +163,8 @@ let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json']
 " let g:asciidoctor_fenced_languages = ['python', 'c', 'javascript']
 " let g:asciidoctor_syntax_indented = 0
+let g:asciidoctor_css = 'asciidoctor-next.min.css'
+let g:asciidoctor_css_path = (empty($DOCSHOME)?expand('~'):expand($DOCSHOME)) . '/docs/.asciidoctor-themes'
 
 let g:asciidoctor_pandoc_other_params = '--toc'
 let g:asciidoctor_pandoc_data_dir = (empty($DOCSHOME)?expand('~'):expand($DOCSHOME)) . '/docs/.pandoc'
