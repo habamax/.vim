@@ -29,7 +29,7 @@ if &background == 'light'
         let g:terminal_color_1 = "#ca1243"
         let g:terminal_color_2 = "#2a871f"
         let g:terminal_color_3 = "#c18401"
-        let g:terminal_color_4 = "#2c5ff5"
+        let g:terminal_color_4 = "#2f6aea"
         let g:terminal_color_5 = "#a626a4"
         let g:terminal_color_6 = "#0184bc"
         let g:terminal_color_7 = "#383a42"
@@ -37,7 +37,7 @@ if &background == 'light'
         let g:terminal_color_9 = "#ca1243"
         let g:terminal_color_10 = "#2a871f"
         let g:terminal_color_11 = "#c18401"
-        let g:terminal_color_12 = "#2c5ff5"
+        let g:terminal_color_12 = "#2f6aea"
         let g:terminal_color_13 = "#a626a4"
         let g:terminal_color_14 = "#0184bc"
         let g:terminal_color_15 = "#090a0b"
@@ -47,7 +47,7 @@ if &background == 'light'
                     \ "#ca1243",
                     \ "#2a871f",
                     \ "#c18401",
-                    \ "#2c5ff5",
+                    \ "#2f6aea",
                     \ "#a626a4",
                     \ "#0184bc",
                     \ "#383a42",
@@ -55,7 +55,7 @@ if &background == 'light'
                     \ "#ca1243",
                     \ "#2a871f",
                     \ "#c18401",
-                    \ "#2c5ff5",
+                    \ "#2f6aea",
                     \ "#a626a4",
                     \ "#0184bc",
                     \ "#090a0b",
@@ -102,7 +102,7 @@ if &background == 'light'
     hi diffText guibg=#f9d999 guifg=NONE gui=NONE
     hi diffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
 
-    hi Identifier guifg=#2c5ff5 gui=NONE cterm=NONE
+    hi Identifier guifg=#2f6aea gui=NONE cterm=NONE
     hi Statement guifg=#ca1243 gui=NONE cterm=NONE
     hi Constant guifg=#d75f00 gui=NONE cterm=NONE
     hi String guifg=#2a871f gui=NONE cterm=NONE
@@ -112,7 +112,7 @@ if &background == 'light'
     hi Delimiter guifg=#986801 gui=NONE cterm=NONE
     hi Type guifg=#a626a4 gui=NONE cterm=NONE
     hi Operator guifg=#c18401 gui=NONE cterm=NONE
-    hi Directory guifg=#2c5ff5 gui=bold cterm=bold
+    hi Directory guifg=#2f6aea gui=bold cterm=bold
     hi Comment guibg=NONE guifg=#777887 gui=italic cterm=NONE
     hi Conceal guibg=NONE guifg=#777887 gui=NONE cterm=NONE
 
