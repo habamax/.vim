@@ -11,7 +11,7 @@
 "" Paste lines from current buffer to vpaste.net
 "" Save URL in clipboard.
 func! share#vpaste(line1, line2) abort
-    let url = s:paste_curl('http://vpaste.net/', 'text=<-', a:line1, a:line2)
+    let url = s:paste_curl('http://vpaste.net/?ft='.&filetype, 'text=<-', a:line1, a:line2)
     let @+ = url
     let @@ = url
     echom "Pasted as " .. url
