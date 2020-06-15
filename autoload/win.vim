@@ -3,6 +3,15 @@
 "" Desc: Windows manipulation functions.
 
 
+"" Delete all(saved) but visible buffers
+func! win#delete_buffers()
+    for bnr in range(1, bufnr('$'))
+        if buflisted(bnr) && bufwinnr(bnr) == -1
+            exe 'bd ' . bnr
+        endif
+    endfor
+endfunc
+
 
 "" Scroll other(previous) window
 func! win#scroll_other(dir) abort

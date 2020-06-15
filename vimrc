@@ -69,7 +69,9 @@ nnoremap d<Leader> <nop>
 
 nnoremap <BS> <C-^>
 " kill-all buffers except current one
-nnoremap <M-BS> :%bd<CR><C-^>:bd#<CR>
+" nnoremap <M-BS> :%bd<CR><C-^>:bd#<CR>
+" kill-all but visible buffers
+nnoremap <M-BS> :call win#delete_buffers()<CR>
 
 " UPPERCASE WORD
 nnoremap <silent> <M-u> gUiww
