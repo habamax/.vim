@@ -66,7 +66,7 @@ func! text#obj_indent(inner)
         endwhile
 
         while indent(ln_end) >= indent
-                    \ && ln_end < line('$')
+                    \ && ln_end <= line('$')
             let ln_end = s:nextnonblank(ln_end+1)
         endwhile
     else
@@ -90,7 +90,8 @@ func! text#obj_indent(inner)
     if a:inner || indent == 0
         let ln_start = s:nextnonblank(ln_start+1)
     endif
-    if (indent > indent(ln_end) || indent == 0) && ln_end > ln_start
+
+    if !(indent == 0 && indent(ln_end) == 0) || ln_end < line('$')
         if a:inner
             let ln_end = prevnonblank(ln_end-1)
         else
@@ -101,7 +102,6 @@ func! text#obj_indent(inner)
     exe ln_end
     normal! V
     exe ln_start
-
 endfunc
 
 
