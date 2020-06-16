@@ -116,7 +116,7 @@ if &background == 'light'
     hi Comment guibg=NONE guifg=#777887 gui=italic cterm=NONE
     hi Conceal guibg=NONE guifg=#777887 gui=NONE cterm=NONE
 
-    hi Title guifg=#e0385b gui=bold cterm=bold
+    hi Title guifg=#ca1243 gui=bold cterm=bold
 
 " Dark colors {{{1
 else
@@ -211,7 +211,7 @@ else
     hi Comment guibg=NONE guifg=#6d7079 gui=italic cterm=NONE
     hi Conceal guibg=NONE guifg=#6d7079 gui=NONE cterm=NONE
 
-    hi Title guifg=#ff5b7b gui=bold cterm=bold
+    hi Title guifg=#fa7585 gui=bold cterm=bold
 endif
 
 
