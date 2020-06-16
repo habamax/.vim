@@ -97,10 +97,10 @@ if &background == 'light'
     hi WildMenu guibg=#c18401 guifg=bg gui=NONE cterm=NONE
 
     "" Diff
-    hi diffAdd guibg=#c9f9c9
-    hi diffChange guibg=#f9f9c9
-    hi diffText guibg=#f9d999 guifg=NONE gui=NONE
-    hi diffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
+    hi DiffAdd guibg=#c9f9c9
+    hi DiffChange guibg=#f9f9c9
+    hi DiffText guibg=#f9d999 guifg=NONE gui=NONE
+    hi DiffDelete guibg=#f9c9c9 guifg=#707070 gui=NONE
 
     hi Identifier guifg=#2f6aea gui=NONE cterm=NONE
     hi Statement guifg=#ca1243 gui=NONE cterm=NONE
@@ -192,10 +192,10 @@ else
     hi IncSearch guibg=#dc9656 guifg=#262b37 gui=NONE cterm=NONE
     hi WildMenu guibg=#f7ca88 guifg=#262b37 gui=NONE cterm=NONE
 
-    hi diffAdd guibg=#294929
-    hi diffChange guibg=#4f4719
-    hi diffText guibg=#2f2f09 guifg=NONE gui=NONE
-    hi diffDelete guibg=#492929 guifg=#707070 gui=NONE
+    hi DiffAdd guibg=#294929
+    hi DiffChange guibg=#4f4719
+    hi DiffText guibg=#2f2f09 guifg=NONE gui=NONE
+    hi DiffDelete guibg=#492929 guifg=#707070 gui=NONE
 
     hi Identifier guifg=#6aa6ca gui=NONE cterm=NONE
     hi Statement guifg=#fa7585 gui=NONE cterm=NONE
