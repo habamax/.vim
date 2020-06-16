@@ -104,6 +104,12 @@ call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 " backup general <tab> completion
 call minpac#add('lifepillar/vim-mucomplete')
 
+" Win10:
+" cd ~/vimfiles/pack/minpac/start/YouCompeleteMe
+" py install.py --all
+" call minpac#add('ycm-core/YouCompleteMe')
+
+
 " can't make it work for me
 " call minpac#add('neovim/nvim-lsp', { 'type': 'opt' })
 
