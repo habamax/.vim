@@ -87,7 +87,7 @@ if &background == 'light'
     hi LineNr guibg=NONE guifg=#5f6571 gui=NONE cterm=NONE term=NONE
     hi CursorLine guibg=#e0e4e4 guifg=NONE gui=NONE cterm=NONE term=NONE
 
-    hi Underlined gui=underline guisp=SlateBlue
+    hi Underlined guifg=#2f6aea gui=underline
 
     hi Error guibg=#e07070 guifg=bg gui=NONE
     hi Todo guibg=#e0e070 guifg=NONE gui=bold
@@ -184,7 +184,7 @@ else
     hi LineNr guibg=NONE guifg=#5f6571 gui=NONE cterm=NONE term=NONE
     hi CursorLine guibg=#333844 guifg=NONE gui=NONE cterm=NONE term=NONE
 
-    hi Underlined guifg=#96b0d8 gui=underline guisp=#60708c
+    hi Underlined guifg=#6aa6ca gui=underline
     hi Error guibg=#633e43 guifg=NONE
     hi Todo guibg=#93933e guifg=#202531 gui=bold
     hi MatchParen guibg=#006060 guifg=NONE gui=NONE
