@@ -97,6 +97,8 @@ if executable('fzf')
                     \ 'sink': function('s:helptag_sink')}))
     endfunc
 
+    " Redefine Rg to search only contents of the files
+    command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
     " remove delay when close fzf with escape
     augroup my_fzf | au!
