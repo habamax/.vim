@@ -69,7 +69,7 @@ nnoremap d<Leader> <nop>
 
 nnoremap <BS> <C-^>
 " kill-all buffers except current one
-" nnoremap <M-BS> :%bd<CR><C-^>:bd#<CR>
+" nnoremap <M-BS> :%bd\|e#\|bd#<CR>
 " kill-all but visible buffers
 nnoremap <silent> <M-BS> :call win#delete_buffers()<CR>:echo "Non-windowed buffers are deleted"<CR>
 
