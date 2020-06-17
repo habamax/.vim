@@ -1,0 +1,200 @@
+# vim: ft=colortemplate
+Full name: habamax
+Short name: habamax
+Description: Colors to please my eyes day and night
+Author: Maxim Kim <habamax@gmail.com>
+Neovim: yes
+
+
+Variant:    gui 256
+
+Background: light
+
+# Color palette
+Color: grey   #777887 ~
+Color: red    #ca1243 ~
+Color: green  #2a871f ~
+Color: yellow #c18401 ~
+Color: blue   #2f6aea ~
+Color: purple #a626a4 ~
+Color: aqua   #0184bc ~
+Color: orange #d75f00 ~
+
+Color: brown  #986801 ~
+Color: fg0    #000000 ~
+Color: bg0    #fafafa ~
+Color: fg1    #d0d0d0 ~
+Color: bg1    #cacbcc ~
+Color: folded #e0e4e4 ~
+Color: visual #d0d9ea ~
+Color: error  #e07070 ~
+Color: todo   #e0e070 ~
+Color: diff1  #c9f9c9 ~
+Color: diff2  #f9f9c9 ~
+Color: diff3  #f9d999 ~
+Color: diff4  #f9c9c9 ~
+
+# Highlight group definitions
+#if get(g:, '@optionprefix_transp_bg', 0)
+Normal           fg0    none
+#else
+Normal           fg0    bg0
+#endif
+
+EndOfBuffer      fg1    none
+Statusline       fg0    bg1
+StatuslineNC     grey   bg1
+StatuslineTerm   fg0    bg1
+StatuslineTermNC grey   bg1
+VertSplit        bg1    bg1
+
+Pmenu            none   bg1
+PmenuSel         bg0    yellow
+PmenuSbar        none   bg1
+PmenuThumb       none   grey
+
+TabLine          none   bg1
+TabLineFill      none   bg1
+TabLineSel       none   bg0
+
+NonText          fg1    none
+SpecialKey       fg1    none
+
+Folded           grey   folded
+Visual           none   visual
+LineNr           grey   none
+FoldColumn       grey   none
+CursorLine       none   folded
+CursorColumn     none   folded
+CursorLineNr     none   folded
+QuickFixLine     none   folded
+SignColumn       none   none
+
+Underlined       blue   none underline
+
+Error            bg0    error
+Todo             fg0    todo bold
+MatchParen       none   aqua
+Search           bg0    yellow
+IncSearch        bg0    orange
+WildMenu         bg0    yellow
+
+DiffAdd          none   diff1
+DiffChange       none   diff2
+DiffText         none   diff3
+DiffDelete       grey   diff4
+
+Identifier       blue   none
+Statement        red    none
+Constant         orange none
+String           green  none
+PreProc          yellow none
+Special          aqua   none
+Tag              yellow none
+Delimiter        brown  none
+Type             purple none
+Operator         yellow none
+Directory        blue   none bold
+Comment          grey   none italic
+Conceal          grey   none
+
+Title            red    none bold
+
+Term colors: bg0  red green yellow blue purple aqua bg1
+Term colors: grey red green yellow blue purple aqua fg0
+
+
+Background: dark
+
+# Color palette
+Color: grey   #6d7079 ~
+Color: red    #fa7585 ~
+Color: green  #a1b56c ~
+Color: yellow #f7ca88 ~
+Color: blue   #6aa6ca ~
+Color: purple #ba8baf ~
+Color: aqua   #86c1b9 ~
+Color: orange #dc9656 ~
+
+Color: brown  #a16946 ~
+Color: fg0    #dedede ~
+Color: bg0    #202531 ~
+Color: fg1    #404551 ~
+Color: bg1    #333b4f ~
+Color: folded #262b37 ~
+Color: visual #394e71 ~
+Color: error  #633e43 ~
+Color: todo   #93933e ~
+Color: diff1  #294929 ~
+Color: diff2  #4f4719 ~
+Color: diff3  #2f2f09 ~
+Color: diff4  #492929 ~
+
+# Highlight group definitions
+#if get(g:, '@optionprefix_transp_bg', 0)
+Normal           fg0    none
+#else
+Normal           fg0    bg0
+#endif
+
+EndOfBuffer      grey   none
+Statusline       fg0    bg1
+StatuslineNC     grey   bg1
+StatuslineTerm   fg0    bg1
+StatuslineTermNC grey   bg1
+VertSplit        bg1    bg1
+
+Pmenu            none   bg1
+PmenuSel         bg0    yellow
+PmenuSbar        none   bg1
+PmenuThumb       none   grey
+
+TabLine          none   bg1
+TabLineFill      none   bg1
+TabLineSel       none   bg0
+
+NonText          fg1    none
+SpecialKey       fg1    none
+
+Folded           grey   folded
+Visual           none   visual
+LineNr           grey   none
+FoldColumn       grey   none
+CursorLine       none   folded
+CursorColumn     none   folded
+CursorLineNr     none   folded
+QuickFixLine     none   folded
+SignColumn       none   none
+
+Underlined       blue   none underline
+
+Error            fg0    error
+Todo             fg0    todo bold
+MatchParen       none   aqua
+Search           bg0    yellow
+IncSearch        bg0    orange
+WildMenu         bg0    yellow
+
+DiffAdd          none   diff1
+DiffChange       none   diff2
+DiffText         none   diff3
+DiffDelete       grey   diff4
+
+Identifier       blue   none
+Statement        red    none
+Constant         orange none
+String           green  none
+PreProc          yellow none
+Special          aqua   none
+Tag              yellow none
+Delimiter        brown  none
+Type             purple none
+Operator         yellow none
+Directory        blue   none bold
+Comment          grey   none italic
+Conceal          grey   none
+
+Title            red    none bold
+
+Term colors: bg0  red green yellow blue purple aqua bg1
+Term colors: grey red green yellow blue purple aqua fg0

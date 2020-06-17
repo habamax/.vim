@@ -155,3 +155,4 @@ call minpac#add('glacambre/firenvim',
 call minpac#add('dstein64/vim-startuptime')
 
 call minpac#add('romainl/Apprentice')
+call minpac#add('lifepillar/vim-colortemplate')

@@ -35,23 +35,8 @@ augroup END
 
 """ Colorschemes {{{1
 
-let g:habamax_flat = v:false
-let g:habamax_contrast = v:false
-let g:habamax_transparent = v:false
-
 set background=dark
 colorscheme habamax
 
 " mimic tpope's unimpaired with toggling options
-nnoremap <silent> yot :call <SID>habamax_next_contrast()<CR>
-nnoremap <silent> yoT :let g:habamax_transparent = !g:habamax_transparent <bar> colo habamax<CR>
-
-"" loop over habamax contrast settings
-func! s:habamax_next_contrast() abort
-    if get(g:, "habamax_transparent", v:false)
-        let g:habamax_transparent = v:false
-    else
-        let g:habamax_contrast = !g:habamax_contrast
-    endif
-    colorscheme habamax
-endfunc
+nnoremap <silent> yot :let g:habamax_transp_bg = !get(g:, "habamax_transp_bg", 0) <bar> colo habamax<CR>
