@@ -41,7 +41,7 @@ Normal           fg0    none
 Normal           fg0    bg0
 #endif
 
-EndOfBuffer      fg1    none
+EndOfBuffer      bg1   none
 Statusline       fg0    bg1
 StatuslineNC     grey   bg1
 StatuslineTerm   fg0    bg1
@@ -137,7 +137,7 @@ Normal           fg0    none
 Normal           fg0    bg0
 #endif
 
-EndOfBuffer      grey   none
+EndOfBuffer      bg1   none
 Statusline       fg0    bg1
 StatuslineNC     grey   bg1
 StatuslineTerm   fg0    bg1
