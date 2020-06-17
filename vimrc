@@ -48,8 +48,6 @@ endif
 
 if has('mouse') | set mouse=a | endif
 
-if has('nvim') | set inccommand=nosplit | endif
-
 
 "" Mappings {{{1
 
@@ -200,7 +198,7 @@ vnoremap * y/<C-R>"<CR>
 
 nnoremap <leader>z zA
 
-" edit init file (vimrc) -- nvim's init.vim sources vimrc
+" edit init file
 nnoremap <silent> <Leader>ei :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/vimrc"<CR>
 
 
