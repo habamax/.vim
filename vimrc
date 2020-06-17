@@ -315,9 +315,3 @@ augroup end
 augroup win_autosize | au!
     au WinEnter * silent! call win#lens()
 augroup end
-
-if exists('##TextYankPost') && has('nvim')
-    augroup hi_yanktext | au!
-        au TextYankPost * silent! lua require'vim.highlight'.on_yank('Search', 200)
-    augroup end
-endif
