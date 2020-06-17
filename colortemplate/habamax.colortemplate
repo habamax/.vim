@@ -73,7 +73,7 @@ SignColumn       none   none
 Underlined       blue   none underline
 
 Error            bg0    error
-Todo             fg0    todo bold
+Todo             fg0    todo
 MatchParen       none   aqua
 Search           bg0    yellow
 IncSearch        bg0    orange
@@ -124,7 +124,7 @@ Color: bg1    #333b4f ~
 Color: folded #262b37 ~
 Color: visual #394e71 ~
 Color: error  #633e43 ~
-Color: todo   #93933e ~
+Color: todo   #a3a33e ~
 Color: diff1  #294929 ~
 Color: diff2  #4f4719 ~
 Color: diff3  #2f2f09 ~
@@ -169,7 +169,7 @@ SignColumn       none   none
 Underlined       blue   none underline
 
 Error            fg0    error
-Todo             fg0    todo bold
+Todo             bg0    todo
 MatchParen       none   aqua
 Search           bg0    yellow
 IncSearch        bg0    orange
