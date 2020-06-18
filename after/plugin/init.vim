@@ -43,7 +43,6 @@ if exists("g:loaded_swap") " {{{1
                 \     'delimiter': ['\s*,\s*'],
                 \     'priority': -10
                 \   }]
-
 endif
 
 if exists("g:loaded_winlayout")

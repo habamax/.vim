@@ -47,8 +47,8 @@ call minpac#add('tpope/vim-endwise')
 call minpac#add('tpope/vim-speeddating')
 call minpac#add('tpope/vim-projectionist')
 " Databases
-call minpac#add('tpope/vim-dadbod')
-call minpac#add('kristijanhusak/vim-dadbod-ui')
+" call minpac#add('tpope/vim-dadbod')
+" call minpac#add('kristijanhusak/vim-dadbod-ui')
 
 
 "" Git
