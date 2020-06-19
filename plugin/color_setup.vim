@@ -1,11 +1,5 @@
 """ Customize colors {{{1
 
-func! s:asciidoctor_default() abort
-    if !get(g:, "habamax_flat", 0) && exists("*asciidoctor#force_default_colors")
-        call asciidoctor#force_default_colors()
-    endif
-endfunc
-
 func! s:default_setup() abort
     if get(g:, "colors_name", "default") != 'default'
         return
@@ -26,7 +20,6 @@ func! s:base_setup() abort
 endfunc
 
 augroup colorscheme_change | au!
-    au ColorScheme * call s:asciidoctor_default()
     au ColorScheme default call s:default_setup()
     au ColorScheme apprentice call s:base_setup()
     au OptionSet background call s:default_setup()
