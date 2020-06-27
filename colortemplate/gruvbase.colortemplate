@@ -29,10 +29,10 @@ Color: folded #ebdbb2 ~
 Color: visual #bdae93 ~
 Color: error  #9d0006 ~
 Color: todo   #f9f5d7 ~
-Color: diff1  #79740e ~
-Color: diff2  #427b58 ~
-Color: diff3  #b57614 ~
-Color: diff4  #79740e ~
+Color: diff1  #b8bb26 ~
+Color: diff2  #8ec07c ~
+Color: diff3  #fabd2f ~
+Color: diff4  #fb4934 ~
 
 # Highlight group definitions
 #if get(g:, '@optionprefix_transp_bg', 0)
@@ -82,9 +82,9 @@ Search           bg0    yellow
 IncSearch        bg0    orange
 WildMenu         bg0    yellow
 
-DiffAdd          none   diff1
-DiffChange       none   diff2
-DiffText         none   diff3
+DiffAdd          fg0    diff1
+DiffChange       fg0    diff2
+DiffText         fg0    diff3
 DiffDelete       grey   diff4
 
 Identifier       blue   none
@@ -128,10 +128,10 @@ Color: folded #3c3836 ~
 Color: visual #665c54 ~
 Color: error  #fb4934 ~
 Color: todo   #1d2021 ~
-Color: diff1  #b8bb26 ~
-Color: diff2  #8ec07c ~
-Color: diff3  #fabd2f ~
-Color: diff4  #fb4934 ~
+Color: diff1  #79740e ~
+Color: diff2  #427b58 ~
+Color: diff3  #b57614 ~
+Color: diff4  #79740e ~
 
 # Highlight group definitions
 #if get(g:, '@optionprefix_transp_bg', 0)
@@ -181,9 +181,9 @@ Search           bg0    yellow
 IncSearch        bg0    orange
 WildMenu         bg0    yellow
 
-DiffAdd          none   diff1
-DiffChange       none   diff2
-DiffText         none   diff3
+DiffAdd          fg0    diff1
+DiffChange       fg0    diff2
+DiffText         fg0    diff3
 DiffDelete       grey   diff4
 
 Identifier       blue   none
