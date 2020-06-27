@@ -57,6 +57,9 @@ TabLine          none   bg1
 TabLineFill      none   bg1
 TabLineSel       none   bg0
 
+ToolbarLine      bg0    visual
+ToolbarButton    none   visual bold
+
 NonText          fg1    none
 SpecialKey       fg1    none
 
@@ -152,6 +155,9 @@ PmenuThumb       none   grey
 TabLine          none   bg1
 TabLineFill      none   bg1
 TabLineSel       none   bg0
+
+ToolbarLine      bg0    visual
+ToolbarButton    none   visual bold
 
 NonText          fg1    none
 SpecialKey       fg1    none
