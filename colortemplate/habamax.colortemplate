@@ -23,7 +23,6 @@ Color: orange #d75f00 ~
 Color: brown  #986801 ~
 Color: fg0    #000000 ~
 Color: bg0    #ffffff ~
-Color: fg1    #d0d0d0 ~
 Color: bg1    #cacbcc ~
 Color: folded #e0e4e4 ~
 Color: visual #d0d9ea ~
@@ -60,8 +59,8 @@ TabLineSel       none   bg0
 ToolbarLine      bg0    visual
 ToolbarButton    none   visual bold
 
-NonText          fg1    none
-SpecialKey       fg1    none
+NonText          bg1    none
+SpecialKey       bg1    none
 
 Folded           grey   folded
 Visual           none   visual
@@ -122,7 +121,6 @@ Color: orange #dc9656 ~
 Color: brown  #a16946 ~
 Color: fg0    #dedede ~
 Color: bg0    #202531 ~
-Color: fg1    #404551 ~
 Color: bg1    #333b4f ~
 Color: folded #262b37 ~
 Color: visual #394e71 ~
@@ -159,8 +157,8 @@ TabLineSel       none   bg0
 ToolbarLine      bg0    visual
 ToolbarButton    none   visual bold
 
-NonText          fg1    none
-SpecialKey       fg1    none
+NonText          bg1    none
+SpecialKey       bg1    none
 
 Folded           grey   folded
 Visual           none   visual
