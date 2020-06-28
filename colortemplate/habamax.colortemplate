@@ -11,28 +11,28 @@ Variant:    gui 256
 Background: light
 
 # Color palette
-Color: grey   #777887 ~
-Color: red    #ca1243 ~
-Color: green  #2a871f ~
-Color: yellow #c18401 ~
-Color: blue   #2f6aea ~
-Color: purple #a626a4 ~
-Color: aqua   #0184bc ~
-Color: orange #d75f00 ~
+Color: grey   #777887 243
+Color: red    #ca1243 161
+Color: green  #2a871f 28
+Color: yellow #c18401 172
+Color: blue   #2f6aea 27
+Color: purple #a626a4 127
+Color: aqua   #0184bc 67
+Color: orange #d75f00 166
 
-Color: brown  #986801 ~
+Color: brown  #986801 94
 
-Color: fg0    #000000 ~
-Color: bg0    #ffffff ~
-Color: bg1    #cacbcc ~
-Color: folded #e0e4e4 ~
-Color: visual #d0d9ea ~
-Color: error  #e07070 ~
-Color: todo   #e0e070 ~
-Color: diff1  #c9f9c9 ~
-Color: diff2  #f9f9c9 ~
-Color: diff3  #f9d999 ~
-Color: diff4  #f9c9c9 ~
+Color: fg0    #000000 16
+Color: bg0    #ffffff 231
+Color: bg1    #cacbcc 251
+Color: folded #e0e4e4 254
+Color: visual #d0d9ea 153
+Color: error  #e07070 167
+Color: todo   #e0e070 185
+Color: diff1  #c9f9c9 194
+Color: diff2  #f9f9c9 230
+Color: diff3  #f9d999 222
+Color: diff4  #f9c9c9 224
 
 Include: _hl_groups
 
@@ -40,27 +40,27 @@ Include: _hl_groups
 Background: dark
 
 # Color palette
-Color: grey   #6d7079 ~
-Color: red    #fa7585 ~
-Color: green  #a1b56c ~
-Color: yellow #f7ca88 ~
-Color: blue   #6aa6ca ~
-Color: purple #ba8baf ~
-Color: aqua   #86c1b9 ~
-Color: orange #dc9656 ~
+Color: grey   #6d7079 242
+Color: red    #fa7585 204
+Color: green  #a1b56c 107
+Color: yellow #f7ca88 222
+Color: blue   #6aa6ca 74
+Color: purple #ba8baf 139
+Color: aqua   #86c1b9 116
+Color: orange #dc9656 215
 
-Color: brown  #a16946 ~
+Color: brown  #a16946 130
 
-Color: fg0    #dedede ~
-Color: bg0    #202531 ~
-Color: bg1    #333b4f ~
-Color: folded #262b37 ~
-Color: visual #394e71 ~
-Color: error  #ea7a80 ~
-Color: todo   #a3a33e ~
-Color: diff1  #294929 ~
-Color: diff2  #4f4719 ~
-Color: diff3  #2f2f09 ~
-Color: diff4  #492929 ~
+Color: fg0    #dedede 253
+Color: bg0    #202531 234
+Color: bg1    #333b4f 237
+Color: folded #262b37 235
+Color: visual #394e71 24
+Color: error  #ea7a80 174
+Color: todo   #a3a33e 143
+Color: diff1  #294929 22
+Color: diff2  #4f4719 58
+Color: diff3  #2f2f09 236
+Color: diff4  #492929 52
 
 Include: _hl_groups
