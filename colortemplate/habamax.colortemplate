@@ -21,6 +21,7 @@ Color: aqua   #0184bc ~
 Color: orange #d75f00 ~
 
 Color: brown  #986801 ~
+
 Color: fg0    #000000 ~
 Color: bg0    #ffffff ~
 Color: bg1    #cacbcc ~
@@ -33,77 +34,7 @@ Color: diff2  #f9f9c9 ~
 Color: diff3  #f9d999 ~
 Color: diff4  #f9c9c9 ~
 
-# Highlight group definitions
-#if get(g:, '@optionprefix_transp_bg', 0)
-Normal           fg0    none
-#else
-Normal           fg0    bg0
-#endif
-
-EndOfBuffer      bg1   none
-Statusline       fg0    bg1
-StatuslineNC     grey   bg1
-StatuslineTerm   fg0    bg1
-StatuslineTermNC grey   bg1
-VertSplit        bg1    bg1
-
-Pmenu            none   bg1
-PmenuSel         bg0    yellow
-PmenuSbar        none   bg1
-PmenuThumb       none   grey
-
-TabLine          none   bg1
-TabLineFill      none   bg1
-TabLineSel       none   bg0
-
-ToolbarLine      bg0    visual
-ToolbarButton    none   visual bold
-
-NonText          bg1    none
-SpecialKey       bg1    none
-
-Folded           grey   folded
-Visual           none   visual
-LineNr           grey   none
-FoldColumn       grey   none
-CursorLine       none   folded
-CursorColumn     none   folded
-CursorLineNr     none   folded
-QuickFixLine     none   folded
-SignColumn       none   none
-
-Underlined       blue   none underline
-
-Error            bg0    error
-Todo             fg0    todo
-MatchParen       none   aqua
-Search           bg0    yellow
-IncSearch        bg0    orange
-WildMenu         bg0    yellow
-
-DiffAdd          none   diff1
-DiffChange       none   diff2
-DiffText         none   diff3
-DiffDelete       grey   diff4
-
-Identifier       blue   none
-Statement        red    none
-Constant         orange none
-String           green  none
-PreProc          yellow none
-Special          aqua   none
-Tag              yellow none
-Delimiter        brown  none
-Type             purple none
-Operator         yellow none
-Directory        blue   none bold
-Comment          grey   none italic
-Conceal          grey   none
-
-Title            red    none bold
-
-Term colors: bg0  red green yellow blue purple aqua bg1
-Term colors: grey red green yellow blue purple aqua fg0
+Include: _hl_groups
 
 
 Background: dark
@@ -119,6 +50,7 @@ Color: aqua   #86c1b9 ~
 Color: orange #dc9656 ~
 
 Color: brown  #a16946 ~
+
 Color: fg0    #dedede ~
 Color: bg0    #202531 ~
 Color: bg1    #333b4f ~
@@ -131,74 +63,4 @@ Color: diff2  #4f4719 ~
 Color: diff3  #2f2f09 ~
 Color: diff4  #492929 ~
 
-# Highlight group definitions
-#if get(g:, '@optionprefix_transp_bg', 0)
-Normal           fg0    none
-#else
-Normal           fg0    bg0
-#endif
-
-EndOfBuffer      bg1   none
-Statusline       fg0    bg1
-StatuslineNC     grey   bg1
-StatuslineTerm   fg0    bg1
-StatuslineTermNC grey   bg1
-VertSplit        bg1    bg1
-
-Pmenu            none   bg1
-PmenuSel         bg0    yellow
-PmenuSbar        none   bg1
-PmenuThumb       none   grey
-
-TabLine          none   bg1
-TabLineFill      none   bg1
-TabLineSel       none   bg0
-
-ToolbarLine      bg0    visual
-ToolbarButton    none   visual bold
-
-NonText          bg1    none
-SpecialKey       bg1    none
-
-Folded           grey   folded
-Visual           none   visual
-LineNr           grey   none
-FoldColumn       grey   none
-CursorLine       none   folded
-CursorColumn     none   folded
-CursorLineNr     none   folded
-QuickFixLine     none   folded
-SignColumn       none   none
-
-Underlined       blue   none underline
-
-Error            fg0    error
-Todo             bg0    todo
-MatchParen       none   aqua
-Search           bg0    yellow
-IncSearch        bg0    orange
-WildMenu         bg0    yellow
-
-DiffAdd          none   diff1
-DiffChange       none   diff2
-DiffText         none   diff3
-DiffDelete       grey   diff4
-
-Identifier       blue   none
-Statement        red    none
-Constant         orange none
-String           green  none
-PreProc          yellow none
-Special          aqua   none
-Tag              yellow none
-Delimiter        brown  none
-Type             purple none
-Operator         yellow none
-Directory        blue   none bold
-Comment          grey   none italic
-Conceal          grey   none
-
-Title            red    none bold
-
-Term colors: bg0  red green yellow blue purple aqua bg1
-Term colors: grey red green yellow blue purple aqua fg0
+Include: _hl_groups
