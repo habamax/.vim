@@ -1,4 +1,5 @@
 {
+    "diagnostic.enableSign": false,
     "coc.source.around.firstMatch": false,
     "coc.source.buffer.firstMatch": false,
 
