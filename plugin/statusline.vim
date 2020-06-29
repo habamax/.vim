@@ -1,7 +1,9 @@
 set laststatus=2
 " set ruler " for default statusline"
 
-let s:sep = '┊'
+let s:sep = '¦'
+" let s:sep = '│'
+" let s:sep = '┊'
 
 
 func! StatusRight()
