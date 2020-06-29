@@ -238,7 +238,7 @@ command! FormatREST call misc#vrc_format_rest_as_json()
 """ firenvim {{{1
 if exists('g:started_by_firenvim')
     packadd firenvim
-    set gfn=Iosevka\ Habamax:h12
+    set gfn=JetBrains\ Mono\ NL:h14
     au BufEnter github.com_*.txt set filetype=markdown
     au BufEnter www.linux.org.ru_*.txt set filetype=markdown
     let g:firenvim_config = {
