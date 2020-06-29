@@ -23,13 +23,6 @@ func! StatusRight()
         let right .= printf(" %s %s", &ft, s:sep)
     endif
 
-    if exists('*FugitiveHead')
-        let branch = FugitiveHead()
-        if !empty(branch)
-            let right .= printf(" ∵ %s %s ", branch, s:sep)
-        endif
-    endif
-
     return right
 endfunc
 
