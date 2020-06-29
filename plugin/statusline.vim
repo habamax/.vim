@@ -9,18 +9,18 @@ let s:sep = '¦'
 func! StatusRight()
     let right = s:sep
 
-    if &iminsert == 0
-        let right .= ' EN '.s:sep
-    else
-        let right .= ' RU '.s:sep
+    if &ft != ''
+        let right .= printf(" %s %s", &ft, s:sep)
     endif
 
     if &readonly
         let right .= ' RO '.s:sep
     endif
 
-    if &ft != ''
-        let right .= printf(" %s %s", &ft, s:sep)
+    if &iminsert == 0
+        let right .= ' EN '.s:sep
+    else
+        let right .= ' RU '.s:sep
     endif
 
     return right
