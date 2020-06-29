@@ -1,4 +1,4 @@
-" Use minpac to utilize standard vim package stuff + git {{{1
+" Use minpac to utilize standard vim package stuff + git
 " First of all minpac should be installed:
 " WIN:
 " git clone https://github.com/k-takata/minpac.git %HOME%/vimfiles/pack/minpac/opt/minpac
@@ -18,7 +18,7 @@ if !exists('*minpac#init') | finish | endif
 call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-"" Add my plugins
+"" My plugins
 " call minpac#add('habamax/vim-list-man')
 " call minpac#add('habamax/vim-change-font-size')
 call minpac#add('git@github.com:habamax/vim-asciidoctor.git', {'rev': 'master'})
