@@ -9,9 +9,7 @@ endif
 
 
 if exists("g:did_coc_loaded") && get(g:, "coc_start_at_startup", v:true) " {{{1
-    " :CocInstall coc-vimlsp
     " :CocInstall coc-python
-    " :CocInstall coc-godot
 
     call habacoc#setup()
 endif
