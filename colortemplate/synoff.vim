@@ -12,15 +12,6 @@ Background: light
 
 # Color palette
 Color: grey   #707070 ~
-Color: red    #000000 ~
-Color: green  #000000 ~
-Color: yellow #000000 ~
-Color: blue   #000000 ~
-Color: purple #000000 ~
-Color: aqua   #000000 ~
-Color: orange #000000 ~
-
-Color: brown  #000000 ~
 
 Color: fg0    #000000 ~
 Color: bg0    #ffffff ~
@@ -34,23 +25,13 @@ Color: diff2  #f9f9c9 ~
 Color: diff3  #f9d999 ~
 Color: diff4  #f9c9c9 ~
 
-Include: _hl_groups
+Include: synoff_hl_groups
 
 
 Background: dark
 
 # Color palette
 Color: grey   #6d7079 ~
-Color: red    #dedede ~
-Color: green  #dedede ~
-Color: yellow #dedede ~
-Color: blue   #dedede ~
-Color: purple #dedede ~
-Color: aqua   #dedede ~
-Color: orange #dedede ~
-
-Color: brown  #dedede ~
-
 Color: fg0    #dedede ~
 Color: bg0    #202531 ~
 Color: bg1    #333b4f ~
@@ -63,4 +44,4 @@ Color: diff2  #4f4719 ~
 Color: diff3  #2f2f09 ~
 Color: diff4  #492929 ~
 
-Include: _hl_groups
+Include: synoff_hl_groups
