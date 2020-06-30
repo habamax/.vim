@@ -25,6 +25,7 @@ set list listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
 set linebreak breakindent breakindentopt=sbr showbreak=╰
 set nowrap
 set nojoinspaces
+set splitbelow splitright
 set formatoptions=cqjl
 set backspace=indent,eol,start
 set confirm
