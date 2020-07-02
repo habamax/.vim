@@ -27,12 +27,11 @@ Color: diff4  #f9c9c9 ~
 
 Include: synoff_hl_groups
 
-
 Background: dark
 
 # Color palette
 Color: grey   #6d7079 ~
-Color: fg0    #dedede ~
+Color: fg0    #ebdbb2 ~
 Color: bg0    #202531 ~
 Color: bg1    #333b4f ~
 Color: folded #262b37 ~

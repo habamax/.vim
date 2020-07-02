@@ -15,7 +15,7 @@ StatuslineTermNC grey bg1
 VertSplit        bg1  bg1
 
 Pmenu            none bg1
-PmenuSel         bg0  grey
+PmenuSel         bg0  fg0
 PmenuSbar        none bg1
 PmenuThumb       none grey
 
