@@ -43,7 +43,7 @@ Underlined       fg0  none   underline
 
 Error            bg0  error
 Todo             fg0  todo
-MatchParen       none fg0
+MatchParen       grey fg0
 Search           bg0  grey
 IncSearch        bg0  fg0
 WildMenu         bg0  fg0
