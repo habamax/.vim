@@ -69,7 +69,7 @@ Conceal          grey none
 
 Title            fg0  none   bold
 
-lCursor          fg0  bg0
+lCursor          none error
 
 Term colors: bg0  grey grey fg0 fg0 fg0 fg0 bg1
 Term colors: grey grey grey fg0 fg0 fg0 fg0 fg0
