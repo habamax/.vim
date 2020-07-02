@@ -12,39 +12,25 @@ Nothing fancy, just to keep it safe and available.
 
 == Colors
 
-I use my personal uber colorscheme, not meant to be shared as complete
-separate thing suitable for everyone (GUI or termguicolors only).
+I use my personal colorschemes, not meant (yet?) to be shared as complete
+separate thing suitable for everyone.
 
-All variations are in a single `colors/habamax.vim`.
+There is
+
+* `colors/gruvbase` -- simplified variant of `gruvbox_hard`;
+* `colors/habamax` -- variant of base16-default;
+* and `colors/synoff` -- where only comments are highlighted.
 
 [source,vim]
 ------------------------------------------------------------------------------
-" g:habamax_flat -- turn syntax colors to flat mode
-let g:habamax_flat = v:false
-" g:habamax_contrast -- turn light background white and dark background black
-let g:habamax_contrast = v:false
-" handy if you use it with transparent terminals
-let g:habamax_transparent = v:false
-
+set background=dark
 colorscheme habamax
 
 " mimic tpope's unimpaired with toggling options
-nnoremap <silent> yof :let g:habamax_flat = !g:habamax_flat <bar> colo habamax<CR>
-nnoremap <silent> yot :call <SID>habamax_next_contrast()<CR>
-nnoremap <silent> yoT :let g:habamax_transparent = !g:habamax_transparent <bar> colo habamax<CR>
-
-"" loop over habamax contrast settings
-func! s:habamax_next_contrast() abort
-    if get(g:, "habamax_transparent", v:false)
-        let g:habamax_transparent = v:false
-    else
-        let g:habamax_contrast = !g:habamax_contrast
-    endif
-    colorscheme habamax
-endfunc
+nnoremap <silent> yot :let g:habamax_transp_bg = !get(g:, "habamax_transp_bg", 0) <bar> colo habamax<CR>
 ------------------------------------------------------------------------------
 
-image::https://user-images.githubusercontent.com/234774/78786934-38110300-79b2-11ea-91b8-332a9dd4fe0e.gif[]
+image::https://user-images.githubusercontent.com/234774/86338791-6e7db780-bc5b-11ea-818e-301fad898717.gif[]
 
 
 == Simple Todos
@@ -57,7 +43,7 @@ image::https://user-images.githubusercontent.com/234774/81433875-f40a4d00-916d-1
 
 == Active Window Autosize && Windows Layouts
 
-Make active window 90x20 chars, and others equally even if possible (inspired
+Make active window 100x20 chars, and others equally even if possible (inspired
 by lens.vim plugin).
 
 Add predefined layouts, like tmux.
