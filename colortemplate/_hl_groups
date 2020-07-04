@@ -43,7 +43,7 @@ Underlined       blue   none underline
 
 Error            bg0    error
 Todo             fg0    todo
-MatchParen       none   aqua
+MatchParen       bg0    aqua
 Search           bg0    yellow
 IncSearch        bg0    orange
 WildMenu         bg0    yellow
