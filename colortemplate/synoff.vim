@@ -38,7 +38,7 @@ Background: dark
 
 # Color palette
 Color: grey   #6d7079 ~
-Color: fg0    #ebdbb2 ~
+Color: fg0    #dedede ~
 Color: bg0    #202531 ~
 Color: bg1    #333b4f ~
 Color: folded #262b37 ~
