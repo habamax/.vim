@@ -71,5 +71,5 @@ Title            fg0  none   bold
 
 lCursor          none error
 
-Term colors: bg0  grey grey fg0 fg0 fg0 fg0 bg1
-Term colors: grey grey grey fg0 fg0 fg0 fg0 fg0
+Term colors: bg0  term01 term02 term03 term04 term05 term06 bg1
+Term colors: grey term01 term02 term03 term04 term05 term06 fg0
