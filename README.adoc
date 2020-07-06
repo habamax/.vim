@@ -30,7 +30,7 @@ colorscheme habamax
 nnoremap <silent> yot :let g:habamax_transp_bg = !get(g:, "habamax_transp_bg", 0) <bar> colo habamax<CR>
 ------------------------------------------------------------------------------
 
-image::https://user-images.githubusercontent.com/234774/86338791-6e7db780-bc5b-11ea-818e-301fad898717.gif[]
+image::https://user-images.githubusercontent.com/234774/86565055-dd1a8800-bf6f-11ea-9110-c91a3f134efb.gif[]
 
 
 == Simple Todos
