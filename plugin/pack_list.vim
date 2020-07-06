@@ -138,8 +138,6 @@ call minpac#add('markonm/traces.vim')
 " NETRW should be this
 call minpac#add('justinmk/vim-dirvish')
 
-call minpac#add('vifm/vifm.vim', {'type': 'opt'})
-
 " auto cd to your project root folder
 call minpac#add('airblade/vim-rooter')
 
