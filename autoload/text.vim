@@ -91,12 +91,14 @@ func! text#obj_indent(inner)
         let ln_start = s:nextnonblank(ln_start+1)
     endif
 
-    if !(indent == 0 && indent(ln_end) == 0) || ln_end < line('$')
-        if a:inner
-            let ln_end = prevnonblank(ln_end-1)
-        else
-            let ln_end = ln_end-1
-        endif
+    if a:inner
+        let ln_end = prevnonblank(ln_end-1)
+    else
+        let ln_end = ln_end-1
+    endif
+
+    if ln_end < ln_start
+        let ln_end = ln_start
     endif
 
     exe ln_end
