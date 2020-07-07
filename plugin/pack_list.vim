@@ -149,6 +149,8 @@ call minpac#add('glacambre/firenvim',
             \ 'do': 'if has("nvim") | packadd firenvim | call firenvim#install(0) | endif'
             \ })
 
+call minpac#add('statox/FYT.vim')
+
 
 call minpac#add('dstein64/vim-startuptime')
 
