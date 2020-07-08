@@ -242,7 +242,7 @@ command! Init :silent only
             \<bar>:exe printf("e %s/vimrc", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:exe printf("bo vs %s/plugin/pack_list.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:exe printf("bo vs %s/plugin/pack_setup.vim", fnamemodify($MYVIMRC, ":p:h"))
-            \<bar>:exe printf("bo vs %s/after/plugin/init.vim", fnamemodify($MYVIMRC, ":p:h"))
+            \<bar>:exe printf("bo vs %s/after/plugin/setup.vim", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:1wincmd w
 
 " Open docs folder
