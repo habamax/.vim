@@ -23,6 +23,7 @@ set display=truncate
 set completeopt=menuone
 set list listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
 set linebreak breakindent breakindentopt=sbr showbreak=╰
+set splitbelow splitright
 set nowrap
 set nojoinspaces
 set formatoptions=cqjl
