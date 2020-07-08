@@ -310,11 +310,11 @@ endif
 
 
 """ Coc {{{1
-if has("win32")
-    "" coc adds 1+ second on my win box
-    let g:coc_start_at_startup = v:false
-    command Habacoc call habacoc#setup()
-endif
+" if has("win32")
+"     "" coc adds 1+ second on my win box
+"     let g:coc_start_at_startup = v:false
+"     command Habacoc call habacoc#setup()
+" endif
 
 
 """ FYT {{{1
