@@ -8,34 +8,6 @@ Neovim: yes
 
 Variant:    gui 256
 
-Background: light
-
-# Color palette
-Color: grey   #7c6f64 ~
-Color: red    #9d0006 ~
-Color: green  #79740e ~
-Color: yellow #427b58 ~
-Color: blue   #076678 ~
-Color: purple #b57614 ~
-Color: aqua   #af3a03 ~
-Color: orange #8f3f71 ~
-
-Color: brown  #af3a03 ~
-Color: fg0    #3c3836 ~
-Color: bg0    #f9f5d7 ~
-Color: bg1    #d5c4a1 ~
-Color: folded #ebdbb2 ~
-Color: visual #bdae93 ~
-Color: error  #9d0006 ~
-Color: todo   #f9f5d7 ~
-Color: diff1  #b8bb26 ~
-Color: diff2  #8ec07c ~
-Color: diff3  #fabd2f ~
-Color: diff4  #fb4934 ~
-
-Include: _hl_groups
-
-
 Background: dark
 
 # Color palette
