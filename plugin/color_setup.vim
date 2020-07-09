@@ -29,7 +29,6 @@ augroup END
 """ Colorschemes {{{1
 
 set termguicolors
-set background=dark
 colorscheme habamax
 
 " mimic tpope's unimpaired with toggling options

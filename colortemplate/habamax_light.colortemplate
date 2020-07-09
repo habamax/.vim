@@ -1,0 +1,37 @@
+# vim: ft=colortemplate
+Full name: habamax_light
+Short name: habamax_light
+Description: Day Colors to please my eyes
+Author: Maxim Kim <habamax@gmail.com>
+Neovim: yes
+
+
+Variant:    gui 256
+
+Background: light
+
+# Color palette
+Color: grey   #777887 243
+Color: red    #ca1243 161
+Color: green  #2a871f 28
+Color: yellow #c18401 172
+Color: blue   #2f6aea 27
+Color: purple #a626a4 127
+Color: aqua   #0184bc 67
+Color: orange #d75f00 166
+
+Color: brown  #986801 94
+
+Color: fg0    #000000 16
+Color: bg0    #ffffff 231
+Color: bg1    #cacbcc 251
+Color: folded #e0e4e4 254
+Color: visual #d0d9ea 153
+Color: error  #e07070 167
+Color: todo   #e0e070 185
+Color: diff1  #c9f9c9 194
+Color: diff2  #f9f9c9 230
+Color: diff3  #f9d999 222
+Color: diff4  #f9c9c9 224
+
+Include: _hl_groups
