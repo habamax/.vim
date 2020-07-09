@@ -30,6 +30,3 @@ augroup END
 
 set termguicolors
 colorscheme habamax
-
-" mimic tpope's unimpaired with toggling options
-nnoremap <silent> yot :let g:habamax_transp_bg = !get(g:, "habamax_transp_bg", 0) <bar> colo habamax<CR>
