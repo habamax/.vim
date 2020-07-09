@@ -34,7 +34,6 @@ if executable('fzf')
     nnoremap <leader>T :Tags<CR>
     nnoremap <leader>h :call FZFHelp()<CR>
     nnoremap <leader>m :History<CR>
-    nnoremap <leader>c :Colors<CR>
     nnoremap <leader>g :Rg<CR>
 
     let g:fzf_preview_window = ''
@@ -119,7 +118,6 @@ if !exists('g:loaded_fzf')
     nnoremap <leader>h <nop>
     nnoremap <leader>m <nop>
     nnoremap <leader>g <nop>
-    nnoremap <leader>c <nop>
     nnoremap <leader>; <nop>
 
     let g:ctrlp_key_loop = 1
