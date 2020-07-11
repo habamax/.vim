@@ -64,7 +64,7 @@ Delimiter        brown  none
 Type             purple none
 Operator         yellow none
 Directory        blue   none bold
-Comment          grey   none italic
+Comment          grey   none
 Conceal          grey   none
 
 Title            red    none bold
