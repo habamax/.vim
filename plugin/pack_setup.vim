@@ -45,9 +45,10 @@ if executable('fzf')
         cc
     endfunc
 
-    " doesn't play nice with transparent background and vim
-    " https://github.com/vim/vim/issues/2361
-    let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.7 } }
+    augroup fzf | au!
+        autocmd  FileType fzf set laststatus=0 noshowmode
+                    \| autocmd BufLeave <buffer> set laststatus=2 showmode
+    augroup end
 
     let g:fzf_action = {
                 \ 'ctrl-q': function('s:build_quickfix_list'),
