@@ -54,7 +54,7 @@ MatchParen       bg0    aqua
 Search           bg0    yellow
 IncSearch        bg0    orange
 WildMenu         bg0    yellow
-ColorColumn      bg0    folded
+ColorColumn      none   folded
 Cursor           bg0    fg0
 lCursor          bg0    yellow
 
