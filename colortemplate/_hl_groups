@@ -31,6 +31,7 @@ SpecialKey       bg1    none
 
 Folded           grey   folded
 Visual           none   visual
+VisualNOS        none   grey
 LineNr           grey   none
 FoldColumn       grey   none
 CursorLine       none   folded
@@ -42,16 +43,30 @@ SignColumn       none   none
 Underlined       blue   none underline
 
 Error            bg0    error
+ErrorMsg         bg0    error
+WarningMsg       yellow bg0
+MoreMsg          yellow bg0
+ModeMsg          yellow bg0
+Question         green  none
+
 Todo             fg0    todo
 MatchParen       bg0    aqua
 Search           bg0    yellow
 IncSearch        bg0    orange
 WildMenu         bg0    yellow
+ColorColumn      bg0    folded
+Cursor           bg0    fg0
+lCursor          bg0    yellow
 
 DiffAdd          none   diff1
 DiffChange       none   diff2
 DiffText         none   diff3
 DiffDelete       grey   diff4
+
+SpellBad         red    none t=underline g=undercurl s=red
+SpellCap         green  none t=underline g=undercurl s=green
+SpellLocal       aqua   none t=underline g=undercurl s=aqua
+SpellRare        purple none t=underline g=undercurl s=purple
 
 Identifier       blue   none
 Statement        red    none
@@ -66,6 +81,7 @@ Operator         yellow none
 Directory        blue   none bold
 Comment          grey   none
 Conceal          grey   none
+Ignore           none   none
 
 Title            red    none bold
 

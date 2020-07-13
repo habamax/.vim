@@ -10,7 +10,7 @@ Variant:    gui 256
 
 Background: dark
 
-# Color palette
+# Colour palette
 Color: grey   #6d7079 242
 Color: red    #fa7585 204
 Color: green  #a1b56c 107
