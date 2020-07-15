@@ -15,22 +15,13 @@ Nothing fancy, just to keep it safe and available.
 I use my personal colorschemes, not meant (yet?) to be shared as complete
 separate thing suitable for everyone.
 
-There is
+There are
 
-* `colors/gruvbase` -- simplified variant of `gruvbox_hard`;
-* `colors/habamax` -- variant of base16-default;
-* and `colors/synoff` -- where only comments are highlighted.
+* `colors/gruvbase.vim` -- simplified variant of `gruvbox_hard`;
+* `colors/habamax.vim` -- variant of base16-default-dark;
+* `colors/habamax_light.vim` -- variant of base16-one-light.
 
-[source,vim]
-------------------------------------------------------------------------------
-set background=dark
-colorscheme habamax
-
-" mimic tpope's unimpaired with toggling options
-nnoremap <silent> yot :let g:habamax_transp_bg = !get(g:, "habamax_transp_bg", 0) <bar> colo habamax<CR>
-------------------------------------------------------------------------------
-
-image::https://user-images.githubusercontent.com/234774/86565055-dd1a8800-bf6f-11ea-9110-c91a3f134efb.gif[]
+image::https://user-images.githubusercontent.com/234774/87515499-979f3e80-c684-11ea-879f-5c6caa5447d7.gif[]
 
 
 == Simple Todos
