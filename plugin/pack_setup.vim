@@ -314,7 +314,3 @@ if has("win32")
     let g:coc_start_at_startup = v:false
     command Habacoc call habacoc#setup()
 endif
-
-
-""" FYT {{{1
-let g:FYT_flash_time = 200
