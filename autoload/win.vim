@@ -96,7 +96,6 @@ func! s:win_default_width(width) abort
 endfunc
 
 
-
 func! s:is_lens_disabled() abort
     " do not resize floating windows
     if exists('*nvim_win_get_config')
@@ -112,6 +111,7 @@ func! s:is_lens_disabled() abort
 
     return v:false
 endfunc
+
 
 func! s:fix_w_h(val)
     call setwinvar(winnr(), "&winfixwidth", a:val)
