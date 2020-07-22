@@ -114,7 +114,7 @@ call minpac#add('lifepillar/vim-mucomplete')
 " call minpac#add('neovim/nvim-lsp', { 'type': 'opt' })
 
 "" Snippets
-call minpac#add('hrsh7th/vim-vsnip')
+" call minpac#add('hrsh7th/vim-vsnip')
 " it is quite slow to startup
 " call minpac#add('hrsh7th/vim-vsnip-integ')
 
