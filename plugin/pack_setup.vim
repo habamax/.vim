@@ -181,7 +181,7 @@ let g:swap_no_default_key_mappings = 1
 
 """ vim-rooter {{{1
 let g:rooter_change_directory_for_non_project_files = ''
-let g:rooter_patterns = ['.git', '.git/', 'mix.exs']
+" let g:rooter_patterns = ['.git', '.git/', 'mix.exs']
 let g:rooter_silent_chdir = 1
 
 
@@ -235,20 +235,20 @@ command! FormatREST call misc#vrc_format_rest_as_json()
 
 
 """ firenvim {{{1
-if exists('g:started_by_firenvim')
-    packadd firenvim
-    set gfn=JetBrains\ Mono\ NL:h14
-    au BufEnter github.com_*.txt set filetype=markdown
-    au BufEnter www.linux.org.ru_*.txt set filetype=markdown
-    let g:firenvim_config = {
-                \   'localSettings': {
-                \       '.*': {
-                \           'selector': '',
-                \           'priority': 0,
-                \       }
-                \   }
-                \ }
-endif
+" if exists('g:started_by_firenvim')
+"     packadd firenvim
+"     set gfn=JetBrains\ Mono\ NL:h14
+"     au BufEnter github.com_*.txt set filetype=markdown
+"     au BufEnter www.linux.org.ru_*.txt set filetype=markdown
+"     let g:firenvim_config = {
+"                 \   'localSettings': {
+"                 \       '.*': {
+"                 \           'selector': '',
+"                 \           'priority': 0,
+"                 \       }
+"                 \   }
+"                 \ }
+" endif
 
 
 """ elixir {{{1
@@ -301,11 +301,6 @@ let g:evalvim_mappings = v:true
 
 " endif
 
-
-""" Vifm {{{1
-if executable("vifm")
-    silent! packadd vifm.vim
-endif
 
 
 """ Coc {{{1

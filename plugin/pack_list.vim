@@ -24,9 +24,9 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('git@github.com:habamax/vim-asciidoctor.git', {'rev': 'master'})
 " call minpac#add('git@github.com:habamax/vim-asciidoctor.git', {'rev': 'multiline_bolditalic'})
 call minpac#add('git@github.com:habamax/vim-evalvim.git', {'rev': 'master'})
-call minpac#add('git@github.com:habamax/vim-colors-defminus.git', {'rev': 'master'})
-call minpac#add('git@github.com:habamax/vim-colors-defnoche.git', {'rev': 'master'})
-call minpac#add('git@github.com:habamax/vim-colors-lessthan.git', {'rev': 'master'})
+call minpac#add('git@github.com:habamax/vim-colors-defminus.git', {'type': 'opt', 'rev': 'master'})
+call minpac#add('git@github.com:habamax/vim-colors-defnoche.git', {'type': 'opt', 'rev': 'master'})
+call minpac#add('git@github.com:habamax/vim-colors-lessthan.git', {'type': 'opt', 'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-do-outline.git', {'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-elixir-mix-test.git', {'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-godot.git', {'rev': 'master'})
@@ -44,11 +44,6 @@ call minpac#add('tpope/vim-scriptease')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-eunuch')
 call minpac#add('tpope/vim-endwise')
-call minpac#add('tpope/vim-speeddating')
-call minpac#add('tpope/vim-projectionist')
-" Databases
-" call minpac#add('tpope/vim-dadbod')
-" call minpac#add('kristijanhusak/vim-dadbod-ui')
 
 
 "" Git
@@ -98,25 +93,10 @@ call minpac#add('aklt/plantuml-syntax')
 
 
 "" Language Server Protocol and completion
-
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 
 " backup general <tab> completion
 call minpac#add('lifepillar/vim-mucomplete')
-
-" Win10:
-" cd ~/vimfiles/pack/minpac/start/YouCompeleteMe
-" py install.py --all
-" call minpac#add('ycm-core/YouCompleteMe')
-
-
-" can't make it work for me
-" call minpac#add('neovim/nvim-lsp', { 'type': 'opt' })
-
-"" Snippets
-" call minpac#add('hrsh7th/vim-vsnip')
-" it is quite slow to startup
-" call minpac#add('hrsh7th/vim-vsnip-integ')
 
 " Close tags with > and >> in insert mode
 call minpac#add('alvan/vim-closetag')
@@ -124,7 +104,7 @@ call minpac#add('alvan/vim-closetag')
 
 "" Miscelaneous
 " enhance [I ]I [D ]D
-call minpac#add('romainl/vim-qlist')
+" call minpac#add('romainl/vim-qlist')
 
 " rest console with curl
 call minpac#add('diepm/vim-rest-console')
@@ -141,18 +121,6 @@ call minpac#add('justinmk/vim-dirvish')
 " auto cd to your project root folder
 call minpac#add('airblade/vim-rooter')
 
-" Embed neovim into firefox textboxes.
-" Firenvim works in windows!
-call minpac#add('glacambre/firenvim',
-            \ {
-            \ 'type': 'opt',
-            \ 'do': 'if has("nvim") | packadd firenvim | call firenvim#install(0) | endif'
-            \ })
-
-call minpac#add('statox/FYT.vim')
-
-
 call minpac#add('dstein64/vim-startuptime')
 
-call minpac#add('romainl/Apprentice')
 call minpac#add('lifepillar/vim-colortemplate')
