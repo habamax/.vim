@@ -28,7 +28,7 @@ endif
 set linespace=0
 
 " set guifont=JetBrains\ Mono\ NL:h14
-" set guifont=Consolas:h14
 set guifont=Cascadia\ Code\ SemiLight:h14
+" set guifont=Consolas:h14
 " set guifont=Fira\ Mono:h14
-" set guifont=Go\ Mono:h14
+" set guifont=PT\ Mono:h14
