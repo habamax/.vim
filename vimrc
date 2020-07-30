@@ -36,9 +36,7 @@ set sessionoptions=buffers,curdir,tabpages,winsize
 set foldmethod=indent foldlevelstart=99
 set diffopt+=vertical
 
-set wildchar=<Tab> wildmenu wildmode=full
-" to use in cnoremaps
-set wildcharm=<C-z>
+set wildchar=<Tab> wildcharm=<C-z> wildmenu wildmode=full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 
 " ripgrep as grepprg
