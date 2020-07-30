@@ -71,12 +71,13 @@ func! os#open_url(word) abort
         return
     endif
     let word = a:word
+
+    " probably path
     if word =~ '^[~.$].*'
         let word = expand(word)
     endif
     " TODO: check if barebone url
     " TODO: check if path or a filename
-    " TODO: check and extract asciidoctor url
     " TODO: check and extract markdown url
     exe printf("silent !start %s", word)
     " nnoremap gx :call job_start('cmd.exe /c start '.expand("<cfile>"))<CR>
