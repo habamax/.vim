@@ -10,6 +10,9 @@ func! habacoc#setup()
         autocmd CursorHold * silent call CocActionAsync('highlight')
         autocmd FileType gdscript,go,python call habacoc#mappings()
     augroup end
+    if exists(":MUcompleteAutoOff")
+        MUcompleteAutoOff
+    endif
 endfunc
 
 func! s:check_back_space() abort

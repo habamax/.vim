@@ -303,9 +303,11 @@ let g:evalvim_mappings = v:true
 
 
 
-""" Coc {{{1
+""" Coc or mucomplete {{{1
 if has("win32")
     "" coc adds 1+ second on my win box
     let g:coc_start_at_startup = v:false
     command Habacoc call habacoc#setup()
+
+    let g:mucomplete#enable_auto_at_startup = 1
 endif
