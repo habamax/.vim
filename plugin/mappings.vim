@@ -1,4 +1,7 @@
-"" Mappings {{{1
+"" Non Plugin Mappings {{{1
+
+let mapleader = "\<Space>"
+
 " smooth searching
 cnoremap <expr> <Tab>   getcmdtype() == "/" \|\| getcmdtype() == "?" ? "<CR>/<C-r>/" : "<C-z>"
 cnoremap <expr> <S-Tab> getcmdtype() == "/" \|\| getcmdtype() == "?" ? "<CR>?<C-r>/" : "<S-Tab>"
@@ -260,4 +263,3 @@ augroup end
 augroup win_autosize | au!
     au WinEnter * silent! call win#lens()
 augroup end
-

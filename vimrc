@@ -14,7 +14,6 @@ set autoindent
 set virtualedit=block
 set ttimeout ttimeoutlen=10
 set belloff=all
-let mapleader = "\<Space>"
 
 "" Nice-to-have {{{1
 set shortmess+=Ic
