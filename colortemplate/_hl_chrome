@@ -56,7 +56,7 @@ IncSearch        bg0    orange
 WildMenu         bg0    yellow
 ColorColumn      none   folded
 Cursor           bg0    fg0
-lCursor          bg0    yellow
+lCursor          fg0    orange
 
 DiffAdd          none   diff1
 DiffChange       none   diff2
@@ -68,24 +68,6 @@ SpellCap         green  none t=underline g=undercurl s=green
 SpellLocal       aqua   none t=underline g=undercurl s=aqua
 SpellRare        purple none t=underline g=undercurl s=purple
 
-Identifier       blue   none
-Statement        red    none
-Constant         orange none
-String           green  none
-PreProc          yellow none
-Special          aqua   none
-Tag              yellow none
-Delimiter        brown  none
-Type             purple none
-Operator         yellow none
-Directory        blue   none bold
-Comment          grey   none
-Conceal          grey   none
-Ignore           none   none
-
-Title            red    none bold
-
-lCursor          fg0    orange
 
 Term colors: bg0  red green yellow blue purple aqua bg1
 Term colors: grey red green yellow blue purple aqua fg0

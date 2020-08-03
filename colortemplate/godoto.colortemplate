@@ -34,4 +34,5 @@ Color: diff2  #4f4719 58
 Color: diff3  #2f2f09 236
 Color: diff4  #492929 52
 
-Include: _hl_groups
+Include: _hl_chrome
+Include: _hl_syntax

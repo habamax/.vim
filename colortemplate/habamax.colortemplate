@@ -12,7 +12,7 @@ Background: dark
 
 # Colour palette
 Color: grey   #6d7079 242
-Color: red    #fa7585 204
+Color: red    #e77575 204
 Color: green  #a1b56c 107
 Color: yellow #f7ca88 222
 Color: blue   #6aa6ca 74
@@ -22,9 +22,9 @@ Color: orange #dc9656 215
 
 Color: brown  #a16946 130
 
-Color: fg0    #dedede 253
-Color: bg0    #202531 234
-Color: bg1    #333b4f 237
+Color: fg0    #d0d0d0 252
+Color: bg0    #000000 16
+Color: bg1    #333b4a 237
 Color: folded #262b37 235
 Color: visual #394e71 24
 Color: error  #ea7a80 174
@@ -34,4 +34,5 @@ Color: diff2  #4f4719 58
 Color: diff3  #2f2f09 236
 Color: diff4  #492929 52
 
-Include: _hl_groups
+Include: _hl_chrome
+Include: _hl_syntax_statement_purple
