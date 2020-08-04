@@ -21,6 +21,7 @@ inorea <buffer> enopt Maxim Kim<CR>
             \v0.1, =strftime("%Y-%m-%d") : Draft<CR>
             \:pdf-style: default<CR>
             \:doctype: article<CR>
+            \:title-page:<CR>
             \:toc: left<CR>
             \:toclevels: 3<CR>
             \:sectnums:<CR>
@@ -40,6 +41,7 @@ inorea <buffer> ruopt Максим Ким<CR>
             \v0.1, =strftime("%Y-%m-%d") : Предварительный вариант<CR>
             \:pdf-style: default<CR>
             \:doctype: article<CR>
+            \:title-page:<CR>
             \:toc: left<CR>
             \:toclevels: 3<CR>
             \:sectnums:<CR>
