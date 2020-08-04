@@ -22,7 +22,7 @@ There are
 * `colors/polar.vim` -- white background variantion of base16-one-light;
 * `colors/godoto.vim` -- inspired by Godot Game Engine defaul colors.
 
-image::https://user-images.githubusercontent.com/234774/89264796-355eab80-d63c-11ea-9802-d35e840b42c8.gif[]
+image::https://user-images.githubusercontent.com/234774/89265153-b9189800-d63c-11ea-8952-96fa6b3b40db.gif[]
 
 
 == Simple Todos
