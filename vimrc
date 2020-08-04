@@ -18,7 +18,7 @@ set belloff=all
 "" Nice-to-have {{{1
 set shortmess+=Ic
 set lazyredraw
-set scrolloff=2 sidescrolloff=0
+set scrolloff=5 sidescrolloff=5
 set display=truncate
 set completeopt=menuone,noselect
 set list listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
