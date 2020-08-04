@@ -12,7 +12,7 @@ Background: dark
 
 # Colour palette
 Color: grey   #6d7079 242
-Color: red    #e77575 204
+Color: red    #e77575 167
 Color: green  #a1b56c 107
 Color: yellow #f7ca88 222
 Color: blue   #6aa6ca 74
@@ -24,7 +24,7 @@ Color: brown  #a16946 130
 
 Color: fg0    #d0d0d0 252
 Color: bg0    #000000 16
-Color: bg1    #333b4a 237
+Color: bg1    #333b4a 236
 Color: folded #262b37 235
 Color: visual #394e71 24
 Color: error  #ea7a80 174
