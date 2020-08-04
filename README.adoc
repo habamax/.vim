@@ -18,10 +18,11 @@ separate thing suitable for everyone.
 There are
 
 * `colors/gruvbase.vim` -- simplified variant of `gruvbox_hard`;
-* `colors/habamax.vim` -- variant of base16-default-dark;
-* `colors/habamax_light.vim` -- variant of base16-one-light.
+* `colors/habamax.vim` -- black background variantion of base16-default-dark;
+* `colors/polar.vim` -- white background variantion of base16-one-light;
+* `colors/godoto.vim` -- inspired by Godot Game Engine defaul colors.
 
-image::https://user-images.githubusercontent.com/234774/87515499-979f3e80-c684-11ea-879f-5c6caa5447d7.gif[]
+image::https://user-images.githubusercontent.com/234774/89264796-355eab80-d63c-11ea-9802-d35e840b42c8.gif[]
 
 
 == Simple Todos
