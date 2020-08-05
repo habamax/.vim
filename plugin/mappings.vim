@@ -235,7 +235,7 @@ command! -range Sum
 
 "" Save and Load sessions
 command! -nargs=1 -complete=customlist,SessionComplete S :mksession! ~/.vimdata/sessions/<args>
-command! -nargs=1 -complete=customlist,SessionComplete L :so ~/.vimdata/sessions/<args>
+command! -nargs=1 -complete=customlist,SessionComplete L :%bd <bar> so ~/.vimdata/sessions/<args>
 func! SessionComplete(A, L, P)
     let fullpaths = split(globpath("~/.vimdata/sessions/", a:A."*"), "\n")
     return map(fullpaths, {k,v -> fnamemodify(v, ":t")})
