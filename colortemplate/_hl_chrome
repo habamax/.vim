@@ -8,9 +8,9 @@ Normal           fg0    bg0
 #endif
 
 EndOfBuffer      bg1   none
-Statusline       fg0    bg1 bold
+Statusline       fg0    bg1
 StatuslineNC     grey   bg1
-StatuslineTerm   fg0    bg1 bold
+StatuslineTerm   fg0    bg1
 StatuslineTermNC grey   bg1
 VertSplit        bg1    bg1
 
