@@ -16,7 +16,7 @@ set ttimeout ttimeoutlen=10
 set belloff=all
 
 "" Nice-to-have {{{1
-set ruler
+set ruler laststatus=1
 set shortmess+=Ic
 set lazyredraw
 set scrolloff=5 sidescrolloff=5
