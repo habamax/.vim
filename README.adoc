@@ -20,7 +20,7 @@ There are
 * `colors/gruvbase.vim` -- simplified variant of `gruvbox_hard`;
 * `colors/habamax.vim` -- black background variantion of base16-default-dark;
 * `colors/polar.vim` -- white background variantion of base16-one-light;
-* `colors/godoto.vim` -- inspired by Godot Game Engine defaul colors.
+* `colors/godoto.vim` -- inspired by Godot Game Engine default colors.
 
 image::https://user-images.githubusercontent.com/234774/89265554-57a4f900-d63d-11ea-806f-fe35978d8ad9.gif[]
 
