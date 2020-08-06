@@ -46,8 +46,8 @@ if executable('fzf')
     endfunc
 
     augroup fzf | au!
-        autocmd  FileType fzf set laststatus=0 noshowmode
-                    \| autocmd BufLeave <buffer> set laststatus=2 showmode
+        autocmd FileType fzf let b:laststatus = &laststatus | set laststatus=0 noshowmode
+                    \| autocmd BufLeave <buffer> let &laststatus = b:laststatus | set showmode
     augroup end
 
     let g:fzf_action = {
