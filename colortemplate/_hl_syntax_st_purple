@@ -1,0 +1,19 @@
+# vim: ft=colortemplate
+# Syntax color definitions
+
+Identifier       blue   none
+Statement        purple none
+Constant         orange none
+String           green  none
+PreProc          yellow none
+Special          aqua   none
+Tag              yellow none
+Delimiter        brown  none
+Type             red    none
+Operator         yellow none
+Directory        blue   none bold
+Comment          grey   none
+Conceal          grey   none
+Ignore           none   none
+
+Title            red    none bold

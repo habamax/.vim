@@ -35,4 +35,4 @@ Color: diff3  #2f2f09 236
 Color: diff4  #492929 52
 
 Include: _hl_chrome
-Include: _hl_syntax
+Include: _hl_syntax_st_purple
