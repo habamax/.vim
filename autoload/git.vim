@@ -6,11 +6,11 @@ func! git#show_commit()
         echoerr "Git is not installed!"
         return
     endif
-    let git_output = systemlist("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p"))
-    if !has('nvim')
-        let winnr = popup_atcursor(git_output, { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })
-        call setbufvar(winbufnr(winnr), "&filetype", "git")
-    else
+    if has('nvim')
         echoerr "Neovim is not supported!"
+        return
     endif
+    let git_output = systemlist("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p"))
+    let winnr = popup_atcursor(git_output, { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })
+    call setbufvar(winbufnr(winnr), "&filetype", "git")
 endfunc
