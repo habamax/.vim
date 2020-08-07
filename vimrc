@@ -32,7 +32,7 @@ set nospell spelllang=ru,en
 set commentstring=
 set nrformats=bin,hex
 set sessionoptions=buffers,curdir,tabpages,winsize
-set foldmethod=indent foldlevelstart=99
+set foldmethod=indent
 set diffopt+=vertical
 set wildchar=<Tab> wildcharm=<C-z> wildmenu wildmode=full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
