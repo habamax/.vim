@@ -156,7 +156,7 @@ nnoremap <silent> <Leader>dd :Docs<CR>
 " Directory ~/vimfiles or ~/.vim
 nnoremap <silent> <Leader>dv :VimConfigs<CR>
 
-
+nnoremap <silent> <Leader>i :call git#show_commit()<CR>
 
 " edit global todo file
 nnoremap <silent> <Leader>et :exe printf('e %s/docs/todo.adoc', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
