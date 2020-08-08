@@ -1,13 +1,5 @@
 "" Settings that depends on plugin existence
 
-if exists("g:loaded_vsnip") " {{{1
-    imap <expr> <C-j> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-j>'
-    smap <expr> <C-j> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-j>'
-    imap <expr> <C-k> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
-    smap <expr> <C-k> vsnip#available(-1) ? '<Plug>(vsnip-jump-prev)' : '<C-k>'
-endif
-
-
 if exists("g:did_coc_loaded") && get(g:, "coc_start_at_startup", v:true) " {{{1
     " :CocInstall coc-python
 
