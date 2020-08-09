@@ -23,8 +23,8 @@ Color: orange #dc9656 215
 Color: brown  #a16946 130
 
 Color: fg0    #d0d0d0 252
-# Color: bg0    #000000 16
-Color: bg0    #181a1c 16
+Color: bg0    #000000 16
+# Color: bg0    #181a1c 16
 Color: bg1    #333b4a 236
 Color: folded #262b37 235
 Color: visual #394e71 24
