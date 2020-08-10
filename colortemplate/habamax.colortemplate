@@ -11,11 +11,21 @@ Variant:    gui 256
 Background: dark
 
 # Colour palette
+
+# Color: grey   #6d7079 242
+# Color: red    #e77575 167
+# Color: green  #8ec07c 222
+# Color: yellow #e7c088 180
+# Color: blue   #6aa6ca 74
+# Color: purple #af87af 139
+# Color: aqua   #86c1b9 116
+# Color: orange #dc9656 215
+
 Color: grey   #6d7079 242
-Color: red    #e77575 167
-Color: green  #8ec07c 222
-Color: yellow #e7c088 180
-Color: blue   #6aa6ca 74
+Color: red    #d77575 167
+Color: green  #7ea06c 108
+Color: yellow #d7b082 180
+Color: blue   #6a96b0 74
 Color: purple #af87af 139
 Color: aqua   #86c1b9 116
 Color: orange #dc9656 215
