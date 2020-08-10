@@ -14,16 +14,15 @@ Background: dark
 Color: grey   #6d7079 242
 Color: red    #e77575 167
 Color: green  #8ec07c 222
-# Color: yellow #f7ca88 222
 Color: yellow #e7c088 180
 Color: blue   #6aa6ca 74
-Color: purple #ba8baf 139
+Color: purple #af87af 139
 Color: aqua   #86c1b9 116
 Color: orange #dc9656 215
 
 Color: brown  #a16946 130
 
-Color: fg0    #c3c3c3 251
+Color: fg0    #bcbcbc 250
 Color: bg0    #000000 16
 Color: bg1    #333b4a 236
 Color: folded #181a1f 234
