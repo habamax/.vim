@@ -45,8 +45,8 @@ Underlined       blue   none underline
 Error            bg0    error
 ErrorMsg         bg0    error
 WarningMsg       yellow bg0
-MoreMsg          yellow bg0
-ModeMsg          yellow bg0
+MoreMsg          fg0    bg0
+ModeMsg          fg0    bg0
 Question         green  none
 
 Todo             fg0    todo
