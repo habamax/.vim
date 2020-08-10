@@ -2,6 +2,11 @@
 
 let mapleader = "\<Space>"
 
+" clipoard yank and paste
+noremap <leader>y "+y
+noremap <leader>p "+p
+noremap <leader>P "+P
+
 " smooth searching
 cnoremap <expr> <Tab>   getcmdtype() == "/" \|\| getcmdtype() == "?" ? "<CR>/<C-r>/" : "<C-z>"
 cnoremap <expr> <S-Tab> getcmdtype() == "/" \|\| getcmdtype() == "?" ? "<CR>?<C-r>/" : "<S-Tab>"
@@ -11,8 +16,8 @@ nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 " guards
 nnoremap <leader>m <nop>
 nnoremap <leader>o <nop>
-nnoremap <Leader>d <nop>
-nnoremap d<Leader> <nop>
+nnoremap <leader>d <nop>
+nnoremap d<leader> <nop>
 
 nnoremap <BS> <C-^>
 " kill-all buffers except current one
@@ -148,20 +153,20 @@ vnoremap * y/<C-R>"<CR>
 nnoremap <leader>z zA
 
 " edit init file
-nnoremap <silent> <Leader>ei :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/vimrc"<CR>
+nnoremap <silent> <leader>ei :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/vimrc"<CR>
 
 
 " Directory ~/docs
-nnoremap <silent> <Leader>dd :Docs<CR>
+nnoremap <silent> <leader>dd :Docs<CR>
 " Directory ~/vimfiles or ~/.vim
-nnoremap <silent> <Leader>dv :VimConfigs<CR>
+nnoremap <silent> <leader>dv :VimConfigs<CR>
 
-nnoremap <silent> <Leader>i :call git#show_commit()<CR>
+nnoremap <silent> <leader>i :call git#show_commit()<CR>
 
 " edit global todo file
-nnoremap <silent> <Leader>et :exe printf('e %s/docs/todo.adoc', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
+nnoremap <silent> <leader>et :exe printf('e %s/docs/todo.adoc', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
 " edit global journal file
-nnoremap <silent> <Leader>ej :exe printf('e %s/docs/journal/2020.adoc', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
+nnoremap <silent> <leader>ej :exe printf('e %s/docs/journal/2020.adoc', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
 
 " scroll other window
 nnoremap <silent> <M-F> :call win#scroll_other(1)<CR>
