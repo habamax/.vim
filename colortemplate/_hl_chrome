@@ -52,7 +52,7 @@ Question         green  none
 Todo             fg0    todo
 MatchParen       bg0    aqua
 Search           bg0    yellow
-IncSearch        bg0    orange
+IncSearch        bg0    green
 WildMenu         bg0    yellow
 ColorColumn      none   folded
 Cursor           bg0    fg0
