@@ -35,6 +35,7 @@ set foldmethod=indent foldlevelstart=1
 set diffopt+=vertical
 set wildchar=<Tab> wildcharm=<C-z> wildmenu wildmode=full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
+set history=200
 
 if executable('rg')
     set grepprg=rg\ --vimgrep
