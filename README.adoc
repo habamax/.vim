@@ -18,9 +18,9 @@ separate thing suitable for everyone.
 There are
 
 * `colors/gruvbase.vim` -- simplified variant of `gruvbox_hard`;
-* `colors/habamax.vim` -- black background variantion of base16-default-dark;
 * `colors/polar.vim` -- white background variantion of base16-one-light;
 * `colors/godoto.vim` -- inspired by Godot Game Engine default colors.
+* link:https://github.com/habamax/vim-habanight[habanight] -- ex-habamax colorscheme;
 
 image::https://user-images.githubusercontent.com/234774/89265554-57a4f900-d63d-11ea-806f-fe35978d8ad9.gif[]
 
