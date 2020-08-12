@@ -23,4 +23,4 @@ augroup END
 """ Colorschemes {{{1
 
 set termguicolors
-colorscheme habamax
+colorscheme habanight
