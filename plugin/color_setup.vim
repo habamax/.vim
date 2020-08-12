@@ -11,7 +11,6 @@ func! s:default_setup() abort
         hi Normal guibg=white guifg=black ctermbg=white ctermfg=black
         hi Visual guibg=#d0d0d0 guifg=NONE
     endif
-    hi VertSplit guibg=fg guifg=NONE gui=NONE
 endfunc
 
 augroup colorscheme_change | au!
