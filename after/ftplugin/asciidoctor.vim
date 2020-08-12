@@ -152,8 +152,7 @@ inorea <buffer> averse [verse]<CR>
             \<C-R>=Eatchar('\s')<CR>
 
 
-inorea <buffer> adiag
-            \[plantuml, diagram-name, svg]<CR>
+inorea <buffer> adiag [plantuml, diagram-name, svg]<CR>
             \....<CR>
             \skinparam monochrome false<CR>
             \skinparam shadowing true<CR>
