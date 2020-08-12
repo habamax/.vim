@@ -1,0 +1,38 @@
+# vim: ft=colortemplate
+Full name: habanight
+Short name: habanight
+Description: <novasenco> That tonight's gonna be a Haba night. Habanight Habanight.
+Author: Maxim Kim <habamax@gmail.com>
+Neovim: yes
+
+Variant:    gui 256
+
+Background: dark
+
+# Colour palette
+
+Color: grey   #6d7079 242
+Color: red    #d77575 167
+Color: green  #7ea06c 108
+Color: yellow #d7b082 180
+Color: blue   #6a96b0 74
+Color: purple #af87af 139
+Color: aqua   #86c1b9 116
+Color: orange #dc9656 215
+
+Color: brown  #a16946 130
+
+Color: fg0    #c7c7c7 251
+Color: bg0    #000000 16
+Color: bg1    #333b4a 236
+Color: folded #181a1f 234
+Color: visual #394e71 24
+Color: error  #ea7a80 174
+Color: todo   #757012 58
+Color: diff1  #294929 22
+Color: diff2  #4f4719 58
+Color: diff3  #2f2f09 236
+Color: diff4  #492929 52
+
+Include: _hl_chrome
+Include: _hl_syntax_st_purple
