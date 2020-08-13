@@ -166,7 +166,7 @@ nnoremap <silent> <leader>i :call git#show_commit()<CR>
 " edit global todo file
 nnoremap <silent> <leader>et :exe printf('e %s/docs/todo.adoc', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
 " edit global journal file
-nnoremap <silent> <leader>ej :exe printf('e %s/docs/journal/2020.adoc', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
+nnoremap <silent> <leader>ej :call journal#new()<CR>
 
 " scroll other window
 nnoremap <silent> <M-F> :call win#scroll_other(1)<CR>
