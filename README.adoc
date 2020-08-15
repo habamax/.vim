@@ -12,15 +12,10 @@ Nothing fancy, just to keep it safe and available.
 
 == Colors
 
-I use my personal colorschemes, not meant (yet?) to be shared as complete
-separate thing suitable for everyone.
-
-There are
-
-* `colors/gruvbit.vim` -- simplified variant of `gruvbox_hard`;
-* `colors/godoto.vim` -- inspired by Godot Game Engine default colors.
-* link:https://github.com/habamax/vim-polar[polar] -- white background variantion of base16-one-light;
 * link:https://github.com/habamax/vim-habanight[habanight] -- black background variation of base16-default-dark colorscheme;
+* link:https://github.com/habamax/vim-polar[polar] -- white background variantion of base16-one-light;
+* `colors/gruvbit.vim` -- simplified variant of `gruvbox_hard`;
+* `colors/godoto.vim` -- darkbluish one inspired by Godot Game Engine default colors.
 
 image::https://user-images.githubusercontent.com/234774/89265554-57a4f900-d63d-11ea-806f-fe35978d8ad9.gif[]
 
