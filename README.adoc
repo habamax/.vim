@@ -17,7 +17,7 @@ Nothing fancy, just to keep it safe and available.
 * `colors/gruvbit.vim` -- simplified variant of `gruvbox_hard`;
 * `colors/godoto.vim` -- darkbluish one inspired by Godot Game Engine default colors.
 
-image::https://user-images.githubusercontent.com/234774/89265554-57a4f900-d63d-11ea-806f-fe35978d8ad9.gif[]
+image::https://user-images.githubusercontent.com/234774/90320715-3e108500-df4c-11ea-8f7d-e9b56544e675.gif[]
 
 
 == Simple Todos
