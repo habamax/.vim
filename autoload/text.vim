@@ -50,8 +50,10 @@ endfunc
 "" Indent text object
 "" Useful for python-like indentation based programming lanugages
 "" Usage:
-"" noremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
-"" noremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
+"" onoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
+"" onoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
+"" xnoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
+"" xnoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
 func! text#obj_indent(inner)
     if getline('.') =~ '^\s*$'
         let ln_start = s:detect_nearest_line()
