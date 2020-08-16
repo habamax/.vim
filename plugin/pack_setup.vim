@@ -19,6 +19,9 @@ endif
 if executable("git")
     silent! packadd vim-fugitive
     silent! packadd vim-flog
+
+    silent! packadd webapi-vim
+    silent! packadd vim-gist
 endif
 
 
