@@ -94,10 +94,8 @@ nnoremap <silent> <F11> :echo win#layout_save()<CR>
 nnoremap <silent> <F12> :echo win#layout_restore()<CR>
 
 "" indent text object
-onoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
-onoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
-xnoremap <silent>ii <ESC>:call text#obj_indent(v:true)<CR><ESC>gv
-xnoremap <silent>ai <ESC>:call text#obj_indent(v:false)<CR><ESC>gv
+noremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
+noremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
 
 "" number text object
 func! s:number()
