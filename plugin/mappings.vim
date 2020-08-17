@@ -213,18 +213,19 @@ command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
 
 command! -range FixText <line1>,<line2>call text#fix()
 
-" Continuous buffers.
+" Two columns.
 " 1. Vertically split window
 " 2. Offset it one screen
 " 3. Scrollbind
-command! ContinueInSplit
+command! TwoColumns
             \   exe "normal zR"
             \ | set noscrollbind
             \ | vsplit
+            \ | set scrollbind
+            \ | wincmd w
             \ | exe "normal \<c-f>"
             \ | set scrollbind
             \ | wincmd p
-            \ | set scrollbind
 
 command! -range=% PasteVP call share#vpaste(<line1>, <line2>)
 command! -range=% PasteDP call share#dpaste(<line1>, <line2>)
