@@ -19,10 +19,7 @@ call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 "" My plugins
-" call minpac#add('habamax/vim-list-man')
-" call minpac#add('habamax/vim-change-font-size')
 call minpac#add('git@github.com:habamax/vim-asciidoctor.git', {'rev': 'master'})
-" call minpac#add('git@github.com:habamax/vim-asciidoctor.git', {'rev': 'multiline_bolditalic'})
 call minpac#add('git@github.com:habamax/vim-evalvim.git', {'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-habanight.git', {'type': 'opt', 'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-polar.git', {'type': 'opt', 'rev': 'master'})
