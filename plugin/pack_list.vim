@@ -127,3 +127,4 @@ call minpac#add('airblade/vim-rooter')
 call minpac#add('dstein64/vim-startuptime')
 
 call minpac#add('lifepillar/vim-colortemplate')
+call minpac#add('chrisbra/Colorizer')
