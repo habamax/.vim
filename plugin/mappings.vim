@@ -8,8 +8,8 @@ noremap <leader>p "+p
 noremap <leader>P "+P
 
 " smooth searching
-cnoremap <expr> <Tab>   getcmdtype() == "/" \|\| getcmdtype() == "?" ? "<CR>/<C-r>/" : "<C-z>"
-cnoremap <expr> <S-Tab> getcmdtype() == "/" \|\| getcmdtype() == "?" ? "<CR>?<C-r>/" : "<S-Tab>"
+cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<CR>//" : "<C-z>"
+cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<CR>??" : "<S-Tab>"
 
 nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
