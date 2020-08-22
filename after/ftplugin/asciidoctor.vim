@@ -133,7 +133,7 @@ inorea <buffer> alit [literal]<CR>
             \<Up>
             \<C-R>=Eatchar('\s')<CR>
 
-inorea <buffer> aside Sidebar Note<CR>
+inorea <buffer> aside .Sidebar Note<CR>
             \******************************************************************************<CR><CR>
             \******************************************************************************
             \<Up>
