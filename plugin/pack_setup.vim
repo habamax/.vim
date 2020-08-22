@@ -225,16 +225,17 @@ nmap ga <Plug>(EasyAlign)
 
 "" vim-rest-console {{{1
 let g:vrc_auto_format_response_enabled = 1
-let b:vrc_response_default_content_type = 'application/json'
-" let g:vrc_show_command = 1
+let g:vrc_show_command = 1
 let g:vrc_curl_opts = {
             \ '-sS': '',
             \ '-i': '',
             \ '--connect-timeout': 10,
             \}
-let g:vrc_set_default_mapping = 1
-let g:vrc_trigger = '<leader><leader>e'
-command! FormatREST call misc#vrc_format_rest_as_json()
+let g:vrc_set_default_mapping = 0
+augroup rest_output | au!
+    au BufNew __REST_response__ command! FormatREST call misc#vrc_format_rest_as_json()
+augroup END
+
 
 
 """ firenvim {{{1
