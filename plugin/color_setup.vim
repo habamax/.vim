@@ -16,6 +16,8 @@ endfunc
 augroup colorscheme_change | au!
     au ColorScheme default call s:default_setup()
     au OptionSet background call s:default_setup()
+    au ColorScheme habanight hi VertSplit guibg=NONE ctermbg=NONE
+    au ColorScheme polar hi VertSplit guibg=NONE ctermbg=NONE
 augroup END
 
 
