@@ -56,8 +56,8 @@ if executable('fzf')
     let g:fzf_action = {
                 \ 'ctrl-q': function('s:build_quickfix_list'),
                 \ 'ctrl-t': 'tab split',
-                \ 'ctrl-x': 'split',
-                \ 'ctrl-v': 'vsplit' }
+                \ 'ctrl-j': 'split',
+                \ 'ctrl-l': 'vsplit'}
 
     if !has('win32')
         let g:fzf_colors =
