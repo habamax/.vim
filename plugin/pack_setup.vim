@@ -164,7 +164,7 @@ let g:asciidoctor_pdf_fonts_path = (empty($DOCSHOME)?expand('~'):expand($DOCSHOM
 let g:asciidoctor_img_paste_command = 'gm convert clipboard: %s%s'
 let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 
-let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json']
+let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json', 'xml']
 " let g:asciidoctor_fenced_languages = ['python', 'c', 'javascript']
 " let g:asciidoctor_syntax_indented = 0
 let g:asciidoctor_css = 'asciidoctor-next.min.css'
