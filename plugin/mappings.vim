@@ -108,6 +108,15 @@ endfunc
 xnoremap in :<C-u>call <SID>number()<CR>
 onoremap in :<C-u>normal vin<CR>
 
+"" date text object 2020-03-21
+func! s:date()
+    call search('\d\([^0-9\-]\|$\)', 'cW')
+    normal v
+    call search('\(^\|[^0-9\-]\d\)', 'becW')
+endfunc
+xnoremap id :<C-u>call <SID>date()<CR>
+onoremap id :<C-u>normal vid<CR>
+
 "" line text object
 xnoremap il g_o^
 onoremap il :<C-u>normal vil<CR>
