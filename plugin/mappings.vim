@@ -105,7 +105,7 @@ func! s:number()
     normal v
     call search('\(^\|[^0-9\.]\d\)', 'becW')
 endfunc
-xnoremap in :<C-u>call <SID>number()<CR>
+xnoremap <silent> in :<C-u>call <SID>number()<CR>
 onoremap in :<C-u>normal vin<CR>
 
 "" ISO-8601 date text object 2020-03-21
@@ -122,9 +122,9 @@ func! s:date(inner)
         call search(rxdate, 'ecW')
     endif
 endfunc
-xnoremap id :<C-u>call <SID>date(1)<CR>
+xnoremap <silent> id :<C-u>call <SID>date(1)<CR>
 onoremap id :<C-u>normal vid<CR>
-xnoremap ad :<C-u>call <SID>date(0)<CR>
+xnoremap <silent> ad :<C-u>call <SID>date(0)<CR>
 onoremap ad :<C-u>normal vad<CR>
 
 "" line text object
