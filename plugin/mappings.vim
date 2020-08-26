@@ -115,7 +115,7 @@ func! s:date(inner)
         call search('^\|[^0-9\-]', 'becW')
     endif
     let rxdate = '\d\{4}-\d\{2}-\d\{2}'
-    if !inner
+    if !a:inner
         let rxdate = '\s*'.rxdate.'\s*'
     endif
     if search(rxdate, 'cW')
