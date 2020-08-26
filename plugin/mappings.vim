@@ -101,9 +101,10 @@ xnoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
 
 "" number text object
 func! s:number()
-    call search('\d\([^0-9\.]\|$\)', 'cW')
-    normal v
-    call search('\(^\|[^0-9\.]\d\)', 'becW')
+    if search('\d\([^0-9\.]\|$\)', 'cW')
+        normal v
+        call search('\(^\|[^0-9\.]\d\)', 'becW')
+    endif
 endfunc
 xnoremap <silent> in :<C-u>call <SID>number()<CR>
 onoremap in :<C-u>normal vin<CR>
