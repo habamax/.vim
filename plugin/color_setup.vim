@@ -24,5 +24,11 @@ augroup END
 """ Colorschemes {{{1
 
 set termguicolors
-colorscheme polar
-" colorscheme habanight
+
+"" different environments could have different colorschemes
+if exists("$COLORSCHEME")
+    colorscheme $COLORSCHEME
+else
+    " colorscheme habanight
+    colorscheme polar
+endif
