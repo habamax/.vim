@@ -3,7 +3,7 @@
 "" Desc: Text manipulation functions.
 
 
-"" Fix text:
+"" Fix text: {{{1
 "" * replace non-breaking spaces to spaces
 "" * replace multiple spaces to a single space (preserving indent)
 "" * remove spaces between closed braces: ) ) -> ))
@@ -32,7 +32,7 @@ func! text#fix() range
 endfunc
 
 
-"" Underline current line with chars[0]
+"" Underline current line with chars[0] {{{1
 "" If current line is already underlined with one the chars[1..]
 "" Replace it with char[0]
 "" call text#underline(['-', '=', '~', '^', '+'])
@@ -47,7 +47,46 @@ func! text#underline(chars)
 endfunc
 
 
-"" Indent text object
+"" ISO-8601 date text object {{{1
+"" 2020-03-21
+"" Usage:
+"" xnoremap <silent> id :<C-u>call text#obj_date(1)<CR>
+"" onoremap id :<C-u>normal vid<CR>
+"" xnoremap <silent> ad :<C-u>call text#obj_date(0)<CR>
+"" onoremap ad :<C-u>normal vad<CR>
+func! text#obj_date(inner)
+    let months = ['января', 'февраля', 'марта', 'апреля',
+                \ 'мая', 'июня', 'июля', 'августа',
+                \ 'сентября', 'октября', 'ноября', 'декабря']
+
+    let save_cursor = getcurpos()
+    let cword = expand("<cword>")
+    if  cword =~ '\d\{4}'
+        call search('^\|\D\ze\d\{1,2}\s\+\%(' . join(months, '\|') . '\)', 'bceW')
+    elseif cword =~ join(months, '\|')
+        call search('^\|\D\ze\d\{1,2}\s\+', 'bceW')
+    elseif cword =~ '\d\{1,2}'
+        call search('^\|[^0-9\-]', 'becW')
+        " call search('^\|\D', 'bceW')
+    endif
+
+    let rxdate = '\%(\d\{4}-\d\{2}-\d\{2}\)'
+    let rxdate .= '\|'
+    let rxdate .= '\%(\d\{1,2}\s\+\%(' . join(months, '\|') . '\)\s\+\d\{4}\)'
+    if !a:inner
+        let rxdate = '\s*'.rxdate.'\s*'
+    endif
+
+    if search(rxdate, 'cW')
+        normal v
+        call search(rxdate, 'ecW')
+        return
+    endif
+    call setpos('.', save_cursor)
+endfunc
+
+
+"" Indent text object {{{1
 "" Useful for python-like indentation based programming lanugages
 "" Usage:
 "" onoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>

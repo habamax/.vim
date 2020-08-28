@@ -109,23 +109,10 @@ endfunc
 xnoremap <silent> in :<C-u>call <SID>number()<CR>
 onoremap in :<C-u>normal vin<CR>
 
-"" ISO-8601 date text object 2020-03-21
-func! s:date(inner)
-    if expand("<cword>") =~ '\d\+'
-        call search('^\|[^0-9\-]', 'becW')
-    endif
-    let rxdate = '\d\{4}-\d\{2}-\d\{2}'
-    if !a:inner
-        let rxdate = '\s*'.rxdate.'\s*'
-    endif
-    if search(rxdate, 'cW')
-        normal v
-        call search(rxdate, 'ecW')
-    endif
-endfunc
-xnoremap <silent> id :<C-u>call <SID>date(1)<CR>
+" date text object
+xnoremap <silent> id :<C-u>call text#obj_date(1)<CR>
 onoremap id :<C-u>normal vid<CR>
-xnoremap <silent> ad :<C-u>call <SID>date(0)<CR>
+xnoremap <silent> ad :<C-u>call text#obj_date(0)<CR>
 onoremap ad :<C-u>normal vad<CR>
 
 "" line text object
