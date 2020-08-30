@@ -47,8 +47,9 @@ func! text#underline(chars)
 endfunc
 
 
-"" ISO-8601 date text object {{{1
-"" 2020-03-21
+"" Date text object {{{1
+"" * ISO-8601 2020-03-21
+"" * RU 21 марта 2020
 "" Usage:
 "" xnoremap <silent> id :<C-u>call text#obj_date(1)<CR>
 "" onoremap id :<C-u>normal vid<CR>
