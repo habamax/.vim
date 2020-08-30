@@ -25,9 +25,13 @@ endif
 " З3Э -- буква З, цифра 3, буква Э
 " 1Il0OQB8 =-+:
 
-set linespace=0
 
+set linespace=-1
 set guifont=JetBrains\ Mono\ NL:h14
+
+" set linespace=0
+" set guifont=Iosevka\ Habamax:h14
+
 " set guifont=Cascadia\ Code\ SemiLight:h14
 " set guifont=Consolas:h14
 " set guifont=Fira\ Mono:h14
