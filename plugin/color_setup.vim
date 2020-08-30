@@ -28,7 +28,8 @@ set termguicolors
 "" different environments could have different colorschemes
 if exists("$COLORSCHEME")
     colorscheme $COLORSCHEME
+elseif strftime("%H") > 20 || strftime("%H") < 6
+    colorscheme habanight
 else
-    " colorscheme habanight
     colorscheme polar
 endif
