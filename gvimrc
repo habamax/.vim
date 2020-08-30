@@ -31,7 +31,6 @@ set guifont=JetBrains\ Mono\ NL:h14
 
 " set linespace=0
 " set guifont=Iosevka\ Habamax:h14
-
 " set guifont=Cascadia\ Code\ SemiLight:h14
 " set guifont=Consolas:h14
 " set guifont=Fira\ Mono:h14
