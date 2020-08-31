@@ -200,10 +200,6 @@ let g:dispatch_no_maps = 1
 let g:dispatch_no_tmux_make = 1
 
 
-""" vim-vsnip {{{1
-let g:vsnip_snippet_dir = fnamemodify($MYVIMRC, ":p:h") . '/vsnip'
-
-
 """ vim-closetag {{{1
 let g:closetag_filetypes = 'html,xhtml,xml'
 
