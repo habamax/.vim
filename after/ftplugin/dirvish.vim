@@ -27,7 +27,13 @@ func! s:rename_file() abort
     let [ffullname, fext, fname, fpath] = s:filename()
 
     if !isdirectory(ffullname) && filereadable(ffullname)
-        let newfname = fpath . '/' . join([input("New file name: ", fname), fext], '.')
+        let name = input("New file name: ", fname)
+        if name =~ '^\s*$' || name == fname
+            return
+        endif
+
+        let newfname = fpath . '/' . join([name, fext], '.')
+
         if filereadable(newfname)
             echom "Can't rename, file exists!"
             return
@@ -38,7 +44,7 @@ func! s:rename_file() abort
     endif
 endfunc
 
-command! -buffer DirvishDupFile call s:dup_file() | e!
-command! -buffer DirvishRenameFile call s:rename_file() | e!
+command! -buffer DirvishDupFile call s:dup_file() | normal R
+command! -buffer DirvishRenameFile call s:rename_file() | normal R
 nnoremap <buffer> <leader><leader>d :DirvishDupFile<CR>
 nnoremap <buffer> <leader><leader>r :DirvishRenameFile<CR>
