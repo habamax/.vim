@@ -18,8 +18,13 @@ func! s:dup_file() abort
             let counter += 1
         endw
 
-        " TODO: add linux support
-        call system(printf("copy %s %s", shellescape(ffullname), shellescape(newfname)))
+        if has("win32")
+            let cmd = "copy"
+        else
+            let cmd = "cp"
+        endif
+
+        call system(printf("%s %s %s", cmd, shellescape(ffullname), shellescape(newfname)))
     endif
 endfunc
 
@@ -39,8 +44,13 @@ func! s:rename_file() abort
             return
         endif
 
-        " TODO: add linux support
-        call system(printf("move %s %s", shellescape(ffullname), shellescape(newfname)))
+        if has("win32")
+            let cmd = "move"
+        else
+            let cmd = "mv"
+        endif
+
+        call system(printf("%s %s %s", cmd, shellescape(ffullname), shellescape(newfname)))
     endif
 endfunc
 
