@@ -11,7 +11,7 @@ func! s:dup_file() abort
     if !isdirectory(ffullname) && filereadable(ffullname)
         let counter = 2
         while 1
-            let newfname = fpath . '/' . join([fname . counter, fext], '.')
+            let newfname = fpath . '/' . fname . counter . (fext == '' ? '' : '.' . fext)
             if !filereadable(newfname)
                 break
             endif
@@ -37,7 +37,7 @@ func! s:rename_file() abort
             return
         endif
 
-        let newfname = fpath . '/' . join([name, fext], '.')
+        let newfname = fpath . '/' . name . (fext == '' ? '' : '.' . fext)
 
         if filereadable(newfname)
             echom "Can't rename, file exists!"
