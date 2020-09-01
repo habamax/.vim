@@ -11,6 +11,9 @@ noremap <leader>P "+P
 cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<CR>//" : "<C-z>"
 cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<CR>??" : "<S-Tab>"
 
+" insert current line into command line
+cnoremap <M-l> <C-r><C-l>
+
 nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
 " guards
