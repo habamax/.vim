@@ -47,7 +47,12 @@ func! text#underline(chars)
 endfunc
 
 
-"" Date text object {{{1
+
+"" Dates (text object and stuff) {{{1
+let s:months = ['января', 'февраля', 'марта', 'апреля',
+              \ 'мая', 'июня', 'июля', 'августа',
+              \ 'сентября', 'октября', 'ноября', 'декабря']
+
 "" * ISO-8601 2020-03-21
 "" * RU 21 марта 2020
 "" Usage:
@@ -56,15 +61,11 @@ endfunc
 "" xnoremap <silent> ad :<C-u>call text#obj_date(0)<CR>
 "" onoremap ad :<C-u>normal vad<CR>
 func! text#obj_date(inner)
-    let months = ['января', 'февраля', 'марта', 'апреля',
-                \ 'мая', 'июня', 'июля', 'августа',
-                \ 'сентября', 'октября', 'ноября', 'декабря']
-
     let save_cursor = getcurpos()
     let cword = expand("<cword>")
     if  cword =~ '\d\{4}'
-        call search('^\|\D\ze\d\{1,2}\s\+\%(' . join(months, '\|') . '\)', 'bceW')
-    elseif cword =~ join(months, '\|')
+        call search('^\|\D\ze\d\{1,2}\s\+\%(' . join(s:months, '\|') . '\)', 'bceW')
+    elseif cword =~ join(s:months, '\|')
         call search('^\|\D\ze\d\{1,2}\s\+', 'bceW')
     elseif cword =~ '\d\{1,2}'
         call search('^\|[^0-9\-]', 'becW')
@@ -73,7 +74,7 @@ func! text#obj_date(inner)
 
     let rxdate = '\%(\d\{4}-\d\{2}-\d\{2}\)'
     let rxdate .= '\|'
-    let rxdate .= '\%(\d\{1,2}\s\+\%(' . join(months, '\|') . '\)\s\+\d\{4}\)'
+    let rxdate .= '\%(\d\{1,2}\s\+\%(' . join(s:months, '\|') . '\)\s\+\d\{4}\)'
     if !a:inner
         let rxdate = '\s*'.rxdate.'\s*'
     endif
@@ -84,6 +85,12 @@ func! text#obj_date(inner)
         return
     endif
     call setpos('.', save_cursor)
+endfunc
+
+
+func! text#date_ru()
+    let [year, month, day] = split(strftime("%Y-%m-%d"), '-')
+    return printf("%d %s %s", day, s:months[month-1], year)
 endfunc
 
 
