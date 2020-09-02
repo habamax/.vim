@@ -5,11 +5,10 @@
 
 "" Delete all(saved) but visible buffers
 func! win#delete_buffers()
-    for bnr in range(1, bufnr('$'))
-        if buflisted(bnr) && bufwinnr(bnr) == -1
-            exe 'bd ' . bnr
-        endif
-    endfor
+    let l:buffers = filter(getbufinfo(), {_, v -> v.hidden})
+    if !empty(l:buffers)
+        execute 'bwipeout' join(map(l:buffers, {_, v -> v.bufnr}))
+    endif
 endfunc
 
 
