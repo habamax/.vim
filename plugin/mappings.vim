@@ -8,8 +8,8 @@ noremap <leader>p "+p
 noremap <leader>P "+P
 
 " smooth searching
-cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<CR>//" : "<C-z>"
-cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<CR>??" : "<S-Tab>"
+cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"
+cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
 
 " insert current line into command line
 cnoremap <M-l> <C-r><C-l>
