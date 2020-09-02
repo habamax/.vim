@@ -25,8 +25,6 @@ nnoremap d<leader> <nop>
 nnoremap <BS> <C-^>
 " kill-all buffers except current one
 " nnoremap <M-BS> :%bd\|e#\|bd#<CR>
-" kill-all but visible buffers
-nnoremap <silent> <M-BS> :call win#delete_buffers()<CR>:echo "Non-windowed buffers are deleted"<CR>
 
 " UPPERCASE WORD
 nnoremap <silent> <M-u> gUiww
@@ -199,6 +197,9 @@ cabbr ц w
 cabbr й q
 cabbr цй wq
 cabbr ив bd
+
+" Wipe all hidden buffers
+command BwipeHidden call win#delete_buffers()
 
 " Open (n)vim configs
 command! Init :silent only
