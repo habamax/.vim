@@ -42,10 +42,9 @@ if executable('fzf')
     let g:fzf_preview_window = ''
 
     " CTRL-A CTRL-Q to select all and build quickfix list
-    func! s:build_quickfix_list(lines)
+    func! s:open_in_qf(lines)
         call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
         copen
-        cc
     endfunc
 
     augroup fzf | au!
@@ -54,7 +53,7 @@ if executable('fzf')
     augroup end
 
     let g:fzf_action = {
-                \ 'ctrl-q': function('s:build_quickfix_list'),
+                \ 'ctrl-q': function('s:open_in_qf'),
                 \ 'ctrl-t': 'tab split',
                 \ 'ctrl-j': 'split',
                 \ 'ctrl-l': 'vsplit'}
