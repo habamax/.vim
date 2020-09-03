@@ -33,7 +33,6 @@ if executable('fzf')
     nnoremap <leader>F :GFiles<CR>
     nnoremap <leader>b :Buffers<CR>
     nnoremap <leader>/ :BLines<CR>
-    nnoremap <leader>; :Commands<CR>
     nnoremap <leader>T :Tags<CR>
     nnoremap <leader>h :call FZFHelp()<CR>
     nnoremap <leader>m :History<CR>
