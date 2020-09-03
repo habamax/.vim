@@ -13,7 +13,7 @@ let b:foldtext_strip_comments = v:true
 " let g:vim_indent_cont = shiftwidth() * 2
 
 
-inorea <buffer> aucmd augroup  \| au!<CR>
+inorea <buffer> augr augroup  \| au!<CR>
             \au BufRead * echo "hello world"<CR>
             \augroup END<Up><Up><Left><Left><Left>
             \<C-R>=Eatchar('\s')<CR>
