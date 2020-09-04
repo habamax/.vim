@@ -3,10 +3,12 @@
 "
 " * Opens ~/docs/journal/YEAR.adoc file, where YEAR is a current year, like 2020
 "
-" * Position cursor on current date heading
+" * Position cursor 2 lines after current date heading
 "     == 2020-08-14 Heading
 "
-" * If there is no current date heading, create it
+"     CURSOR IS HERE
+"
+" * If there is no current date heading, create it and position cursor 2 lines after
 "     == 2020-08-14
 "
 "     CURSOR IS HERE
@@ -28,7 +30,7 @@ func! s:new_entry(jfilename) abort
         exe "e " . a:jfilename
     endif
 
-    normal gg
+    normal! gg
 
     let journal_heading = '= ' . strftime("%Y")
     if getline(1) !~ '^' . journal_heading
@@ -37,17 +39,17 @@ func! s:new_entry(jfilename) abort
 
     let heading_date = '== ' . strftime("%Y-%m-%d")
     if search('^'.heading_date, 'cw')
-        normal 2j
+        normal! 2j
         return
     endif
 
     if search('^==\s*\S\+', 'cw')
         call append(line('.')-1, heading_date)
-        normal 4O
-        normal 2k
+        normal! 4O
+        normal! 2k
     else
         call append(line('$'), heading_date)
-        normal G
-        normal 2o
+        normal! G
+        normal! 2o
     endif
 endfunc
