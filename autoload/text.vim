@@ -10,6 +10,10 @@
 "" * remove space before closed brace: word ) -> word)
 "" * remove space after opened brace: ( word -> (word
 "" * remove space at the end of line
+"" Usage:
+"" command! -range FixText <line1>,<line2>call text#fix()
+"" nnoremap <leader><leader><leader> :FixText<CR>
+"" xnoremap <leader><leader><leader> :FixText<CR>
 func! text#fix() range
     let pos=getcurpos()
     " replace non-breaking space to space first
@@ -27,8 +31,6 @@ func! text#fix() range
     " remove space at the end of line
     exe printf('silent %d,%ds/\s*$//ge', a:firstline, a:lastline)
     call setpos('.', pos)
-    " nohl
-    " echo 'Just one space'
 endfunc
 
 
@@ -47,14 +49,27 @@ func! text#underline(chars)
 endfunc
 
 
-
 "" Dates (text object and stuff) {{{1
-let s:months = ['января', 'февраля', 'марта', 'апреля',
-              \ 'мая', 'июня', 'июля', 'августа',
-              \ 'сентября', 'октября', 'ноября', 'декабря']
+let s:mons_en = ['Jan', 'Feb', 'Mar', 'Apr',
+               \ 'May', 'Jun', 'Jul', 'Aug',
+               \ 'Sep', 'Oct', 'Nov', 'Dec']
+let s:months_en = ['January', 'February', 'March', 'April',
+                 \ 'May', 'June', 'July', 'August',
+                 \ 'September', 'October', 'November', 'December']
+let s:months_ru = ['января', 'февраля', 'марта', 'апреля',
+                 \ 'мая', 'июня', 'июля', 'августа',
+                 \ 'сентября', 'октября', 'ноября', 'декабря']
+
+let s:months = extend(s:months_en, s:months_ru)
+let s:months = extend(s:months, s:mons_en)
+let g:months = copy(s:months)
 
 "" * ISO-8601 2020-03-21
 "" * RU 21 марта 2020
+"" * EN 10 December 2012
+"" * EN December 10, 2012
+"" * EN 10 Dec 2012
+"" * EN Dec 10, 2012
 "" Usage:
 "" xnoremap <silent> id :<C-u>call text#obj_date(1)<CR>
 "" onoremap id :<C-u>normal vid<CR>
@@ -64,19 +79,28 @@ func! text#obj_date(inner)
     let save_cursor = getcurpos()
     let cword = expand("<cword>")
     if  cword =~ '\d\{4}'
-        call search('^\|\D\ze\d\{1,2}\s\+\%(' . join(s:months, '\|') . '\)', 'bceW')
+        let rx = '^\|'
+        let rx = '\%(\D\d\{1,2}\s\+\%(' . join(s:months, '\|') . '\)\)'
+        let rx .= '\|'
+        let rx .= '\%(\s*\%(' . join(s:months, '\|') . '\)\s\+\d\{1,2},\)'
+        if !search(rx, 'bcW', line('.'))
+            call search('\s*\D', 'bcW', line('.'))
+        endif
     elseif cword =~ join(s:months, '\|')
         call search('^\|\D\ze\d\{1,2}\s\+', 'bceW')
     elseif cword =~ '\d\{1,2}'
-        call search('^\|[^0-9\-]', 'becW')
-        " call search('^\|\D', 'bceW')
+        if !search('^\|\S\ze\%(' . join(s:months, '\|') . '\)\s\+\d\{1,2}', 'bceW')
+            call search('^\|[^0-9\-]', 'becW')
+        endif
     endif
 
     let rxdate = '\%(\d\{4}-\d\{2}-\d\{2}\)'
     let rxdate .= '\|'
     let rxdate .= '\%(\d\{1,2}\s\+\%(' . join(s:months, '\|') . '\)\s\+\d\{4}\)'
+    let rxdate .= '\|'
+    let rxdate .= '\%(\%(' . join(s:months, '\|') . '\)\s\+\d\{1,2},\s\+\d\{4}\)'
     if !a:inner
-        let rxdate = '\s*'.rxdate.'\s*'
+        let rxdate = '\s*\%('.rxdate.'\)\s*'
     endif
 
     if search(rxdate, 'cW')
@@ -90,7 +114,7 @@ endfunc
 
 func! text#date_ru()
     let [year, month, day] = split(strftime("%Y-%m-%d"), '-')
-    return printf("%d %s %s", day, s:months[month-1], year)
+    return printf("%d %s %s", day, s:months_ru[month-1], year)
 endfunc
 
 
