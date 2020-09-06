@@ -54,7 +54,7 @@ if executable('fzf')
     let g:fzf_action = {
                 \ 'ctrl-q': function('s:open_in_qf'),
                 \ 'ctrl-t': 'tab split',
-                \ 'ctrl-j': 'split',
+                \ 'ctrl-o': 'split',
                 \ 'ctrl-l': 'vsplit'}
 
     if !has('win32')
