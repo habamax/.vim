@@ -302,13 +302,13 @@ let g:evalvim_mappings = v:true
 
 
 """ Coc or mucomplete {{{1
-if has("win32")
+" if has("win32")
     "" coc adds 1+ second on my win box
     let g:coc_start_at_startup = v:false
     command Habacoc call habacoc#setup()
 
     let g:mucomplete#enable_auto_at_startup = 1
-endif
+" endif
 
 """ Colorizer
 let g:colorizer_auto_filetype='css,html,colortemplate'
