@@ -309,3 +309,7 @@ if has("win32")
 
     let g:mucomplete#enable_auto_at_startup = 1
 endif
+
+""" Colorizer
+let g:colorizer_auto_filetype='css,html,colortemplate'
+let g:colorizer_disable_bufleave = 1
