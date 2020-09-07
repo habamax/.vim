@@ -96,8 +96,9 @@ call minpac#add('aklt/plantuml-syntax')
 
 
 "" Language Server Protocol and completion
-call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
-call minpac#add('ycm-core/YouCompleteMe')
+call minpac#add('neoclide/coc.nvim', {'type': 'opt', 'branch': 'release'})
+" call minpac#add('ycm-core/YouCompleteMe')
+" call minpac#add('puremourning/YouCompleteMe', {'type': 'opt', 'branch': 'master'})
 
 " backup general <tab> completion
 call minpac#add('lifepillar/vim-mucomplete')

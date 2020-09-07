@@ -301,14 +301,23 @@ let g:evalvim_mappings = v:true
 
 
 
-""" Coc or mucomplete {{{1
-" if has("win32")
-    "" coc adds 1+ second on my win box
-    let g:coc_start_at_startup = v:false
-    command Habacoc call habacoc#setup()
+""" YCM, Coc or mucomplete {{{1
+"" coc adds 1+ second on my win box, so make it loading on cursor hold
+augroup load_coc | au!
+    autocmd CursorHold,CursorHoldI * ++once call habacoc#setup()
+augroup END
 
-    let g:mucomplete#enable_auto_at_startup = 1
-" endif
+let g:mucomplete#enable_auto_at_startup = 1
+
+" let g:ycm_language_server =
+" \ [
+" \   {
+" \     'name': 'gdscript',
+" \     'connection_type': 'tcp',
+" \     'port': 6008,
+" \     'filetypes': [ 'gdscript' ]
+" \   }
+" \ ]
 
 """ Colorizer
 let g:colorizer_auto_filetype='css,html,colortemplate'
