@@ -16,7 +16,7 @@ set ttimeout ttimeoutlen=10
 set belloff=all
 
 "" Nice-to-have {{{1
-set ruler laststatus=1
+set ruler laststatus=2
 set shortmess+=Ic
 set scrolloff=5 sidescrolloff=5
 set display=truncate
