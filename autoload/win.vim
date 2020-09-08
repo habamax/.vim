@@ -43,7 +43,7 @@ func! win#lens() abort
         return
     endif
 
-    let default_width = s:win_default_width(&tw?&tw:100)
+    let default_width = s:win_default_width(80)
 
     let width = max([
                 \ get(g:, "lens_pref_width", default_width),
