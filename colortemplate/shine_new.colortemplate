@@ -1,0 +1,47 @@
+; vim: ft=colortemplate
+Full name: shine_new
+Short name: shine_new
+Description: ReImplementation of default shine colorscheme
+Maintainer: Originally mainatined by Yasuhiro Matsumoto <mattn@mail.goo.ne.jp>
+Author: Maxim Kim <habamax@gmail.com>
+
+
+Variant:    gui 256
+
+Background: light
+
+;;; Refined colors
+Color: comment     #6c6c6c ~
+Color: constant    #aa7b9f ~
+Color: identifier  #76b1a9 ~
+Color: statement   #81a55c ~
+Color: preproc     #af87af ~
+Color: type        #7ea06c ~
+Color: special     #d75f87 ~
+Color: specialchar #6d6d6d ~
+Color: storage     #d70000 ~
+
+;;; Original colors
+; Color: comment     #6c6c6c ~
+; Color: constant    #ba8baf ~
+; Color: identifier  #86c1b9 ~
+; Color: statement   #a1b56c ~
+; Color: preproc     #af87af ~
+; Color: type        #7ea06c ~
+; Color: special     #ffd7dc ~
+; Color: specialchar #6d6d6d ~
+; Color: storage     #e77676 ~
+
+Color: fg0         #000000 ~
+Color: bg0         #ffffff ~
+Color: bg1         #6d7079 239
+Color: folded      #c7c7c7 ~
+Color: pmenu       #d7d7d7 ~
+
+Color: diffadd     #3b5e48 23
+Color: diffdelete  #5c3728 52
+Color: diffchange  #314a5c 24
+Color: difftext    #496d79 66
+
+Include: shine_hl_chrome
+Include: shine_hl_syntax
