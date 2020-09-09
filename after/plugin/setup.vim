@@ -1,12 +1,5 @@
 "" Settings that depends on plugin existence
 
-if exists("g:did_coc_loaded") && get(g:, "coc_start_at_startup", v:true) " {{{1
-    " :CocInstall coc-python
-
-    call habacoc#setup()
-endif
-
-
 if exists("g:loaded_swap") " {{{1
     omap i, <Plug>(swap-textobject-i)
     xmap i, <Plug>(swap-textobject-i)
