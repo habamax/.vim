@@ -74,6 +74,10 @@ nnoremap <leader>ws <C-w>s
 nnoremap <leader>wv <C-w>v
 nnoremap <leader>wn <C-w>n
 nnoremap <leader>wo <C-w>o
+nnoremap <leader>wh <C-w>H
+nnoremap <leader>wl <C-w>L
+nnoremap <leader>wj <C-w>J
+nnoremap <leader>wk <C-w>K
 " maximize window
 nnoremap <leader>wm <C-w>_<C-w>\|
 
