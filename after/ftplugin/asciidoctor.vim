@@ -50,7 +50,6 @@ inorea <buffer> ruopt Максим Ким<CR>
             \:rouge-style: github<CR>
             \:!source-linenums-option:<CR>
             \:imagesdir: images<CR>
-            \:chapter-signifier:<CR>
             \:icons: font<CR>
             \:autofit-option:<CR>
             \:chapter-signifier: Раздел<CR>
