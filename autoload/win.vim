@@ -54,10 +54,11 @@ func! win#lens() abort
                 \ winheight(0)
                 \ ])
 
-    set winwidth=12 winminwidth=12 winheight=3 winminheight=3
-    execute 'vertical resize ' . width
-    execute 'resize ' . height
-    set winwidth& winminwidth& winheight& winminheight&
+    execute printf('vertical resize %s', width)
+    execute printf('resize %s', height)
+    call s:fix_w_h(1)
+    wincmd =
+    call s:fix_w_h(0)
     normal! ze
 endfunction
 
@@ -110,6 +111,19 @@ func! s:is_lens_disabled() abort
     return v:false
 endfunc
 
+
+func! s:fix_w_h(val)
+    call setwinvar(winnr(), "&winfixwidth", a:val)
+    call setwinvar(winnr(), "&winfixheight", a:val)
+    for w in range(1, winnr('$'))
+        let ft = getbufvar(winbufnr(w), "&filetype", "")
+        if index(get(g:, "lens_disabled_filetypes", []), ft) != -1
+            call setwinvar(w, "&winfixwidth", a:val)
+            call setwinvar(w, "&winfixheight", a:val)
+        endif
+    endfor
+
+endfunc
 
 
 "" 5 layouts
