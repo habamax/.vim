@@ -30,7 +30,7 @@ inorea <buffer> enopt Maxim Kim<CR>
             \:rouge-style: github<CR>
             \:!source-linenums-option:<CR>
             \:imagesdir: images<CR>
-            \:chapter-label:<CR>
+            \:chapter-signifier:<CR>
             \:icons: font<CR>
             \:autofit-option:<CR>
             \:experimental:<CR>
@@ -50,10 +50,10 @@ inorea <buffer> ruopt Максим Ким<CR>
             \:rouge-style: github<CR>
             \:!source-linenums-option:<CR>
             \:imagesdir: images<CR>
-            \:chapter-label:<CR>
+            \:chapter-signifier:<CR>
             \:icons: font<CR>
             \:autofit-option:<CR>
-            \:chapter-label: Раздел<CR>
+            \:chapter-signifier: Раздел<CR>
             \:caution-caption: Внимание<CR>
             \:important-caption: Важно<CR>
             \ifdef::preface-title[:preface-title: Предисловие]<CR>
