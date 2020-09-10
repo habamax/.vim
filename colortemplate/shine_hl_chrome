@@ -8,29 +8,29 @@ Normal           fg0        bg0
 #endif
 
 EndOfBuffer      bg1        none
-Statusline       none       none t=reverse,bold g=reverse,bold
-StatuslineNC     none       none t=reverse g=reverse
-StatuslineTerm   none       none t=reverse,bold g=reverse,bold
-StatuslineTermNC none       none t=reverse g=reverse
-VertSplit        none       none t=reverse g=reverse
+Statusline       none       none      reverse,bold
+StatuslineNC     none       none      reverse
+StatuslineTerm   none       none      reverse,bold
+StatuslineTermNC none       none      reverse
+VertSplit        none       none      reverse
 
-Pmenu            none       bg1
-PmenuSel         bg0        preproc
-PmenuSbar        none       bg1
-PmenuThumb       none       comment
+Pmenu            fg0        pmenu
+PmenuSel         fg0        wildmenu
+PmenuSbar        none       comment
+PmenuThumb       none       pmenu
 
-TabLine          none       bg1
-TabLineFill      none       bg1
-TabLineSel       none       bg0
+TabLine          fg0        bg1       underline
+TabLineFill      none       none      reverse
+TabLineSel       none       none      bold
 
-ToolbarLine      none       none reverse
-ToolbarButton    none       none reverse,bold
+ToolbarLine      none       folded
+ToolbarButton    none       bg1       bold
 
 NonText          bg1        none
 SpecialKey       bg1        none
 
 Folded           comment    folded
-Visual           none       none t=reverse g=reverse
+Visual           fg0        visual
 VisualNOS        none       comment
 LineNr           comment    none
 FoldColumn       comment    none
@@ -40,7 +40,7 @@ CursorLineNr     none       folded
 QuickFixLine     none       folded
 SignColumn       none       none
 
-Underlined       preproc    none   underline
+Underlined       preproc    none      underline
 
 Error            bg0        storage
 ErrorMsg         bg0        storage
@@ -49,11 +49,11 @@ MoreMsg          fg0        bg0
 ModeMsg          fg0        bg0
 Question         constant   none
 
-Todo             bg0        preproc
+Todo             fg0        wildmenu
 MatchParen       bg0        special
 Search           bg0        preproc
-IncSearch        none       none reverse
-WildMenu         bg0        preproc
+IncSearch        none       none      reverse
+WildMenu         wildmenu   fg0       reverse,bold
 ColorColumn      none       folded
 Cursor           bg0        fg0
 lCursor          fg0        constant
