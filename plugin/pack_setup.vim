@@ -181,7 +181,8 @@ let g:swap_no_default_key_mappings = 1
 
 """ vim-rooter {{{1
 let g:rooter_change_directory_for_non_project_files = ''
-" let g:rooter_patterns = ['.git', '.git/', 'mix.exs']
+let g:rooter_patterns = ['.git', '.hg', '.svn', 'Makefile', 'go.mod', 'mix.exs']
+
 let g:rooter_silent_chdir = 1
 
 
