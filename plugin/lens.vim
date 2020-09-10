@@ -1,1 +1,1 @@
-let g:lens_disabled_filetypes = ['fugitiveblame']
+let g:lens_disabled_filetypes = ['fugitiveblame', 'fern']

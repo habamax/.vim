@@ -322,3 +322,8 @@ let g:mucomplete#enable_auto_at_startup = 1
 """ Colorizer
 let g:colorizer_auto_filetype='css,html,colortemplate'
 let g:colorizer_disable_bufleave = 1
+
+
+""" Fern
+
+nnoremap <F8> :Fern . -drawer -toggle -reveal=%<CR>
