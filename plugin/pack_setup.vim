@@ -303,21 +303,11 @@ let g:evalvim_mappings = v:true
 
 """ YCM, Coc or mucomplete {{{1
 "" coc adds 1+ second on my win box, so make it loading on cursor hold
-augroup load_coc | au!
-    autocmd CursorHold,CursorHoldI * ++once call habacoc#setup()
+augroup load_lsp_plugin | au!
+    autocmd CursorHold,CursorHoldI * ++once call lsp#setup('ycm')
 augroup END
 
 let g:mucomplete#enable_auto_at_startup = 1
-
-" let g:ycm_language_server =
-" \ [
-" \   {
-" \     'name': 'gdscript',
-" \     'connection_type': 'tcp',
-" \     'port': 6008,
-" \     'filetypes': [ 'gdscript' ]
-" \   }
-" \ ]
 
 """ Colorizer
 let g:colorizer_auto_filetype='css,html,colortemplate'
