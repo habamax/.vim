@@ -205,7 +205,7 @@ cabbr ив bd
 " Wipe all hidden buffers
 command BwipeHidden call win#delete_buffers()
 
-" Open (n)vim configs
+" Open vim configs
 command! Init :silent only
             \<bar>:exe printf("e %s/vimrc", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:exe printf("bo vs %s/plugin/mappings.vim", fnamemodify($MYVIMRC, ":p:h"))
