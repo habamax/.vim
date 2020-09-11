@@ -1,3 +1,5 @@
+let s:lsp_ft_maps = get(g:, 'lsp_ft_maps', 'gdscript,go,python')
+
 func! lsp#setup(engine)
     if a:engine == 'ycm'
         let g:ycm_language_server =
@@ -15,8 +17,9 @@ func! lsp#setup(engine)
             return
         endif
         augroup ycm_settings | au!
-            autocmd FileType gdscript,go,python call lsp#ycm_mappings()
+            exe printf('au FileType %s call lsp#ycm_mappings()', s:lsp_ft_maps)
         augroup end
+        filetype detect
 
     else
         silent! packadd coc.nvim
@@ -34,8 +37,7 @@ func! lsp#setup(engine)
         inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
         augroup coc_settings | au!
-            autocmd CursorHold gdscript,go,python silent call CocActionAsync('highlight')
-            autocmd FileType gdscript,go,python call lsp#coc_mappings()
+            exe printf('au FileType %s call lsp#coc_mappings()', s:lsp_ft_maps)
         augroup end
     endif
 
