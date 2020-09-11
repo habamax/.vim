@@ -10,7 +10,14 @@ func! lsp#setup(engine)
                     \   }
                     \ ]
         silent! packadd YouCompleteMe
-        " TODO: add mappings here
+
+        if !exists("g:loaded_youcompleteme")
+            return
+        endif
+        augroup ycm_settings | au!
+            autocmd FileType gdscript,go,python call lsp#ycm_mappings()
+        augroup end
+
     else
         silent! packadd coc.nvim
 
@@ -63,3 +70,8 @@ func! s:show_coc_doc()
     endif
 endfunc
 
+func! lsp#ycm_mappings() abort
+    nmap <silent><buffer> K <plug>(YCMHover)
+    " nmap <silent><buffer> gd <Plug>(coc-definition)
+    " nmap <silent><buffer> gr <Plug>(coc-references)
+endfunc
