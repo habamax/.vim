@@ -32,7 +32,7 @@ func! lsp#setup(engine)
         augroup end
     endif
 
-    if exists(":MUcompleteAutoOff")
+    if exists(":MUcompleteAutoOff") && (exists("g:loaded_youcompleteme") || exists("g:did_coc_loaded"))
         MUcompleteAutoOff
     endif
 endfunc
