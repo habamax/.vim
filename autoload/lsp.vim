@@ -21,7 +21,7 @@ func! lsp#setup(engine)
         augroup end
         filetype detect
 
-    else
+    elseif a:engine == 'coc'
         silent! packadd coc.nvim
 
         if !exists("g:did_coc_loaded")
