@@ -133,25 +133,31 @@ endfunc
 "" layout 4: main vertical
 "" layout 5: tiled
 func! win#layout_toggle() abort
-    let layout_echo = ""
-    let win_layout = get(t:, "window_layout", 5)
-
-    if win_layout == 5
-        let layout_echo = win#layout_horizontal()
-        let t:window_layout = 1
-    elseif win_layout == 1
-        let layout_echo = win#layout_vertical()
-        let t:window_layout = 2
-    elseif win_layout == 2
-        let layout_echo = win#layout_main_horizontal()
-        let t:window_layout = 3
-    elseif win_layout == 3
-        let layout_echo = win#layout_main_vertical()
-        let t:window_layout = 4
-    elseif win_layout == 4
-        let layout_echo = win#layout_tile()
-        let t:window_layout = 5
+    if winnr('$') == 1
+        return "Single window"
     endif
+
+    if winnr('$') == 2
+        let win_layouts =
+                    \ {1: {"f": "win#layout_horizontal", "next": 2}
+                    \ ,2: {"f": "win#layout_vertical", "next": 1}
+                    \ }
+    else
+        let win_layouts =
+                    \ {1: {"f": "win#layout_horizontal", "next": 2}
+                    \ ,2: {"f": "win#layout_vertical", "next": 3}
+                    \ ,3: {"f": "win#layout_main_horizontal", "next": 4}
+                    \ ,4: {"f": "win#layout_main_vertical", "next": 5}
+                    \ ,5: {"f": "win#layout_tile", "next": 1}
+                    \ }
+    endif
+
+    let layout_echo = ""
+    let layout = min([get(t:, "window_layout", len(win_layouts)), len(win_layouts)])
+
+
+    let layout_echo = function(win_layouts[layout].f)()
+    let t:window_layout = win_layouts[layout].next
 
     call win#lens()
 
