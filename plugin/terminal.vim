@@ -2,6 +2,10 @@ if has("gui_running") || has('nvim')
     finish
 endif
 
+" fix Windows replace mode
+" https://github.com/vim/vim/issues/6951
+set t_u7=
+
 " Fix vim termguicolors for tmux
 " NOTE: your .tmux.conf should have:
 "
