@@ -12,12 +12,11 @@ Nothing fancy, just to keep it safe and available.
 
 == Colors
 
-* link:https://github.com/habamax/vim-habanight[habanight] -- black background variation of base16-default-dark colorscheme;
-* link:https://github.com/habamax/vim-polar[polar] -- white background variantion of base16-one-light;
-* `colors/godoto.vim` -- darkbluish one inspired by Godot Game Engine default colors.
 * link:https://github.com/habamax/vim-gruvbit[gruvbit] -- simplified variant of `gruvbox_hard`;
+* link:https://github.com/habamax/vim-polar[polar] -- white background variantion of base16-one-light;
+* link:https://github.com/habamax/vim-habanight[habanight] -- black background variation of base16-default-dark colorscheme;
 
-image::https://user-images.githubusercontent.com/234774/90320715-3e108500-df4c-11ea-8f7d-e9b56544e675.gif[]
+image::https://user-images.githubusercontent.com/234774/93187701-c307dd80-f748-11ea-9a8e-82fbd15b2c9b.gif[]
 
 
 == Simple Todos
