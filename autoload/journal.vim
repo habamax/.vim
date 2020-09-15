@@ -17,7 +17,7 @@
 func! journal#new() abort
     let jfilename = strftime("%Y") . '.adoc'
     let home = empty($DOCSHOME)?expand('~'):expand($DOCSHOME)
-    let jfullname = printf('%s/docs/journal/%s', home, jfilename)
+    let jfullname = simplify(printf('%s/docs/journal/%s', home, jfilename))
 
     call s:new_entry(jfullname)
 endfunc
