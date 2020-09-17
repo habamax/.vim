@@ -39,11 +39,12 @@ func! lsp#setup(engine)
         augroup coc_settings | au!
             exe printf('au FileType %s call lsp#coc_mappings()', s:lsp_ft_maps)
         augroup end
+
+        if exists(":MUcompleteAutoOff") && (exists("g:loaded_youcompleteme") || exists("g:did_coc_loaded"))
+            MUcompleteAutoOff
+        endif
     endif
 
-    if exists(":MUcompleteAutoOff") && (exists("g:loaded_youcompleteme") || exists("g:did_coc_loaded"))
-        MUcompleteAutoOff
-    endif
 endfunc
 
 
