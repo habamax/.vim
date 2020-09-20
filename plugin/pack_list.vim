@@ -95,6 +95,8 @@ call minpac#add('aklt/plantuml-syntax')
 
 "" Language Server Protocol and completion
 call minpac#add('neoclide/coc.nvim', {'type': 'opt', 'branch': 'release'})
+" after install/update run `./install.py`
+" or `./install.py --go-completer` if you need go completion
 call minpac#add('ycm-core/YouCompleteMe', {'type': 'opt'})
 
 " backup general <tab> completion
