@@ -6,7 +6,7 @@ func! lsp#setup(engine)
                     \ [
                     \   {
                     \     'name': 'gdscript',
-                    \     'connection_type': 'tcp',
+                    \     'project_root_files': ['project.godot'],
                     \     'port': 6008,
                     \     'filetypes': [ 'gdscript' ]
                     \   }
