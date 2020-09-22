@@ -282,10 +282,6 @@ let g:evalvim_mappings = v:true
 "     autocmd CursorHold,CursorHoldI * ++once call lsp#setup('ycm')
 "     " autocmd CursorHold,CursorHoldI * ++once call lsp#setup('coc')
 " augroup END
-" func! LazyLoadCompletion(timer)
-"     call lsp#setup('ycm')
-" endfunc
-" call timer_start(1000, 'LazyLoadCompletion')
 call timer_start(1000, {-> lsp#setup('ycm')})
 
 
