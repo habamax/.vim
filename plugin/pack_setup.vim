@@ -276,12 +276,16 @@ let g:evalvim_mappings = v:true
 
 """ YCM, Coc or mucomplete {{{1
 "" coc adds 1+ second on my win box, so make it loading on cursor hold
-augroup load_lsp_plugin | au!
+" set smaller updatetime and restore it to default in lsp#setup
+set updatetime=500
+augroup load_completion_plugin | au!
     autocmd CursorHold,CursorHoldI * ++once call lsp#setup('ycm')
     " autocmd CursorHold,CursorHoldI * ++once call lsp#setup('coc')
 augroup END
-
-let g:mucomplete#enable_auto_at_startup = 1
+" func! LazyLoadCompletion(timer)
+"     call lsp#setup('ycm')
+" endfunc
+" call timer_start(1000, 'LazyLoadCompletion')
 
 
 """ Colorizer

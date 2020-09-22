@@ -1,7 +1,9 @@
 let s:lsp_ft_maps = get(g:, 'lsp_ft_maps', 'gdscript,go,python')
 
 func! lsp#setup(engine)
+    set updatetime&
     if a:engine == 'ycm'
+        let g:ycm_auto_hover = ''
         let g:ycm_language_server =
                     \ [
                     \   {
@@ -20,7 +22,6 @@ func! lsp#setup(engine)
             exe printf('au FileType %s call lsp#ycm_mappings()', s:lsp_ft_maps)
         augroup end
         filetype detect
-
     elseif a:engine == 'coc'
         silent! packadd coc.nvim
 
@@ -39,12 +40,12 @@ func! lsp#setup(engine)
         augroup coc_settings | au!
             exe printf('au FileType %s call lsp#coc_mappings()', s:lsp_ft_maps)
         augroup end
-
-        if exists(":MUcompleteAutoOff") && (exists("g:loaded_youcompleteme") || exists("g:did_coc_loaded"))
-            MUcompleteAutoOff
-        endif
     endif
 
+    if !(exists("g:loaded_youcompleteme") || exists("g:did_coc_loaded"))
+        let g:mucomplete#enable_auto_at_startup = 1
+        silent! packadd mucomplete
+    endif
 endfunc
 
 
@@ -75,6 +76,5 @@ endfunc
 
 func! lsp#ycm_mappings() abort
     nmap <silent><buffer> K <plug>(YCMHover)
-    " nmap <silent><buffer> gd <Plug>(coc-definition)
-    " nmap <silent><buffer> gr <Plug>(coc-references)
+    nnoremap <silent><buffer> gd :YcmCompleter GoTo<CR>
 endfunc
