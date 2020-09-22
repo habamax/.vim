@@ -217,19 +217,19 @@ func! win#layout_tile() abort
     for bnr in range(half)
         split
         call add(windows, win_getid())
-        exe printf("buffer %s", buffers[bnr])
+        silent exe printf("buffer %s", buffers[bnr])
     endfor
 
     let win_idx = 0
     for bnr in range(half, len(buffers) - 1)
-        call win_gotoid(windows[win_idx])
+        silent call win_gotoid(windows[win_idx])
         vsplit
-        exe printf("buffer %s", buffers[bnr])
+        silent exe printf("buffer %s", buffers[bnr])
 
         let win_idx += 1
     endfor
 
-    call win_gotoid(windows[0])
+    silent call win_gotoid(windows[0])
 
     return "Tiled layout"
 endfunc
