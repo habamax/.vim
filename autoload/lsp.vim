@@ -1,7 +1,6 @@
 let s:lsp_ft_maps = get(g:, 'lsp_ft_maps', 'gdscript,go,python')
 
 func! lsp#setup(engine)
-    set updatetime&
     if a:engine == 'ycm'
         let g:ycm_auto_hover = ''
         let g:ycm_language_server =
