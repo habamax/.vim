@@ -283,6 +283,7 @@ let g:evalvim_mappings = v:true
 "     " autocmd CursorHold,CursorHoldI * ++once call lsp#setup('coc')
 " augroup END
 call timer_start(1000, {-> lsp#setup('ycm')})
+" call timer_start(1000, {-> lsp#setup('coc')})
 
 
 """ Colorizer
@@ -292,3 +293,7 @@ let g:colorizer_disable_bufleave = 1
 
 """ Fern
 nnoremap <F8> :Fern . -drawer -toggle -reveal=%<CR>
+
+
+""" vim-godot
+let g:godot_ext_hl = v:false
