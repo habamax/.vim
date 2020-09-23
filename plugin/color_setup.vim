@@ -13,15 +13,10 @@ func! s:default_setup() abort
     endif
 endfunc
 
-func! s:gruvbit_setup() abort
-    hi link CocErrorSign Type
-endfunc
-
 augroup colorscheme_change | au!
     au ColorScheme default call s:default_setup()
     au OptionSet background call s:default_setup()
     au ColorScheme * hi Comment gui=italic cterm=italic
-    au ColorScheme gruvbit call s:gruvbit_setup()
 augroup END
 
 
