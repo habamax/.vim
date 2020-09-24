@@ -7,11 +7,12 @@
 " OTHER:
 " git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
 
-command! PackUpdate packadd minpac | call minpac#init() | runtime plugin/pack_list.vim | call minpac#update()
-command! PackClean  packadd minpac | call minpac#init() | runtime plugin/pack_list.vim | call minpac#clean()
+command! PackUpdate packadd minpac | runtime plugin/pack_list.vim | call minpac#update()
+command! PackClean  packadd minpac | runtime plugin/pack_list.vim | call minpac#clean()
 
-if !exists('*minpac#init') | finish | endif
+if !exists('g:loaded_minpac') | finish | endif
 
+call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 "" My plugins
