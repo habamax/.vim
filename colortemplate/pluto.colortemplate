@@ -129,5 +129,14 @@ Ignore     none       none
 Title      type       none bold
 
 
+colortemplateKey     -> Statement
+colortemplateAttr    -> String
+vimNotation          -> Type
+vimFuncSID           -> PreProc
+vimHiTerm            -> Identifier
+helpNotVi            -> Comment
+helpExample          -> PreProc
 gdscriptBlockStart   -> Statement
 gdscriptFunctionName -> Function
+gitCommitSummary        -> Title
+cocErrorSign            -> Type
