@@ -292,7 +292,8 @@ let g:colorizer_disable_bufleave = 1
 
 
 """ Fern
-nnoremap <F8> :Fern . -drawer -toggle -reveal=%<CR>
+nnoremap <silent> <F8> :Fern . -drawer -toggle -reveal=%<CR>
+nnoremap <silent> <F9> :FernDo :<CR>
 
 
 """ vim-godot
