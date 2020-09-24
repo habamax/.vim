@@ -3,7 +3,7 @@
 
 "" Python ext {{{1
 if has('nvim')
-    let g:python3_host_prog  = 'py'
+    let g:python3_host_prog = 'py'
     let g:loaded_python_provider = 0
     let g:loaded3_python_provider = 0
 endif
@@ -67,7 +67,7 @@ if executable('fzf')
     endif
 
     " By default TAB is to select/deselect current item.
-    " Make ctrl-a to toggle all, and ctrl-u to clear all 
+    " Make ctrl-a to toggle all, and ctrl-u to clear all
     let $FZF_DEFAULT_OPTS = '--bind ctrl-a:toggle-all --bind ctrl-u:clear-selection'
     " let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
@@ -93,7 +93,7 @@ if executable('fzf')
     func! FZFHelp(...)
         let tags = uniq(sort(split(globpath(&runtimepath, 'doc/tags', 1), '\n')))
         return fzf#run(fzf#wrap({
-                    \ 'source':  'rg --no-filename ".*" '.join(map(tags, 'fzf#shellescape(v:val)')),
+                    \ 'source': 'rg --no-filename ".*" '.join(map(tags, 'fzf#shellescape(v:val)')),
                     \ 'sink': function('s:helptag_sink')}))
     endfunc
 
@@ -234,18 +234,18 @@ augroup END
 
 """ firenvim {{{1
 " if exists('g:started_by_firenvim')
-"     packadd firenvim
-"     set gfn=JetBrains\ Mono\ NL:h14
-"     au BufEnter github.com_*.txt set filetype=markdown
-"     au BufEnter www.linux.org.ru_*.txt set filetype=markdown
-"     let g:firenvim_config = {
-"                 \   'localSettings': {
-"                 \       '.*': {
-"                 \           'selector': '',
-"                 \           'priority': 0,
-"                 \       }
-"                 \   }
-"                 \ }
+" packadd firenvim
+" set gfn=JetBrains\ Mono\ NL:h14
+" au BufEnter github.com_*.txt set filetype=markdown
+" au BufEnter www.linux.org.ru_*.txt set filetype=markdown
+" let g:firenvim_config = {
+" \ 'localSettings': {
+" \ '.*': {
+" \ 'selector': '',
+" \ 'priority': 0,
+" \ }
+" \ }
+" \ }
 " endif
 
 
@@ -279,8 +279,8 @@ let g:evalvim_mappings = v:true
 " set smaller updatetime and restore it to default in lsp#setup
 " set updatetime=500
 " augroup load_completion_plugin | au!
-"     autocmd CursorHold,CursorHoldI * ++once call lsp#setup('ycm')
-"     " autocmd CursorHold,CursorHoldI * ++once call lsp#setup('coc')
+" autocmd CursorHold,CursorHoldI * ++once call lsp#setup('ycm')
+" " autocmd CursorHold,CursorHoldI * ++once call lsp#setup('coc')
 " augroup END
 call timer_start(1000, {-> lsp#setup('ycm')})
 " call timer_start(1000, {-> lsp#setup('coc')})
