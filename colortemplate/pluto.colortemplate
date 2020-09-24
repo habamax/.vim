@@ -25,7 +25,6 @@ Color: bg1        #3a3a3a 237
 Color: folded     #1c1c1c 234
 Color: visual     #4e5661 240
 Color: error      #ea7a80 174
-Color: todo       #757012 58
 Color: diffadd    #294929 22
 Color: diffchange #4f4719 58
 Color: difftext   #2f2f09 236
@@ -86,7 +85,7 @@ MoreMsg          fg0        bg0
 ModeMsg          fg0        bg0
 Question         string     none
 
-Todo             fg0        todo
+Todo             bg0        comment
 MatchParen       bg0        special
 Search           bg0        preproc
 IncSearch        bg0        string
