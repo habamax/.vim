@@ -47,10 +47,6 @@ call minpac#add('tpope/vim-endwise')
 call minpac#add('tpope/vim-fugitive', {'type': 'opt'})
 call minpac#add('rbong/vim-flog', {'type': 'opt'})
 
-"" GitHub Gists
-call minpac#add('mattn/webapi-vim', {'type': 'opt'})
-call minpac#add('mattn/vim-gist', {'type': 'opt'})
-
 
 "" Fuzzy stuff
 " FZF is quite good, but not really polished for windows users
