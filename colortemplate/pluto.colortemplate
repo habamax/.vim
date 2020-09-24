@@ -128,3 +128,7 @@ Conceal    comment    none
 Ignore     none       none
 
 Title      type       none bold
+
+
+gdscriptBlockStart   -> Statement
+gdscriptFunctionName -> Function
