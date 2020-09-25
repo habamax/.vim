@@ -203,7 +203,7 @@ cabbr цй wq
 cabbr ив bd
 
 " Wipe all hidden buffers
-command BwipeHidden call win#delete_buffers()
+command! BwipeHidden call win#delete_buffers()
 
 " Open vim configs
 command! Init :silent only
