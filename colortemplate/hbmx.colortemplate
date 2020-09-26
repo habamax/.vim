@@ -1,7 +1,6 @@
 ; vim: ft=colortemplate
-Full name: pluto
-Short name: pluto
-Description: Hey! You're not a planet!
+Full name: hbmx
+Short name: hbmx
 Author: Maxim Kim <habamax@gmail.com>
 Neovim: yes
 
@@ -138,5 +137,5 @@ helpNotVi            -> Comment
 helpExample          -> PreProc
 gdscriptBlockStart   -> Statement
 gdscriptFunctionName -> Function
-gitCommitSummary        -> Title
-cocErrorSign            -> Type
+gitCommitSummary     -> Title
+cocErrorSign         -> Type
