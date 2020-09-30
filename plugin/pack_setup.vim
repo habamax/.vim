@@ -82,7 +82,7 @@ if executable('fzf')
     silent! packadd fzf
     silent! packadd fzf.vim
 
-    command! Docs :call fzf#run(fzf#wrap({'source': 'git ls-files', 'dir': printf('%s/docs', empty($DOCSHOME)?expand('~'):expand($DOCSHOME)), 'sink': 'e'}), 1)
+    command! Docs :exe printf('Files %s/docs', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))
     command! VimConfigs :exe printf('Files %s', fnamemodify($MYVIMRC, ":p:h"))
 
     func! s:helptag_sink(line)
@@ -282,7 +282,7 @@ let g:evalvim_mappings = v:true
 " autocmd CursorHold,CursorHoldI * ++once call lsp#setup('ycm')
 " " autocmd CursorHold,CursorHoldI * ++once call lsp#setup('coc')
 " augroup END
-call timer_start(1000, {-> lsp#setup('ycm')})
+call timer_start(1200, {-> lsp#setup('ycm')})
 " call timer_start(1000, {-> lsp#setup('coc')})
 
 
