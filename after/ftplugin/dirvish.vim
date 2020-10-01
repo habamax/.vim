@@ -58,3 +58,5 @@ command! -buffer DirvishDupFile call s:dup_file() | normal R
 command! -buffer DirvishRenameFile call s:rename_file() | normal R
 nnoremap <buffer> <leader><leader>d :DirvishDupFile<CR>
 nnoremap <buffer> <leader><leader>r :DirvishRenameFile<CR>
+nmap <expr> h (&conceallevel ? '-' : 'h')
+nmap <expr> l (&conceallevel ? '<CR>' : 'l')
