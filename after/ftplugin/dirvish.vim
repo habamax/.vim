@@ -58,5 +58,7 @@ command! -buffer DirvishDupFile call s:dup_file() | normal R
 command! -buffer DirvishRenameFile call s:rename_file() | normal R
 nnoremap <buffer> <leader><leader>d :DirvishDupFile<CR>
 nnoremap <buffer> <leader><leader>r :DirvishRenameFile<CR>
-nmap <expr> h (&conceallevel ? '-' : 'h')
-nmap <expr> l (&conceallevel ? '<CR>' : 'l')
+nmap <buffer><expr> h (&conceallevel ? '-' : 'h')
+nmap <buffer><expr> l (&conceallevel ? '<CR>' : 'l')
+nnoremap <buffer>gh :Dirvish ~<CR>
+nnoremap <buffer>gd :exe printf('Dirvish %s/docs', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
