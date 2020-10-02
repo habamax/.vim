@@ -116,9 +116,9 @@ call minpac#add('justinmk/vim-gtfo')
 call minpac#add('markonm/traces.vim')
 
 " File management
-call minpac#add('justinmk/vim-dirvish')
+" call minpac#add('justinmk/vim-dirvish')
 call minpac#add('lambdalisue/fern.vim')
-" call minpac#add('mattn/vim-molder')
+call minpac#add('mattn/vim-molder')
 " call minpac#add('mattn/vim-molder-operations')
 " call minpac#add('cocopon/vaffle.vim')
 

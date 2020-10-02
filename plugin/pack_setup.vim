@@ -201,6 +201,8 @@ let g:dispatch_no_tmux_make = 1
 """ vim-closetag {{{1
 let g:closetag_filetypes = 'html,xhtml,xml'
 
+""" vim-molder {{{1
+nnoremap - :e %:p:h<CR>
 
 """ vim-dirvish {{{1
 let g:loaded_netrw = 1
@@ -298,3 +300,4 @@ nnoremap <silent> <F9> :FernDo :<CR>
 
 """ vim-godot
 let g:godot_ext_hl = v:false
+
