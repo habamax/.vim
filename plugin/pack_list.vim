@@ -115,7 +115,7 @@ call minpac#add('justinmk/vim-gtfo')
 " preview of :s command
 call minpac#add('markonm/traces.vim')
 
-" NETRW should be this
+" File management
 call minpac#add('justinmk/vim-dirvish')
 call minpac#add('lambdalisue/fern.vim')
 " call minpac#add('mattn/vim-molder')
