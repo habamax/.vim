@@ -32,3 +32,9 @@ if exists("g:loaded_winlayout")
     nmap <F3> <Plug>(WinlayoutBackward)
     nmap <F4> <Plug>(WinlayoutForward)
 endif
+
+" if exists("g:loaded_molder")
+"     nnoremap - :e %:p:h<CR>
+"     let g:molder_show_hidden = 1
+" endif
+
