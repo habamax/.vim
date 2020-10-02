@@ -187,6 +187,12 @@ nnoremap <silent> <M-B> :call win#scroll_other(0)<CR>
 nnoremap <silent> gof :call os#file_manager()<CR>
 " nnoremap gx :call os#open_url(expand('<cWORD>'))<CR>
 
+
+nnoremap <expr> <leader>sa printf(":saveas %s%s",
+            \ expand("%:p"),
+            \ empty(expand("%:e")) ? '' : repeat('<Left>', strchars(expand("%:e")) + 1))
+
+
 " Sort operator
 func! Sort(type, ...)
     '[,']sort
