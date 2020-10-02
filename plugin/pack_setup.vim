@@ -203,6 +203,7 @@ let g:closetag_filetypes = 'html,xhtml,xml'
 
 """ vim-molder {{{1
 nnoremap - :e %:p:h<CR>
+let g:molder_show_hidden = 1
 
 """ vim-dirvish {{{1
 let g:loaded_netrw = 1
