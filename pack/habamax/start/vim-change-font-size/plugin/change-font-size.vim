@@ -52,7 +52,11 @@ fun! s:changeFontSize(op)
     if get(g:, "change_font_window_max", v:true)
         set lines=999 columns=999
     endif
-    wincmd =
+    if exists("*win#lens")
+        call win#lens()
+    else
+        wincmd =
+    endif
 endfu
 
 " looks like this is windows only
