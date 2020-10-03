@@ -60,5 +60,5 @@ nnoremap <buffer> <leader><leader>d :DirvishDupFile<CR>
 nnoremap <buffer> <leader><leader>r :DirvishRenameFile<CR>
 nmap <buffer><expr> h (&conceallevel ? '-' : 'h')
 nmap <buffer><expr> l (&conceallevel ? '<CR>' : 'l')
-nnoremap <buffer>gh :Dirvish ~<CR>
-nnoremap <buffer>gd :exe printf('Dirvish %s/docs', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
+nnoremap <silent><buffer>gh :Dirvish ~<CR>
+nnoremap <silent><buffer>gd :exe printf('Dirvish %s/docs', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
