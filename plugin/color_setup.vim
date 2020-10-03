@@ -17,6 +17,7 @@ augroup colorscheme_change | au!
     au ColorScheme default call s:default_setup()
     au OptionSet background call s:default_setup()
     au ColorScheme * hi Comment gui=italic cterm=italic
+    au ColorScheme polar hi Normal guibg=#f5f7f5
 augroup END
 
 
