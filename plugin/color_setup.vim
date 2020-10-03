@@ -26,7 +26,7 @@ augroup END
 set termguicolors
 
 "" different environments could have different colorschemes
-if exists("$COLORSCHEME")
+if exists("$COLORSCHEME") && !has("gui_running")
     colorscheme $COLORSCHEME
 elseif strftime("%H") >= 20 || strftime("%H") <= 6
     " colorscheme habanight
