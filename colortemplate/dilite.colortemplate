@@ -49,8 +49,8 @@ Normal           fg0        bg0
 EndOfBuffer      bg1        none
 Statusline       fg0        bg1 bold
 StatuslineNC     comment    bg1
-StatuslineTerm   fg0        bg1 bold
-StatuslineTermNC comment    bg1
+StatuslineTerm   identifier bg1 bold
+StatuslineTermNC identifier bg1
 VertSplit        bg1        bg1
 
 Pmenu            none       bg1
