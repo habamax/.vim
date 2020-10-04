@@ -47,9 +47,9 @@ Normal           fg0        bg0
 #endif
 
 EndOfBuffer      bg1        none
-Statusline       fg0        bg1
+Statusline       fg0        bg1 bold
 StatuslineNC     comment    bg1
-StatuslineTerm   fg0        bg1
+StatuslineTerm   fg0        bg1 bold
 StatuslineTermNC comment    bg1
 VertSplit        bg1        bg1
 
