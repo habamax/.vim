@@ -14,8 +14,8 @@ Background: light
 ; Color palette
 Color: comment    #808080 244
 Color: constant   #d7005f 161
-Color: string     #2e8b57 29
-Color: identifier #008787 30
+Color: string     #2a872f 28
+Color: identifier #005f87 30
 Color: statement  #a52a2a 124
 Color: preproc    #6a0dad 55
 Color: type       #af00af 127
@@ -25,9 +25,9 @@ Color: fg0        #000000 16
 Color: bg0        #e0e3e3 254
 Color: bg1        #bcbcbc 251
 Color: folded     #d0d0d0 252
-Color: visual     #ffffd7 230
+Color: visual     #d7d7af 187
 Color: error      #d70000 160
-Color: wildmenu   #5f5f87 60
+Color: wildmenu   #d7d75f 185
 Color: diffadd    #c9f9c9 194
 Color: diffchange #f9f9c9 230
 Color: difftext   #f9d999 222
@@ -54,7 +54,7 @@ StatuslineTermNC comment    bg1
 VertSplit        bg1        bg1
 
 Pmenu            none       bg1
-PmenuSel         bg0        wildmenu
+PmenuSel         fg0        wildmenu bold
 PmenuSbar        none       bg1
 PmenuThumb       none       comment
 
@@ -90,9 +90,9 @@ Question         string     none
 
 Todo             bg0        comment
 MatchParen       bg0        special
-Search           bg0        wildmenu
-IncSearch        bg0        string
-WildMenu         bg0        wildmenu
+Search           fg0        wildmenu
+IncSearch        bg0        type
+WildMenu         fg0        wildmenu bold
 ColorColumn      none       folded
 Cursor           bg0        fg0
 lCursor          fg0        constant
