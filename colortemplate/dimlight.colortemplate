@@ -121,7 +121,6 @@ String     string     none
 PreProc    preproc    none
 Special    special    none
 Tag        preproc    none
-Delimiter  constant   none
 Type       type       none
 Operator   preproc    none
 Directory  identifier none bold
