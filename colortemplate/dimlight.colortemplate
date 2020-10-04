@@ -91,7 +91,7 @@ Question         string     none   bold
 Todo             bg0        comment
 MatchParen       bg0        special
 Search           fg0        wildmenu
-IncSearch        bg0        type
+IncSearch        bg0        string
 WildMenu         fg0        wildmenu bold
 ColorColumn      none       folded
 Cursor           bg0        fg0
