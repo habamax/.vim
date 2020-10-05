@@ -22,7 +22,7 @@ Color: type       #af00af 127
 Color: special    #6a5acd 62
 
 Color: fg0        #000000 16
-Color: bg0        #e0e3e3 254
+Color: bg0        #f0f3f3 254
 Color: bg1        #bcbcbc 251
 Color: folded     #d0d0d0 252
 Color: visual     #d7d7af 187
