@@ -1,6 +1,3 @@
-" Author: Maxim Kim <habamax@gmail.com>
-
-"" Must-have {{{1
 language messages en_US.UTF-8
 
 filetype plugin indent on
@@ -15,7 +12,6 @@ set virtualedit=block
 set ttimeout ttimeoutlen=10
 set belloff=all
 
-"" Nice-to-have {{{1
 set ruler laststatus=2
 set shortmess+=Ic
 set scrolloff=5 sidescrolloff=5
