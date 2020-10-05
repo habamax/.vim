@@ -61,4 +61,9 @@ nnoremap <buffer> <leader><leader>r :DirvishRenameFile<CR>
 nmap <buffer><expr> h (&conceallevel ? '-' : 'h')
 nmap <buffer><expr> l (&conceallevel ? '<CR>' : 'l')
 nnoremap <silent><buffer>gh :Dirvish ~<CR>
+nnoremap <silent><buffer>gm :Dirvish D:/MusicTest<CR>
 nnoremap <silent><buffer>gd :exe printf('Dirvish %s/docs', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
+
+"" sounds like a fun
+nnoremap <silent><buffer> <leader><leader>p :call sound_clear() <bar> call sound_playfile(getline('.'))<CR>
+nnoremap <silent><buffer> <leader><leader>P :call sound_clear()<CR>
