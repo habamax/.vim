@@ -22,16 +22,15 @@ Color: type       #af00af 127
 Color: special    #6a5acd 62
 
 Color: fg0        #000000 16
-Color: bg0        #f0f3f3 254
+Color: bg0        #f0f3f3 255
 Color: bg1        #bcbcbc 251
 Color: folded     #d0d0d0 252
 Color: visual     #d7d7af 187
 Color: error      #d70000 160
 Color: wildmenu   #d7d75f 185
-Color: diffadd    #c9f9c9 194
-Color: diffchange #f9f9c9 230
+Color: diffadd    #b9e9b9 151
 Color: difftext   #f9d999 222
-Color: diffdelete #f9c9c9 224
+Color: diffdelete #ffffff 231
 
 
 ;;; chrome
@@ -98,7 +97,7 @@ Cursor           bg0        fg0
 lCursor          fg0        constant
 
 DiffAdd          none       diffadd
-DiffChange       none       diffchange
+DiffChange       none       bg0
 DiffText         none       difftext
 DiffDelete       comment    diffdelete
 
