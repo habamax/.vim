@@ -28,7 +28,7 @@ set commentstring=
 set nrformats=bin,hex
 set sessionoptions=buffers,curdir,tabpages,winsize
 set foldmethod=indent foldlevelstart=1
-set diffopt+=vertical
+set diffopt+=vertical,algorithm:patience,indent-heuristic
 set wildchar=<Tab> wildcharm=<C-z> wildmenu wildmode=full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 set history=200
