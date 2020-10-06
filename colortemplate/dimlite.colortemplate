@@ -46,9 +46,9 @@ Normal           fg0        bg0
 #endif
 
 EndOfBuffer      bg1        none
-Statusline       fg0        bg1 bold
+Statusline       fg0        bg1      bold
 StatuslineNC     comment    bg1
-StatuslineTerm   identifier bg1 bold
+StatuslineTerm   identifier bg1      bold
 StatuslineTermNC identifier bg1
 VertSplit        bg1        bg1
 
@@ -62,7 +62,7 @@ TabLineFill      none       bg1
 TabLineSel       none       bg0
 
 ToolbarLine      bg0        folded
-ToolbarButton    none       bg1 bold
+ToolbarButton    none       bg1      bold
 
 NonText          bg1        none
 SpecialKey       bg1        none
@@ -78,14 +78,14 @@ CursorLineNr     none       folded
 QuickFixLine     none       folded
 SignColumn       none       none
 
-Underlined       identifier none   underline
+Underlined       identifier none     underline
 
 Error            bg0        error
 ErrorMsg         bg0        error
-ModeMsg          fg0        none   bold
-WarningMsg       preproc    none   bold
-MoreMsg          string     none   bold
-Question         string     none   bold
+ModeMsg          fg0        none     bold
+WarningMsg       preproc    none     bold
+MoreMsg          string     none     bold
+Question         string     none     bold
 
 Todo             bg0        comment
 MatchParen       bg0        special
@@ -101,10 +101,10 @@ DiffChange       none       bg0
 DiffText         none       difftext
 DiffDelete       comment    diffdelete
 
-SpellBad         statement  none   t=underline g=undercurl s=statement
-SpellCap         string     none   t=underline g=undercurl s=string
-SpellLocal       special    none   t=underline g=undercurl s=special
-SpellRare        type       none   t=underline g=undercurl s=type
+SpellBad         statement  none     t=underline g=undercurl s=statement
+SpellCap         string     none     t=underline g=undercurl s=string
+SpellLocal       special    none     t=underline g=undercurl s=special
+SpellRare        type       none     t=underline g=undercurl s=type
 
 
 Term colors: bg0     statement string preproc identifier type special bg1
