@@ -80,8 +80,8 @@ SignColumn       none       none
 
 Underlined       identifier none   underline
 
-Error            error      bg0
-ErrorMsg         error      bg0
+Error            bg0        error
+ErrorMsg         bg0        error
 ModeMsg          fg0        none   bold
 WarningMsg       preproc    none   bold
 MoreMsg          string     none   bold
