@@ -17,5 +17,5 @@ elseif strftime("%H") >= 20 || strftime("%H") <= 6
     " working on a gruvbox like colorscheme, testing
     colorscheme gruvbit
 else
-    colorscheme dilite
+    colorscheme dimlite
 endif

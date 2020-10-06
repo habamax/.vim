@@ -1,6 +1,6 @@
 ; vim: ft=colortemplate
-Full name: dilite
-Short name: dilite
+Full name: dimlite
+Short name: dimlite
 Description: Light background colorscheme
 Author: Maxim Kim <habamax@gmail.com>
 Neovim: yes
@@ -140,3 +140,4 @@ gdscriptBlockStart   -> Statement
 gdscriptFunctionName -> Function
 gitCommitSummary     -> Title
 cocErrorSign         -> Type
+
