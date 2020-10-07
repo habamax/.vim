@@ -1,6 +1,7 @@
 " Show commit that introduced current line
 " Src: https://www.reddit.com/r/vim/comments/i50pce/how_to_show_commit_that_introduced_current_line/
 " Usage: nnoremap <silent> <Leader>i :call git#show_commit()<CR>
+" Note: should be in .vim/autoload/git.vim
 func! git#show_commit()
     if !executable('git')
         echoerr "Git is not installed!"
