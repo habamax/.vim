@@ -1,5 +1,3 @@
-"" Settings that depends on plugin existence
-
 if exists("g:loaded_swap") " {{{1
     omap i, <Plug>(swap-textobject-i)
     xmap i, <Plug>(swap-textobject-i)
@@ -37,4 +35,3 @@ endif
 "     nnoremap - :e %:p:h<CR>
 "     let g:molder_show_hidden = 1
 " endif
-
