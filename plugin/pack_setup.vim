@@ -29,7 +29,6 @@ if executable('fzf')
     nnoremap <leader>f :Files<CR>
     nnoremap <leader>F :GFiles<CR>
     nnoremap <leader>b :Buffers<CR>
-    nnoremap <leader>/ :BLines<CR>
     nnoremap <leader>T :Tags<CR>
     nnoremap <leader>h :call FZFHelp()<CR>
     nnoremap <leader>m :History<CR>
@@ -109,7 +108,6 @@ if !exists('g:loaded_fzf')
     nnoremap <leader>f :CtrlPMixed<CR>
     nnoremap <leader>b :CtrlPBuffer<CR>
     nnoremap <leader>m :CtrlPMRUFiles<CR>
-    nnoremap <leader>/ <nop>
     nnoremap <leader>: <nop>
     nnoremap <leader>T <nop>
     nnoremap <leader>[ <nop>
