@@ -70,13 +70,13 @@ call minpac#add('machakann/vim-swap')
 " Italiano Vero -- mg979 has contributed a lot to vim-asciidoctor
 " And coincidently he does a very good implementation of multiple cursors
 " a like plugin
-call minpac#add('mg979/vim-visual-multi')
+" call minpac#add('mg979/vim-visual-multi')
 
 
 "" Programming
 call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
 call minpac#add('editorconfig/editorconfig-vim')
-call minpac#add('mhinz/vim-mix-format')
+" call minpac#add('mhinz/vim-mix-format')
 call minpac#add('AndrewRadev/splitjoin.vim')
 
 
@@ -100,8 +100,6 @@ call minpac#add('alvan/vim-closetag')
 
 
 "" Miscelaneous
-" enhance [I ]I [D ]D
-" call minpac#add('romainl/vim-qlist')
 
 " rest console with curl
 call minpac#add('diepm/vim-rest-console')
