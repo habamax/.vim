@@ -140,4 +140,4 @@ gdscriptBlockStart   -> Statement
 gdscriptFunctionName -> Function
 gitCommitSummary     -> Title
 cocErrorSign         -> Type
-
+markdownUrl          -> Underlined
