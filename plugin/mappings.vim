@@ -239,12 +239,12 @@ command! -range FixText <line1>,<line2>call text#fix()
 " 2. Offset it one screen
 " 3. Scrollbind
 command! TwoColumns
-            \   exe "normal zR"
+            \   exe "normal! zR"
             \ | set noscrollbind
             \ | vsplit
             \ | set scrollbind
             \ | wincmd w
-            \ | exe "normal \<c-f>"
+            \ | exe "normal! \<c-f>"
             \ | set scrollbind
             \ | wincmd p
 
