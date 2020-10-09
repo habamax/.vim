@@ -17,15 +17,15 @@ if &term =~# '^screen\|tmux' || &term =~# '^xterm-256'
 endif
 
 " Fix vim cursor shape in tmux
-if exists("$TMUX")
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
-endif
+" if exists("$TMUX")
+"     let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
+"     let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
+" endif
 
 " to fix cursor shape in WSL bash add 
 " echo -ne "\e[2 q"
 " to .bashrc
-if &term =~ "xterm"
+if &term =~ "xterm" || &term =~ "tmux"
     let &t_SI = "\<Esc>[6 q"
     let &t_SR = "\<Esc>[3 q"
     let &t_EI = "\<Esc>[2 q"
