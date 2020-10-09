@@ -118,8 +118,6 @@ call minpac#add('lambdalisue/fern.vim')
 " auto cd to your project root folder
 call minpac#add('airblade/vim-rooter')
 
-call minpac#add('dstein64/vim-startuptime')
-
 call minpac#add('lifepillar/vim-colortemplate')
 call minpac#add('chrisbra/Colorizer')
 
