@@ -15,5 +15,5 @@ if exists("$COLORSCHEME") && !has("gui_running")
 elseif strftime("%H") >= 20 || strftime("%H") <= 6
     colorscheme gruvbit
 else
-    colorscheme rotine
+    colorscheme rutine
 endif
