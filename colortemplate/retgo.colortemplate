@@ -25,6 +25,7 @@ Color: fg0        #000000 16
 Color: bg0        #f0f3f3 255
 Color: bg1        #bcbcbc 251
 Color: folded     #d0d0d0 252
+Color: cursorline #e0e0e0 254
 Color: visual     #d7d7af 187
 Color: error      #d70000 160
 Color: wildmenu   #d7d75f 185
@@ -72,10 +73,10 @@ Visual           none       visual
 VisualNOS        none       comment
 LineNr           comment    none
 FoldColumn       comment    none
-CursorLine       none       folded
-CursorColumn     none       folded
-CursorLineNr     none       folded
-QuickFixLine     none       folded
+CursorLine       none       cursorline
+CursorColumn     none       cursorline
+CursorLineNr     none       cursorline
+QuickFixLine     none       cursorline
 SignColumn       none       none
 
 Underlined       identifier none     underline
