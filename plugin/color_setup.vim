@@ -13,8 +13,6 @@ set termguicolors
 if exists("$COLORSCHEME") && !has("gui_running")
     colorscheme $COLORSCHEME
 elseif strftime("%H") >= 20 || strftime("%H") <= 6
-    " colorscheme habanight
-    " working on a gruvbox like colorscheme, testing
     colorscheme gruvbit
 else
     colorscheme retgo
