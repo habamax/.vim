@@ -7,7 +7,7 @@ noremap <leader>y "+y
 noremap <leader>p "+p
 noremap <leader>P "+P
 
-" tab to continue search
+" tab to cycle search candidates
 cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"
 cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
 
