@@ -73,7 +73,7 @@ nnoremap <leader>q <C-w>c
 nnoremap <leader>ws <C-w>s
 nnoremap <leader>wv <C-w>v
 nnoremap <leader>wn <C-w>n
-nnoremap <leader>wo <C-w>o
+nnoremap <silent> <leader>wo :call win#zoom_toggle()<CR>
 nnoremap <leader>wh <C-w>H
 nnoremap <leader>wl <C-w>L
 nnoremap <leader>wj <C-w>J
@@ -94,9 +94,6 @@ nnoremap <silent> <leader>w2 :echo win#layout_vertical()<CR>
 nnoremap <silent> <leader>w3 :echo win#layout_main_horizontal()<CR>
 nnoremap <silent> <leader>w4 :echo win#layout_main_vertical()<CR>
 nnoremap <silent> <leader>w5 :echo win#layout_tile()<CR>
-
-nnoremap <silent> <F11> :echo win#layout_save()<CR>
-nnoremap <silent> <F12> :echo win#layout_restore()<CR>
 
 "" indent text object
 onoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>

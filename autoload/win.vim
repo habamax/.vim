@@ -236,42 +236,47 @@ endfunc
 
 
 
-""" Save and Restore window layout {{{1
-
-let s:layout = []
-let s:winrestcmd = ""
-let s:cursor = []
-
-func! win#layout_save(...) abort
-    let s:winrestcmd = winrestcmd()
-    let s:layout = winlayout()
-    let s:cursor = [winnr(), getcurpos()]
-    call s:add_buf_to_layout(s:layout)
-    return "Layout is saved"
+""" Zoom window: save and restore window layout {{{1
+"" nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
+func! win#zoom_toggle() abort
+    if winnr('$') == 1 && get(t:, "zoomed", v:false)
+        call s:layout_restore()
+        let t:zoomed = v:false
+    else
+        let t:zoomed = v:true
+        call s:layout_save()
+        silent wincmd o
+    endif
 endfunc
 
 
-func! win#layout_restore() abort
-    if empty(s:layout)
-        return "No saved layout to restore"
+func! s:layout_save(...) abort
+    let t:zoom_winrestcmd = winrestcmd()
+    let t:zoom_layout = winlayout()
+    let t:zoom_cursor = [winnr(), getcurpos()]
+    call s:add_buf_to_layout(t:zoom_layout)
+endfunc
+
+
+func! s:layout_restore() abort
+    if empty(get(t:, "zoom_layout", []))
+        return
     endif
 
     " Close other windows
     silent wincmd o
 
     " recursively restore buffers
-    call s:apply_layout(s:layout)
+    call s:apply_layout(get(t:, "zoom_layout"))
 
     " resize
-    exe s:winrestcmd
+    exe t:zoom_winrestcmd
 
     " goto saved window
-    exe printf("%dwincmd w", s:cursor[0])
+    exe printf("%dwincmd w", t:zoom_cursor[0])
 
     " set cursor
-    call setpos('.', s:cursor[1])
-
-    return "Layout is restored"
+    call setpos('.', t:zoom_cursor[1])
 endfunc
 
 
