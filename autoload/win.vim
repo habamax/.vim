@@ -238,6 +238,8 @@ endfunc
 
 """ Zoom window: save and restore window layout {{{1
 "" nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
+"" <C-w>o zoom window (there should be only 1 window)
+"" <C-w>o restores previous windows
 func! win#zoom_toggle() abort
     if winnr('$') == 1 && get(t:, "zoomed", v:false)
         call s:layout_restore()
