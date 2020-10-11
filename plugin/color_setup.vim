@@ -11,6 +11,7 @@ set termguicolors
 
 "" different environments could have different colorschemes
 if exists("$COLORSCHEME") && !has("gui_running")
+    let g:{$COLORSCHEME}_transp_bg = v:true
     colorscheme $COLORSCHEME
 elseif strftime("%H") >= 20 || strftime("%H") <= 6
     colorscheme gruvbit
