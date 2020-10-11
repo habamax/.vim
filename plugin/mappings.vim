@@ -78,8 +78,6 @@ nnoremap <leader>wh <C-w>H
 nnoremap <leader>wl <C-w>L
 nnoremap <leader>wj <C-w>J
 nnoremap <leader>wk <C-w>K
-" maximize window
-nnoremap <leader>wm <C-w>_<C-w>\|
 
 " goto window
 for wnr in range(1, 9)
