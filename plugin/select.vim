@@ -192,7 +192,7 @@ endfunc
 func! s:on_next_maybe() abort
     let current_res = s:get_current_result()
     if s:state.type == 'file' && current_res =~ '/$'
-        let s:state.path = simplify(s:state.path..'/'..current_res)
+        let s:state.path = simplify(s:state.path..current_res)
         call setbufline(s:state.prompt_buf.bufnr, '$', '')
         call s:on_update()
         startinsert!
@@ -207,8 +207,15 @@ endfunc
 
 func! s:on_backspace() abort
     if s:state.type == 'file' && empty(s:get_prompt_value())
-        let s:state.path = fnamemodify(s:state.path, ":p:h:h")
-        call s:on_update()
+        let parent_path = fnamemodify(s:state.path, ":p:h:h")
+        if parent_path != s:state.path
+            if parent_path =~ '[/\\]'
+                let s:state.path = parent_path
+            else
+                let s:state.path = parent_path..'/'
+            endif
+            call s:on_update()
+        endif
     else
         normal! x
     endif
