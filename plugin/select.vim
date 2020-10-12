@@ -1,20 +1,58 @@
-""" Trying propmt buffers and matchfuzzy
+""" Trying matchfuzzy
+" TODO: max and min size of a result window
+" TODO: match chars highlight
+" TODO: more mappings (pgup, pgdwn, up/down, c-n, c-p)
+" TODO: search for all files in subdirectories (projectfile)
+" TODO: remove duplicates in MRU (buffers vs oldfiles)
+" TODO: popup windows? I guess not
+
+command! -nargs=? Select call Select(<q-args>)
+command! Edit call Select('file')
+command! Ls call Select('buffer')
+command! Mru call Select('mru')
+nnoremap <leader>f :Edit<CR>
+nnoremap <leader>b :Ls<CR>
+nnoremap <leader>m :Mru<CR>
+
+let s:select_types = ["file", "buffer", "colorscheme", "mru"]
 
 let s:state = {}
 
-command! -nargs=? Prompt call Prompt(<q-args>)
+let s:sink = {}
+let s:sink.file = "edit %s"
+let s:sink.buffer = "buffer %s"
+let s:sink.colorscheme = "colorscheme %s"
+let s:sink.mru = "edit %s"
+let s:sink = extend(s:sink, get(g:, "select_sink", {}), "force")
 
-func! Prompt(...) abort
+let s:runner = get(g:, "select_runner", {})
+
+if empty(s:runner)
+    let s:runner.file = {->
+                \  map(readdirex(s:state.path, {d -> d.type == 'dir'}), {k,v -> v.type == "dir" ? v.name..'/' : v.name})
+                \+ map(readdirex(s:state.path, {d -> d.type != 'dir'}), {k,v -> v.type == "dir" ? v.name..'/' : v.name})
+                \ }
+    let s:runner.buffer = {-> getcompletion('', 'buffer')}
+    let s:runner.colorscheme = {-> getcompletion('', 'color')}
+    let s:runner.mru = {-> getcompletion('', 'buffer') + v:oldfiles}
+endif
+
+func! Select(...) abort
     let s:state = {}
     if len(a:000) == 1
-        " TODO: proper check
+        if index(s:select_types, a:1) == -1
+            echomsg a:1.." is not supported!"
+            return
+        endif
         let s:state.type = a:1
     else
-        let s:state.type = 'files'
+        let s:state.type = 'file'
     endif
     let s:state.laststatus = &laststatus
     let s:state.showmode = &showmode
     let s:state.ruler = &ruler
+
+    let s:state.path = simplify(expand("%:p:h")..'/')
     let s:state.init_buf = {"bufnr": bufnr(), "winid": winnr()->win_getid()}
     let s:state.result_buf = s:create_result_buf()
     let s:state.prompt_buf = s:create_prompt_buf()
@@ -40,16 +78,20 @@ endfunc
 
 func! s:prepare_buffer(type)
     if a:type == "prompt"
-        noautocmd keepalt botright 1new
+        silent noautocmd keepalt botright 1new
         setlocal buftype=prompt
         setlocal nocursorline
     elseif a:type == 'result'
-        noautocmd keepalt botright 10new
+        exe printf("silent noautocmd keepalt botright %snew select %s", 10, s:state.type)
         setlocal buftype=nofile
         setlocal cursorline
         setlocal noruler
         setlocal laststatus=0
         setlocal noshowmode
+        if s:state.type == 'file'
+            syn match SelectDirectory '^.*/$'
+            hi def link SelectDirectory Directory
+        endif
     endif
     setlocal bufhidden=unload
     setlocal noundofile
@@ -83,43 +125,54 @@ endfunc
 
 func! s:on_select() abort
     let current_res = s:get_current_result()
+
     call s:close()
-    " exe "colorscheme " .. res_line
-    exe "e " .. current_res
+
+    if empty(current_res)
+        return
+    endif
+
+
+    if s:state.type == 'file'
+        let current_res = s:state.path..current_res
+    endif
+    exe printf(s:sink[s:state.type], current_res)
 endfunc
 
 
 func! s:on_update() abort
-    call win_execute(s:state.result_buf.winid, "%delete_", 1)
-    " Have to remove prompt from the line. I wonder if regular buffer would be
-    " better here?
+    call win_execute(s:state.result_buf.winid, "silent %delete_", 1)
     let input = s:get_prompt_value()
 
-    let items = map(readdirex(expand("%:p:h"), {d -> d.type == 'dir'}), {k,v -> v.type == "dir" ? v.name..'/' : v.name}) 
-                \+ map(readdirex(expand("%:p:h"), {d -> d.type != 'dir'}), {k,v -> v.type == "dir" ? v.name..'/' : v.name})
+    let items = s:runner[s:state.type]()
+
     if input !~ '^\s*$'
         let items = matchfuzzy(items, input)
     endif
+
     call setbufline(s:state.result_buf.bufnr, 1, items)
 endfunc
 
 
 func! s:on_next_maybe() abort
     let current_res = s:get_current_result()
-    if current_res =~ '/$'
-        exe 'lcd '..expand("%:p:h")..'/'..current_res
-        normal! cc
+    if s:state.type == 'file' && current_res =~ '/$'
+        let s:state.path = simplify(s:state.path..'/'..current_res)
+        call setbufline(s:state.prompt_buf.bufnr, '$', '')
         call s:on_update()
+        startinsert!
+    elseif s:is_single_result()
+        call s:on_select()
     else
         call win_execute(s:state.result_buf.winid, 'normal! j', 1)
+        startinsert!
     endif
-    startinsert!
 endfunc
 
 
 func! s:on_backspace() abort
-    if empty(s:get_prompt_value())
-        exe 'lcd '..expand("%:p:h:h")
+    if s:state.type == 'file' && empty(s:get_prompt_value())
+        let s:state.path = fnamemodify(s:state.path, ":p:h:h")
         call s:on_update()
     else
         normal! x
@@ -140,8 +193,15 @@ func! s:get_current_result() abort
 endfunc
 
 
+func! s:is_single_result() abort
+    let last_linenr = line('$', s:state.result_buf.winid)
+    let last_line = getbufline(s:state.result_buf.bufnr, '$')[0]
+    return last_linenr == 1 && last_line !~ '^\s*$'
+endfunc
+
+
 func! s:get_prompt_value() abort
-    return strcharpart(s:state.prompt_buf.bufnr->getbufline(1)[0], strchars(s:state.prompt_buf.bufnr->prompt_getprompt()))
+    return strcharpart(s:state.prompt_buf.bufnr->getbufline('$')[0], strchars(s:state.prompt_buf.bufnr->prompt_getprompt()))
 endfunc
 
 
