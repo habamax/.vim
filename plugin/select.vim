@@ -58,7 +58,7 @@ func! Select(type, ...) abort
             let s:state.path = simplify(expand("%:p:h")..'/')
         endif
 
-        let s:state.maxheight = 10
+        let s:state.maxheight = &lines/3
         let s:state.init_buf = {"bufnr": bufnr(), "winid": winnr()->win_getid()}
         let s:state.result_buf = s:create_result_buf()
         let s:state.prompt_buf = s:create_prompt_buf()
