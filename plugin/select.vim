@@ -1,20 +1,22 @@
 """ Trying matchfuzzy
 " TODO: max and min size of a result window
-" TODO: match chars highlight
 " TODO: more mappings (pgup, pgdwn, up/down, c-n, c-p)
 " TODO: search for all files in subdirectories (projectfile)
 " TODO: remove duplicates in MRU (buffers vs oldfiles)
 " TODO: popup windows? I guess not
 
-command! -nargs=? Select call Select(<q-args>)
-command! Edit call Select('file')
+command! -nargs=? -complete=customlist,SelectTypeComplete Select call Select(<q-args>)
+command! -nargs=? -complete=dir Edit call Select('file', <q-args>)
 command! Ls call Select('buffer')
 command! Mru call Select('mru')
-nnoremap <leader>f :Edit<CR>
-nnoremap <leader>b :Ls<CR>
-nnoremap <leader>m :Mru<CR>
+nnoremap <silent> <leader>f :Edit<CR>
+nnoremap <silent> <leader>b :Ls<CR>
+nnoremap <silent> <leader>m :Mru<CR>
 
 let s:select_types = ["file", "buffer", "colorscheme", "mru"]
+func! SelectTypeComplete(A,L,P)
+    return s:select_types->matchfuzzy(a:A)
+endfunc
 
 let s:state = {}
 
@@ -25,26 +27,25 @@ let s:sink.colorscheme = "colorscheme %s"
 let s:sink.mru = "edit %s"
 let s:sink = extend(s:sink, get(g:, "select_sink", {}), "force")
 
-let s:runner = get(g:, "select_runner", {})
+let s:runner = {}
+let s:runner.file = {->
+            \  map(readdirex(s:state.path, {d -> d.type == 'dir'}), {k,v -> v.type == "dir" ? v.name..'/' : v.name})
+            \+ map(readdirex(s:state.path, {d -> d.type != 'dir'}), {_,v -> v.name})
+            \ }
+let s:runner.buffer = {-> getcompletion('', 'buffer')}
+let s:runner.colorscheme = {-> getcompletion('', 'color')}
+let s:runner.mru = {-> getcompletion('', 'buffer') + v:oldfiles}
+let s:runner = extend(s:runner, get(g:, "select_runner", {}), "force")
 
-if empty(s:runner)
-    let s:runner.file = {->
-                \  map(readdirex(s:state.path, {d -> d.type == 'dir'}), {k,v -> v.type == "dir" ? v.name..'/' : v.name})
-                \+ map(readdirex(s:state.path, {d -> d.type != 'dir'}), {k,v -> v.type == "dir" ? v.name..'/' : v.name})
-                \ }
-    let s:runner.buffer = {-> getcompletion('', 'buffer')}
-    let s:runner.colorscheme = {-> getcompletion('', 'color')}
-    let s:runner.mru = {-> getcompletion('', 'buffer') + v:oldfiles}
-endif
 
-func! Select(...) abort
+func! Select(type, ...) abort
     let s:state = {}
-    if len(a:000) == 1
-        if index(s:select_types, a:1) == -1
-            echomsg a:1.." is not supported!"
+    if !empty(a:type)
+        if index(s:select_types, a:type) == -1
+            echomsg a:type.." is not supported!"
             return
         endif
-        let s:state.type = a:1
+        let s:state.type = a:type
     else
         let s:state.type = 'file'
     endif
@@ -52,7 +53,13 @@ func! Select(...) abort
     let s:state.showmode = &showmode
     let s:state.ruler = &ruler
 
-    let s:state.path = simplify(expand("%:p:h")..'/')
+    if a:type == 'file' && a:0 == 1 && !empty(a:1)
+        let s:state.path = simplify(expand(a:1)..'/')
+    else
+        let s:state.path = simplify(expand("%:p:h")..'/')
+    endif
+
+    let s:state.maxheight = 10
     let s:state.init_buf = {"bufnr": bufnr(), "winid": winnr()->win_getid()}
     let s:state.result_buf = s:create_result_buf()
     let s:state.prompt_buf = s:create_prompt_buf()
@@ -82,7 +89,7 @@ func! s:prepare_buffer(type)
         setlocal buftype=prompt
         setlocal nocursorline
     elseif a:type == 'result'
-        exe printf("silent noautocmd keepalt botright %snew select %s", 10, s:state.type)
+        exe printf("silent noautocmd keepalt botright 1new select %s", s:state.type)
         setlocal buftype=nofile
         setlocal cursorline
         setlocal noruler
@@ -92,6 +99,8 @@ func! s:prepare_buffer(type)
             syn match SelectDirectory '^.*/$'
             hi def link SelectDirectory Directory
         endif
+        hi def link SelectMatched Statement
+        call prop_type_add('highlight', { 'highlight': 'SelectMatched', 'bufnr': bufnr() })
     endif
     setlocal bufhidden=unload
     setlocal noundofile
@@ -145,12 +154,26 @@ func! s:on_update() abort
     let input = s:get_prompt_value()
 
     let items = s:runner[s:state.type]()
+    let highlights = []
 
     if input !~ '^\s*$'
-        let items = matchfuzzy(items, input)
+        let [items, highlights] = matchfuzzypos(items, input)
     endif
 
     call setbufline(s:state.result_buf.bufnr, 1, items)
+
+    if !empty(highlights)
+        let bufline = 1
+        for hl in highlights
+            for pos in hl
+                call prop_add(bufline, pos + 1, {'length': 1, 'type': 'highlight', 'bufnr': s:state.result_buf.bufnr})
+            endfor
+        let bufline += 1
+        endfor
+    endif
+
+    call win_execute(s:state.result_buf.winid, printf('resize %d', min([len(items), s:state.maxheight])))
+    call win_execute(s:state.prompt_buf.winid, 'resize 1')
 endfunc
 
 
