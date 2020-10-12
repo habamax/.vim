@@ -49,22 +49,27 @@ func! Select(type, ...) abort
     else
         let s:state.type = 'file'
     endif
-    let s:state.laststatus = &laststatus
-    let s:state.showmode = &showmode
-    let s:state.ruler = &ruler
+    try
+        let s:state.laststatus = &laststatus
+        let s:state.showmode = &showmode
+        let s:state.ruler = &ruler
 
-    if a:type == 'file' && a:0 == 1 && !empty(a:1)
-        let s:state.path = simplify(expand(a:1)..'/')
-    else
-        let s:state.path = simplify(expand("%:p:h")..'/')
-    endif
+        if a:type == 'file' && a:0 == 1 && !empty(a:1)
+            let s:state.path = simplify(expand(a:1)..'/')
+        else
+            let s:state.path = simplify(expand("%:p:h")..'/')
+        endif
 
-    let s:state.maxheight = 10
-    let s:state.init_buf = {"bufnr": bufnr(), "winid": winnr()->win_getid()}
-    let s:state.result_buf = s:create_result_buf()
-    let s:state.prompt_buf = s:create_prompt_buf()
-    call s:on_update()
-    startinsert!
+        let s:state.maxheight = 10
+        let s:state.init_buf = {"bufnr": bufnr(), "winid": winnr()->win_getid()}
+        let s:state.result_buf = s:create_result_buf()
+        let s:state.prompt_buf = s:create_prompt_buf()
+        call s:on_update()
+        startinsert!
+    catch /.*/
+        echom v:exception
+        call s:close()
+    endtry
 endfunc
 
 
@@ -104,7 +109,7 @@ func! s:prepare_buffer(type)
         hi def link SelectMatched Statement
         call prop_type_add('highlight', { 'highlight': 'SelectMatched', 'bufnr': bufnr() })
     endif
-    setlocal bufhidden=unload
+    setlocal bufhidden=wipe
     setlocal noundofile
     setlocal nospell
     setlocal nobuflisted
@@ -120,13 +125,16 @@ endfunc
 
 
 func! s:close() abort
-    call win_execute(s:state.result_buf.winid, "quit!", 1)
-    call win_execute(s:state.prompt_buf.winid, "quit!", 1)
-    call win_gotoid(s:state.init_buf.winid)
-
-    let &laststatus = s:state.laststatus
-    let &showmode = s:state.showmode
-    let &ruler = s:state.ruler
+    try
+        call win_execute(s:state.result_buf.winid, "quit!", 1)
+        call win_execute(s:state.prompt_buf.winid, "quit!", 1)
+    catch
+    finally
+        call win_gotoid(s:state.init_buf.winid)
+        let &laststatus = s:state.laststatus
+        let &showmode = s:state.showmode
+        let &ruler = s:state.ruler
+    endtry
 endfunc
 
 func! s:on_cancel() abort
@@ -145,7 +153,7 @@ func! s:on_select() abort
 
 
     if s:state.type == 'file'
-        let current_res = simplify(s:state.path..'/'..current_res)
+        let current_res = fnameescape(simplify(s:state.path..'/'..current_res))
     endif
     exe printf(s:sink[s:state.type], current_res)
 endfunc
@@ -250,6 +258,6 @@ endfunc
 
 func! s:update_status() abort
     if s:state.type == 'file'
-        call win_execute(s:state.result_buf.winid, printf('silent file %s', s:state.path), 1)
+        call win_execute(s:state.result_buf.winid, printf('silent file [%s]', s:state.path), 1)
     endif
 endfunc
