@@ -145,7 +145,7 @@ func! s:on_select() abort
 
 
     if s:state.type == 'file'
-        let current_res = s:state.path..current_res
+        let current_res = simplify(s:state.path..'/'..current_res)
     endif
     exe printf(s:sink[s:state.type], current_res)
 endfunc
