@@ -1,8 +1,6 @@
 """ Trying matchfuzzy
-" TODO: max and min size of a result window
 " TODO: more mappings (pgup, pgdwn, up/down, c-n, c-p)
 " TODO: search for all files in subdirectories (projectfile)
-" TODO: remove duplicates in MRU (buffers vs oldfiles)
 " TODO: popup windows? I guess not
 
 command! -nargs=? -complete=customlist,SelectTypeComplete Select call Select(<q-args>)
