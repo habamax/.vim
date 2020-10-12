@@ -88,8 +88,10 @@ func! s:prepare_buffer(type)
     if a:type == "prompt"
         setlocal buftype=prompt
         setlocal nocursorline
+        set filetype=selectprompt
     elseif a:type == 'result'
-        exe printf("file [select %s]", s:state.type)
+        exe printf("silent file [select %s]", s:state.type)
+        set filetype=selectresults
         setlocal buftype=nofile
         setlocal cursorline
         setlocal noruler
