@@ -13,7 +13,7 @@ nnoremap <silent> <leader>f :Edit<CR>
 nnoremap <silent> <leader>b :Ls<CR>
 nnoremap <silent> <leader>m :Mru<CR>
 
-let s:select_types = ["file", "buffer", "colorscheme", "mru"]
+let s:select_types = ["file", "buffer", "colors", "mru"]
 func! SelectTypeComplete(A,L,P)
     return s:select_types->matchfuzzy(a:A)
 endfunc
@@ -23,7 +23,7 @@ let s:state = {}
 let s:sink = {}
 let s:sink.file = "edit %s"
 let s:sink.buffer = "buffer %s"
-let s:sink.colorscheme = "colorscheme %s"
+let s:sink.colors = "colorscheme %s"
 let s:sink.mru = "edit %s"
 let s:sink = extend(s:sink, get(g:, "select_sink", {}), "force")
 
@@ -33,8 +33,8 @@ let s:runner.file = {->
             \+ map(readdirex(s:state.path, {d -> d.type != 'dir'}), {_,v -> v.name})
             \ }
 let s:runner.buffer = {-> getcompletion('', 'buffer')}
-let s:runner.colorscheme = {-> getcompletion('', 'color')}
-let s:runner.mru = {-> getcompletion('', 'buffer') + v:oldfiles}
+let s:runner.colors = {-> getcompletion('', 'color')}
+let s:runner.mru = {-> v:oldfiles}
 let s:runner = extend(s:runner, get(g:, "select_runner", {}), "force")
 
 
@@ -153,6 +153,8 @@ endfunc
 
 func! s:on_update() abort
     call win_execute(s:state.result_buf.winid, "silent %delete_", 1)
+    call s:update_status()
+
     let input = s:get_prompt_value()
 
     let items = s:runner[s:state.type]()
@@ -243,4 +245,11 @@ func! s:add_prompt_autocommands() abort
     augroup prompt | au!
         au TextChangedI <buffer> call s:on_update()
     augroup END
+endfunc
+
+
+func! s:update_status() abort
+    if s:state.type == 'file'
+        call win_execute(s:state.result_buf.winid, printf('silent file %s', s:state.path), 1)
+    endif
 endfunc
