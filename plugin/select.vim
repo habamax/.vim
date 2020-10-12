@@ -99,7 +99,7 @@ func! s:prepare_buffer(type)
             syn match SelectDirectory '^.*/$'
             hi def link SelectDirectory Directory
         endif
-        hi def link SelectMatched Statement
+        hi def link SelectMatched String
         call prop_type_add('highlight', { 'highlight': 'SelectMatched', 'bufnr': bufnr() })
     endif
     setlocal bufhidden=unload
