@@ -84,12 +84,12 @@ endfunc
 
 
 func! s:prepare_buffer(type)
+    silent noautocmd keepalt botright 1new
     if a:type == "prompt"
-        silent noautocmd keepalt botright 1new
         setlocal buftype=prompt
         setlocal nocursorline
     elseif a:type == 'result'
-        exe printf("silent noautocmd keepalt botright 1new select %s", s:state.type)
+        exe printf("file [select %s]", s:state.type)
         setlocal buftype=nofile
         setlocal cursorline
         setlocal noruler
