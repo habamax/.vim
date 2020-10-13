@@ -63,10 +63,10 @@ func! Select(type, ...) abort
         endif
 
         let s:state.maxheight = &lines/3
+        let s:state.curheight = s:state.maxheight
         let s:state.init_buf = {"bufnr": bufnr(), "winid": winnr()->win_getid()}
         let s:state.result_buf = s:create_result_buf()
         let s:state.prompt_buf = s:create_prompt_buf()
-        call s:on_update()
         startinsert!
     catch /.*/
         echom v:exception
@@ -202,9 +202,20 @@ func! s:on_next_maybe() abort
     elseif s:is_single_result()
         call s:on_select()
     else
-        call win_execute(s:state.result_buf.winid, 'normal! j', 1)
-        startinsert!
+        call s:on_next()
     endif
+endfunc
+
+
+func! s:on_next(...) abort
+    let n = a:0 == 1 ? a:1 : 1
+    call win_execute(s:state.result_buf.winid, printf('normal! %sj', n), 1)
+    startinsert!
+endfunc
+
+
+func! s:on_next_page() abort
+    call s:on_next(s:state.curheight - 1)
 endfunc
 
 
@@ -212,11 +223,7 @@ func! s:on_backspace() abort
     if s:state.type == 'file' && empty(s:get_prompt_value())
         let parent_path = fnamemodify(s:state.path, ":p:h:h")
         if parent_path != s:state.path
-            if parent_path =~ '[/\\]'
-                let s:state.path = parent_path
-            else
-                let s:state.path = parent_path..'/'
-            endif
+            let s:state.path = substitute(parent_path..'/', '[/\\]\+', '/', 'g')
             call s:on_update()
         endif
     else
@@ -226,9 +233,15 @@ func! s:on_backspace() abort
 endfunc
 
 
-func! s:on_prev_maybe() abort
-    call win_execute(s:state.result_buf.winid, 'normal! k', 1)
+func! s:on_prev(...) abort
+    let n = a:0 == 1 ? a:1 : 1
+    call win_execute(s:state.result_buf.winid, printf('normal! %sk', n), 1)
     startinsert!
+endfunc
+
+
+func! s:on_prev_page() abort
+    call s:on_prev(s:state.curheight - 1)
 endfunc
 
 
@@ -254,8 +267,14 @@ func! s:add_prompt_mappings() abort
     inoremap <silent><buffer> <CR> <ESC>:call <SID>on_select()<CR>
     inoremap <silent><buffer> <ESC> <ESC>:call <SID>on_cancel()<CR>
     inoremap <silent><buffer> <TAB> <ESC>:call <SID>on_next_maybe()<CR>
-    inoremap <silent><buffer> <S-TAB> <ESC>:call <SID>on_prev_maybe()<CR>
+    inoremap <silent><buffer> <S-TAB> <ESC>:call <SID>on_prev<CR>
     inoremap <silent><buffer> <BS> <ESC>:call <SID>on_backspace()<CR>
+    inoremap <silent><buffer> <C-n> <ESC>:call <SID>on_next()<CR>
+    inoremap <silent><buffer> <C-p> <ESC>:call <SID>on_prev()<CR>
+    inoremap <silent><buffer> <Down> <ESC>:call <SID>on_next()<CR>
+    inoremap <silent><buffer> <Up> <ESC>:call <SID>on_prev()<CR>
+    inoremap <silent><buffer> <PageDown> <ESC>:call <SID>on_next_page()<CR>
+    inoremap <silent><buffer> <PageUp> <ESC>:call <SID>on_prev_page()<CR>
 endfunc
 
 
