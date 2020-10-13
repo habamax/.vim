@@ -63,7 +63,6 @@ func! Select(type, ...) abort
         endif
 
         let s:state.maxheight = &lines/3
-        let s:state.curheight = s:state.maxheight
         let s:state.init_buf = {"bufnr": bufnr(), "winid": winnr()->win_getid()}
         let s:state.result_buf = s:create_result_buf()
         let s:state.prompt_buf = s:create_prompt_buf()
@@ -215,7 +214,7 @@ endfunc
 
 
 func! s:on_next_page() abort
-    call s:on_next(s:state.curheight - 1)
+    call s:on_next(s:state.maxheight - 1)
 endfunc
 
 
@@ -241,7 +240,7 @@ endfunc
 
 
 func! s:on_prev_page() abort
-    call s:on_prev(s:state.curheight - 1)
+    call s:on_prev(s:state.maxheight - 1)
 endfunc
 
 
