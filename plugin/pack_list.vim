@@ -27,6 +27,7 @@ call minpac#add('git@github.com:habamax/vim-godot.git', {'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-num2words.git', {'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-sendtoterm.git', {'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-winlayout.git', {'rev': 'master'})
+call minpac#add('git@github.com:habamax/vim-select.git', {'rev': 'master'})
 
 
 "" Tim Pope is a beast. You better use his stuff ...

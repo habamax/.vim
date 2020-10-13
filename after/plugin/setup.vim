@@ -35,3 +35,11 @@ endif
 "     nnoremap - :e %:p:h<CR>
 "     let g:molder_show_hidden = 1
 " endif
+"
+
+if exists("g:loaded_select")
+    nmap <leader>f <Plug>(SelectFile)
+    nmap <leader>b <Plug>(SelectBuffer)
+    nmap <leader>m <Plug>(SelectMRU)
+    nmap <leader>; <Plug>(SelectCmd)
+endif
