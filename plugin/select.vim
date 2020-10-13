@@ -7,11 +7,13 @@ command! -nargs=? -complete=customlist,SelectTypeComplete Select call Select(<q-
 command! -nargs=? -complete=dir Edit call Select('file', <q-args>)
 command! Ls call Select('buffer')
 command! Mru call Select('mru')
+command! Cmd call Select('command')
 nnoremap <silent> <leader>f :Edit<CR>
 nnoremap <silent> <leader>b :Ls<CR>
 nnoremap <silent> <leader>m :Mru<CR>
+nnoremap <silent> <leader>; :Cmd<CR>
 
-let s:select_types = ["file", "buffer", "colors", "mru"]
+let s:select_types = ["file", "buffer", "colors", "mru", "command"]
 func! SelectTypeComplete(A,L,P)
     return s:select_types->matchfuzzy(a:A)
 endfunc
@@ -22,6 +24,7 @@ let s:sink = {}
 let s:sink.file = "edit %s"
 let s:sink.buffer = "buffer %s"
 let s:sink.colors = "colorscheme %s"
+let s:sink.command = ":%s"
 let s:sink.mru = "edit %s"
 let s:sink = extend(s:sink, get(g:, "select_sink", {}), "force")
 
@@ -32,6 +35,7 @@ let s:runner.file = {->
             \ }
 let s:runner.buffer = {-> getcompletion('', 'buffer')}
 let s:runner.colors = {-> getcompletion('', 'color')}
+let s:runner.command = {-> getcompletion('', 'command')}
 let s:runner.mru = {-> v:oldfiles}
 let s:runner = extend(s:runner, get(g:, "select_runner", {}), "force")
 
@@ -153,6 +157,7 @@ func! s:on_select() abort
     if s:state.type == 'file'
         let current_res = fnameescape(simplify(s:state.path..'/'..current_res))
     endif
+
     exe printf(s:sink[s:state.type], current_res)
 endfunc
 
