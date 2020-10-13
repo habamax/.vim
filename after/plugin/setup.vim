@@ -42,4 +42,7 @@ if exists("g:loaded_select")
     nmap <leader>b <Plug>(SelectBuffer)
     nmap <leader>m <Plug>(SelectMRU)
     nmap <leader>; <Plug>(SelectCmd)
+
+    command! Docs :exe printf('SelectFile %s/docs', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))
+    command! VimConfigs :exe printf('SelectFile %s', fnamemodify($MYVIMRC, ":p:h"))
 endif
