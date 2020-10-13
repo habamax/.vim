@@ -259,8 +259,13 @@ command! -range Sum
 command! -nargs=1 -complete=customlist,SessionComplete S :mksession! ~/.vimdata/sessions/<args>
 command! -nargs=1 -complete=customlist,SessionComplete L :%bd <bar> so ~/.vimdata/sessions/<args>
 func! SessionComplete(A, L, P)
-    let fullpaths = split(globpath("~/.vimdata/sessions/", a:A."*"), "\n")
-    return map(fullpaths, {k,v -> fnamemodify(v, ":t")})
+    let fullpaths = split(globpath("~/.vimdata/sessions/", "*"), "\n")
+    let result = map(fullpaths, {k,v -> fnamemodify(v, ":t")})
+    if empty(a:A)
+        return result
+    else
+        return result->matchfuzzy(a:A)
+    endif
 endfunc
 
 " Write to a privileged file
