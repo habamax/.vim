@@ -130,15 +130,16 @@ Ignore     none       none
 
 Title      statement  none bold
 
-colortemplateKey     -> Statement
-colortemplateAttr    -> String
-vimNotation          -> Type
-vimFuncSID           -> PreProc
-vimHiTerm            -> Identifier
-helpNotVi            -> Comment
-helpExample          -> PreProc
-gdscriptBlockStart   -> Statement
-gdscriptFunctionName -> Function
-gitCommitSummary     -> Title
-cocErrorSign         -> Type
-markdownUrl          -> Underlined
+colortemplateKey      -> Statement
+colortemplateAttr     -> String
+vimNotation           -> Type
+vimFuncSID            -> PreProc
+vimHiTerm             -> Identifier
+helpNotVi             -> Comment
+helpExample           -> PreProc
+gdscriptBlockStart    -> Statement
+gdscriptFunctionName  -> Function
+gitCommitSummary      -> Title
+cocErrorSign          -> Type
+markdownUrl           -> Underlined
+SelectDirectoryPrefix comment none
