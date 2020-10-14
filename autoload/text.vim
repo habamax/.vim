@@ -2,7 +2,6 @@
 "" Author: Maxim Kim <habamax@gmail.com>
 "" Desc: Text manipulation functions.
 
-
 "" Fix text: {{{1
 "" * replace non-breaking spaces to spaces
 "" * replace multiple spaces to a single space (preserving indent)
@@ -11,10 +10,10 @@
 "" * remove space after opened brace: ( word -> (word
 "" * remove space at the end of line
 "" Usage:
-"" command! -range FixText <line1>,<line2>call text#fix()
-"" nnoremap <leader><leader><leader> :FixText<CR>
-"" xnoremap <leader><leader><leader> :FixText<CR>
-func! text#fix() range
+"" command! -range TextFixSpaces <line1>,<line2>call text#fix_spaces()
+"" nnoremap <leader><leader><leader> :TextFixSpaces<CR>
+"" xnoremap <leader><leader><leader> :TextFixSpaces<CR>
+func! text#fix_spaces() range
     let pos=getcurpos()
     " replace non-breaking space to space first
     exe printf('silent %d,%ds/\%%xA0/ /ge', a:firstline, a:lastline)

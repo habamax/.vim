@@ -79,19 +79,8 @@ nnoremap <leader>wl <C-w>L
 nnoremap <leader>wj <C-w>J
 nnoremap <leader>wk <C-w>K
 
-" goto window
-for wnr in range(1, 9)
-    exe printf("nnoremap <space>%s %s<C-w>w", wnr, wnr)
-    exe printf("nnoremap %s<space> %s<C-w>w", wnr, wnr)
-endfor
-
-
 nnoremap <silent> <F2> :echo win#layout_toggle()<CR>
-nnoremap <silent> <leader>w1 :echo win#layout_horizontal()<CR>
-nnoremap <silent> <leader>w2 :echo win#layout_vertical()<CR>
-nnoremap <silent> <leader>w3 :echo win#layout_main_horizontal()<CR>
-nnoremap <silent> <leader>w4 :echo win#layout_main_vertical()<CR>
-nnoremap <silent> <leader>w5 :echo win#layout_tile()<CR>
+
 
 "" indent text object
 onoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
@@ -129,10 +118,11 @@ inoremap <C-U> <C-G>u<C-U>
 " https://castel.dev/post/lecture-notes-1/
 inoremap <M-s> <c-g>u<C-\><C-o>[s<ESC>1z=`]a<c-g>u
 
+nnoremap <leader>t<space> i<space><right><space><ESC>h
 
-" just one space on the line, preserving indent
-nnoremap <leader><leader><leader> :FixText<CR>
-xnoremap <leader><leader><leader> :FixText<CR>
+" Fix text (remove double spaces, hanging spaces, etc)
+nnoremap <leader>tf :TextFixSpaces<CR>
+xnoremap <leader>tf :TextFixSpaces<CR>
 
 " now it is possible to paste many times over selected text
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
@@ -183,7 +173,7 @@ nnoremap <silent> gof :call os#file_manager()<CR>
 " nnoremap gx :call os#open_url(expand('<cWORD>'))<CR>
 
 
-nnoremap <expr> <leader>sa printf(":saveas %s%s",
+nnoremap <expr> <leader>W printf(":saveas %s%s",
             \ expand("%:p"),
             \ empty(expand("%:e")) ? '' : repeat('<Left>', strchars(expand("%:e")) + 1))
 
@@ -227,7 +217,8 @@ command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
             \:echo 'Remove trailing spaces and ^Ms.'
 
 
-command! -range FixText <line1>,<line2>call text#fix()
+command! -range TextFixSpaces <line1>,<line2>call text#fix_spaces()
+command! TextAddSpaces call text#add_spaces()
 
 " Two columns.
 " 1. Vertically split window
