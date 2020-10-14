@@ -164,12 +164,7 @@ let g:evalvim_mappings = v:true
 
 
 """ YCM, Coc or mucomplete {{{1
-" 'Funny' thing, YCM completely hangs console vim on windows
-if has("win32") && !has("gui_running")
-    call timer_start(2000, {-> lsp#setup('coc')})
-else
-    call timer_start(2000, {-> lsp#setup('ycm')})
-endif
+call timer_start(2000, {-> lsp#setup('ycm')})
 
 
 """ Colorizer
