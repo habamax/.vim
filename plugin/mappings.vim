@@ -17,9 +17,7 @@ cnoremap <M-l> <C-r><C-l>
 nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
 " guards
-nnoremap <leader>m <nop>
-nnoremap <leader>o <nop>
-nnoremap <leader>d <nop>
+nnoremap <leader>f <nop>
 
 nnoremap <BS> <C-^>
 " kill-all buffers except current one
