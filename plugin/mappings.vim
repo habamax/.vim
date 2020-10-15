@@ -154,9 +154,9 @@ nnoremap <silent> <leader>ei :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/vimrc"<
 
 
 " Directory ~/docs
-nnoremap <silent> <leader>dd :Docs<CR>
+nnoremap <silent> <leader>fd :Docs<CR>
 " Directory ~/vimfiles or ~/.vim
-nnoremap <silent> <leader>dv :VimConfigs<CR>
+nnoremap <silent> <leader>fv :VimConfigs<CR>
 
 nnoremap <silent> <leader>i :call git#show_commit()<CR>
 
