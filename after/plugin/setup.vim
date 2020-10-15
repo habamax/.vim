@@ -38,7 +38,7 @@ endif
 "
 
 if exists("g:loaded_select")
-    nmap <leader>fe <Plug>(SelectFile)
+    nmap <leader>fo <Plug>(SelectFile)
     nmap <leader>fm <Plug>(SelectMRU)
     nmap <leader>fp <Plug>(SelectProjectFile)
     nmap <leader>b <Plug>(SelectBuffer)
