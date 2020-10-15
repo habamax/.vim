@@ -5,7 +5,7 @@ let b:foldchar = ''
 let b:foldlines_padding = v:true
 
 let b:select_sink = {}
-let b:select_sink.godotscene = {"transform": {p, v -> fnameescape(p..v)}, "edit": "GodotRun %s"}
+let b:select_sink.godotscene = {"transform": {_, v -> fnameescape(v)}, "edit": "GodotRun %s"}
 let b:select_runner = {}
 let b:select_runner.godotscene = {"cmd": "rg --files --glob *.tscn"}
 
