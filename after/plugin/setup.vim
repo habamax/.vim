@@ -38,10 +38,10 @@ endif
 "
 
 if exists("g:loaded_select")
-    nmap <leader>ff <Plug>(SelectFile)
+    nmap <leader>fe <Plug>(SelectFile)
     nmap <leader>fm <Plug>(SelectMRU)
     nmap <leader>fp <Plug>(SelectProjectFile)
-    nmap <leader>bb <Plug>(SelectBuffer)
+    nmap <leader>b <Plug>(SelectBuffer)
     nmap <leader>; <Plug>(SelectCmd)
 
     command! Docs :exe printf('SelectProjectFile %s/docs', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))

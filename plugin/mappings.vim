@@ -20,7 +20,6 @@ nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader>m <nop>
 nnoremap <leader>o <nop>
 nnoremap <leader>d <nop>
-nnoremap d<leader> <nop>
 
 nnoremap <BS> <C-^>
 " kill-all buffers except current one
