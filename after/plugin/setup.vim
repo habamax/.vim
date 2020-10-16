@@ -2,6 +2,7 @@ if exists("g:loaded_select")
     nmap <leader>fo <Plug>(SelectFile)
     nmap <leader>fm <Plug>(SelectMRU)
     nmap <leader>fp <Plug>(SelectProjectFile)
+    nmap <leader>fc <Plug>(SelectColors)
     nmap <leader>b <Plug>(SelectBuffer)
     nmap <leader>; <Plug>(SelectCmd)
 
