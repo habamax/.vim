@@ -8,6 +8,9 @@ if has('nvim')
     let g:loaded3_python_provider = 0
 endif
 
+""" netrw {{{1
+let g:netrw_banner = 0
+
 
 """ vim-gutentags {{{1
 if executable("ctags")
@@ -87,17 +90,6 @@ let g:dispatch_no_tmux_make = 1
 """ vim-closetag {{{1
 let g:closetag_filetypes = 'html,xhtml,xml'
 
-""" vim-molder {{{1
-" nnoremap - :e %:p:h<CR>
-" let g:molder_show_hidden = 1
-
-""" vim-dirvish {{{1
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-
-" directory first
-let g:dirvish_mode = ':sort ,^.*[\/],'
-
 
 """ vim-easy-align {{{1
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -119,23 +111,6 @@ augroup rest_output | au!
     au BufNew __REST_response__ command! FormatREST call misc#vrc_format_rest_as_json()
 augroup END
 
-
-
-""" firenvim {{{1
-" if exists('g:started_by_firenvim')
-" packadd firenvim
-" set gfn=JetBrains\ Mono\ NL:h14
-" au BufEnter github.com_*.txt set filetype=markdown
-" au BufEnter www.linux.org.ru_*.txt set filetype=markdown
-" let g:firenvim_config = {
-" \ 'localSettings': {
-" \ '.*': {
-" \ 'selector': '',
-" \ 'priority': 0,
-" \ }
-" \ }
-" \ }
-" endif
 
 
 """ elixir {{{1
@@ -179,5 +154,3 @@ nnoremap <silent> <F9> :FernDo :<CR>
 
 """ vim-godot
 let g:godot_ext_hl = v:false
-
-
