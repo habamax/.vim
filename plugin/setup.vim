@@ -10,6 +10,7 @@ endif
 
 
 """ netrw {{{1
+nnoremap <silent> - :exe printf('e %s <bar> call search("\<%s\>")', expand("%:p:h"), expand("#:t"))<CR>
 let g:netrw_banner = 0
 
 
