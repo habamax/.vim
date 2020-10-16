@@ -8,6 +8,7 @@ if has('nvim')
     let g:loaded3_python_provider = 0
 endif
 
+
 """ netrw {{{1
 let g:netrw_banner = 0
 
