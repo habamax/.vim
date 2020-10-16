@@ -13,7 +13,6 @@ let b:select_runner.godotscene = {"cmd": "rg --files --glob *.tscn"}
 
 nnoremap <buffer> <F5> :GodotRun<CR>
 nnoremap <buffer> <F6> :GodotRunCurrent<CR>
-nnoremap <buffer> <F7> :GodotRunFZF<CR>
 
 nnoremap <buffer> <leader><leader>r :GodotRun<CR>
 nnoremap <buffer> <leader><leader>c :GodotRunCurrent<CR>
