@@ -1,3 +1,21 @@
+if exists("g:loaded_select")
+    nmap <leader>fo <Plug>(SelectFile)
+    nmap <leader>fm <Plug>(SelectMRU)
+    nmap <leader>fp <Plug>(SelectProjectFile)
+    nmap <leader>b <Plug>(SelectBuffer)
+    nmap <leader>; <Plug>(SelectCmd)
+
+    command! Docs :exe printf('SelectProjectFile %s/docs', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))
+    command! VimConfigs :exe printf('SelectProjectFile %s', fnamemodify($MYVIMRC, ":p:h"))
+endif
+
+
+if exists("g:loaded_winlayout")
+    nmap <F3> <Plug>(WinlayoutBackward)
+    nmap <F4> <Plug>(WinlayoutForward)
+endif
+
+
 if exists("g:loaded_swap") " {{{1
     omap i, <Plug>(swap-textobject-i)
     xmap i, <Plug>(swap-textobject-i)
@@ -24,26 +42,4 @@ if exists("g:loaded_swap") " {{{1
                 \     'delimiter': ['\s*,\s*'],
                 \     'priority': -10
                 \   }]
-endif
-
-if exists("g:loaded_winlayout")
-    nmap <F3> <Plug>(WinlayoutBackward)
-    nmap <F4> <Plug>(WinlayoutForward)
-endif
-
-" if exists("g:loaded_molder")
-"     nnoremap - :e %:p:h<CR>
-"     let g:molder_show_hidden = 1
-" endif
-"
-
-if exists("g:loaded_select")
-    nmap <leader>fo <Plug>(SelectFile)
-    nmap <leader>fm <Plug>(SelectMRU)
-    nmap <leader>fp <Plug>(SelectProjectFile)
-    nmap <leader>b <Plug>(SelectBuffer)
-    nmap <leader>; <Plug>(SelectCmd)
-
-    command! Docs :exe printf('SelectProjectFile %s/docs', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))
-    command! VimConfigs :exe printf('SelectProjectFile %s', fnamemodify($MYVIMRC, ":p:h"))
 endif
