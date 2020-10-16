@@ -11,7 +11,7 @@ endif
 
 """ vim-select {{{1
 let g:select_sink = {}
-let g:select_sink.sound = {"transform": {p, v -> p..v}, "edit": {v -> sound_playfile(v)}}
+let g:select_sink.sound = {"transform": {p, v -> p..v}, "action": {v -> sound_playfile(v)}}
 let g:select_runner = {}
 let g:select_runner.sound = {"cmd": "rg --files --glob *.mp3"}
 command! -nargs=? -complete=dir SelectSound call select#do('sound', <q-args>)
