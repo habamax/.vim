@@ -6,8 +6,8 @@ if exists("g:loaded_select")
     nmap <leader>b <Plug>(SelectBuffer)
     nmap <leader>; <Plug>(SelectCmd)
 
-    command! Docs :exe printf('SelectProjectFile %s/docs', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))
-    command! VimConfigs :exe printf('SelectProjectFile %s', fnamemodify($MYVIMRC, ":p:h"))
+    command! Docs :exe printf('Select projectfile %s/docs', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))
+    command! VimConfigs :exe printf('Select projectfile %s', fnamemodify($MYVIMRC, ":p:h"))
 endif
 
 
