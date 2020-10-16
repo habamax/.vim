@@ -9,6 +9,14 @@ if has('nvim')
 endif
 
 
+""" vim-select {{{1
+let g:select_sink = {}
+let g:select_sink.sound = {"transform": {p, v -> p..v}, "edit": {v -> sound_playfile(v)}}
+let g:select_runner = {}
+let g:select_runner.sound = {"cmd": "rg --files --glob *.mp3"}
+command! -nargs=? -complete=dir SelectSound call select#do('sound', <q-args>)
+
+
 """ netrw {{{1
 nnoremap <silent> - :exe printf('e %s <bar> call search("\<%s\>")', expand("%:p:h"), expand("#:t"))<CR>
 let g:netrw_banner = 0
