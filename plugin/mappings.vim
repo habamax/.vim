@@ -170,7 +170,8 @@ nnoremap <silent> gof :call os#file_manager()<CR>
 " nnoremap gx :call os#open_url(expand('<cWORD>'))<CR>
 
 
-nnoremap <expr> <leader>W printf(":saveas %s%s",
+" Save as
+nnoremap <expr> <leader>fS printf(":saveas %s%s",
             \ expand("%:p"),
             \ empty(expand("%:e")) ? '' : repeat('<Left>', strchars(expand("%:e")) + 1))
 
