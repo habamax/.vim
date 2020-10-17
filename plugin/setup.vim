@@ -16,7 +16,11 @@ let g:select_info.sound.sink = {"transform": {p, v -> p..v}, "action": {v -> sou
 
 
 """ netrw {{{1
-nnoremap <silent> - :exe printf('e %s <bar> call search("\<%s\>")', expand("%:p:h"), expand("#:t"))<CR>
+func! s:netrw_e() abort
+    exe 'e ' .. expand("%:p:h")
+    call search('\<'..expand("#:t")..'\>')
+endfunc
+nnoremap <silent> - :call <SID>netrw_e()<CR>
 let g:netrw_banner = 0
 
 
