@@ -10,11 +10,9 @@ endif
 
 
 """ vim-select {{{1
-let g:select_runner = {"sound": {}, "project": {}}
-let g:select_runner.sound.data = {"cmd": "rg --files --glob *.mp3"}
-let g:select_runner.sound.sink = {"transform": {p, v -> p..v}, "action": {v -> sound_playfile(v)}}
-let g:select_runner.project.data = {-> ['C:/Users/maksim.kim/vimfiles', 'C:/Users/maksim.kim/docs']}
-let g:select_runner.project.sink = "Select projectfile %s"
+let g:select_info = {"sound": {}}
+let g:select_info.sound.data = {"cmd": "rg --files --glob *.mp3"}
+let g:select_info.sound.sink = {"transform": {p, v -> p..v}, "action": {v -> sound_playfile(v)}}
 
 
 """ netrw {{{1

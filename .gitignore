@@ -30,3 +30,4 @@ rplugin.vim
 /tags
 /lsp-servers/
 /local.vim
+/.selectprojects
