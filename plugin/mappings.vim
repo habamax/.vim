@@ -149,12 +149,6 @@ nnoremap <leader>z zA
 " edit init file
 nnoremap <silent> <leader>ei :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/vimrc"<CR>
 
-
-" Directory ~/docs
-nnoremap <silent> <leader>fd :Docs<CR>
-" Directory ~/vimfiles or ~/.vim
-nnoremap <silent> <leader>fv :VimConfigs<CR>
-
 nnoremap <silent> <leader>i :call git#show_commit()<CR>
 
 " edit global todo file
@@ -203,11 +197,6 @@ command! Init :silent only
             \<bar>:exe printf("bo vs %s/vimrc", fnamemodify($MYVIMRC, ":p:h"))
             \<bar>:1wincmd w
 
-" Open docs folder
-command! Docs :exe printf('e %s/docs', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))
-
-" Open vim config folder
-command! VimConfigs :exe printf('e %s', fnamemodify($MYVIMRC, ":p:h"))
 
 " remove trailing spaces
 command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
