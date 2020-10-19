@@ -20,7 +20,7 @@ nnoremap <leader>fs :Select session<CR>
 
 """ netrw {{{1
 func! s:netrw_e() abort
-    exe 'e ' .. expand("%:p:h")
+    exe 'silent e ' .. expand("%:p:h")
     call search('\<'..expand("#:t")..'\>')
 endfunc
 nnoremap <silent> - :call <SID>netrw_e()<CR>
