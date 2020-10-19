@@ -10,12 +10,17 @@ endif
 
 
 """ vim-select {{{1
-let g:select_info = {"session": {}, "sound": {}}
+let g:select_info = {"session": {}, "sound": {}, "highlight": {}}
 let g:select_info.session.data = {-> map(glob("~/.vimdata/sessions/*", 1, 1), {_, v -> fnamemodify(v, ":t")})}
 let g:select_info.session.sink = "%%bd | source ~/.vimdata/sessions/%s"
 let g:select_info.sound.data = {"cmd": "rg --files --glob *.mp3"}
 let g:select_info.sound.sink = {"transform": {p, v -> p..v}, "action": {v -> sound_playfile(v)}}
+let g:select_info.sound.data = {"cmd": "rg --files --glob *.mp3"}
+let g:select_info.sound.sink = {"transform": {p, v -> p..v}, "action": {v -> sound_playfile(v)}}
+let g:select_info.highlight.data = {-> getcompletion('', 'highlight')}
+let g:select_info.highlight.sink = "hi %s"
 nnoremap <leader>fs :Select session<CR>
+nnoremap <leader>fh :Select highlight<CR>
 
 
 """ netrw {{{1
