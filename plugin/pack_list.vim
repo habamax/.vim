@@ -30,31 +30,15 @@ call minpac#add('git@github.com:habamax/vim-winlayout.git', {'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-select.git', {'rev': 'master'})
 
 
-"" Tim Pope is a beast. You better use his stuff ...
-call minpac#add('tpope/vim-commentary')
-call minpac#add('tpope/vim-surround')
-call minpac#add('tpope/vim-repeat')
-call minpac#add('tpope/vim-dispatch')
-call minpac#add('tpope/vim-scriptease')
-call minpac#add('tpope/vim-unimpaired')
-call minpac#add('tpope/vim-eunuch')
-call minpac#add('tpope/vim-endwise')
-
-
 "" Git
 call minpac#add('tpope/vim-fugitive', {'type': 'opt'})
 call minpac#add('rbong/vim-flog', {'type': 'opt'})
 
 
-"" Fuzzy stuff
-" FZF is quite good, but not really polished for windows users
-" call minpac#add('junegunn/fzf', {'type': 'opt'})
-" call minpac#add('junegunn/fzf.vim', {'type': 'opt'})
-" backup (no external dependencies)
-" call minpac#add('ctrlpvim/ctrlp.vim', {'type': 'opt'})
-
 "" Text manipulation
-" must have
+call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-repeat')
+
 call minpac#add('mbbill/undotree')
 
 " cxiw .
@@ -75,16 +59,17 @@ call minpac#add('machakann/vim-swap')
 
 
 "" Programming
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-endwise')
+call minpac#add('tpope/vim-scriptease')
 call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
 call minpac#add('editorconfig/editorconfig-vim')
-" call minpac#add('mhinz/vim-mix-format')
 call minpac#add('AndrewRadev/splitjoin.vim')
 
 
 "" Filetype & Syntax
 call minpac#add('elixir-editors/vim-elixir')
 call minpac#add('aklt/plantuml-syntax')
-" call minpac#add('dart-lang/dart-vim-plugin')
 
 
 "" Language Server Protocol and completion
@@ -101,6 +86,11 @@ call minpac#add('alvan/vim-closetag')
 
 
 "" Miscelaneous
+
+call minpac#add('tpope/vim-dispatch')
+call minpac#add('tpope/vim-unimpaired')
+call minpac#add('tpope/vim-eunuch')
+
 
 " rest console with curl
 call minpac#add('diepm/vim-rest-console')
