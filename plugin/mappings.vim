@@ -20,8 +20,6 @@ nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader>f <nop>
 
 nnoremap <BS> <C-^>
-" kill-all buffers except current one
-" nnoremap <M-BS> :%bd\|e#\|bd#<CR>
 
 " UPPERCASE WORD
 nnoremap <silent> <M-u> gUiww
