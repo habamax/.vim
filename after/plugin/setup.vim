@@ -5,6 +5,7 @@ if exists("g:loaded_select")
     nmap <leader>fp <Plug>(SelectProject)
     nmap <leader>fc <Plug>(SelectColors)
     nmap <leader>b <Plug>(SelectBuffer)
+    nmap <leader>h <Plug>(SelectHelp)
     nmap <leader>; <Plug>(SelectCmd)
 endif
 
