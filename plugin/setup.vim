@@ -134,10 +134,6 @@ let g:listopad_default_mappings = 1
 let g:listopad_auto_archive = 1
 
 
-""" undotree {{{1
-nnoremap <leader>u :UndotreeToggle<CR>
-
-
 """ outline {{{1
 augroup do_outline | au!
     au BufRead,BufNewFile *.adoc,*.md nnoremap <buffer> <leader><leader>l :DoOutline<CR>
