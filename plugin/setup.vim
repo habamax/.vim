@@ -47,21 +47,13 @@ endif
 
 """ vim-asciidoctor {{{1
 " let g:asciidoctor_executable = 'bundle exec asciidoctor'
-
-" use asciidoctorj
-" let g:asciidoctor_executable = "asciidoctorj"
-" let g:asciidoctor_extensions = ['asciidoctor-diagram', 'asciidoctor-bibtex']
-let g:asciidoctor_extensions = ['asciidoctor-diagram']
+" let g:asciidoctor_pdf_executable = "bundle exec asciidoctor-pdf"
 
 " use upstream asciidoctor-pdf
 let g:asciidoctor_pdf_executable = printf("ruby %s/projects/asciidoctor-pdf/bin/asciidoctor-pdf",
             \ empty($DOCSHOME)?expand('~'):expand($DOCSHOME))
-" let g:asciidoctor_pdf_executable = "bundle exec asciidoctor-pdf"
-" use asciidoctorj -b pdf
-" let g:asciidoctor_pdf_executable = "asciidoctorj -b pdf"
 
-" let g:asciidoctor_pdf_extensions = ['asciidoctor-diagram', 'asciidoctor-bibtex']
-" let g:asciidoctor_pdf_extensions = ['C:/Users/maksim.kim/projects/asciidoctor-diagram/lib/asciidoctor-diagram.rb']
+let g:asciidoctor_extensions = ['asciidoctor-diagram']
 let g:asciidoctor_pdf_extensions = copy(g:asciidoctor_extensions)
 let g:asciidoctor_pdf_themes_path = (empty($DOCSHOME)?expand('~'):expand($DOCSHOME)) . '/docs/.asciidoctor-themes'
 let g:asciidoctor_pdf_fonts_path = (empty($DOCSHOME)?expand('~'):expand($DOCSHOME)) . '/docs/.asciidoctor-themes/fonts;GEM_FONTS_DIR'
@@ -71,8 +63,6 @@ let g:asciidoctor_img_paste_command = 'gm convert clipboard: %s%s'
 let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 
 let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json', 'xml']
-" let g:asciidoctor_fenced_languages = ['python', 'c', 'javascript']
-" let g:asciidoctor_syntax_indented = 0
 let g:asciidoctor_css = 'asciidoctor-next.min.css'
 let g:asciidoctor_css_path = (empty($DOCSHOME)?expand('~'):expand($DOCSHOME)) . '/docs/.asciidoctor-themes'
 
