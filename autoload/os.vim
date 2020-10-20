@@ -1,13 +1,3 @@
-"" vim or nvim job
-func! os#job(cmd) abort
-    if exists("*job_start")
-        call job_start(a:cmd)
-    elseif exists("*jobstart")
-        call jobstart(a:cmd)
-    endif
-endfunc
-
-
 "" Return true if vim is in WSL environment
 func! os#is_wsl() abort
     return exists("$WSLENV")
@@ -52,33 +42,8 @@ func! os#file_manager() abort
             let path = os#wsl_to_windows_path(path)
         endif
 
-        call os#job('cmd.exe /c explorer.exe /select,"' . path . '"')
+        call job_start(['explorer.exe', '/select,' . path])
     else
         echomsg "Not yet implemented!"
     endif
-endfunc
-
-
-"" Open URL under cursor using OS
-"" http://ya.ru
-"" ~/docs
-"" $HOME/docs
-"" C:/Users/maksim.kim/docs
-"" .
-func! os#open_url(word) abort
-    " Windows only for now
-    if !has("win32")
-        return
-    endif
-    let word = a:word
-
-    " probably path
-    if word =~ '^[~.$].*'
-        let word = expand(word)
-    endif
-    " TODO: check if barebone url
-    " TODO: check if path or a filename
-    " TODO: check and extract markdown url
-    exe printf("silent !start %s", word)
-    " nnoremap gx :call job_start('cmd.exe /c start '.expand("<cfile>"))<CR>
 endfunc
