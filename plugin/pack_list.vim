@@ -39,8 +39,6 @@ call minpac#add('rbong/vim-flog', {'type': 'opt'})
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-repeat')
 
-call minpac#add('mbbill/undotree')
-
 " cxiw .
 call minpac#add('tommcdo/vim-exchange')
 
