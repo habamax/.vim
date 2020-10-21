@@ -1,8 +1,8 @@
 """ Customize colors {{{1
 
-augroup colorscheme_change | au!
-    au ColorScheme * hi Comment gui=italic cterm=italic
-augroup END
+" augroup colorscheme_change | au!
+"     au ColorScheme * hi Comment gui=italic cterm=italic
+" augroup END
 
 
 """ Colorschemes {{{1
