@@ -45,8 +45,8 @@ func! lsp#setup(engine)
     endif
 
     if !(exists("g:loaded_youcompleteme") || exists("g:did_coc_loaded"))
-        let g:mucomplete#enable_auto_at_startup = 1
         silent! packadd mucomplete
+        MUcompleteAutoOn
     endif
 endfunc
 
