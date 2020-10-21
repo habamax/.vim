@@ -26,11 +26,10 @@ endif
 " 1Il0OQB8 =-+:
 
 
-set linespace=0
+set linespace=-3
 set guifont=JetBrains\ Mono\ NL:h14
+" set guifont=JetBrains\ Mono:h14
 
 " set guifont=Iosevka\ Habamax:h14
-" set guifont=Cascadia\ Code\ SemiLight:h14
 " set guifont=Consolas:h14
 " set guifont=Fira\ Mono:h14
-" set guifont=PT\ Mono:h14
