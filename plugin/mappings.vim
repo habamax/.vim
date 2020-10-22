@@ -144,9 +144,6 @@ vnoremap * y/<C-R>"<CR>
 
 nnoremap <leader>z zA
 
-" edit init file
-nnoremap <silent> <leader>ei :exe "e " . fnamemodify($MYVIMRC, ":p:h")."/vimrc"<CR>
-
 nnoremap <silent> <leader>i :call git#show_commit()<CR>
 
 " edit global todo file
@@ -159,7 +156,6 @@ nnoremap <silent> <M-F> :call win#scroll_other(1)<CR>
 nnoremap <silent> <M-B> :call win#scroll_other(0)<CR>
 
 nnoremap <silent> gof :call os#file_manager()<CR>
-" nnoremap gx :call os#open_url(expand('<cWORD>'))<CR>
 
 
 " Save as
