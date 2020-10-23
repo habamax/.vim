@@ -17,7 +17,7 @@ if exists("g:loaded_select")
     let g:select_info.sound.data = {"cmd": "rg --files --glob *.mp3"}
     let g:select_info.sound.sink = {"transform": {p, v -> p..v}, "action": {v -> sound_playfile(v)}}
     let g:select_info.highlight.data = {-> getcompletion('', 'highlight')}
-    let g:select_info.highlight.sink = "hi %s"
+    let g:select_info.highlight.sink = {"action": {v -> feedkeys(':hi '..v.."\<CR>", "nt")}}
     nnoremap <leader>fs :Select session<CR>
     nnoremap <leader>fh :Select highlight<CR>
 
