@@ -182,13 +182,6 @@ cabbr ив bd
 " Wipe all hidden buffers
 command! Bclean call win#delete_buffers()
 
-" Open vim configs
-command! Init :silent only
-            \<bar>:exe printf("e  %s/plugin/mappings.vim", fnamemodify($MYVIMRC, ":p:h"))
-            \<bar>:exe printf("bo vs %s/plugin/setup.vim", fnamemodify($MYVIMRC, ":p:h"))
-            \<bar>:exe printf("bo vs %s/after/plugin/setup.vim", fnamemodify($MYVIMRC, ":p:h"))
-            \<bar>:1wincmd w
-
 
 " remove trailing spaces
 command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
