@@ -4,11 +4,6 @@ set lines=999
 set winaltkeys=no
 set guioptions=cM
 
-if has("gui_macvim")
-    set macmeta
-    let macvim_skip_colorscheme = 1
-endif
-
 set guifont=Hack:h14
 " set guifont=Fira\ Mono:h14
 " set guifont=Consolas:h14
