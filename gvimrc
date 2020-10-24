@@ -6,9 +6,12 @@ set guioptions=cM
 
 set guifont=Hack:h14
 " set guifont=Fira\ Mono:h14
+" set guifont=IBM\ Plex\ Mono:h14
+" set guifont=Liberation\ Mono:h14
 " set guifont=Consolas:h14
 " set guifont=JetBrains\ Mono\ NL:h14
 " set guifont=JetBrains\ Mono:h14
+" set guifont=Roboto\ Mono:h14
 
 " Однажды, в студеную зимнюю пору,
 " Я из лесу вышел; был сильный мороз.
