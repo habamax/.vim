@@ -4,14 +4,17 @@ set lines=999
 set winaltkeys=no
 set guioptions=cM
 
-""" Mac {{{1
 if has("gui_macvim")
     set macmeta
     let macvim_skip_colorscheme = 1
 endif
 
-""" Fonts {{{1
-"
+set guifont=Hack:h14
+" set guifont=Fira\ Mono:h14
+" set guifont=Consolas:h14
+" set guifont=JetBrains\ Mono\ NL:h14
+" set guifont=JetBrains\ Mono:h14
+
 " Однажды, в студеную зимнюю пору,
 " Я из лесу вышел; был сильный мороз.
 " Гляжу, поднимается медленно в гору
@@ -24,10 +27,3 @@ endif
 "
 " З3Э -- буква З, цифра 3, буква Э
 " 1Il0OQB8 =-+:
-
-set guifont=Fira\ Mono:h14
-" set guifont=Liberation\ Mono:h14
-" set guifont=Hack:h14
-" set guifont=Consolas:h14
-" set guifont=JetBrains\ Mono\ NL:h14
-" set guifont=JetBrains\ Mono:h14
