@@ -20,7 +20,6 @@ if exists("g:loaded_select")
     let g:select_info.highlight.sink = {"action": {v -> feedkeys(':hi '..v.."\<CR>", "nt")}}
     nnoremap <leader>fs :Select session<CR>
     nnoremap <leader>fh :Select highlight<CR>
-
 endif
 
 
