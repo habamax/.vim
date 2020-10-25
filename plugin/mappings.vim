@@ -142,8 +142,6 @@ nnoremap <leader><leader>= o<home><ESC>78i=<ESC>
 " find visually selected text
 vnoremap * y/<C-R>"<CR>
 
-nnoremap <leader>z zA
-
 nnoremap <silent> <leader>i :call git#show_commit()<CR>
 
 " edit mappings file
