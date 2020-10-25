@@ -159,7 +159,7 @@ nnoremap <silent> gof :call os#file_manager()<CR>
 
 
 " Save as
-nnoremap <expr> <leader>fS printf(":saveas %s%s",
+nnoremap <expr> <leader>S printf(":saveas %s%s",
             \ expand("%:p"),
             \ empty(expand("%:e")) ? '' : repeat('<Left>', strchars(expand("%:e")) + 1))
 
