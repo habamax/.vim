@@ -146,6 +146,8 @@ nnoremap <leader>z zA
 
 nnoremap <silent> <leader>i :call git#show_commit()<CR>
 
+" edit mappings file
+nnoremap <silent> <leader>em :exe printf('e %s/plugin/mappings.vim', fnamemodify($MYVIMRC, ":p:h"))<CR>
 " edit global todo file
 nnoremap <silent> <leader>et :exe printf('e %s/docs/todo.adoc', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
 " edit global journal file
