@@ -7,6 +7,7 @@ if exists("g:loaded_select")
     nmap <leader>b <Plug>(SelectBuffer)
     nmap <leader>h <Plug>(SelectHelp)
     nmap <leader>; <Plug>(SelectCmd)
+    nmap <leader>/ <Plug>(SelectBufLine)
 
     """ vim-select {{{1
     let g:select_info = {"session": {}, "sound": {}, "highlight": {}}
