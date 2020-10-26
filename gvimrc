@@ -5,7 +5,10 @@ set winaltkeys=no
 set guioptions=cM
 
 set guifont=Hack:h14
+" set guifont=Iosevka\ Habamax:h14
+" set guifont=Hack:h14
 " set guifont=Fira\ Mono:h14
+" set guifont=Input:h14
 " set guifont=IBM\ Plex\ Mono:h14
 " set guifont=Liberation\ Mono:h14
 " set guifont=Consolas:h14
