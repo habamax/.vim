@@ -1,5 +1,6 @@
 let s:lsp_ft_maps = get(g:, 'lsp_ft_maps', 'gdscript,go,python')
 
+
 func! lsp#setup(engine)
     if a:engine == 'ycm'
         let g:ycm_auto_hover = ''
@@ -69,6 +70,7 @@ func! lsp#coc_mappings() abort
     omap <buffer> af <Plug>(coc-funcobj-a)
 endfunc
 
+
 func! s:show_coc_doc()
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
@@ -76,6 +78,7 @@ func! s:show_coc_doc()
         call CocAction('doHover')
     endif
 endfunc
+
 
 func! lsp#ycm_mappings() abort
     nmap <silent><buffer> K <plug>(YCMHover)
