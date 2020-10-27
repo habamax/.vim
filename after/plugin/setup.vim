@@ -21,6 +21,15 @@ if exists("g:loaded_select")
     let g:select_info.highlight.sink = {"action": {v -> feedkeys(':hi '..v.."\<CR>", "nt")}}
     nnoremap <leader>fs :Select session<CR>
     nnoremap <leader>fh :Select highlight<CR>
+
+    let g:select_info.history = {}
+    let g:select_info.history.data = {-> GetHistory()}
+    let g:select_info.history.sink = {"transform": {_, v -> matchstr(v, '^\s*\d\+:\s*\zs.*$')}, "action": {v -> feedkeys(':'..v, "nt")}}
+
+    func! GetHistory()
+        let max  = histnr("cmd")
+        return filter(map(range(1, max), {i -> printf("%*d: %s", len(max), i, histget("cmd", i))}), {i, v -> v !~ '^\s*\d\+:\s*$'})
+    endfunc
 endif
 
 
