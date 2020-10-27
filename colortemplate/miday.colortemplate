@@ -143,3 +143,4 @@ gitCommitSummary      -> Title
 cocErrorSign          -> Type
 markdownUrl           -> Underlined
 SelectDirectoryPrefix comment none
+asciidoctorOption     -> Comment
