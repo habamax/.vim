@@ -21,7 +21,7 @@ func! lsp#setup(engine)
         augroup ycm_settings | au!
             exe printf('au FileType %s call lsp#ycm_mappings()', s:lsp_ft_maps)
         augroup end
-        if !empty(&ft)
+        if !empty(&ft) && !g:ycm_filetype_blacklist->has_key(&ft)
             exe "setf " .. &ft
         endif
     elseif a:engine == 'coc'
