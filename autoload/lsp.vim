@@ -13,11 +13,12 @@ func! lsp#setup(engine)
                     \   }
                     \ ]
         silent! packadd YouCompleteMe
-        let g:ycm_filetype_blacklist = {'selectprompt': 1}
-
         if !exists("g:loaded_youcompleteme")
             return
         endif
+
+        let g:ycm_filetype_blacklist = {'selectprompt': 1}
+
         augroup ycm_settings | au!
             exe printf('au FileType %s call lsp#ycm_mappings()', s:lsp_ft_maps)
         augroup end
