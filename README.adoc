@@ -14,7 +14,7 @@ Nothing fancy, just to keep it safe and available.
 
 * link:https://github.com/habamax/vim-gruvbit[gruvbit] -- simplified variant of `gruvbox_hard`;
 * link:https://github.com/habamax/vim-polar[polar] -- white background variantion of base16-one-light;
-* link:https://github.com/habamax/vim-habanight[habanight] -- black background variation of base16-default-dark colorscheme;
+* link:https://github.com/habamax/vim-habanight[habanight] -- black background variation of base16-default-dark colorscheme.
 
 image::https://user-images.githubusercontent.com/234774/93188368-90121980-f749-11ea-8dfe-c628021f2266.gif[]
 
