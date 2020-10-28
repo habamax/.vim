@@ -1,5 +1,5 @@
 if exists("g:loaded_select")
-    nmap <leader>fo <Plug>(SelectFile)
+    nmap <leader>fe <Plug>(SelectFile)
     nmap <leader>fm <Plug>(SelectMRU)
     nmap <leader>ff <Plug>(SelectProjectFile)
     nmap <leader>fp <Plug>(SelectProject)
