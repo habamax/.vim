@@ -3,9 +3,9 @@ setl commentstring=<!--%s-->
 compiler pandoc2pdf
 
 " open files
-nnoremap <buffer> <leader>op :silent !start %:p:r.pdf<CR>
-nnoremap <buffer> <leader>od :silent !start %:p:r.docx<CR>
-nnoremap <buffer> <leader>oh :silent !start %:p:r.html<CR>
+nnoremap <buffer> <space>op :silent !start %:p:r.pdf<CR>
+nnoremap <buffer> <space>od :silent !start %:p:r.docx<CR>
+nnoremap <buffer> <space>oh :silent !start %:p:r.html<CR>
 
 function! MarkdownFold()
     let line = getline(v:lnum)

@@ -1,11 +1,9 @@
 "" Non Plugin Mappings {{{1
 
-let mapleader = "\<Space>"
-
 " clipoard yank and paste
-noremap <leader>y "+y
-noremap <leader>p "+p
-noremap <leader>P "+P
+noremap <space>y "+y
+noremap <space>p "+p
+noremap <space>P "+P
 
 " tab to cycle search candidates
 cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"
@@ -14,10 +12,10 @@ cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
 " insert current line into command line
 cnoremap <M-l> <C-r><C-l>
 
-nnoremap <leader>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
+nnoremap <space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
 " guards
-nnoremap <leader>f <nop>
+nnoremap <space>f <nop>
 
 nnoremap <BS> <C-^>
 
@@ -64,15 +62,15 @@ nnoremap <M-j> <C-w>j
 nnoremap <M-k> <C-w>k
 nnoremap <M-l> <C-w>l
 
-nnoremap <leader>q <C-w>c
-nnoremap <leader>ws <C-w>s
-nnoremap <leader>wv <C-w>v
-nnoremap <leader>wn <C-w>n
-nnoremap <silent> <leader>wo :call win#zoom_toggle()<CR>
-nnoremap <leader>wh <C-w>H
-nnoremap <leader>wl <C-w>L
-nnoremap <leader>wj <C-w>J
-nnoremap <leader>wk <C-w>K
+nnoremap <space>q <C-w>c
+nnoremap <space>ws <C-w>s
+nnoremap <space>wv <C-w>v
+nnoremap <space>wn <C-w>n
+nnoremap <silent> <space>wo :call win#zoom_toggle()<CR>
+nnoremap <space>wh <C-w>H
+nnoremap <space>wl <C-w>L
+nnoremap <space>wj <C-w>J
+nnoremap <space>wk <C-w>K
 
 nnoremap <silent> <F2> :echo win#layout_toggle()<CR>
 
@@ -113,11 +111,11 @@ inoremap <C-U> <C-G>u<C-U>
 " https://castel.dev/post/lecture-notes-1/
 inoremap <M-s> <c-g>u<C-\><C-o>[s<ESC>1z=`]a<c-g>u
 
-nnoremap <leader>t<space> i<space><right><space><ESC>h
+nnoremap <space>t<space> i<space><right><space><ESC>h
 
 " Fix text (remove double spaces, hanging spaces, etc)
-nnoremap <leader>tf :TextFixSpaces<CR>
-xnoremap <leader>tf :TextFixSpaces<CR>
+nnoremap <space>tf :TextFixSpaces<CR>
+xnoremap <space>tf :TextFixSpaces<CR>
 
 " now it is possible to paste many times over selected text
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
@@ -130,26 +128,26 @@ xnoremap < <gv
 " <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
-nnoremap <leader>- :call text#underline(['-', '=', '~', '^', '+'])<CR>
-nnoremap <leader>= :call text#underline(['=', '-', '~', '^', '+'])<CR>
-nnoremap <leader>~ :call text#underline(['~', '=', '-', '^', '+'])<CR>
-nnoremap <leader>^ :call text#underline(['^', '=', '-', '~', '+'])<CR>
-nnoremap <leader>+ :call text#underline(['+', '=', '-', '~', '^'])<CR>
+nnoremap <space>- :call text#underline(['-', '=', '~', '^', '+'])<CR>
+nnoremap <space>= :call text#underline(['=', '-', '~', '^', '+'])<CR>
+nnoremap <space>~ :call text#underline(['~', '=', '-', '^', '+'])<CR>
+nnoremap <space>^ :call text#underline(['^', '=', '-', '~', '+'])<CR>
+nnoremap <space>+ :call text#underline(['+', '=', '-', '~', '^'])<CR>
 
-nnoremap <leader><leader>- o<home><ESC>78i-<ESC>
-nnoremap <leader><leader>= o<home><ESC>78i=<ESC>
+nnoremap <space><space>- o<home><ESC>78i-<ESC>
+nnoremap <space><space>= o<home><ESC>78i=<ESC>
 
 " find visually selected text
 vnoremap * y/<C-R>"<CR>
 
-nnoremap <silent> <leader>i :call git#show_commit()<CR>
+nnoremap <silent> <space>i :call git#show_commit()<CR>
 
 " edit mappings file
-nnoremap <silent> <leader>em :exe printf('e %s/plugin/mappings.vim', fnamemodify($MYVIMRC, ":p:h"))<CR>
+nnoremap <silent> <space>em :exe printf('e %s/plugin/mappings.vim', fnamemodify($MYVIMRC, ":p:h"))<CR>
 " edit global todo file
-nnoremap <silent> <leader>et :exe printf('e %s/docs/todo.adoc', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
+nnoremap <silent> <space>et :exe printf('e %s/docs/todo.adoc', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
 " edit global journal file
-nnoremap <silent> <leader>ej :call journal#new()<CR>
+nnoremap <silent> <space>ej :call journal#new()<CR>
 
 " scroll other window
 nnoremap <silent> <M-F> :call win#scroll_other(1)<CR>
@@ -159,7 +157,7 @@ nnoremap <silent> gof :call os#file_manager()<CR>
 
 
 " Save as
-nnoremap <expr> <leader>S printf(":saveas %s%s",
+nnoremap <expr> <space>S printf(":saveas %s%s",
             \ expand("%:p"),
             \ empty(expand("%:e")) ? '' : repeat('<Left>', strchars(expand("%:e")) + 1))
 

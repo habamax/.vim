@@ -13,8 +13,8 @@ let b:select_info.godotscene.sink = {"transform": {_, v -> fnameescape(v)}, "act
 nnoremap <buffer> <F5> :GodotRun<CR>
 nnoremap <buffer> <F6> :GodotRunCurrent<CR>
 
-nnoremap <buffer> <leader><leader>r :GodotRun<CR>
-nnoremap <buffer> <leader><leader>c :GodotRunCurrent<CR>
-nnoremap <buffer> <leader><leader>f :Select godotscene<CR>
-nnoremap <buffer> <leader><leader>l :GodotRunLast<CR>
+nnoremap <buffer> <space><space>r :GodotRun<CR>
+nnoremap <buffer> <space><space>c :GodotRunCurrent<CR>
+nnoremap <buffer> <space><space>f :Select godotscene<CR>
+nnoremap <buffer> <space><space>l :GodotRunLast<CR>
 

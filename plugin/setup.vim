@@ -123,7 +123,7 @@ let g:listopad_auto_archive = 1
 
 """ outline {{{1
 augroup do_outline | au!
-    au BufRead,BufNewFile *.adoc,*.md nnoremap <buffer> <leader><leader>l :DoOutline<CR>
+    au BufRead,BufNewFile *.adoc,*.md nnoremap <buffer> <space><space>l :DoOutline<CR>
 augroup end
 
 

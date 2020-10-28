@@ -1,13 +1,13 @@
 if exists("g:loaded_select")
-    nmap <leader>fe <Plug>(SelectFile)
-    nmap <leader>fm <Plug>(SelectMRU)
-    nmap <leader>ff <Plug>(SelectProjectFile)
-    nmap <leader>fp <Plug>(SelectProject)
-    nmap <leader>fc <Plug>(SelectColors)
-    nmap <leader>b <Plug>(SelectBuffer)
-    nmap <leader>h <Plug>(SelectHelp)
-    nmap <leader>; <Plug>(SelectCmd)
-    nmap <leader>/ <Plug>(SelectBufLine)
+    nmap <space>fe <Plug>(SelectFile)
+    nmap <space>fm <Plug>(SelectMRU)
+    nmap <space>ff <Plug>(SelectProjectFile)
+    nmap <space>fp <Plug>(SelectProject)
+    nmap <space>fc <Plug>(SelectColors)
+    nmap <space>b <Plug>(SelectBuffer)
+    nmap <space>h <Plug>(SelectHelp)
+    nmap <space>; <Plug>(SelectCmd)
+    nmap <space>/ <Plug>(SelectBufLine)
 
     """ vim-select {{{1
     let g:select_info = {"session": {}, "sound": {}, "highlight": {}}
@@ -19,8 +19,8 @@ if exists("g:loaded_select")
     let g:select_info.sound.sink = {"transform": {p, v -> p..v}, "action": {v -> sound_playfile(v)}}
     let g:select_info.highlight.data = {-> getcompletion('', 'highlight')}
     let g:select_info.highlight.sink = {"action": {v -> feedkeys(':hi '..v.."\<CR>", "nt")}}
-    nnoremap <leader>fs :Select session<CR>
-    nnoremap <leader>fh :Select highlight<CR>
+    nnoremap <space>fs :Select session<CR>
+    nnoremap <space>fh :Select highlight<CR>
 
     let g:select_info.history = {}
     let g:select_info.history.data = {-> GetHistory()}
