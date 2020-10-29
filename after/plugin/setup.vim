@@ -10,18 +10,20 @@ if exists("g:loaded_select")
     nmap <space>/ <Plug>(SelectBufLine)
 
     """ vim-select {{{1
-    let g:select_info = {"session": {}, "music": {}, "highlight": {}}
+    let g:select_info = {"session": {}, "highlight": {}}
     let g:select_info.session.data = {-> map(glob("~/.vimdata/sessions/*", 1, 1), {_, v -> fnamemodify(v, ":t")})}
     let g:select_info.session.sink = "%%bd | source ~/.vimdata/sessions/%s"
-    let g:select_info.music.data = {"cmd": "rg --files --glob *.mp3"}
-    let g:select_info.music.sink = {"transform": {p, v -> p..v}, "action": {v -> sound_playfile(v)}}
-    let g:select_info.music.data = {"cmd": "rg --files --glob *.mp3"}
-    let g:select_info.music.sink = {"transform": {p, v -> p..v}, "action": {v -> sound_playfile(v)}}
     let g:select_info.highlight.data = {-> getcompletion('', 'highlight')}
     let g:select_info.highlight.sink = {"action": {v -> feedkeys(':hi '..v.."\<CR>", "nt")}}
     nnoremap <space>fs :Select session<CR>
     nnoremap <space>fh :Select highlight<CR>
-    nnoremap <space>fl :Select music D:/Music<CR>
+
+    if has("win32")
+        let g:select_info.music = {}
+        let g:select_info.music.data = {"cmd": "rg --files --glob *.mp3"}
+        let g:select_info.music.sink = {"transform": {p, v -> p..v}, "action": {v -> sound_playfile(v)}}
+        nnoremap <space>fl :Select music D:/Music<CR>
+    endif
 
     let g:select_info.history = {}
     let g:select_info.history.data = {-> GetHistory()}
