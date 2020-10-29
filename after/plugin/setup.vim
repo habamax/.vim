@@ -27,13 +27,9 @@ if exists("g:loaded_select")
     endif
 
     let g:select_info.history = {}
-    let g:select_info.history.data = {-> GetHistory()}
+    let g:select_info.history.data = {-> reverse(filter(map(range(1, histnr("cmd")), {i -> printf("%*d: %s", len(histnr("cmd")), i, histget("cmd", i))}), {i, v -> v !~ '^\s*\d\+:\s*$'}))}
     let g:select_info.history.sink = {"transform": {_, v -> matchstr(v, '^\s*\d\+:\s*\zs.*$')}, "action": {v -> feedkeys(':'..v, "nt")}}
-
-    func! GetHistory()
-        let max  = histnr("cmd")
-        return filter(map(range(1, max), {i -> printf("%*d: %s", len(max), i, histget("cmd", i))}), {i, v -> v !~ '^\s*\d\+:\s*$'})
-    endfunc
+    nnoremap <space>: :Select history<CR>
 endif
 
 
