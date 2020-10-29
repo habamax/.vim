@@ -145,3 +145,7 @@ xmap <space>v <Plug>(EvalVim)
 nmap <space>v <Plug>(EvalVim)
 omap <space>v <Plug>(EvalVim)
 nmap <space>vv <Plug>(EvalVimLine)
+
+
+""" lens
+let g:lens_disabled_filetypes = ['fugitiveblame', 'fern', 'selectprompt', 'selectresults']
