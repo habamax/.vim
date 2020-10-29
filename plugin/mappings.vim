@@ -142,8 +142,6 @@ vnoremap * y/<C-R>"<CR>
 
 nnoremap <silent> <space>i :call git#show_commit()<CR>
 
-"" edit mappings file
-nnoremap <silent> <space>em :exe printf('e %s/plugin/mappings.vim', fnamemodify($MYVIMRC, ":p:h"))<CR>
 "" edit global todo file
 nnoremap <silent> <space>et :exe printf('e %s/docs/todo.adoc', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
 "" edit global journal file
