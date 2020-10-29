@@ -21,7 +21,8 @@ if exists("g:loaded_select")
     if has("win32")
         let g:select_info.music = {}
         let g:select_info.music.data = {"cmd": "rg --files --glob *.mp3"}
-        let g:select_info.music.sink = {"transform": {p, v -> p..v}, "action": {v -> sound_playfile(v)}}
+        let g:select_info.music.sink = {"transform": {p, v -> p..v}, "action": {v -> sound_clear() ?? sound_playfile(v)}}
+
         nnoremap <space>fl :Select music D:/Music<CR>
     endif
 
