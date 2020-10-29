@@ -3,6 +3,11 @@ func! Eatchar(pat)
     return (c =~ a:pat) ? '' : c
 endfunc
 
+cabbr ц w
+cabbr й q
+cabbr цй wq
+cabbr ив bd
+
 inorea haba@ habamax@gmail.com
 
 inorea хъ []<Left><C-R>=Eatchar('\s')<CR>
