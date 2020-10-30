@@ -1,4 +1,4 @@
-set columns=999
+set columns=130
 set lines=999
 
 set winaltkeys=no
