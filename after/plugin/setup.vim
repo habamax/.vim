@@ -9,7 +9,6 @@ if exists("g:loaded_select")
     nmap <space>; <Plug>(SelectCmd)
     nmap <space>/ <Plug>(SelectBufLine)
 
-    """ vim-select {{{1
     let g:select_info = {"session": {}, "highlight": {}}
     let g:select_info.session.data = {-> map(glob("~/.vimdata/sessions/*", 1, 1), {_, v -> fnamemodify(v, ":t")})}
     let g:select_info.session.sink = "%%bd | source ~/.vimdata/sessions/%s"
@@ -40,7 +39,7 @@ if exists("g:loaded_winlayout")
 endif
 
 
-if exists("g:loaded_swap") " {{{1
+if exists("g:loaded_swap")
     omap i, <Plug>(swap-textobject-i)
     xmap i, <Plug>(swap-textobject-i)
     omap a, <Plug>(swap-textobject-a)
