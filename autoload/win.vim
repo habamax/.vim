@@ -296,15 +296,12 @@ endfunc
 
 
 func! s:apply_layout(layout) abort
-
     if a:layout[0] ==# 'leaf'
-
         " load buffer for leaf
         if bufexists(a:layout[1])
             exe printf('b %d', a:layout[1])
         endif
     else
-
         " split cols or rows, split n-1 times
         let split_method = a:layout[0] ==# 'col' ? 'rightbelow split' : 'rightbelow vsplit'
         let wins = [win_getid()]
@@ -318,6 +315,5 @@ func! s:apply_layout(layout) abort
             call win_gotoid(wins[index])
             call s:apply_layout(a:layout[1][index])
         endfor
-
     endif
 endfunc
