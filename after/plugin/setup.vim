@@ -26,10 +26,11 @@ if exists("g:loaded_select")
         nnoremap <space>fl :Select music D:/Music<CR>
     endif
 
-    let g:select_info.history = {}
-    let g:select_info.history.data = {-> reverse(filter(map(range(1, histnr("cmd")), {i -> printf("%*d: %s", len(histnr("cmd")), i, histget("cmd", i))}), {i, v -> v !~ '^\s*\d\+:\s*$'}))}
-    let g:select_info.history.sink = {"transform": {_, v -> matchstr(v, '^\s*\d\+:\s*\zs.*$')}, "action": {v -> feedkeys(':'..v, "nt")}}
-    nnoremap <space>: :Select history<CR>
+    let g:select_info.cmdhistory = {}
+    let g:select_info.cmdhistory.data = {-> reverse(filter(map(range(1, histnr("cmd")), {i -> printf("%*d: %s", len(histnr("cmd")), i, histget("cmd", i))}), {i, v -> v !~ '^\s*\d\+:\s*$'}))}
+    let g:select_info.cmdhistory.sink = {"transform": {_, v -> matchstr(v, '^\s*\d\+:\s*\zs.*$')}, "action": {v -> feedkeys(':'..v, "nt")}}
+    let g:select_info.cmdhistory.highlight = {"PrependBufNr": ['^\(\s*\d\+:\)', 'Identifier']}
+    nnoremap <space>: :Select cmdhistory<CR>
 endif
 
 
