@@ -122,7 +122,6 @@ func! s:fix_w_h(val)
             call setwinvar(w, "&winfixheight", a:val)
         endif
     endfor
-
 endfunc
 
 
