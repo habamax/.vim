@@ -9,12 +9,15 @@ if exists("g:loaded_select")
     nmap <space>; <Plug>(SelectCmd)
     nmap <space>/ <Plug>(SelectBufLine)
 
-    let g:select_info = {"session": {}, "highlight": {}}
+    let g:select_info = {}
+    let g:select_info.session = {}
     let g:select_info.session.data = {-> map(glob("~/.vimdata/sessions/*", 1, 1), {_, v -> fnamemodify(v, ":t")})}
     let g:select_info.session.sink = "%%bd | source ~/.vimdata/sessions/%s"
+    nnoremap <space>fs :Select session<CR>
+
+    let g:select_info.highlight = {}
     let g:select_info.highlight.data = {-> getcompletion('', 'highlight')}
     let g:select_info.highlight.sink = {"action": {v -> feedkeys(':hi '..v.."\<CR>", "nt")}}
-    nnoremap <space>fs :Select session<CR>
     nnoremap <space>fh :Select highlight<CR>
 
     if has("win32")
