@@ -98,11 +98,9 @@ augroup rest_output | au!
 augroup END
 
 
-
 """ elixir
 let g:elixir_mix_test_position = "bottom"
 let g:mix_format_on_save = 1
-
 
 
 """ outline
