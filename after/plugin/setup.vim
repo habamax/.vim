@@ -8,18 +8,18 @@ if exists("g:loaded_select")
     nmap <space>h <Plug>(SelectHelp)
     nmap <space>; <Plug>(SelectCmd)
     nmap <space>/ <Plug>(SelectBufLine)
-    nnoremap <space>fi :exe "Select projectfile " .. fnamemodify($MYVIMRC, ":p:h")<cr>
+    nnoremap <silent> <space>fi :exe "Select projectfile " .. fnamemodify($MYVIMRC, ":p:h")<cr>
 
     let g:select_info = {}
     let g:select_info.session = {}
     let g:select_info.session.data = {-> map(glob("~/.vimdata/sessions/*", 1, 1), {_, v -> fnamemodify(v, ":t")})}
     let g:select_info.session.sink = "%%bd | source ~/.vimdata/sessions/%s"
-    nnoremap <space>fs :Select session<CR>
+    nnoremap <silent> <space>fs :Select session<CR>
 
     let g:select_info.highlight = {}
     let g:select_info.highlight.data = {-> getcompletion('', 'highlight')}
     let g:select_info.highlight.sink = {"action": {v -> feedkeys(':hi '..v.."\<CR>", "nt")}}
-    nnoremap <space>fh :Select highlight<CR>
+    nnoremap <silent> <space>fh :Select highlight<CR>
 
     if has("win32")
         let g:select_info.music = {}
@@ -33,7 +33,7 @@ if exists("g:loaded_select")
     let g:select_info.cmdhistory.data = {-> reverse(filter(map(range(1, histnr("cmd")), {i -> printf("%*d: %s", len(histnr("cmd")), i, histget("cmd", i))}), {i, v -> v !~ '^\s*\d\+:\s*$'}))}
     let g:select_info.cmdhistory.sink = {"transform": {_, v -> matchstr(v, '^\s*\d\+:\s*\zs.*$')}, "action": {v -> feedkeys(':'..v, "nt")}}
     let g:select_info.cmdhistory.highlight = {"PrependBufNr": ['^\(\s*\d\+:\)', 'Identifier']}
-    nnoremap <space>: :Select cmdhistory<CR>
+    nnoremap <silent> <space>: :Select cmdhistory<CR>
 endif
 
 
