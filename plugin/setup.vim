@@ -71,9 +71,6 @@ let g:markdown_fenced_languages = ['python', 'go']
 
 "" vim-dispatch
 let g:dispatch_no_maps = 1
-" tmux in alacritty wsl debian makes vim "bad" sized in the end
-" vim doesn't resize back after tmux pane is closed.
-" let g:dispatch_no_tmux_make = 1
 
 
 "" vim-closetag
