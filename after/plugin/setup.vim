@@ -8,7 +8,7 @@ if exists("g:loaded_select")
     nmap <space>h <Plug>(SelectHelp)
     nmap <space>; <Plug>(SelectCmd)
     nmap <space>/ <Plug>(SelectBufLine)
-    nnoremap <space>fv :exe "Select projectfile " .. fnamemodify($MYVIMRC, ":p:h")<cr>
+    nnoremap <space>fi :exe "Select projectfile " .. fnamemodify($MYVIMRC, ":p:h")<cr>
 
     let g:select_info = {}
     let g:select_info.session = {}
