@@ -2,7 +2,7 @@
 "" Author: Maxim Kim <habamax@gmail.com>
 "" Desc: Text manipulation functions.
 
-"" Fix text: {{{1
+"" Fix text:
 "" * replace non-breaking spaces to spaces
 "" * replace multiple spaces to a single space (preserving indent)
 "" * remove spaces between closed braces: ) ) -> ))
@@ -33,7 +33,7 @@ func! text#fix_spaces() range
 endfunc
 
 
-"" Underline current line with chars[0] {{{1
+"" Underline current line with chars[0]
 "" If current line is already underlined with one the chars[1..]
 "" Replace it with char[0]
 "" call text#underline(['-', '=', '~', '^', '+'])
@@ -48,7 +48,7 @@ func! text#underline(chars)
 endfunc
 
 
-"" Dates (text object and stuff) {{{1
+"" Dates (text object and stuff)
 let s:mons_en = ['Jan', 'Feb', 'Mar', 'Apr',
                \ 'May', 'Jun', 'Jul', 'Aug',
                \ 'Sep', 'Oct', 'Nov', 'Dec']
@@ -117,7 +117,7 @@ func! text#date_ru()
 endfunc
 
 
-"" Indent text object {{{1
+"" Indent text object
 "" Useful for python-like indentation based programming lanugages
 "" Usage:
 "" onoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>

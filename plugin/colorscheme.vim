@@ -1,4 +1,4 @@
-""" Customize colors {{{1
+""" Customize colors
 
 " func! s:customize_colors() abort
 "     hi Comment gui=italic cterm=italic
@@ -10,7 +10,7 @@
 " augroup END
 
 
-""" Colorschemes {{{1
+""" Colorschemes
 
 set termguicolors
 
