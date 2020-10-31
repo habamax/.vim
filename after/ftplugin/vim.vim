@@ -1,6 +1,5 @@
 setl textwidth=80
 setl keywordprg=:help
-setl foldenable
 if !&readonly
     setlocal ff=unix
 endif
