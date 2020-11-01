@@ -14,7 +14,7 @@ Color: constant   #ffb450 ~
 Color: string     #60ff94 ~
 Color: identifier #46b8ff ~
 Color: statement  #ff75e1 ~
-Color: preproc    #fff528 ~
+Color: preproc    #ffff28 ~
 Color: type       #ff4d6f ~
 Color: special    #68ffe1 ~
 Color: delimiter  #ff7d32 ~
