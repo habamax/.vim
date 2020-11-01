@@ -1,0 +1,146 @@
+; vim: ft=colortemplate
+Full name: cpunk
+Short name: cpunk
+Description: Want some cyberpunk? Take it!
+Author: Maxim Kim <habamax@gmail.com>
+Neovim: yes
+
+Variant:    gui
+
+Background: dark
+
+Color: comment    #808080 ~
+Color: constant   #ffb450 ~
+Color: string     #60ff94 ~
+Color: identifier #46b8ff ~
+Color: statement  #ff75e1 ~
+Color: preproc    #fff528 ~
+Color: type       #ff4d6f ~
+Color: special    #68ffe1 ~
+Color: delimiter  #ff7d32 ~
+
+Color: fg0        #dadada ~
+Color: bg0        #000000 ~
+Color: bg1        #303234 ~
+Color: folded     #181a1f ~
+Color: visual     #414956 ~
+Color: error      #ea7a80 ~
+Color: diffadd    #294929 ~
+Color: diffchange #4f4719 ~
+Color: difftext   #2f2f09 ~
+Color: diffdelete #492929 ~
+Color: statusline #50ffff ~
+
+
+;;; chrome
+
+Variant: gui
+#if get(g:, '@optionprefix_transp_bg', 0) && !has('gui_running')
+Variant: 256
+#if get(g:, '@optionprefix_transp_bg', 0)
+Variant: gui 256
+Normal           fg0        none
+#else
+Normal           fg0        bg0
+#endif
+
+EndOfBuffer      bg1        none
+Statusline       statusline bg1 bold
+StatuslineNC     comment    bg1
+StatuslineTerm   statusline bg1 bold
+StatuslineTermNC comment    bg1
+VertSplit        bg1        bg1
+
+Pmenu            none       bg1
+PmenuSel         bg0        preproc
+PmenuSbar        none       bg1
+PmenuThumb       none       comment
+
+TabLine          comment    bg1
+TabLineFill      none       bg1
+TabLineSel       none       bg0
+
+ToolbarLine      bg0        folded
+ToolbarButton    none       visual bold
+
+NonText          bg1        none
+SpecialKey       bg1        none
+
+Folded           comment    folded
+Visual           none       visual
+VisualNOS        none       comment
+LineNr           comment    none
+FoldColumn       comment    none
+CursorLine       none       folded
+CursorColumn     none       folded
+CursorLineNr     none       folded
+QuickFixLine     none       folded
+SignColumn       none       none
+
+Underlined       identifier none   underline
+
+Error            error      bg0
+ErrorMsg         error      bg0
+WarningMsg       preproc    bg0
+MoreMsg          fg0        bg0
+ModeMsg          fg0        bg0
+Question         string     none
+
+Todo             bg0        comment
+MatchParen       bg0        special
+Search           bg0        preproc
+IncSearch        bg0        string
+WildMenu         bg0        statusline bold
+ColorColumn      none       folded
+Cursor           bg0        fg0
+lCursor          fg0        constant
+
+DiffAdd          none       diffadd
+DiffChange       none       diffchange
+DiffText         none       difftext
+DiffDelete       comment    diffdelete
+
+SpellBad         type       none   t=underline g=undercurl s=type
+SpellCap         string     none   t=underline g=undercurl s=string
+SpellLocal       special    none   t=underline g=undercurl s=special
+SpellRare        statement  none   t=underline g=undercurl s=statement
+
+
+Term colors: bg0     type string preproc identifier statement special bg1
+Term colors: comment type string preproc identifier statement special fg0
+
+
+;;; syntax
+
+Identifier identifier none
+Statement  statement  none
+Constant   constant   none
+String     string     none
+PreProc    preproc    none
+Special    special    none
+Tag        preproc    none
+Delimiter  delimiter  none
+Type       type       none
+Operator   preproc    none
+Directory  identifier none bold
+Comment    comment    none
+Conceal    comment    none
+Ignore     none       none
+
+Title      type       none bold
+
+
+
+colortemplateKey      -> Statement
+colortemplateAttr     -> String
+vimNotation           -> Type
+vimFuncSID            -> PreProc
+vimHiTerm             -> Identifier
+helpNotVi             -> Comment
+helpExample           -> PreProc
+gdscriptBlockStart    -> Statement
+gdscriptFunctionName  -> Function
+gitCommitSummary      -> Title
+cocErrorSign          -> Type
+asciidoctorOption     comment none
+SelectDirectoryPrefix comment none
