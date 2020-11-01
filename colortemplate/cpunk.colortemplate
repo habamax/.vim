@@ -24,7 +24,7 @@ Color: bg0        #000000 ~
 Color: bg1        #303234 ~
 Color: folded     #181a1f ~
 Color: visual     #414956 ~
-Color: error      #ea7a80 ~
+Color: error      #ff3070 ~
 Color: diffadd    #294929 ~
 Color: difftext   #005080 ~
 Color: diffdelete #492929 ~
