@@ -126,7 +126,7 @@ Comment    comment    none
 Conceal    comment    none
 Ignore     none       none
 
-Title      type       none bold
+Title      statement  none bold
 
 
 
@@ -142,4 +142,5 @@ gdscriptFunctionName  -> Function
 gitCommitSummary      -> Title
 cocErrorSign          -> Type
 asciidoctorOption     comment none
+asciidoctorCaption    type    none
 SelectDirectoryPrefix comment none
