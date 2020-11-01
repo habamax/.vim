@@ -121,6 +121,7 @@ Special    special    none
 Tag        preproc    none
 Delimiter  delimiter  none
 Type       type       none
+Operator   preproc    none
 Directory  identifier none bold
 Comment    comment    none
 Conceal    comment    none
