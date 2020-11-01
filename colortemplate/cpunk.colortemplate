@@ -26,8 +26,7 @@ Color: folded     #181a1f ~
 Color: visual     #414956 ~
 Color: error      #ea7a80 ~
 Color: diffadd    #294929 ~
-Color: diffchange #4f4719 ~
-Color: difftext   #2f2f09 ~
+Color: difftext   #005080 ~
 Color: diffdelete #492929 ~
 Color: statusline #50ffff ~
 
@@ -96,9 +95,9 @@ Cursor           bg0        fg0
 lCursor          fg0        constant
 
 DiffAdd          none       diffadd
-DiffChange       none       diffchange
+DiffChange       none       none
 DiffText         none       difftext
-DiffDelete       comment    diffdelete
+DiffDelete       diffdelete bg0
 
 SpellBad         type       none   t=underline g=undercurl s=type
 SpellCap         string     none   t=underline g=undercurl s=string
