@@ -18,7 +18,7 @@ set termguicolors
 if exists("$COLORSCHEME") && !has("gui_running")
     colorscheme $COLORSCHEME
 elseif strftime("%H") >= 20 || strftime("%H") <= 6
-    colorscheme gruvbit
+    colorscheme cpunk
 else
     exe "colorscheme "..["miday", "polar"][rand(srand())%2]
 endif
