@@ -125,11 +125,11 @@ xnoremap < <gv
 "" <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
-nnoremap <space>- :call text#underline(['-', '=', '~', '^', '+'])<CR>
-nnoremap <space>= :call text#underline(['=', '-', '~', '^', '+'])<CR>
-nnoremap <space>~ :call text#underline(['~', '=', '-', '^', '+'])<CR>
-nnoremap <space>^ :call text#underline(['^', '=', '-', '~', '+'])<CR>
-nnoremap <space>+ :call text#underline(['+', '=', '-', '~', '^'])<CR>
+nnoremap <silent> <space>- :call text#underline(['-', '=', '~', '^', '+'])<CR>
+nnoremap <silent> <space>= :call text#underline(['=', '-', '~', '^', '+'])<CR>
+nnoremap <silent> <space>~ :call text#underline(['~', '=', '-', '^', '+'])<CR>
+nnoremap <silent> <space>^ :call text#underline(['^', '=', '-', '~', '+'])<CR>
+nnoremap <silent> <space>+ :call text#underline(['+', '=', '-', '~', '^'])<CR>
 
 nnoremap <space><space>- o<home><ESC>78i-<ESC>
 nnoremap <space><space>= o<home><ESC>78i=<ESC>
