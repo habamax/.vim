@@ -82,7 +82,7 @@ Error            error      bg0
 ErrorMsg         error      bg0
 WarningMsg       preproc    bg0
 MoreMsg          fg0        bg0
-ModeMsg          fg0        bg0
+ModeMsg          identifier bg0 bold
 Question         string     none
 
 Todo             bg0        comment
