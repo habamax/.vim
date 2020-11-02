@@ -53,26 +53,21 @@ endfunc
 " * an object is the text between prev section header(included) and the next section of the same
 "   level(excluded) or end of file.
 func! s:header_textobj(inner) abort
-    if search('^#\+\s\+[^[:space:]=]', "bcW")
-        let lvlheader = matchstr(getline('.'), '^=\+')
-        if a:inner
-            normal! j
-            " headers are followed one by one
-            " # header 1
-            " # header 2
-            " Do not select inner anything as there is not inner part of it.
-            if getline('.') =~ '^#\+\s\+[^[:space:]=]'
-                normal! k
-                return
-            endif
-        endif
-
-        normal! V
-
-        if search('^#\{1,'..len(lvlheader)..'}\s', "W")
-            normal! k
+    let lnum_start = search('^#\+\s\+[^[:space:]=]', "ncbW")
+    if lnum_start
+        let lvlheader = matchstr(getline(lnum_start), '^=\+')
+        let lnum_end = search('^#\{1,'..len(lvlheader)..'}\s', "nW")
+        if !lnum_end
+            let lnum_end = search('\%$', 'nW')
         else
-            call search('\%$', 'W')
+            let lnum_end -= 1
         endif
+        if a:inner && getline(lnum_start + 1) !~ '^#\+\s\+[^[:space:]=]'
+            let lnum_start += 1
+        endif
+
+        exe lnum_end
+        normal! V
+        exe lnum_start
     endif
 endfunc
