@@ -94,11 +94,6 @@ onoremap id :<C-u>normal vid<CR>
 xnoremap <silent> ad :<C-u>call text#obj_date(0)<CR>
 onoremap ad :<C-u>normal vad<CR>
 
-"" line text object
-xnoremap il g_o^
-onoremap il :<C-u>normal vil<CR>
-xnoremap al $o0
-onoremap al :<C-u>normal val<CR>
 
 "" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 "" so that you can undo CTRL-U after inserting a line break.
