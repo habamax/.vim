@@ -92,8 +92,8 @@ func! s:list_item_archive(lnum) abort
 
     " move list item under archive placements
     exe 'move'.archive_pos
-    let dt = printf("`[DONE: %s]` ", strftime("%Y-%m-%d %H:%M"))
-    exe printf('s/%s/&%s', s:rx_marked_checkbox, dt)
+    let dt = printf("`@done %s`", strftime("%Y-%m-%d %H:%M"))
+    exe printf('s/$/ %s', dt)
     call append(archive_pos-1, '')
 endfunc
 
