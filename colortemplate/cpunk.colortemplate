@@ -60,7 +60,7 @@ TabLineFill      none       bg1
 TabLineSel       none       bg0
 
 ToolbarLine      bg0        folded
-ToolbarButton    none       visual bold
+ToolbarButton    statusline visual bold
 
 NonText          bg1        none
 SpecialKey       bg1        none
