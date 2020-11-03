@@ -80,9 +80,10 @@ xnoremap <silent>ai :<C-u>call text#indent_textobj(v:false)<CR>
 
 "" number text object
 func! s:number_textobj()
-    if search('\(\d\+\(\.\d\+\)*\)', 'ceW')
+    let rx_num = '\d\+\(\.\d\+\)*'
+    if search(rx_num, 'ceW')
         normal v
-        call search('\(\d\+\(\.\d\+\)*\)', 'bcW')
+        call search(rx_num, 'bcW')
     endif
 endfunc
 xnoremap <silent> in :<C-u>call <SID>number_textobj()<CR>
