@@ -73,25 +73,25 @@ nnoremap <silent> <F2> :echo win#layout_toggle()<CR>
 
 
 "" indent text object
-onoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
-onoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
-xnoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
-xnoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
+onoremap <silent>ii :<C-u>call text#indent_textobj(v:true)<CR>
+onoremap <silent>ai :<C-u>call text#indent_textobj(v:false)<CR>
+xnoremap <silent>ii :<C-u>call text#indent_textobj(v:true)<CR>
+xnoremap <silent>ai :<C-u>call text#indent_textobj(v:false)<CR>
 
 "" number text object
-func! s:number()
-    if search('\d\([^0-9\.]\|$\)', 'cW')
+func! s:number_textobj()
+    if search('\d\([^0-9]\|$\)', 'cW')
         normal v
-        call search('\(^\|[^0-9\.]\d\)', 'becW')
+        call search('\(^\|[^0-9]\d\)', 'becW')
     endif
 endfunc
-xnoremap <silent> in :<C-u>call <SID>number()<CR>
+xnoremap <silent> in :<C-u>call <SID>number_textobj()<CR>
 onoremap in :<C-u>normal vin<CR>
 
 "" date text object
-xnoremap <silent> id :<C-u>call text#obj_date(1)<CR>
+xnoremap <silent> id :<C-u>call text#date_textobj(1)<CR>
 onoremap id :<C-u>normal vid<CR>
-xnoremap <silent> ad :<C-u>call text#obj_date(0)<CR>
+xnoremap <silent> ad :<C-u>call text#date_textobj(0)<CR>
 onoremap ad :<C-u>normal vad<CR>
 
 

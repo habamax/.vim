@@ -70,11 +70,11 @@ let g:months = copy(s:months)
 "" * EN 10 Dec 2012
 "" * EN Dec 10, 2012
 "" Usage:
-"" xnoremap <silent> id :<C-u>call text#obj_date(1)<CR>
+"" xnoremap <silent> id :<C-u>call text#date_textobj(1)<CR>
 "" onoremap id :<C-u>normal vid<CR>
-"" xnoremap <silent> ad :<C-u>call text#obj_date(0)<CR>
+"" xnoremap <silent> ad :<C-u>call text#date_textobj(0)<CR>
 "" onoremap ad :<C-u>normal vad<CR>
-func! text#obj_date(inner)
+func! text#date_textobj(inner)
     let save_cursor = getcurpos()
     let cword = expand("<cword>")
     if  cword =~ '\d\{4}'
@@ -120,11 +120,11 @@ endfunc
 "" Indent text object
 "" Useful for python-like indentation based programming lanugages
 "" Usage:
-"" onoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
-"" onoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
-"" xnoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
-"" xnoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
-func! text#obj_indent(inner)
+"" onoremap <silent>ii :<C-u>call text#indent_textobj(v:true)<CR>
+"" onoremap <silent>ai :<C-u>call text#indent_textobj(v:false)<CR>
+"" xnoremap <silent>ii :<C-u>call text#indent_textobj(v:true)<CR>
+"" xnoremap <silent>ai :<C-u>call text#indent_textobj(v:false)<CR>
+func! text#indent_textobj(inner)
     if getline('.') =~ '^\s*$'
         let ln_start = s:detect_nearest_line()
         let ln_end = ln_start
