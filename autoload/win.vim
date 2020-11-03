@@ -168,6 +168,7 @@ func! win#layout_horizontal() abort
     let winid = win_getid()
     windo wincmd L
     call win_gotoid(winid)
+    wincmd H
     return "Even horizontal layout"
 endfunc
 
@@ -176,6 +177,7 @@ func! win#layout_vertical() abort
     let winid = win_getid()
     windo wincmd K
     call win_gotoid(winid)
+    wincmd K
     return "Even vertical layout"
 endfunc
 
