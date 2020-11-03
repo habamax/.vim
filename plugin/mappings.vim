@@ -80,13 +80,14 @@ xnoremap <silent>ai :<C-u>call text#indent_textobj(v:false)<CR>
 
 "" number text object
 func! s:number_textobj()
-    if search('\d\([^0-9]\|$\)', 'cW')
+    if search('\(\d\+\(\.\d\+\)*\)', 'ceW')
         normal v
-        call search('\(^\|[^0-9]\d\)', 'becW')
+        call search('\(\d\+\(\.\d\+\)*\)', 'bcW')
     endif
 endfunc
 xnoremap <silent> in :<C-u>call <SID>number_textobj()<CR>
 onoremap in :<C-u>normal vin<CR>
+
 
 "" date text object
 xnoremap <silent> id :<C-u>call text#date_textobj(1)<CR>
