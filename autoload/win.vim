@@ -141,6 +141,13 @@ func! win#layout_toggle() abort
                     \ {1: {"f": "win#layout_horizontal", "next": 2}
                     \ ,2: {"f": "win#layout_vertical", "next": 1}
                     \ }
+    elseif winnr('$') == 3
+        let win_layouts =
+                    \ {1: {"f": "win#layout_horizontal", "next": 2}
+                    \ ,2: {"f": "win#layout_vertical", "next": 3}
+                    \ ,3: {"f": "win#layout_main_horizontal", "next": 4}
+                    \ ,4: {"f": "win#layout_main_vertical", "next": 1}
+                    \ }
     else
         let win_layouts =
                     \ {1: {"f": "win#layout_horizontal", "next": 2}
@@ -215,22 +222,32 @@ func! win#layout_tile() abort
 
     let half = len(buffers)/2
 
-    for bnr in range(half)
-        split
-        call add(windows, win_getid())
-        silent exe printf("buffer %s", buffers[bnr])
-    endfor
+    let splitbelow = &splitbelow
+    let splitright = &splitright
+    try
+        setl splitbelow
+        setl splitright
 
-    let win_idx = 0
-    for bnr in range(half, len(buffers) - 1)
-        silent call win_gotoid(windows[win_idx])
-        vsplit
-        silent exe printf("buffer %s", buffers[bnr])
+        for bnr in range(half)
+            split
+            call add(windows, win_getid())
+            silent exe printf("buffer %s", buffers[bnr])
+        endfor
 
-        let win_idx += 1
-    endfor
+        let win_idx = 0
+        for bnr in range(half, len(buffers) - 1)
+            silent call win_gotoid(windows[win_idx])
+            vsplit
+            silent exe printf("buffer %s", buffers[bnr])
 
-    silent call win_gotoid(windows[0])
+            let win_idx += 1
+        endfor
+
+        silent call win_gotoid(windows[0])
+    finally
+        let &splitbelow = splitbelow
+        let &splitright = splitright
+    endtry
 
     return "Tiled layout"
 endfunc
