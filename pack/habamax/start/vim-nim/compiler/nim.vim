@@ -11,9 +11,8 @@ endif
 let s:cpo_save = &cpo
 set cpo-=C
 
-CompilerSet makeprg=nim\ c\ --verbosity:0\ --listfullpaths\ $*\ %:p
+CompilerSet makeprg=nim\ c\ --verbosity:0\ --listfullpaths\ --hint[processing]:off\ $*\ %:p
 
-  " \%-G.....,
 CompilerSet errorformat=
   \%E%f(%l\\,\ %c)\ Error:\ %m,
   \%W%f(%l\\,\ %c)\ Hint:\ %m
