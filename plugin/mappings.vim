@@ -160,3 +160,5 @@ func! Sort(type, ...)
 endfunc
 nmap <silent> gs :set opfunc=Sort<CR>g@
 vmap <silent> gs :sort<CR>
+
+nnoremap got :TermBuffer<CR>
