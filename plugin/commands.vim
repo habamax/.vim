@@ -55,4 +55,4 @@ if has("unix") || has("osxdarwin")
     command! W w !sudo tee "%" > /dev/null
 endif
 
-
+command! Term :call term_start(&shell, {"cwd": expand("%:p:h"), "term_finish": "close"})
