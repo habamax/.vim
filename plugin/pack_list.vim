@@ -93,9 +93,6 @@ call minpac#add('tpope/vim-eunuch')
 " rest console with curl
 call minpac#add('diepm/vim-rest-console')
 
-" gof (filemanager) and got (terminal)
-call minpac#add('justinmk/vim-gtfo')
-
 " preview of :s command
 call minpac#add('markonm/traces.vim')
 
