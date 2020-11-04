@@ -1,21 +1,17 @@
-if exists('b:loaded_nim')
-  finish
+if exists("b:did_ftplugin")
+    finish
+endif
+let b:did_ftplugin = 1
+
+if exists('b:undo_ftplugin')
+    let b:undo_ftplugin .= "|setl cms< com< fo<"
+else
+    let b:undo_ftplugin = "setl cms< com< fo<"
 endif
 
-let b:loaded_nim = 1
-
-let s:cpo_save = &cpo
-set cpo&vim
-
-
-" TODO: set proper undos
 
 setlocal formatoptions-=t formatoptions+=croql
 setlocal comments=:##,:#
 setlocal commentstring=#\ %s
-setlocal suffixesadd=.nim 
+setlocal suffixesadd=.nim
 setlocal expandtab
-
-
-let &cpo = s:cpo_save
-unlet s:cpo_save
