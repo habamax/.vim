@@ -15,3 +15,5 @@ setlocal comments=:##,:#
 setlocal commentstring=#\ %s
 setlocal suffixesadd=.nim
 setlocal expandtab
+
+compiler nim
