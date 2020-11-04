@@ -4,9 +4,9 @@ endif
 let b:did_ftplugin = 1
 
 if exists('b:undo_ftplugin')
-    let b:undo_ftplugin .= "|setl cms< com< fo<"
+    let b:undo_ftplugin .= "|setl cms< com< fo< et<"
 else
-    let b:undo_ftplugin = "setl cms< com< fo<"
+    let b:undo_ftplugin = "setl cms< com< fo< et<"
 endif
 
 
