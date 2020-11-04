@@ -1,1 +1,1 @@
-nnoremap <silent><buffer> <f5> :bo term nim c -r %<cr>
+nnoremap <silent><buffer> <space><space>r :bo term nim c -r %<cr>
