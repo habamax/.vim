@@ -130,6 +130,7 @@ Ignore     none       none
 
 Title      statement  none bold
 
+qfError               error none
 colortemplateKey      -> Statement
 colortemplateAttr     -> String
 vimNotation           -> Type
