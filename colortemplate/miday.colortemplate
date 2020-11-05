@@ -29,9 +29,9 @@ Color: cursorline #f0f0f0 254
 Color: visual     #d7d7af 187
 Color: error      #d70000 160
 Color: wildmenu   #d7d75f 185
-Color: diffadd    #b9e9b9 151
-Color: difftext   #f9d999 222
-Color: diffdelete #f0a9a9 217
+Color: diffadd    #c9f9c9 194
+Color: difftext   #f9f9c9 222
+Color: diffdelete #f9c9c9 224
 
 
 ;;; chrome
