@@ -16,9 +16,23 @@ if exists("g:loaded_select")
     let g:select_info.session.sink = "%%bd | source ~/.vimdata/sessions/%s"
     nnoremap <silent> <space>fs :Select session<CR>
 
+    func! s:get_highlights()
+        redir => l:hl
+        silent highlight
+        redir END
+        return filter(split(l:hl, '\n'), {i, v -> v !~ 'Select.*'})
+    endfunc
+    func! s:highlight_sink(val)
+        redir => l:hl
+        exe "silent highlight "..a:val
+        redir END
+        let @" = trim(l:hl)
+        echo @" 'is copied to unnamed register'
+    endfunc
     let g:select_info.highlight = {}
-    let g:select_info.highlight.data = {-> getcompletion('', 'highlight')}
-    let g:select_info.highlight.sink = {"action": {v -> feedkeys(':hi '..v.."\<CR>", "nt")}}
+    let g:select_info.highlight.data = {-> s:get_highlights()}
+    let g:select_info.highlight.sink = {"transform": {_, v -> matchstr(v, '^\S*')}, "action": {v -> s:highlight_sink(v)}}
+    let g:select_info.highlight.highlight = {-> reduce(s:get_highlights(), {acc, val -> extend(acc, {matchstr(val, '^\S*'): [matchstr(val, '^\S*')..'\s*\zsxxx\ze\s*', matchstr(val, '^\S*')]})}, {})}
     nnoremap <silent> <space>fh :Select highlight<CR>
 
     if has("win32")
