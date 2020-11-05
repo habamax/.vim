@@ -13,12 +13,14 @@ func! lsp#setup(engine)
                     \     'filetypes': [ 'gdscript' ]
                     \   }
                     \ ]
+        let g:ycm_complete_in_comments = 1
+        let g:ycm_collect_identifiers_from_comments_and_strings = 1
+        let g:ycm_filetype_blacklist = {'selectprompt': 1}
+
         silent! packadd YouCompleteMe
         if !exists("g:loaded_youcompleteme")
             return
         endif
-
-        let g:ycm_filetype_blacklist = {'selectprompt': 1}
 
         augroup ycm_settings | au!
             exe printf('au FileType %s call lsp#ycm_mappings()', s:lsp_ft_maps)
