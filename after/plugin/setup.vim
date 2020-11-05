@@ -26,7 +26,7 @@ if exists("g:loaded_select")
         redir => l:hl
         exe "silent highlight "..a:val
         redir END
-        let @" = trim(l:hl)
+        let @" = trim(substitute(l:hl, '\s*xxx\s*', ' ', ''))
         echo @" 'is copied to unnamed register'
     endfunc
     let g:select_info.highlight = {}
