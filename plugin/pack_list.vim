@@ -62,6 +62,7 @@ call minpac#add('tpope/vim-scriptease')
 call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
 call minpac#add('editorconfig/editorconfig-vim')
 call minpac#add('AndrewRadev/splitjoin.vim')
+call minpac#add('vim-test/vim-test')
 
 call minpac#add('neoclide/coc.nvim', {'type': 'opt', 'branch': 'release'})
 " after install/update run `./install.py`
