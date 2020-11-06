@@ -58,25 +58,3 @@ endif
 
 " open terminal with a cwd of a current buffer
 command! TermBuffer :bo call term_start(&shell, {"cwd": expand("%:p:h"), "term_finish": "close"})
-
-
-" --url https://ya.ru
-" --silent
-" --show-error
-
-" func! Curl()
-"     let input = getline(1, 3)
-"     vertical new [CURL RESULT]
-"     setlocal buftype=nofile
-"     setlocal noswapfile
-"     setlocal noundofile
-"     setlocal nospell
-"     setlocal nowrap
-"     call deletebufline(bufnr(), 1, '$')
-"     call setline(1, systemlist("curl --config -", input)) 
-"     set ft=html
-"     if exists(":Format")
-"         Format
-"     endif
-" endfunc
-" command! -range Curl call Curl()
