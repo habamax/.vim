@@ -28,7 +28,7 @@ func! curl#do() range
         let firstline = a:firstline
         let lastline = a:lastline
     endif
-    let input = getline(firstline, lastline)
+    let input = filter(getline(firstline, lastline), {v -> v !~ '^#.*$'})
     if empty(input)
         echom 'Nothing to cURL'
         return

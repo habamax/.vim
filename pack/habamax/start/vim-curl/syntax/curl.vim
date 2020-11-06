@@ -14,10 +14,13 @@ syn match curlEscape +\\['"\\]+ contained
 
 syn region curlJsonData start='\(^--data\_s\+\)\@<={' end='^\s*$' contains=@curlJsonHighlight
 
+syn match curlComment '^#.*$'
+
 hi def link curlDashes Special
 hi def link curlParam PreProc
 hi def link curlURL Underlined
 hi def link curlString String
 hi def link curlEscape Special
+hi def link curlComment Comment
 
 let b:current_syntax = "curl"
