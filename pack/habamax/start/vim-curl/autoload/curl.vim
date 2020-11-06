@@ -19,6 +19,8 @@
 "    "city": "Moscow"
 "}
 
+let s:state = {}
+
 func! curl#do() range
     " getting input
     if a:firstline == a:lastline
@@ -36,13 +38,20 @@ func! curl#do() range
 
     let input = s:escape_data(input)
 
-    " set up result buffer FIXME: too many new buffers
-    vertical new [CURL RESULT]
+    if !s:state->has_key("result_buf")
+        vertical new [CURL RESULT]
+        let s:state.result_buf = bufnr()
+    elseif bufwinnr(s:state.result_buf) == -1
+        exe "vertical sbuffer "..s:state.result_buf
+    else
+        exe bufwinnr(s:state.result_buf).."wincmd w"
+    endif
     setlocal buftype=nofile
     setlocal noswapfile
     setlocal noundofile
     setlocal nospell
     setlocal nowrap
+
     call deletebufline(bufnr(), 1, '$')
     call setline(1, systemlist("curl --config -", input)) 
 
