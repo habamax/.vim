@@ -74,8 +74,7 @@ call minpac#add('lifepillar/vim-mucomplete')
 " Close tags with > and >> in insert mode
 call minpac#add('alvan/vim-closetag')
 
-" rest console with curl
-call minpac#add('diepm/vim-rest-console')
+
 
 """ Filetype & Syntax
 call minpac#add('elixir-editors/vim-elixir')
