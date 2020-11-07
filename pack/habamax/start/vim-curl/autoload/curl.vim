@@ -40,7 +40,7 @@ func! curl#do() range
     let input = s:escape_data(input)
 
     if !s:state->has_key("result_buf")
-        vertical new [cURL\ output]
+        vertical new __cURL_output__
         let s:state.result_buf = bufnr()
     elseif bufwinnr(s:state.result_buf) == -1
         exe "vertical sbuffer "..s:state.result_buf
