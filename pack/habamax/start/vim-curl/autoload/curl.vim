@@ -24,13 +24,14 @@ let s:state = {}
 func! curl#do() range
     " getting input
     if a:firstline == a:lastline
-        let firstline = search('^\(\s*$\)\|\%^', 'bnW')
-        let lastline = search('^\(\s*$\)\|\%$', 'nW')
+        let firstline = search('^\(\s*$\)\|\%^', 'cbnW')
+        let lastline = search('^\(\s*$\)\|\%$', 'cnW')
     else
         let firstline = a:firstline
         let lastline = a:lastline
     endif
-    let input = filter(getline(firstline, lastline), {v -> v !~ '^#.*$'})
+    " remove comments and empty lines
+    let input = filter(getline(firstline, lastline), {_, v -> v !~ '^#.*$' && v !~ '^\s*$'})
     if empty(input)
         echom 'Nothing to cURL'
         return
