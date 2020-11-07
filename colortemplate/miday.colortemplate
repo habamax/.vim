@@ -23,7 +23,7 @@ Color: special    #6a5acd 62
 
 Color: fg0        #000000 16
 Color: bg0        #ffffff 231
-Color: bg1        #bcbcbc 251
+Color: bg1        #c7c7c7 251
 Color: folded     #e0e0e0 254
 Color: cursorline #f0f0f0 254
 Color: visual     #d7d7af 187
