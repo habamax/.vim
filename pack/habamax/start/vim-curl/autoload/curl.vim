@@ -60,9 +60,9 @@ func! curl#do() range
         set ft=html
     elseif getline(1) =~ '^[\[{]'
         set ft=json
-        if exists(":Format")
-            Format
-        endif
+    endif
+    if exists("#User#CurlOutput")
+        doautocmd User CurlOutput
     endif
 endfunc
 
