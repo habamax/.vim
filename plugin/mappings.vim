@@ -45,7 +45,7 @@ nnoremap <M-b> <C-u>
 xnoremap <M-b> <C-u>
 
 "" Window management
-" switch to windows
+" Switch windows
 tnoremap <M-h> <C-\><C-N><C-w>h
 tnoremap <M-j> <C-\><C-N><C-w>j
 tnoremap <M-k> <C-\><C-N><C-w>k
