@@ -13,6 +13,7 @@ nnoremap <space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
 "" guards
 nnoremap <space>f <nop>
+nnoremap <space>r <nop>
 
 nnoremap <BS> <C-^>
 
