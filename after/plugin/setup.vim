@@ -46,7 +46,7 @@ if exists("g:loaded_select")
     let g:select_info.cmdhistory = {}
     let g:select_info.cmdhistory.data = {-> reverse(filter(map(range(1, histnr("cmd")), {i -> printf("%*d: %s", len(histnr("cmd")), i, histget("cmd", i))}), {i, v -> v !~ '^\s*\d\+:\s*$'}))}
     let g:select_info.cmdhistory.sink = {"transform": {_, v -> matchstr(v, '^\s*\d\+:\s*\zs.*$')}, "action": {v -> feedkeys(':'..v, "nt")}}
-    let g:select_info.cmdhistory.highlight = {"PrependBufNr": ['^\(\s*\d\+:\)', 'Identifier']}
+    let g:select_info.cmdhistory.highlight = {"PrependLineNr": ['^\(\s*\d\+:\)', 'LineNr']}
     nnoremap <silent> <space>: :Select cmdhistory<CR>
 
 
@@ -67,7 +67,7 @@ if exists("g:loaded_select")
                 \ "transform": {_, v -> matchstr(v, '^\s*\zs\d\+')},
                 \ "action": "normal! %sG"
                 \ }
-    let g:select_info.bufdef.highlight = {"PrependBufNr": ['^\(\s*\d\+:\)', 'Identifier']}
+    let g:select_info.bufdef.highlight = {"PrependLineNr": ['^\(\s*\d\+:\)', 'LineNr']}
     nnoremap <silent> <space>gd :Select bufdef<CR>
 endif
 
