@@ -82,12 +82,6 @@ let g:elixir_mix_test_position = "bottom"
 let g:mix_format_on_save = 1
 
 
-""" outline
-augroup do_outline | au!
-    au BufRead,BufNewFile *.adoc,*.md nnoremap <buffer> <space><space>l :DoOutline<CR>
-augroup end
-
-
 """ YCM, Coc or mucomplete
 call timer_start(2000, {-> lsp#setup('ycm')})
 
