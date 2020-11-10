@@ -103,10 +103,10 @@ endif
 
 
 if exists("g:loaded_evalvim")
-    xmap <space>v <Plug>(EvalVim)
-    nmap <space>v <Plug>(EvalVim)
-    omap <space>v <Plug>(EvalVim)
-    nmap <space>vv <Plug>(EvalVimLine)
+    xmap <space>v  <plug>(evalvim)
+    nmap <space>v  <plug>(evalvim)
+    omap <space>v  <plug>(evalvim)
+    nmap <space>vv <plug>(evalvimline)
 endif
 
 
