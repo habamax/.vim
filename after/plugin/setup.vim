@@ -48,27 +48,6 @@ if exists("g:loaded_select")
     let g:select_info.cmdhistory.sink = {"transform": {_, v -> matchstr(v, '^\s*\d\+:\s*\zs.*$')}, "action": {v -> feedkeys(':'..v, "nt")}}
     let g:select_info.cmdhistory.highlight = {"PrependLineNr": ['^\(\s*\d\+:\)', 'LineNr']}
     nnoremap <silent> <space>: :Select cmdhistory<CR>
-
-
-    func! s:get_bufdefs(buf) abort
-        let result = getbufline(a:buf.bufnr, 1, '$')
-                    \ ->map({i, ln -> printf("%*d: %s", len(line('$', a:buf.winid)), i+1, trim(ln))})
-                    \ ->filter({_, val ->
-                    \     val =~ '\<fu\%[nction]\>!\?\s*\k\+'
-                    \     || val =~ '\<au\%[tocommand]\>!\?\s*\k\+'
-                    \     || val =~ '\<com\%[mand]\>!\?\s*\k\+'
-                    \ })
-
-        return result
-    endfunc
-    let g:select_info.bufdef = {}
-    let g:select_info.bufdef.data = {_, v -> s:get_bufdefs(v)}
-    let g:select_info.bufdef.sink = {
-                \ "transform": {_, v -> matchstr(v, '^\s*\zs\d\+')},
-                \ "action": "normal! %sG"
-                \ }
-    let g:select_info.bufdef.highlight = {"PrependLineNr": ['^\(\s*\d\+:\)', 'LineNr']}
-    nnoremap <silent> <space>gd :Select bufdef<CR>
 endif
 
 

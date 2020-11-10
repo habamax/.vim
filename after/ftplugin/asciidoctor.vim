@@ -13,6 +13,25 @@ nnoremap <buffer> <space><space>cx :Asciidoctor2DOCX<CR>
 nnoremap <buffer> <space><space>ch :Asciidoctor2HTML<CR>
 nnoremap <buffer> <space><space>p :AsciidoctorPasteImage<CR>
 
+if exists("g:loaded_select")
+    func! s:get_bufdefs(buf) abort
+        let result = getbufline(a:buf.bufnr, 1, '$')
+                    \ ->map({i, ln -> printf("%*d: %s", len(line('$', a:buf.winid)), i+1, trim(ln))})
+                    \ ->filter({_, val -> val =~ '^\s*\d\+:\s=\+\s\S'})
+
+        return result
+    endfunc
+    let b:select_info = {}
+    let b:select_info.bufdef = {}
+    let b:select_info.bufdef.data = {_, v -> s:get_bufdefs(v)}
+    let b:select_info.bufdef.sink = {
+                \ "transform": {_, v -> matchstr(v, '^\s*\zs\d\+')},
+                \ "action": "normal! %sG"
+                \ }
+    let b:select_info.bufdef.highlight = {"PrependLineNr": ['^\(\s*\d\+:\)', 'LineNr']}
+    nnoremap <buffer><silent> <space>gd :Select bufdef<CR>
+endif
+
 inorea <buffer> nbsp {nbsp}<C-R>=Eatchar('\s')<CR>
 inorea <buffer> zwsp {zwsp}<C-R>=Eatchar('\s')<CR>
 inorea <buffer> blnk {blank}<C-R>=Eatchar('\s')<CR>
