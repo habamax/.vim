@@ -19,6 +19,7 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 """ My plugins
 call minpac#add('git@github.com:habamax/vim-select.git', {'rev': 'master'})
+call minpac#add('git@github.com:habamax/vim-select-more.git', {'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-asciidoctor.git', {'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-evalvim.git', {'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-habanight.git', {'type': 'opt', 'rev': 'master'})
