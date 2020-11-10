@@ -2,7 +2,6 @@
 
 func! s:customize_colors() abort
     hi Comment gui=italic cterm=italic
-    hi StatusLine gui=bold cterm=bold
 endfunc
 
 augroup colorscheme_change | au!
