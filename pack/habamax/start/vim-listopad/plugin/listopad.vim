@@ -15,12 +15,8 @@ xnoremap <expr> <Plug>(ListopadToggleCheckboxOp) listopad#op_toggle_checkboxes()
 nnoremap <expr> <Plug>(ListopadToggleCheckboxOp) listopad#op_toggle_checkboxes()
 nnoremap <expr> <Plug>(ListopadToggleCheckboxLineOp) listopad#op_toggle_checkboxes() . '_'
 
-
-if get(g:, "listopad_default_mappings", v:false)
-    if !hasmapto('<Plug>(ListopadToggleCheckboxOp)') && maparg('<leader>x','n') ==# ''
-        xmap <leader>x  <Plug>(ListopadToggleCheckboxOp)
-        nmap <leader>x  <Plug>(ListopadToggleCheckboxOp)
-        omap <leader>x  <Plug>(ListopadToggleCheckboxOp)
-        nmap <leader>xx <Plug>(ListopadToggleCheckboxLineOp)
-    endif
-endif
+"" example mappings
+" xmap <leader>x  <Plug>(ListopadToggleCheckboxOp)
+" nmap <leader>x  <Plug>(ListopadToggleCheckboxOp)
+" omap <leader>x  <Plug>(ListopadToggleCheckboxOp)
+" nmap <leader>xx <Plug>(ListopadToggleCheckboxLineOp)

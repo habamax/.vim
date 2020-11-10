@@ -84,3 +84,35 @@ if exists("g:loaded_swap")
                 \     'priority': -10
                 \   }]
 endif
+
+
+if exists("g:loaded_fern")
+    nnoremap <silent> <F8> :Fern . -drawer -toggle -reveal=%<CR>
+    nnoremap <silent> <F9> :FernDo :<CR>
+endif
+
+
+if exists("g:loaded_listopad")
+    "" listopad
+    let g:listopad_auto_archive = 1
+    xmap <space>x  <Plug>(ListopadToggleCheckboxOp)
+    nmap <space>x  <Plug>(ListopadToggleCheckboxOp)
+    omap <space>x  <Plug>(ListopadToggleCheckboxOp)
+    nmap <space>xx <Plug>(ListopadToggleCheckboxLineOp)
+endif
+
+
+if exists("g:loaded_evalvim")
+    xmap <space>v <Plug>(EvalVim)
+    nmap <space>v <Plug>(EvalVim)
+    omap <space>v <Plug>(EvalVim)
+    nmap <space>vv <Plug>(EvalVimLine)
+endif
+
+
+if exists("g:loaded_easy_align_plugin")
+    " Start interactive EasyAlign in visual mode (e.g. vipga)
+    vmap ga <Plug>(LiveEasyAlign)
+    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+    nmap ga <Plug>(EasyAlign)
+endif

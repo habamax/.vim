@@ -77,27 +77,6 @@ let g:dispatch_no_maps = 1
 let g:closetag_filetypes = 'html,xhtml,xml'
 
 
-"" vim-easy-align
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-vmap ga <Plug>(LiveEasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-
-"" vim-rest-console
-let g:vrc_auto_format_response_enabled = 1
-let g:vrc_show_command = 1
-let g:vrc_curl_opts = {
-            \ '-sS': '',
-            \ '-i': '',
-            \ '--connect-timeout': 10,
-            \}
-let g:vrc_set_default_mapping = 0
-augroup rest_output | au!
-    au BufNew __REST_response__ command! FormatREST call misc#vrc_format_rest_as_json()
-augroup END
-
-
 """ elixir
 let g:elixir_mix_test_position = "bottom"
 let g:mix_format_on_save = 1
@@ -118,28 +97,8 @@ let g:colorizer_auto_filetype='css,html,colortemplate'
 let g:colorizer_disable_bufleave = 1
 
 
-""" Fern
-nnoremap <silent> <F8> :Fern . -drawer -toggle -reveal=%<CR>
-nnoremap <silent> <F9> :FernDo :<CR>
-
-
 """ vim-godot
 let g:godot_ext_hl = v:false
-
-
-""" listopad
-let g:listopad_auto_archive = 1
-xmap <space>x  <Plug>(ListopadToggleCheckboxOp)
-nmap <space>x  <Plug>(ListopadToggleCheckboxOp)
-omap <space>x  <Plug>(ListopadToggleCheckboxOp)
-nmap <space>xx <Plug>(ListopadToggleCheckboxLineOp)
-
-
-""" evalvim
-xmap <space>v <Plug>(EvalVim)
-nmap <space>v <Plug>(EvalVim)
-omap <space>v <Plug>(EvalVim)
-nmap <space>vv <Plug>(EvalVimLine)
 
 
 """ lens
