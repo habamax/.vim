@@ -4,9 +4,9 @@ if exists("g:loaded_select")
     nmap <space>ff <Plug>(SelectProjectFile)
     nmap <space>fp <Plug>(SelectProject)
     nmap <space>fc <Plug>(SelectColors)
-    nmap <space>b <Plug>(SelectBuffer)
-    nmap <space>h <Plug>(SelectHelp)
-    nmap <space>; <Plug>(SelectCmd)
+    nmap <space>b  <Plug>(SelectBuffer)
+    nmap <space>h  <Plug>(SelectHelp)
+    nmap <space>;  <Plug>(SelectCmd)
     nmap <space>gg <Plug>(SelectBufLine)
     nnoremap <silent> <space>fi :exe "Select projectfile " .. fnamemodify($MYVIMRC, ":p:h")<cr>
 
@@ -111,8 +111,6 @@ endif
 
 
 if exists("g:loaded_easy_align_plugin")
-    " Start interactive EasyAlign in visual mode (e.g. vipga)
     vmap ga <Plug>(LiveEasyAlign)
-    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
     nmap ga <Plug>(EasyAlign)
 endif
