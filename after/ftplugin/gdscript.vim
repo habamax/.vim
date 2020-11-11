@@ -5,7 +5,7 @@ let b:foldchar = ''
 let b:foldlines_padding = v:true
 
 let b:select_info = {"godotscene": {}}
-let b:select_info.godotscene.data = {"cmd": "rg --files --glob *.tscn"}
+let b:select_info.godotscene.data = {"job": "rg --files --glob *.tscn"}
 let b:select_info.godotscene.sink = {"transform": {_, v -> fnameescape(v)}, "action": "GodotRun %s"}
 
 
