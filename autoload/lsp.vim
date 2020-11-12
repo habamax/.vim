@@ -15,12 +15,15 @@ func! lsp#setup(engine)
                     \ ]
         let g:ycm_complete_in_comments = 1
         let g:ycm_collect_identifiers_from_comments_and_strings = 1
-        let g:ycm_filetype_blacklist = {'selectprompt': 1}
 
         silent! packadd YouCompleteMe
         if !exists("g:loaded_youcompleteme")
             return
         endif
+
+        " Should be after package load, otherwise it will add ycm_nofiletype
+        " here there will be no autocomplete in buffers with no filetype
+        let g:ycm_filetype_blacklist = {'selectprompt': 1}
 
         augroup ycm_settings | au!
             exe printf('au FileType %s call lsp#ycm_mappings()', s:lsp_ft_maps)
