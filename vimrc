@@ -9,7 +9,7 @@ set tabstop=8 softtabstop=-1 shiftwidth=4 expandtab smarttab shiftround
 set nohlsearch incsearch ignorecase
 set autoindent
 set virtualedit=block
-set ttimeout ttimeoutlen=10
+set ttimeout ttimeoutlen=0
 set belloff=all
 
 set ruler laststatus=2
