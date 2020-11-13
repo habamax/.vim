@@ -3,14 +3,17 @@ if exists("g:loaded_select")
     nmap <space>fm <Plug>(SelectMRU)
     nmap <space>ff <Plug>(SelectProjectFile)
     nmap <space>fp <Plug>(SelectProject)
-    nmap <space>fc <Plug>(SelectColors)
     nmap <space>b  <Plug>(SelectBuffer)
-    nmap <space>h  <Plug>(SelectHelp)
-    nmap <space>;  <Plug>(SelectCmd)
-    nmap <space>gg <Plug>(SelectBufLine)
-    nmap <space>fh <Plug>(SelectHighlight)
-    nmap <space>:  <Plug>(SelectCmdHistory)
-    nmap <space>ft <Plug>(SelectBufTag)
+
+    if exists("g:loaded_select_more")
+        nmap <space>fc <Plug>(SelectColors)
+        nmap <space>h  <Plug>(SelectHelp)
+        nmap <space>;  <Plug>(SelectCmd)
+        nmap <space>gg <Plug>(SelectBufLine)
+        nmap <space>fh <Plug>(SelectHighlight)
+        nmap <space>:  <Plug>(SelectCmdHistory)
+        nmap <space>ft <Plug>(SelectBufTag)
+    endif
 
     nnoremap <silent> <space>fi :exe "Select projectfile " .. fnamemodify($MYVIMRC, ":p:h")<cr>
 
