@@ -29,7 +29,7 @@ func! win#scroll_other(dir) abort
 endfunc
 
 
-"" Autosize windows. {{{1
+"" Autosize windows.
 "" There is lens.vim plugin but essentially this simplified version could be used
 "" instead. Original lens.vim laaaags if switched to a huge file, it
 "" calculates target width consuming whole file into memory....
@@ -254,7 +254,7 @@ endfunc
 
 
 
-""" Zoom window: save and restore window layout {{{1
+""" Zoom window: save and restore window layout
 "" nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
 "" <C-w>o zoom window (there should be only 1 window)
 "" <C-w>o restores previous windows
