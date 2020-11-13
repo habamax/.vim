@@ -1,4 +1,4 @@
-setlocal fdm=expr
+" setlocal fdm=expr
 setlocal tabstop=4
 
 let b:foldchar = ''
