@@ -28,10 +28,6 @@ endif
 let g:asciidoctor_executable = 'bundle exec asciidoctor'
 let g:asciidoctor_pdf_executable = "bundle exec asciidoctor-pdf"
 
-" use upstream asciidoctor-pdf
-" let g:asciidoctor_pdf_executable = printf("ruby %s/projects/asciidoctor-pdf/bin/asciidoctor-pdf",
-"             \ empty($DOCSHOME)?expand('~'):expand($DOCSHOME))
-
 let g:asciidoctor_extensions = ['asciidoctor-diagram']
 let g:asciidoctor_pdf_extensions = copy(g:asciidoctor_extensions)
 let g:asciidoctor_pdf_themes_path = (empty($DOCSHOME)?expand('~'):expand($DOCSHOME)) . '/docs/.asciidoctor-themes'
