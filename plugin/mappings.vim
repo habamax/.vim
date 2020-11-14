@@ -113,8 +113,8 @@ nnoremap <space>tf :TextFixSpaces<CR>
 xnoremap <space>tf :TextFixSpaces<CR>
 
 "" now it is possible to paste many times over selected text
-xnoremap <expr> p 'pgv"'.v:register.'y`>'
-xnoremap <expr> P 'Pgv"'.v:register.'y`>'
+" xnoremap <expr> p 'pgv"'.v:register.'y`>'
+" xnoremap <expr> P 'Pgv"'.v:register.'y`>'
 
 "" shift right and left
 xnoremap > >gv
