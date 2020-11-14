@@ -1,6 +1,6 @@
 "" Non Plugin Mappings
 
-"" clipoard yank and paste
+"" OS clipboard yank and paste
 noremap <space>y "+y
 noremap <space>p "+p
 noremap <space>P "+P
