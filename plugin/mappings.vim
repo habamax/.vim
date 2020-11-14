@@ -135,7 +135,7 @@ nnoremap <space><space>= o<home><ESC>78i=<ESC>
 "" find visually selected text
 vnoremap * y/<C-R>"<CR>
 
-nnoremap <silent> <space>i :call git#show_commit()<CR>
+noremap <silent> <space>i :call git#show_commit()<CR>
 
 "" edit global todo file
 nnoremap <silent> <space>et :exe printf('e %s/docs/todo.adoc', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
