@@ -58,7 +58,7 @@ func! s:header_textobj(inner) abort
         let lvlheader = matchstr(getline(lnum_start), '^#\+')
         let lnum_end = search('^#\{1,'..len(lvlheader)..'}\s', "nW")
         if !lnum_end
-            let lnum_end = search('\%$', 'nW')
+            let lnum_end = search('\%$', 'cnW')
         else
             let lnum_end -= 1
         endif
