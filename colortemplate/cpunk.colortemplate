@@ -130,17 +130,19 @@ Title      statement  none bold
 
 
 
-colortemplateKey      -> Statement
-colortemplateAttr     -> String
-vimNotation           -> Type
-vimFuncSID            -> PreProc
-vimHiTerm             -> Identifier
-helpNotVi             -> Comment
-helpExample           -> PreProc
-gdscriptBlockStart    -> Statement
-gdscriptFunctionName  -> Function
-gitCommitSummary      -> Title
-cocErrorSign          -> Type
-asciidoctorOption     comment none
-asciidoctorCaption    type    none
-SelectDirectoryPrefix comment none
+colortemplateKey        -> Statement
+colortemplateAttr       -> String
+vimNotation             -> Type
+vimFuncSID              -> PreProc
+vimHiTerm               -> Identifier
+helpNotVi               -> Comment
+helpExample             -> PreProc
+gdscriptBlockStart      -> Statement
+gdscriptFunctionName    -> Function
+gitCommitSummary        -> Title
+cocErrorSign            -> Type
+asciidoctorOption       comment none
+asciidoctorLiteralBlock comment none
+asciidoctorIndented     comment none
+asciidoctorCaption      type    none
+SelectDirectoryPrefix   comment none
