@@ -1,7 +1,7 @@
 ; vim: ft=colortemplate
 Full name: cpunk
 Short name: cpunk
-Description: Want some cyberpunk? Take it!
+Description: Black background heavily spiced with colors.
 Author: Maxim Kim <habamax@gmail.com>
 Neovim: yes
 
@@ -10,11 +10,11 @@ Variant:    gui
 Background: dark
 
 Color: comment    #808080 ~
-Color: constant   #ffb450 ~
+Color: constant   #ffff00 ~
 Color: string     #60ff94 ~
 Color: identifier #46b8ff ~
 Color: statement  #ff75e1 ~
-Color: preproc    #ffff40 ~
+Color: preproc    #ffb450 ~
 Color: type       #ff4d6f ~
 Color: special    #68ffe1 ~
 Color: delimiter  #ff7d32 ~
