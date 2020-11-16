@@ -122,7 +122,6 @@ PreProc    preproc    none
 Special    special    none
 Tag        preproc    none
 Type       type       none
-Operator   preproc    none
 Directory  identifier none bold
 Comment    comment    none
 Conceal    comment    none
@@ -138,8 +137,6 @@ vimFuncSID              -> PreProc
 vimHiTerm               -> Identifier
 helpNotVi               -> Comment
 helpExample             -> PreProc
-gdscriptBlockStart      -> Statement
-gdscriptFunctionName    -> Function
 gitCommitSummary        -> Title
 cocErrorSign            -> Type
 markdownUrl             -> Underlined
