@@ -200,3 +200,30 @@ func! s:detect_nearest_line() abort
         return nline
     endif
 endfunc
+
+
+"" 24 simple text objects
+"" ----------------------
+"" i_ i. i: i, i; i| i/ i\ i* i+ i- i#
+"" a_ a. a: a, a; a| a/ a\ a* a+ a- a#
+"" Usage:
+""for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#' ]
+""    execute 'xnoremap <silent> i' .. char .. ' :<C-u>call text#simple_textobj("'..char..'", 1)<CR>'
+""    execute 'xnoremap <silent> a' .. char .. ' :<C-u>call text#simple_textobj("'..char..'", 0)<CR>'
+""    execute 'onoremap <silent> i' .. char .. ' :normal vi' . char . '<CR>'
+""    execute 'onoremap <silent> a' .. char .. ' :normal va' . char . '<CR>'
+""endfor
+func! text#simple_textobj(char, inner) abort
+    let lnum = line('.')
+    let char = escape(a:char, '.*')
+    if search(char, 'nbW', lnum) && search(char, 'W', lnum)
+        if a:inner
+            normal! h
+        endif
+        normal! v
+        call search(char, 'bW', lnum)
+        if a:inner
+            normal! l
+        endif
+    endif
+endfunc

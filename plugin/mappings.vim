@@ -73,6 +73,17 @@ nnoremap <space>wk <C-w>K
 nnoremap <silent> <F2> :echo win#layout_toggle()<CR>
 
 
+" 24 simple text objects
+" ----------------------
+" i_ i. i: i, i; i| i/ i\ i* i+ i- i#
+" a_ a. a: a, a; a| a/ a\ a* a+ a- a#
+for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#' ]
+    execute 'xnoremap <silent> i' .. char .. ' :<C-u>call text#simple_textobj("'..char..'", 1)<CR>'
+    execute 'xnoremap <silent> a' .. char .. ' :<C-u>call text#simple_textobj("'..char..'", 0)<CR>'
+    execute 'onoremap <silent> i' .. char .. ' :normal vi' . char . '<CR>'
+    execute 'onoremap <silent> a' .. char .. ' :normal va' . char . '<CR>'
+endfor
+
 "" indent text object
 onoremap <silent>ii :<C-u>call text#indent_textobj(v:true)<CR>
 onoremap <silent>ai :<C-u>call text#indent_textobj(v:false)<CR>
