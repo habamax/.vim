@@ -13,6 +13,7 @@ if exists("g:loaded_select")
         nmap <space>fh <Plug>(SelectHighlight)
         nmap <space>:  <Plug>(SelectCmdHistory)
         nmap <space>ft <Plug>(SelectBufTag)
+        nmap <space>fg <Plug>(SelectGitFile)
     endif
 
     nnoremap <silent> <space>fi :exe "Select projectfile " .. fnamemodify($MYVIMRC, ":p:h")<cr>
