@@ -7,6 +7,7 @@ cabbr ц w
 cabbr й q
 cabbr цй wq
 cabbr ив bd
+cabbr sf Select file
 
 inorea haba@ habamax@gmail.com
 
