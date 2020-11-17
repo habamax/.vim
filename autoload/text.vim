@@ -216,14 +216,16 @@ endfunc
 func! text#simple_textobj(char, inner) abort
     let lnum = line('.')
     let char = escape(a:char, '.*')
-    if search(char..'[^'..a:char..']\{-}'..char, 'cbW', lnum)
-        if a:inner
-            normal! l
-        endif
-        normal! v
-        call search(char, 'W', lnum)
+    if (search(char, 'cnbW', lnum) && search(char, 'W', lnum))
+                \ || (search(char, 'nbW', lnum) && search(char, 'cW', lnum))
         if a:inner
             normal! h
         endif
+        normal! v
+        call search(char, 'bW', lnum)
+        if a:inner
+            normal! l
+        endif
+        return
     endif
 endfunc
