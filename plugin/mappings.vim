@@ -153,6 +153,9 @@ noremap <silent> <space>gb :call git#blame()<CR>
 nnoremap <silent> <space>et :exe printf('e %s/docs/todo.adoc', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
 "" edit global journal file
 nnoremap <silent> <space>ej :call journal#new()<CR>
+"" edit new file
+nnoremap <space>en :enew<CR>
+
 
 "" scroll other window
 nnoremap <silent> <M-F> :call win#scroll_other(1)<CR>
