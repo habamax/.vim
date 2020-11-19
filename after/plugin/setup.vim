@@ -35,6 +35,7 @@ if exists("g:loaded_select")
         let g:select_info.music.data = {"job": "rg --path-separator / --files --glob *.mp3"}
         " let g:select_info.music.sink = {"transform": {p, v -> p..v}, "action": {v -> sound_clear() ?? sound_playfile(v)}}
         let g:select_info.music.sink = {"transform": {p, v -> p..v}, "action": {v -> s:play_in_vlc(v)}}
+        let g:select_info.music.highlight = {"DirectoryPrefix": ['\(\s*\d\+:\)\?\zs.*[/\\]\ze.*$', 'Comment']}
         nnoremap <space>fl :Select music D:/Music<CR>
     endif
 endif
