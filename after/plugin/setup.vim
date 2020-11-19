@@ -27,9 +27,14 @@ if exists("g:loaded_select")
     nnoremap <silent> <space>fs :Select session<CR>
 
     if has("win32")
+        func! s:play_in_vlc(v)
+            let mp3 = shellescape(substitute(a:v, '/', '\\', 'g'))
+            call job_start('vlc '..mp3)
+        endfunc
         let g:select_info.music = {}
-        let g:select_info.music.data = {"job": "rg --files --glob *.mp3"}
-        let g:select_info.music.sink = {"transform": {p, v -> p..v}, "action": {v -> sound_clear() ?? sound_playfile(v)}}
+        let g:select_info.music.data = {"job": "rg --path-separator / --files --glob *.mp3"}
+        " let g:select_info.music.sink = {"transform": {p, v -> p..v}, "action": {v -> sound_clear() ?? sound_playfile(v)}}
+        let g:select_info.music.sink = {"transform": {p, v -> p..v}, "action": {v -> s:play_in_vlc(v)}}
         nnoremap <space>fl :Select music D:/Music<CR>
     endif
 endif
