@@ -1,12 +1,12 @@
 """ Customize colors
 
-func! s:customize_colors() abort
-    hi Comment gui=italic cterm=italic
-endfunc
+" func! s:customize_colors() abort
+"     hi Comment gui=italic cterm=italic
+" endfunc
 
-augroup colorscheme_change | au!
-    au ColorScheme * call s:customize_colors()
-augroup END
+" augroup colorscheme_change | au!
+"     au ColorScheme * call s:customize_colors()
+" augroup END
 
 
 """ Colorschemes
