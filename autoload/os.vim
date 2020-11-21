@@ -40,9 +40,11 @@ func! os#file_manager() abort
 
         if os#is_wsl()
             let path = os#wsl_to_windows_path(path)
+            call job_start(['explorer.exe', '/select,' .. path])
+        else
+            call job_start('explorer.exe /select,' .. path)
         endif
 
-        call job_start(['explorer.exe', '/select,' . path])
     else
         echomsg "Not yet implemented!"
     endif
