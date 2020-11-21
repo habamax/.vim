@@ -42,7 +42,7 @@ func! os#file_manager() abort
             let path = os#wsl_to_windows_path(path)
             call job_start(['explorer.exe', '/select,' .. path])
         else
-            call job_start('explorer.exe /select,' .. path)
+            exe '!start explorer.exe /select,' .. path
         endif
 
     else
