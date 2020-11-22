@@ -1,12 +1,14 @@
 """ Customize colors
 
-" func! s:customize_colors() abort
-"     hi Comment gui=italic cterm=italic
-" endfunc
+func! s:apprentice() abort
+    hi Title gui=bold cterm=bold
+    hi Statusline gui=bold cterm=bold
+    hi StatuslineTerm gui=bold cterm=bold
+endfunc
 
-" augroup colorscheme_change | au!
-"     au ColorScheme * call s:customize_colors()
-" augroup END
+augroup colorscheme_change | au!
+    au ColorScheme apprentice call s:apprentice()
+augroup END
 
 
 """ Colorschemes

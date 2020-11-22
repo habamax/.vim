@@ -17,7 +17,9 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 
 
+"""
 """ My plugins
+"""
 call minpac#add('git@github.com:habamax/vim-select.git', {'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-select-more.git', {'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-asciidoctor.git', {'rev': 'master'})
@@ -33,13 +35,17 @@ call minpac#add('git@github.com:habamax/vim-winlayout.git', {'rev': 'master'})
 
 
 
+"""
 """ Git
+"""
 call minpac#add('tpope/vim-fugitive', {'type': 'opt'})
 call minpac#add('rbong/vim-flog', {'type': 'opt'})
 
 
 
+"""
 """ Text manipulation
+"""
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-repeat')
 
@@ -55,7 +61,9 @@ call minpac#add('machakann/vim-swap')
 
 
 
-""" Programming
+"""
+""" Coding
+"""
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-endwise')
 call minpac#add('tpope/vim-scriptease')
@@ -63,6 +71,8 @@ call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
 call minpac#add('editorconfig/editorconfig-vim')
 call minpac#add('AndrewRadev/splitjoin.vim')
 call minpac#add('vim-test/vim-test')
+call minpac#add('elixir-editors/vim-elixir')
+call minpac#add('aklt/plantuml-syntax')
 
 call minpac#add('neoclide/coc.nvim', {'type': 'opt', 'branch': 'release'})
 " after install/update run `./install.py`
@@ -76,13 +86,9 @@ call minpac#add('alvan/vim-closetag')
 
 
 
-""" Filetype & Syntax
-call minpac#add('elixir-editors/vim-elixir')
-call minpac#add('aklt/plantuml-syntax')
-
-
-
+"""
 """ Miscelaneous
+"""
 call minpac#add('tpope/vim-dispatch')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-eunuch')
@@ -98,6 +104,7 @@ call minpac#add('airblade/vim-rooter')
 
 call minpac#add('lifepillar/vim-colortemplate')
 call minpac#add('chrisbra/Colorizer')
+call minpac#add('romainl/Apprentice')
 
 " call minpac#add('vim-airline/vim-airline')
 " call minpac#add('itchyny/lightline.vim')
