@@ -6,6 +6,8 @@ func! s:apprentice() abort
     hi Statusline gui=bold cterm=bold
     hi StatuslineTerm gui=bold cterm=bold
     hi Cursor guifg=#BCBCBC
+    hi DiffDelete cterm=reverse ctermfg=235 ctermbg=131 gui=reverse guifg=#262626 guibg=#af5f5f
+    hi DiffChange none
 endfunc
 
 augroup colorscheme_change | au!
