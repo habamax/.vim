@@ -5,6 +5,7 @@ func! s:apprentice() abort
     hi Title gui=bold cterm=bold
     hi Statusline gui=bold cterm=bold
     hi StatuslineTerm gui=bold cterm=bold
+    hi Cursor guifg=#BCBCBC
 endfunc
 
 augroup colorscheme_change | au!
