@@ -1,8 +1,4 @@
 func! s:apprentice() abort
-    hi Title gui=bold cterm=bold
-    hi Statusline gui=bold cterm=bold
-    hi StatuslineTerm gui=bold cterm=bold
-    hi WildMenu gui=bold cterm=bold
     hi Cursor guifg=bg guibg=fg
     hi DiffDelete cterm=reverse ctermfg=235 ctermbg=131 gui=reverse guifg=#262626 guibg=#af5f5f
     hi DiffChange none
