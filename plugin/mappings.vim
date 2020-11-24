@@ -125,6 +125,9 @@ nnoremap <space>t<space> i<space><right><space><ESC>h
 nnoremap <space>tf :TextFixSpaces<CR>
 xnoremap <space>tf :TextFixSpaces<CR>
 
+"" Syntax group names under cursor
+nnoremap <space>ts :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')))<CR>
+
 "" now it is possible to paste many times over selected text
 " xnoremap <expr> p 'pgv"'.v:register.'y`>'
 " xnoremap <expr> P 'Pgv"'.v:register.'y`>'
