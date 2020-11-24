@@ -66,7 +66,8 @@ call minpac#add('machakann/vim-swap')
 """
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-endwise')
-call minpac#add('tpope/vim-scriptease')
+" call minpac#add('tpope/vim-scriptease')
+" TODO: implement zS analogue
 call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
 call minpac#add('editorconfig/editorconfig-vim')
 call minpac#add('AndrewRadev/splitjoin.vim')
