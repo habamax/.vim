@@ -6,8 +6,13 @@ endif
 
 let b:foldtext_strip_comments = v:true
 
-" make line continuation `\` less indented (default is *3)
-" let g:vim_indent_cont = shiftwidth() * 2
+
+setlocal path+=plugin/**
+setlocal path+=autoload/**
+setlocal path+=colortemplate/**
+setlocal path+=after/**
+setlocal path+=compiler/**
+setlocal path+=colors/**
 
 
 inorea <buffer> augr augroup  \| au!<CR>

@@ -1,5 +1,5 @@
 "" path, tune it per filetype
-set path=.,,src/**,lib/**,docs/**,plugin/**,autoload/**,colortemplate/**,after/**
+set path=.,,src/**
 
 "" Swap & Backup & Undo
 let &directory = expand('~/.vimdata/swap//')

@@ -1,5 +1,7 @@
 compiler asciidoctor2pdf
 
+setlocal path+=**/*
+
 let b:foldtext_strip_add_regex = '^=\+'
 
 setl cole=3
