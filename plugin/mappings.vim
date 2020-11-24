@@ -9,11 +9,13 @@ noremap <space>P "+P
 cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"
 cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
 
-nnoremap <space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
+"" Find file/buffer
+"" Overriden by vim-select if exists
+nnoremap <space>ff :find<space>
+nnoremap <space>fe :e<space><C-D>
+nnoremap <space>b :b<space><C-D>
 
-"" guards
-nnoremap <space>f <nop>
-nnoremap <space>r <nop>
+nnoremap <space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
 nnoremap <BS> <C-^>
 
