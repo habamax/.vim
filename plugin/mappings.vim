@@ -139,14 +139,14 @@ xnoremap < <gv
 "" <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
-nnoremap <silent> <space>- :call text#underline(['-', '=', '~', '^', '+'])<CR>
-nnoremap <silent> <space>= :call text#underline(['=', '-', '~', '^', '+'])<CR>
-nnoremap <silent> <space>~ :call text#underline(['~', '=', '-', '^', '+'])<CR>
-nnoremap <silent> <space>^ :call text#underline(['^', '=', '-', '~', '+'])<CR>
-nnoremap <silent> <space>+ :call text#underline(['+', '=', '-', '~', '^'])<CR>
+nnoremap <silent> <space>t- :call text#underline(['-', '=', '~', '^', '+'])<CR>
+nnoremap <silent> <space>t= :call text#underline(['=', '-', '~', '^', '+'])<CR>
+nnoremap <silent> <space>t~ :call text#underline(['~', '=', '-', '^', '+'])<CR>
+nnoremap <silent> <space>t^ :call text#underline(['^', '=', '-', '~', '+'])<CR>
+nnoremap <silent> <space>t+ :call text#underline(['+', '=', '-', '~', '^'])<CR>
 
-nnoremap <space><space>- o<home><ESC>78i-<ESC>
-nnoremap <space><space>= o<home><ESC>78i=<ESC>
+nnoremap <silent> <space><space>t- o<home><ESC>78i-<ESC>
+nnoremap <silent> <space><space>t= o<home><ESC>78i=<ESC>
 
 "" find visually selected text
 vnoremap * y/<C-R>"<CR>
