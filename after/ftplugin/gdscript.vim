@@ -22,4 +22,3 @@ nnoremap <buffer> <space><space>r :GodotRun<CR>
 nnoremap <buffer> <space><space>c :GodotRunCurrent<CR>
 nnoremap <buffer> <space><space>f :Select godot<CR>
 nnoremap <buffer> <space><space>l :GodotRunLast<CR>
-
