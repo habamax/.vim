@@ -12,9 +12,10 @@ augroup END
 set termguicolors
 
 
-if !has("gui_running") || strftime("%H") >= 20 || strftime("%H") <= 6
-    " colorscheme gruvbit
-    colorscheme apprentice
-else
-    exe "colorscheme "..["miday", "polar"][rand(srand())%2]
-endif
+colorscheme apprentice
+
+" if !has("gui_running") || strftime("%H") >= 20 || strftime("%H") <= 6
+"     colorscheme gruvbit
+" else
+"     exe "colorscheme "..["miday", "polar"][rand(srand())%2]
+" endif
