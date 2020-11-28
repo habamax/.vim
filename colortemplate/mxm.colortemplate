@@ -85,12 +85,12 @@ SignColumn       none       none
 
 Underlined       color12    none underline
 
-Error            color00    color01
-ErrorMsg         color00    color01
-ModeMsg          color00    color03
-WarningMsg       color00    color03
-MoreMsg          color00    color02
-Question         color00    color02
+Error            color01    none
+ErrorMsg         color01    none
+ModeMsg          color03    none
+WarningMsg       color03    none
+MoreMsg          color02    none
+Question         color02    none
 
 Todo             background color07
 MatchParen       color00    color03
