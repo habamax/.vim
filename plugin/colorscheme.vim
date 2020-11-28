@@ -12,7 +12,7 @@ augroup END
 set termguicolors
 
 
-colorscheme apprentice
+colorscheme mxm
 
 " if !has("gui_running") || strftime("%H") >= 20 || strftime("%H") <= 6
 "     colorscheme gruvbit
