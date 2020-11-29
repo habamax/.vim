@@ -64,7 +64,7 @@ PmenuThumb       none       color08
 
 TabLine          foreground color08
 TabLineFill      color06    color08
-TabLineSel       foreground color05
+TabLineSel       background color06
 
 ToolbarLine      none       color00
 ToolbarButton    background color10
@@ -83,7 +83,7 @@ CursorLineNr     none       color16
 QuickFixLine     none       color16
 SignColumn       none       none
 
-Underlined       color12    none underline
+Underlined       color13    none underline
 
 Error            color01    none
 ErrorMsg         color01    none
