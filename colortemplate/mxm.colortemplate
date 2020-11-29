@@ -87,7 +87,7 @@ Underlined       color12    none underline
 
 Error            color01    none
 ErrorMsg         color01    none
-ModeMsg          color03    none
+ModeMsg          background color03
 WarningMsg       color03    none
 MoreMsg          color02    none
 Question         color02    none
