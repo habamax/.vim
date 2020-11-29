@@ -89,8 +89,8 @@ Error            color01    none
 ErrorMsg         color01    none
 ModeMsg          background color03
 WarningMsg       color03    none
-MoreMsg          color02    none
-Question         color02    none
+MoreMsg          color10    none
+Question         color09    none
 
 Todo             background color07
 MatchParen       color00    color03
