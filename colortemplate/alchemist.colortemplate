@@ -83,7 +83,7 @@ CursorLineNr     none       color16
 QuickFixLine     none       color16
 SignColumn       none       none
 
-Underlined       color13    none underline
+Underlined       color12    none underline
 
 Error            color01    none
 ErrorMsg         color01    none
@@ -132,3 +132,8 @@ Conceal          color07    none
 Ignore           none       none
 
 Title            color15    none bold
+
+
+;;; More highlights
+asciidoctorOption     color05   none
+asciidoctorListMarker color11   none
