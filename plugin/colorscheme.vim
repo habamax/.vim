@@ -12,10 +12,10 @@ augroup END
 set termguicolors
 
 
-colorscheme habanight
+colorscheme alchemist
 
 " if !has("gui_running") || strftime("%H") >= 20 || strftime("%H") <= 6
-"     colorscheme habanight
+    " exe 'colorscheme '..['habanight', 'alchemist'][rand(srand())%2]
 " else
-"     exe "colorscheme "..["miday", "polar"][rand(srand())%2]
+"     exe 'colorscheme '..['miday', 'polar'][rand(srand())%2]
 " endif
