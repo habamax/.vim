@@ -22,7 +22,7 @@ inorea <buffer> blnk {blank}<C-R>=Eatchar('\s')<CR>
 
 inorea <buffer> enopt Maxim Kim<CR>
             \v0.1, =strftime("%Y-%m-%d") : Draft<CR>
-            \:pdf-style: default<CR>
+            \:pdf-theme: default<CR>
             \:doctype: article<CR>
             \:title-page:<CR>
             \:toc: left<CR>
@@ -42,7 +42,7 @@ inorea <buffer> enopt Maxim Kim<CR>
 
 inorea <buffer> ruopt Максим Ким<CR>
             \v0.1, =strftime("%Y-%m-%d") : Предварительный вариант<CR>
-            \:pdf-style: default<CR>
+            \:pdf-theme: default<CR>
             \:doctype: article<CR>
             \:title-page:<CR>
             \:toc: left<CR>
