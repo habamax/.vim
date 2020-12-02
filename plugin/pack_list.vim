@@ -25,6 +25,7 @@ call minpac#add('git@github.com:habamax/vim-select-more.git', { 'rev': 'master'}
 call minpac#add('git@github.com:habamax/vim-asciidoctor.git', { 'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-evalvim.git',     { 'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-habanight.git',   { 'rev': 'master', 'type': 'opt'})
+call minpac#add('git@github.com:habamax/vim-alchemist.git',   { 'rev': 'master', 'type': 'opt'})
 call minpac#add('git@github.com:habamax/vim-gruvbit.git',     { 'rev': 'master', 'type': 'opt'})
 call minpac#add('git@github.com:habamax/vim-polar.git',       { 'rev': 'master', 'type': 'opt'})
 call minpac#add('git@github.com:habamax/vim-godot.git',       { 'rev': 'master'})
