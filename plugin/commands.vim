@@ -57,7 +57,7 @@ endif
 
 
 " open terminal with a cwd of a current buffer
-command! TermBuffer :bo call term_start(&shell, {"cwd": expand("%:p:h"), "term_finish": "close"})
+command! TermBuffer :bo call term_start(&shell, {"cwd": expand("%:p:h"), "term_finish": "close", "term_rows": 10})
 
 " run visual test for colorscheme
 command! TestColorscheme exe "so colors/tools/colorscheme_sample.vim"
