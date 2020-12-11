@@ -1,0 +1,140 @@
+; vim: ft=colortemplate
+Full name: bondia
+Short name: bondia
+Description: White background.
+Author: Maxim Kim <habamax@gmail.com>
+Neovim: yes
+
+
+Variant:    gui 256
+
+Background: dark
+
+
+;;; Color palette
+Color: foreground #000000 16
+Color: background #FFFFFF 231
+
+Color: color00    #000000 234
+Color: color08    #808080 244
+
+Color: color01    #D75F5F 167
+Color: color09    #D787AF 175
+
+Color: color02    #5F875F 65
+Color: color10    #87AF87 108
+
+Color: color03    #AF8700 136
+Color: color11    #D7AF5F 179
+
+Color: color04    #0000AF 67
+Color: color12    #005FAF 110
+
+Color: color05    #8700af 60
+Color: color13    #af00ff 103
+
+Color: color06    #5F8787 66
+Color: color14    #5FAFAF 73
+
+Color: color07    #BCBCBC 242
+Color: color15    #FFFFFF 231
+
+Color: color16    #E4E4E4 254
+
+Term colors: color00 color01 color02 color03 color04 color05 color06 color07
+Term colors: color08 color09 color10 color11 color12 color13 color14 color15
+
+;;; chrome
+
+Variant: gui 256
+
+Normal           foreground background
+
+EndOfBuffer      color07    none
+Statusline       background color06
+StatuslineNC     foreground color07
+StatuslineTerm   background color06
+StatuslineTermNC foreground color07
+VertSplit        color07    color07
+
+Pmenu            none       color08
+PmenuSel         background color11
+PmenuSbar        none       color08
+PmenuThumb       none       color08
+
+TabLine          foreground color08
+TabLineFill      color06    color08
+TabLineSel       background color06
+
+ToolbarLine      none       color00
+ToolbarButton    background color10
+
+NonText          color08    none
+SpecialKey       color08    none
+
+Folded           color07    color00
+Visual           background color12
+VisualNOS        background color12
+LineNr           color07    color00
+FoldColumn       color07    color00
+CursorLine       none       color16
+CursorColumn     none       color16
+CursorLineNr     none       color16
+QuickFixLine     none       color16
+SignColumn       none       none
+
+Underlined       color12    none underline
+
+Error            color01    none
+ErrorMsg         color01    none
+ModeMsg          background color03
+WarningMsg       color03    none
+MoreMsg          color10    none
+Question         color09    none
+
+Todo             background color07
+MatchParen       color00    color03
+Search           color00    color03
+IncSearch        color15    color02
+WildMenu         background color11
+ColorColumn      none       color00
+Cursor           background foreground
+lCursor          background color01
+
+DiffAdd          background color10
+DiffChange       none       none
+DiffText         background color13
+DiffDelete       color05    color00
+
+SpellBad         color01    none t=underline g=undercurl s=color01
+SpellCap         color09    none t=underline g=undercurl s=color09
+SpellLocal       color03    none t=underline g=undercurl s=color03
+SpellRare        color11    none t=underline g=undercurl s=color11
+
+
+;;; :h group-names
+Comment          color08    none
+
+Identifier       color04    none
+Function         color12    none
+Statement        color05    none
+Constant         color09    none
+String           color10    none
+Character        color10    none
+PreProc          color06    none
+Type             color13    none
+Special          color02    none
+SpecialChar      color05    none
+Tag              color14    none
+SpecialComment   color14    none
+
+Directory        color14    none
+Conceal          color07    none
+Ignore           none       none
+
+Title            color15    none
+
+
+;;; More highlights
+asciidoctorOption     color05   none
+asciidoctorListMarker color11   none
