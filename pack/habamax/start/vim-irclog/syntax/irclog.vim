@@ -4,7 +4,8 @@ endif
 
 
 
-syn match ircMessage '^.*$' contains=ircTimestamp,ircNick
+syn match ircMessage '^.*$' contains=ircPrefix
+syn match ircPrefix '^\d\d:\d\d\s<[^>]\+>' contained contains=ircTimestamp,ircNick
 syn match ircTimestamp '^\d\d:\d\d' contained nextgroup=ircNick
 syn match ircNick '<[^>]\+>' contained contains=ircNickSep,ircNickMe
 syn match ircNickSep '[<>]' contained
