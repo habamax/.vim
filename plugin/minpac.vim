@@ -3,9 +3,9 @@
 """ 1. Run :PackBoot on a fresh machine to bootstrap minpac.
 """ 2. Run :PackUpdate to install plugins.
 
-command! PackBoot let g:minpac_bootstrap = 1 | packadd minpac | runtime plugin/pack_list.vim
-command! PackUpdate packadd minpac | runtime plugin/pack_list.vim | call minpac#update()
-command! PackClean  packadd minpac | runtime plugin/pack_list.vim | call minpac#clean()
+command! PackBoot let g:minpac_bootstrap = 1 | packadd minpac | runtime plugin/minpac.vim
+command! PackUpdate packadd minpac | runtime plugin/minpac.vim | call minpac#update()
+command! PackClean  packadd minpac | runtime plugin/minpac.vim | call minpac#clean()
 
 
 if !exists('g:loaded_minpac')
