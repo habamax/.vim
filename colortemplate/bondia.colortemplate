@@ -12,26 +12,26 @@ Background: dark
 
 
 ;;; Color palette
-Color: foreground #000000 16
-Color: background #FFFFFF 231
+Color: foreground #1C1C1C 234
+Color: background #F7F7F7 231
 
 Color: color00    #000000 234
 Color: color08    #808080 244
 
-Color: color01    #D75F5F 167
-Color: color09    #D787AF 175
+Color: color01    #D75f5f 167
+Color: color09    #D78787 175
 
-Color: color02    #5F875F 65
-Color: color10    #87AF87 108
+Color: color02    #008700 65
+Color: color10    #5f875f 108
 
 Color: color03    #AF8700 136
 Color: color11    #D7AF5F 179
 
-Color: color04    #0000AF 67
-Color: color12    #005FAF 110
+Color: color04    #005F87 67
+Color: color12    #005FD7 110
 
-Color: color05    #8700af 60
-Color: color13    #af00ff 103
+Color: color05    #8700AF 60
+Color: color13    #AF00FF 103
 
 Color: color06    #5F8787 66
 Color: color14    #5FAFAF 73
@@ -57,26 +57,26 @@ StatuslineTerm   background color06
 StatuslineTermNC foreground color07
 VertSplit        color07    color07
 
-Pmenu            none       color08
-PmenuSel         background color11
-PmenuSbar        none       color08
-PmenuThumb       none       color08
+Pmenu            none       color07
+PmenuSel         foreground color11
+PmenuSbar        none       color07
+PmenuThumb       none       color07
 
-TabLine          foreground color08
-TabLineFill      color06    color08
+TabLine          foreground color07
+TabLineFill      color06    color07
 TabLineSel       background color06
 
-ToolbarLine      none       color00
-ToolbarButton    background color10
+ToolbarLine      none       color15
+ToolbarButton    foreground color10
 
 NonText          color08    none
 SpecialKey       color08    none
 
-Folded           color07    color00
+Folded           color06    color15
 Visual           background color12
 VisualNOS        background color12
-LineNr           color07    color00
-FoldColumn       color07    color00
+LineNr           color08    color15
+FoldColumn       color08    color15
 CursorLine       none       color16
 CursorColumn     none       color16
 CursorLineNr     none       color16
@@ -94,10 +94,10 @@ Question         color09    none
 
 Todo             background color07
 MatchParen       color00    color03
-Search           color00    color03
+Search           color00    color11
 IncSearch        color15    color02
-WildMenu         background color11
-ColorColumn      none       color00
+WildMenu         foreground color11
+ColorColumn      none       color15
 Cursor           background foreground
 lCursor          background color01
 
@@ -132,9 +132,9 @@ Directory        color14    none
 Conceal          color07    none
 Ignore           none       none
 
-Title            color15    none
+Title            color03    none
 
 
 ;;; More highlights
-asciidoctorOption     color05   none
-asciidoctorListMarker color11   none
+; asciidoctorOption     color05   none
+; asciidoctorListMarker color11   none
