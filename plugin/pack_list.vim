@@ -11,8 +11,9 @@ command! PackClean  packadd minpac | runtime plugin/pack_list.vim | call minpac#
 if !exists('g:loaded_minpac')
     if exists('g:minpac_bootstrap') && executable('git')
         let vdir = expand(has("win32") ? "~/vimfiles" : "~/.vim")
-        call system("git clone https://github.com/k-takata/minpac.git "..vdir.."/pack/minpac/opt/minpac")
-        echom "git clone https://github.com/k-takata/minpac.git "..vdir.."/pack/minpac/opt/minpac"
+        let cmd = "git clone https://github.com/k-takata/minpac.git "..vdir.."/pack/minpac/opt/minpac"
+        echom cmd
+        call system(cmd)
         echom "Now run :PackUpdate"
     endif
 
