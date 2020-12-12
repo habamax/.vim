@@ -1,16 +1,24 @@
-""" Use minpac to utilize standard vim package stuff + git
-""" First of all minpac should be installed:
-""" WIN:
-""" git clone https://github.com/k-takata/minpac.git %HOME%/vimfiles/pack/minpac/opt/minpac
-""" WIN POWERSHELL:
-""" git clone https://github.com/k-takata/minpac.git $HOME/vimfiles/pack/minpac/opt/minpac
-""" OTHER:
-""" git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
+""" Use minpac:
+""" 0. Clone .vim first `git clone https://github.com/habamax/.vim.git ~/.vim`
+""" 1. Run :PackBoot on a fresh machine to bootstrap minpac.
+""" 2. Run :PackUpdate to install plugins.
 
+command! PackBoot let g:minpac_bootstrap = 1 | packadd minpac | runtime plugin/pack_list.vim
 command! PackUpdate packadd minpac | runtime plugin/pack_list.vim | call minpac#update()
 command! PackClean  packadd minpac | runtime plugin/pack_list.vim | call minpac#clean()
 
-if !exists('g:loaded_minpac') | finish | endif
+
+if !exists('g:loaded_minpac')
+    if exists('g:minpac_bootstrap') && executable('git')
+        let vdir = expand(has("win32") ? "~/vimfiles" : "~/.vim")
+        call system("git clone https://github.com/k-takata/minpac.git "..vdir.."/pack/minpac/opt/minpac")
+        echom "git clone https://github.com/k-takata/minpac.git "..vdir.."/pack/minpac/opt/minpac"
+        echom "Now run :PackUpdate"
+    endif
+
+    finish
+endif
+
 
 call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
