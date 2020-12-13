@@ -14,7 +14,7 @@ if !exists('g:loaded_minpac')
         let cmd = "git clone https://github.com/k-takata/minpac.git "..vdir.."/pack/minpac/opt/minpac"
         echom cmd
         call system(cmd)
-        echom "Now run :PackUpdate"
+        echom "To install plugins, run :PackUpdate"
     endif
 
     finish
