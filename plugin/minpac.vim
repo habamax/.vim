@@ -2,6 +2,7 @@
 """ 0. Clone .vim first `git clone https://github.com/habamax/.vim.git ~/.vim`
 """ 1. Run :PackBoot on a fresh machine to bootstrap minpac.
 """ 2. Run :PackUpdate to install plugins.
+""" 3. Then from time to time run :PackUpdate to update plugins.
 
 command! PackBoot let g:minpac_bootstrap = 1 | packadd minpac | runtime plugin/minpac.vim
 command! PackUpdate packadd minpac | runtime plugin/minpac.vim | call minpac#update()
