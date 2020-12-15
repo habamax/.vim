@@ -126,7 +126,7 @@ Type             color05    none
 Special          color03    none
 
 Directory        color05    none
-Conceal          color07    none
+Conceal          color08    none
 Ignore           none       none
 
 Title            color13    none
