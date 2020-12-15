@@ -1,7 +1,7 @@
 ; vim: ft=colortemplate
-Full name: bondia
-Short name: bondia
-Description: White background.
+Full name: psionic
+Short name: psionic
+Description: Light background.
 Author: Maxim Kim <habamax@gmail.com>
 Neovim: yes
 
@@ -16,24 +16,24 @@ Color: foreground #1C1C1C 234
 Color: background #F7F7F7 231
 
 Color: color00    #000000 234
-Color: color08    #808080 244
+Color: color08    #8a8a8a 244
 
-Color: color01    #D75f5f 167
-Color: color09    #D78787 175
+Color: color01    #D70000 160
+Color: color09    #D75f00 166
 
-Color: color02    #008700 65
-Color: color10    #5f875f 108
+Color: color02    #008700 28
+Color: color10    #5FAF5F 71
 
-Color: color03    #AF8700 136
+Color: color03    #AF5F00 130
 Color: color11    #D7AF5F 179
 
-Color: color04    #005F87 67
-Color: color12    #005FD7 110
+Color: color04    #005FAF 25
+Color: color12    #87AFD7 110
 
-Color: color05    #8700AF 60
-Color: color13    #AF00FF 103
+Color: color05    #870087 90
+Color: color13    #AF00AF 103
 
-Color: color06    #5F8787 66
+Color: color06    #008787 66
 Color: color14    #5FAFAF 73
 
 Color: color07    #BCBCBC 242
@@ -59,22 +59,22 @@ VertSplit        color07    color07
 
 Pmenu            none       color07
 PmenuSel         foreground color11
-PmenuSbar        none       color07
-PmenuThumb       none       color07
+PmenuSbar        none       color08
+PmenuThumb       none       color00
 
 TabLine          foreground color07
 TabLineFill      color06    color07
 TabLineSel       background color06
 
 ToolbarLine      none       color15
-ToolbarButton    foreground color10
+ToolbarButton    foreground color14
 
 NonText          color08    none
 SpecialKey       color08    none
 
-Folded           color06    color15
-Visual           background color12
-VisualNOS        background color12
+Folded           color08    color15
+Visual           foreground color12
+VisualNOS        foreground color12
 LineNr           color08    color15
 FoldColumn       color08    color15
 CursorLine       none       color16
@@ -83,17 +83,17 @@ CursorLineNr     none       color16
 QuickFixLine     none       color16
 SignColumn       none       none
 
-Underlined       color12    none underline
+Underlined       color04    none underline
 
 Error            color01    none
 ErrorMsg         color01    none
-ModeMsg          background color03
+ModeMsg          foreground color11
 WarningMsg       color03    none
-MoreMsg          color10    none
-Question         color09    none
+MoreMsg          color02    none
+Question         color03    none
 
-Todo             background color07
-MatchParen       color00    color03
+Todo             background color04
+MatchParen       background color06
 Search           color00    color11
 IncSearch        color15    color02
 WildMenu         foreground color11
@@ -103,8 +103,8 @@ lCursor          background color01
 
 DiffAdd          background color10
 DiffChange       none       none
-DiffText         background color13
-DiffDelete       color05    color00
+DiffText         background color09
+DiffDelete       color08    color15
 
 SpellBad         color01    none t=underline g=undercurl s=color01
 SpellCap         color09    none t=underline g=undercurl s=color09
@@ -115,26 +115,18 @@ SpellRare        color11    none t=underline g=undercurl s=color11
 ;;; :h group-names
 Comment          color08    none
 
-Identifier       color04    none
-Function         color12    none
-Statement        color05    none
+Identifier       color05    none
+Function         color13    none
+Statement        color04    none
 Constant         color09    none
-String           color10    none
-Character        color10    none
+String           color02    none
+Character        color02    none
 PreProc          color06    none
-Type             color13    none
-Special          color02    none
-SpecialChar      color05    none
-Tag              color14    none
-SpecialComment   color14    none
+Type             color05    none
+Special          color03    none
 
-Directory        color14    none
+Directory        color05    none
 Conceal          color07    none
 Ignore           none       none
 
-Title            color03    none
-
-
-;;; More highlights
-; asciidoctorOption     color05   none
-; asciidoctorListMarker color11   none
+Title            color13    none
