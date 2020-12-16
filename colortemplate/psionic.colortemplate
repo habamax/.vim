@@ -69,8 +69,8 @@ TabLineSel       background color06
 ToolbarLine      none       color15
 ToolbarButton    foreground color14
 
-NonText          color08    none
-SpecialKey       color08    none
+NonText          color07    none
+SpecialKey       color07    none
 
 Folded           color08    color15
 Visual           foreground color12
@@ -89,7 +89,7 @@ Error            color01    none
 ErrorMsg         color01    none
 ModeMsg          foreground color11
 WarningMsg       color03    none
-MoreMsg          color02    none
+MoreMsg          color04    none
 Question         color03    none
 
 Todo             background color04
