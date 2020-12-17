@@ -5,6 +5,9 @@ noremap <space>y "+y
 noremap <space>p "+p
 noremap <space>P "+P
 
+noremap <space>0 "0p
+noremap <space>) "0P
+
 "" tab to cycle search candidates
 cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"
 cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
