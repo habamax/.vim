@@ -26,12 +26,12 @@ fun! s:changeFontSize(op)
 
     if a:op == 'inc' && fontsize < 40
         let new_font = fontname.':h'.(fontsize + 1)
-        let new_lines = float2nr(round(&lines * fontsize/str2float(fontsize+1)))
-        let new_columns = float2nr(round(&columns * fontsize/str2float(fontsize+1)))
+        let new_lines = float2nr(round(&lines * fontsize/str2float(fontsize + 1)))
+        let new_columns = float2nr(round(&columns * fontsize/str2float(fontsize + 1)))
     elseif a:op == 'dec' && fontsize > 7
         let new_font = fontname.':h'.(fontsize - 1)
-        let new_lines = float2nr(round(&lines * fontsize/str2float(fontsize-1)))
-        let new_columns = float2nr(round(&columns * fontsize/str2float(fontsize-1)))
+        let new_lines = float2nr(round(&lines * fontsize/str2float(fontsize - 1)))
+        let new_columns = float2nr(round(&columns * fontsize/str2float(fontsize - 1)))
     elseif a:op == 'restore'
         let new_font = s:orig_guifont
         let new_lines = s:orig_lines
@@ -40,8 +40,8 @@ fun! s:changeFontSize(op)
         return
     endif
 
-    exe printf('set guifont=%s', escape(new_font, ' '))
     if new_lines > 10 && new_columns > 10
+        exe printf('set guifont=%s', escape(new_font, ' '))
         exe printf('set lines=%s columns=%s', new_lines, new_columns)
     endif
 
