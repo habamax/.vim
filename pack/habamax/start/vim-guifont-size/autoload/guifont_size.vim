@@ -1,14 +1,5 @@
-"" change-font-size.vim - Change GUI vim font size
-"" Maintainer: Maxim Kim <habamax@gmail.com>
 
-if exists("g:loaded_change_font_size") || !has("gui_running")
-    finish
-endif
-
-let g:loaded_change_font_size = 1
-
-
-fun! s:getCurrentFont()
+func! s:get_current_font()
     let font = matchlist(&guifont, '\(.\{-}\):h\(\d\+\)')
 
     if !exists("s:orig_guifont")
@@ -18,11 +9,11 @@ fun! s:getCurrentFont()
     endif
 
     return [font[1], font[2]]
-endfu
+endfunc
 
 
-fun! s:changeFontSize(op)
-    let [fontname,fontsize] = s:getCurrentFont()
+func! guifont_size#change(op)
+    let [fontname,fontsize] = s:get_current_font()
 
     if a:op == 'inc' && fontsize < 40
         let new_font = fontname.':h'.(fontsize + 1)
@@ -50,10 +41,4 @@ fun! s:changeFontSize(op)
     else
         wincmd =
     endif
-endfu
-
-" looks like this is windows only
-nnoremap <silent> <A--> :call <sid>changeFontSize('dec')<CR>
-nnoremap <silent> <A-=> :call <sid>changeFontSize('inc')<CR>
-nnoremap <silent> <A-0> :call <sid>changeFontSize('restore')<CR>
-
+endfunc

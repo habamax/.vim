@@ -104,3 +104,13 @@ if exists("g:loaded_easy_align_plugin")
     vmap ga <Plug>(LiveEasyAlign)
     nmap ga <Plug>(EasyAlign)
 endif
+
+
+if exists("g:loaded_guifont_size")
+    nmap <A-=> <Plug>(GUIFontSizeInc)
+    nmap <A--> <Plug>(GUIFontSizeDec)
+    nmap <A-0> <Plug>(GUIFontSizeRestore)
+endif
+
+
+
