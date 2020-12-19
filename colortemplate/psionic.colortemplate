@@ -94,7 +94,7 @@ Question         color03    none
 
 Todo             background color04
 MatchParen       background color06
-Search           color07    color02
+Search           background color02
 IncSearch        foreground color11
 WildMenu         foreground color11
 ColorColumn      none       color15
