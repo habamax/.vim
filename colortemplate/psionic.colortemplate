@@ -129,4 +129,4 @@ Directory        color05    none
 Conceal          color08    none
 Ignore           none       none
 
-Title            color13    none
+Title            color00    none bold
