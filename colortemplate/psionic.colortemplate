@@ -19,7 +19,7 @@ Color: color00    #000000 16
 Color: color08    #8a8a8a 245
 
 Color: color01    #D70000 160
-Color: color09    #D75F5F 167
+Color: color09    #AF5F5F 131
 
 Color: color02    #008700 28
 Color: color10    #5f8700 64
@@ -31,7 +31,7 @@ Color: color04    #005FAF 25
 Color: color12    #87AFD7 110
 
 Color: color05    #870087 90
-Color: color13    #AF00AF 127
+Color: color13    #AF5FAF 139
 
 Color: color06    #008787 30
 Color: color14    #5FAFAF 73
@@ -122,7 +122,8 @@ Identifier       color04    none
 Statement        color05    none
 PreProc          color06    none
 Type             color03    none
-Special          color13    none
+Special          color09    none
+Delimiter        color13    none
 
 Directory        foreground none bold
 Conceal          color08    none
