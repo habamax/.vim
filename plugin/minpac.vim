@@ -13,7 +13,6 @@ if !exists('g:loaded_minpac')
     if exists('g:minpac_bootstrap') && executable('git')
         let vdir = expand(has("win32") ? "~/vimfiles" : "~/.vim")
         let cmd = "git clone https://github.com/k-takata/minpac.git "..vdir.."/pack/minpac/opt/minpac"
-        echom cmd
         call system(cmd)
         echom "To install plugins, run :PackUpdate"
     endif
