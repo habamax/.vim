@@ -58,6 +58,7 @@ inoremap <M-j> <C-\><C-N><C-w>j
 inoremap <M-k> <C-\><C-N><C-w>k
 inoremap <M-l> <C-\><C-N><C-w>l
 
+nnoremap <space>c :b#<bar>bd#<cr>
 nnoremap <space>q <C-w>c
 nnoremap <space>ws <C-w>s
 nnoremap <space>wv <C-w>v
