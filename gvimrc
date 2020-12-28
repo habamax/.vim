@@ -12,8 +12,8 @@ set guifont=Iosevka\ Habamax:h14
 
 " set guifont=Hack:h14
 " set guifont=Fira\ Mono:h14
-" set guifont=Input:h14
 " set guifont=Consolas:h14
+" set guifont=Cascadia\ Code\ SemiLight:h14
 
 " Однажды, в студеную зимнюю пору,
 " Я из лесу вышел; был сильный мороз.
