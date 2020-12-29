@@ -14,7 +14,7 @@ func! lsp#setup(engine)
                     \   },
                     \   {
                     \     'name': 'nim',
-                    \     'cmdline': ['nimlsp.cmd'],
+                    \     'cmdline': ['nimlsp'],
                     \     'filetypes': [ 'nim' ]
                     \   }
                     \ ]
