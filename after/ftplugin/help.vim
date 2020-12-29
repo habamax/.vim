@@ -12,8 +12,6 @@ function! s:goto_help_link(dir)
 endfunction
 
 
-let b:indentLine_enabled = 0
-
 fun! s:help_heading()
     let line = getline('.')
     let matches = matchlist(line, '\v^(.{-})\s+(\S*)\s*$')
