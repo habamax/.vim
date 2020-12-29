@@ -21,6 +21,10 @@ endfunc
 
 
 func! s:detect_indent(lines) abort
+    if &buftype != ''
+        return
+    endif
+
     let tabs = 0
     let spaces = 0
     let shiftwidths = {2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0}
@@ -52,5 +56,5 @@ endfunc
 
 
 augroup autotab | au!
-    au BufRead * call s:detect_indent(getline(1, 200))
+    au FileType * call s:detect_indent(getline(1, 1024))
 augroup END
