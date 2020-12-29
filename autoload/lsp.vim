@@ -1,4 +1,4 @@
-let s:lsp_ft_maps = get(g:, 'lsp_ft_maps', 'gdscript,go,python')
+let s:lsp_ft_maps = get(g:, 'lsp_ft_maps', 'gdscript,go,python,nim')
 
 
 func! lsp#setup(engine)
@@ -11,6 +11,11 @@ func! lsp#setup(engine)
                     \     'project_root_files': ['project.godot'],
                     \     'port': 6008,
                     \     'filetypes': [ 'gdscript' ]
+                    \   },
+                    \   {
+                    \     'name': 'nim',
+                    \     'cmdline': ['nimlsp.cmd'],
+                    \     'filetypes': [ 'nim' ]
                     \   }
                     \ ]
         let g:ycm_complete_in_comments = 1
