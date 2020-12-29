@@ -74,6 +74,7 @@ call minpac#add('machakann/vim-swap')
 """ Coding
 """
 call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-sleuth')
 call minpac#add('tpope/vim-endwise')
 call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
 call minpac#add('editorconfig/editorconfig-vim')
