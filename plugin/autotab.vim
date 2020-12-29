@@ -54,4 +54,3 @@ endfunc
 augroup autotab | au!
     au BufRead * call s:detect_indent(getline(1, 200))
 augroup END
-
