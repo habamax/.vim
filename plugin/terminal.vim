@@ -22,7 +22,7 @@ endif
 "     let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
 " endif
 
-" to fix cursor shape in WSL bash add 
+" to fix cursor shape in WSL bash add
 " echo -ne "\e[2 q"
 " to .bashrc
 if &term =~ "xterm" || &term =~ "tmux"
@@ -38,13 +38,13 @@ if !has('win32')
     let c='a'
     while c <= 'z'
         exec "set <A-".c.">=\e".c
-        exec "imap \e".c." <A-".c.">"
+        exec "map \e".c." <A-".c.">"
         let c = nr2char(1+char2nr(c))
     endw
     let c='0'
     while c <= '9'
         exec "set <A-".c.">=\e".c
-        exec "imap \e".c." <A-".c.">"
+        exec "map \e".c." <A-".c.">"
         let c = nr2char(1+char2nr(c))
     endw
 endif
