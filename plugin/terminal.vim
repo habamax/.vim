@@ -6,7 +6,7 @@ endif
 " NOTE: your .tmux.conf should have:
 "
 " set -g default-terminal "screen-256color"
-" or 
+" or
 " set -g default-terminal "tmux-256color"
 "
 " plus
