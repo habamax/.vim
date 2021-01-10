@@ -13,6 +13,7 @@ set ttimeout ttimeoutlen=0
 set belloff=all
 
 set ruler laststatus=2
+set signcolumn=number
 set splitbelow splitright
 set shortmess+=Ic
 set scrolloff=5 sidescrolloff=5
