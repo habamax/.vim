@@ -73,8 +73,8 @@ NonText          color07    none
 SpecialKey       color07    none
 
 Folded           color08    color15
-Visual           foreground color12
-VisualNOS        foreground color12
+Visual           background color04
+VisualNOS        background color04
 LineNr           color08    color15
 FoldColumn       color08    color15
 CursorLine       none       color16
