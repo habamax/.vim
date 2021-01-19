@@ -7,7 +7,7 @@ set hidden
 set encoding=utf8 fileencoding=utf8 fileformat=unix fileformats=unix,dos
 set tabstop=8 softtabstop=-1 shiftwidth=4 expandtab smarttab shiftround
 set nohlsearch incsearch ignorecase
-set autoindent
+set autoindent copyindent preserveindent
 set virtualedit=block
 set ttimeout ttimeoutlen=0
 set belloff=all
