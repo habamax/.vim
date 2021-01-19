@@ -56,6 +56,5 @@ func! MyFoldText()
                 \ foldindent,
                 \ foldtext,
                 \ foldlines_padding,
-                \ foldlines) 
+                \ foldlines)
 endfunc
-
