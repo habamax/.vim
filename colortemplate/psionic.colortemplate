@@ -118,8 +118,8 @@ Comment          color08    none
 Constant         color02    none
 String           color10    none
 Character        color10    none
-Identifier       color04    none
-Statement        color05    none
+Identifier       color05    none
+Statement        color04    none
 PreProc          color06    none
 Type             color03    none
 Special          color09    none
