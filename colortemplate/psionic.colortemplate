@@ -28,7 +28,7 @@ Color: color03    #AF5F00 130
 Color: color11    #D7AF5F 179
 
 Color: color04    #005FAF 25
-Color: color12    #87AFD7 110
+Color: color12    #5F5FAF 61
 
 Color: color05    #870087 90
 Color: color13    #AF5FAF 139
@@ -83,7 +83,7 @@ CursorLineNr     none       color16
 QuickFixLine     none       color16
 SignColumn       none       none
 
-Underlined       color04    none underline
+Underlined       color12    none underline
 
 Error            color01    none
 ErrorMsg         color01    none
@@ -118,7 +118,8 @@ Comment          color08    none
 Constant         color02    none
 String           color10    none
 Character        color10    none
-Identifier       color05    none
+Identifier       color12    none
+Function         color05    none
 Statement        color04    none
 PreProc          color06    none
 Type             color03    none
