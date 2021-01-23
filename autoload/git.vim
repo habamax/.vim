@@ -1,7 +1,7 @@
 "" Show commit that introduced current(selected) line
 "" If a count was given, show full history
 "" Src: https://www.reddit.com/r/vim/comments/i50pce/how_to_show_commit_that_introduced_current_line/
-"" Usage: noremap <silent> <Leader>i :call git#show_commit(v:count)<CR>
+"" Usage: noremap <silent> <Leader>gi :call git#show_commit(v:count)<CR>
 "" Note: should be in .vim/autoload/git.vim
 func! git#show_commit(count) range
     if !executable('git')
@@ -22,8 +22,7 @@ endfunc
 
 
 "" Blame current (selected) line.
-"" Src: https://www.reddit.com/r/vim/comments/i50pce/how_to_show_commit_that_introduced_current_line/
-"" Usage: noremap <silent> <Leader>i :call git#show_commit()<CR>
+"" Usage: noremap <silent> <Leader>gb :call git#blame()<CR>
 "" Note: should be in .vim/autoload/git.vim
 func! git#blame() range
     if !executable('git')
