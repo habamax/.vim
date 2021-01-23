@@ -13,7 +13,7 @@ Background: dark
 
 ;;; Color palette
 Color: foreground #1C1C1C 234
-Color: background #F7F7F3 231
+Color: background #F4F7F2 231
 
 Color: color00    #000000 16
 Color: color08    #8a8a8a 245
@@ -73,8 +73,8 @@ NonText          color07    none
 SpecialKey       color07    none
 
 Folded           color08    color15
-Visual           background color12
-VisualNOS        background color12
+Visual           background color04
+VisualNOS        background color04
 LineNr           color08    color15
 FoldColumn       color08    color15
 CursorLine       none       color16
