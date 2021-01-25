@@ -22,7 +22,7 @@ Color: color01    #D70000 160
 Color: color09    #D75F5F 167
 
 Color: color02    #008700 28
-Color: color10    #5f8700 64
+Color: color10    #5F8700 64
 
 Color: color03    #AF5F00 130
 Color: color11    #D7AF5F 179
@@ -116,13 +116,14 @@ SpellRare        color11    none t=underline g=undercurl s=color11
 Comment          color08    none
 
 Constant         color09    none
-String           color02    none
-Character        color02    none
+String           color10    none
+Character        color10    none
 Identifier       color12    none
+Function         color05    none
 Statement        color04    none
-PreProc          color06    none
-Type             color05    none
-Special          color03    none
+PreProc          color03    none
+Type             color06    none
+Special          color02    none
 
 Directory        foreground none bold
 Conceal          color08    none
