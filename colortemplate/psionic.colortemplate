@@ -13,7 +13,7 @@ Background: dark
 
 ;;; Color palette
 Color: foreground #1C1C1C 234
-Color: background #F4F7F2 231
+Color: background #F7F7F3 231
 
 Color: color00    #000000 16
 Color: color08    #8a8a8a 245
