@@ -119,12 +119,10 @@ Constant         color09    none
 String           color02    none
 Character        color02    none
 Identifier       color12    none
-Function         color05    none
 Statement        color04    none
 PreProc          color06    none
-Type             color03    none
-Special          color13    none
-SpecialChar      color10    none
+Type             color05    none
+Special          color03    none
 
 Directory        foreground none bold
 Conceal          color08    none
