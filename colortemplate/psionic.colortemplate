@@ -19,7 +19,7 @@ Color: color00    #000000 16
 Color: color08    #8a8a8a 245
 
 Color: color01    #D70000 160
-Color: color09    #AF5F5F 131
+Color: color09    #D75F5F 167
 
 Color: color02    #008700 28
 Color: color10    #5f8700 64
@@ -115,16 +115,16 @@ SpellRare        color11    none t=underline g=undercurl s=color11
 ;;; :h group-names
 Comment          color08    none
 
-Constant         color02    none
-String           color10    none
-Character        color10    none
+Constant         color09    none
+String           color02    none
+Character        color02    none
 Identifier       color12    none
 Function         color05    none
 Statement        color04    none
 PreProc          color06    none
 Type             color03    none
-Special          color09    none
-Delimiter        color13    none
+Special          color13    none
+SpecialChar      color10    none
 
 Directory        foreground none bold
 Conceal          color08    none
