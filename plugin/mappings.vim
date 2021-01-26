@@ -47,6 +47,9 @@ xnoremap <M-f> <C-d>
 nnoremap <M-b> <C-u>
 xnoremap <M-b> <C-u>
 
+cnoremap <M-f> <C-right>
+cnoremap <M-b> <C-left>
+
 "" Window management
 " Switch windows
 nnoremap <M-h> <C-w>h
