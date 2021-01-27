@@ -7,7 +7,6 @@ set guioptions=cM
 set linespace=0
 set guifont=Iosevka\ Habamax:h14
 
-" set linespace=-1
 " set guifont=JetBrains\ Mono\ NL:h14
 
 " set guifont=Hack:h14
