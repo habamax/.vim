@@ -24,7 +24,6 @@ set nowrap breakindent breakindentopt=sbr
 set nojoinspaces
 set formatoptions=cqjl
 set backspace=indent,eol,start
-set confirm
 set nospell spelllang=ru,en
 set commentstring=
 set nrformats=bin,hex
@@ -34,6 +33,7 @@ set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set wildchar=<Tab> wildcharm=<C-z> wildmenu wildmode=full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 set history=200
+set confirm
 
 if executable('rg')
     set grepprg=rg\ --vimgrep
