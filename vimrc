@@ -18,7 +18,7 @@ set splitbelow splitright
 set shortmess+=Ic
 set scrolloff=5 sidescrolloff=5
 set display=truncate
-set completeopt=menuone,noselect
+set completeopt=menuone,noselect,popup
 set list listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
 set nowrap breakindent breakindentopt=sbr
 set nojoinspaces
