@@ -4,7 +4,6 @@ if executable('sql-formatter')
     command -buffer Format :%!sql-formatter -i 4
 endif
 
-" setlocal commentstring=--\ %s
 let &l:commentstring = "-- %s"
 
 
