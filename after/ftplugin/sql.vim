@@ -1,7 +1,7 @@
-" npm i -g sql-formatter-cli
-if executable('sql-formatter-cli')
-    setlocal formatprg=sql-formatter-cli
-    command -buffer Format :%!sql-formatter-cli
+" npm i -g sql-formatter
+if executable('sql-formatter')
+    setlocal formatprg=sql-formatter\ -i\ 4
+    command -buffer Format :%!sql-formatter -i 4
 endif
 
 " setlocal commentstring=--\ %s
