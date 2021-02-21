@@ -113,7 +113,7 @@ call minpac#add('airblade/vim-rooter')
 
 call minpac#add('lifepillar/vim-colortemplate')
 call minpac#add('chrisbra/Colorizer')
-call minpac#add('romainl/Apprentice', {'type': 'opt'})
+" call minpac#add('romainl/Apprentice', {'type': 'opt'})
 
 " call minpac#add('vim-airline/vim-airline')
 " call minpac#add('itchyny/lightline.vim')
