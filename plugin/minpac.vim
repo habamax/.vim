@@ -29,19 +29,19 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 """
 """ My plugins
 """
-call minpac#add('git@github.com:habamax/vim-select.git',      { 'rev': 'master'})
-call minpac#add('git@github.com:habamax/vim-select-more.git', { 'rev': 'master'})
-call minpac#add('git@github.com:habamax/vim-asciidoctor.git', { 'rev': 'master'})
-call minpac#add('git@github.com:habamax/vim-evalvim.git',     { 'rev': 'master'})
-call minpac#add('git@github.com:habamax/vim-habanight.git',   { 'rev': 'master', 'type': 'opt'})
-call minpac#add('git@github.com:habamax/vim-alchemist.git',   { 'rev': 'master', 'type': 'opt'})
-call minpac#add('git@github.com:habamax/vim-psionic.git',     { 'rev': 'master', 'type': 'opt'})
-call minpac#add('git@github.com:habamax/vim-gruvbit.git',     { 'rev': 'master', 'type': 'opt'})
-call minpac#add('git@github.com:habamax/vim-polar.git',       { 'rev': 'master', 'type': 'opt'})
-call minpac#add('git@github.com:habamax/vim-godot.git',       { 'rev': 'master'})
-call minpac#add('git@github.com:habamax/vim-num2words.git',   { 'rev': 'master'})
-call minpac#add('git@github.com:habamax/vim-winlayout.git',   { 'rev': 'master'})
-" call minpac#add('git@github.com:habamax/vim-sendtoterm.git',  { 'rev': 'master'})
+call minpac#add('git@github.com:habamax/vim-select.git',      {'rev': 'master'})
+call minpac#add('git@github.com:habamax/vim-select-more.git', {'rev': 'master'})
+call minpac#add('git@github.com:habamax/vim-asciidoctor.git', {'rev': 'master'})
+call minpac#add('git@github.com:habamax/vim-evalvim.git',     {'rev': 'master'})
+call minpac#add('git@github.com:habamax/vim-habanight.git',   {'rev': 'master', 'type': 'opt'})
+call minpac#add('git@github.com:habamax/vim-alchemist.git',   {'rev': 'master', 'type': 'opt'})
+call minpac#add('git@github.com:habamax/vim-psionic.git',     {'rev': 'master', 'type': 'opt'})
+call minpac#add('git@github.com:habamax/vim-gruvbit.git',     {'rev': 'master', 'type': 'opt'})
+call minpac#add('git@github.com:habamax/vim-polar.git',       {'rev': 'master', 'type': 'opt'})
+call minpac#add('git@github.com:habamax/vim-godot.git',       {'rev': 'master'})
+call minpac#add('git@github.com:habamax/vim-num2words.git',   {'rev': 'master'})
+call minpac#add('git@github.com:habamax/vim-winlayout.git',   {'rev': 'master'})
+" call minpac#add('git@github.com:habamax/vim-sendtoterm.git',  {'rev': 'master'})
 
 
 
