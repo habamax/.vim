@@ -4,8 +4,8 @@ set lines=999
 set winaltkeys=no
 set guioptions=cM
 
-" set guifont=Iosevka\ Habamax:h14
-set guifont=Iosevka\ Habamax\ Slab:h14
+set guifont=Iosevka\ Habamax:h14
+" set guifont=Iosevka\ Habamax\ Slab:h14
 
 " set guifont=PT\ Mono:h14
 " set guifont=JetBrains\ Mono\ NL:h14
