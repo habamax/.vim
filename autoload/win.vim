@@ -3,7 +3,9 @@
 "" Desc: Windows manipulation functions.
 
 
-"" Delete all(saved) but visible buffers
+"" Delete all hidden buffers
+"" Usage: command! Bclean call win#delete_buffers()
+"" if you have `set confirm` it would ask you what to do with unsaved buffers
 func! win#delete_buffers()
     let l:buffers = filter(getbufinfo(), {_, v -> v.hidden})
     if !empty(l:buffers)
