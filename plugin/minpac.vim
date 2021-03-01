@@ -74,24 +74,33 @@ call minpac#add('machakann/vim-swap')
 """
 """ Coding
 """
-call minpac#add('tpope/vim-commentary')
-call minpac#add('tpope/vim-endwise')
-call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
+
+" auto cd to your project root folder
+call minpac#add('airblade/vim-rooter')
+
 call minpac#add('editorconfig/editorconfig-vim')
+call minpac#add('tpope/vim-commentary')
+call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
 call minpac#add('vim-test/vim-test')
+
 call minpac#add('elixir-editors/vim-elixir')
 call minpac#add('aklt/plantuml-syntax')
 call minpac#add('cespare/vim-toml')
 
 call minpac#add('neoclide/coc.nvim', {'type': 'opt', 'branch': 'release'})
+
 " after install/update run `./install.py`
 " or `./install.py --go-completer` if you need go completion
 call minpac#add('ycm-core/YouCompleteMe', {'type': 'opt'})
+
 " backup general <tab> completion
 call minpac#add('lifepillar/vim-mucomplete')
 
 " Close tags with > and >> in insert mode
 call minpac#add('alvan/vim-closetag')
+
+" Close things like 'if ... endif'
+call minpac#add('tpope/vim-endwise')
 
 
 
@@ -107,9 +116,6 @@ call minpac#add('markonm/traces.vim')
 
 " File management
 call minpac#add('lambdalisue/fern.vim')
-
-" auto cd to your project root folder
-call minpac#add('airblade/vim-rooter')
 
 call minpac#add('lifepillar/vim-colortemplate')
 call minpac#add('chrisbra/Colorizer')
