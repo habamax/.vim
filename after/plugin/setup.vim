@@ -111,6 +111,3 @@ if exists("g:loaded_guifont_size")
     nmap <A--> <Plug>(GUIFontSizeDec)
     nmap <A-0> <Plug>(GUIFontSizeRestore)
 endif
-
-
-
