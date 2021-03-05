@@ -38,6 +38,32 @@ if exists("g:loaded_select")
         let g:select_info.music.highlight = {"DirectoryPrefix": ['\(\s*\d\+:\)\?\zs.*[/\\]\ze.*$', 'Comment']}
         nnoremap <space>fl :Select music D:/Music<CR>
     endif
+
+
+    let g:select_info.template = {}
+    let g:select_info.template.data = {_, buf -> s:template_data(buf)}
+    let g:select_info.template.sink = {
+            \ "transform": {_, v -> fnameescape(fnamemodify($MYVIMRC, ':p:h') .. '/templates/' .. v)},
+            \ "action": "read %s"
+            \ }
+    nnoremap <silent> <space>at :Select template<CR>
+
+    func! s:template_data(buf) abort
+        let path = fnamemodify($MYVIMRC, ':p:h') .. '/templates/'
+        let ft = getbufvar(a:buf.bufnr, '&filetype')
+        let ft_path = path .. ft
+        let tmpls = []
+
+        if !empty(ft) && isdirectory(ft_path)
+            let tmpls = map(readdirex(ft_path, {e -> e.type == 'file'}), {_, v -> ft .. '/' .. v.name})
+        endif
+
+        if isdirectory(path)
+            call extend(tmpls, map(readdirex(path, {e -> e.type == 'file'}), {_, v -> v.name}))
+        endif
+
+        return tmpls
+    endfunc
 endif
 
 

@@ -1,0 +1,32 @@
+Максим Ким
+v0.1 : Предварительный вариант
+:pdf-theme: default
+:doctype: article
+:title-page:
+:toc: left
+:toclevels: 3
+:sectnums:
+:sectnumlevels: 4
+:source-highlighter: rouge
+:rouge-style: github
+:!source-linenums-option:
+:imagesdir: images
+:icons: font
+:autofit-option:
+:chapter-signifier: Раздел
+:caution-caption: Внимание
+:important-caption: Важно
+ifdef::preface-title[:preface-title: Предисловие]
+:note-caption: Примечание
+:tip-caption: Подсказка
+:warning-caption: Предупреждение
+:figure-caption: Рисунок
+:table-caption: Таблица
+:example-caption: Пример
+:toc-title: Содержание
+:appendix-caption: Приложение
+:last-update-label: Обновлено
+:untitled-label: Без названия
+:version-label: Версия
+:experimental:
+:compress:

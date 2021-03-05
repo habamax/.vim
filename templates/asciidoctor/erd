@@ -1,0 +1,57 @@
+[plantuml, erd-name, svg]
+....
+skinparam monochrome false
+skinparam shadowing true
+skinparam dpi 100
+skinparam backgroundcolor transparent
+skinparam defaultFontName Noto Serif
+!define table(x) class x << (T,#ede7aa) >>
+!define view(x) class x << (V,lightblue) >>
+!define f(n,t) {field}n <color:gray>: t</color>
+!define string(n,size) {field}n <color:gray>: varchar(size)</color>
+
+hide methods
+hide stereotypes
+
+table(mdc.Party) {
+f(**source_id**, **int**)
+f(master_id, int)
+..
+string(firstname, 100)
+string(lastname, 100)
+string(gender, 1)
+}
+
+table(mdc.Contact) {
+f(**source_id**, **int**)
+f(master_id, int)
+..
+f(//party_master_id//, //int//)
+f(type, int)
+string(value, 100)
+}
+
+table(mdc.Document) {
+f(**source_id**, **int**)
+f(master_id, int)
+..
+f(//party_master_id//, //int//)
+string(type, 2)
+string(number, 100)
+}
+
+table(mdc.Address) {
+f(**source_id**, **int**)
+f(master_id, int)
+..
+f(//party_master_id//, //int//)
+string(country, 3)
+string(city, 50)
+string(street, 100)
+}
+
+mdc.Party \"1\" --{ \"0..*\" mdc.Address: Party has\\\\naddresses
+mdc.Party \"1\" --{ \"0..*\" mdc.Document: Party has\\\\ndocuments
+mdc.Party \"1\" --{ \"0..*\" mdc.Contact: Party has\\\\ncontacts
+
+....
