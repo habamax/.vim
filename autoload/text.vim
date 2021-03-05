@@ -37,6 +37,12 @@ endfunc
 "" If current line is already underlined with one the chars[1..]
 "" Replace it with char[0]
 "" call text#underline(['-', '=', '~', '^', '+'])
+"" example mappings:
+"" nnoremap <silent> <space>t- :call text#underline(['-', '=', '~', '^', '+'])<CR>
+"" nnoremap <silent> <space>t= :call text#underline(['=', '-', '~', '^', '+'])<CR>
+"" nnoremap <silent> <space>t~ :call text#underline(['~', '=', '-', '^', '+'])<CR>
+"" nnoremap <silent> <space>t^ :call text#underline(['^', '=', '-', '~', '+'])<CR>
+"" nnoremap <silent> <space>t+ :call text#underline(['+', '=', '-', '~', '^'])<CR>
 func! text#underline(chars)
     let nextnr = line('.') + 1
     let underline = repeat(a:chars[0], strchars(getline('.')))
