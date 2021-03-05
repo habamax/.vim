@@ -44,7 +44,7 @@ if exists("g:loaded_select")
     let g:select_info.template.data = {_, buf -> s:template_data(buf)}
     let g:select_info.template.sink = {
             \ "transform": {_, v -> fnameescape(fnamemodify($MYVIMRC, ':p:h') .. '/templates/' .. v)},
-            \ "action": "read %s"
+            \ "action": "keepalt read %s"
             \ }
     nnoremap <silent> <space>at :Select template<CR>
 
