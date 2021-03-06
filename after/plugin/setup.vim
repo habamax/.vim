@@ -36,7 +36,7 @@ if exists("g:loaded_select")
         " let g:select_info.music.sink = {"transform": {p, v -> p..v}, "action": {v -> sound_clear() ?? sound_playfile(v)}}
         let g:select_info.music.sink = {"transform": {p, v -> p..v}, "action": {v -> s:play_in_vlc(v)}}
         let g:select_info.music.highlight = {"DirectoryPrefix": ['\(\s*\d\+:\)\?\zs.*[/\\]\ze.*$', 'Comment']}
-        nnoremap <space>fl :Select music D:/Music<CR>
+        nnoremap <space>fu :Select music D:/Music<CR>
     endif
 
 
@@ -46,7 +46,6 @@ if exists("g:loaded_select")
             \ "transform": {_, v -> fnameescape(fnamemodify($MYVIMRC, ':p:h') .. '/templates/' .. v)},
             \ "action": "keepalt read %s"
             \ }
-    nnoremap <silent> <space>at :Select template<CR>
 
     func! s:template_data(buf) abort
         let path = fnamemodify($MYVIMRC, ':p:h') .. '/templates/'
@@ -64,6 +63,8 @@ if exists("g:loaded_select")
 
         return tmpls
     endfunc
+
+    nnoremap <silent> <space>tt :Select template<CR>
 endif
 
 
