@@ -44,7 +44,7 @@ if exists("g:loaded_select")
     let g:select_info.template.data = {_, buf -> s:template_data(buf)}
     let g:select_info.template.sink = {
             \ "transform": {_, v -> fnameescape(fnamemodify($MYVIMRC, ':p:h') .. '/templates/' .. v)},
-            \ "action": "keepalt read %s"
+            \ "action": {v -> s:template_sink(v)}
             \ }
 
     func! s:template_data(buf) abort
@@ -62,6 +62,10 @@ if exists("g:loaded_select")
         endif
 
         return tmpls
+    endfunc
+    func! s:template_sink(tfile) abort
+        exe "keepalt read "..a:tfile
+        :'[,']s/!!\(.\{-}\)!!/\=eval(submatch(1))/ge
     endfunc
 
     nnoremap <silent> <space>tt :Select template<CR>

@@ -1,5 +1,5 @@
 Maxim Kim
-v0.1 : Draft
+v0.1, !!strftime("%Y-%m-%d")!! : Draft
 :pdf-theme: default
 :doctype: article
 :title-page:

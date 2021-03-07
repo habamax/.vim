@@ -1,5 +1,5 @@
 Максим Ким
-v0.1 : Предварительный вариант
+v0.1, !!strftime("%Y-%m-%d")!! : Предварительный вариант
 :pdf-theme: default
 :doctype: article
 :title-page:
