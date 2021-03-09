@@ -1,4 +1,10 @@
-"" Non Plugin Mappings
+""" Non Plugin Mappings
+
+"" Essential for my vimscripting: run vimscript, capture output to clipboard
+"" run selected vimscript
+xnoremap <silent> <space>v y:redir @*<bar>@"<bar>redir END<bar>let @* = substitute(@*, '^\n\+', '', '').."\n"<cr>
+"" run vimscript line
+nmap <space>vv V<space>v
 
 "" OS clipboard yank and paste
 noremap <space>y "+y

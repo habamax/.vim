@@ -123,14 +123,6 @@ if exists("g:loaded_listopad")
 endif
 
 
-if exists("g:loaded_evalvim")
-    xmap <space>v  <plug>(EvalVim)
-    nmap <space>v  <plug>(EvalVim)
-    omap <space>v  <plug>(EvalVim)
-    nmap <space>vv <plug>(EvalVimLine)
-endif
-
-
 if exists("g:loaded_easy_align_plugin")
     vmap ga <Plug>(LiveEasyAlign)
     nmap ga <Plug>(EasyAlign)
