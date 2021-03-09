@@ -46,6 +46,7 @@ if exists("g:loaded_select")
             \ "transform": {_, v -> fnameescape(fnamemodify($MYVIMRC, ':p:h') .. '/templates/' .. v)},
             \ "action": {v -> s:template_sink(v)}
             \ }
+    let g:select_info.template.highlight = {"DirectoryPrefix": ['\(\s*\d\+:\)\?\zs.*[/\\]\ze.*$', 'Comment']}
 
     func! s:template_data(buf) abort
         let path = fnamemodify($MYVIMRC, ':p:h') .. '/templates/'
