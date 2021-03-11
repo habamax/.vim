@@ -79,7 +79,6 @@ let g:rooter_silent_chdir = 1
 """
 """ vim-markdown
 """
-let g:markdown_folding = 0
 let g:markdown_fenced_languages = ['python', 'go']
 
 
