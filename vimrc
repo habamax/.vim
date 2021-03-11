@@ -4,7 +4,7 @@ filetype plugin indent on
 syntax on
 
 set hidden
-set encoding=utf8 fileencoding=utf8 fileformat=unix fileformats=unix,dos
+set encoding=utf8 fileformat=unix fileformats=unix,dos
 set nohlsearch incsearch ignorecase
 set tabstop=8 softtabstop=-1 shiftwidth=4 expandtab smarttab shiftround
 set autoindent copyindent preserveindent
