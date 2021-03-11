@@ -91,6 +91,14 @@ if exists("g:loaded_swap")
     let g:swap#rules = deepcopy(g:swap#default_rules)
     let g:swap#rules += [
                 \   {
+                \     'mode': 'n',
+                \     'description': 'Reorder the | bar | delimited | things |.',
+                \     'body': '|\%([^|]\+|\)\+',
+                \     'delimiter': ['\s*|\s*'],
+                \     'priority': -40
+                \   },
+                \
+                \   {
                 \     'description': 'Reorder the space-delimited EN/RU word under the cursor in normal mode.',
                 \     'mode': 'n',
                 \     'body': '\%([a-zA-Zа-яА-Я[:alnum:]]\+\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]]\+\)\?',
@@ -104,7 +112,8 @@ if exists("g:loaded_swap")
                 \     'body': '\%([a-zA-Zа-яА-Я[:alnum:]]\+,\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]]\+\)\?',
                 \     'delimiter': ['\s*,\s*'],
                 \     'priority': -10
-                \   }]
+                \   }
+                \ ]
 endif
 
 
