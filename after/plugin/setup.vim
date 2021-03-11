@@ -12,9 +12,9 @@ if exists("g:loaded_select")
         nmap <space>gg <Plug>(SelectBufLine)
         nmap <space>fh <Plug>(SelectHighlight)
         nmap <space>;  <Plug>(SelectCmdHistory)
-        nmap <space>ft <Plug>(SelectBufTag)
+        nmap <space>ta <Plug>(SelectBufTag)
         nmap <space>fg <Plug>(SelectGitFile)
-        nmap <space>fT <Plug>(SelectToDo)
+        nmap <space>to <Plug>(SelectToDo)
     endif
 
     nnoremap <silent> <space>fi :exe "Select projectfile " .. fnamemodify($MYVIMRC, ":p:h")<cr>
@@ -69,7 +69,7 @@ if exists("g:loaded_select")
         :'[,']s/!!\(.\{-}\)!!/\=eval(submatch(1))/ge
     endfunc
 
-    nnoremap <silent> <space>tt :Select template<CR>
+    nnoremap <silent> <space>te :Select template<CR>
 endif
 
 
