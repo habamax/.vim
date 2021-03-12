@@ -3,7 +3,7 @@ language messages en_US.UTF-8
 filetype plugin indent on
 syntax on
 
-set hidden
+set hidden confirm
 set encoding=utf8 fileformat=unix fileformats=unix,dos
 set nohlsearch incsearch ignorecase
 set tabstop=8 softtabstop=-1 shiftwidth=4 expandtab smarttab shiftround
@@ -33,7 +33,6 @@ set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set wildchar=<Tab> wildcharm=<C-z> wildmenu wildmode=full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 set history=200
-set confirm
 
 if executable('rg')
     set grepprg=rg\ --vimgrep
