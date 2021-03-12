@@ -1,5 +1,4 @@
 language messages en_US.UTF-8
-
 filetype plugin indent on
 syntax on
 
@@ -11,7 +10,6 @@ set autoindent copyindent preserveindent
 set virtualedit=block
 set ttimeout ttimeoutlen=0
 set belloff=all
-
 set ruler laststatus=2
 set signcolumn=number
 set splitbelow splitright
