@@ -2,6 +2,7 @@ if has("gui_running") || has('nvim')
     finish
 endif
 
+
 " Fix vim termguicolors for tmux
 " NOTE: your .tmux.conf should have:
 "
@@ -14,6 +15,8 @@ endif
 if &term =~# '^screen\|tmux' || &term =~# '^xterm-256'
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+elseif &term =~# 'win32'
+    set t_Co=256
 endif
 
 " Fix vim cursor shape in tmux
