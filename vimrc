@@ -21,7 +21,6 @@ set display=truncate
 set completeopt=menuone,noselect,popup
 set list listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
 set nowrap breakindent breakindentopt=sbr
-set nojoinspaces
 set formatoptions=cqjl
 set backspace=indent,eol,start
 set nospell spelllang=ru,en
