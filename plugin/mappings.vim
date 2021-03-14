@@ -5,15 +5,18 @@
 xnoremap <silent> <space>v y:@"<cr>
 "" run vimscript line
 nmap <space>vv V<space>v
+"" localize it too
+nmap <space>мм <space>vv
+xmap <silent> <space>м <space>v
 
 
 "" OS clipboard yank and paste
 noremap <space>y "+y
 noremap <space>p "+p
 noremap <space>P "+P
-
-noremap <space>0 "0p
-noremap <space>) "0P
+noremap <space>н "+y
+noremap <space>з "+p
+noremap <space>З "+P
 
 
 "" tab to cycle search candidates
