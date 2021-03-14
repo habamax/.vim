@@ -186,11 +186,8 @@ nnoremap <silent> <space>ej :call journal#new()<CR>
 nnoremap <space>en :enew<CR>
 
 
-"" scroll other window
-nnoremap <silent> <M-F> :call win#scroll_other(1)<CR>
-nnoremap <silent> <M-B> :call win#scroll_other(0)<CR>
-
 nnoremap <silent> gof :call os#file_manager()<CR>
+nnoremap got :TermBuffer<CR>
 
 
 "" Save as
@@ -206,7 +203,6 @@ endfunc
 nmap <silent> gs :set opfunc=Sort<CR>g@
 vmap <silent> gs :sort<CR>
 
-nnoremap got :TermBuffer<CR>
 
 tnoremap <Esc> <C-w>N
 tnoremap <C-v> <C-w>""

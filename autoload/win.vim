@@ -14,23 +14,6 @@ func! win#delete_buffers()
 endfunc
 
 
-"" Scroll other(previous) window
-func! win#scroll_other(dir) abort
-    if winnr('$') < 2
-        return
-    endif
-    wincmd p
-    let cmd = "normal ".winheight(0)
-    if a:dir
-        let cmd .= "\<c-e>"
-    else
-        let cmd .= "\<c-y>"
-    endif
-    exe cmd
-    wincmd p
-endfunc
-
-
 "" Autosize windows.
 "" There is lens.vim plugin but essentially this simplified version could be used
 "" instead. Original lens.vim laaaags if switched to a huge file, it
