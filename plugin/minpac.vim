@@ -108,7 +108,6 @@ call minpac#add('tpope/vim-endwise')
 """ Miscelaneous
 """
 call minpac#add('tpope/vim-dispatch')
-call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-eunuch')
 
 " preview of :s command

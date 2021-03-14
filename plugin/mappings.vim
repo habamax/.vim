@@ -6,6 +6,7 @@ xnoremap <silent> <space>v y:@"<cr>
 "" run vimscript line
 nmap <space>vv V<space>v
 
+
 "" OS clipboard yank and paste
 noremap <space>y "+y
 noremap <space>p "+p
@@ -14,9 +15,11 @@ noremap <space>P "+P
 noremap <space>0 "0p
 noremap <space>) "0P
 
+
 "" tab to cycle search candidates
 cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"
 cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
+
 
 "" Find file/buffer
 "" Overriden by vim-select if exists
@@ -27,6 +30,18 @@ nnoremap <space>b :b<space><C-D>
 nnoremap <space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
 nnoremap <BS> <C-^>
+
+
+"" Toggles
+nnoremap yoh :set hlsearch!<CR>
+nnoremap yow :set wrap!<CR>
+nnoremap yon :set number!<CR>
+nnoremap yor :set relativenumber!<CR>
+nnoremap yol :set list!<CR>
+nnoremap yos :set spell!<CR>
+nnoremap yoc :set cursorline!<CR>
+nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis").."<CR>"
+
 
 "" UPPERCASE WORD
 nnoremap <silent> <M-u> gUiww
