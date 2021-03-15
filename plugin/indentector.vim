@@ -55,6 +55,6 @@ func! s:detect_indent(lines) abort
 endfunc
 
 
-augroup autotab | au!
+augroup indentector | au!
     au FileType * call s:detect_indent(getline(1, 1024))
 augroup END
