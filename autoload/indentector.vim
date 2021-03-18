@@ -1,3 +1,13 @@
+"" Auto detect current file indentation:
+""  * tabs
+""  * spaces (indent up to 8 spaces)
+""
+"" To enable, put autocommand to your vimrc:
+"" augroup indentector | au!
+""     au FileType * call indentector#detect_indent(getline(1, 1024))
+"" augroup END
+
+
 func! s:get_indent(line) abort
     let tab = 0
     let space = 0
@@ -20,7 +30,7 @@ func! s:get_indent(line) abort
 endfunc
 
 
-func! s:detect_indent(lines) abort
+func! indentector#detect_indent(lines) abort
     if &buftype != ''
         return
     endif
@@ -53,8 +63,3 @@ func! s:detect_indent(lines) abort
         endif
     endif
 endfunc
-
-
-augroup indentector | au!
-    au FileType * call s:detect_indent(getline(1, 1024))
-augroup END

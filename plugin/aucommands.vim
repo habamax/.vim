@@ -18,3 +18,9 @@ augroup end
 augroup win_autosize | au!
     au WinEnter * silent! call win#lens()
 augroup end
+
+
+"" detect indent
+augroup indentector | au!
+    au FileType * call indentector#detect_indent(getline(1, 1024))
+augroup END
