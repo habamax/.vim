@@ -1,8 +1,8 @@
-"" Auto detect current file indentation:
-""  * tabs
-""  * spaces (indent up to 8 spaces)
-""
+"" Name: autoload/indentector.vim
+"" Author: Maxim Kim <habamax@gmail.com>
+"" Desc: Auto detect current file indentation: tabs or spaces.
 "" To enable, put autocommand to your vimrc:
+""
 "" augroup indentector | au!
 ""     au FileType * call indentector#detect_indent(getline(1, 1024))
 "" augroup END
