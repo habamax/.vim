@@ -7,6 +7,7 @@
 "" nnoremap <space>kl :call markit#unmark()<CR>
 "" xnoremap <space>kl <cmd>call markit#unmark()<CR><ESC>
 
+
 func! markit#mark()
     hi def link MarkIt IncSearch
     if empty(prop_type_get("markit"))
@@ -29,6 +30,7 @@ func! markit#mark()
         call prop_add(end[1], 1, {'length': col('$'), 'type': 'markit'})
     endif
 endfunc
+
 
 func! markit#unmark()
     if mode() == 'v'
