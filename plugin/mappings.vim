@@ -206,3 +206,7 @@ vmap <silent> gs :sort<CR>
 
 tnoremap <Esc> <C-w>N
 tnoremap <C-v> <C-w>""
+
+
+nnoremap <space>mm :call markit#toggle()<CR>
+xnoremap <space>m <cmd>call markit#toggle()<CR><ESC>
