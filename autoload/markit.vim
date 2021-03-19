@@ -1,13 +1,13 @@
 "" Name: autoload/markit.vim
 "" Author: Maxim Kim <habamax@gmail.com>
-"" Desc: Mark/highlight text with MarkIt highlight group
-"" XXX: Only single highlight is on the line atm.
+"" Desc: Mark text with MarkIt highlight group
 "" Example mappings:
-"" nnoremap <space>mm :call markit#toggle()<CR>
-"" xnoremap <space>m <cmd>call markit#toggle()<CR><ESC>
+"" nnoremap <space>kk :call markit#mark()<CR>
+"" xnoremap <space>kk <cmd>call markit#mark()<CR><ESC>
+"" nnoremap <space>kl :call markit#unmark()<CR>
+"" xnoremap <space>kl <cmd>call markit#unmark()<CR><ESC>
 
-
-func! markit#highlight()
+func! markit#mark()
     hi def link MarkIt IncSearch
     if empty(prop_type_get("markit"))
         call prop_type_add('markit', {'highlight': 'MarkIt'})
@@ -30,7 +30,7 @@ func! markit#highlight()
     endif
 endfunc
 
-func! markit#clear()
+func! markit#unmark()
     if mode() == 'v'
         let start = getpos("v")
         let end = getpos(".")
@@ -43,16 +43,5 @@ func! markit#clear()
         endfor
     else
         call prop_clear(getpos(".")[1])
-    endif
-endfunc
-
-func! markit#toggle() abort
-    let [_, clnum, ccol, _] = getpos('.')
-    let markit = prop_find({'id': 'markit', 'lnum': clnum})
-
-    if empty(markit) || (markit.lnum > clnum)
-        call markit#highlight()
-    else
-        call markit#clear()
     endif
 endfunc

@@ -208,5 +208,7 @@ tnoremap <Esc> <C-w>N
 tnoremap <C-v> <C-w>""
 
 
-nnoremap <space>mm :call markit#toggle()<CR>
-xnoremap <space>m <cmd>call markit#toggle()<CR><ESC>
+nnoremap <space>mk :call markit#mark()<CR>
+xnoremap <space>mk <cmd>call markit#mark()<CR><ESC>
+nnoremap <space>ml :call markit#unmark()<CR>
+xnoremap <space>ml <cmd>call markit#unmark()<CR><ESC>
