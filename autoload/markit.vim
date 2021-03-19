@@ -39,9 +39,9 @@ func! markit#unmark()
             let end = getpos("v")
         endif
         for lnum in range(start[1], end[1])
-            call prop_clear(lnum)
+            call prop_remove({'id': 'markit', 'all': v:true}, lnum)
         endfor
     else
-        call prop_clear(getpos(".")[1])
+        call prop_remove({'id': 'markit', 'all': v:true}, getpos(".")[1])
     endif
 endfunc
