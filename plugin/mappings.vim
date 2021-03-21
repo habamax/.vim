@@ -44,6 +44,8 @@ nnoremap yol :set list!<CR>
 nnoremap yos :set spell!<CR>
 nnoremap yoc :set cursorline!<CR>
 nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis").."<CR>"
+nnoremap <expr> yob ':colo '..(g:colors_name =='alchemist' ? "psionic" : "alchemist").."<CR>"
+" nnoremap <expr> yob ':set bg='..(&bg=='dark' ? "light" : "dark").."<CR>"
 
 
 "" UPPERCASE WORD
