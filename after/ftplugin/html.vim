@@ -2,7 +2,7 @@ if executable('js-beautify')
     " sudo npm -g install js-beautify
     command! -buffer Format :silent %!js-beautify -f - --type html
     " command! -buffer Format :silent %!js-beautify -f - --type html --wrap-attributes=force-aligned
-    setl formatprg=js-beautify -f - --type html
+    let &l:formatprg = "js-beautify -f - --type html"
 elseif executable('tidy')
     command! -buffer Format :silent %!tidy -q -i --show-errors 0
 endif
