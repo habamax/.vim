@@ -2,7 +2,7 @@
 " Per buffer setup:
 "
 " char to be used for folding
-" let b:foldchar = ''
+" let b:foldchar = '•'
 "
 " strip leading comment chars
 " let b:foldtext_strip_comments = v:true
@@ -12,7 +12,7 @@
 
 set foldtext=MyFoldText()
 func! MyFoldText()
-    let foldchar = get(b:, 'foldchar', '•')
+    let foldchar = get(b:, 'foldchar', '')
     let strip_comments = get(b:, 'foldtext_strip_comments', v:false)
     let strip_add_regex = get(b:, 'foldtext_strip_add_regex', '')
 
