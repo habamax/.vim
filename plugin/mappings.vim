@@ -206,7 +206,6 @@ nmap <silent> gs :set opfunc=Sort<CR>g@
 vmap <silent> gs :sort<CR>
 
 
-tnoremap <Esc> <C-w>N
 tnoremap <C-v> <C-w>""
 
 
