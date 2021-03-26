@@ -36,4 +36,4 @@ if executable('rg')
     set grepformat=%f:%l:%c:%m
 endif
 
-colorscheme alchemist
+colorscheme xamabah

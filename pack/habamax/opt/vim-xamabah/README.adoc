@@ -1,0 +1,162 @@
+= Alchemist: vim colorscheme
+:experimental:
+:icons: font
+:autofit-option:
+:!source-linenums-option:
+:imagesdir: images
+
+Very similar to beautiful https://github.com/romainl/Apprentice[Apprentice] made by https://github.com/romainl[Romain Lafourcade].
+
+* Built using awesome https://github.com/lifepillar/vim-colortemplate[Toolkit for Vim Color Scheme Designers!]
+* No syntax with bold or italic. Simple.
+* Do you want white background? Check link:https://github.com/habamax/vim-polar[polar].
+* Do you want light background? Check link:https://github.com/habamax/vim-psionic[psionic].
+* Do you like dark gruvbox colors? Check link:https://github.com/habamax/vim-gruvbit[gruvbit].
+* Do you like black background? Check link:https://github.com/habamax/vim-habanight[habanight].
+
+== More than 1000 words
+
+image::https://user-images.githubusercontent.com/234774/100899851-50023d80-34d3-11eb-9a67-5a23b8ad8459.png[]
+
+image::https://user-images.githubusercontent.com/234774/100900187-9fe10480-34d3-11eb-9470-181ac0c2e570.png[]
+
+image::https://user-images.githubusercontent.com/234774/100900351-d1f26680-34d3-11eb-8dca-c5635c4233fd.png[]
+
+image::https://user-images.githubusercontent.com/234774/100900529-fd755100-34d3-11eb-8e16-bce1f25548ec.png[]
+
+
+== Installation
+
+Using plugin manager::
+    Follow your plugin manager documentation, for example, link:https://github.com/junegunn/vim-plug[vim-plug] does it this way:
++
+[source,vim]
+------------------------------------------------------------------------------
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
+
+Plug 'habamax/vim-alchemist'
+
+" ... other plugins ...
+
+" Initialize plugin system
+call plug#end()
+
+set termguicolors
+colorscheme alchemist
+------------------------------------------------------------------------------
+
+Manual with git::
+    Clone this repo to your vim/nvim packages directory:
++
+.Vim on Linux or OSX
+[source,sh]
+------------------------------------------------------------------------------
+git clone https://github.com/habamax/vim-alchemist ~/.vim/pack/plugins/start/vim-alchemist
+------------------------------------------------------------------------------
++
+.Neovim on Linux or OSX
+[source,sh]
+------------------------------------------------------------------------------
+git clone https://github.com/habamax/vim-alchemist ~/.config/nvim/pack/plugins/start/vim-alchemist
+------------------------------------------------------------------------------
++
+.Vim on Windows
+[source,sh]
+------------------------------------------------------------------------------
+git clone https://github.com/habamax/vim-alchemist C:/Users/USERNAME/vimfiles/pack/plugins/start/vim-alchemist <.>
+------------------------------------------------------------------------------
++
+.Neovim on Windows
+[source,sh]
+------------------------------------------------------------------------------
+git clone https://github.com/habamax/vim-alchemist C:/Users/USERNAME/AppData/Local/nvim/pack/plugins/start/vim-alchemist <.>
+------------------------------------------------------------------------------
+<.> Change `USERNAME` to your user name
+
+
+Manual::
+    * Download zip archive (available in menu:Code[Download ZIP])
+    * Extract `colors/alchemist.vim` file into your vim/nvim settings directory
+        ** `~/.vim/colors/alchemist.vim` -- vim (linux, osx)
+        ** `~/vimfiles/colors/alchemist.vim` -- vim (windows)
+        ** `~/.config/nvim/colors/alchemist.vim` -- neovim (linux, osx)
+        ** `~/AppData/Local/nvim/colors/alchemist.vim` -- neovim (windows)
+
+add to your settings:
+
+[source,vim]
+------------------------------------------------------------------------------
+set termguicolors
+colorscheme alchemist
+------------------------------------------------------------------------------
+
+
+== Looks good but I want italic comments
+
+Add following to your settings file:
+
+[source,vim]
+------------------------------------------------------------------------------
+
+augroup colorscheme_change | au!
+    au ColorScheme alchemist hi Comment gui=italic cterm=italic
+augroup END
+
+set termguicolors
+colorscheme alchemist
+
+------------------------------------------------------------------------------
+
+
+== And bold statements
+
+Add following to your settings file:
+
+[source,vim]
+------------------------------------------------------------------------------
+
+func! s:alchemist_setup() abort
+    hi Comment gui=italic cterm=italic
+    hi Statement gui=bold cterm=bold
+endfunc
+
+augroup colorscheme_change | au!
+    au ColorScheme alchemist call s:alchemist_setup()
+augroup END
+
+set termguicolors
+colorscheme alchemist
+
+------------------------------------------------------------------------------
+
+== And VertSplit without background colors
+
+[source,vim]
+------------------------------------------------------------------------------
+
+func! s:alchemist_setup() abort
+    hi Comment gui=italic cterm=italic
+    hi Statement gui=bold cterm=bold
+    hi VertSplit guibg=NONE ctermbg=NONE
+endfunc
+
+augroup colorscheme_change | au!
+    au ColorScheme alchemist call s:alchemist_setup()
+augroup END
+
+set termguicolors
+colorscheme alchemist
+
+------------------------------------------------------------------------------
+
+== What about terminals with semi-transparent backgrounds?
+
+Add this:
+
+[source,vim]
+------------------------------------------------------------------------------
+let g:alchemist_transp_bg = v:true
+------------------------------------------------------------------------------
+
+image::https://user-images.githubusercontent.com/234774/100901642-18949080-34d5-11eb-8576-9de8ef8bc8e5.png[]
