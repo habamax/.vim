@@ -64,9 +64,15 @@ if exists("g:loaded_select")
 
         return tmpls
     endfunc
+
     func! s:template_sink(tfile) abort
-        exe "keepalt read "..a:tfile
+        let c_linenr = line('.')
+        exe "keepalt read " .. a:tfile
         :'[,']s/!!\(.\{-}\)!!/\=eval(submatch(1))/ge
+
+        if getline(c_linenr) =~ '^\s*$'
+            exe c_linenr .. 'd'
+        endif
     endfunc
 
     nnoremap <silent> <space>te :Select template<CR>
