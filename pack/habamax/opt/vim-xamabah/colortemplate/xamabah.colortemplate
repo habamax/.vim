@@ -109,7 +109,7 @@ lCursor          background color01
 
 DiffAdd          none       none
 DiffChange       none       none
-DiffText         none       color16
+DiffText         background color03
 DiffDelete       color16    none
 
 SpellBad         color01    none t=underline g=undercurl s=color01
