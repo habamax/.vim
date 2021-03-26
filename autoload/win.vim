@@ -240,7 +240,10 @@ endfunc
 
 
 """ Zoom window: save and restore window layout
+"" Usage:
+"" Put following nnoremap into your .vimrc:
 "" nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
+""
 "" <C-w>o zoom window (there should be only 1 window)
 "" <C-w>o restores previous windows
 func! win#zoom_toggle() abort
