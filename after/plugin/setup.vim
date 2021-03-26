@@ -71,7 +71,7 @@ if exists("g:loaded_select")
         :'[,']s/!!\(.\{-}\)!!/\=eval(submatch(1))/ge
 
         if getline(c_linenr) =~ '^\s*$'
-            exe c_linenr .. 'd'
+            exe c_linenr .. 'd_'
         endif
     endfunc
 
