@@ -15,7 +15,7 @@ Color: foreground #BCBCBC 250
 Color: background #000000 16
 
 Color: color00    #1C1C1C 234
-Color: color08    #444444 238
+Color: color08    #3A3A3A 237
 
 Color: color01    #D75F5F 167
 Color: color09    #D78787 174
@@ -38,7 +38,7 @@ Color: color14    #5FAFAF 73
 Color: color07    #6C6C6C 242
 Color: color15    #FFFFFF 231
 
-Color: color16    #3A3A3A 237
+Color: color16    #303030 236
 
 Term colors: color00 color01 color02 color03 color04 color05 color06 color07
 Term colors: color08 color09 color10 color11 color12 color13 color14 color15
