@@ -89,7 +89,7 @@ CursorLineNr     none       color16
 QuickFixLine     none       color16
 SignColumn       none       none
 
-Underlined       color12    none underline
+Underlined       color11    none underline
 
 Error            color01    none
 ErrorMsg         color01    none
@@ -122,13 +122,13 @@ SpellRare        color11    none t=underline g=undercurl s=color11
 Comment          color07    none
 
 Identifier       color13    none
-Function         color04    none
-Statement        color11    none
+Function         color11    none
+Statement        color12    none
 Constant         color09    none
 String           color10    none
 Character        color10    none
 PreProc          color06    none
-Type             color12    none
+Type             color04    none
 Special          color02    none
 SpecialChar      color05    none
 Tag              color14    none
