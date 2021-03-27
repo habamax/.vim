@@ -122,9 +122,9 @@ SpellRare        color11    none t=underline g=undercurl s=color11
 Comment          color07    none
 
 Identifier       color04    none
-Function         color11    none
+Function         color09    none
 Statement        color12    none
-Constant         color09    none
+Constant         color11    none
 String           color10    none
 Character        color10    none
 PreProc          color06    none
