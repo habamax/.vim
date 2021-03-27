@@ -1,6 +1,6 @@
-Full name: xamabah
-Short name: xamabah
-Description: Dark mid-contrast colors.
+Full name: saturnite
+Short name: saturnite
+Description: Dark vim colorscheme for the Saturday nights.
 Author: Maxim Kim <habamax@gmail.com>
 Neovim: yes
 
@@ -15,10 +15,10 @@ Color: foreground #BCBCBC 250
 Color: background #000000 16
 
 Color: color00    #1C1C1C 234
-Color: color08    #3A3A3A 237
+Color: color08    #444444 238
 
-Color: color01    #D75F5F 167
-Color: color09    #AF87AF 139
+Color: color01    #AF5F5F 131
+Color: color09    #D7875F 173
 
 Color: color02    #5F875F 65
 Color: color10    #87AF87 108
@@ -27,7 +27,7 @@ Color: color03    #AF8700 136
 Color: color11    #D7AF5F 179
 
 Color: color04    #5F87AF 67
-Color: color12    #87AFD7 110
+Color: color12    #8FAFD7 110
 
 Color: color05    #5F5F87 60
 Color: color13    #8787AF 103
@@ -38,7 +38,7 @@ Color: color14    #5FAFAF 73
 Color: color07    #6C6C6C 242
 Color: color15    #FFFFFF 231
 
-Color: color16    #303030 236
+Color: color16    #3A3A3A 237
 
 Term colors: color00 color01 color02 color03 color04 color05 color06 color07
 Term colors: color08 color09 color10 color11 color12 color13 color14 color15
@@ -121,14 +121,14 @@ SpellRare        color11    none t=underline g=undercurl s=color11
 ;;; :h group-names
 Comment          color07    none
 
-Identifier       color04    none
-Function         color09    none
-Statement        color12    none
-Constant         color11    none
+Identifier       color13    none
+Function         color04    none
+Statement        color11    none
+Constant         color09    none
 String           color10    none
 Character        color10    none
 PreProc          color06    none
-Type             color13    none
+Type             color12    none
 Special          color02    none
 SpecialChar      color05    none
 Tag              color14    none
