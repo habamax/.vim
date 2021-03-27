@@ -123,7 +123,6 @@ Comment          color07    none
 
 Identifier       color04    none
 Function         color09    none
-; Function         color03    none
 Statement        color12    none
 Constant         color11    none
 String           color10    none
@@ -135,8 +134,8 @@ SpecialChar      color05    none
 Tag              color14    none
 SpecialComment   color14    none
 
-Directory        color14    none ; XXX
+Directory        color15    none bold
 Conceal          color07    none
 Ignore           none       none
 
-Title            color15    none
+Title            color15    none bold
