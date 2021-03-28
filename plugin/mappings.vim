@@ -159,7 +159,7 @@ xnoremap > >gv
 xnoremap < <gv
 
 "" <C-l> redraws the screen and removes any search highlighting.
-nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
+" nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
 nnoremap <silent> <space>t- :call text#underline(['-', '=', '~', '^', '+'])<CR>
 nnoremap <silent> <space>t= :call text#underline(['=', '-', '~', '^', '+'])<CR>
