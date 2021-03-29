@@ -177,7 +177,7 @@ noremap <silent> <space>gi :call git#show_commit(v:count)<CR>
 noremap <silent> <space>gb :call git#blame()<CR>
 
 "" edit global todo file
-nnoremap <silent> <space>et :exe printf('e %s/docs/todo.adoc', empty($DOCSHOME)?expand('~'):expand($DOCSHOME))<CR>
+nnoremap <silent> <space>et :exe printf('e %s/todo.adoc', expand($DOCS ?? '~'))<CR>
 "" edit global journal file
 nnoremap <silent> <space>ej :call journal#new()<CR>
 "" edit new file
