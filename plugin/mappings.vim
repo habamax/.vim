@@ -48,40 +48,29 @@ nnoremap <expr> yob ':colo ' .. (get(g:, 'colors_name', '') == 'saturnite' ? "ps
 " nnoremap <expr> yob ':set bg='..(&bg=='dark' ? "light" : "dark").."<CR>"
 
 
-"" UPPERCASE WORD
-nnoremap <silent> <M-u> gUiww
-"" lowercase WORD
-nnoremap <silent> <M-U> guiww
-
 "" UPPERCASE word in insert mode
-inoremap <silent> <M-u> <ESC>gUiw`]a
+inoremap <silent> <C-space>u <ESC>gUiw`]a
 "" lowercase word in insert mode
-inoremap <silent> <M-U> <ESC>guiw`]a
+inoremap <silent> <C-space>l <ESC>guiw`]a
 
 
 "" Move line up/down
-nnoremap <silent> <M-p> :<C-u>silent! exe "move-2"<CR>==
-nnoremap <silent> <M-n> :<C-u>silent! exe "move+1"<CR>==
-inoremap <silent> <M-p> <ESC>:<C-u>silent! exe "move-2"<CR>==gi
-inoremap <silent> <M-n> <ESC>:<C-u>silent! exe "move+1"<CR>==gi
+" nnoremap <silent> <M-p> :<C-u>silent! exe "move-2"<CR>==
+" nnoremap <silent> <M-n> :<C-u>silent! exe "move+1"<CR>==
+" inoremap <silent> <M-p> <ESC>:<C-u>silent! exe "move-2"<CR>==gi
+" inoremap <silent> <M-n> <ESC>:<C-u>silent! exe "move+1"<CR>==gi
 "" Move selected lines up/down
-xnoremap <silent> <M-p> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
-xnoremap <silent> <M-n> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
+" xnoremap <silent> <M-p> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
+" xnoremap <silent> <M-n> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 
-nnoremap <M-f> <C-d>
-xnoremap <M-f> <C-d>
-nnoremap <M-b> <C-u>
-xnoremap <M-b> <C-u>
 
-cnoremap <M-f> <C-right>
-cnoremap <M-b> <C-left>
 
 "" Window management
 " Switch windows
-nnoremap <M-h> <C-w>h
-nnoremap <M-j> <C-w>j
-nnoremap <M-k> <C-w>k
-nnoremap <M-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 nnoremap <silent><space>c :b#<bar>bd#<cr>
 nnoremap <space>q <C-w>c
@@ -139,7 +128,7 @@ inoremap <C-U> <C-G>u<C-U>
 
 "" spell correction for the first suggested
 "" https://castel.dev/post/lecture-notes-1/
-inoremap <M-s> <c-g>u<C-\><C-o>[s<ESC>1z=`]a<c-g>u
+inoremap <C-l> <c-g>u<C-\><C-o>[s<ESC>1z=`]a<c-g>u
 
 nnoremap <space>t<space> i<space><right><space><ESC>h
 
@@ -159,7 +148,7 @@ xnoremap > >gv
 xnoremap < <gv
 
 "" <C-l> redraws the screen and removes any search highlighting.
-nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
+" nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
 nnoremap <silent> <space>t- :call text#underline(['-', '=', '~', '^', '+'])<CR>
 nnoremap <silent> <space>t= :call text#underline(['=', '-', '~', '^', '+'])<CR>

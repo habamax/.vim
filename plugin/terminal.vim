@@ -37,17 +37,17 @@ endif
 
 " Fix Alt mappings for terminal vim
 " https://stackoverflow.com/questions/6778961/alt-key-shortcuts-not-working-on-gnome-terminal-with-vim/10216459#10216459
-if !has('win32')
-    let c='a'
-    while c <= 'z'
-        exec "set <A-".c.">=\e".c
-        exec "map \e".c." <A-".c.">"
-        let c = nr2char(1+char2nr(c))
-    endw
-    let c='0'
-    while c <= '9'
-        exec "set <A-".c.">=\e".c
-        exec "map \e".c." <A-".c.">"
-        let c = nr2char(1+char2nr(c))
-    endw
-endif
+" if !has('win32')
+"     let c='a'
+"     while c <= 'z'
+"         exec "set <A-".c.">=\e".c
+"         exec "map \e".c." <A-".c.">"
+"         let c = nr2char(1+char2nr(c))
+"     endw
+"     let c='0'
+"     while c <= '9'
+"         exec "set <A-".c.">=\e".c
+"         exec "map \e".c." <A-".c.">"
+"         let c = nr2char(1+char2nr(c))
+"     endw
+" endif
