@@ -1,9 +1,6 @@
 " setlocal fdm=expr
 setlocal tabstop=4
 
-let b:foldchar = ''
-let b:foldlines_padding = v:true
-
 let b:select_info = {"godot": {}}
 let b:select_info.godot.data = {"job": "rg --files --glob *.tscn"}
 let b:select_info.godot.sink = {
