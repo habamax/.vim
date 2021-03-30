@@ -28,13 +28,13 @@ Color: color03    #AF5F00 130
 Color: color11    #D7AF5F 179
 
 Color: color04    #005FAF 25
-Color: color12    #5F87AF 67
+Color: color12    #0087D7 32
 
 Color: color05    #5F5FAF 60
 Color: color13    #8787D7 104
 
-Color: color06    #008787 30
-Color: color14    #5FAFAF 73
+Color: color06    #5F8787 66
+Color: color14    #87AFAF 109
 
 Color: color07    #BCBCBC 250
 Color: color15    #FFFFFF 231
