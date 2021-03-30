@@ -86,8 +86,6 @@ call minpac#add('elixir-editors/vim-elixir')
 call minpac#add('aklt/plantuml-syntax')
 call minpac#add('cespare/vim-toml')
 
-call minpac#add('neoclide/coc.nvim', {'type': 'opt', 'branch': 'release'})
-
 " after install/update run `./install.py`
 " or `./install.py --go-completer` if you need go completion
 call minpac#add('ycm-core/YouCompleteMe', {'type': 'opt'})
