@@ -101,10 +101,10 @@ ColorColumn      none       color15
 Cursor           background foreground
 lCursor          background color01
 
-DiffAdd          background color10
+DiffAdd          none       none
 DiffChange       none       none
-DiffText         background color09
-DiffDelete       color08    color15
+DiffText         color04    color14
+DiffDelete       color08    none
 
 SpellBad         color01    none t=underline g=undercurl s=color01
 SpellCap         color09    none t=underline g=undercurl s=color09
