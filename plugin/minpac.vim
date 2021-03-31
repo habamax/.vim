@@ -93,7 +93,7 @@ call minpac#add('cespare/vim-toml')
 call minpac#add('ycm-core/YouCompleteMe', {'type': 'opt'})
 
 " backup general <tab> completion
-call minpac#add('lifepillar/vim-mucomplete')
+call minpac#add('lifepillar/vim-mucomplete', {'type': 'opt'})
 
 " Close tags with > and >> in insert mode
 call minpac#add('alvan/vim-closetag')
