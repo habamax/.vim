@@ -50,8 +50,8 @@ string(city, 50)
 string(street, 100)
 }
 
-mdc.Party \"1\" --{ \"0..*\" mdc.Address: Party has\\\\naddresses
-mdc.Party \"1\" --{ \"0..*\" mdc.Document: Party has\\\\ndocuments
-mdc.Party \"1\" --{ \"0..*\" mdc.Contact: Party has\\\\ncontacts
+mdc.Party "1" --{ "0..*" mdc.Address: Party has\naddresses
+mdc.Party "1" --{ "0..*" mdc.Document: Party has\ndocuments
+mdc.Party "1" --{ "0..*" mdc.Contact: Party has\ncontacts
 
 ....
