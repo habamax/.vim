@@ -1,3 +1,5 @@
 nmap <buffer> l <CR>
 nmap <buffer> h -
-unmap <buffer> <C-l>
+if mapcheck('<C-l>', 'n') ==# '<Plug>NetrwRefresh'
+    unmap <buffer> <C-l>
+endif
