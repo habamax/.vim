@@ -1,6 +1,6 @@
-if exists("b:did_ftplugin")
+if exists("g:loaded_curl")
     finish
 endif
-let b:did_ftplugin = 1
+let g:loaded_curl = 1
 
 command! -range Curl <line1>,<line2>call curl#do()
