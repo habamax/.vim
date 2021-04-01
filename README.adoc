@@ -13,8 +13,10 @@ Nothing fancy, just to keep it safe and available.
 
 == Colors
 
-* link:https://github.com/habamax/vim-psionic[psionic] -- light background colorscheme;
-* link:https://github.com/habamax/vim-alchemist[alchemist] -- dark background. Variation of awesome https://github.com/romainl/Apprentice[Apprentice];
+* link:https://github.com/habamax/vim-saturnite[saturnite] -- dark background, variation of awesome https://github.com/romainl/Apprentice[Apprentice];
+* link:https://github.com/habamax/vim-freyeday[freyeday] -- light background, to complement `saturnite`;
+* link:https://github.com/habamax/vim-alchemist[alchemist] -- dark background, yet another variation of awesome https://github.com/romainl/Apprentice[Apprentice];
+* link:https://github.com/habamax/vim-psionic[psionic] -- light background;
 * link:https://github.com/habamax/vim-gruvbit[gruvbit] -- simplified variant of `gruvbox_hard`;
 * link:https://github.com/habamax/vim-polar[polar] -- white background variantion of base16-one-light;
 * link:https://github.com/habamax/vim-habanight[habanight] -- black background variation of base16-default-dark colorscheme.
