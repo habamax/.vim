@@ -34,7 +34,7 @@ func! lsp#setup()
             exe printf('au FileType %s call lsp#ycm_mappings()', s:lsp_ft_maps)
         augroup end
     else
-        silent! packadd mucomplete
+        silent! packadd vim-mucomplete
         if exists("g:loaded_mucomplete")
             MUcompleteAutoOn
         endif
