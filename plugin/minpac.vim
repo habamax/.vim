@@ -103,4 +103,3 @@ call minpac#add('chrisbra/Colorizer')
 call minpac#add('elixir-editors/vim-elixir')
 call minpac#add('aklt/plantuml-syntax')
 call minpac#add('cespare/vim-toml')
-
