@@ -25,13 +25,12 @@ call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 
-
-"""
-""" My plugins
-"""
 call minpac#add('git@github.com:habamax/vim-select.git',      {'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-select-more.git', {'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-asciidoctor.git', {'rev': 'master'})
+call minpac#add('git@github.com:habamax/vim-godot.git',       {'rev': 'master'})
+call minpac#add('git@github.com:habamax/vim-num2words.git',   {'rev': 'master'})
+call minpac#add('git@github.com:habamax/vim-winlayout.git',   {'rev': 'master'})
 call minpac#add('git@github.com:habamax/vim-saturnite.git',   {'rev': 'master', 'type': 'opt'})
 call minpac#add('git@github.com:habamax/vim-freyeday.git',    {'rev': 'master', 'type': 'opt'})
 call minpac#add('git@github.com:habamax/vim-habanight.git',   {'rev': 'master', 'type': 'opt'})
@@ -39,30 +38,34 @@ call minpac#add('git@github.com:habamax/vim-alchemist.git',   {'rev': 'master', 
 call minpac#add('git@github.com:habamax/vim-psionic.git',     {'rev': 'master', 'type': 'opt'})
 call minpac#add('git@github.com:habamax/vim-gruvbit.git',     {'rev': 'master', 'type': 'opt'})
 call minpac#add('git@github.com:habamax/vim-polar.git',       {'rev': 'master', 'type': 'opt'})
-call minpac#add('git@github.com:habamax/vim-godot.git',       {'rev': 'master'})
-call minpac#add('git@github.com:habamax/vim-num2words.git',   {'rev': 'master'})
-call minpac#add('git@github.com:habamax/vim-winlayout.git',   {'rev': 'master'})
 " call minpac#add('git@github.com:habamax/vim-sendtoterm.git',  {'rev': 'master'})
 
 
 
-"""
-""" Git
-"""
+" auto cd to your project root folder
+call minpac#add('airblade/vim-rooter')
+
+" preview of :s command
+call minpac#add('markonm/traces.vim')
+
+" git integration
 call minpac#add('tpope/vim-fugitive', {'type': 'opt'})
 call minpac#add('rbong/vim-flog', {'type': 'opt'})
 
+call minpac#add('tpope/vim-commentary')
 
+call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
 
-"""
-""" Text manipulation
-"""
+" ysiw' to surround a 'word'
 call minpac#add('tpope/vim-surround')
+
+" some plugins use it to provide complex . repeats
 call minpac#add('tpope/vim-repeat')
 
-" cxiw .
+" cxiw . to exchange text
 call minpac#add('tommcdo/vim-exchange')
 
+" align stuff
 call minpac#add('junegunn/vim-easy-align')
 
 " swap comma separated stuff with `g>` `g<` `gs`
@@ -70,20 +73,10 @@ call minpac#add('junegunn/vim-easy-align')
 " map it to `g.`
 call minpac#add('machakann/vim-swap')
 
-
-
-"""
-""" Coding
-"""
-
-" auto cd to your project root folder
-call minpac#add('airblade/vim-rooter')
-
-call minpac#add('editorconfig/editorconfig-vim')
-call minpac#add('tpope/vim-commentary')
-call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
+" unit tests
 call minpac#add('vim-test/vim-test')
 
+" filetypes
 call minpac#add('elixir-editors/vim-elixir')
 call minpac#add('aklt/plantuml-syntax')
 call minpac#add('cespare/vim-toml')
@@ -95,29 +88,18 @@ call minpac#add('ycm-core/YouCompleteMe', {'type': 'opt'})
 " backup general <tab> completion
 call minpac#add('lifepillar/vim-mucomplete', {'type': 'opt'})
 
-" Close tags with > and >> in insert mode
-call minpac#add('alvan/vim-closetag')
-
-" Close things like 'if ... endif'
+" close things like 'if ... endif'
 call minpac#add('tpope/vim-endwise')
 
+" close tags with > and >> in insert mode
+call minpac#add('alvan/vim-closetag')
 
-
-"""
-""" Miscelaneous
-"""
+" async :make
 call minpac#add('tpope/vim-dispatch')
+
+" shell commands
 call minpac#add('tpope/vim-eunuch')
 
-" preview of :s command
-call minpac#add('markonm/traces.vim')
-
-" File management
-call minpac#add('lambdalisue/fern.vim')
-
+" colorscheme authoring helpers
 call minpac#add('lifepillar/vim-colortemplate')
 call minpac#add('chrisbra/Colorizer')
-" call minpac#add('romainl/Apprentice', {'type': 'opt'})
-
-" call minpac#add('vim-airline/vim-airline')
-" call minpac#add('itchyny/lightline.vim')
