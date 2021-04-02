@@ -76,11 +76,6 @@ call minpac#add('machakann/vim-swap')
 " unit tests
 call minpac#add('vim-test/vim-test')
 
-" filetypes
-call minpac#add('elixir-editors/vim-elixir')
-call minpac#add('aklt/plantuml-syntax')
-call minpac#add('cespare/vim-toml')
-
 " after install/update run `./install.py`
 " or `./install.py --go-completer` if you need go completion
 call minpac#add('ycm-core/YouCompleteMe', {'type': 'opt'})
@@ -103,3 +98,9 @@ call minpac#add('tpope/vim-eunuch')
 " colorscheme authoring helpers
 call minpac#add('lifepillar/vim-colortemplate')
 call minpac#add('chrisbra/Colorizer')
+
+" filetypes
+call minpac#add('elixir-editors/vim-elixir')
+call minpac#add('aklt/plantuml-syntax')
+call minpac#add('cespare/vim-toml')
+
