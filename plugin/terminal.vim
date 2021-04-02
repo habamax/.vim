@@ -20,8 +20,8 @@ elseif &term =~# 'win32'
 endif
 
 
-" Fix cursor shapes (insert/replace/normal mode) in WSL bash
-if &term =~ "xterm" || &term =~ "tmux"
+" Fix cursor shapes (insert/replace/normal mode)
+if &term =~# 'xterm' || &term =~# 'tmux'
     let &t_SI = "\<Esc>[6 q"
     let &t_SR = "\<Esc>[3 q"
     let &t_EI = "\<Esc>[2 q"
