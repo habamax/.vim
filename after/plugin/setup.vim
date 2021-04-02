@@ -123,12 +123,6 @@ if exists("g:loaded_swap")
 endif
 
 
-if exists("g:loaded_fern")
-    nnoremap <silent> <F8> :Fern . -drawer -toggle -reveal=%<CR>
-    nnoremap <silent> <F9> :FernDo :<CR>
-endif
-
-
 if exists("g:loaded_listopad")
     "" listopad
     let g:listopad_auto_archive = 1
