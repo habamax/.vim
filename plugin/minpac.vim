@@ -41,7 +41,6 @@ call minpac#add('git@github.com:habamax/vim-polar.git',       {'rev': 'master', 
 " call minpac#add('git@github.com:habamax/vim-sendtoterm.git',  {'rev': 'master'})
 
 
-
 " auto cd to your project root folder
 call minpac#add('airblade/vim-rooter')
 
@@ -54,6 +53,7 @@ call minpac#add('rbong/vim-flog', {'type': 'opt'})
 
 call minpac#add('tpope/vim-commentary')
 
+" automate ctags
 call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
 
 " ysiw' to surround a 'word'
@@ -68,16 +68,13 @@ call minpac#add('tommcdo/vim-exchange')
 " align stuff
 call minpac#add('junegunn/vim-easy-align')
 
-" swap comma separated stuff with `g>` `g<` `gs`
-" `gs` will probably interfere with vim-sort-motion
-" map it to `g.`
+" swap comma separated stuff with `g>` `g<` `gs` (`gs` is remapped to `g.`)
 call minpac#add('machakann/vim-swap')
 
-" unit tests
+" unit testing
 call minpac#add('vim-test/vim-test')
 
-" after install/update run `./install.py`
-" or `./install.py --go-completer` if you need go completion
+" run `./install.py` (or `/.install.py --go-completer`)
 call minpac#add('ycm-core/YouCompleteMe', {'type': 'opt'})
 
 " backup general <tab> completion
@@ -99,7 +96,7 @@ call minpac#add('tpope/vim-eunuch')
 call minpac#add('lifepillar/vim-colortemplate')
 call minpac#add('chrisbra/Colorizer')
 
-" filetypes
+" filetype & syntax
 call minpac#add('elixir-editors/vim-elixir')
 call minpac#add('aklt/plantuml-syntax')
 call minpac#add('cespare/vim-toml')

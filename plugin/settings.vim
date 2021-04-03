@@ -1,4 +1,4 @@
-""" Check after/plugin/setup.vim for settings that depends on plugin existence
+""" Check after/plugin/settings.vim for settings that depends on plugin existence
 """ Plugin settings
 
 
