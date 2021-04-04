@@ -4,10 +4,9 @@
 """ 2. Run :PackUpdate to install plugins.
 """ 3. Then from time to time run :PackUpdate to update plugins.
 
-command! PackBoot let g:minpac_bootstrap = 1 | packadd minpac | runtime plugin/minpac.vim
-command! PackUpdate packadd minpac | runtime plugin/minpac.vim | call minpac#update()
-command! PackClean  packadd minpac | runtime plugin/minpac.vim | call minpac#clean()
-
+exe 'command! PackBoot let g:minpac_bootstrap = 1 | packadd minpac | source ' .. expand('<sfile>')
+exe 'command! PackUpdate packadd minpac | source ' .. expand('<sfile>') .. ' | call minpac#update()'
+exe 'command! PackClean  packadd minpac | source ' .. expand('<sfile>') .. ' | call minpac#clean()'
 
 if !exists('g:loaded_minpac')
     if exists('g:minpac_bootstrap') && executable('git')
