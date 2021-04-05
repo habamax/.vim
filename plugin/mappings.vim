@@ -178,7 +178,12 @@ nnoremap got :TermBuffer<CR>
 
 
 "" Save as
-nnoremap <expr> <space>S printf(":saveas %s%s",
+nnoremap <expr> <space>FS printf(":saveas %s%s",
+            \ expand("%:p"),
+            \ empty(expand("%:e")) ? '' : repeat('<Left>', strchars(expand("%:e")) + 1))
+
+"" Rename (valid if vim-eunuch is installed)
+nnoremap <expr> <space>FR printf(":Move %s%s",
             \ expand("%:p"),
             \ empty(expand("%:e")) ? '' : repeat('<Left>', strchars(expand("%:e")) + 1))
 
