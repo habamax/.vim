@@ -5,4 +5,4 @@ if !has("gui_running")
     augroup END
 endif
 
-exe 'colorscheme ' .. ($VIMCOLORS ?? 'saturnite')
+silent! exe 'colorscheme ' .. ($VIMCOLORS ?? 'saturnite')
