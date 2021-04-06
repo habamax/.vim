@@ -48,6 +48,7 @@ func! indentector#detect_indent(lines) abort
 
     if tabs > spaces
         setlocal noexpandtab
+        setlocal shiftwidth=0
     else
         setlocal expandtab
         let sw = 0
