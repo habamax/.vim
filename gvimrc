@@ -4,8 +4,7 @@ set lines=999
 set winaltkeys=no
 set guioptions=cM
 
-
-set linespace=-1
+set linespace=0
 set guifont=JetBrains\ Mono\ NL:h14
 
 " set guifont=Iosevka\ Habamax:h14
