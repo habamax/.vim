@@ -1,4 +1,3 @@
-language messages en_US.UTF-8
 filetype plugin indent on
 syntax on
 
