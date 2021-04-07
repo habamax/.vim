@@ -7,7 +7,6 @@ set guioptions=cM
 " set linespace=-2
 " set guifont=JetBrains\ Mono\ NL:h14
 
-set linespace=0
 set guifont=Hack:h13
 
 " quick font check:
