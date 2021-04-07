@@ -45,7 +45,7 @@ func! win#lens() abort
     wincmd =
     call s:fix_w_h(0)
     normal! ze
-endfunction
+endfunc
 
 
 "" Return width of a signcolumn
