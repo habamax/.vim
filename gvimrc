@@ -4,10 +4,17 @@ set lines=999
 set winaltkeys=no
 set guioptions=cM
 
-" set linespace=-2
-" set guifont=JetBrains\ Mono\ NL:h14
+set linespace=0
 
 set guifont=Hack:h13
+
+" space between lines is just too big
+" set guifont=JetBrains\ Mono\ NL:h13
+
+" no italics
+" set guifont=Fira\ Mono:h13
+" set guifont=Pt\ Mono:h13
+
 
 " quick font check:
 " З3Э -- буква З, цифра 3, буква Э
