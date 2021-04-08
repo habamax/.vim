@@ -13,7 +13,7 @@ set guifont=Hack:h13
 
 " no italics
 " set guifont=Fira\ Mono:h13
-" set guifont=Pt\ Mono:h13
+" set guifont=PT\ Mono:h13
 
 
 " quick font check:
