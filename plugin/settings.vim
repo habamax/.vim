@@ -42,8 +42,8 @@ let g:asciidoctor_pdf_executable = "bundle exec asciidoctor-pdf"
 
 let g:asciidoctor_extensions = ['asciidoctor-diagram']
 let g:asciidoctor_pdf_extensions = copy(g:asciidoctor_extensions)
-let g:asciidoctor_pdf_themes_path = (empty($DOCSHOME)?expand('~'):expand($DOCSHOME)) . '/docs/.asciidoctor-themes'
-let g:asciidoctor_pdf_fonts_path = (empty($DOCSHOME)?expand('~'):expand($DOCSHOME)) . '/docs/.asciidoctor-themes/fonts;GEM_FONTS_DIR'
+let g:asciidoctor_pdf_themes_path = expand($DOCS ?? '~/docs') .. '/.asciidoctor-themes'
+let g:asciidoctor_pdf_fonts_path = expand($DOCS ?? '~/docs') .. '/.asciidoctor-themes/fonts;GEM_FONTS_DIR'
 
 " for OSX `pngpaste` could be used.
 let g:asciidoctor_img_paste_command = 'gm convert clipboard: %s%s'
@@ -51,10 +51,10 @@ let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 
 let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json', 'xml']
 let g:asciidoctor_css = 'asciidoctor-next.min.css'
-let g:asciidoctor_css_path = (empty($DOCSHOME)?expand('~'):expand($DOCSHOME)) . '/docs/.asciidoctor-themes'
+let g:asciidoctor_css_path = expand($DOCS ?? '~/docs') .. '/.asciidoctor-themes'
 
 let g:asciidoctor_pandoc_other_params = '--toc'
-let g:asciidoctor_pandoc_data_dir = (empty($DOCSHOME)?expand('~'):expand($DOCSHOME)) . '/docs/.pandoc'
+let g:asciidoctor_pandoc_data_dir = expand($DOCS ?? '~/docs') .. '/.pandoc'
 
 let g:asciidoctor_syntax_conceal = 1
 " let g:asciidoctor_folding = 1
