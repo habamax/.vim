@@ -6,13 +6,13 @@ set guioptions=cM
 
 set linespace=0
 
-set guifont=Hack:h14
+" set guifont=Hack:h14
 
 " space between lines is just too big
 " set guifont=JetBrains\ Mono\ NL:h14
 
 " no italics
-" set guifont=Fira\ Mono:h14
+set guifont=Fira\ Mono:h14
 " set guifont=PT\ Mono:h14
 
 " oldschool for fun
