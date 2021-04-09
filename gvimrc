@@ -15,6 +15,8 @@ set guifont=Hack:h13
 " set guifont=Fira\ Mono:h13
 " set guifont=PT\ Mono:h13
 
+" oldschool for fun
+" set guifont=fixedsys:h11
 
 " quick font check:
 " З3Э -- буква З, цифра 3, буква Э
