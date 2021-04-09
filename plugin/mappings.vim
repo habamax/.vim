@@ -66,22 +66,12 @@ inoremap <silent> <C-space>l <ESC>guiw`]a
 
 
 "" Window management
-" Switch windows
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 nnoremap <silent><space>c :b#<bar>bd#<cr>
 nnoremap <space>q <C-w>c
 nnoremap <space>ws <C-w>s
 nnoremap <space>wv <C-w>v
 nnoremap <space>wn <C-w>n
 nnoremap <silent> <space>wo :call win#zoom_toggle()<CR>
-nnoremap <space>wh <C-w>H
-nnoremap <space>wl <C-w>L
-nnoremap <space>wj <C-w>J
-nnoremap <space>wk <C-w>K
 
 nnoremap <silent> <F2> :echo win#layout_toggle()<CR>
 
@@ -148,7 +138,7 @@ xnoremap > >gv
 xnoremap < <gv
 
 "" <C-l> redraws the screen and removes any search highlighting.
-" nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
+nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
 nnoremap <silent> <space>t- :call text#underline(['-', '=', '~', '^', '+'])<CR>
 nnoremap <silent> <space>t= :call text#underline(['=', '-', '~', '^', '+'])<CR>
