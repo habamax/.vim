@@ -4,6 +4,17 @@ else
     augroup haba_colors | au!
         au ColorScheme freyeday,saturnite hi Normal ctermbg=NONE
     augroup END
-    colorscheme saturnite
-endif
 
+    " assuming I am in wsltty :)
+    if exists("$WSLENV")
+        for line in readfile(systemlist('wslpath $APPDATA')[0] .. '/wsltty/config')
+            let themefile = matchstr(line, 'ThemeFile=\zs.*')
+            if !empty(themefile)
+                silent! exe 'colorscheme ' .. themefile
+                break
+            endif
+        endfor
+    else
+        colorscheme saturnite
+    endif
+endif
