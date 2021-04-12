@@ -92,6 +92,12 @@ if exists("g:loaded_select")
 endif
 
 
+if exists("g:loaded_fugitive")
+    command GitLog Git log -p --follow -- %
+    command GitLogSummary Git log --follow -- %
+endif
+
+
 if exists("g:loaded_winlayout")
     nmap <F3> <Plug>(WinlayoutBackward)
     nmap <F4> <Plug>(WinlayoutForward)
