@@ -93,8 +93,8 @@ endif
 
 
 if exists("g:loaded_fugitive")
-    command GitLog Git log -p --follow -- %
-    command GitLogSummary Git log --follow -- %
+    command Glog Git log -p --follow -- %
+    command GlogSummary Git log --follow -- %
 endif
 
 
