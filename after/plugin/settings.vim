@@ -81,7 +81,7 @@ if exists("g:loaded_select")
         let g:select_info.man = {}
         let g:select_info.man.data = {"job": "apropos ."}
         let g:select_info.man.sink = {
-                    \ "transform": {_, v -> split(v, '\s(\d\+)\s')[0]},
+                    \ "transform": {_, v -> split(v, '\s(.\{-})\s')[0]},
                     \ "action": {v -> s:man_sink(v)}
                     \ }
         func! s:man_sink(man) abort
