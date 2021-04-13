@@ -2,10 +2,10 @@
 "" Author: Maxim Kim <habamax@gmail.com>
 "" Desc: Mark text with MarkIt highlight group
 "" Example mappings:
-"" nnoremap <space>kk :call markit#mark()<CR>
-"" xnoremap <space>kk <cmd>call markit#mark()<CR><ESC>
-"" nnoremap <space>kl :call markit#unmark()<CR>
-"" xnoremap <space>kl <cmd>call markit#unmark()<CR><ESC>
+"" nnoremap <space>mm :call markit#mark()<CR>
+"" xnoremap <space>mm <cmd>call markit#mark()<CR><ESC>
+"" nnoremap <space>mu :call markit#unmark()<CR>
+"" xnoremap <space>mu <cmd>call markit#unmark()<CR><ESC>
 
 
 func! markit#mark()
