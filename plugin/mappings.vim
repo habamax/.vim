@@ -146,7 +146,7 @@ nnoremap <silent> <space><space>t- o<home><ESC>78i-<ESC>
 nnoremap <silent> <space><space>t= o<home><ESC>78i=<ESC>
 
 "" find visually selected text
-vnoremap * y/<C-R>"<CR>
+xnoremap * y/<C-R>"<CR>
 
 noremap <silent> <space>gi :call git#show_commit(v:count)<CR>
 noremap <silent> <space>gb :call git#blame()<CR>
