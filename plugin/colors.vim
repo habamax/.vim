@@ -1,9 +1,26 @@
+func! s:setup_colors(colorscheme) abort
+    if !has('gui_running')
+        hi Normal ctermbg=NONE
+    endif
+
+    if a:colorscheme == "freyeday"
+        hi NormalFade ctermbg=254 ctermfg=NONE cterm=NONE guibg=#eeeeee gui=NONE guifg=NONE
+    elseif a:colorscheme == "saturnite"
+        hi NormalFade ctermbg=236 ctermfg=NONE cterm=NONE guibg=#303030 gui=NONE guifg=NONE
+    endif
+endfunc
+
+
+augroup haba_colors | au!
+    au ColorScheme freyeday,saturnite call s:setup_colors(expand("<amatch>"))
+    au WinEnter * setl wincolor=Normal
+    au WinLeave * setl wincolor=NormalFade
+augroup END
+
+
 if has('gui_running')
     colorscheme freyeday
 else
-    augroup haba_colors | au!
-        au ColorScheme freyeday,saturnite hi Normal ctermbg=NONE
-    augroup END
-
     colorscheme saturnite
 endif
+
