@@ -6,7 +6,7 @@ func! s:setup_colors(colorscheme) abort
     if a:colorscheme == "freyeday"
         hi NormalFade ctermbg=255 ctermfg=NONE cterm=NONE guibg=#eeeeee gui=NONE guifg=NONE
     elseif a:colorscheme == "saturnite"
-        hi NormalFade ctermbg=236 ctermfg=NONE cterm=NONE guibg=#303030 gui=NONE guifg=NONE
+        hi NormalFade ctermbg=235 ctermfg=NONE cterm=NONE guibg=#262626 gui=NONE guifg=NONE
     endif
 endfunc
 
