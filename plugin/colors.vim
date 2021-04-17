@@ -23,4 +23,3 @@ if has('gui_running')
 else
     colorscheme saturnite
 endif
-
