@@ -16,9 +16,6 @@ set guifont=Iosevka\ Habamax:h14
 " set guifont=Fira\ Mono:h14
 " set guifont=PT\ Mono:h14
 
-" oldschool for fun
-" set guifont=fixedsys:h11
-
 " quick font check:
 " З3Э -- буква З, цифра 3, буква Э
 " 1Il0OQB8 =-+*:(){}[]
