@@ -17,11 +17,11 @@ inorea ЭЭ ""<Left><C-R>=Eatchar('\s')<CR>
 inorea ээ ''<Left><C-R>=Eatchar('\s')<CR>
 inorea ёё ``<Left><C-R>=Eatchar('\s')<CR>
 
-inorea <expr> dd strftime("%Y-%m-%d")
-inorea <expr> дд text#date_ru()
+inorea <expr> ddd strftime("%Y-%m-%d")
 inorea <expr> ddt strftime("%Y-%m-%d %H:%M")
-inorea <expr> вв strftime("%Y-%m-%d")
+inorea <expr> ввв strftime("%Y-%m-%d")
 inorea <expr> вве strftime("%Y-%m-%d %H:%M")
+inorea <expr> ддд text#date_ru()
 
 inorea -Ю ->
 inorea -ю ->
