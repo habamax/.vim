@@ -94,7 +94,8 @@ endif
 
 if exists("g:loaded_fugitive")
     command! Glog Git log -p --follow -- %
-    command! GlogSummary Git log --follow -- %
+    " command! GlogSummary Git log --follow -- %
+    command! GlogSummary Flog -no-graph -path=% -raw-args=--follow
 endif
 
 
