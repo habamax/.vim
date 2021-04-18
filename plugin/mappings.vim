@@ -68,6 +68,8 @@ inoremap <silent> <C-space>l <ESC>guiw`]a
 "" Window management
 nnoremap <silent><space>c :b#<bar>bd#<cr>
 nnoremap <space>q <C-w>c
+nmap <space>й <space>q
+nmap <space>с <space>c
 nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
 nnoremap <silent> <F2> :echo win#layout_toggle()<CR>
 
