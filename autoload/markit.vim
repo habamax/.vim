@@ -47,3 +47,8 @@ func! markit#unmark()
         call prop_remove({'id': 'markit', 'all': v:true}, getpos(".")[1])
     endif
 endfunc
+
+
+func! markit#unmark_all()
+    call prop_remove({'id': 'markit', 'all': v:true})
+endfunc

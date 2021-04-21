@@ -193,3 +193,4 @@ nnoremap <space>mm :call markit#mark()<CR>
 xnoremap <space>mm <cmd>call markit#mark()<CR><ESC>
 nnoremap <space>mu :call markit#unmark()<CR>
 xnoremap <space>mu <cmd>call markit#unmark()<CR><ESC>
+nnoremap <space>mU :call markit#unmark_all()<CR>
