@@ -65,7 +65,8 @@ call minpac#add('tpope/vim-repeat')
 call minpac#add('tommcdo/vim-exchange')
 
 " align stuff
-call minpac#add('junegunn/vim-easy-align')
+" call minpac#add('junegunn/vim-easy-align')
+call minpac#add('tommcdo/vim-lion')
 
 " swap comma separated stuff with `g>` `g<` `gs` (`gs` is remapped to `g.`)
 call minpac#add('machakann/vim-swap')
