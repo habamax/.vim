@@ -14,7 +14,7 @@ set signcolumn=number
 set shortmess+=Ic
 set scrolloff=5 sidescrolloff=5
 set display=truncate
-set completeopt=menuone,noselect,popup
+set completeopt=menuone,noselect
 set list listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
 set nowrap breakindent breakindentopt=sbr
 set formatoptions=cqjl
