@@ -154,8 +154,8 @@ endif
 
 
 if exists("g:loaded_easy_align_plugin")
-    vmap ga <Plug>(LiveEasyAlign)
-    nmap ga <Plug>(EasyAlign)
+    vmap gl <Plug>(LiveEasyAlign)
+    nmap gl <Plug>(EasyAlign)
 endif
 
 
