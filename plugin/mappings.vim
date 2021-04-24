@@ -71,6 +71,7 @@ nnoremap <space>q <C-w>c
 nmap <space>й <space>q
 nmap <space>с <space>c
 nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
+nmap <C-w><C-o> <C-w>o
 nnoremap <silent> <F2> :echo win#layout_toggle()<CR>
 nnoremap <silent> <C-j> <C-w>w
 nnoremap <silent> <C-k> <C-w>W
