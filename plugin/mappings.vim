@@ -135,8 +135,8 @@ nnoremap <space>ts :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDa
 " xnoremap <expr> P 'Pgv"'.v:register.'y`>'
 
 "" shift right and left
-xnoremap > >gv
-xnoremap < <gv
+" xnoremap > >gv
+" xnoremap < <gv
 
 "" <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
