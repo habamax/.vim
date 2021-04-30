@@ -22,7 +22,6 @@ noremap <space>З "+P
 "" enhance search
 cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"
 cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
-cnoremap <expr> <CR>    getcmdtype() =~ "[/?]" ? "<CR>zz" : "<CR>"
 
 
 "" Find file/buffer
