@@ -82,17 +82,17 @@ nnoremap <silent> <C-k> <C-w>W
 "" i_ i. i: i, i; i| i/ i\ i* i+ i- i#
 "" a_ a. a: a, a; a| a/ a\ a* a+ a- a#
 for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#' ]
-    execute 'xnoremap <silent> i' .. char .. ' :<C-u>call text#simple_textobj("'..char..'", 1)<CR>'
-    execute 'xnoremap <silent> a' .. char .. ' :<C-u>call text#simple_textobj("'..char..'", 0)<CR>'
-    execute 'onoremap <silent> i' .. char .. ' :normal vi' . char . '<CR>'
-    execute 'onoremap <silent> a' .. char .. ' :normal va' . char . '<CR>'
+    execute 'xnoremap <silent> i' .. char .. ' :<C-u>call text#obj("' .. char .. '", 1)<CR>'
+    execute 'xnoremap <silent> a' .. char .. ' :<C-u>call text#obj("' .. char .. '", 0)<CR>'
+    execute 'onoremap <silent> i' .. char .. ' :normal vi' .. char .. '<CR>'
+    execute 'onoremap <silent> a' .. char .. ' :normal va' .. char .. '<CR>'
 endfor
 
 "" indent text object
-onoremap <silent>ii :<C-u>call text#indent_textobj(v:true)<CR>
-onoremap <silent>ai :<C-u>call text#indent_textobj(v:false)<CR>
-xnoremap <silent>ii :<C-u>call text#indent_textobj(v:true)<CR>
-xnoremap <silent>ai :<C-u>call text#indent_textobj(v:false)<CR>
+onoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
+onoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
+xnoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
+xnoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
 
 "" number text object
 func! s:number_textobj()

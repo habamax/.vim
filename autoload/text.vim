@@ -126,11 +126,11 @@ endfunc
 "" Indent text object
 "" Useful for python-like indentation based programming lanugages
 "" Usage:
-"" onoremap <silent>ii :<C-u>call text#indent_textobj(v:true)<CR>
-"" onoremap <silent>ai :<C-u>call text#indent_textobj(v:false)<CR>
-"" xnoremap <silent>ii :<C-u>call text#indent_textobj(v:true)<CR>
-"" xnoremap <silent>ai :<C-u>call text#indent_textobj(v:false)<CR>
-func! text#indent_textobj(inner)
+"" onoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
+"" onoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
+"" xnoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
+"" xnoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
+func! text#obj_indent(inner)
     if getline('.') =~ '^\s*$'
         let ln_start = s:detect_nearest_line()
         let ln_end = ln_start
@@ -214,12 +214,12 @@ endfunc
 "" a_ a. a: a, a; a| a/ a\ a* a+ a- a#
 "" Usage:
 ""for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#' ]
-""    execute 'xnoremap <silent> i' .. char .. ' :<C-u>call text#simple_textobj("'..char..'", 1)<CR>'
-""    execute 'xnoremap <silent> a' .. char .. ' :<C-u>call text#simple_textobj("'..char..'", 0)<CR>'
-""    execute 'onoremap <silent> i' .. char .. ' :normal vi' . char . '<CR>'
-""    execute 'onoremap <silent> a' .. char .. ' :normal va' . char . '<CR>'
+""    execute 'xnoremap <silent> i' .. char .. ' :<C-u>call text#obj("' .. char .. '", 1)<CR>'
+""    execute 'xnoremap <silent> a' .. char .. ' :<C-u>call text#obj("' .. char .. '", 0)<CR>'
+""    execute 'onoremap <silent> i' .. char .. ' :normal vi' .. char .. '<CR>'
+""    execute 'onoremap <silent> a' .. char .. ' :normal va' .. char .. '<CR>'
 ""endfor
-func! text#simple_textobj(char, inner) abort
+func! text#obj(char, inner) abort
     let lnum = line('.')
     let char = escape(a:char, '.*')
     if (search(char, 'cnbW', lnum) && search(char, 'W', lnum))
