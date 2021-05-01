@@ -146,13 +146,11 @@ if exists("g:loaded_swap")
 endif
 
 
-if exists("g:loaded_listopad")
-    "" listopad
-    let g:listopad_auto_archive = 1
-    xmap <space>x  <Plug>(ListopadToggleCheckboxOp)
-    nmap <space>x  <Plug>(ListopadToggleCheckboxOp)
-    omap <space>x  <Plug>(ListopadToggleCheckboxOp)
-    nmap <space>xx <Plug>(ListopadToggleCheckboxLineOp)
+if exists("g:loaded_checkbox")
+    xmap <space>x  <Plug>(CheckboxToggleOp)
+    nmap <space>x  <Plug>(CheckboxToggleOp)
+    omap <space>x  <Plug>(CheckboxToggleOp)
+    nmap <space>xx <Plug>(CheckboxToggleLineOp)
 endif
 
 

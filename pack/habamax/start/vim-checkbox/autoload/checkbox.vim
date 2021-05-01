@@ -1,15 +1,18 @@
-" Maintainer: Maxim Kim <habamax@gmail.com>
+" Author: Maxim Kim <habamax@gmail.com>
 
-""" List item regexes {{{1
+"""
+""" List item regexes
+"""
 
 " next regex is for numbered lists too but not sure if it makes sense
 let s:rx_bullets = '^\(\%(\s*[-*]\+\s\+\)\|\%(\s*\d\+\.\s\+\)\)'
-" let s:rx_bullets = '^\(\s*[-*]\+\s*\)'
 let s:rx_empty_checkbox = '\(\s*\[ \?\]\+\s*\)'
 let s:rx_marked_checkbox = '\(\s*\[[Xx]\]\+\s*\)'
 let s:rx_archive = '^\(#\|=\)\+ DONE'
 
-""" List checkboxes {{{1
+"""
+""" List checkboxes
+"""
 func! s:is_list_item(line) abort
     return a:line =~ s:rx_bullets && a:line !~ s:rx_bullets.s:rx_empty_checkbox.'\|'.s:rx_marked_checkbox
 endfunc
@@ -33,22 +36,19 @@ fun! s:toggle_checkbox(lnum)
     endif
 endfu
 
-fun! listopad#toggle_checkboxes(line1, line2)
+func! checkbox#toggle(line1, line2) abort
     let save_cursor = getcurpos()
     try
         for lnum in range(a:line2, a:line1, -1)
             call s:toggle_checkbox(lnum)
-            if get(g:, "listopad_auto_archive", v:false)
-                call s:list_item_archive(lnum)
-            endif
         endfor
     finally
         call setpos('.', save_cursor)
     endtry
-endfu
+endfunc
 
 " operator pending...
-fu! listopad#op_toggle_checkboxes(...)
+fu! checkbox#toggle_op(...)
     if !a:0
         let &operatorfunc = matchstr(expand('<sfile>'), '[^. ]*$')
         return 'g@'
@@ -66,38 +66,8 @@ fu! listopad#op_toggle_checkboxes(...)
         silent exe "normal! `[v`]y"
     endif
 
-    call listopad#toggle_checkboxes(line("'<"), line("'>"))
+    call checkbox#toggle(line("'<"), line("'>"))
 
     let &selection = sel_save
     let &clipboard = clipboard_save
 endfu
-
-
-""" Archiving {{{1
-
-func! s:list_item_archive(lnum) abort
-    " identify current list item bounds including sublist items
-    " do nothing if not a list item or without checkbox or checkbox is empty
-    " (including sublist items)
-    " simplified version :)
-    if !s:is_checkbox_marked(getline(a:lnum))
-        return
-    endif
-
-    " identify archive placement
-    let archive_pos = search(s:rx_archive, "nW")
-    if archive_pos == 0
-        return
-    endif
-
-    " move list item under archive placements
-    exe 'move'.archive_pos
-    let dt = printf("`@done %s`", strftime("%Y-%m-%d %H:%M"))
-    exe printf('s/$/ %s', dt)
-    call append(archive_pos-1, '')
-endfunc
-
-
-func! listopad#archive() abort
-    call s:list_item_archive(line('.'))
-endfunc
