@@ -1,4 +1,4 @@
-let s:lsp_ft_maps = get(g:, 'lsp_ft_maps', 'gdscript,go,python,nim')
+let s:lsp_ft_maps = get(g:, 'lsp_ft_maps', 'gdscript,go,python')
 
 " XXX: rewrite it to have YCM with vim-lsp fallback
 " CoC should be removed
