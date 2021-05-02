@@ -46,4 +46,6 @@ endfunc
 func! lsp#ycm_mappings() abort
     nmap <silent><buffer> K <plug>(YCMHover)
     nnoremap <silent><buffer> gd :YcmCompleter GoTo<CR>
+    nmap <space>fyw <Plug>(YCMFindSymbolInWorkspace)
+    nmap <space>fyd <Plug>(YCMFindSymbolInDocument)
 endfunc
