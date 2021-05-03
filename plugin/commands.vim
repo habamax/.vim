@@ -65,3 +65,14 @@ command! TestColorscheme exe "so colors/tools/colorscheme_sample.vim"
 
 " Redirect the output of a Vim or external command into a scratch buffer
 command! -nargs=1 -complete=command -bar -range Redir silent call tools#redir(<q-args>, <range>, <line1>, <line2>)
+
+
+" Global command, inspired by romainl
+" https://gist.github.com/romainl/f7e2e506dc4d7827004e4994f1be2df6
+command! -bang -nargs=1 Global call setloclist(0, [], ' ',
+            \ {'title': 'Global ' .. <q-args>,
+            \  'efm':   '%f:%l\ %m,%f:%l',
+            \  'lines': execute('g' .. expand('<bang>') .. '/' .. <q-args>)
+            \           ->split('\n')
+            \           ->map({_, val -> expand("%") .. ":" .. trim(val, 1)})
+            \ })
