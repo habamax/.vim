@@ -71,8 +71,8 @@ command! -nargs=1 -complete=command -bar -range Redir silent call tools#redir(<q
 " https://gist.github.com/romainl/f7e2e506dc4d7827004e4994f1be2df6
 command! -bang -nargs=1 Global call setloclist(0, [], ' ',
             \ {'title': 'Global ' .. <q-args>,
-            \  'efm':   '%f:%l\ %m',
-            \  'lines': execute('g' .. expand('<bang>') .. '/' .. <q-args> .. '/#')
+            \  'efm':   '%f:%l\ %m,%f:%l',
+            \  'lines': execute('g<bang>' .. expand('<bang>') .. '/' .. <q-args> .. '/#')
             \           ->split('\n')
             \           ->map({_, val -> expand("%") .. ":" .. trim(val, 1)})
             \ })
