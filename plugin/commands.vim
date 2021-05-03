@@ -64,4 +64,4 @@ command! TestColorscheme exe "so colors/tools/colorscheme_sample.vim"
 
 
 " Redirect the output of a Vim or external command into a scratch buffer
-command! -nargs=1 Redir silent call tools#redir(<f-args>)
+command! -nargs=1 -complete=command -bar -range Redir silent call tools#redir(<q-args>, <range>, <line1>, <line2>)
