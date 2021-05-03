@@ -61,3 +61,7 @@ command! TermBuffer :bo call term_start(&shell, {"cwd": expand("%:p:h"), "term_f
 
 " run visual test for colorscheme
 command! TestColorscheme exe "so colors/tools/colorscheme_sample.vim"
+
+
+" Redirect the output of a Vim or external command into a scratch buffer
+command! -nargs=1 Redir silent call tools#redir(<f-args>)
