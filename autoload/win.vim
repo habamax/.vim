@@ -21,7 +21,7 @@ endfunc
 ""
 "" Add following lines somewhere in your vimrc:
 "" augroup autosize_windows | au!
-""     au BufWinEnter,WinEnter * silent! call win#lens()
+""     au WinEnter * silent! call win#lens()
 "" augroup end
 func! win#lens() abort
     if s:is_lens_disabled()
@@ -81,13 +81,6 @@ endfunc
 
 
 func! s:is_lens_disabled() abort
-    " do not resize floating windows
-    if exists('*nvim_win_get_config')
-        if nvim_win_get_config(0)['relative'] != ''
-            return v:true
-        endif
-    endif
-
     " do not resize windows with filetype
     if index(get(g:, "lens_disabled_filetypes", []), &filetype) != -1
         return v:true
