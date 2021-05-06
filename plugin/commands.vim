@@ -32,10 +32,6 @@ command! -range=% PasteCL call share#clbin(<line1>, <line2>)
 
 command! CD lcd %:p:h
 
-" Print the sum of the lines, awk is required.
-command! -range Sum
-            \ silent <line1>,<line2>copy <line2>
-            \ <bar> silent '[,']!awk "{ sum += $0 } END { print sum }"
 
 "" Save and Load sessions
 command! -nargs=1 -complete=customlist,SessionComplete S :mksession! ~/.vimdata/sessions/<args>
