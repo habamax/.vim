@@ -72,3 +72,7 @@ command! -bang -nargs=1 Global call setloclist(0, [], ' ',
             \           ->split('\n')
             \           ->map({_, val -> expand("%") .. ":" .. trim(val, 1)})
             \ })
+
+
+command! GistEdit call gist#edit()
+command! GistUpdate call gist#update()
