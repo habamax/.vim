@@ -1,10 +1,12 @@
 "" Author: Maxim Kim <habamax@gmail.com>
+"" Prereqs:
+"" 1. Install and setup github-cli tools
+"" 2. Put this file to ~/.vim/autoload/gist.vim
 "" Usage:
-"" 1. install and setup github-cli tools
-"" 2. open a file you want to create gist from
-"" 3. call gist#edit()
-"" 4. edit file
-"" 5. call gist#update()
+"" 1. Open a file you want to create gist from
+"" 2. :call gist#edit()
+"" 3. Edit file
+"" 4. :call gist#update()
 ""
 "" Create helper commands if needed
 "" command! GistEdit call gist#edit()
