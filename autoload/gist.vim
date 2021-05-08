@@ -1,6 +1,6 @@
 "" Author: Maxim Kim <habamax@gmail.com>
 "" Prereqs:
-"" 1. Install and setup github-cli tools
+"" 1. Install and setup https://cli.github.com/
 "" 2. Put this file to ~/.vim/autoload/gist.vim
 "" Usage:
 "" 1. Open a file you want to create gist from
