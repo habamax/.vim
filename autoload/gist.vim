@@ -27,7 +27,7 @@ func! gist#edit() abort
         if v:shell_error
             echohl Error
             echomsg "Can't create '" .. expand("%:t") .. "' as a gist... Error code: " .. v:shell_error
-            echohl Normal
+            echohl None
             return
         else
             let gist_id = s:gist_get_id()
@@ -59,7 +59,7 @@ func! gist#update() abort
         if v:shell_error
             echohl Error
             echomsg "Can't update '" .. expand("%:t") .. "' gist. Error code: " .. v:shell_error
-            echohl Normal
+            echohl None
             return
         else
             echomsg "Gist '" .. expand("%:t") .. "' is updated."
@@ -93,7 +93,7 @@ func! s:gist_clone(id) abort
     if v:shell_error
         echohl Error
         echomsg "Can't edit '" .. expand("%:t") .. "' as a gist... Error code: " .. v:shell_error
-        echohl Normal
+        echohl None
     else
         let b:gist_repo = gist_repo
         echomsg ":GistUpdate when finish editing gist."
