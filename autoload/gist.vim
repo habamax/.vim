@@ -1,19 +1,49 @@
 "" Author: Maxim Kim <habamax@gmail.com>
+"" Desc: Synchronize (create or update) file and a gist with the same name.
 "" Prereqs:
 "" 1. Install and setup https://cli.github.com/
 "" 2. Put this file to ~/.vim/autoload/gist.vim
 "" Usage:
 "" 1. Open a file you want to create gist from
-"" 2. :call gist#edit()
+"" 2. :call gist#sync()
 "" 3. Edit file
-"" 4. :call gist#update()
+"" 4. :call gist#sync()
+"" 5. Edit more
+"" 6. :call gist#sync()
+"" 7. ...
 ""
-"" Create helper commands if needed
-"" command! GistEdit call gist#edit()
-"" command! GistUpdate call gist#update()
+"" Create helper command if needed
+"" command! GistSync call gist#sync()
 
 
-func! gist#edit() abort
+func! gist#sync() abort
+    if empty(get(b:, 'gist_repo', '')) && !s:gist_init()
+        echohl Error
+        echomsg "Can't sync '" .. expand("%:t") .. "' gist"
+        echohl None
+        return
+    endif
+
+    try
+        exe printf('%write! %s/%s', b:gist_repo, expand('%:t'))
+        let cwd = getcwd()
+        exe 'lcd ' .. b:gist_repo
+        call system("git add -A && git diff-index --quiet HEAD || git commit -m 'vim-update' && git push")
+        if v:shell_error
+            echohl Error
+            echomsg "Can't sync '" .. expand("%:t") .. "' gist. Error code: " .. v:shell_error
+            echohl None
+            return
+        else
+            echomsg "Gist '" .. expand("%:t") .. "' is updated."
+        endif
+    finally
+        exe 'lcd ' .. cwd
+    endtry
+endfunc
+
+
+func! s:gist_init() abort
     let gist_id = s:gist_get_id()
     if empty(gist_id)
         echomsg "Gist '" .. expand("%:t") .. "' doesn't exist, creating..."
@@ -28,7 +58,7 @@ func! gist#edit() abort
             echohl Error
             echomsg "Can't create '" .. expand("%:t") .. "' as a gist... Error code: " .. v:shell_error
             echohl None
-            return
+            return v:false
         else
             let gist_id = s:gist_get_id()
         endif
@@ -38,35 +68,25 @@ func! gist#edit() abort
     endif
 
     if !empty(gist_id) && empty(get(b:, 'gist_repo', ''))
-        call s:gist_clone(gist_id)
-    elseif !empty(gist_id)
-        echomsg ":GistUpdate when finish editing gist."
+        return s:gist_clone(gist_id)
     endif
+
+    return v:true
 endfunc
 
 
-func! gist#update() abort
-    if empty(get(b:, 'gist_repo', ''))
-        echomsg "Edit gist first!"
-        return
+func! s:gist_clone(id) abort
+    let gist_repo = tempname()
+    call system(printf('gh gist clone %s %s', a:id, gist_repo))
+    if v:shell_error
+        echohl Error
+        echomsg "Can't edit '" .. expand("%:t") .. "' as a gist... Error code: " .. v:shell_error
+        echohl None
+        return v:false
+    else
+        let b:gist_repo = gist_repo
+        return v:true
     endif
-
-    try
-        exe printf('%write! %s/%s', b:gist_repo, expand('%:t'))
-        let cwd = getcwd()
-        exe 'lcd ' .. b:gist_repo
-        call system("git add -A && git diff-index --quiet HEAD || git commit -m 'vim-update' && git push")
-        if v:shell_error
-            echohl Error
-            echomsg "Can't update '" .. expand("%:t") .. "' gist. Error code: " .. v:shell_error
-            echohl None
-            return
-        else
-            echomsg "Gist '" .. expand("%:t") .. "' is updated."
-        endif
-    finally
-        exe 'lcd ' .. cwd
-    endtry
 endfunc
 
 
@@ -83,19 +103,5 @@ func! s:gist_get_id() abort
         return gists[idx][0]
     else
         return ''
-    endif
-endfunc
-
-
-func! s:gist_clone(id) abort
-    let gist_repo = tempname()
-    call system(printf('gh gist clone %s %s', a:id, gist_repo))
-    if v:shell_error
-        echohl Error
-        echomsg "Can't edit '" .. expand("%:t") .. "' as a gist... Error code: " .. v:shell_error
-        echohl None
-    else
-        let b:gist_repo = gist_repo
-        echomsg ":GistUpdate when finish editing gist."
     endif
 endfunc

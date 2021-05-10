@@ -74,5 +74,4 @@ command! -bang -nargs=1 Global call setloclist(0, [], ' ',
             \ })
 
 
-command! GistEdit call gist#edit()
-command! GistUpdate call gist#update()
+command! GistSync call gist#sync()
