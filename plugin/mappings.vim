@@ -34,6 +34,10 @@ nnoremap <space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
 nnoremap <BS> <C-^>
 
+"" Manual folding
+nnoremap zf <cmd>setl fdm&<CR>zf
+xnoremap zf <cmd>setl fdm&<CR>zf
+
 
 "" Toggles
 nnoremap yoh :set hlsearch!<CR>
