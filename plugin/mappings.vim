@@ -79,6 +79,8 @@ nmap <C-w><C-o> <C-w>o
 nnoremap <silent> <F2> :echo win#layout_toggle()<CR>
 nnoremap <silent> <C-j> <C-w>w
 nnoremap <silent> <C-k> <C-w>W
+tnoremap <silent> <C-j> <C-w>w
+tnoremap <silent> <C-k> <C-w>W
 
 
 "" 24 simple text objects
