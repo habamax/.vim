@@ -7,7 +7,6 @@
 " :Redir version
 " Vim version would be in a new window
 func! tools#redir(cmd) abort
-    echom a:cmd
     for win in range(1, winnr('$'))
         if getwinvar(win, 'scratch')
             execute win . 'windo close'
