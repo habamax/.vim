@@ -19,12 +19,12 @@
 func! gist#sync() abort
     if empty(bufname())
         echohl Error
-        echomsg "Can't sync empty buffer."
+        echomsg "Can't sync empty buffer!"
         echohl None
         return
     elseif empty(get(b:, 'gist_repo', '')) && !s:gist_init()
         echohl Error
-        echomsg "Can't sync '" .. expand("%:t") .. "' gist"
+        echomsg "Can't sync '" .. expand("%:t") .. "' gist!"
         echohl None
         return
     endif
