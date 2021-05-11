@@ -6,7 +6,8 @@
 " To use:
 " :Redir version
 " Vim version would be in a new window
-func! tools#redir(cmd, rng, start, end) abort
+func! tools#redir(cmd) abort
+    echom a:cmd
     for win in range(1, winnr('$'))
         if getwinvar(win, 'scratch')
             execute win . 'windo close'
@@ -16,18 +17,9 @@ func! tools#redir(cmd, rng, start, end) abort
         let cmd = a:cmd =~' %'
                     \ ? matchstr(substitute(a:cmd, ' %', ' ' . expand('%:p'), ''), '^!\zs.*')
                     \ : matchstr(a:cmd, '^!\zs.*')
-        if a:rng == 0
-            let output = systemlist(cmd)
-        else
-            let joined_lines = join(getline(a:start, a:end), '\n')
-            let cleaned_lines = substitute(shellescape(joined_lines), "'\\\\''", "\\\\'", 'g')
-            let output = systemlist(cmd . " <<< $" . cleaned_lines)
-        endif
+        let output = systemlist(cmd)
     else
-        redir => output
-        execute a:cmd
-        redir END
-        let output = split(output, "\n")
+        let output = split(execute(a:cmd), "\n")
     endif
     vnew
     let w:scratch = 1
