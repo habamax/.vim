@@ -59,14 +59,13 @@ inoremap <silent> <C-space>l <ESC>guiw`]a
 
 
 " Move line up/down
-" nnoremap <silent> <M-p> :<C-u>silent! exe "move-2"<CR>==
-" nnoremap <silent> <M-n> :<C-u>silent! exe "move+1"<CR>==
-" inoremap <silent> <M-p> <ESC>:<C-u>silent! exe "move-2"<CR>==gi
-" inoremap <silent> <M-n> <ESC>:<C-u>silent! exe "move+1"<CR>==gi
+nnoremap <silent> <C-Up> :<C-u>silent! exe "move-2"<CR>==
+nnoremap <silent> <C-Down> :<C-u>silent! exe "move+1"<CR>==
+inoremap <silent> <C-Up> <ESC>:<C-u>silent! exe "move-2"<CR>==gi
+inoremap <silent> <C-Down> <ESC>:<C-u>silent! exe "move+1"<CR>==gi
 " Move selected lines up/down
-" xnoremap <silent> <M-p> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
-" xnoremap <silent> <M-n> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
-
+xnoremap <silent> <C-Up> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
+xnoremap <silent> <C-Down> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 
 
 " Window management
@@ -127,11 +126,9 @@ inoremap <C-U> <C-G>u<C-U>
 " https://castel.dev/post/lecture-notes-1/
 inoremap <C-l> <c-g>u<C-\><C-o>[s<ESC>1z=`]a<c-g>u
 
-nnoremap <space>t<space> i<space><right><space><ESC>h
-
 " Fix text (remove double spaces, hanging spaces, etc)
-nnoremap <space>tf :TextFixSpaces<CR>
-xnoremap <space>tf :TextFixSpaces<CR>
+nnoremap <space><space><space> :TextFixSpaces<CR>
+xnoremap <space><space><space> :TextFixSpaces<CR>
 
 " Syntax group names under cursor
 nnoremap <space>ts :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')))<CR>
@@ -147,14 +144,11 @@ nnoremap <space>ts :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDa
 " <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
-nnoremap <silent> <space>t- :call text#underline(['-', '=', '~', '^', '+'])<CR>
-nnoremap <silent> <space>t= :call text#underline(['=', '-', '~', '^', '+'])<CR>
-nnoremap <silent> <space>t~ :call text#underline(['~', '=', '-', '^', '+'])<CR>
-nnoremap <silent> <space>t^ :call text#underline(['^', '=', '-', '~', '+'])<CR>
-nnoremap <silent> <space>t+ :call text#underline(['+', '=', '-', '~', '^'])<CR>
-
-nnoremap <silent> <space><space>t- o<home><ESC>78i-<ESC>
-nnoremap <silent> <space><space>t= o<home><ESC>78i=<ESC>
+nnoremap <silent> <space>u- :call text#underline(['-', '=', '~', '^', '+'])<CR>
+nnoremap <silent> <space>u= :call text#underline(['=', '-', '~', '^', '+'])<CR>
+nnoremap <silent> <space>u~ :call text#underline(['~', '=', '-', '^', '+'])<CR>
+nnoremap <silent> <space>u^ :call text#underline(['^', '=', '-', '~', '+'])<CR>
+nnoremap <silent> <space>u+ :call text#underline(['+', '=', '-', '~', '^'])<CR>
 
 " find visually selected text
 xnoremap * y/<C-R>"<CR>
