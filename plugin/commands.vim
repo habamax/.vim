@@ -33,7 +33,7 @@ command! -range=% PasteCL call share#clbin(<line1>, <line2>)
 command! CD lcd %:p:h
 
 
-"" Save and Load sessions
+" Save and Load sessions
 command! -nargs=1 -complete=customlist,SessionComplete S :mksession! ~/.vimdata/sessions/<args>
 command! -nargs=1 -complete=customlist,SessionComplete L :%bd <bar> so ~/.vimdata/sessions/<args>
 func! SessionComplete(A, L, P)

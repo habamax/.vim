@@ -1,18 +1,18 @@
-"" Name: autoload/text.vim
-"" Author: Maxim Kim <habamax@gmail.com>
-"" Desc: Text manipulation functions.
+" Name: autoload/text.vim
+" Author: Maxim Kim <habamax@gmail.com>
+" Desc: Text manipulation functions.
 
-"" Fix text:
-"" * replace non-breaking spaces to spaces
-"" * replace multiple spaces to a single space (preserving indent)
-"" * remove spaces between closed braces: ) ) -> ))
-"" * remove space before closed brace: word ) -> word)
-"" * remove space after opened brace: ( word -> (word
-"" * remove space at the end of line
-"" Usage:
-"" command! -range TextFixSpaces <line1>,<line2>call text#fix_spaces()
-"" nnoremap <leader><leader><leader> :TextFixSpaces<CR>
-"" xnoremap <leader><leader><leader> :TextFixSpaces<CR>
+" Fix text:
+" * replace non-breaking spaces to spaces
+" * replace multiple spaces to a single space (preserving indent)
+" * remove spaces between closed braces: ) ) -> ))
+" * remove space before closed brace: word ) -> word)
+" * remove space after opened brace: ( word -> (word
+" * remove space at the end of line
+" Usage:
+" command! -range TextFixSpaces <line1>,<line2>call text#fix_spaces()
+" nnoremap <leader><leader><leader> :TextFixSpaces<CR>
+" xnoremap <leader><leader><leader> :TextFixSpaces<CR>
 func! text#fix_spaces() range
     let pos=getcurpos()
     " replace non-breaking space to space first
@@ -33,16 +33,16 @@ func! text#fix_spaces() range
 endfunc
 
 
-"" Underline current line with chars[0]
-"" If current line is already underlined with one the chars[1..]
-"" Replace it with char[0]
-"" call text#underline(['-', '=', '~', '^', '+'])
-"" example mappings:
-"" nnoremap <silent> <space>t- :call text#underline(['-', '=', '~', '^', '+'])<CR>
-"" nnoremap <silent> <space>t= :call text#underline(['=', '-', '~', '^', '+'])<CR>
-"" nnoremap <silent> <space>t~ :call text#underline(['~', '=', '-', '^', '+'])<CR>
-"" nnoremap <silent> <space>t^ :call text#underline(['^', '=', '-', '~', '+'])<CR>
-"" nnoremap <silent> <space>t+ :call text#underline(['+', '=', '-', '~', '^'])<CR>
+" Underline current line with chars[0]
+" If current line is already underlined with one the chars[1..]
+" Replace it with char[0]
+" call text#underline(['-', '=', '~', '^', '+'])
+" example mappings:
+" nnoremap <silent> <space>t- :call text#underline(['-', '=', '~', '^', '+'])<CR>
+" nnoremap <silent> <space>t= :call text#underline(['=', '-', '~', '^', '+'])<CR>
+" nnoremap <silent> <space>t~ :call text#underline(['~', '=', '-', '^', '+'])<CR>
+" nnoremap <silent> <space>t^ :call text#underline(['^', '=', '-', '~', '+'])<CR>
+" nnoremap <silent> <space>t+ :call text#underline(['+', '=', '-', '~', '^'])<CR>
 func! text#underline(chars)
     let nextnr = line('.') + 1
     let underline = repeat(a:chars[0], strchars(getline('.')))
@@ -54,7 +54,7 @@ func! text#underline(chars)
 endfunc
 
 
-"" Dates (text object and stuff)
+" Dates (text object and stuff)
 let s:mons_en = ['Jan', 'Feb', 'Mar', 'Apr',
                \ 'May', 'Jun', 'Jul', 'Aug',
                \ 'Sep', 'Oct', 'Nov', 'Dec']
@@ -69,17 +69,17 @@ let s:months = extend(s:months_en, s:months_ru)
 let s:months = extend(s:months, s:mons_en)
 let g:months = copy(s:months)
 
-"" * ISO-8601 2020-03-21
-"" * RU 21 марта 2020
-"" * EN 10 December 2012
-"" * EN December 10, 2012
-"" * EN 10 Dec 2012
-"" * EN Dec 10, 2012
-"" Usage:
-"" xnoremap <silent> id :<C-u>call text#date_textobj(1)<CR>
-"" onoremap id :<C-u>normal vid<CR>
-"" xnoremap <silent> ad :<C-u>call text#date_textobj(0)<CR>
-"" onoremap ad :<C-u>normal vad<CR>
+" * ISO-8601 2020-03-21
+" * RU 21 марта 2020
+" * EN 10 December 2012
+" * EN December 10, 2012
+" * EN 10 Dec 2012
+" * EN Dec 10, 2012
+" Usage:
+" xnoremap <silent> id :<C-u>call text#date_textobj(1)<CR>
+" onoremap id :<C-u>normal vid<CR>
+" xnoremap <silent> ad :<C-u>call text#date_textobj(0)<CR>
+" onoremap ad :<C-u>normal vad<CR>
 func! text#date_textobj(inner)
     let save_cursor = getcurpos()
     let cword = expand("<cword>")
@@ -123,13 +123,13 @@ func! text#date_ru()
 endfunc
 
 
-"" Indent text object
-"" Useful for python-like indentation based programming lanugages
-"" Usage:
-"" onoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
-"" onoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
-"" xnoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
-"" xnoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
+" Indent text object
+" Useful for python-like indentation based programming lanugages
+" Usage:
+" onoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
+" onoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
+" xnoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
+" xnoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
 func! text#obj_indent(inner)
     if getline('.') =~ '^\s*$'
         let ln_start = s:detect_nearest_line()
@@ -208,17 +208,17 @@ func! s:detect_nearest_line() abort
 endfunc
 
 
-"" 24 simple text objects
-"" ----------------------
-"" i_ i. i: i, i; i| i/ i\ i* i+ i- i#
-"" a_ a. a: a, a; a| a/ a\ a* a+ a- a#
-"" Usage:
-""for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#' ]
-""    execute 'xnoremap <silent> i' .. char .. ' :<C-u>call text#obj("' .. char .. '", 1)<CR>'
-""    execute 'xnoremap <silent> a' .. char .. ' :<C-u>call text#obj("' .. char .. '", 0)<CR>'
-""    execute 'onoremap <silent> i' .. char .. ' :normal vi' .. char .. '<CR>'
-""    execute 'onoremap <silent> a' .. char .. ' :normal va' .. char .. '<CR>'
-""endfor
+" 24 simple text objects
+" ----------------------
+" i_ i. i: i, i; i| i/ i\ i* i+ i- i#
+" a_ a. a: a, a; a| a/ a\ a* a+ a- a#
+" Usage:
+" for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#' ]
+"     execute 'xnoremap <silent> i' .. char .. ' :<C-u>call text#obj("' .. char .. '", 1)<CR>'
+"     execute 'xnoremap <silent> a' .. char .. ' :<C-u>call text#obj("' .. char .. '", 0)<CR>'
+"     execute 'onoremap <silent> i' .. char .. ' :normal vi' .. char .. '<CR>'
+"     execute 'onoremap <silent> a' .. char .. ' :normal va' .. char .. '<CR>'
+" endfor
 func! text#obj(char, inner) abort
     let lnum = line('.')
     let char = escape(a:char, '.*')

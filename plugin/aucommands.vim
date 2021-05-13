@@ -1,11 +1,11 @@
-"" highlight all occurrences of a term being searched/replaced
+" highlight all occurrences of a term being searched/replaced
 augroup hlsearch | au!
     au CmdlineEnter /,\? :set hlsearch
     au CmdlineLeave /,\? :set nohlsearch
 augroup end
 
 
-"" restore cursor position
+" restore cursor position
 augroup restore_pos | au!
     au BufReadPost *
                 \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
@@ -14,13 +14,13 @@ augroup restore_pos | au!
 augroup end
 
 
-"" window autosize
+" window autosize
 augroup win_autosize | au!
     au WinEnter * silent! call win#lens()
 augroup end
 
 
-"" detect indent
+" detect indent
 augroup indentector | au!
     au FileType * call indentector#detect_indent(getline(1, 1024))
 augroup END

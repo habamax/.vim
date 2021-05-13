@@ -1,11 +1,11 @@
-"" Name: autoload/win.vim
-"" Author: Maxim Kim <habamax@gmail.com>
-"" Desc: Windows manipulation functions.
+" Name: autoload/win.vim
+" Author: Maxim Kim <habamax@gmail.com>
+" Desc: Windows manipulation functions.
 
 
-"" Delete all hidden buffers
-"" Usage: command! Bclean call win#delete_buffers()
-"" if you have `set confirm` it would ask you what to do with unsaved buffers
+" Delete all hidden buffers
+" Usage: command! Bclean call win#delete_buffers()
+" if you have `set confirm` it would ask you what to do with unsaved buffers
 func! win#delete_buffers()
     let l:buffers = filter(getbufinfo(), {_, v -> v.hidden})
     if !empty(l:buffers)
@@ -14,15 +14,15 @@ func! win#delete_buffers()
 endfunc
 
 
-"" Autosize windows.
-"" There is lens.vim plugin but essentially this simplified version could be used
-"" instead. Original lens.vim laaaags if switched to a huge file, it
-"" calculates target width consuming whole file into memory....
-""
-"" Add following lines somewhere in your vimrc:
-"" augroup autosize_windows | au!
-""     au WinEnter * silent! call win#lens()
-"" augroup end
+" Autosize windows.
+" There is lens.vim plugin but essentially this simplified version could be used
+" instead. Original lens.vim laaaags if switched to a huge file, it
+" calculates target width consuming whole file into memory....
+"
+" Add following lines somewhere in your vimrc:
+" augroup autosize_windows | au!
+"     au WinEnter * silent! call win#lens()
+" augroup end
 func! win#lens() abort
     if s:is_lens_disabled()
         return
@@ -48,7 +48,7 @@ func! win#lens() abort
 endfunc
 
 
-"" Return width of a signcolumn
+" Return width of a signcolumn
 func! s:signcolumn_width() abort
     let sc = matchlist(&signcolumn, '\(yes\|auto\)\%(:\(\d\)\)\?')
 
@@ -66,7 +66,7 @@ func! s:signcolumn_width() abort
 endfunc
 
 
-"" Return default window width (including linenr and signcolumn)
+" Return default window width (including linenr and signcolumn)
 func! s:win_default_width(width) abort
     let width = a:width
     if &number || &relativenumber
@@ -103,12 +103,12 @@ func! s:fix_w_h(val)
 endfunc
 
 
-"" 5 layouts
-"" layout 1: even horizontal
-"" layout 2: even vertical
-"" layout 3: main horizontal
-"" layout 4: main vertical
-"" layout 5: tiled
+" 5 layouts
+" layout 1: even horizontal
+" layout 2: even vertical
+" layout 3: main horizontal
+" layout 4: main vertical
+" layout 5: tiled
 func! win#layout_toggle() abort
     if winnr('$') == 1
         return "Single window"
@@ -232,13 +232,13 @@ endfunc
 
 
 
-""" Zoom window: save and restore window layout
-"" Usage:
-"" Put following nnoremap into your .vimrc:
-"" nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
-""
-"" <C-w>o zoom window (there should be only 1 window)
-"" <C-w>o restores previous windows
+" Zoom window: save and restore window layout
+" Usage:
+" Put following nnoremap into your .vimrc:
+" nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
+"
+" <C-w>o zoom window (there should be only 1 window)
+" <C-w>o restores previous windows
 func! win#zoom_toggle() abort
     if winnr('$') == 1 && get(t:, "zoomed", v:false)
         call s:layout_restore()

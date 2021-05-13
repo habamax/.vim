@@ -1,16 +1,16 @@
-""" Non Plugin Mappings
+" Non Plugin Mappings
 
-"" essential for my vimscripting
-"" run selected vimscript
+" essential for my vimscripting
+" run selected vimscript
 xnoremap <silent> <space>v y:@"<cr>
-"" run vimscript line
+" run vimscript line
 nmap <space>vv V<space>v
-"" localize it too
+" localize it too
 nmap <space>мм <space>vv
 xmap <silent> <space>м <space>v
 
 
-"" OS clipboard yank and paste
+" OS clipboard yank and paste
 noremap <space>y "+y
 noremap <space>p "+p
 noremap <space>P "+P
@@ -19,13 +19,13 @@ noremap <space>з "+p
 noremap <space>З "+P
 
 
-"" enhance search
+" enhance search
 cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"
 cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
 
 
-"" Find file/buffer
-"" Overriden by vim-select if exists
+" Find file/buffer
+" Overriden by vim-select if exists
 nnoremap <space>ff :find<space>
 nnoremap <space>fe :e<space><C-D>
 nnoremap <space>b :b<space><C-D>
@@ -34,12 +34,12 @@ nnoremap <space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
 nnoremap <BS> <C-^>
 
-"" Manual folding
+" Manual folding
 nnoremap zf <cmd>setl fdm&<CR>zf
 xnoremap zf <cmd>setl fdm&<CR>zf
 
 
-"" Toggles
+" Toggles
 nnoremap yoh :set hlsearch!<CR>
 nnoremap yow :set wrap!<CR>
 nnoremap yon :set number!<CR>
@@ -52,24 +52,24 @@ nnoremap <expr> yob ':colo ' .. (get(g:, 'colors_name', '') == 'saturnite' ? "fr
 " nnoremap <expr> yob ':set bg='..(&bg=='dark' ? "light" : "dark").."<CR>"
 
 
-"" UPPERCASE word in insert mode
+" UPPERCASE word in insert mode
 inoremap <silent> <C-space>u <ESC>gUiw`]a
-"" lowercase word in insert mode
+" lowercase word in insert mode
 inoremap <silent> <C-space>l <ESC>guiw`]a
 
 
-"" Move line up/down
+" Move line up/down
 " nnoremap <silent> <M-p> :<C-u>silent! exe "move-2"<CR>==
 " nnoremap <silent> <M-n> :<C-u>silent! exe "move+1"<CR>==
 " inoremap <silent> <M-p> <ESC>:<C-u>silent! exe "move-2"<CR>==gi
 " inoremap <silent> <M-n> <ESC>:<C-u>silent! exe "move+1"<CR>==gi
-"" Move selected lines up/down
+" Move selected lines up/down
 " xnoremap <silent> <M-p> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
 " xnoremap <silent> <M-n> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
 
 
 
-"" Window management
+" Window management
 nnoremap <silent><space>c :b#<bar>bd#<cr>
 nnoremap <space>q <C-w>c
 nmap <space>й <space>q
@@ -83,10 +83,10 @@ tnoremap <silent> <C-j> <C-w>w
 tnoremap <silent> <C-k> <C-w>W
 
 
-"" 24 simple text objects
-"" ----------------------
-"" i_ i. i: i, i; i| i/ i\ i* i+ i- i#
-"" a_ a. a: a, a; a| a/ a\ a* a+ a- a#
+" 24 simple text objects
+" ----------------------
+" i_ i. i: i, i; i| i/ i\ i* i+ i- i#
+" a_ a. a: a, a; a| a/ a\ a* a+ a- a#
 for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#' ]
     execute 'xnoremap <silent> i' .. char .. ' :<C-u>call text#obj("' .. char .. '", 1)<CR>'
     execute 'xnoremap <silent> a' .. char .. ' :<C-u>call text#obj("' .. char .. '", 0)<CR>'
@@ -94,13 +94,13 @@ for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', 
     execute 'onoremap <silent> a' .. char .. ' :normal va' .. char .. '<CR>'
 endfor
 
-"" indent text object
+" indent text object
 onoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
 onoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
 xnoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
 xnoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
 
-"" number text object
+" number text object
 func! s:number_textobj()
     let rx_num = '\d\+\(\.\d\+\)*'
     if search(rx_num, 'ceW')
@@ -112,39 +112,39 @@ xnoremap <silent> in :<C-u>call <SID>number_textobj()<CR>
 onoremap in :<C-u>normal vin<CR>
 
 
-"" date text object
+" date text object
 xnoremap <silent> id :<C-u>call text#date_textobj(1)<CR>
 onoremap id :<C-u>normal vid<CR>
 xnoremap <silent> ad :<C-u>call text#date_textobj(0)<CR>
 onoremap ad :<C-u>normal vad<CR>
 
 
-"" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-"" so that you can undo CTRL-U after inserting a line break.
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-"" spell correction for the first suggested
-"" https://castel.dev/post/lecture-notes-1/
+" spell correction for the first suggested
+" https://castel.dev/post/lecture-notes-1/
 inoremap <C-l> <c-g>u<C-\><C-o>[s<ESC>1z=`]a<c-g>u
 
 nnoremap <space>t<space> i<space><right><space><ESC>h
 
-"" Fix text (remove double spaces, hanging spaces, etc)
+" Fix text (remove double spaces, hanging spaces, etc)
 nnoremap <space>tf :TextFixSpaces<CR>
 xnoremap <space>tf :TextFixSpaces<CR>
 
-"" Syntax group names under cursor
+" Syntax group names under cursor
 nnoremap <space>ts :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')))<CR>
 
-"" now it is possible to paste many times over selected text
+" now it is possible to paste many times over selected text
 " xnoremap <expr> p 'pgv"'.v:register.'y`>'
 " xnoremap <expr> P 'Pgv"'.v:register.'y`>'
 
-"" shift right and left
+" shift right and left
 " xnoremap > >gv
 " xnoremap < <gv
 
-"" <C-l> redraws the screen and removes any search highlighting.
+" <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
 nnoremap <silent> <space>t- :call text#underline(['-', '=', '~', '^', '+'])<CR>
@@ -156,17 +156,17 @@ nnoremap <silent> <space>t+ :call text#underline(['+', '=', '-', '~', '^'])<CR>
 nnoremap <silent> <space><space>t- o<home><ESC>78i-<ESC>
 nnoremap <silent> <space><space>t= o<home><ESC>78i=<ESC>
 
-"" find visually selected text
+" find visually selected text
 xnoremap * y/<C-R>"<CR>
 
 noremap <silent> <space>gi :call git#show_commit(v:count)<CR>
 noremap <silent> <space>gb :call git#blame()<CR>
 
-"" edit global todo file
+" edit global todo file
 nnoremap <silent> <space>et :exe printf('e %s/todo.adoc', expand($DOCS ?? '~/docs'))<CR>
-"" edit global journal file
+" edit global journal file
 nnoremap <silent> <space>ej :call journal#new()<CR>
-"" edit new file
+" edit new file
 nnoremap <space>en :enew<CR>
 
 
@@ -174,18 +174,18 @@ nnoremap <silent> gof :call os#file_manager()<CR>
 nnoremap got :TermBuffer<CR>
 
 
-"" Save as
+" Save as
 nnoremap <expr> <space>FS printf(":saveas %s%s",
             \ expand("%:p"),
             \ empty(expand("%:e")) ? '' : repeat('<Left>', strchars(expand("%:e")) + 1))
 
-"" Rename (valid if vim-eunuch is installed)
+" Rename (valid if vim-eunuch is installed)
 nnoremap <expr> <space>FR printf(":Move %s%s",
             \ expand("%:p"),
             \ empty(expand("%:e")) ? '' : repeat('<Left>', strchars(expand("%:e")) + 1))
 
 
-"" Sort operator
+" Sort operator
 func! Sort(type, ...)
     '[,']sort
 endfunc

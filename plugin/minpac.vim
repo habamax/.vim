@@ -1,8 +1,8 @@
-""" Use minpac:
-""" 0. Clone .vim first `git clone https://github.com/habamax/.vim.git ~/.vim`
-""" 1. Run :PackBoot on a fresh machine to bootstrap minpac.
-""" 2. Run :PackUpdate to install plugins.
-""" 3. Then from time to time run :PackUpdate to update plugins.
+" Usage:
+" 0. Clone .vim first `git clone https://github.com/habamax/.vim.git ~/.vim`
+" 1. Run :PackBoot on a fresh machine to bootstrap minpac.
+" 2. Run :PackUpdate to install plugins.
+" 3. Then from time to time run :PackUpdate to update plugins.
 
 exe 'command! PackBoot let g:minpac_bootstrap = 1 | packadd minpac | source ' .. expand('<sfile>')
 exe 'command! PackUpdate packadd minpac | source ' .. expand('<sfile>') .. ' | call minpac#update()'
