@@ -1,4 +1,4 @@
-"" My fancy foldtext
+" My fancy foldtext
 " Per buffer setup:
 "
 " char to be used for folding
