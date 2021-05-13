@@ -1,19 +1,14 @@
-"" Author: Maxim Kim <habamax@gmail.com>
-"" Desc: Synchronize (create or update) file and a gist with the same name.
-"" Prereqs:
-"" 1. Install and setup https://cli.github.com/
-"" 2. Put this file to ~/.vim/autoload/gist.vim
-"" Usage:
-"" 1. Open a file you want to create gist from
-"" 2. :call gist#sync()
-"" 3. Edit file
-"" 4. :call gist#sync()
-"" 5. Edit more
-"" 6. :call gist#sync()
-"" 7. ...
-""
-"" Create helper command if needed
-"" command! GistSync call gist#sync()
+" Author: Maxim Kim <habamax@gmail.com>
+" Desc: Sync current buffer with the github gist having the same file name.
+"
+" Prereqs:
+" 1. Install and setup https://cli.github.com/
+" 2. Put this file to ~/.vim/autoload/gist.vim
+"
+" Usage: Open file and :call gist#sync()
+"
+" Create helper command if needed
+" command! GistSync call gist#sync()
 
 
 func! gist#sync() abort
