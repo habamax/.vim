@@ -144,6 +144,7 @@ nnoremap <space>ts :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDa
 " <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
+nnoremap <silent> <space>u <nop>
 nnoremap <silent> <space>u- :call text#underline(['-', '=', '~', '^', '+'])<CR>
 nnoremap <silent> <space>u= :call text#underline(['=', '-', '~', '^', '+'])<CR>
 nnoremap <silent> <space>u~ :call text#underline(['~', '=', '-', '^', '+'])<CR>
