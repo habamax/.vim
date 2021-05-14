@@ -8,9 +8,9 @@
 " command! -range=% PasteCL call share#paste('clbin', <line1>, <line2>)
 
 let s:paste_service = {
-            \ 'vpaste': [{-> 'http ://vpaste.net/?ft=' .. &ft}, 'text=<-'],
-            \ 'dpaste': [{-> 'http ://dpaste.com/api/v2/'}, 'content=<-'],
-            \ 'ix'    : [{-> 'http ://ix.io/'}, 'f:1=<-'],
+            \ 'vpaste': [{-> 'http://vpaste.net/?ft=' .. &ft}, 'text=<-'],
+            \ 'dpaste': [{-> 'http://dpaste.com/api/v2/'}, 'content=<-'],
+            \ 'ix'    : [{-> 'http://ix.io/'}, 'f:1=<-'],
             \ 'clbin' : [{-> 'https://clbin.com/'}, 'clbin=<-']
             \}
 
