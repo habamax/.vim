@@ -2,10 +2,10 @@
 " Author: Maxim Kim <habamax@gmail.com>
 " Desc: Share text using pastebin like services.
 " Example commands:
-" command! -range=% PasteVP call share#paste('vpaste', <line1>, <line2>)
-" command! -range=% PasteDP call share#paste('dpaste', <line1>, <line2>)
-" command! -range=% PasteIX call share#paste('ix', <line1>, <line2>)
-" command! -range=% PasteCL call share#paste('clbin', <line1>, <line2>)
+" command! -range=% ShareVpaste call share#paste('vpaste', <line1>, <line2>)
+" command! -range=% ShareDpaste call share#paste('dpaste', <line1>, <line2>)
+" command! -range=% ShareIX call share#paste('ix', <line1>, <line2>)
+" command! -range=% ShareClbin call share#paste('clbin', <line1>, <line2>)
 
 let s:paste_service = {
             \ 'vpaste': [{-> 'http://vpaste.net/?ft=' .. &ft}, 'text=<-'],
@@ -26,7 +26,7 @@ func! share#paste(service, line1, line2) abort
     let url = s:paste_curl(l:Paste_url(), paste_param, a:line1, a:line2)
     let @+ = url
     let @@ = url
-    echom "Pasted as " .. url
+    echom "Shared as " .. url
 endfunc
 
 

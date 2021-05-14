@@ -25,10 +25,10 @@ command! TwoColumns
             \ | set scrollbind
             \ | wincmd p
 
-command! -range=% PasteVP call share#paste('vpaste', <line1>, <line2>)
-command! -range=% PasteDP call share#paste('dpaste', <line1>, <line2>)
-command! -range=% PasteIX call share#paste('ix', <line1>, <line2>)
-command! -range=% PasteCL call share#paste('clbin', <line1>, <line2>)
+command! -range=% ShareVpaste call share#paste('vpaste', <line1>, <line2>)
+command! -range=% ShareDpaste call share#paste('dpaste', <line1>, <line2>)
+command! -range=% ShareIX call share#paste('ix', <line1>, <line2>)
+command! -range=% ShareClbin call share#paste('clbin', <line1>, <line2>)
 
 command! CD lcd %:p:h
 
