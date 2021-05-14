@@ -2,46 +2,28 @@
 " Author: Maxim Kim <habamax@gmail.com>
 " Desc: Share text using pastebin like services.
 " Example commands:
-" command! -range=% PasteVP call share#vpaste(<line1>, <line2>)
-" command! -range=% PasteDP call share#dpaste(<line1>, <line2>)
-" command! -range=% PasteIX call share#ix(<line1>, <line2>)
-" command! -range=% PasteCL call share#clbin(<line1>, <line2>)
+" command! -range=% PasteVP call share#paste('vpaste', <line1>, <line2>)
+" command! -range=% PasteDP call share#paste('dpaste', <line1>, <line2>)
+" command! -range=% PasteIX call share#paste('ix', <line1>, <line2>)
+" command! -range=% PasteCL call share#paste('clbin', <line1>, <line2>)
 
+let s:paste_service = {
+            \ 'vpaste': [{-> 'http ://vpaste.net/?ft=' .. &ft}, 'text=<-'],
+            \ 'dpaste': [{-> 'http ://dpaste.com/api/v2/'}, 'content=<-'],
+            \ 'ix'    : [{-> 'http ://ix.io/'}, 'f:1=<-'],
+            \ 'clbin' : [{-> 'https://clbin.com/'}, 'clbin=<-']
+            \}
 
-" Paste lines from current buffer to vpaste.net
+" Paste lines from current buffer to one of the s:paste_service
 " Save URL in clipboard.
-func! share#vpaste(line1, line2) abort
-    let url = s:paste_curl('http://vpaste.net/?ft='.&filetype, 'text=<-', a:line1, a:line2)
-    let @+ = url
-    let @@ = url
-    echom "Pasted as " .. url
-endfunc
+func! share#paste(service, line1, line2) abort
+    if empty(get(s:paste_service, a:service, ''))
+        echom "Unknown paste service!"
+        return
+    endif
 
-
-" Paste lines from current buffer to vpaste.net
-" Save URL in clipboard.
-func! share#dpaste(line1, line2) abort
-    let url = s:paste_curl('http://dpaste.com/api/v2/', 'content=<-', a:line1, a:line2)
-    let @+ = url
-    let @@ = url
-    echom "Pasted as " .. url
-endfunc
-
-
-" Paste lines from current buffer to ix.io
-" Save URL in clipboard.
-func! share#ix(line1, line2) abort
-    let url = s:paste_curl('http://ix.io/', 'f:1=<-', a:line1, a:line2)
-    let @+ = url
-    let @@ = url
-    echom "Pasted as " .. url
-endfunc
-
-
-" Paste lines from current buffer to clbin.com
-" Save URL in clipboard.
-func! share#clbin(line1, line2) abort
-    let url = s:paste_curl('https://clbin.com/', 'clbin=<-', a:line1, a:line2)
+    let [l:Paste_url, paste_param] = s:paste_service[a:service]
+    let url = s:paste_curl(l:Paste_url(), paste_param, a:line1, a:line2)
     let @+ = url
     let @@ = url
     echom "Pasted as " .. url
