@@ -25,10 +25,9 @@ command! TwoColumns
             \ | set scrollbind
             \ | wincmd p
 
-command! -range=% ShareVpaste call share#paste('vpaste', <line1>, <line2>)
-command! -range=% ShareDpaste call share#paste('dpaste', <line1>, <line2>)
-command! -range=% ShareIX call share#paste('ix', <line1>, <line2>)
-command! -range=% ShareClbin call share#paste('clbin', <line1>, <line2>)
+
+command! -range=% -nargs=? -complete=customlist,share#complete_service Share call share#paste(<q-args>, <line1>, <line2>)
+command! GistSync call gist#sync()
 
 command! CD lcd %:p:h
 
@@ -72,6 +71,3 @@ command! -bang -nargs=1 Global call setloclist(0, [], ' ',
             \           ->split('\n')
             \           ->map({_, val -> expand("%") .. ":" .. trim(val, 1)})
             \ })
-
-
-command! GistSync call gist#sync()

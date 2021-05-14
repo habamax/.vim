@@ -1,11 +1,9 @@
 " Name: autoload/share.vim
 " Author: Maxim Kim <habamax@gmail.com>
 " Desc: Share text using pastebin like services.
-" Example commands:
-" command! -range=% ShareVpaste call share#paste('vpaste', <line1>, <line2>)
-" command! -range=% ShareDpaste call share#paste('dpaste', <line1>, <line2>)
-" command! -range=% ShareIX call share#paste('ix', <line1>, <line2>)
-" command! -range=% ShareClbin call share#paste('clbin', <line1>, <line2>)
+" Example command:
+" command! -range=% -nargs=? -complete=customlist,share#complete_service Share call share#paste(<q-args>, <line1>, <line2>)
+
 
 let s:paste_service = {
             \ 'vpaste': [{-> 'http://vpaste.net/?ft=' .. &ft}, 'text=<-'],
@@ -14,13 +12,11 @@ let s:paste_service = {
             \ 'clbin' : [{-> 'https://clbin.com/'}, 'clbin=<-']
             \}
 
+
 " Paste lines from current buffer to one of the s:paste_service
 " Save URL in clipboard.
 func! share#paste(service, line1, line2) abort
-    if empty(get(s:paste_service, a:service, ''))
-        echom "Unknown paste service!"
-        return
-    endif
+    let service = get(s:paste_service, a:service, 'vpaste')
 
     let [l:Paste_url, paste_param] = s:paste_service[a:service]
     let url = s:paste_curl(l:Paste_url(), paste_param, a:line1, a:line2)
@@ -39,4 +35,15 @@ func! s:paste_curl(url, param, line1, line2) abort
     let result = system(printf('curl -s -F "%s" "%s"', a:param, a:url),
                 \ join(getline(a:line1, a:line2), "\n"))
     return substitute(result, "\n$", "", "")
+endfunc
+
+
+" Helper command completion function
+func! share#complete_service(A, L, P) abort
+    let result = s:paste_service->keys()
+    if empty(a:A)
+        return result
+    else
+        return result->matchfuzzy(a:A)
+    endif
 endfunc
