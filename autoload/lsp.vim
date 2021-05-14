@@ -1,7 +1,6 @@
 let s:lsp_ft_maps = get(g:, 'lsp_ft_maps', 'gdscript,go,python')
 
 " XXX: rewrite it to have YCM with vim-lsp fallback
-" CoC should be removed
 
 func! lsp#setup()
     " Try to load YouCompleteMe first
@@ -13,11 +12,6 @@ func! lsp#setup()
                 \     'project_root_files': ['project.godot'],
                 \     'port': 6008,
                 \     'filetypes': [ 'gdscript' ]
-                \   },
-                \   {
-                \     'name': 'nim',
-                \     'cmdline': ['nimlsp'],
-                \     'filetypes': [ 'nim' ]
                 \   }
                 \ ]
     let g:ycm_complete_in_comments = 1
@@ -37,13 +31,7 @@ func! lsp#setup()
         if stridx(s:lsp_ft_maps, &ft) != -1
             filetype detect
         endif
-    else
-        silent! packadd vim-mucomplete
-        if exists("g:loaded_mucomplete")
-            MUcompleteAutoOn
-        endif
     endif
-
 endfunc
 
 

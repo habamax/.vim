@@ -102,9 +102,9 @@ let g:mix_format_on_save = 1
 
 
 "
-" YCM, Coc or mucomplete
+" YCM
 "
-call timer_start(2000, {-> lsp#setup()})
+" call timer_start(2000, {-> lsp#setup()})
 
 
 "
