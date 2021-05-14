@@ -18,7 +18,7 @@ let s:paste_service = {
 func! share#paste(service, line1, line2) abort
     let service = get(s:paste_service, a:service, 'vpaste')
 
-    let [l:Paste_url, paste_param] = s:paste_service[a:service]
+    let [l:Paste_url, paste_param] = s:paste_service[service]
     let url = s:paste_curl(l:Paste_url(), paste_param, a:line1, a:line2)
     let @+ = url
     let @@ = url
