@@ -2,7 +2,7 @@
 " Author: Maxim Kim <habamax@gmail.com>
 " Desc: Share text using pastebin like services.
 " Example command:
-" command! -range=% -nargs=? -complete=customlist,share#complete_service Share call share#paste(<q-args>, <line1>, <line2>)
+" command! -range=% -nargs=? -complete=customlist,share#complete Share call share#paste(<q-args>, <line1>, <line2>)
 
 
 let s:paste_service = {
@@ -38,7 +38,7 @@ endfunc
 
 
 " Helper command completion function
-func! share#complete_service(A, L, P) abort
+func! share#complete(A, L, P) abort
     let result = s:paste_service->keys()
     if empty(a:A)
         return result

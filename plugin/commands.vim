@@ -26,7 +26,7 @@ command! TwoColumns
             \ | wincmd p
 
 
-command! -range=% -nargs=? -complete=customlist,share#complete_service Share call share#paste(<q-args>, <line1>, <line2>)
+command! -range=% -nargs=? -complete=customlist,share#complete Share call share#paste(<q-args>, <line1>, <line2>)
 command! GistSync call gist#sync()
 
 command! CD lcd %:p:h
