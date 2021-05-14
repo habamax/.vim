@@ -16,8 +16,7 @@ let s:paste_service = {
 " Paste lines from current buffer to one of the s:paste_service
 " Save URL in clipboard.
 func! share#paste(service, line1, line2) abort
-    let service = get(s:paste_service, a:service, 'vpaste')
-
+    let service = s:paste_service->has_key(a:service) ? a:service : 'vpaste'
     let [l:Paste_url, paste_param] = s:paste_service[service]
     let url = s:paste_curl(l:Paste_url(), paste_param, a:line1, a:line2)
     let @+ = url
