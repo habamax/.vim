@@ -1,8 +1,18 @@
 " Name: autoload/share.vim
 " Author: Maxim Kim <habamax@gmail.com>
 " Desc: Share text using pastebin like services.
-" Example command:
+" Usage:
+" Define command
 " command! -range=% -nargs=? -complete=customlist,share#complete Share call share#paste(<q-args>, <line1>, <line2>)
+"
+" Share whole buffer with default vpaste.net
+" :Share<CR>
+"
+" Share whole buffer with clbin.com
+" :Share clbin<CR>
+"
+" Share selection with vpaste.net
+" :'<,'>Share<CR>
 
 
 let s:paste_service = {
