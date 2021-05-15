@@ -43,7 +43,7 @@ func! s:paste_curl(url, param, line1, line2) abort
     endif
     let result = system(printf('curl -s -F "%s" "%s"', a:param, a:url),
                 \ join(getline(a:line1, a:line2), "\n"))
-    return substitute(result, "\n$", "", "")
+    return result->trim()
 endfunc
 
 
