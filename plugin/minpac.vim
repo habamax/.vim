@@ -86,6 +86,9 @@ call minpac#add('alvan/vim-closetag')
 " async :make
 call minpac#add('tpope/vim-dispatch')
 
+" devdocs.io
+call minpac#add('romainl/vim-devdocs')
+
 " shell commands
 call minpac#add('tpope/vim-eunuch')
 
