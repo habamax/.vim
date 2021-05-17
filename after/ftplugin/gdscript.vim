@@ -2,6 +2,7 @@
 setlocal tabstop=4
 setlocal shiftwidth=0
 
+
 let b:select_info = {"godot": {}}
 let b:select_info.godot.data = {"job": "rg --files --glob *.tscn"}
 let b:select_info.godot.sink = {
@@ -11,6 +12,10 @@ let b:select_info.godot.sink = {
 let b:select_info.godot.highlight = {"DirectoryPrefix": ['\(\s*\d\+:\)\?\zs.*[/\\]\ze.*$', 'Comment']}
 let b:select_info.godot.prompt = "Run Godot Scene> "
 
+
+if exists(":DD")
+    setlocal keywordprg=:DD\ godot
+endif
 
 
 nnoremap <buffer> <F5> :GodotRun<CR>
