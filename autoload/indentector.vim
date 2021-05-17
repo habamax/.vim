@@ -13,7 +13,7 @@ func! s:get_indent(line) abort
     let space = 0
     let shiftwidth = {}
 
-    let indent = matchstr(a:line, '^\s\+')
+    let indent = matchstr(a:line, '^\s\+\ze\k')
     let indent_len = len(indent)
 
     if indent_len > 0
