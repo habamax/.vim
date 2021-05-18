@@ -1,8 +1,10 @@
+set encoding=utf8
+
 filetype plugin indent on
 syntax on
 
 set hidden confirm
-set encoding=utf8 fileformat=unix fileformats=unix,dos
+set fileformat=unix fileformats=unix,dos
 set nohlsearch incsearch ignorecase
 set tabstop=8 shiftwidth=4 expandtab smarttab shiftround
 set autoindent copyindent preserveindent
