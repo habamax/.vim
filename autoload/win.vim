@@ -9,7 +9,7 @@
 func! win#delete_buffers()
     let l:buffers = filter(getbufinfo(), {_, v -> v.hidden})
     if !empty(l:buffers)
-        execute 'bwipeout' join(map(l:buffers, {_, v -> v.bufnr}))
+        execute 'confirm bwipeout' join(map(l:buffers, {_, v -> v.bufnr}))
     endif
 endfunc
 
