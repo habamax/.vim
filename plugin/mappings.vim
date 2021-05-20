@@ -141,7 +141,6 @@ nnoremap <space>sy :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDa
 " xnoremap > >gv
 " xnoremap < <gv
 
-" <C-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
 nnoremap <silent> <space>u <nop>
