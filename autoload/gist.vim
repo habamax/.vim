@@ -47,8 +47,8 @@ func! s:gist_init() abort
     let gist_id = s:gist_get_id()
     if empty(gist_id)
         echomsg "Gist '" .. expand("%:t") .. "' doesn't exist, creating..."
+        let cwd = getcwd()
         try
-            let cwd = getcwd()
             lcd %:p:h
             call system('gh gist create -p ' .. shellescape(expand("%:t")))
         finally
