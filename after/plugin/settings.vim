@@ -71,6 +71,8 @@ if exists("g:loaded_select")
         call append(line('.'), tlines)
         if getline('.') =~ '^\s*$'
             del _
+        else
+            normal! j^
         endif
     endfunc
 
