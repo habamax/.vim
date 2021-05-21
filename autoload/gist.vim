@@ -24,9 +24,9 @@ func! gist#sync() abort
         return
     endif
 
+    let cwd = getcwd()
     try
-        exe printf('%write! %s/%s', b:gist_repo, expand('%:t'))
-        let cwd = getcwd()
+        exe printf('%keepalt write! %s/%s', b:gist_repo, expand('%:t'))
         exe 'lcd ' .. b:gist_repo
         call system("git add -A && git diff-index --quiet HEAD || git commit -m 'vim-update' && git push")
         if v:shell_error
