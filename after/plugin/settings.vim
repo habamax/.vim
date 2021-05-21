@@ -66,12 +66,11 @@ if exists("g:loaded_select")
     endfunc
 
     func! s:template_sink(tfile) abort
-        let c_linenr = line('.')
-        exe "keepalt read " .. a:tfile
-        :'[,']s/!!\(.\{-}\)!!/\=eval(submatch(1))/ge
-
-        if getline(c_linenr) =~ '^\s*$'
-            exe c_linenr .. 'd_'
+        let tlines = readfile(a:tfile)
+                    \->map({_, v, -> substitute(v, '!!\(.\{-}\)!!', '\=eval(submatch(1))', 'g')})
+        call append(line('.'), tlines)
+        if getline('.') =~ '^\s*$'
+            del _
         endif
     endfunc
 
