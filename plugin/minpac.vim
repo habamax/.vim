@@ -61,14 +61,13 @@ call minpac#add('tpope/vim-surround')
 " some plugins use it to provide complex . repeats
 call minpac#add('tpope/vim-repeat')
 
-" cxiw . to exchange text
-call minpac#add('tommcdo/vim-exchange')
-
 " swap comma separated stuff with `g>` `g<` `gs` (`gs` is remapped to `g.`)
 call minpac#add('machakann/vim-swap')
 
+" cxiw . to exchange text
+call minpac#add('tommcdo/vim-exchange')
+
 " align stuff
-" call minpac#add('junegunn/vim-easy-align')
 call minpac#add('tommcdo/vim-lion')
 
 " unit testing
