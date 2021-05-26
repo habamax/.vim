@@ -21,7 +21,7 @@ endif
 
 
 " Fix cursor shapes (insert/replace/normal mode)
-if &term =~# 'xterm' || &term =~# 'tmux'
+if &term =~# 'xterm\|tmux\|win32'
     let &t_SI = "\<Esc>[6 q"
     let &t_SR = "\<Esc>[3 q"
     let &t_EI = "\<Esc>[2 q"
