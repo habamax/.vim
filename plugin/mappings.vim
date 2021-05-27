@@ -80,6 +80,8 @@ nnoremap <silent> <C-j> <C-w>w
 nnoremap <silent> <C-k> <C-w>W
 tnoremap <silent> <C-j> <C-w>w
 tnoremap <silent> <C-k> <C-w>W
+tnoremap <silent> <C-w>q <C-w>:bdelete!<CR>
+tmap <C-w><C-q> <C-w>q
 
 
 " 24 simple text objects
