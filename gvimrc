@@ -7,7 +7,6 @@ set guioptions=cM
 set linespace=0
 
 set guifont=Iosevka\ Habamax:h14
-" set guifont=Iosevka\ Habamax\ Flat:h14
 
 " Never gonna give you up, never gonna let you down.
 " set guifont=Hack:h14
