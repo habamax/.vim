@@ -58,16 +58,6 @@ inoremap <silent> <C-space>u <ESC>gUiw`]a
 inoremap <silent> <C-space>l <ESC>guiw`]a
 
 
-" Move line up/down
-nnoremap <silent> <C-Up> :<C-u>silent! exe "move-2"<CR>==
-nnoremap <silent> <C-Down> :<C-u>silent! exe "move+1"<CR>==
-inoremap <silent> <C-Up> <ESC>:<C-u>silent! exe "move-2"<CR>==gi
-inoremap <silent> <C-Down> <ESC>:<C-u>silent! exe "move+1"<CR>==gi
-" Move selected lines up/down
-xnoremap <silent> <C-Up> :<C-u>silent! exe "'<,'>move-2"<CR>gv=gv
-xnoremap <silent> <C-Down> :<C-u>silent! exe "'<,'>move'>+"<CR>gv=gv
-
-
 " Window management
 nnoremap <silent><space>c :b#<bar>bd#<cr>
 nnoremap <space>q <C-w>c
