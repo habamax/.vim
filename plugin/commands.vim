@@ -70,4 +70,4 @@ command! -bang -nargs=1 Global call setloclist(0, [], ' ',
             \  'lines': execute('g<bang>/' .. <q-args> .. '/#')
             \           ->split('\n')
             \           ->map({_, val -> expand("%") .. ":" .. trim(val, 1)})
-            \ })
+            \ }) | lwindow
