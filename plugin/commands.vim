@@ -33,9 +33,9 @@ command! CD lcd %:p:h
 
 
 " Save and Load sessions
-command! -nargs=1 -complete=customlist,SessionComplete S :mksession! ~/.vimdata/sessions/<args>
-command! -nargs=1 -complete=customlist,SessionComplete L :%bd <bar> so ~/.vimdata/sessions/<args>
-func! SessionComplete(A, L, P)
+command! -nargs=1 -complete=customlist,<SID>sessionComplete S :mksession! ~/.vimdata/sessions/<args>
+command! -nargs=1 -complete=customlist,<SID>sessionComplete L :%bd <bar> so ~/.vimdata/sessions/<args>
+func! s:sessionComplete(A, L, P)
     let fullpaths = split(globpath("~/.vimdata/sessions/", "*"), "\n")
     let result = map(fullpaths, {k,v -> fnamemodify(v, ":t")})
     if empty(a:A)
