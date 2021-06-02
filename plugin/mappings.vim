@@ -190,8 +190,3 @@ nnoremap <space>mU :call markit#unmark_all()<CR>
 
 
 nnoremap Q @q
-
-
-nnoremap <CR> i<CR><ESC>
-nnoremap <S-CR> i<CR><ESC>:m-2<CR>
-inoremap <S-CR> <CR><cmd>:m-2<CR>
