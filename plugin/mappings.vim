@@ -1,10 +1,18 @@
 " Non Plugin Mappings
 
-" essential for my vimscripting
+" Essential for my vimscripting
 " run selected vimscript
 xnoremap <silent> <space>v y:@"<cr>
 " run vimscript line
 nmap <space>vv V<space>v
+" run operator
+func! s:vimrun(type, ...)
+    let commands = #{line: "'[V']y", char: "`[v`]y", block: "`[\<c-v>`]y"}
+    silent exe "noautocmd keepjumps normal! " .. get(commands, a:type, '')
+    @"
+endfunc
+nnoremap <silent> <space>v :set opfunc=<SID>vimrun<CR>g@
+
 " localize it too
 nmap <space>мм <space>vv
 xmap <silent> <space>м <space>v
@@ -172,10 +180,10 @@ nnoremap <expr> <space>FR printf(":Move %s%s",
 
 
 " Sort operator
-func! Sort(type, ...)
+func! s:sort(type, ...)
     '[,']sort
 endfunc
-nmap <silent> gs :set opfunc=Sort<CR>g@
+nmap <silent> gs :set opfunc=<SID>sort<CR>g@
 vmap <silent> gs :sort<CR>
 
 
