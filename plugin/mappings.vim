@@ -8,7 +8,7 @@ nmap <space>vv V<space>v
 " run operator
 func! s:vimrun(type = '')
     if a:type == ''
-        let &opfunc = matchstr(expand('<sfile>'), '<SNR>\w\+$')
+        let &opfunc = matchstr(expand('<sfile>'), '[^. ]*$')
         return 'g@'
     endif
     let commands = #{line: "'[V']y", char: "`[v`]y", block: "`[\<c-v>`]y"}
