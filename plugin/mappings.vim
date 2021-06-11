@@ -52,13 +52,13 @@ xnoremap zf <cmd>setl fdm&<CR>zf
 
 
 " Toggles
-nnoremap yoh :set hlsearch!<CR>
-nnoremap yow :set wrap!<CR>
-nnoremap yon :set number!<CR>
-nnoremap yor :set relativenumber!<CR>
-nnoremap yol :set list!<CR>
-nnoremap yos :set spell!<CR>
-nnoremap yoc :set cursorline!<CR>
+nnoremap <silent> yoh :set hlsearch! hlsearch?<CR>
+nnoremap <silent> yow :set wrap! wrap?<CR>
+nnoremap <silent> yon :set number! number?<CR>
+nnoremap <silent> yor :set relativenumber! relativenumber?<CR>
+nnoremap <silent> yol :set list! list?<CR>
+nnoremap <silent> yos :set spell! spell?<CR>
+nnoremap <silent> yoc :set cursorline! cursorline?<CR>
 nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis").."<CR>"
 nnoremap <expr> yob ':colo ' .. (get(g:, 'colors_name', '') == 'saturnite' ? "freyeday" : "saturnite") .. "<CR>"
 " nnoremap <expr> yob ':set bg='..(&bg=='dark' ? "light" : "dark").."<CR>"
