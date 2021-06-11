@@ -50,8 +50,8 @@ let g:asciidoctor_img_paste_command = 'gm convert clipboard: %s%s'
 let g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 
 let g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json', 'xml']
-let g:asciidoctor_css = 'asciidoctor-next.min.css'
-let g:asciidoctor_css_path = expand($DOCS ?? '~/docs') .. '/.asciidoctor-themes'
+" let g:asciidoctor_css = 'asciidoctor-next.min.css'
+" let g:asciidoctor_css_path = expand($DOCS ?? '~/docs') .. '/.asciidoctor-themes'
 
 let g:asciidoctor_pandoc_other_params = '--toc'
 let g:asciidoctor_pandoc_data_dir = expand($DOCS ?? '~/docs') .. '/.pandoc'
