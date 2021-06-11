@@ -20,6 +20,7 @@ nnoremap <silent> <expr> <space>v <SID>vimrun()
 " localize it too
 nmap <space>мм <space>vv
 xmap <silent> <space>м <space>v
+nmap <space>м <space>v
 
 
 " OS clipboard yank and paste
