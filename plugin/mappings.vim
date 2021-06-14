@@ -12,7 +12,7 @@ func! s:viml(type = '')
         return 'g@'
     endif
     let commands = #{line: "'[V']y", char: "`[v`]y", block: "`[\<c-v>`]y"}
-    silent exe "noautocmd keepjumps normal! " .. get(commands, a:type, '')
+    silent exe 'noautocmd keepjumps normal! ' .. get(commands, a:type, '')
     @"
 endfunc
 nnoremap <silent> <expr> <space>v <SID>viml()
@@ -38,7 +38,7 @@ cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
 
 
 " Find file/buffer
-" Overriden by vim-select if exists
+" Overridden by vim-select if exists
 nnoremap <space>ff :find<space>
 nnoremap <space>fe :e<space><C-D>
 nnoremap <space>b :b<space><C-D>
