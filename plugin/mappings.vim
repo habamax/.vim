@@ -6,7 +6,7 @@ xnoremap <silent> <space>v y:@"<cr>
 " run vimscript line
 nmap <space>vv V<space>v
 " run operator
-func! s:vimrun(type = '')
+func! s:viml(type = '')
     if a:type == ''
         let &opfunc = matchstr(expand('<sfile>'), '[^. ]*$')
         return 'g@'
@@ -15,7 +15,7 @@ func! s:vimrun(type = '')
     silent exe "noautocmd keepjumps normal! " .. get(commands, a:type, '')
     @"
 endfunc
-nnoremap <silent> <expr> <space>v <SID>vimrun()
+nnoremap <silent> <expr> <space>v <SID>viml()
 
 " localize it too
 nmap <space>мм <space>vv
