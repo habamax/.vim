@@ -74,7 +74,7 @@ call minpac#add('tommcdo/vim-lion')
 call minpac#add('vim-test/vim-test')
 
 " run `./install.py` (or `/.install.py --go-completer`)
-call minpac#add('ycm-core/YouCompleteMe', {'type': 'opt'})
+" call minpac#add('ycm-core/YouCompleteMe', {'type': 'opt'})
 
 " close things like 'if ... endif'
 call minpac#add('tpope/vim-endwise')
