@@ -15,7 +15,7 @@ set shortmess+=Ic
 set display=truncate
 set completeopt=menu,popup completepopup=highlight:Pmenu
 set list listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
-set nowrap breakindent breakindentopt=sbr
+set nowrap breakindent breakindentopt=sbr linebreak
 set formatoptions=cqjl
 set backspace=indent,eol,start
 set nospell spelllang=ru,en
