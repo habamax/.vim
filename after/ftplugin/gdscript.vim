@@ -1,8 +1,3 @@
-" setlocal fdm=expr
-setlocal tabstop=4
-setlocal shiftwidth=0
-
-
 let b:select_info = {"godot": {}}
 let b:select_info.godot.data = {"job": "rg --files --glob *.tscn"}
 let b:select_info.godot.sink = {
