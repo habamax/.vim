@@ -45,8 +45,6 @@ nnoremap <space>b :b<space><C-D>
 
 nnoremap <space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
-nnoremap <BS> <C-^>
-
 " Manual folding
 nnoremap zf <cmd>setl fdm&<CR>zf
 xnoremap zf <cmd>setl fdm&<CR>zf
@@ -73,18 +71,11 @@ inoremap <silent> <C-space>l <ESC>guiw`]a
 
 " Window management
 nnoremap <silent><space>c :b#<bar>bd#<cr>
-nnoremap <space>q <C-w>c
-nmap <space>й <space>q
 nmap <space>с <space>c
 nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
 nmap <C-w><C-o> <C-w>o
-nnoremap <silent> <F2> :echo win#layout_toggle()<CR>
-nnoremap <silent> <C-j> <C-w>w
-nnoremap <silent> <C-k> <C-w>W
-tnoremap <silent> <C-j> <C-w>w
-tnoremap <silent> <C-k> <C-w>W
-tnoremap <silent> <C-w>q <C-w>:bdelete!<CR>
-tmap <C-w><C-q> <C-w>q
+nnoremap <silent> <BS> :echo win#layout_toggle()<CR>
+noremap <silent> <CR> <C-w>p
 
 
 " 24 simple text objects
