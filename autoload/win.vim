@@ -103,8 +103,8 @@ endfunc
 
 
 " 5 layouts
-" layout 1: even horizontal
-" layout 2: even vertical
+" layout 1: horizontal
+" layout 2: vertical
 " layout 3: main horizontal
 " layout 4: main vertical
 " layout 5: tiled
@@ -153,7 +153,7 @@ func! win#layout_horizontal() abort
     windo wincmd L
     call win_gotoid(winid)
     wincmd H
-    return "Even horizontal layout"
+    return "Horizontal layout"
 endfunc
 
 
@@ -162,7 +162,7 @@ func! win#layout_vertical() abort
     windo wincmd K
     call win_gotoid(winid)
     wincmd K
-    return "Even vertical layout"
+    return "Vertical layout"
 endfunc
 
 
