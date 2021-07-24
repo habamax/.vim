@@ -156,8 +156,6 @@ noremap <silent> <space>gb :call git#blame()<CR>
 nnoremap <silent> <space>et :exe printf('e %s/todo.adoc', expand($DOCS ?? '~/docs'))<CR>
 " edit global journal file
 nnoremap <silent> <space>ej :call journal#new()<CR>
-" edit new file
-nnoremap <space>en :enew<CR>
 
 
 nnoremap <silent> gof :call os#file_manager()<CR>
