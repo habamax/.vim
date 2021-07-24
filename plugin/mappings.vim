@@ -74,8 +74,10 @@ nnoremap <silent><space>c :b#<bar>bd#<cr>
 nmap <space>с <space>c
 nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
 nmap <C-w><C-o> <C-w>o
-nnoremap <silent> <BS> :echo win#layout_toggle()<CR>
-noremap <silent> <CR> <cmd>exe "wincmd " .. (winnr('#') == winnr() ? 'w' : 'p')<CR>
+nnoremap <silent> <space><BS> :echo win#layout_toggle()<CR>
+noremap <silent> <C-w>p <cmd>exe "wincmd " .. (winnr('#') == winnr() ? 'w' : 'p')<CR>
+nmap <silent> <C-w><C-p> <C-w>p
+nmap <silent> <BS> <C-w>p
 
 
 " 24 simple text objects
