@@ -29,14 +29,8 @@ func! win#lens(width = 80, height = 20) abort
 
     let default_width = s:win_default_width(a:width)
 
-    let width = max([
-                \ get(g:, "lens_pref_width", default_width),
-                \ winwidth(0)
-                \ ])
-    let height = max([
-                \ get(g:, "lens_pref_height", a:height),
-                \ winheight(0)
-                \ ])
+    let width = max([default_width, winwidth(0)])
+    let height = max([a:height, winheight(0)])
 
     execute printf('vertical resize %s', width)
     execute printf('resize %s', height)
