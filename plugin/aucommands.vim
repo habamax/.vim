@@ -16,7 +16,7 @@ augroup end
 
 " window autosize
 augroup win_autosize | au!
-    au WinEnter * silent! call win#lens()
+    au WinEnter * silent! call win#lens(100, 20)
 augroup end
 
 

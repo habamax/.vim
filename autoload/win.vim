@@ -22,19 +22,19 @@ endfunc
 " augroup autosize_windows | au!
 "     au WinEnter * silent! call win#lens()
 " augroup end
-func! win#lens() abort
+func! win#lens(width = 80, height = 20) abort
     if s:is_lens_disabled()
         return
     endif
 
-    let default_width = s:win_default_width(80)
+    let default_width = s:win_default_width(a:width)
 
     let width = max([
                 \ get(g:, "lens_pref_width", default_width),
                 \ winwidth(0)
                 \ ])
     let height = max([
-                \ get(g:, "lens_pref_height", 20),
+                \ get(g:, "lens_pref_height", a:height),
                 \ winheight(0)
                 \ ])
 
