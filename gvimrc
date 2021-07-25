@@ -6,16 +6,13 @@ set guioptions=cM
 
 set linespace=0
 
-set guifont=Iosevka\ Habamax:h14
+set guifont=JetBrains\ Mono\ NL:h13
 
 " Never gonna give you up, never gonna let you down.
 " set guifont=Hack:h14
 
-" Semi Light looks quite ok, space between lines is too big though
+" Semi Light looks quite ok
 " set guifont=Cascadia\ Mono\ SemiLight:h14
-
-" space between lines is just too big
-" set guifont=JetBrains\ Mono\ NL:h14
 
 " no italics
 " set guifont=Fira\ Mono:h14
