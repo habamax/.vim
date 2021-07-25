@@ -27,9 +27,9 @@ func! win#lens(width = 80, height = 20) abort
         return
     endif
 
-    let default_width = s:win_default_width(a:width)
+    let adjusted_width = s:win_adjusted_width(a:width)
 
-    let width = max([default_width, winwidth(0)])
+    let width = max([adjusted_width, winwidth(0)])
     let height = max([a:height, winheight(0)])
 
     execute printf('vertical resize %s', width)
@@ -38,6 +38,18 @@ func! win#lens(width = 80, height = 20) abort
     wincmd =
     call s:fix_w_h(0)
     normal! ze
+endfunc
+
+
+" Toggle autosize windows. Example mapping:
+" nnoremap <silent> <C-w><BS> :call win#lens_toggle(100, 20)<CR>
+func! win#lens_toggle(width = 80, height = 20) abort
+    let g:lens_disabled = !get(g:, "lens_disabled", v:false)
+    if g:lens_disabled
+        wincmd =
+    else
+        call win#lens(a:width, a:height)
+    endif
 endfunc
 
 
@@ -59,8 +71,8 @@ func! s:signcolumn_width() abort
 endfunc
 
 
-" Return default window width (including linenr and signcolumn)
-func! s:win_default_width(width) abort
+" Return adjusted window width (including linenr and signcolumn)
+func! s:win_adjusted_width(width) abort
     let width = a:width
     if &number || &relativenumber
         let width += max([strlen(line('$')), &numberwidth])
@@ -74,6 +86,10 @@ endfunc
 
 
 func! s:is_lens_disabled() abort
+    if get(g:, "lens_disabled", v:false)
+        return v:true
+    endif
+
     " do not resize windows with filetype
     if index(get(g:, "lens_disabled_filetypes", []), &filetype) != -1
         return v:true
