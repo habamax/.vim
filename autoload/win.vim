@@ -22,15 +22,21 @@ endfunc
 " augroup autosize_windows | au!
 "     au WinEnter * silent! call win#lens()
 " augroup end
-func! win#lens(width = 80, height = 20) abort
+func! win#lens() abort
     if s:is_lens_disabled()
         return
     endif
 
-    let adjusted_width = s:win_adjusted_width(a:width)
+    let adjusted_width = s:win_adjusted_width(80)
 
-    let width = max([adjusted_width, winwidth(0)])
-    let height = max([a:height, winheight(0)])
+    let width = max([
+                \ get(g:, "lens_pref_width", adjusted_width),
+                \ winwidth(0)
+                \ ])
+    let height = max([
+                \ get(g:, "lens_pref_height", 20),
+                \ winheight(0)
+                \ ])
 
     execute printf('vertical resize %s', width)
     execute printf('resize %s', height)
@@ -42,13 +48,13 @@ endfunc
 
 
 " Toggle autosize windows. Example mapping:
-" nnoremap <silent> <C-w><BS> :call win#lens_toggle(100, 20)<CR>
-func! win#lens_toggle(width = 80, height = 20) abort
+" nnoremap <silent> <C-w><BS> :call win#lens_toggle()<CR>
+func! win#lens_toggle() abort
     let g:lens_disabled = !get(g:, "lens_disabled", v:false)
     if g:lens_disabled
         wincmd =
     else
-        call win#lens(a:width, a:height)
+        call win#lens()
     endif
 endfunc
 

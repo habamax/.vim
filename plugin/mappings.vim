@@ -78,7 +78,7 @@ nnoremap <silent> <space><BS> :echo win#layout_toggle()<CR>
 noremap <silent> <BS> <cmd>exe "wincmd " .. (winnr('#') == winnr() ? 'w' : 'p')<CR>
 nmap <silent> <C-w><C-p> <BS>
 nmap <silent> <C-w>p <BS>
-nnoremap <silent> <C-w><BS> :call win#lens_toggle(100, 20)<CR>
+nnoremap <silent> <C-w><BS> :call win#lens_toggle()<CR>
 
 
 " 24 simple text objects
