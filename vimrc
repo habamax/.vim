@@ -12,7 +12,7 @@ set belloff=all
 set ruler laststatus=2
 set signcolumn=number
 set shortmess+=Ic
-set display=lastline
+set lazyredraw display=lastline
 set completeopt=menu,popup completepopup=highlight:Pmenu
 set list listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak
