@@ -201,4 +201,3 @@ xnoremap <space>mu <cmd>call markit#unmark()<CR><ESC>
 nnoremap <space>mU :call markit#unmark_all()<CR>
 
 
-nnoremap Q @q
