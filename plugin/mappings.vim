@@ -203,14 +203,16 @@ nnoremap <space>mU :call markit#unmark_all()<CR>
 
 " Template <+placeholders+> navigation
 func! s:placeholder_next(dir = 1) abort
-    if search('<+\k*+>', a:dir ? "" : "b")
+    if search('<+.\{-}+>', a:dir ? "" : "b")
         exe "normal! va<o\<C-g>"
     endif
 endfunc
 
 func! s:placeholder_accept() abort
-    if search('<+\k*+>', "c")
-        exe 'normal! 2"_xf+2"_x'
+    if search('<+.\{-}+>', "c")
+        exe 'normal! 2"_x'
+        call search('+>', "c")
+        exe 'normal! 2"_x'
         call s:placeholder_next()
     endif
 endfunc

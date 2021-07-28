@@ -28,5 +28,5 @@ augroup END
 
 " <+placeholder+> highlight
 augroup placeholder | au!
-    au BufNew,BufRead * call matchadd('Error', '<+\k*+>')
+    au BufNew,BufRead * call matchadd('Error', '<+.\{-}+>')
 augroup END
