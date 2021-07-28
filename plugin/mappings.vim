@@ -202,15 +202,23 @@ nnoremap <space>mU :call markit#unmark_all()<CR>
 
 
 " Template <+placeholders+> navigation
-func! s:next_placeholer(dir = 1) abort
+func! s:placeholder_next(dir = 1) abort
     if search('<+\k*+>', a:dir ? "" : "b")
         exe "normal! va<o\<C-g>"
     endif
 endfunc
 
-nnoremap <silent> <C-j> :<C-u>call <SID>next_placeholer()<CR>
-inoremap <silent> <C-j> <C-o>:call <SID>next_placeholer()<CR>
-snoremap <silent> <C-j> <ESC>:call <SID>next_placeholer()<CR>
-nnoremap <silent> <C-k> :<C-u>call <SID>next_placeholer(0)<CR>
-inoremap <silent> <C-k> <C-o>:call <SID>next_placeholer(0)<CR>
-snoremap <silent> <C-k> <ESC>:call <SID>next_placeholer(0)<CR>
+func! s:placeholder_accept() abort
+    if search('<+\k*+>', "c")
+        exe 'normal! 2"_xf+2"_x'
+        call s:placeholder_next()
+    endif
+endfunc
+
+nnoremap <silent> <C-j> :<C-u>call <SID>placeholder_next()<CR>
+inoremap <silent> <C-j> <C-o>:call <SID>placeholder_next()<CR>
+snoremap <silent> <C-j> <ESC>:call <SID>placeholder_next()<CR>
+nnoremap <silent> <C-k> :<C-u>call <SID>placeholder_next(0)<CR>
+inoremap <silent> <C-k> <C-o>:call <SID>placeholder_next(0)<CR>
+snoremap <silent> <C-k> <ESC>:call <SID>placeholder_next(0)<CR>
+snoremap <silent> <CR> <ESC>:call <SID>placeholder_accept()<CR>
