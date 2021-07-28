@@ -24,12 +24,19 @@ nmap <space>м <space>v
 
 
 " OS clipboard yank and paste
-noremap <space>y "+y
-noremap <space>p "+p
-noremap <space>P "+P
-noremap <space>н "+y
-noremap <space>з "+p
-noremap <space>З "+P
+xnoremap <space>y "+y
+nnoremap <space>y "+y
+xnoremap <space>p "+p
+nnoremap <space>p "+p
+xnoremap <space>P "+P
+nnoremap <space>P "+P
+
+xnoremap <space>н "+y
+nnoremap <space>н "+y
+xnoremap <space>з "+p
+nnoremap <space>з "+p
+xnoremap <space>З "+P
+nnoremap <space>З "+P
 
 
 " enhance search
@@ -181,7 +188,7 @@ func! s:sort(type, ...)
     '[,']sort
 endfunc
 nmap <silent> gs :set opfunc=<SID>sort<CR>g@
-vmap <silent> gs :sort<CR>
+xmap <silent> gs :sort<CR>
 
 
 tnoremap <C-v> <C-w>""
