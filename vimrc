@@ -22,7 +22,7 @@ set nospell spelllang=ru,en
 set commentstring=
 set nrformats=bin,hex
 set sessionoptions=buffers,curdir,tabpages,winsize
-set foldmethod=indent nofoldenable
+set foldmethod=indent foldlevelstart=1
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set wildchar=<Tab> wildcharm=<C-z> wildmenu wildmode=full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
