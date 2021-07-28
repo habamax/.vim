@@ -1,6 +1,6 @@
 Maxim Kim
-v0.1, !!strftime("%Y-%m-%d")!! : Draft
-:pdf-theme: default
+v<+0.1+>, <+!!strftime("%Y-%m-%d")!!+> : Draft
+:pdf-theme: <+default+>
 :doctype: article
 :title-page:
 :toc: left
