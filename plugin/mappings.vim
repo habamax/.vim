@@ -201,3 +201,16 @@ xnoremap <space>mu <cmd>call markit#unmark()<CR><ESC>
 nnoremap <space>mU :call markit#unmark_all()<CR>
 
 
+" Template <+placeholders+> navigation
+func! s:next_placeholer(dir = 1) abort
+    if search('<+\k*+>', a:dir ? "" : "b")
+        exe "normal! va<o\<C-g>"
+    endif
+endfunc
+
+nnoremap <silent> <C-j> :<C-u>call <SID>next_placeholer()<CR>
+inoremap <silent> <C-j> <C-o>:call <SID>next_placeholer()<CR>
+snoremap <silent> <C-j> <ESC>:call <SID>next_placeholer()<CR>
+nnoremap <silent> <C-k> :<C-u>call <SID>next_placeholer(0)<CR>
+inoremap <silent> <C-k> <C-o>:call <SID>next_placeholer(0)<CR>
+snoremap <silent> <C-k> <ESC>:call <SID>next_placeholer(0)<CR>
