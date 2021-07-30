@@ -221,6 +221,5 @@ nnoremap <silent> <C-j> :<C-u>call <SID>placeholder_next()<CR>
 inoremap <silent> <C-j> <C-\><C-o>:call <SID>placeholder_next()<CR>
 snoremap <silent> <C-j> <ESC>:call <SID>placeholder_next()<CR>
 nnoremap <silent> <C-k> :<C-u>call <SID>placeholder_next(0)<CR>
-inoremap <silent> <C-k> <C-\><C-o>:call <SID>placeholder_next(0)<CR>
 snoremap <silent> <C-k> <ESC>:call <SID>placeholder_next(0)<CR>
 snoremap <silent> <CR> <ESC>:call <SID>placeholder_accept()<CR>
