@@ -143,10 +143,6 @@ nnoremap <space>sy :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDa
 " xnoremap <expr> p 'pgv"'.v:register.'y`>'
 " xnoremap <expr> P 'Pgv"'.v:register.'y`>'
 
-" shift right and left
-" xnoremap > >gv
-" xnoremap < <gv
-
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
 nnoremap <silent> <space>u <nop>
