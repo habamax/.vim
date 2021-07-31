@@ -73,9 +73,6 @@ call minpac#add('tommcdo/vim-lion')
 " unit testing
 call minpac#add('vim-test/vim-test')
 
-" run `./install.py` (or `/.install.py --go-completer`)
-" call minpac#add('ycm-core/YouCompleteMe', {'type': 'opt'})
-
 " close things like 'if ... endif'
 call minpac#add('tpope/vim-endwise')
 
@@ -90,6 +87,7 @@ call minpac#add('romainl/vim-devdocs')
 
 " shell commands
 call minpac#add('tpope/vim-eunuch')
+
 
 " colorscheme authoring helpers
 call minpac#add('lifepillar/vim-colortemplate')
