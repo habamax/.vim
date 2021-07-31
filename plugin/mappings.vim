@@ -139,9 +139,9 @@ xnoremap <space><space><space> :TextFixSpaces<CR>
 " Syntax group names under cursor
 nnoremap <space>sy :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')))<CR>
 
-" now it is possible to paste many times over selected text
-" xnoremap <expr> p 'pgv"'.v:register.'y`>'
-" xnoremap <expr> P 'Pgv"'.v:register.'y`>'
+" Paste over selected text keeping initial yank
+xnoremap <expr> p 'pgv"'.v:register.'y`>'
+xnoremap <expr> P 'Pgv"'.v:register.'y`>'
 
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
