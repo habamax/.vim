@@ -30,4 +30,4 @@ set history=200
 
 if executable('rg') | set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m | endif
 
-silent! exe "colorscheme " .. (has("gui_running") ? "freyeday" : "saturnite")
+colorscheme saturnite
