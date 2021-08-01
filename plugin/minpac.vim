@@ -91,7 +91,6 @@ call minpac#add('tpope/vim-eunuch')
 
 " colorscheme authoring helpers
 call minpac#add('lifepillar/vim-colortemplate')
-call minpac#add('chrisbra/Colorizer')
 
 " filetype & syntax
 call minpac#add('elixir-editors/vim-elixir')
