@@ -155,12 +155,6 @@ if exists("g:loaded_checkbox")
 endif
 
 
-if exists("g:loaded_easy_align_plugin")
-    vmap gl <Plug>(LiveEasyAlign)
-    nmap gl <Plug>(EasyAlign)
-endif
-
-
 if exists("g:loaded_guifont_size")
     nmap <A-=> <Plug>(GUIFontSizeInc)
     nmap <A--> <Plug>(GUIFontSizeDec)
