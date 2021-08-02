@@ -1,7 +1,6 @@
 " Packages as git submodules
-" On a new machine:
-" git clone git:github.com:habamax/.vim ~/.vim
-" git submodule update --init
+" On a new machine (with git>=2.23)):
+" git clone git:github.com:habamax/.vim.git ~/.vim --recurse-submodules --remote-submodules
 func! git#pack_add(name, opt = v:false) abort
     try
         exe "lcd! " .. fnamemodify($MYVIMRC, ":p:h")
@@ -17,11 +16,7 @@ endfunc
 func! git#pack_update() abort
     try
         exe "lcd! " .. fnamemodify($MYVIMRC, ":p:h")
-        if exists(":Git")
-            :Git submodule update --init --remote --rebase --no-fetch --jobs=10
-        else
-            echo system('git submodule update --init --remote --rebase --no-fetch --jobs=10')
-        endif
+        echo system('git submodule update --init --remote --rebase --jobs=10')
         echo "Packages were updated."
     finally
         lcd! -
