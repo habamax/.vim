@@ -1,96 +1,128 @@
 [submodule "pack/github/start/vim-select"]
 	path = pack/github/start/vim-select
 	url = git@github.com:habamax/vim-select.git
+	ignore = dirty
 [submodule "pack/github/start/vim-select-more"]
 	path = pack/github/start/vim-select-more
 	url = git@github.com:habamax/vim-select-more.git
+	ignore = dirty
 [submodule "pack/github/start/vim-asciidoctor"]
 	path = pack/github/start/vim-asciidoctor
 	url = git@github.com:habamax/vim-asciidoctor.git
+	ignore = dirty
 [submodule "pack/github/start/vim-godot"]
 	path = pack/github/start/vim-godot
 	url = git@github.com:habamax/vim-godot.git
+	ignore = dirty
 [submodule "pack/github/start/vim-num2words"]
 	path = pack/github/start/vim-num2words
 	url = git@github.com:habamax/vim-num2words.git
+	ignore = dirty
 [submodule "pack/github/start/vim-winlayout"]
 	path = pack/github/start/vim-winlayout
 	url = git@github.com:habamax/vim-winlayout.git
+	ignore = dirty
 [submodule "pack/github/opt/vim-saturnite"]
 	path = pack/github/opt/vim-saturnite
 	url = git@github.com:habamax/vim-saturnite.git
+	ignore = dirty
 [submodule "pack/github/opt/vim-freyeday"]
 	path = pack/github/opt/vim-freyeday
 	url = git@github.com:habamax/vim-freyeday.git
+	ignore = dirty
 [submodule "pack/github/opt/vim-habanight"]
 	path = pack/github/opt/vim-habanight
 	url = git@github.com:habamax/vim-habanight.git
+	ignore = dirty
 [submodule "pack/github/opt/vim-alchemist"]
 	path = pack/github/opt/vim-alchemist
 	url = git@github.com:habamax/vim-alchemist.git
+	ignore = dirty
 [submodule "pack/github/opt/vim-psionic"]
 	path = pack/github/opt/vim-psionic
 	url = git@github.com:habamax/vim-psionic.git
+	ignore = dirty
 [submodule "pack/github/opt/vim-gruvbit"]
 	path = pack/github/opt/vim-gruvbit
 	url = git@github.com:habamax/vim-gruvbit.git
+	ignore = dirty
 [submodule "pack/github/opt/vim-polar"]
 	path = pack/github/opt/vim-polar
 	url = git@github.com:habamax/vim-polar.git
+	ignore = dirty
 [submodule "pack/github/start/vim-rooter"]
 	path = pack/github/start/vim-rooter
 	url = git@github.com:airblade/vim-rooter.git
+	ignore = dirty
 [submodule "pack/github/start/traces.vim"]
 	path = pack/github/start/traces.vim
 	url = git@github.com:markonm/traces.vim.git
+	ignore = dirty
 [submodule "pack/github/opt/vim-fugitive"]
 	path = pack/github/opt/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive.git
+	ignore = dirty
 [submodule "pack/github/start/vim-commentary"]
 	path = pack/github/start/vim-commentary
 	url = git@github.com:tpope/vim-commentary.git
+	ignore = dirty
 [submodule "pack/github/start/vim-surround"]
 	path = pack/github/start/vim-surround
 	url = git@github.com:tpope/vim-surround.git
+	ignore = dirty
 [submodule "pack/github/start/vim-repeat"]
 	path = pack/github/start/vim-repeat
 	url = git@github.com:tpope/vim-repeat.git
+	ignore = dirty
 [submodule "pack/github/start/vim-swap"]
 	path = pack/github/start/vim-swap
 	url = git@github.com:machakann/vim-swap.git
+	ignore = dirty
 [submodule "pack/github/start/vim-exchange"]
 	path = pack/github/start/vim-exchange
 	url = git@github.com:tommcdo/vim-exchange.git
+	ignore = dirty
 [submodule "pack/github/start/vim-lion"]
 	path = pack/github/start/vim-lion
 	url = git@github.com:tommcdo/vim-lion.git
+	ignore = dirty
 [submodule "pack/github/start/vim-endwise"]
 	path = pack/github/start/vim-endwise
 	url = git@github.com:tpope/vim-endwise.git
+	ignore = dirty
 [submodule "pack/github/start/vim-dispatch"]
 	path = pack/github/start/vim-dispatch
 	url = git@github.com:tpope/vim-dispatch.git
+	ignore = dirty
 [submodule "pack/github/start/vim-eunuch"]
 	path = pack/github/start/vim-eunuch
 	url = git@github.com:tpope/vim-eunuch.git
+	ignore = dirty
 [submodule "pack/github/start/vim-closetag"]
 	path = pack/github/start/vim-closetag
 	url = git@github.com:alvan/vim-closetag.git
+	ignore = dirty
 [submodule "pack/github/start/vim-devdocs"]
 	path = pack/github/start/vim-devdocs
 	url = git@github.com:romainl/vim-devdocs.git
+	ignore = dirty
 [submodule "pack/github/start/vim-colortemplate"]
 	path = pack/github/start/vim-colortemplate
 	url = git@github.com:lifepillar/vim-colortemplate.git
+	ignore = dirty
 [submodule "pack/github/start/vim-elixir"]
 	path = pack/github/start/vim-elixir
 	url = git@github.com:elixir-editors/vim-elixir.git
+	ignore = dirty
 [submodule "pack/github/start/plantuml-syntax"]
 	path = pack/github/start/plantuml-syntax
 	url = git@github.com:aklt/plantuml-syntax.git
+	ignore = dirty
 [submodule "pack/github/start/vim-toml"]
 	path = pack/github/start/vim-toml
 	url = git@github.com:cespare/vim-toml.git
+	ignore = dirty
 [submodule "pack/github/opt/vim-gutentags"]
 	path = pack/github/opt/vim-gutentags
 	url = git@github.com:ludovicchabant/vim-gutentags.git
+	ignore = dirty
