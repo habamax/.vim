@@ -18,9 +18,9 @@ func! git#pack_update() abort
     try
         exe "lcd! " .. fnamemodify($MYVIMRC, ":p:h")
         if exists(":Git")
-            :Git submodule update --remote --jobs=10
+            :Git submodule update --init --remote --rebase --no-fetch --jobs=10
         else
-            echo system('git submodule update --remote --jobs=10')
+            echo system('git submodule update --init --remote --rebase --no-fetch --jobs=10')
         endif
         echo "Packages were updated."
     finally
