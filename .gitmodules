@@ -1,0 +1,96 @@
+[submodule "pack/github/start/vim-select"]
+	path = pack/github/start/vim-select
+	url = git@github.com:habamax/vim-select.git
+[submodule "pack/github/start/vim-select-more"]
+	path = pack/github/start/vim-select-more
+	url = git@github.com:habamax/vim-select-more.git
+[submodule "pack/github/start/vim-asciidoctor"]
+	path = pack/github/start/vim-asciidoctor
+	url = git@github.com:habamax/vim-asciidoctor.git
+[submodule "pack/github/start/vim-godot"]
+	path = pack/github/start/vim-godot
+	url = git@github.com:habamax/vim-godot.git
+[submodule "pack/github/start/vim-num2words"]
+	path = pack/github/start/vim-num2words
+	url = git@github.com:habamax/vim-num2words.git
+[submodule "pack/github/start/vim-winlayout"]
+	path = pack/github/start/vim-winlayout
+	url = git@github.com:habamax/vim-winlayout.git
+[submodule "pack/github/opt/vim-saturnite"]
+	path = pack/github/opt/vim-saturnite
+	url = git@github.com:habamax/vim-saturnite.git
+[submodule "pack/github/opt/vim-freyeday"]
+	path = pack/github/opt/vim-freyeday
+	url = git@github.com:habamax/vim-freyeday.git
+[submodule "pack/github/opt/vim-habanight"]
+	path = pack/github/opt/vim-habanight
+	url = git@github.com:habamax/vim-habanight.git
+[submodule "pack/github/opt/vim-alchemist"]
+	path = pack/github/opt/vim-alchemist
+	url = git@github.com:habamax/vim-alchemist.git
+[submodule "pack/github/opt/vim-psionic"]
+	path = pack/github/opt/vim-psionic
+	url = git@github.com:habamax/vim-psionic.git
+[submodule "pack/github/opt/vim-gruvbit"]
+	path = pack/github/opt/vim-gruvbit
+	url = git@github.com:habamax/vim-gruvbit.git
+[submodule "pack/github/opt/vim-polar"]
+	path = pack/github/opt/vim-polar
+	url = git@github.com:habamax/vim-polar.git
+[submodule "pack/github/start/vim-rooter"]
+	path = pack/github/start/vim-rooter
+	url = git@github.com:airblade/vim-rooter.git
+[submodule "pack/github/start/traces.vim"]
+	path = pack/github/start/traces.vim
+	url = git@github.com:markonm/traces.vim.git
+[submodule "pack/github/opt/vim-fugitive"]
+	path = pack/github/opt/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "pack/github/start/vim-commentary"]
+	path = pack/github/start/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git
+[submodule "pack/github/start/vim-surround"]
+	path = pack/github/start/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule "pack/github/start/vim-repeat"]
+	path = pack/github/start/vim-repeat
+	url = git@github.com:tpope/vim-repeat.git
+[submodule "pack/github/start/vim-swap"]
+	path = pack/github/start/vim-swap
+	url = git@github.com:machakann/vim-swap.git
+[submodule "pack/github/start/vim-exchange"]
+	path = pack/github/start/vim-exchange
+	url = git@github.com:tommcdo/vim-exchange.git
+[submodule "pack/github/start/vim-lion"]
+	path = pack/github/start/vim-lion
+	url = git@github.com:tommcdo/vim-lion.git
+[submodule "pack/github/start/vim-endwise"]
+	path = pack/github/start/vim-endwise
+	url = git@github.com:tpope/vim-endwise.git
+[submodule "pack/github/start/vim-dispatch"]
+	path = pack/github/start/vim-dispatch
+	url = git@github.com:tpope/vim-dispatch.git
+[submodule "pack/github/start/vim-eunuch"]
+	path = pack/github/start/vim-eunuch
+	url = git@github.com:tpope/vim-eunuch.git
+[submodule "pack/github/start/vim-closetag"]
+	path = pack/github/start/vim-closetag
+	url = git@github.com:alvan/vim-closetag.git
+[submodule "pack/github/start/vim-devdocs"]
+	path = pack/github/start/vim-devdocs
+	url = git@github.com:romainl/vim-devdocs.git
+[submodule "pack/github/start/vim-colortemplate"]
+	path = pack/github/start/vim-colortemplate
+	url = git@github.com:lifepillar/vim-colortemplate.git
+[submodule "pack/github/start/vim-elixir"]
+	path = pack/github/start/vim-elixir
+	url = git@github.com:elixir-editors/vim-elixir.git
+[submodule "pack/github/start/plantuml-syntax"]
+	path = pack/github/start/plantuml-syntax
+	url = git@github.com:aklt/plantuml-syntax.git
+[submodule "pack/github/start/vim-toml"]
+	path = pack/github/start/vim-toml
+	url = git@github.com:cespare/vim-toml.git
+[submodule "pack/github/opt/vim-gutentags"]
+	path = pack/github/opt/vim-gutentags
+	url = git@github.com:ludovicchabant/vim-gutentags.git

@@ -1,3 +1,20 @@
+" Packages as git submodules
+func! s:pack_add(name, opt = v:false) abort
+    try
+        exe "lcd! " .. fnamemodify($MYVIMRC, ":p:h")
+        let cmd = 'git submodule add git@github.com:' .. a:name .. '.git ./pack/github/'
+        let cmd .= a:opt ? 'opt/' : 'start/'
+        let cmd .= split(a:name, '/')[1]
+        echo system(cmd)
+    finally
+        lcd! -
+    endtry
+endfunc
+
+command! -nargs=1 PackAdd call s:pack_add(<q-args>)
+command! -nargs=1 PackAddOpt call s:pack_add(<q-args>, v:true)
+
+
 " Wipe all hidden buffers
 command! Bclean call win#delete_buffers()
 
