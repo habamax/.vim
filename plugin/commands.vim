@@ -1,22 +1,6 @@
-" Packages as git submodules
-" On a new machine:
-" git clone git:github.com:habamax/.vim ~/.vim
-" git submodule update --init
-func! s:pack_add(name, opt = v:false) abort
-    try
-        exe "lcd! " .. fnamemodify($MYVIMRC, ":p:h")
-        let cmd = 'git submodule add git@github.com:' .. a:name .. '.git ./pack/github/'
-        let cmd .= a:opt ? 'opt/' : 'start/'
-        let cmd .= split(a:name, '/')[1]
-        echo system(cmd)
-    finally
-        lcd! -
-    endtry
-endfunc
-
 "TODO: add PackDel command
-"TODO: add PackUp command
-command! -bang -nargs=1 PackAdd call s:pack_add(<q-args>, !empty("<bang>"))
+command! -bang -nargs=1 PackAdd call git#pack_add(<q-args>, !empty("<bang>"))
+command! PackUp call git#pack_update()
 
 
 " Wipe all hidden buffers

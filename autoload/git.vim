@@ -1,3 +1,31 @@
+" Packages as git submodules
+" On a new machine:
+" git clone git:github.com:habamax/.vim ~/.vim
+" git submodule update --init
+func! git#pack_add(name, opt = v:false) abort
+    try
+        exe "lcd! " .. fnamemodify($MYVIMRC, ":p:h")
+        let cmd = 'git submodule add git@github.com:' .. a:name .. '.git ./pack/github/'
+        let cmd .= a:opt ? 'opt/' : 'start/'
+        let cmd .= split(a:name, '/')[1]
+        echo system(cmd)
+    finally
+        lcd! -
+    endtry
+endfunc
+
+func! git#pack_update() abort
+    try
+        exe "lcd! " .. fnamemodify($MYVIMRC, ":p:h")
+        echo system('git stash')
+        echo system('git pull --recurse-submodules --jobs=10')
+        echo system('git stash pop')
+    finally
+        lcd! -
+    endtry
+endfunc
+
+
 " Show commit that introduced current(selected) line
 " If a count was given, show full history
 " Src: https://www.reddit.com/r/vim/comments/i50pce/how_to_show_commit_that_introduced_current_line/
