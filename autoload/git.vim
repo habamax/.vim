@@ -17,9 +17,7 @@ endfunc
 func! git#pack_update() abort
     try
         exe "lcd! " .. fnamemodify($MYVIMRC, ":p:h")
-        echo system('git stash')
         echo system('git pull --recurse-submodules --jobs=10')
-        echo system('git stash pop')
     finally
         lcd! -
     endtry
