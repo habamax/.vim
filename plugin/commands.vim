@@ -1,4 +1,7 @@
 " Packages as git submodules
+" On a new machine:
+" git clone git:github.com:habamax/.vim ~/.vim
+" git submodule update --init
 func! s:pack_add(name, opt = v:false) abort
     try
         exe "lcd! " .. fnamemodify($MYVIMRC, ":p:h")
@@ -11,6 +14,7 @@ func! s:pack_add(name, opt = v:false) abort
     endtry
 endfunc
 
+"TODO: add PackDel command
 command! -nargs=1 PackAdd call s:pack_add(<q-args>)
 command! -nargs=1 PackAddOpt call s:pack_add(<q-args>, v:true)
 
