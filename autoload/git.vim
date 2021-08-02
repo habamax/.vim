@@ -17,7 +17,11 @@ endfunc
 func! git#pack_update() abort
     try
         exe "lcd! " .. fnamemodify($MYVIMRC, ":p:h")
-        echo system('git pull --recurse-submodules --jobs=10')
+        if exists(":Git")
+            :Git pull --recurse-submodule --jobs=10
+        else
+            echo system('git pull --recurse-submodules --jobs=10')
+        endif
     finally
         lcd! -
     endtry
