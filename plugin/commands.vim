@@ -15,8 +15,8 @@ func! s:pack_add(name, opt = v:false) abort
 endfunc
 
 "TODO: add PackDel command
-command! -nargs=1 PackAdd call s:pack_add(<q-args>)
-command! -nargs=1 PackAddOpt call s:pack_add(<q-args>, v:true)
+"TODO: add PackUp command
+command! -bang -nargs=1 PackAdd call s:pack_add(<q-args>, !empty("<bang>"))
 
 
 " Wipe all hidden buffers
