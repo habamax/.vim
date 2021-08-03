@@ -20,5 +20,5 @@ inorea <buffer> blnk {blank}<C-R>=Eatchar('\s')<CR>
 
 
 nmap <buffer> <space><tab> <Plug>(AsciidoctorFold)
-nmap <buffer> >= <Plug>(AsciidoctorSectionPromote)
-nmap <buffer> <- <Plug>(AsciidoctorSectionDemote)
+nmap <buffer> >h <Plug>(AsciidoctorSectionPromote)
+nmap <buffer> <h <Plug>(AsciidoctorSectionDemote)
