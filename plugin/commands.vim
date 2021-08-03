@@ -14,7 +14,6 @@ command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
 
 
 command! -range TextFixSpaces <line1>,<line2>call text#fix_spaces()
-command! TextAddSpaces call text#add_spaces()
 
 " Two columns.
 " 1. Vertically split window
