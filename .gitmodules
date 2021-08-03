@@ -126,3 +126,6 @@
 	path = pack/github/opt/vim-gutentags
 	url = git@github.com:ludovicchabant/vim-gutentags.git
 	ignore = dirty
+[submodule "pack/github/opt/gv.vim"]
+	path = pack/github/opt/gv.vim
+	url = git@github.com:junegunn/gv.vim.git

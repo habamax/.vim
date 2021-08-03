@@ -26,7 +26,7 @@ endif
 "
 if executable("git")
     silent! packadd vim-fugitive
-    silent! packadd vim-flog
+    silent! packadd gv.vim
 endif
 
 
