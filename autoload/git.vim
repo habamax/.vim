@@ -7,21 +7,23 @@ func! git#pack_add(name, opt = v:false) abort
     let cmd = 'git submodule add ' .. pack_name .. ' ./pack/github/'
     let cmd .= a:opt ? 'opt/' : 'start/'
     let cmd .= split(a:name, '/')[1]
-    call term_start(cmd, {
+    belowright call term_start(cmd, {
                 \ "cwd": fnamemodify($MYVIMRC, ":p:h"),
-                \ "term_finish": "close"
+                \ "term_finish": "close",
+                \ "term_rows": 5
                 \})
 endfunc
 
 func! git#pack_update() abort
     func! s:close_cb(ch) abort closure
-        echom "Update is finished!"
+        echo "Update is finished!"
     endfunc
-    echom "Update packages..."
-    call term_start('git submodule update --init --remote --rebase --jobs=8',
-                \ {"cwd": fnamemodify($MYVIMRC, ":p:h"),
-                \  "term_finish": "close",
-                \  "close_cb": {ch -> s:close_cb(ch)}
+    echo "Update packages..."
+    belowright call term_start('git submodule update --init --remote --rebase --depth=1 --jobs=8', {
+                \ "cwd": fnamemodify($MYVIMRC, ":p:h"),
+                \ "term_finish": "close",
+                \ "term_rows": 5,
+                \ "close_cb": {ch -> s:close_cb(ch)}
                 \})
 endfunc
 
