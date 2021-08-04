@@ -2,25 +2,27 @@
 " On a new machine (with git>=2.23)):
 " git clone git:github.com:habamax/.vim.git ~/.vim --recurse-submodules --remote-submodules
 func! git#pack_add(name, opt = v:false) abort
-    try
-        exe "lcd! " .. fnamemodify($MYVIMRC, ":p:h")
-        let cmd = 'git submodule add git@github.com:' .. a:name .. '.git ./pack/github/'
-        let cmd .= a:opt ? 'opt/' : 'start/'
-        let cmd .= split(a:name, '/')[1]
-        echo system(cmd)
-    finally
-        lcd! -
-    endtry
+    let pack_name = 'git@github.com:' .. a:name .. '.git'
+    echom "Adding package " pack_name
+    let cmd = 'git submodule add ' .. pack_name .. ' ./pack/github/'
+    let cmd .= a:opt ? 'opt/' : 'start/'
+    let cmd .= split(a:name, '/')[1]
+    call term_start(cmd, {
+                \ "cwd": fnamemodify($MYVIMRC, ":p:h"),
+                \ "term_finish": "close"
+                \})
 endfunc
 
 func! git#pack_update() abort
-    try
-        exe "lcd! " .. fnamemodify($MYVIMRC, ":p:h")
-        echo system('git submodule update --init --remote --rebase --jobs=10')
-        echo "Packages were updated."
-    finally
-        lcd! -
-    endtry
+    func! s:close_cb(ch) abort closure
+        echom "Update is finished!"
+    endfunc
+    echom "Update packages..."
+    call term_start('git submodule update --init --remote --rebase --jobs=8',
+                \ {"cwd": fnamemodify($MYVIMRC, ":p:h"),
+                \  "term_finish": "close",
+                \  "close_cb": {ch -> s:close_cb(ch)}
+                \})
 endfunc
 
 
