@@ -129,3 +129,6 @@
 [submodule "pack/github/opt/gv.vim"]
 	path = pack/github/opt/gv.vim
 	url = git@github.com:junegunn/gv.vim.git
+[submodule "pack/github/opt/Apprentice"]
+	path = pack/github/opt/Apprentice
+	url = git@github.com:romainl/Apprentice.git
