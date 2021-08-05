@@ -2,15 +2,17 @@
 " On a new machine (with git>=2.23)):
 " git clone git:github.com:habamax/.vim.git ~/.vim --recurse-submodules --remote-submodules
 func! git#pack_add(name, opt = v:false) abort
+    echo "Adding package " pack_name
     let pack_name = 'git@github.com:' .. a:name .. '.git'
-    echom "Adding package " pack_name
     let cmd = 'git submodule add ' .. pack_name .. ' ./pack/github/'
     let cmd .= a:opt ? 'opt/' : 'start/'
     let cmd .= split(a:name, '/')[1]
-    belowright call term_start(cmd, {
+    func! s:close_cb(ch) abort closure
+        echo pack_name "is added!"
+    endfunc
+    call job_start(cmd, {
                 \ "cwd": fnamemodify($MYVIMRC, ":p:h"),
-                \ "term_finish": "close",
-                \ "term_rows": 5
+                \ "close_cb": {ch -> s:close_cb(ch)}
                 \})
 endfunc
 
@@ -19,10 +21,8 @@ func! git#pack_update() abort
         echo "Update is finished!"
     endfunc
     echo "Update packages..."
-    belowright call term_start('git submodule update --init --remote --rebase --depth=1 --jobs=8', {
+    call job_start('git submodule update --init --remote --rebase --depth=1 --jobs=8', {
                 \ "cwd": fnamemodify($MYVIMRC, ":p:h"),
-                \ "term_finish": "close",
-                \ "term_rows": 5,
                 \ "close_cb": {ch -> s:close_cb(ch)}
                 \})
 endfunc
