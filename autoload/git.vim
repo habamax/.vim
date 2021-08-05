@@ -3,12 +3,12 @@
 " git clone git:github.com:habamax/.vim.git ~/.vim --recurse-submodules --remote-submodules
 func! git#pack_add(name, opt = v:false) abort
     let pack_name = 'git@github.com:' .. a:name .. '.git'
-    echo "Adding package " pack_name
+    echom "Adding package " pack_name
     let cmd = 'git submodule add ' .. pack_name .. ' ./pack/github/'
     let cmd .= a:opt ? 'opt/' : 'start/'
     let cmd .= split(a:name, '/')[1]
     func! s:close_cb(ch) abort closure
-        echo pack_name "is added!"
+        echom pack_name "is added!"
     endfunc
     call job_start(cmd, {
                 \ "cwd": fnamemodify($MYVIMRC, ":p:h"),
@@ -19,7 +19,7 @@ endfunc
 func! git#pack_del(name, opt = v:false) abort
     let path = 'pack/github/'
     let type = a:opt ? 'opt/' : 'start/'
-    echo "Removig package " a:name
+    echom "Removig package " a:name
     if isdirectory(path .. type .. a:name)
         try
             exe 'lcd ' .. fnamemodify($MYVIMRC, ':p:h')
@@ -46,9 +46,9 @@ endfunc
 
 func! git#pack_update() abort
     func! s:close_cb(ch) abort closure
-        echo "Update is finished!"
+        echom "Update is finished!"
     endfunc
-    echo "Update packages..."
+    echom "Update packages..."
     call job_start('git submodule update --init --remote --rebase --depth=1 --jobs=8', {
                 \ "cwd": fnamemodify($MYVIMRC, ":p:h"),
                 \ "close_cb": {ch -> s:close_cb(ch)}
