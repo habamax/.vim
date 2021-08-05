@@ -2,8 +2,8 @@
 " On a new machine (with git>=2.23)):
 " git clone git:github.com:habamax/.vim.git ~/.vim --recurse-submodules --remote-submodules
 func! git#pack_add(name, opt = v:false) abort
-    echo "Adding package " pack_name
     let pack_name = 'git@github.com:' .. a:name .. '.git'
+    echo "Adding package " pack_name
     let cmd = 'git submodule add ' .. pack_name .. ' ./pack/github/'
     let cmd .= a:opt ? 'opt/' : 'start/'
     let cmd .= split(a:name, '/')[1]
