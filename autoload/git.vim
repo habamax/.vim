@@ -1,33 +1,28 @@
 " Update or install plugins listed in packages
 func! git#pack_update() abort
+    if !reduce(get(s:, 'pack_jobs', []), {acc, val -> acc && job_status(val) != 'run'}, v:true)
+        echo "Previous update is not finished yet!"
+        return
+    endif
+    let s:pack_jobs = []
     echom "Update packages..."
-    func! s:close_cb(ch, name, type) abort closure
-        echom a:name() "is" a:type.."!"
-    endfunc
     let cwd = fnamemodify($MYVIMRC, ":p:h")
     let bundle = 'plug'
+    let jobs = []
     if filereadable(cwd .. '/packages')
         let packages = readfile(cwd .. '/packages')
-        let plog = {}
         for pinfo in packages
             if pinfo =~ '^\s*#'
                 continue
             endif
             let [name, url] = pinfo->split()
             let path = cwd .. '/pack/'..bundle..'/' .. name
-            " TODO: collect job ids, check their statuses, generate logs
             if isdirectory(path)
-                echo "Updating " .. path .. "..."
-                call job_start('git pull --depth=1', {
-                        \ "cwd": path,
-                        \ "close_cb": {ch -> s:close_cb(ch, {-> name}, "updated")}
-                        \})
+                let job = job_start('git pull --depth=1', {"cwd": path})
+                call add(s:pack_jobs, job)
             else
-                echo "Installing " .. path .. "..."
-                call job_start('git clone --depth=1 ' .. url .. ' ' .. path, {
-                        \ "cwd": cwd,
-                        \ "close_cb": {ch -> s:close_cb(ch, {-> name}, "installed")}
-                        \})
+                let job = job_start('git clone --depth=1 ' .. url .. ' ' .. path, {"cwd": cwd})
+                call add(s:pack_jobs, job)
             endif
         endfor
     endif
