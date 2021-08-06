@@ -1,49 +1,4 @@
-" Packages as git submodules
-" On a new machine (with git>=2.23)):
-" git clone git:github.com:habamax/.vim.git ~/.vim --recurse-submodules --remote-submodules
-" func! git#pack_add(name, opt = v:false) abort
-"     let pack_name = 'git@github.com:' .. a:name .. '.git'
-"     echom "Adding package " pack_name
-"     let cmd = 'git submodule add ' .. pack_name .. ' ./pack/github/'
-"     let cmd .= a:opt ? 'opt/' : 'start/'
-"     let cmd .= split(a:name, '/')[1]
-"     func! s:close_cb(ch) abort closure
-"         echom pack_name "is added!"
-"     endfunc
-"     call job_start(cmd, {
-"                 \ "cwd": fnamemodify($MYVIMRC, ":p:h"),
-"                 \ "close_cb": {ch -> s:close_cb(ch)}
-"                 \})
-" endfunc
-
-" func! git#pack_del(name, opt = v:false) abort
-"     let path = 'pack/github/'
-"     let type = a:opt ? 'opt/' : 'start/'
-"     echom "Removig package " a:name
-"     if isdirectory(path .. type .. a:name)
-"         try
-"             exe 'lcd ' .. fnamemodify($MYVIMRC, ':p:h')
-"             let cmd = 'git submodule deinit -f -- ' .. path .. type .. a:name
-"             call system(cmd)
-"             if has("win32")
-"                 let cmd = 'rmdir /S .git/modules/' .. path .. type .. a:name
-"                 call system(cmd)
-"                 let cmd = 'rmdir /S ' .. path .. type .. a:name
-"                 call system(cmd)
-"             else
-"                 let cmd = 'rm -rf .git/modules/' .. path .. type .. a:name
-"                 call system(cmd)
-"                 let cmd = 'rm -rf ' .. path .. type .. a:name
-"                 call system(cmd)
-"             endif
-"             let cmd = 'git rm -f ' .. path .. type .. a:name
-"             call system(cmd)
-"         finally
-"             lcd -
-"         endtry
-"     endif
-" endfunc
-
+" Update or install plugins listed in packages
 func! git#pack_update() abort
     echom "Update packages..."
     func! s:close_cb(ch, name, type) abort closure
@@ -55,6 +10,9 @@ func! git#pack_update() abort
         let packages = readfile(cwd .. '/packages')
         let plog = {}
         for pinfo in packages
+            if pinfo =~ '^\s*#'
+                continue
+            endif
             let [name, url] = pinfo->split()
             let path = cwd .. '/pack/'..bundle..'/' .. name
             " TODO: collect job ids, check their statuses, generate logs

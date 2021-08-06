@@ -1,6 +1,4 @@
-command! -bang -nargs=1 PackAdd call git#pack_add(<q-args>, !empty("<bang>"))
-" TODO: add completion of existing packages
-command! -bang -nargs=1 PackDel call git#pack_del(<q-args>, !empty("<bang>"))
+" Update packages
 command! PackUp call git#pack_update()
 
 
