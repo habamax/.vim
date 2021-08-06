@@ -5,6 +5,7 @@ start/vim-asciidoctor	git@github.com:habamax/vim-asciidoctor.git
 start/vim-godot	git@github.com:habamax/vim-godot.git
 start/vim-num2words	git@github.com:habamax/vim-num2words.git
 start/vim-winlayout	git@github.com:habamax/vim-winlayout.git
+
 opt/vim-saturnite	git@github.com:habamax/vim-saturnite.git
 opt/vim-freyeday	git@github.com:habamax/vim-freyeday.git
 opt/vim-habanight	git@github.com:habamax/vim-habanight.git
@@ -12,9 +13,12 @@ opt/vim-alchemist	git@github.com:habamax/vim-alchemist.git
 opt/vim-psionic	git@github.com:habamax/vim-psionic.git
 opt/vim-gruvbit	git@github.com:habamax/vim-gruvbit.git
 opt/vim-polar	git@github.com:habamax/vim-polar.git
+
 start/vim-rooter	git@github.com:airblade/vim-rooter.git
 start/traces.vim	git@github.com:markonm/traces.vim.git
 opt/vim-fugitive	git@github.com:tpope/vim-fugitive.git
+opt/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
+opt/gv.vim	git@github.com:junegunn/gv.vim.git
 start/vim-commentary	git@github.com:tpope/vim-commentary.git
 start/vim-surround	git@github.com:tpope/vim-surround.git
 start/vim-repeat	git@github.com:tpope/vim-repeat.git
@@ -30,5 +34,3 @@ start/vim-colortemplate	git@github.com:lifepillar/vim-colortemplate.git
 start/vim-elixir	git@github.com:elixir-editors/vim-elixir.git
 start/plantuml-syntax	git@github.com:aklt/plantuml-syntax.git
 start/vim-toml	git@github.com:cespare/vim-toml.git
-opt/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
-opt/gv.vim	git@github.com:junegunn/gv.vim.git

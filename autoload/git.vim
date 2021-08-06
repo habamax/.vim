@@ -12,10 +12,13 @@ func! git#pack_update() abort
     if filereadable(cwd .. '/packages')
         let packages = readfile(cwd .. '/packages')
         for pinfo in packages
-            if pinfo =~ '^\s*#'
+            if pinfo =~ '^\s*#' || pinfo =~ '^\s*$'
                 continue
             endif
             let [name, url] = pinfo->split()
+            if empty(name) || empty(url)
+                continue
+            endif
             let path = cwd .. '/pack/'..bundle..'/' .. name
             if isdirectory(path)
                 let job = job_start('git pull --depth=1', {"cwd": path})
