@@ -26,6 +26,13 @@ func! git#pack_update() abort
             endif
         endfor
     endif
+    func! s:timer_handler(t) abort closure
+        if reduce(get(s:, 'pack_jobs', []), {acc, val -> acc && job_status(val) != 'run'}, v:true)
+            echo "Packages are updated!"
+            call timer_stop(a:t)
+        endif
+    endfunc
+    call timer_start(2000, {t->s:timer_handler(t)}, {"repeat": 10})
 endfunc
 
 
