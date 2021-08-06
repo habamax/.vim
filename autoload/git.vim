@@ -1,58 +1,78 @@
 " Packages as git submodules
 " On a new machine (with git>=2.23)):
 " git clone git:github.com:habamax/.vim.git ~/.vim --recurse-submodules --remote-submodules
-func! git#pack_add(name, opt = v:false) abort
-    let pack_name = 'git@github.com:' .. a:name .. '.git'
-    echom "Adding package " pack_name
-    let cmd = 'git submodule add ' .. pack_name .. ' ./pack/github/'
-    let cmd .= a:opt ? 'opt/' : 'start/'
-    let cmd .= split(a:name, '/')[1]
-    func! s:close_cb(ch) abort closure
-        echom pack_name "is added!"
-    endfunc
-    call job_start(cmd, {
-                \ "cwd": fnamemodify($MYVIMRC, ":p:h"),
-                \ "close_cb": {ch -> s:close_cb(ch)}
-                \})
-endfunc
+" func! git#pack_add(name, opt = v:false) abort
+"     let pack_name = 'git@github.com:' .. a:name .. '.git'
+"     echom "Adding package " pack_name
+"     let cmd = 'git submodule add ' .. pack_name .. ' ./pack/github/'
+"     let cmd .= a:opt ? 'opt/' : 'start/'
+"     let cmd .= split(a:name, '/')[1]
+"     func! s:close_cb(ch) abort closure
+"         echom pack_name "is added!"
+"     endfunc
+"     call job_start(cmd, {
+"                 \ "cwd": fnamemodify($MYVIMRC, ":p:h"),
+"                 \ "close_cb": {ch -> s:close_cb(ch)}
+"                 \})
+" endfunc
 
-func! git#pack_del(name, opt = v:false) abort
-    let path = 'pack/github/'
-    let type = a:opt ? 'opt/' : 'start/'
-    echom "Removig package " a:name
-    if isdirectory(path .. type .. a:name)
-        try
-            exe 'lcd ' .. fnamemodify($MYVIMRC, ':p:h')
-            let cmd = 'git submodule deinit -f -- ' .. path .. type .. a:name
-            call system(cmd)
-            if has("win32")
-                let cmd = 'rmdir /S .git/modules/' .. path .. type .. a:name
-                call system(cmd)
-                let cmd = 'rmdir /S ' .. path .. type .. a:name
-                call system(cmd)
-            else
-                let cmd = 'rm -rf .git/modules/' .. path .. type .. a:name
-                call system(cmd)
-                let cmd = 'rm -rf ' .. path .. type .. a:name
-                call system(cmd)
-            endif
-            let cmd = 'git rm -f ' .. path .. type .. a:name
-            call system(cmd)
-        finally
-            lcd -
-        endtry
-    endif
-endfunc
+" func! git#pack_del(name, opt = v:false) abort
+"     let path = 'pack/github/'
+"     let type = a:opt ? 'opt/' : 'start/'
+"     echom "Removig package " a:name
+"     if isdirectory(path .. type .. a:name)
+"         try
+"             exe 'lcd ' .. fnamemodify($MYVIMRC, ':p:h')
+"             let cmd = 'git submodule deinit -f -- ' .. path .. type .. a:name
+"             call system(cmd)
+"             if has("win32")
+"                 let cmd = 'rmdir /S .git/modules/' .. path .. type .. a:name
+"                 call system(cmd)
+"                 let cmd = 'rmdir /S ' .. path .. type .. a:name
+"                 call system(cmd)
+"             else
+"                 let cmd = 'rm -rf .git/modules/' .. path .. type .. a:name
+"                 call system(cmd)
+"                 let cmd = 'rm -rf ' .. path .. type .. a:name
+"                 call system(cmd)
+"             endif
+"             let cmd = 'git rm -f ' .. path .. type .. a:name
+"             call system(cmd)
+"         finally
+"             lcd -
+"         endtry
+"     endif
+" endfunc
 
 func! git#pack_update() abort
-    func! s:close_cb(ch) abort closure
-        echom "Update is finished!"
-    endfunc
     echom "Update packages..."
-    call job_start('git submodule update --init --remote --rebase --depth=1 --jobs=8', {
-                \ "cwd": fnamemodify($MYVIMRC, ":p:h"),
-                \ "close_cb": {ch -> s:close_cb(ch)}
-                \})
+    func! s:close_cb(ch, name, type) abort closure
+        echom a:name() "is" a:type.."!"
+    endfunc
+    let cwd = fnamemodify($MYVIMRC, ":p:h")
+    let bundle = 'plug'
+    if filereadable(cwd .. '/packages')
+        let packages = readfile(cwd .. '/packages')
+        let plog = {}
+        for pinfo in packages
+            let [name, url] = pinfo->split()
+            let path = cwd .. '/pack/'..bundle..'/' .. name
+            " TODO: collect job ids, check their statuses, generate logs
+            if isdirectory(path)
+                echo "Updating " .. path .. "..."
+                call job_start('git pull --depth=1', {
+                        \ "cwd": path,
+                        \ "close_cb": {ch -> s:close_cb(ch, {-> name}, "updated")}
+                        \})
+            else
+                echo "Installing " .. path .. "..."
+                call job_start('git clone --depth=1 ' .. url .. ' ' .. path, {
+                        \ "cwd": cwd,
+                        \ "close_cb": {ch -> s:close_cb(ch, {-> name}, "installed")}
+                        \})
+            endif
+        endfor
+    endif
 endfunc
 
 
