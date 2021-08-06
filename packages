@@ -1,4 +1,4 @@
-# vim: ts=30
+# vim: ts=30 noet
 start/vim-select	git@github.com:habamax/vim-select.git
 start/vim-select-more	git@github.com:habamax/vim-select-more.git
 start/vim-asciidoctor	git@github.com:habamax/vim-asciidoctor.git
