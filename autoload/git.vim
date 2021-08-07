@@ -8,6 +8,7 @@ func! git#pack_update() abort
     echom "Update packages..."
     let cwd = fnamemodify($MYVIMRC, ":p:h")
     let bundle = 'plug'
+    let pack_list = 'pack/packages'
     let jobs = []
     let msg_count = 2
     func! s:out_cb(ch, msg) abort closure
@@ -16,8 +17,8 @@ func! git#pack_update() abort
             echom a:msg
         endif
     endfunc
-    if filereadable(cwd .. '/packages')
-        let packages = readfile(cwd .. '/packages')
+    if filereadable(cwd ..pack_list)
+        let packages = readfile(cwd .. pack_list)
         for pinfo in packages
             if pinfo =~ '^\s*#' || pinfo =~ '^\s*$'
                 continue
