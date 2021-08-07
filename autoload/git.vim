@@ -45,7 +45,11 @@ func! git#pack_update() abort
     func! s:timer_handler(t) abort closure
         if reduce(get(s:, 'pack_jobs', []), {acc, val -> acc && job_status(val) != 'run'}, v:true)
             call timer_stop(a:t)
-            echom "Packages are updated!"
+            if msg_count == 2
+                echom "No updates available!"
+            else
+                echom "Packages are updated!"
+            endif
             call feedkeys(":"..msg_count.."messages\<CR>", 'n')
         endif
     endfunc
