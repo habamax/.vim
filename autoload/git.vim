@@ -9,6 +9,13 @@ func! git#pack_update() abort
     let cwd = fnamemodify($MYVIMRC, ":p:h")
     let bundle = 'plug'
     let jobs = []
+    let msg_count = 2
+    func! s:out_cb(ch, msg) abort closure
+        if a:msg !~ '.*up to date.$'
+            let msg_count += 1
+            echom a:msg
+        endif
+    endfunc
     if filereadable(cwd .. '/packages')
         let packages = readfile(cwd .. '/packages')
         for pinfo in packages
@@ -21,18 +28,25 @@ func! git#pack_update() abort
             endif
             let path = cwd .. '/pack/'..bundle..'/' .. name
             if isdirectory(path)
-                let job = job_start('git pull --depth=1', {"cwd": path})
+                let job = job_start('git pull --depth=1', 
+                            \ {"cwd": path,
+                            \  "err_cb": function("s:out_cb"),
+                            \  "out_cb": function("s:out_cb")})
                 call add(s:pack_jobs, job)
             else
-                let job = job_start('git clone --depth=1 ' .. url .. ' ' .. path, {"cwd": cwd})
+                let job = job_start('git clone --depth=1 ' .. url .. ' ' .. path,
+                            \ {"cwd": path,
+                            \  "err_cb": function("s:out_cb"),
+                            \  "out_cb": function("s:out_cb")})
                 call add(s:pack_jobs, job)
             endif
         endfor
     endif
     func! s:timer_handler(t) abort closure
         if reduce(get(s:, 'pack_jobs', []), {acc, val -> acc && job_status(val) != 'run'}, v:true)
-            echo "Packages are updated!"
             call timer_stop(a:t)
+            echom "Packages are updated!"
+            call feedkeys(":"..msg_count.."messages\<CR>", 'n')
         endif
     endfunc
     call timer_start(2000, {t->s:timer_handler(t)}, {"repeat": 10})
