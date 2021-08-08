@@ -29,7 +29,7 @@ func! git#pack_update() abort
             endif
             let path = cwd .. '/pack/'..bundle..'/' .. name
             if isdirectory(path)
-                let job = job_start('git pull --depth=1', 
+                let job = job_start('git pull --rebase --depth=1',
                             \ {"cwd": path,
                             \  "err_cb": function("s:out_cb"),
                             \  "out_cb": function("s:out_cb")})
