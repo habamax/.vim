@@ -12,7 +12,7 @@ func! git#pack_update() abort
     let jobs = []
     let msg_count = 2
     func! s:out_cb(ch, msg) abort closure
-        if a:msg !~ '.*up to date.$'
+        if a:msg !~ '.*up to date.$' && a:msg !~ '^HEAD'
             let msg_count += 1
             echom a:msg
         endif
@@ -29,7 +29,7 @@ func! git#pack_update() abort
             endif
             let path = cwd .. '/pack/'..bundle..'/' .. name
             if isdirectory(path)
-                let job = job_start('git pull --rebase --depth=1',
+                let job = job_start([&shell, &shellcmdflag, 'git reset --hard && git pull --rebase --depth=1'],
                             \ {"cwd": path,
                             \  "err_cb": function("s:out_cb"),
                             \  "out_cb": function("s:out_cb")})
