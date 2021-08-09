@@ -12,7 +12,7 @@ func! git#pack_update() abort
     let jobs = []
     let msg_count = 2
     func! s:out_cb(ch, msg) abort closure
-        if a:msg !~ '.*up to date.$' && a:msg !~ '^HEAD'
+        if a:msg !~ '.*up to date.$' && a:msg !~ '^HEAD' && a:msg !~ '^Removing .*/tags'
             let msg_count += 1
             echom a:msg
         endif
@@ -51,6 +51,7 @@ func! git#pack_update() abort
             else
                 echom "Packages are updated!"
             endif
+            helptags ALL
             call feedkeys(":"..msg_count.."messages\<CR>", 'n')
         endif
     endfunc
