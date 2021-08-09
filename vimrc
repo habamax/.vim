@@ -9,7 +9,7 @@ set autoindent copyindent preserveindent
 set nostartofline
 set ttimeout ttimeoutlen=0
 set belloff=all
-set ruler laststatus=2
+set ruler
 set signcolumn=number
 set showcmd shortmess+=Ic
 set lazyredraw display=lastline
