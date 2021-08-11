@@ -2,9 +2,7 @@
 " Plugin settings
 
 
-"
 " netrw
-"
 func! s:netrw_e() abort
     exe 'silent e ' .. expand("%:p:h")
     call search('\<'..expand("#:t")..'\>')
@@ -13,26 +11,20 @@ nnoremap <silent> - :call <SID>netrw_e()<CR>
 let g:netrw_banner = 0
 
 
-"
 " vim-gutentags
-"
 if executable("ctags")
     silent! packadd vim-gutentags
 endif
 
 
-"
 " Git
-"
 if executable("git")
     silent! packadd vim-fugitive
     silent! packadd gv.vim
 endif
 
 
-"
 " vim-asciidoctor
-"
 " use ruby bundler:
 "     sudo gem install bundler
 " goto docs directory and:
@@ -62,66 +54,42 @@ let g:asciidoctor_foldtitle_as_h1 = 0
 " let g:asciidoctor_fold_options = 1
 
 
-"
 " vim-swap
-"
 let g:swap_no_default_key_mappings = 1
 
 
-"
 " vim-rooter
-"
 let g:rooter_change_directory_for_non_project_files = ''
 let g:rooter_patterns = ['.git', '.hg', '.svn', 'Makefile', 'go.mod', 'mix.exs']
 
 let g:rooter_silent_chdir = 1
 
 
-"
 " vim-markdown
-"
 let g:markdown_fenced_languages = ['python', 'go']
 
 
-"
 " vim-dispatch
-"
 let g:dispatch_no_maps = 1
 
 
-"
 " vim-closetag
-"
 let g:closetag_filetypes = 'html,xhtml,xml'
 
 
-"
 " elixir
-"
 let g:elixir_mix_test_position = "bottom"
 let g:mix_format_on_save = 1
 
 
-"
-" YCM
-"
-" call timer_start(2000, {-> lsp#setup()})
-
-
-"
 " Colorizer
-"
 let g:colorizer_auto_filetype='css,html,colortemplate'
 let g:colorizer_disable_bufleave = 1
 
 
-"
 " vim-godot
-"
 let g:godot_ext_hl = v:false
 
 
-"
 " lens
-"
 let g:lens_disabled_filetypes = ['fugitiveblame', 'selectprompt', 'selectresults']
