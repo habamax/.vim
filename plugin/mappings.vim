@@ -79,7 +79,7 @@ inoremap <silent> <C-space>l <ESC>guiw`]a
 " Window management
 nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
 nmap <C-w><C-o> <C-w>o
-nnoremap <silent> <space><BS> :echo win#layout_toggle()<CR>
+nnoremap <silent> <C-w><space> :echo win#layout_toggle()<CR>
 noremap <silent> <BS> <cmd>exe "wincmd " .. ((winnr('#') ?? winnr()) == winnr() ? 'w' : 'p')<CR>
 nmap <silent> <C-w><C-p> <BS>
 nmap <silent> <C-w>p <BS>
