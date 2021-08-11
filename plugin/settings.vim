@@ -124,5 +124,4 @@ let g:godot_ext_hl = v:false
 "
 " lens
 "
-let g:lens_disabled_filetypes = ['fugitiveblame', 'fern', 'selectprompt', 'selectresults']
-let g:lens_pref_width = 100
+let g:lens_disabled_filetypes = ['fugitiveblame', 'selectprompt', 'selectresults']
