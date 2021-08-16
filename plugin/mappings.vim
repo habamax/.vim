@@ -188,11 +188,11 @@ xmap <silent> gs :sort<CR>
 tnoremap <C-v> <C-w>""
 
 
-nnoremap <space>mm :call markit#mark()<CR>
-xnoremap <space>mm <cmd>call markit#mark()<CR><ESC>
-nnoremap <space>mu :call markit#unmark()<CR>
-xnoremap <space>mu <cmd>call markit#unmark()<CR><ESC>
-nnoremap <space>mU :call markit#unmark_all()<CR>
+nnoremap <silent> <space>mm :call markit#mark()<CR>
+xnoremap <silent> <space>mm <cmd>call markit#mark()<CR><ESC>
+nnoremap <silent> <space>mu :call markit#unmark()<CR>
+xnoremap <silent> <space>mu <cmd>call markit#unmark()<CR><ESC>
+nnoremap <silent> <space>mU :call markit#unmark_all()<CR>
 
 
 " Template <+placeholders+> navigation
