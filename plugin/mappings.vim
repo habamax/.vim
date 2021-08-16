@@ -221,6 +221,10 @@ snoremap <silent> <CR> <ESC>:call <SID>placeholder_accept()<CR>
 
 " QuickFix
 nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> ]Q :clast<CR>
 nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> [Q :cfirst<CR>
 nnoremap <silent> ]w :lnext<CR>
+nnoremap <silent> ]W :llast<CR>
 nnoremap <silent> [w :lprevious<CR>
+nnoremap <silent> [W :lfirst<CR>
