@@ -1,5 +1,6 @@
 [plantuml, diagram-name, svg]
 ..............................................................................
+!pragma layout smetana
 skinparam monochrome false
 skinparam shadowing true
 skinparam dpi 100
