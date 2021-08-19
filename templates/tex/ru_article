@@ -1,0 +1,62 @@
+\documentclass[english,russian,12pt]{article}
+    \usepackage[tmargin=20mm,bmargin=20mm,lmargin=25mm,rmargin=20mm]{geometry}
+
+    % bottom right page num
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyhead{}
+    \fancyfoot{}
+    \fancyfoot[R]{\thepage}
+
+    % localized date format
+    \usepackage{babel}
+    \usepackage{isodate}
+
+    % fonts
+    \usepackage{fontspec}
+    \setmainfont{PT Serif}
+    \setsansfont{PT Sans}
+    \setmonofont[Scale=MatchLowercase]{JetBrains Mono NL}
+
+    % setup sections
+    \usepackage{titlesec}
+    \titleformat*{\section}{\LARGE\bfseries\sffamily}
+    \titleformat*{\subsection}{\Large\bfseries\sffamily}
+    \titleformat*{\subsubsection}{\large\bfseries\sffamily}
+
+    % code blocks
+    \usepackage{minted}
+    \usepackage{mdframed}
+    \usepackage{xcolor}
+    \definecolor{code_bg}{rgb}{0.97, 0.97, 0.97}
+
+    % \maketitle for articles
+    \makeatletter
+    \renewcommand\maketitle{
+    \linespread{1.6}\selectfont % for \linespread to have effect
+    {\raggedright
+    \begin{center}
+    {\rule{\linewidth}{0.2mm}} \\[4mm]
+    {\Huge \bfseries \sffamily \@title}\\[10mm]
+    {\@author}\\\@date\\[1mm]
+    {\rule{\linewidth}{0.2mm}} \\[15mm]
+    \end{center}}}
+    \makeatother
+
+    % do not report warnings on small hbox overful
+    \hfuzz=2pt
+
+
+\title{<+Документ+>}
+\author{<+Максим Ким+>}
+
+\begin{document}
+\maketitle
+\linespread{1.2}\selectfont % for \linespread to have effect
+
+\section{<+Введение+>}
+
+<++>
+
+\end{document}

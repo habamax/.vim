@@ -1,0 +1,5 @@
+\begin{mdframed}[backgroundcolor=code_bg,rightline=false,bottomline=false,topline=false,linewidth=1pt,linecolor=lightgray]
+    \begin{minted}[linenos=<+false+>,numbersep=5mm,fontsize=<+\footnotesize+>,breaklines]{<+python+>}
+<++>
+    \end{minted}
+\end{mdframed}
