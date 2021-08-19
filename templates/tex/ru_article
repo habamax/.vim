@@ -25,6 +25,13 @@
     \titleformat*{\subsection}{\Large\bfseries\sffamily}
     \titleformat*{\subsubsection}{\large\bfseries\sffamily}
 
+    % if outputdir is specified, minted output should be adjusted
+    \usepackage{ifthen}
+    \usepackage{currfile-abspath}
+    \getabspath{\jobname.log}
+    \ifthenelse{\equal{\theabsdir}{\thepwd}}% using ifthen package
+    %\ifdefstrequal{\theabsdir}{\thepwd}% using etoolbox package
+    {}{\PassOptionsToPackage{outputdir=\theabsdir}{minted}}
     % code blocks
     \usepackage{minted}
     \usepackage{mdframed}

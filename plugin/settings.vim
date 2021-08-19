@@ -98,13 +98,18 @@ let g:lens_disabled_filetypes = ['fugitiveblame', 'selectprompt', 'selectresults
 let g:vimtex_compiler_latexrun_engines = {'_': 'lualatex'}
 let g:vimtex_compiler_latexmk_engines = {'_': '-lualatex'}
 let g:vimtex_compiler_latexmk = {
-      \ 'options' : [
-      \   '-shell-escape',
-      \   '-verbose',
-      \   '-file-line-error',
-      \   '-synctex=1',
-      \   '-interaction=nonstopmode',
-      \ ],
-      \}
+            \ 'build_dir': {-> expand("%:t:r")},
+            \ 'options' : [
+                \   '-shell-escape',
+                \   '-verbose',
+                \   '-file-line-error',
+                \   '-synctex=1',
+                \   '-interaction=nonstopmode',
+                \ ],
+                \}
 
 let g:vimtex_syntax_packages = {'minted': {'load': 1}}
+" augroup vimtex_config
+" au!
+" au User VimtexEventQuit call vimtex#compiler#clean(0)
+" augroup END
