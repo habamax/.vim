@@ -21,9 +21,9 @@ augroup end
 
 
 " detect indent
-augroup indentector | au!
-    au FileType * call indentector#detect_indent(getline(1, 1024))
-augroup END
+" augroup indentector | au!
+"     au FileType * call indentector#detect_indent(getline(1, 1024))
+" augroup END
 
 
 " <+placeholder+> highlight
