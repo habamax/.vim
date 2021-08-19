@@ -1,7 +1,6 @@
 " Check after/plugin/settings.vim for settings that depends on plugin existence
 " Plugin settings
 
-
 " netrw
 func! s:netrw_e() abort
     exe 'silent e ' .. expand("%:p:h")
@@ -93,3 +92,19 @@ let g:godot_ext_hl = v:false
 
 " lens
 let g:lens_disabled_filetypes = ['fugitiveblame', 'selectprompt', 'selectresults']
+
+
+" vimtex
+let g:vimtex_compiler_latexrun_engines = {'_': 'lualatex'}
+let g:vimtex_compiler_latexmk_engines = {'_': '-lualatex'}
+let g:vimtex_compiler_latexmk = {
+      \ 'options' : [
+      \   '-shell-escape',
+      \   '-verbose',
+      \   '-file-line-error',
+      \   '-synctex=1',
+      \   '-interaction=nonstopmode',
+      \ ],
+      \}
+
+let g:vimtex_syntax_packages = {'minted': {'load': 1}}
