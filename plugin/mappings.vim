@@ -41,9 +41,11 @@ xnoremap <space>З "+P
 nnoremap <space>З "+P
 
 
-" enhance search
-cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"
-cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
+" enhance search, only if wildcharm is set to <C-z>
+if &wildcharm == 26
+    cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"
+    cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
+endif
 
 
 " Find file/buffer
