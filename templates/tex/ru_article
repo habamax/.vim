@@ -47,10 +47,9 @@
     \linespread{1.6}\selectfont % for \linespread to have effect
     {\raggedright
     \begin{center}
-    {\rule{\linewidth}{0.2mm}} \\[4mm]
     {\Huge \bfseries \sffamily \@title}\\[10mm]
     {\@author}\\\@date\\[1mm]
-    {\rule{\linewidth}{0.2mm}} \\[15mm]
+    {\rule{\linewidth}{0.5mm}}\\[15mm]
     \end{center}}}
     \makeatother
 
