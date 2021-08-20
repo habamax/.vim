@@ -230,3 +230,8 @@ nnoremap <silent> ]w :lnext<CR>
 nnoremap <silent> ]W :llast<CR>
 nnoremap <silent> [w :lprevious<CR>
 nnoremap <silent> [W :lfirst<CR>
+
+
+" Next/Prev change for diff mode
+nnoremap <silent> ]x :call diff#next_change()<CR>
+nnoremap <silent> [x :call diff#prev_change()<CR>
