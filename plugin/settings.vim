@@ -109,7 +109,3 @@ let g:vimtex_compiler_latexmk = {
                 \}
 
 let g:vimtex_syntax_packages = {'minted': {'load': 1}}
-" augroup vimtex_config
-" au!
-" au User VimtexEventQuit call vimtex#compiler#clean(0)
-" augroup END
