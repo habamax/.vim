@@ -35,6 +35,13 @@
     % code blocks
     \usepackage{minted}
     \usepackage{mdframed}
+    \surroundwithmdframed[
+        backgroundcolor=code_bg,
+        rightline=false,
+        bottomline=false,
+        topline=false,
+        linewidth=1pt,
+        linecolor=lightgray]{minted}
     \usepackage{xcolor}
     \definecolor{code_bg}{rgb}{0.97, 0.97, 0.97}
 
