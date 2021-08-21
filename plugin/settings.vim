@@ -1,7 +1,7 @@
 " Check after/plugin/settings.vim for settings that depends on plugin existence
 " Plugin settings
 
-packadd Cfilter
+packadd cfilter
 
 " netrw
 func! s:netrw_e() abort
