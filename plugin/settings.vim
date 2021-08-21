@@ -1,6 +1,8 @@
 " Check after/plugin/settings.vim for settings that depends on plugin existence
 " Plugin settings
 
+packadd Cfilter
+
 " netrw
 func! s:netrw_e() abort
     exe 'silent e ' .. expand("%:p:h")
