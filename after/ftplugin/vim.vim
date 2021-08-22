@@ -13,9 +13,3 @@ setlocal path+=colortemplate/**
 setlocal path+=after/**
 setlocal path+=compiler/**
 setlocal path+=colors/**
-
-
-inorea <buffer> augr augroup  \| au!<CR>
-            \au BufRead * echo "hello world"<CR>
-            \augroup END<Up><Up><Left><Left><Left>
-            \<C-R>=Eatchar('\s')<CR>

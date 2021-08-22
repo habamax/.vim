@@ -1,27 +1,8 @@
-func! Eatchar(pat)
-    let c = nr2char(getchar(0))
-    return (c =~ a:pat) ? '' : c
-endfunc
-
 cabbr ц w
 cabbr й q
 cabbr цй wq
 cabbr ив bd
 cabbr sf Select file
-
-inorea haba@ habamax@gmail.com
-
-inorea хъ []<Left><C-R>=Eatchar('\s')<CR>
-inorea ХЪ {}<Left><C-R>=Eatchar('\s')<CR>
-inorea ЭЭ ""<Left><C-R>=Eatchar('\s')<CR>
-inorea ээ ''<Left><C-R>=Eatchar('\s')<CR>
-inorea ёё ``<Left><C-R>=Eatchar('\s')<CR>
-
-inorea <expr> ddd strftime("%Y-%m-%d")
-inorea <expr> ddt strftime("%Y-%m-%d %H:%M")
-inorea <expr> ввв strftime("%Y-%m-%d")
-inorea <expr> вве strftime("%Y-%m-%d %H:%M")
-inorea <expr> ддд text#date_ru()
 
 inorea -Ю ->
 inorea -ю ->

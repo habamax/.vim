@@ -20,3 +20,9 @@ snippet ife
 	else
 		${3}
 	endif
+snippet au
+	au ${1:BufRead} ${2:*} ${3:echo "hello"}
+snippet aug
+	augroup ${1:GROUP_NAME} | au!
+	    ${2}
+	augroup END
