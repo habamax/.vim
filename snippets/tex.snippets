@@ -1,5 +1,48 @@
 snippet em
 	\emph{${1}}
-
 snippet b
 	\strong{${1}}
+snippet begin
+	\begin{${1:env}}
+		${2}
+	\end{$1}
+snippet eq
+	\begin{equation}
+		${1}
+	\end{equation}
+snippet enum
+	\begin{enumerate}
+		\item ${1}
+	\end{enumerate}
+snippet item
+	\begin{itemize}
+		\item ${1}
+	\end{itemize}
+snippet itd
+	\item[${1:description}] ${2:item}
+# Description
+snippet desc
+	\begin{description}
+		\item[${1}] ${2}
+	\end{description}
+# Part
+snippet part
+	\part{${1:part name}}
+# Chapter
+snippet cha
+	\chapter{${1:chapter name}}
+# Section
+snippet sec
+	\section{${1:section name}}
+# Sub Section
+snippet sub
+	\subsection{${1:subsection name}}
+# Sub Sub Section
+snippet subs
+	\subsubsection{${1:subsubsection name}}
+# Paragraph
+snippet par
+	\paragraph{${1:paragraph name}}
+# Sub Paragraph
+snippet subp
+	\subparagraph{${1:subparagraph name}}
