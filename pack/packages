@@ -1,4 +1,5 @@
 # vim: ts=30 noet
+
 # My
 start/vim-select	git@github.com:habamax/vim-select.git
 start/vim-select-more	git@github.com:habamax/vim-select-more.git
@@ -6,6 +7,7 @@ start/vim-asciidoctor	git@github.com:habamax/vim-asciidoctor.git
 start/vim-godot	git@github.com:habamax/vim-godot.git
 start/vim-num2words	git@github.com:habamax/vim-num2words.git
 start/vim-winlayout	git@github.com:habamax/vim-winlayout.git
+
 # colors
 opt/vim-saturnite	git@github.com:habamax/vim-saturnite.git
 opt/vim-freyeday	git@github.com:habamax/vim-freyeday.git
@@ -14,6 +16,7 @@ opt/vim-alchemist	git@github.com:habamax/vim-alchemist.git
 opt/vim-psionic	git@github.com:habamax/vim-psionic.git
 opt/vim-gruvbit	git@github.com:habamax/vim-gruvbit.git
 opt/vim-polar	git@github.com:habamax/vim-polar.git
+
 # very nice to have
 start/vim-rooter	git@github.com:airblade/vim-rooter.git
 start/traces.vim	git@github.com:markonm/traces.vim.git
@@ -29,13 +32,16 @@ start/vim-lion	git@github.com:tommcdo/vim-lion.git
 start/vim-colortemplate	git@github.com:lifepillar/vim-colortemplate.git
 start/vim-endwise	git@github.com:tpope/vim-endwise.git
 start/vim-dispatch	git@github.com:tpope/vim-dispatch.git
+start/vimtex	git@github.com:lervag/vimtex.git
+
 # nice to have
 start/vim-eunuch	git@github.com:tpope/vim-eunuch.git
 start/vim-closetag	git@github.com:alvan/vim-closetag.git
 start/vim-devdocs	git@github.com:romainl/vim-devdocs.git
+
 # filetypes
 start/vim-elixir	git@github.com:elixir-editors/vim-elixir.git
 start/plantuml-syntax	git@github.com:aklt/plantuml-syntax.git
 start/vim-toml	git@github.com:cespare/vim-toml.git
 
-start/vimtex	git@github.com:lervag/vimtex.git
+start/snipmate.vim	git@github.com:habamax/snipmate.vim
