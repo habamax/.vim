@@ -26,6 +26,16 @@ snippet eq
 	\begin{equation}
 		${1}
 	\end{equation}
+snippet tab
+	\begin{tabular}{${1:|c|p{6cm}|}}
+		\hline
+		\strong{${2:header 1}} & \strong{${3:header 2}} \\ \hline\hline
+		${4:value 1} & ${5:value 2} \\ \hline
+	\end{tabular}
+snippet center
+	\begin{center}
+		${1}
+	\end{center}
 snippet enum
 	\begin{enumerate}
 		\item ${1}
@@ -34,8 +44,14 @@ snippet item
 	\begin{itemize}
 		\item ${1}
 	\end{itemize}
+snippet desc
+	\begin{description}
+		\item[${1:definition}] \hfill \\ ${2:description}
+	\end{description}
 snippet *
 	\item ${1}
+snippet **
+	\item[${1:definition}] \hfill \\ ${2:description}
 # Part
 snippet part
 	\part{${1:part name}}
@@ -57,3 +73,6 @@ snippet par
 # Sub Paragraph
 snippet subp
 	\subparagraph{${1:subparagraph name}}
+snippet hl
+	\hline
+
