@@ -1,13 +1,27 @@
 snippet em
 	\emph{${1}}
-snippet b
+snippet s
 	\strong{${1}}
+snippet i
+	\textit{${1}}
+snippet b
+	\textbf{${1}}
 snippet u
 	\underline{${1}}
+snippet t
+	\texttt{${1}}
 snippet begin
 	\begin{${1:env}}
 		${2}
 	\end{$1}
+snippet verb
+	\begin{verbatim}
+		${1}
+	\end{verbatim}
+snippet code
+	\begin{minted}[linenos=${1:false},numbersep=5mm,fontsize=${2:\footnotesize},breaklines,autogobble]{${3:text}}
+		${4}
+	\end{minted}
 snippet eq
 	\begin{equation}
 		${1}
@@ -20,13 +34,13 @@ snippet item
 	\begin{itemize}
 		\item ${1}
 	\end{itemize}
-snippet it
+snippet *
 	\item ${1}
 # Part
 snippet part
 	\part{${1:part name}}
 # Chapter
-snippet cha
+snippet chap
 	\chapter{${1:chapter name}}
 # Section
 snippet sec
