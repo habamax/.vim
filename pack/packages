@@ -44,4 +44,4 @@ start/vim-elixir	git@github.com:elixir-editors/vim-elixir.git
 start/plantuml-syntax	git@github.com:aklt/plantuml-syntax.git
 start/vim-toml	git@github.com:cespare/vim-toml.git
 
-start/snipmate.vim	git@github.com:habamax/snipmate.vim
+start/vim-minisnip	git@github.com:habamax/vim-minisnip
