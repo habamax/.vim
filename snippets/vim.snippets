@@ -26,3 +26,25 @@ snippet aug
 	augroup ${1:GROUP_NAME} | au!
 	    ${2}
 	augroup END
+snippet try
+	try
+		${1}
+	catch ${2:/.*/}
+		${3}
+	endtry
+snippet tryf
+	try
+		${1}
+	finally
+		${2}
+	endtry
+snippet tryy
+	try
+		${1}
+	catch ${2:/.*/}
+		${3}
+	finally
+		${4}
+	endtry
+snippet {
+	{${1} -> ${2}}
