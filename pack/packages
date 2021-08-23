@@ -7,6 +7,7 @@ start/vim-asciidoctor	git@github.com:habamax/vim-asciidoctor.git
 start/vim-godot	git@github.com:habamax/vim-godot.git
 start/vim-num2words	git@github.com:habamax/vim-num2words.git
 start/vim-winlayout	git@github.com:habamax/vim-winlayout.git
+start/vim-minisnip	git@github.com:habamax/vim-minisnip
 
 # colors
 opt/vim-saturnite	git@github.com:habamax/vim-saturnite.git
@@ -43,5 +44,3 @@ start/vim-devdocs	git@github.com:romainl/vim-devdocs.git
 start/vim-elixir	git@github.com:elixir-editors/vim-elixir.git
 start/plantuml-syntax	git@github.com:aklt/plantuml-syntax.git
 start/vim-toml	git@github.com:cespare/vim-toml.git
-
-start/vim-minisnip	git@github.com:habamax/vim-minisnip
