@@ -9,16 +9,11 @@ start/vim-num2words	git@github.com:habamax/vim-num2words.git
 start/vim-winlayout	git@github.com:habamax/vim-winlayout.git
 start/vim-minisnip	git@github.com:habamax/vim-minisnip
 
-# colors
+# My colors
 opt/vim-saturnite	git@github.com:habamax/vim-saturnite.git
 opt/vim-freyeday	git@github.com:habamax/vim-freyeday.git
-opt/vim-habanight	git@github.com:habamax/vim-habanight.git
-opt/vim-alchemist	git@github.com:habamax/vim-alchemist.git
-opt/vim-psionic	git@github.com:habamax/vim-psionic.git
-opt/vim-gruvbit	git@github.com:habamax/vim-gruvbit.git
-opt/vim-polar	git@github.com:habamax/vim-polar.git
 
-# very nice to have
+# Very nice to have
 start/vim-rooter	git@github.com:airblade/vim-rooter.git
 start/traces.vim	git@github.com:markonm/traces.vim.git
 opt/vim-fugitive	git@github.com:tpope/vim-fugitive.git
@@ -35,12 +30,12 @@ start/vim-endwise	git@github.com:tpope/vim-endwise.git
 start/vim-dispatch	git@github.com:tpope/vim-dispatch.git
 start/vimtex	git@github.com:lervag/vimtex.git
 
-# nice to have
+# Nice to have
 start/vim-eunuch	git@github.com:tpope/vim-eunuch.git
 start/vim-closetag	git@github.com:alvan/vim-closetag.git
 start/vim-devdocs	git@github.com:romainl/vim-devdocs.git
 
-# filetypes
+# Filetypes
 start/vim-elixir	git@github.com:elixir-editors/vim-elixir.git
 start/plantuml-syntax	git@github.com:aklt/plantuml-syntax.git
 start/vim-toml	git@github.com:cespare/vim-toml.git
