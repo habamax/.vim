@@ -50,3 +50,23 @@ snippet {
 	{${1} -> ${2}}
 snippet ?
 	(${1} ? ${2} : ${3})
+snippet didl plugin guard
+	if exists('g:loaded_${1:pluginname}')
+		finish
+	endif
+	let g:loaded_$1 = 1
+snippet didft ftplugin guard
+	if exists("b:did_ftplugin")
+		finish
+	endif
+	let b:did_ftplugin = 1
+snippet undoft ftplugin undo
+	let undo_opts = "setl ${1:expandtab}<${2}"
+
+	setlocal $1
+
+	if exists('b:undo_ftplugin')
+		let b:undo_ftplugin .= "|" .. undo_opts
+	else
+		let b:undo_ftplugin = undo_opts
+	endif
