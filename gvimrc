@@ -6,7 +6,7 @@ set guioptions=cM
 
 set linespace=0
 
-set guifont=JetBrains\ Mono\ NL:h13
+set guifont=JetBrains\ Mono\ NL:h14
 
 " Never gonna give you up, never gonna let you down.
 " set guifont=Hack:h13
