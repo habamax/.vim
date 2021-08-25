@@ -7,7 +7,7 @@
     \renewcommand{\headrulewidth}{0pt}
     \fancyhead{}
     \fancyfoot{}
-    \fancyfoot[R]{\thepage}
+    \fancyfoot[R]{\footnotesize\thepage}
 
     % localized date format
     \usepackage{babel}
