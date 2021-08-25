@@ -110,3 +110,7 @@ let g:vimtex_compiler_latexmk = {
                 \ ],
                 \}
 let g:vimtex_syntax_packages = {'minted': {'load': 1}}
+
+
+" lion
+let g:lion_squeeze_spaces = 1
