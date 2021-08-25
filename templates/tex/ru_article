@@ -16,7 +16,7 @@
     % fonts
     \usepackage{fontspec}
     \setmainfont{Open Sans}
-    \setsansfont{Oswald}
+    \setsansfont{Fira Sans}
     \setmonofont[Scale=MatchLowercase]{JetBrains Mono NL}
 
     % setup sections
