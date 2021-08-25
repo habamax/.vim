@@ -70,6 +70,7 @@
 \begin{document}
 \maketitle
 \linespread{1.2}\selectfont % for \linespread to have effect
+\tableofcontents
 
 \section{<+Введение+>}
 
