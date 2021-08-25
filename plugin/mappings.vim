@@ -23,7 +23,7 @@ xmap <silent> <space>м <space>v
 nmap <space>м <space>v
 
 
-let maplocalleader = "\<space>\<space>"
+let maplocalleader = "\<space>"
 
 " OS clipboard yank and paste
 xnoremap <space>y "+y
