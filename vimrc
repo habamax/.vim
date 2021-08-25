@@ -24,7 +24,7 @@ set nrformats=bin,hex
 set sessionoptions=buffers,curdir,tabpages,winsize
 set foldmethod=indent foldlevelstart=1
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
-set wildcharm=<C-z> wildmenu
+set wildmenu wildmode=longest:full,full wildcharm=<C-z>
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 set history=200
 
