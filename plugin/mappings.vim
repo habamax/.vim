@@ -32,10 +32,7 @@ if &wildcharm == 26
 endif
 
 
-" Find file/buffer
-" Overridden by vim-select if exists
-nnoremap <space>ff :find<space>
-nnoremap <space>fe :e<space><C-D>
+" Buffers: overridden by vim-select if exists
 nnoremap <space>b :b<space><C-D>
 
 nnoremap <space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
@@ -145,9 +142,9 @@ noremap <silent> <space>gi :call git#show_commit(v:count)<CR>
 noremap <silent> <space>gb :call git#blame()<CR>
 
 " edit global todo file
-nnoremap <silent> <space>et :exe printf('e %s/todo.adoc', expand($DOCS ?? '~/docs'))<CR>
+nnoremap <silent> <space>gt :exe printf('e %s/todo.adoc', expand($DOCS ?? '~/docs'))<CR>
 " edit global journal file
-nnoremap <silent> <space>ej :call journal#new()<CR>
+nnoremap <silent> <space>gj :call journal#new()<CR>
 
 
 nnoremap <silent> gof :call os#file_manager()<CR>
@@ -176,14 +173,8 @@ xmap <silent> gs :sort<CR>
 tnoremap <C-v> <C-w>""
 
 
-nnoremap <silent> <space>mm :call markit#mark()<CR>
-xnoremap <silent> <space>mm <cmd>call markit#mark()<CR><ESC>
-nnoremap <silent> <space>mu :call markit#unmark()<CR>
-xnoremap <silent> <space>mu <cmd>call markit#unmark()<CR><ESC>
-nnoremap <silent> <space>mU :call markit#unmark_all()<CR>
-
-
 " Template <+placeholders+> navigation
+snoremap <BS> <Del>i
 func! s:placeholder_next(dir = 1) abort
     if search('<+.\{-}+>', a:dir ? "" : "b")
         exe "normal! va<o\<C-g>"
@@ -221,3 +212,10 @@ nnoremap <silent> [W :lfirst<CR>
 " Next/Prev change for diff mode
 nnoremap <silent> ]x :call diff#next_change()<CR>
 nnoremap <silent> [x :call diff#prev_change()<CR>
+
+" Highlight/mark text
+nnoremap <silent> <space>kk :call markit#mark()<CR>
+xnoremap <silent> <space>kk <cmd>call markit#mark()<CR><ESC>
+nnoremap <silent> <space>ku :call markit#unmark()<CR>
+xnoremap <silent> <space>ku <cmd>call markit#unmark()<CR><ESC>
+nnoremap <silent> <space>kU :call markit#unmark_all()<CR>
