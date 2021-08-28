@@ -25,22 +25,6 @@ nmap <space>м <space>v
 
 let maplocalleader = "\<space>"
 
-" OS clipboard yank and paste
-xnoremap <space>y "+y
-nnoremap <space>y "+y
-xnoremap <space>p "+p
-nnoremap <space>p "+p
-xnoremap <space>P "+P
-nnoremap <space>P "+P
-
-xnoremap <space>н "+y
-nnoremap <space>н "+y
-xnoremap <space>з "+p
-nnoremap <space>з "+p
-xnoremap <space>З "+P
-nnoremap <space>З "+P
-
-
 " enhance search, only if wildcharm is set to <C-z>
 if &wildcharm == 26
     cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"
