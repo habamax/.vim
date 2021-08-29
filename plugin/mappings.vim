@@ -174,7 +174,7 @@ tnoremap <C-v> <C-w>""
 
 
 " Template <+placeholders+> navigation
-snoremap <BS> <Del>i
+snoremap <BS> <space><BS>
 func! s:placeholder_next(dir = 1) abort
     if search('<+.\{-}+>', a:dir ? "" : "b")
         exe "normal! va<o\<C-g>"
