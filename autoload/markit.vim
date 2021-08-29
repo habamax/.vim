@@ -7,6 +7,7 @@
 " nnoremap <space>mu :call markit#unmark()<CR>
 " xnoremap <space>mu <cmd>call markit#unmark()<CR><ESC>
 " nnoremap <space>mU :call markit#unmark_all()<CR>
+" hi MarkIt guibg=#d7d7af guifg=#5f5f5f ctermbg=187 ctermfg=59
 
 
 func! markit#mark()
