@@ -114,3 +114,6 @@ let g:vimtex_syntax_packages = {'minted': {'load': 1}}
 
 " lion
 let g:lion_squeeze_spaces = 1
+
+" vim-minisnip
+let g:minisnip_default_maps = v:true
