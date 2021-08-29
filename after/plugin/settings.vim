@@ -143,3 +143,8 @@ if exists("g:loaded_guifont_size")
     nmap <A--> <Plug>(GUIFontSizeDec)
     nmap <A-0> <Plug>(GUIFontSizeRestore)
 endif
+
+
+if exists("g:loaded_surround")
+    let g:surround_{char2nr('c')} = "\\\1latex\1{\r}"
+endif
