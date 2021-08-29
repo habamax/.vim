@@ -27,6 +27,10 @@ func! markit#mark()
         endfor
     elseif mode() ==# 'v'
         call prop_add(start[1], start[2], {'end_lnum': end[1], 'end_col': end[2]+1, 'type': 'markit'})
+    elseif mode() ==# ''
+        for lnum in range(start[1], end[1])
+            call prop_add(lnum, start[2], {'end_lnum': lnum, 'end_col': end[2]+1, 'type': 'markit'})
+        endfor
     else
         call prop_add(end[1], 1, {'length': col('$'), 'type': 'markit'})
     endif
