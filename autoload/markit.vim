@@ -2,11 +2,12 @@
 " Author: Maxim Kim <habamax@gmail.com>
 " Desc: Mark text with MarkIt highlight group
 " Example mappings:
-" nnoremap <space>mm :call markit#mark()<CR>
-" xnoremap <space>mm <cmd>call markit#mark()<CR><ESC>
-" nnoremap <space>mu :call markit#unmark()<CR>
-" xnoremap <space>mu <cmd>call markit#unmark()<CR><ESC>
-" nnoremap <space>mU :call markit#unmark_all()<CR>
+" nnoremap <silent><expr> <space>k markit#mark()
+" xnoremap <silent><expr> <space>k markit#mark()
+" nnoremap <silent><expr> <space>kk markit#mark() .. '_'
+" nnoremap <silent><expr> <space>0k markit#unmark()
+" xnoremap <silent><expr> <space>0k markit#unmark()
+" nnoremap <silent><expr> <space>0kk markit#unmark() .. '_'
 " hi MarkIt guibg=#d7d7af guifg=#5f5f5f ctermbg=187 ctermfg=59
 
 
