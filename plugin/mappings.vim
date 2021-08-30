@@ -11,7 +11,7 @@ func! s:viml(type = '')
         let &opfunc = matchstr(expand('<sfile>'), '[^. ]*$')
         return 'g@'
     endif
-    let commands = #{line: "'[V']y", char: "`[v`]y", block: "`[\<c-v>`]y"}
+    let commands = {"line": "'[V']y", "char": "`[v`]y", "block": "`[\<c-v>`]y"}
     silent exe 'noautocmd keepjumps normal! ' .. get(commands, a:type, '')
     @"
 endfunc
@@ -213,9 +213,10 @@ nnoremap <silent> [W :lfirst<CR>
 nnoremap <silent> ]x :call diff#next_change()<CR>
 nnoremap <silent> [x :call diff#prev_change()<CR>
 
-" Highlight/mark text
-nnoremap <silent> <space>kk :call markit#mark()<CR>
-xnoremap <silent> <space>kk <cmd>call markit#mark()<CR><ESC>
-nnoremap <silent> <space>ku :call markit#unmark()<CR>
-xnoremap <silent> <space>ku <cmd>call markit#unmark()<CR><ESC>
-nnoremap <silent> <space>kU :call markit#unmark_all()<CR>
+" Highlight/Unhighlight text
+nnoremap <silent><expr> <space>k markit#mark()
+xnoremap <silent><expr> <space>k markit#mark()
+nnoremap <silent><expr> <space>kk markit#mark() .. '_'
+nnoremap <silent><expr> <space>0k markit#unmark()
+xnoremap <silent><expr> <space>0k markit#unmark()
+nnoremap <silent><expr> <space>0kk markit#unmark() .. '_'

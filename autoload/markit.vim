@@ -10,48 +10,46 @@
 " hi MarkIt guibg=#d7d7af guifg=#5f5f5f ctermbg=187 ctermfg=59
 
 
-func! markit#mark()
+func! markit#mark(type = '')
+    " operator boilerplate
+    if a:type == ''
+        let &opfunc = matchstr(expand('<sfile>'), '[^. ]*$')
+        return 'g@'
+    endif
+    " let commands = {"line": "'[V']", "char": "`[v`]", "block": "`[\<c-v>`]"}
+    " silent exe 'noautocmd keepjumps normal! ' .. get(commands, a:type, '')
+
     hi def link MarkIt IncSearch
     if empty(prop_type_get("markit"))
         call prop_type_add('markit', {'highlight': 'MarkIt'})
     endif
 
-    let start = getpos("v")
-    let end = getpos(".")
-    if (start[1] == end[1] && start[2] > end[2]) || start[1] > end[1]
-        let start = getpos(".")
-        let end = getpos("v")
-    endif
-    if mode() ==# 'V'
-        for lnum in range(start[1], end[1])
-            call prop_add(lnum, 1, {'length': len(getline(lnum)), 'type': 'markit'})
-        endfor
-    elseif mode() ==# 'v'
+    let start = getpos("'[")
+    let end = getpos("']")
+
+    if a:type ==# 'line'
+        call prop_add(start[1], start[2], {'end_lnum': end[1], 'end_col': strlen(getline(end[1])) + 1, 'type': 'markit'})
+    elseif a:type ==# 'char'
         call prop_add(start[1], start[2], {'end_lnum': end[1], 'end_col': end[2]+1, 'type': 'markit'})
-    elseif mode() ==# ''
+    elseif a:type ==# 'block'
         for lnum in range(start[1], end[1])
             call prop_add(lnum, start[2], {'end_lnum': lnum, 'end_col': end[2]+1, 'type': 'markit'})
         endfor
-    else
-        call prop_add(end[1], 1, {'length': col('$'), 'type': 'markit'})
     endif
 endfunc
 
 
-func! markit#unmark()
-    if mode() == 'v'
-        let start = getpos("v")
-        let end = getpos(".")
-        if (start[1] == end[1] && start[2] > end[2]) || start[1] > end[1]
-            let start = getpos(".")
-            let end = getpos("v")
-        endif
-        for lnum in range(start[1], end[1])
-            call prop_remove({'id': 'markit', 'all': v:true}, lnum)
-        endfor
-    else
-        call prop_remove({'id': 'markit', 'all': v:true}, getpos(".")[1])
+func! markit#unmark(type = '')
+    " operator boilerplate
+    if a:type == ''
+        let &opfunc = matchstr(expand('<sfile>'), '[^. ]*$')
+        return 'g@'
     endif
+
+    let start = getpos("'[")
+    let end = getpos("']")
+
+    call prop_remove({'id': 'markit', 'all': v:true}, start[1], end[1])
 endfunc
 
 
