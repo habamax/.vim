@@ -120,7 +120,7 @@ nnoremap <space><space><space> :TextFixSpaces<CR>
 xnoremap <space><space><space> :TextFixSpaces<CR>
 
 " Syntax group names under cursor
-nnoremap <space>sy :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')))<CR>
+nnoremap <space>ts :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')))<CR>
 
 " Paste over selected text keeping initial yank
 xnoremap <expr> p 'pgv"'.v:register.'y`>'
