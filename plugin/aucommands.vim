@@ -33,6 +33,6 @@ augroup END
 
 
 augroup colorscheme | au!
-    hi MarkIt guibg=#d7d7af guifg=#5f5f5f ctermbg=187 ctermfg=59
-    au Colorscheme * hi MarkIt guibg=#d7d7af guifg=#5f5f5f ctermbg=187 ctermfg=59
+    hi HL guibg=#d7d7af guifg=#5f5f5f ctermbg=187 ctermfg=59
+    au Colorscheme * hi HL guibg=#d7d7af guifg=#5f5f5f ctermbg=187 ctermfg=59
 augroup END

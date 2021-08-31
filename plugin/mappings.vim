@@ -214,9 +214,9 @@ nnoremap <silent> ]x :call diff#next_change()<CR>
 nnoremap <silent> [x :call diff#prev_change()<CR>
 
 " Highlight/Unhighlight text
-nnoremap <silent><expr> <space>k markit#mark()
-xnoremap <silent><expr> <space>k markit#mark()
-nnoremap <silent><expr> <space>kk markit#mark() .. '_'
-nnoremap <silent><expr> <space>0k markit#unmark()
-xnoremap <silent><expr> <space>0k markit#unmark()
-nnoremap <silent><expr> <space>0kk markit#unmark() .. '_'
+nnoremap <silent><expr> <space>k hl#mark()
+xnoremap <silent><expr> <space>k hl#mark()
+nnoremap <silent><expr> <space>kk hl#mark() .. '_'
+nnoremap <silent><expr> <space>0k hl#unmark()
+xnoremap <silent><expr> <space>0k hl#unmark()
+nnoremap <silent><expr> <space>0kk hl#unmark() .. '_'
