@@ -6,13 +6,13 @@ xnoremap <silent> <space>v y:@"<cr>
 " run vimscript line
 nmap <space>vv V<space>v
 " run operator
-func! s:viml(type = '')
-    if a:type == ''
+func! s:viml(...)
+    if a:0 == 0
         let &opfunc = matchstr(expand('<sfile>'), '[^. ]*$')
         return 'g@'
     endif
     let commands = {"line": "'[V']y", "char": "`[v`]y", "block": "`[\<c-v>`]y"}
-    silent exe 'noautocmd keepjumps normal! ' .. get(commands, a:type, '')
+    silent exe 'noautocmd keepjumps normal! ' . get(commands, a:1, '')
     @"
 endfunc
 nnoremap <silent> <expr> <space>v <SID>viml()
