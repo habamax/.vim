@@ -36,3 +36,10 @@ augroup colorscheme | au!
     hi HL guibg=#d7d7af guifg=#5f5f5f ctermbg=187 ctermfg=59
     au Colorscheme * hi HL guibg=#d7d7af guifg=#5f5f5f ctermbg=187 ctermfg=59
 augroup END
+
+
+if exists("$WSLENV")
+    augroup WSLClip | au!
+        au TextYankPost * if v:event.regname == '"' | call system("clip.exe ", v:event.regcontents) | endif
+    augroup END
+endif
