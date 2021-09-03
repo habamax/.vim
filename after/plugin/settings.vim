@@ -148,3 +148,17 @@ endif
 if exists("g:loaded_surround")
     let g:surround_{char2nr('c')} = "\\\1latex\1{\r}"
 endif
+
+
+
+" netrw
+if exists("g:loaded_netrwPlugin")
+    func! s:netrw_e() abort
+        exe 'silent e ' .. expand("%:p:h")
+        call search('\<'..expand("#:t")..'\>')
+    endfunc
+    nnoremap <silent> - :call <SID>netrw_e()<CR>
+    let g:netrw_banner = 0
+endif
+
+

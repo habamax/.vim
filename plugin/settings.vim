@@ -3,15 +3,6 @@
 
 packadd cfilter
 
-" netrw
-func! s:netrw_e() abort
-    exe 'silent e ' .. expand("%:p:h")
-    call search('\<'..expand("#:t")..'\>')
-endfunc
-nnoremap <silent> - :call <SID>netrw_e()<CR>
-let g:netrw_banner = 0
-
-
 " vim-gutentags
 if executable("ctags")
     silent! packadd vim-gutentags
@@ -118,3 +109,10 @@ let g:lion_squeeze_spaces = 1
 
 " vim-minisnip
 let g:minisnip_default_maps = 1
+
+
+" vim-dirvish
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+let g:dirvish_mode = ':sort ,^.*[\/],'
+
