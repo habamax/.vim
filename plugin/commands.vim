@@ -1,5 +1,5 @@
 " Update packages
-command! PackUp call git#pack_update()
+command! PlugUp call git#plug_update()
 
 
 " Wipe all hidden buffers

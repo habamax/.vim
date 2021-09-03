@@ -1,5 +1,5 @@
 " Update or install plugins listed in plugs
-func! git#pack_update() abort
+func! git#plug_update() abort
     if !reduce(get(s:, 'pack_jobs', []), {acc, val -> acc && job_status(val) != 'run'}, v:true)
         echo "Previous update is not finished yet!"
         return
