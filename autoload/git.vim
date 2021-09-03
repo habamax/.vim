@@ -1,14 +1,14 @@
-" Update or install plugins listed in packages
+" Update or install plugins listed in plugs
 func! git#pack_update() abort
     if !reduce(get(s:, 'pack_jobs', []), {acc, val -> acc && job_status(val) != 'run'}, v:true)
         echo "Previous update is not finished yet!"
         return
     endif
     let s:pack_jobs = []
-    echom "Update packages..."
+    echom "Update plugins..."
     let cwd = fnamemodify($MYVIMRC, ":p:h")
     let bundle = 'plug'
-    let pack_list = cwd .. '/pack/packages'
+    let pack_list = cwd .. '/pack/plugs'
     let jobs = []
     let msg_count = 2
     func! s:out_cb(ch, msg) abort closure
@@ -18,8 +18,8 @@ func! git#pack_update() abort
         endif
     endfunc
     if filereadable(pack_list)
-        let packages = readfile(pack_list)
-        for pinfo in packages
+        let plugs = readfile(pack_list)
+        for pinfo in plugs
             if pinfo =~ '^\s*#' || pinfo =~ '^\s*$'
                 continue
             endif
@@ -49,7 +49,7 @@ func! git#pack_update() abort
             if msg_count == 2
                 echom "No updates available."
             else
-                echom "Packages are updated!"
+                echom "Plugins are updated!"
             endif
             helptags ALL
             call feedkeys(":"..msg_count.."messages\<CR>", 'n')
