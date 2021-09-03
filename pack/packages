@@ -25,7 +25,6 @@ start/vim-repeat	git@github.com:tpope/vim-repeat.git
 start/vim-swap	git@github.com:machakann/vim-swap.git
 start/vim-exchange	git@github.com:tommcdo/vim-exchange.git
 start/vim-lion	git@github.com:tommcdo/vim-lion.git
-start/vim-colortemplate	git@github.com:lifepillar/vim-colortemplate.git
 start/vim-endwise	git@github.com:tpope/vim-endwise.git
 start/vim-dispatch	git@github.com:tpope/vim-dispatch.git
 start/vimtex	git@github.com:lervag/vimtex.git
@@ -34,10 +33,10 @@ start/vimtex	git@github.com:lervag/vimtex.git
 start/vim-eunuch	git@github.com:tpope/vim-eunuch.git
 start/vim-closetag	git@github.com:alvan/vim-closetag.git
 start/vim-devdocs	git@github.com:romainl/vim-devdocs.git
+start/vim-colortemplate	git@github.com:lifepillar/vim-colortemplate.git
+start/Colorizer	git@github.com:chrisbra/Colorizer.git
 
 # Filetypes
 start/vim-elixir	git@github.com:elixir-editors/vim-elixir.git
 start/plantuml-syntax	git@github.com:aklt/plantuml-syntax.git
 start/vim-toml	git@github.com:cespare/vim-toml.git
-
-start/Colorizer	git@github.com:chrisbra/Colorizer.git
