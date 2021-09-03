@@ -152,7 +152,7 @@ endif
 
 
 " netrw
-if exists("g:loaded_netrwPlugin")
+if exists("g:loaded_netrw")
     func! s:netrw_e() abort
         exe 'silent e ' .. expand("%:p:h")
         call search('\<'..expand("#:t")..'\>')
