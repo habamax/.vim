@@ -27,6 +27,7 @@ set wildmenu wildmode=longest:full,full wildcharm=<C-z>
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 set sessionoptions=buffers,curdir,tabpages,winsize
 set history=200
+set mouse=a ttymouse=xterm2
 
 if executable('rg') | set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m | endif
 
