@@ -28,6 +28,7 @@ start/vim-lion	git@github.com:tommcdo/vim-lion.git
 start/vim-endwise	git@github.com:tpope/vim-endwise.git
 start/vim-dispatch	git@github.com:tpope/vim-dispatch.git
 start/vimtex	git@github.com:lervag/vimtex.git
+start/editorconfig-vim	git@github.com:editorconfig/editorconfig-vim.git
 
 # Nice to have
 start/vim-eunuch	git@github.com:tpope/vim-eunuch.git
