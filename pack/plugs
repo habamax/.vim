@@ -10,6 +10,7 @@ start/vim-winlayout	git@github.com:habamax/vim-winlayout.git
 start/vim-minisnip	git@github.com:habamax/vim-minisnip
 
 # My colors
+opt/vim-bronzage	git@github.com:habamax/vim-bronzage.git
 opt/vim-saturnite	git@github.com:habamax/vim-saturnite.git
 opt/vim-freyeday	git@github.com:habamax/vim-freyeday.git
 
