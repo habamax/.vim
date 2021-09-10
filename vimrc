@@ -23,7 +23,7 @@ set commentstring=
 set nrformats=bin,hex
 set foldmethod=indent foldlevelstart=1
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
-set wildmenu wildmode=longest:full,full wildcharm=<C-z>
+set wildmenu wildcharm=<C-z>
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 set sessionoptions=buffers,curdir,tabpages,winsize
 set history=200
