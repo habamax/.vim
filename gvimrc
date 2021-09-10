@@ -9,15 +9,10 @@ set linespace=0
 set guifont=JetBrains\ Mono\ NL:h14
 
 " Never gonna give you up, never gonna let you down.
-" set guifont=DejaVu\ Sans\ Mono:h14
 " set guifont=Hack:h14
 
-" Semi Light looks quite ok
-" set guifont=Cascadia\ Mono\ SemiLight:h14
-
-" no italics
+" Probably the best looking mono font so far. But has no italics.
 " set guifont=Fira\ Mono:h14
-" set guifont=PT\ Mono:h14
 
 " quick font check:
 " З3Э -- буква З, цифра 3, буква Э
