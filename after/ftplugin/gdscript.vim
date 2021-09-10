@@ -1,3 +1,4 @@
+setlocal ts=4
 let b:select_info = {"godot": {}}
 let b:select_info.godot.data = {"job": "rg --files --glob *.tscn"}
 let b:select_info.godot.sink = {
