@@ -29,7 +29,7 @@ func! git#plug_update() abort
             endif
             let path = cwd .. '/pack/'..bundle..'/' .. name
             if isdirectory(path)
-                let job = job_start([&shell, &shellcmdflag, 'git fetch --depth=1 && git reset --hard && git clean -dfx'],
+                let job = job_start([&shell, &shellcmdflag, 'git fetch --depth=1 && git reset --hard origin/HEAD && git clean -dfx'],
                             \ {"cwd": path,
                             \  "err_cb": function("s:out_cb"),
                             \  "out_cb": function("s:out_cb")})
