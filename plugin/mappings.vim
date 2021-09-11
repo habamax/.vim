@@ -63,10 +63,10 @@ inoremap <silent> <C-space>l <ESC>guiw`]a
 nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
 nmap <C-w><C-o> <C-w>o
 nnoremap <silent> <C-w><space> :echo win#layout_toggle()<CR>
-nnoremap <silent> <CR> <cmd>exe "wincmd " .. ((winnr('#') ?? winnr()) == winnr() ? 'w' : 'p')<CR>
-nmap <silent> <C-w><C-p> <CR>
-nmap <silent> <C-w>p <CR>
-nnoremap <silent> <C-w><CR> :call win#lens_toggle()<CR>
+nnoremap <silent> <BS> <C-w>w
+nnoremap <silent> <C-w>p <cmd>exe "wincmd " .. ((winnr('#') ?? winnr()) == winnr() ? 'w' : 'p')<CR>
+nmap <silent> <C-w><C-p> <C-w>p
+nnoremap <silent> <C-w><BS> :call win#lens_toggle()<CR>
 
 
 " 24 simple text objects
