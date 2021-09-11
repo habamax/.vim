@@ -196,11 +196,3 @@ nnoremap <silent> [W :lfirst<CR>
 " Next/Prev change for diff mode
 nnoremap <silent> ]x :call diff#next_change()<CR>
 nnoremap <silent> [x :call diff#prev_change()<CR>
-
-" Highlight/Unhighlight text
-nnoremap <silent><expr> <space>k hl#mark()
-xnoremap <silent><expr> <space>k hl#mark()
-nnoremap <silent><expr> <space>kk hl#mark() .. '_'
-nnoremap <silent><expr> <space>0k hl#unmark()
-xnoremap <silent><expr> <space>0k hl#unmark()
-nnoremap <silent><expr> <space>0kk hl#unmark() .. '_'
