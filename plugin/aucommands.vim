@@ -20,12 +20,6 @@ augroup win_autosize | au!
 augroup end
 
 
-" detect indent
-" augroup indentector | au!
-"     au FileType * call indentector#detect_indent(getline(1, 1024))
-" augroup END
-
-
 " <+placeholder+> highlight
 augroup placeholder | au!
     au BufNew,BufRead * call matchadd('Error', '<+.\{-}+>')
