@@ -47,12 +47,6 @@ nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis").."<CR>"
 nnoremap <expr> yob ':colo ' .. (get(g:, 'colors_name', '') == 'bronzage' ? "freyeday" : "bronzage") .. "<CR>"
 
 
-" UPPERCASE word in insert mode
-inoremap <silent> <C-space>u <ESC>gUiw`]a
-" lowercase word in insert mode
-inoremap <silent> <C-space>l <ESC>guiw`]a
-
-
 " Window management
 nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
 nmap <C-w><C-o> <C-w>o
