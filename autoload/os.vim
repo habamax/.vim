@@ -44,7 +44,6 @@ func! os#file_manager() abort
         else
             silent exe '!start explorer.exe /select,' .. path
         endif
-
     else
         echomsg "Not yet implemented!"
     endif
