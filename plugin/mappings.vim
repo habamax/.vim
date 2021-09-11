@@ -32,6 +32,8 @@ endif
 " Buffers: overridden by vim-select if exists
 nnoremap <space>b :b<space><C-D>
 
+nnoremap <BS> <C-^>
+
 nnoremap <space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
 
 " Manual folding
