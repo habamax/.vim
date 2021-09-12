@@ -100,10 +100,6 @@ inoremap <C-U> <C-G>u<C-U>
 " https://castel.dev/post/lecture-notes-1/
 inoremap <C-l> <c-g>u<C-\><C-o>[s<ESC>1z=`]a<c-g>u
 
-" Fix text (remove double spaces, hanging spaces, etc)
-nnoremap <space><space><space> :TextFixSpaces<CR>
-xnoremap <space><space><space> :TextFixSpaces<CR>
-
 " Syntax group names under cursor
 nnoremap <space>ts :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')))<CR>
 
