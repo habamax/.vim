@@ -64,16 +64,16 @@
     \hfuzz=2pt
 
 
-\title{<+Документ+>}
-\author{<+Максим Ким+>}
+\title{Документ}
+\author{Максим Ким}
 
 \begin{document}
 \maketitle
 \linespread{1.2}\selectfont % for \linespread to have effect
 \tableofcontents
 
-\section{<+Введение+>}
+\section{Введение}
 
-<++>
+
 
 \end{document}
