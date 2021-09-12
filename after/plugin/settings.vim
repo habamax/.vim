@@ -83,6 +83,8 @@ endif
 if exists("g:loaded_fugitive")
     command! Glog Git log -p --follow -- %
     command! GlogSummary Git log --follow -- %
+    command! Gpull Git pull
+    command! Gpush Git push
 endif
 
 
