@@ -51,7 +51,8 @@ nnoremap <expr> yob ':colo ' .. (get(g:, 'colors_name', '') == 'bronzage' ? "fre
 nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
 nmap <C-w><C-o> <C-w>o
 nnoremap <silent> <C-w><space> :echo win#layout_toggle()<CR>
-nnoremap <silent> <BS> <C-w>w
+nnoremap <silent> <C-j> <C-w>w
+nnoremap <silent> <C-k> <C-w>W
 nnoremap <silent> <C-w><BS> :call win#lens_toggle()<CR>
 
 
@@ -155,31 +156,6 @@ xmap <silent> gs :sort<CR>
 
 
 tnoremap <C-v> <C-w>""
-
-
-" Template <+placeholders+> navigation
-snoremap <BS> <space><BS>
-func! s:placeholder_next(dir = 1) abort
-    if search('<+.\{-}+>', a:dir ? "" : "b")
-        exe "normal! va<o\<C-g>"
-    endif
-endfunc
-
-func! s:placeholder_accept() abort
-    if search('<+.\{-}+>', "c")
-        exe 'normal! 2"_x'
-        call search('+>', "c")
-        exe 'normal! 2"_x'
-        call s:placeholder_next()
-    endif
-endfunc
-
-nnoremap <silent> <C-j> :<C-u>call <SID>placeholder_next()<CR>
-inoremap <silent> <C-j> <C-\><C-o>:call <SID>placeholder_next()<CR>
-snoremap <silent> <C-j> <ESC>:call <SID>placeholder_next()<CR>
-nnoremap <silent> <C-k> :<C-u>call <SID>placeholder_next(0)<CR>
-snoremap <silent> <C-k> <ESC>:call <SID>placeholder_next(0)<CR>
-snoremap <silent> <CR> <ESC>:call <SID>placeholder_accept()<CR>
 
 
 " QuickFix
