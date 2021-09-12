@@ -52,7 +52,9 @@ nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
 nmap <C-w><C-o> <C-w>o
 nnoremap <silent> <C-w><space> :echo win#layout_toggle()<CR>
 nnoremap <silent> <C-j> <C-w>w
+tnoremap <silent> <C-j> <C-w>w
 nnoremap <silent> <C-k> <C-w>W
+tnoremap <silent> <C-k> <C-w>W
 nnoremap <silent> <C-w><BS> :call win#lens_toggle()<CR>
 
 
