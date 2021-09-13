@@ -14,6 +14,7 @@ func! s:comment(...)
     let indent_min = indent(lnum1)
     let indent_start = matchstr(getline(lnum1), '^\s*')
     for lnum in range(lnum1, lnum2)
+        if getline(lnum) =~ '^\s*$' | continue | endif
         if indent_min > indent(lnum)
             let indent_min = indent(lnum)
             let indent_start = matchstr(getline(lnum), '^\s*')
@@ -24,7 +25,9 @@ func! s:comment(...)
     endfor
     let lines = []
     for lnum in range(lnum1, lnum2)
-        if comment
+        if getline(lnum) =~ '^\s*$'
+            let line = getline(lnum)
+        elseif comment
             if exists("g:comment_first_col") || exists("b:comment_first_col")
                 let line = printf(cms, getline(lnum))
             else
