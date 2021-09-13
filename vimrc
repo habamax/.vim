@@ -21,7 +21,7 @@ set backspace=indent,eol,start
 set nospell spelllang=ru,en
 set commentstring=
 set nrformats=bin,hex
-set foldmethod=indent foldlevelstart=1
+set foldmethod=indent foldlevelstart=1 foldminlines=2
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set wildmenu wildcharm=<C-z>
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
