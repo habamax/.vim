@@ -4,6 +4,8 @@ setlocal path+=**/*
 
 setl cole=3
 
+let b:comment_first_col = 1
+
 nnoremap <buffer> <space><space>oo :AsciidoctorOpenRAW<CR>
 nnoremap <buffer> <space><space>oh :AsciidoctorOpenHTML<CR>
 nnoremap <buffer> <space><space>ox :AsciidoctorOpenDOCX<CR>
