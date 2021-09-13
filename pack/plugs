@@ -20,7 +20,6 @@ start/traces.vim	git@github.com:markonm/traces.vim.git
 opt/vim-fugitive	git@github.com:tpope/vim-fugitive.git
 opt/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
 opt/gv.vim	git@github.com:junegunn/gv.vim.git
-start/vim-commentary	git@github.com:tpope/vim-commentary.git
 start/vim-surround	git@github.com:tpope/vim-surround.git
 start/vim-repeat	git@github.com:tpope/vim-repeat.git
 start/vim-swap	git@github.com:machakann/vim-swap.git
