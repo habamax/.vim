@@ -4,8 +4,7 @@ func! s:comment(...)
         return 'g@'
     endif
     if empty(&cms) | return | endif
-    let cms = substitute(&cms, '\S\zs%s\s*', ' %s', '')
-    let cms = substitute(cms, '%s\ze\S', '%s ', '')
+    let cms = substitute(substitute(&cms, '\S\zs%s\s*', ' %s', ''), '%s\ze\S', '%s ', '')
     let [lnum1, lnum2] = [line("'["), line("']")]
     let cms_l = split(escape(cms, '*.'), '%s')
     if len(cms_l) == 0 | return | endif
