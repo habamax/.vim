@@ -51,10 +51,10 @@ nnoremap <expr> yob ':colo ' .. (get(g:, 'colors_name', '') == 'bronzage' ? "fre
 nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
 nmap <C-w><C-o> <C-w>o
 nnoremap <silent> <C-w><space> :echo win#layout_toggle()<CR>
-nnoremap <silent> <C-j> <C-w>w
-tnoremap <silent> <C-j> <C-w>w
-nnoremap <silent> <C-k> <C-w>W
-tnoremap <silent> <C-k> <C-w>W
+nnoremap <silent><expr> <C-j> winnr('$') > 1 ? "\<C-w>w" : ":belowright split +bn\<CR>"
+tnoremap <silent><expr> <C-j> winnr('$') > 1 ? "\<C-w>w" : "\<C-w>:belowright split +bn\<CR>"
+nnoremap <silent><expr> <C-k> winnr('$') > 1 ? "\<C-w>W" : ":split +bn\<CR>"
+tnoremap <silent><expr> <C-k> winnr('$') > 1 ? "\<C-w>W" : "\<C-w>:split +bn\<CR>"
 nnoremap <silent> <C-w><BS> :call win#lens_toggle()<CR>
 
 
