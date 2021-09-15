@@ -99,8 +99,8 @@ onoremap ad :<C-u>normal vad<CR>
 inoremap <C-U> <C-G>u<C-U>
 
 " spell correction for the first suggested
-" https://castel.dev/post/lecture-notes-1/
-inoremap <C-l> <c-g>u<C-\><C-o>[s<ESC>1z=`]a<c-g>u
+" inoremap <C-l> <C-g>u<C-\><C-o>[s<C-\><C-o>1z=<C-\><C-o>``<C-g>u
+inoremap <C-l> <C-g>u<Cmd>norm! [s1z=``<CR><C-g>u
 
 " Syntax group names under cursor
 nnoremap <space>ts :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')))<CR>
