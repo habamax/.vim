@@ -2,7 +2,7 @@
 " https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
 " Usage:
 " Add command to your vimrc
-" command! -nargs=1 -complete=command -bar -range Redir silent call tools#redir(<q-args>)
+" command! -nargs=1 -complete=command Redir silent call tools#redir(<q-args>)
 " To use:
 " :Redir version
 " Vim version would be in a new window
