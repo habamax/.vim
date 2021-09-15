@@ -100,7 +100,8 @@ inoremap <C-U> <C-G>u<C-U>
 
 " spell correction for the first suggested
 " inoremap <C-l> <C-g>u<C-\><C-o>[s<C-\><C-o>1z=<C-\><C-o>``<C-g>u
-inoremap <C-l> <C-g>u<Cmd>norm! [s1z=``<CR><C-g>u
+" inoremap <C-l> <C-g>u<Cmd>norm! [sass=``<CR><C-g>u
+inoremap <C-l> <C-g>u<ESC>[s1z=gi<C-g>u
 
 " Syntax group names under cursor
 nnoremap <space>ts :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')))<CR>
