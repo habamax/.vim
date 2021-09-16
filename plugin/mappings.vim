@@ -48,8 +48,9 @@ nnoremap <expr> yob ':colo ' .. (get(g:, 'colors_name', '') == 'bronzage' ? "fre
 
 
 " Window management
-nnoremap <silent> <C-w>o :call win#zoom_toggle()<CR>
-nmap <C-w><C-o> <C-w>o
+nnoremap <silent> <C-w>m :resize<bar>vert resize<CR>
+nmap <C-w><C-m> <C-w>m
+tmap <silent> <C-w>m <C-w>:resize<bar>vert resize<CR>
 nnoremap <silent> <C-w><space> :echo win#layout_toggle()<CR>
 nnoremap <silent><expr> <C-j> winnr('$') > 1 ? "\<C-w>w" : ":bel vs +bn\<CR>"
 tnoremap <silent><expr> <C-j> winnr('$') > 1 ? "\<C-w>w" : "\<C-w>:bel vs +bn\<CR>"
