@@ -1,0 +1,32 @@
+snippet fu
+	func ${1:fname}(${2}) ${3}{
+		${4}
+	}
+snippet main
+	package main
+
+	import (
+		"${1:fmt}"
+	)
+
+	func main() {
+		${2}
+	}
+snippet p
+	fmt.Println(${1})
+snippet pr
+	fmt.Printf(${1})
+snippet if
+	if ${1:true} {
+		${2}
+	}
+snippet ife
+	if ${1:true} {
+		${2}
+	} else {
+		${3}
+	}
+snippet for
+	for ${1}{
+		${2}
+	}
