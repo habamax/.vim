@@ -1,4 +1,4 @@
-" Redirect the output of a Vim or external command into a scratch buffer
+" Redirect the output of a Vim command into a scratch buffer
 " https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
 " Usage:
 " Add command to your vimrc
@@ -12,20 +12,13 @@ func! tools#redir(cmd) abort
             execute win . 'windo close'
         endif
     endfor
-    if a:cmd =~ '^!'
-        let cmd = a:cmd =~' %'
-                    \ ? matchstr(substitute(a:cmd, ' %', ' ' . expand('%:p'), ''), '^!\zs.*')
-                    \ : matchstr(a:cmd, '^!\zs.*')
-        let output = systemlist(cmd)
+    if version > 704
+        let output = split(execute(a:cmd), "\n")
     else
-        if version > 704
-            let output = split(execute(a:cmd), "\n")
-        else
-            redir => redir_out
-            exe a:cmd
-            redir END
-            let output = split(redir_out, "\n")
-        endif
+        redir => redir_out
+        exe a:cmd
+        redir END
+        let output = split(redir_out, "\n")
     endif
     vnew
     let w:scratch = 1
