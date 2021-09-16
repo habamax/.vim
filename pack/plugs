@@ -5,8 +5,6 @@ start/vim-select	git@github.com:habamax/vim-select.git
 start/vim-select-more	git@github.com:habamax/vim-select-more.git
 start/vim-asciidoctor	git@github.com:habamax/vim-asciidoctor.git
 start/vim-godot	git@github.com:habamax/vim-godot.git
-start/vim-num2words	git@github.com:habamax/vim-num2words.git
-start/vim-winlayout	git@github.com:habamax/vim-winlayout.git
 start/vim-minisnip	git@github.com:habamax/vim-minisnip
 
 # My colors

@@ -88,12 +88,6 @@ if exists("g:loaded_fugitive")
 endif
 
 
-if exists("g:loaded_winlayout")
-    nmap <F3> <Plug>(WinlayoutBackward)
-    nmap <F4> <Plug>(WinlayoutForward)
-endif
-
-
 if exists("g:loaded_swap")
     omap io <Plug>(swap-textobject-i)
     xmap io <Plug>(swap-textobject-i)
