@@ -13,6 +13,7 @@ Nothing fancy, just to keep it safe and available.
 
 == Colors
 
+* link:https://github.com/habamax/vim-bronzage[bronzage] -- dark background, was thinking of zenburn while creating it.
 * link:https://github.com/habamax/vim-saturnite[saturnite] -- dark background, variation of the awesome https://github.com/romainl/Apprentice[Apprentice];
 * link:https://github.com/habamax/vim-freyeday[freyeday] -- light background, to complement `saturnite`;
 * link:https://github.com/habamax/vim-alchemist[alchemist] -- dark background, variation of the awesome https://github.com/romainl/Apprentice[Apprentice];
@@ -21,22 +22,6 @@ Nothing fancy, just to keep it safe and available.
 * link:https://github.com/habamax/vim-polar[polar] -- white background variantion of base16-one-light;
 * link:https://github.com/habamax/vim-habanight[habanight] -- black background variation of base16-default-dark colorscheme.
 
-image::https://user-images.githubusercontent.com/234774/93188368-90121980-f749-11ea-8dfe-c628021f2266.gif[]
+== Look'n'Feel
 
-
-== Simple Todos
-
-I don't need org-mode like uber feature rich solution. Simple todo lists
-with checkboxes are more than enough for me.
-
-image::https://user-images.githubusercontent.com/234774/81433875-f40a4d00-916d-11ea-881d-174b9a6b5f50.gif[]
-
-
-== Active Window Autosize && Windows Layouts
-
-Make active window 100x20 chars, and others equally even if possible (inspired
-by lens.vim plugin).
-
-Add predefined layouts, like tmux.
-
-image::https://user-images.githubusercontent.com/234774/81434657-33856900-916f-11ea-9d36-fa5d9b2ff176.gif[]
+https://user-images.githubusercontent.com/234774/133601573-4b91eba9-4080-40f8-86ad-0826f2b494d7.gif[]
