@@ -22,6 +22,8 @@ Nothing fancy, just to keep it safe and available.
 * link:https://github.com/habamax/vim-polar[polar] -- white background variantion of base16-one-light;
 * link:https://github.com/habamax/vim-habanight[habanight] -- black background variation of base16-default-dark colorscheme.
 
+
 == Look'n'Feel
 
-https://user-images.githubusercontent.com/234774/133601573-4b91eba9-4080-40f8-86ad-0826f2b494d7.gif[]
+image::https://user-images.githubusercontent.com/234774/133601573-4b91eba9-4080-40f8-86ad-0826f2b494d7.gif[]
+
