@@ -1,5 +1,5 @@
 if executable('yapf')
-    command -buffer Format :%!yapf
+    command -buffer Fmt :%!yapf
 endif
 
 
