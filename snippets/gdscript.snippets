@@ -1,11 +1,11 @@
 snippet fu
-	func ${1:name}(${2}):
-		${3:pass}
-snippet pr
-	var ${1:property}${2} setget set_$1, get_$1
-	func set_$1(value):
+	func ${1:name}(${2}) -> ${3:void}:
+		${4:pass}
+snippet var
+	var ${1:property}: ${2:int} setget set_$1, get_$1
+	func set_$1(value: $2) -> void:
 		$1 = value
-	func get_$1():
+	func get_$1() -> $2:
 		return $1
 snippet p
 	prints(${1})
