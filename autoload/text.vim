@@ -45,7 +45,7 @@ func! text#underline(char)
     let line = matchlist(getline('.'), '^\(\s*\)\(.*\)$')
     if empty(line[2]) | return | endif
     let underline = line[1] . repeat(a:char, strchars(line[2]))
-    if getline(nextnr) =~ '^\s*' . escape(a:char, '*\') . '\+$'
+    if getline(nextnr) =~ '^\s*' . escape(a:char, '*\~^') . '\+$'
         call setline(nextnr, underline)
     else
         call append('.', underline)
