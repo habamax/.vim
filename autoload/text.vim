@@ -33,20 +33,19 @@ func! text#fix_spaces() range
 endfunc
 
 
-" Underline current line with chars[0]
-" If current line is already underlined with one the chars[1..]
-" Replace it with char[0]
-" call text#underline(['-', '=', '~', '^', '+'])
+" Underline current line with a chars
 " example mappings:
-" nnoremap <silent> <space>t- :call text#underline(['-', '=', '~', '^', '+'])<CR>
-" nnoremap <silent> <space>t= :call text#underline(['=', '-', '~', '^', '+'])<CR>
-" nnoremap <silent> <space>t~ :call text#underline(['~', '=', '-', '^', '+'])<CR>
-" nnoremap <silent> <space>t^ :call text#underline(['^', '=', '-', '~', '+'])<CR>
-" nnoremap <silent> <space>t+ :call text#underline(['+', '=', '-', '~', '^'])<CR>
-func! text#underline(chars)
+" nnoremap <silent> <space>t= :call text#underline('=')<CR>
+" nnoremap <silent> <space>t- :call text#underline('-')<CR>
+" nnoremap <silent> <space>t~ :call text#underline('~')<CR>
+" nnoremap <silent> <space>t^ :call text#underline('^')<CR>
+" nnoremap <silent> <space>t+ :call text#underline('+')<CR>
+func! text#underline(char)
     let nextnr = line('.') + 1
-    let underline = repeat(a:chars[0], strchars(getline('.')))
-    if index(a:chars, trim(getline(nextnr))[0]) != -1
+    let line = matchlist(getline('.'), '^\(\s*\)\(.*\)$')
+    if empty(line[2]) | return | endif
+    let underline = line[1] . repeat(a:char, strchars(line[2]))
+    if getline(nextnr) =~ '^\s*' . escape(a:char, '*\') . '\+$'
         call setline(nextnr, underline)
     else
         call append('.', underline)
