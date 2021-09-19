@@ -10,9 +10,7 @@
 " * remove space after opened brace: ( word -> (word
 " * remove space at the end of line
 " Usage:
-" command! -range TextFixSpaces <line1>,<line2>call text#fix_spaces()
-" nnoremap <leader><leader><leader> :TextFixSpaces<CR>
-" xnoremap <leader><leader><leader> :TextFixSpaces<CR>
+" command! -range FixSpaces <line1>,<line2>call text#fix_spaces()
 func! text#fix_spaces() range
     let pos=getcurpos()
     " replace non-breaking space to space first

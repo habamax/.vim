@@ -7,12 +7,12 @@ command! Bclean call win#delete_buffers()
 
 
 " remove trailing spaces
-command! RemoveTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
+command! FixTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
             \:exe 'normal! ``'<bar>
             \:echo 'Remove trailing spaces and ^Ms.'
 
 
-command! -range TextFixSpaces <line1>,<line2>call text#fix_spaces()
+command! -range FixSpaces <line1>,<line2>call text#fix_spaces()
 
 " Two columns.
 " 1. Vertically split window
