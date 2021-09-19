@@ -113,12 +113,12 @@ nnoremap <space>ts :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDa
 
 nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
-nnoremap <silent> <space>u <nop>
-nnoremap <silent> <space>u- :call text#underline(['-', '=', '~', '^', '+'])<CR>
-nnoremap <silent> <space>u= :call text#underline(['=', '-', '~', '^', '+'])<CR>
-nnoremap <silent> <space>u~ :call text#underline(['~', '=', '-', '^', '+'])<CR>
-nnoremap <silent> <space>u^ :call text#underline(['^', '=', '-', '~', '+'])<CR>
-nnoremap <silent> <space>u+ :call text#underline(['+', '=', '-', '~', '^'])<CR>
+nnoremap <silent> <space>t <nop>
+nnoremap <silent> <space>t- :call text#underline(['-', '=', '~', '^', '+'])<CR>
+nnoremap <silent> <space>t= :call text#underline(['=', '-', '~', '^', '+'])<CR>
+nnoremap <silent> <space>t~ :call text#underline(['~', '=', '-', '^', '+'])<CR>
+nnoremap <silent> <space>t^ :call text#underline(['^', '=', '-', '~', '+'])<CR>
+nnoremap <silent> <space>t+ :call text#underline(['+', '=', '-', '~', '^'])<CR>
 
 " find visually selected text
 xnoremap * y/<C-R>"<CR>
