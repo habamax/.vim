@@ -61,10 +61,6 @@ let g:rooter_silent_chdir = 1
 let g:markdown_fenced_languages = ['python', 'go']
 
 
-" vim-dispatch
-let g:dispatch_no_maps = 1
-
-
 " vim-closetag
 let g:closetag_filetypes = 'html,xhtml,xml'
 
