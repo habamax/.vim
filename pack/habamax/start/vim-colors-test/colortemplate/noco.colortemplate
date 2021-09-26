@@ -97,9 +97,8 @@ SpellRare        foreground none t=underline g=undercurl s=foreground
 ;;; :h group-names
 Comment          color02    none
 
-; Identifier       foreground none
 Identifier       color04    none
-Statement        color05    none
+Statement        color04    none
 Constant         color08    none
 PreProc          color04    none
 Type             color04    none
