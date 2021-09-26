@@ -1,0 +1,139 @@
+Full name: reslate
+Short name: reslate
+Description: Remake of slate
+Author: https://github.com/vim/colorschemes
+Maintainer: Original maintainer Ralph Amissah <ralph@amissah.com>
+
+Variant:    gui 256
+
+Background: dark
+
+; :hi Search guibg=peru guifg=wheat cterm=none ctermfg=grey ctermbg=blue
+; :hi SpecialKey guifg=yellowgreen ctermfg=darkgreen
+; :hi WarningMsg guifg=salmon ctermfg=1
+; :hi Identifier guifg=salmon ctermfg=red
+; :hi Special guifg=darkkhaki ctermfg=brown
+; :hi Todo guifg=orangered guibg=yellow2
+; :hi Directory ctermfg=darkcyan
+; :hi WildMenu ctermfg=0 ctermbg=3
+; :hi Underlined cterm=underline ctermfg=5
+
+;;; color palette
+Color: foreground #FFFFFF 231 ; error
+Color: background #262626 235
+
+Color: color00    #000000 16; incsearch bg; folded bg, foldcolumn bg
+Color: color08    #666666 241 ;statuslinenc fg, comment, ignore, linenr
+
+Color: color01    #FF0000 196 ; operator preproc include, error bg, spellerorrs bg
+Color: color09    #FFAFAF 217 ;constant
+
+Color: color02    #00FF00 46 ;structure, incsearch fg; question
+Color: color10    #00875F 29 ; question, moremsg, specialkey, vi
+
+Color: color03    #FFD700 220; define; title(bold), modemsg
+Color: color11    #87d7FF 117; string
+
+Color: color04    #5F87D7 68 ; type, statement, nontext
+Color: color12    #FFD7AF 223 ; function
+
+Color: color05    #c2bfa5 144; statusline(NC) vertsplit
+Color: color13    #5F8700 64 ; visual
+
+Color: color06    #ffff00 226; incsearch fg
+Color: color14    #d7d787 186; cursor bg, visual fg
+
+Color: color07    #333333 236 ; foldcolumn fg
+Color: color15    #E4E4E4 254
+
+Term colors: color00 color01 color02 color03 color04 color05 color06 color07
+Term colors: color08 color09 color10 color11 color12 color13 color14 color15
+
+
+;;; chrome
+
+Normal           foreground background
+
+EndOfBuffer      color08    none
+Statusline       background color07
+StatuslineNC     color07    color08
+StatuslineTerm   background color07
+StatuslineTermNC color07    color08
+VertSplit        color08    color08
+
+Pmenu            none       color08
+PmenuSel         background color03
+PmenuSbar        none       color07
+PmenuThumb       none       color15
+
+TabLine          color07    color08
+TabLineFill      color14    color08
+TabLineSel       background color07
+
+ToolbarLine      none       none
+ToolbarButton    background color02
+
+NonText          color08    none
+SpecialKey       color08    none
+
+Folded           color07    color00
+Visual           background color04
+VisualNOS        background color04
+LineNr           color07    none
+FoldColumn       color07    none
+CursorLine       none       color00
+CursorColumn     none       color00
+CursorLineNr     none       color00
+QuickFixLine     none       color00
+SignColumn       none       background
+
+Underlined       color03    none underline
+
+Error            color09    none
+ErrorMsg         color09    none
+ModeMsg          background color11
+WarningMsg       color11    none
+MoreMsg          color02    none
+Question         color01    none
+
+Todo             background color07
+MatchParen       color00    color11
+Search           color00    color02
+IncSearch        color00    color03
+WildMenu         background color03
+ColorColumn      none       color00
+Cursor           background foreground
+lCursor          background color09
+
+DiffAdd          none       none
+DiffChange       none       none
+DiffText         background color11
+DiffDelete       color13    none
+
+SpellBad         color09    none t=underline g=undercurl s=color09
+SpellCap         color01    none t=underline g=undercurl s=color01
+SpellLocal       color11    none t=underline g=undercurl s=color11
+SpellRare        color03    none t=underline g=undercurl s=color03
+
+
+;;; :h group-names
+Comment          color07    none
+
+Identifier       color11    none
+Function         color03    none
+Statement        color05    none
+Constant         color01    none
+String           color02    none
+Character        color10    none
+PreProc          color14    none
+Type             color13    none
+Special          color12    none
+SpecialChar      color13    none
+Tag              color06    none
+SpecialComment   color06    none
+
+Directory        color13    none bold
+Conceal          color07    none
+Ignore           none       none
+
+Title            color15    none bold
