@@ -2,7 +2,6 @@ cabbr ц w
 cabbr й q
 cabbr цй wq
 cabbr ив bd
-cabbr sf Select file
 
 inorea -Ю ->
 inorea -ю ->
@@ -14,8 +13,10 @@ inorea tihs this
 inorea thsi this
 inorea taht that
 inorea thta that
+inorea htat that
 inorea waht what
 inorea whta what
+inorea hwat what
 inorea rigth right
 inorea lenght length
 inorea knwo know
