@@ -1,8 +1,9 @@
 Full name: reslate
 Short name: reslate
 Description: Remake of slate
-Author: https://github.com/vim/colorschemes
+Author: Original maintainer Ralph Amissah <ralph@amissah.com>
 Maintainer: Original maintainer Ralph Amissah <ralph@amissah.com>
+Website: https://github.com/vim/colorschemes
 
 Variant:    gui 256
 
