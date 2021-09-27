@@ -37,6 +37,7 @@ Color: color14    #FF8787 210
 Color: color07    #666666 241
 Color: color15    #FFFFFF 231
 
+Color: color16    #D7875F 173
 Color: color17    #00FF00 46
 
 
@@ -118,11 +119,10 @@ Function         color06    none
 Statement        color12    none bold
 Constant         color09    none
 String           color04    none
-PreProc          color01    none
+PreProc          color16    none
 Type             color12    none bold
 Special          color05    none
-Operator         color01    none
-Include          color01    none
+Operator         color16    none
 Define           color11    none bold
 Structure        color17    none
 
