@@ -101,8 +101,8 @@ ColorColumn      none       color00
 Cursor           color08    color05
 lCursor          background color09
 
-DiffAdd          none       none
-DiffChange       none       none
+DiffAdd          background color05
+DiffChange       background color02
 DiffText         background color11
 DiffDelete       color13    none
 
