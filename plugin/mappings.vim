@@ -43,8 +43,8 @@ nnoremap <silent> yor :set relativenumber! relativenumber?<CR>
 nnoremap <silent> yol :set list! list?<CR>
 nnoremap <silent> yos :set spell! spell?<CR>
 nnoremap <silent> yoc :set cursorline! cursorline?<CR>
-nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis").."<CR>"
-nnoremap <expr> yob ':colo ' .. (get(g:, 'colors_name', '') == 'bronzage' ? "freyeday" : "bronzage") .. "<CR>"
+nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis") . "<CR>"
+nnoremap <expr> yob ':colo ' . (get(g:, 'colors_name', '') == 'bronzage' ? "freyeday" : "bronzage") . "<CR>"
 
 
 " Window management
@@ -64,10 +64,10 @@ nnoremap <silent> <C-w><BS> :call win#lens_toggle()<CR>
 " i_ i. i: i, i; i| i/ i\ i* i+ i- i#
 " a_ a. a: a, a; a| a/ a\ a* a+ a- a#
 for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#' ]
-    execute 'xnoremap <silent> i' .. char .. ' :<C-u>call text#obj("' .. char .. '", 1)<CR>'
-    execute 'xnoremap <silent> a' .. char .. ' :<C-u>call text#obj("' .. char .. '", 0)<CR>'
-    execute 'onoremap <silent> i' .. char .. ' :normal vi' .. char .. '<CR>'
-    execute 'onoremap <silent> a' .. char .. ' :normal va' .. char .. '<CR>'
+    execute 'xnoremap <silent> i' . char . ' :<C-u>call text#obj("' . char . '", 1)<CR>'
+    execute 'xnoremap <silent> a' . char . ' :<C-u>call text#obj("' . char . '", 0)<CR>'
+    execute 'onoremap <silent> i' . char . ' :normal vi' . char . '<CR>'
+    execute 'onoremap <silent> a' . char . ' :normal va' . char . '<CR>'
 endfor
 
 " indent text object
