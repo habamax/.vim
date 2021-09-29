@@ -11,7 +11,7 @@ set ttimeout ttimeoutlen=0
 set belloff=all
 set ruler
 set signcolumn=number
-set showcmd shortmess+=Ic
+set shortmess+=Ic
 set lazyredraw display=lastline
 set completeopt=menu,popup completepopup=highlight:Pmenu
 set list listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
