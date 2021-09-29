@@ -1,0 +1,135 @@
+Full name: bronzage_black
+Short name: bronzage_black
+Description: bronzage with black background
+Author: Maxim Kim <habamax@gmail.com>
+Neovim: yes
+
+
+Variant:    gui 256
+
+Background: dark
+
+
+;;; Color palette
+Color: foreground #D0D0D0 252
+Color: background #000000 16
+
+Color: color00    #262626 235
+Color: color08    #4E4E4E 239
+
+Color: color01    #D7875F 173
+Color: color09    #D75F5F 167
+
+Color: color02    #87AF87 108
+Color: color10    #87AF5F 107
+
+Color: color03    #D7D787 186
+Color: color11    #AFAF5F 143
+
+Color: color04    #87AFD7 110
+Color: color12    #5f8787 66
+
+Color: color05    #D7AF5F 179
+Color: color13    #AF875F 137
+
+Color: color06    #87D7D7 116
+Color: color14    #87AFAF 109
+
+Color: color07    #808080 244
+Color: color15    #E4E4E4 254
+
+Color: colorDiffA #444444 238
+Color: colorDiffC #444444 238
+Color: colorDiffD #444444 238
+
+Term colors: color00 color01 color02 color03 color04 color05 color06 color07
+Term colors: color08 color09 color10 color11 color12 color13 color14 color15
+
+
+;;; chrome
+
+Normal           foreground background
+
+EndOfBuffer      color08    none
+Statusline       background color07
+StatuslineNC     color07    color08
+StatuslineTerm   background color07
+StatuslineTermNC color07    color08
+VertSplit        color08    color08
+
+Pmenu            none       color08
+PmenuSel         background color03
+PmenuSbar        none       color07
+PmenuThumb       none       color15
+
+TabLine          color07    color08
+TabLineFill      color14    color08
+TabLineSel       background color07
+
+ToolbarLine      none       none
+ToolbarButton    background color02
+
+NonText          color08    none
+SpecialKey       color08    none
+
+Folded           color07    color00
+Visual           background color04
+VisualNOS        background color04
+LineNr           color07    none
+FoldColumn       color07    none
+CursorLine       none       color00
+CursorColumn     none       color00
+CursorLineNr     none       color00
+QuickFixLine     none       color00
+SignColumn       none       background
+
+Underlined       color03    none underline
+
+Error            color09    none
+ErrorMsg         color09    none
+ModeMsg          background color11
+WarningMsg       color11    none
+MoreMsg          color02    none
+Question         color01    none
+
+Todo             background color07
+MatchParen       color00    color11
+Search           color00    color02
+IncSearch        color00    color03
+WildMenu         background color03
+ColorColumn      none       color00
+Cursor           background foreground
+lCursor          background color09
+
+DiffAdd          none       none
+DiffChange       none       colorDiffC
+DiffText         color06    color12
+DiffDelete       color09    none
+
+SpellBad         color09    none t=underline g=undercurl s=color09
+SpellCap         color01    none t=underline g=undercurl s=color01
+SpellLocal       color11    none t=underline g=undercurl s=color11
+SpellRare        color03    none t=underline g=undercurl s=color03
+
+
+;;; :h group-names
+Comment          color07    none
+
+Identifier       color11    none
+Function         color03    none
+Statement        color05    none
+Constant         color01    none
+String           color02    none
+Character        color10    none
+PreProc          color14    none
+Type             color13    none
+Special          color12    none
+SpecialChar      color13    none
+Tag              color06    none
+SpecialComment   color06    none
+
+Directory        color13    none bold
+Conceal          color07    none
+Ignore           none       none
+
+Title            color15    none bold
