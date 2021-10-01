@@ -36,8 +36,8 @@ Term colors: color00 color01 color02 color03 color04 color05 color06 color07
 Term colors: color08 color09 color10 color11 color12 color13 color14 color15
 
 ; This layer replicates the behaviour of 'default', no matter how broken it is.
-Color: rgbGrey40      #666666 242
-Color: rgbDarkGrey    #a9a9a9 242
+Color: rgbGrey40      #666666 241
+Color: rgbDarkGrey    #a9a9a9 248
 Color: rgbDarkBlue    #00008b 20
 Color: rgbDarkMagenta #8b008b 164
 Color: rgbBlue        #0000ff 63
