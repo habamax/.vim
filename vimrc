@@ -14,7 +14,7 @@ set signcolumn=number
 set shortmess+=Ic
 set lazyredraw display=lastline
 set completeopt=menu,popup completepopup=highlight:Pmenu
-set list listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
+set list listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:· fillchars=vert:│
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak
 set formatoptions=cqjl
 set backspace=indent,eol,start
@@ -31,4 +31,4 @@ set mouse=a ttymouse=xterm2
 
 if executable('rg') | set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m | endif
 
-silent! colorscheme bronzage
+silent! colorscheme bronzage | hi vertsplit guibg=NONE ctermbg=NONE
