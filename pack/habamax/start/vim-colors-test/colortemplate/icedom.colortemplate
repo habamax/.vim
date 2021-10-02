@@ -56,9 +56,9 @@ Term colors: color08 color09 color10 color11 color12 color13 color14 color15
 Normal           foreground background
 
 EndOfBuffer      color07    none
-Statusline       foreground color07 bold
+Statusline       color15    color08
 StatuslineNC     color00    color07
-StatuslineTerm   foreground color07 bold
+StatuslineTerm   foreground color08
 StatuslineTermNC color00    color07
 VertSplit        color07    color07
 
