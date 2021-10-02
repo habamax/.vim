@@ -21,6 +21,7 @@ augroup end
 
 
 augroup colorscheme | au!
+    hi VertSplit guibg=NONE ctermbg=NONE
     au Colorscheme * hi VertSplit guibg=NONE ctermbg=NONE
 augroup END
 
