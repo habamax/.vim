@@ -1,0 +1,136 @@
+; vim: ft=colortemplate
+Full name: sugarlily
+Short name: sugarlily
+Description: Blue accents with white background for when there is light everywhere.
+Author: Maxim Kim <habamax@gmail.com>
+Neovim: yes
+
+
+Variant:    gui 256
+
+Background: light
+
+
+;;; Color palette
+Color: foreground #000000 16
+Color: background #FFFFFF 231
+
+Color: color00    #1C1C1C 234
+Color: color08    #808080 244
+
+Color: color01    #D70000 160
+Color: color09    #D75F5F 167
+
+Color: color02    #008700 28
+Color: color10    #5F875F 65
+
+Color: color03    #AF875F 137
+Color: color11    #D7AF5F 179
+
+Color: color04    #005FAF 25
+Color: color12    #0087AF 31
+
+Color: color05    #5F5FAF 60
+Color: color13    #8787D7 104
+
+Color: color06    #5F8787 66
+Color: color14    #87AFAF 109
+
+Color: color07    #BCBCBC 250
+Color: color15    #EEEEEE 255
+
+Color: color16    #DADADA 253
+
+Color: colorDiffA #E4EEE4 194
+Color: colorDiffC #E4E4E4 254
+Color: colorDiffD #EEE4E4 224
+Color: colorDiffT #FFFFD7 230
+
+Term colors: color00 color01 color02 color03 color04 color05 color06 color07
+Term colors: color08 color09 color10 color11 color12 color13 color14 color15
+
+
+;;; chrome
+
+Normal           foreground background
+
+EndOfBuffer      color07    none
+Statusline       color15    color08
+StatuslineNC     color00    color07
+StatuslineTerm   foreground color08
+StatuslineTermNC color00    color07
+VertSplit        color07    color07
+
+Pmenu            none       color16
+PmenuSel         foreground color11
+PmenuSbar        none       color07
+PmenuThumb       none       color08
+
+TabLine          foreground color15
+TabLineFill      color06    color07
+TabLineSel       foreground background bold
+
+ToolbarLine      none       none
+ToolbarButton    background color13
+
+NonText          color07    none
+SpecialKey       color07    none
+
+Folded           color08    color15
+Visual           color15    color06
+VisualNOS        background color08
+LineNr           color08    none
+FoldColumn       color08    none
+CursorLine       none       color16
+CursorColumn     none       color16
+CursorLineNr     none       color16
+QuickFixLine     none       color16
+SignColumn       none       none
+
+Underlined       color05    none underline
+
+Error            color01    none
+ErrorMsg         color01    none
+ModeMsg          background color09
+WarningMsg       color03    none
+MoreMsg          color04    none
+Question         color03    none
+
+Todo             color14    none       bold
+MatchParen       background color12
+Search           background color10
+IncSearch        foreground color11
+WildMenu         foreground color11
+ColorColumn      none       color15
+Cursor           background foreground
+lCursor          background color01
+
+DiffAdd          none       colorDiffA
+DiffChange       none       colorDiffC
+DiffText         none       colorDiffT underline
+DiffDelete       color09    colorDiffD
+
+SpellBad         color01    none t=underline g=undercurl s=color01
+SpellCap         color09    none t=underline g=undercurl s=color09
+SpellLocal       color03    none t=underline g=undercurl s=color03
+SpellRare        color11    none t=underline g=undercurl s=color11
+
+
+;;; :h group-names
+Comment          color08    none
+
+Identifier       color05    none
+Function         color12    none
+Statement        color04    none
+Constant         color09    none
+String           color02    none
+Character        color02    none
+PreProc          color03    none
+Type             color06    none
+Special          color10    none
+
+Directory        color06    none bold
+Conceal          color08    none
+Ignore           none       none
+
+Title            none       none bold
