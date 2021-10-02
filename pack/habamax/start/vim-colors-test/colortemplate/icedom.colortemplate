@@ -91,7 +91,7 @@ Underlined       color05    none underline
 
 Error            color01    none
 ErrorMsg         color01    none
-ModeMsg          foreground color14
+ModeMsg          background color09
 WarningMsg       color03    none
 MoreMsg          color04    none
 Question         color03    none
