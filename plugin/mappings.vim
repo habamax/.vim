@@ -172,4 +172,4 @@ nnoremap <silent> [x :call diff#prev_change()<CR>
 
 
 " open URLs
-nnoremap <silent> gx :call tools#gx()<CR>
+nnoremap <silent> gx :call os#gx()<CR>
