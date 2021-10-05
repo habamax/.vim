@@ -58,6 +58,7 @@ func! os#gx() abort
     elseif has("osx")
         let cmd = ":!open"
     elseif exists("$WSLENV")
+        lcd /mnt/c
         let cmd = ":silent !cmd.exe /C start"
     else
         let cmd = ":!xdg-open"
@@ -131,4 +132,6 @@ func! os#gx() abort
     endif
 
     exe cmd . ' "' . escape(URL, '#%!')  . '"'
+
+    if exists("$WSLENV") | lcd - | endif
 endfunc
