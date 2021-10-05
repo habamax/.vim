@@ -52,7 +52,7 @@ endfunc
 
 " Better gx to open URLs.
 " nnoremap <silent> gx :call os#gx()<CR>
-func! tools#gx() abort
+func! os#gx() abort
     if has("win32") || has("win32unix")
         let cmd = ':silent !start'
     elseif has("osx")
