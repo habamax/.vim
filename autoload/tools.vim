@@ -85,8 +85,12 @@ func! tools#gx() abort
     let word = expand("<cWORD>")
 
     " barebone URL in brackets (http://bla-bla.com)
+    "                          <http://bla-bla.com>
     if empty(URL)
         let URL = matchstr(word, '(\zs' . rx_bare . '\ze)')
+    endif
+    if empty(URL)
+        let URL = matchstr(word, '<\zs' . rx_bare . '\ze>')
     endif
 
     " barebone URL ending with comma or dot http://bla-bla.com, http://bla-bla.com.
