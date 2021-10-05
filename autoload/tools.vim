@@ -69,14 +69,13 @@ func! tools#gx() abort
         endtry
     endif
 
-    " HTML URL <a href="http://www.python.org">Python is here</a>
+    " HTML URL <a href='http://www.python.org'>Python is here</a>
     "          <a href="http://www.python.org"/>
     if empty(URL)
         try
-            echom "HERE"
             let save_cursor = getcurpos()
             if searchpair('<a\s\+href=', '', '\%(</a>\|/>\)\zs', 'cbW', '', line('.')) > 0
-                let URL = matchstr(getline('.')[col('.')-1:], 'href="\?\zs\S\{-}\ze"\?/\?>')
+                let URL = matchstr(getline('.')[col('.')-1:], 'href=["'."'".']\?\zs\S\{-}\ze["'."'".']\?/\?>')
             endif
         finally
             call setpos('.', save_cursor)
