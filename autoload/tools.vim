@@ -50,7 +50,7 @@ func! tools#gx() abort
     " markdown URL [link text](http://ya.ru 'yandex search')
     try
         let save_cursor = getcurpos()
-        if searchpair('\[.\{-}\](', '', ')', 'cbW', '', line('.')) > 0
+        if searchpair('\[.\{-}\](', '', ')\zs', 'cbW', '', line('.')) > 0
             let URL = matchstr(getline('.')[col('.')-1:], '\[.\{-}\](\zs'.rx_embd.'\ze\(\s\+.\{-}\)\?)')
         endif
     finally
@@ -61,7 +61,7 @@ func! tools#gx() abort
     if empty(URL)
         try
             let save_cursor = getcurpos()
-            if searchpair(rx_bare . '\[', '', '\]', 'cbW', '', line('.')) > 0
+            if searchpair(rx_bare . '\[', '', '\]\zs', 'cbW', '', line('.')) > 0
                 let URL = matchstr(getline('.')[col('.')-1:], '\S\{-}\ze[')
             endif
         finally
