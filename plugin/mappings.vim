@@ -169,3 +169,7 @@ nnoremap <silent> [W :lfirst<CR>
 " Next/Prev change for diff mode
 nnoremap <silent> ]x :call diff#next_change()<CR>
 nnoremap <silent> [x :call diff#prev_change()<CR>
+
+
+" open URLs
+nnoremap <silent> gx :call tools#gx()<CR>
