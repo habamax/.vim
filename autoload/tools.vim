@@ -52,7 +52,6 @@ func! tools#gx() abort
         let save_cursor = getcurpos()
         if searchpair('\[.\{-}\](', '', ')', 'cbW', '', line('.')) > 0
             let URL = matchstr(getline('.')[col('.')-1:], '\[.\{-}\](\zs'.rx_embd.'\ze\(\s\+.\{-}\)\?)')
-            echom "markdown"
         endif
     finally
         call setpos('.', save_cursor)
