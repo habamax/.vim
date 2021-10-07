@@ -58,6 +58,11 @@ tnoremap <silent><expr> <C-k> winnr('$') > 1 ? "\<C-w>W" : "\<C-w>:vs +bn\<CR>"
 nnoremap <silent> <C-w><space> :echo win#layout_toggle()<CR>
 nnoremap <silent> <C-w><BS> :call win#lens_toggle()<CR>
 
+" Buffers
+nnoremap <silent> <C-n> :bn<CR>
+nnoremap <silent> <C-p> :bp<CR>
+tnoremap <silent> <C-n> <cmd>:bn<CR>
+tnoremap <silent> <C-p> <cmd>:bp<CR>
 
 " 24 simple text objects
 " ----------------------
