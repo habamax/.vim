@@ -71,7 +71,7 @@ TabLineFill      color06    color07
 TabLineSel       foreground background bold
 
 ToolbarLine      none       none
-ToolbarButton    background color13
+ToolbarButton    color15    color06    bold
 
 NonText          color07    none
 SpecialKey       color07    none
@@ -96,7 +96,7 @@ WarningMsg       color03    none
 MoreMsg          color04    none
 Question         color03    none
 
-Todo             color14    none       bold
+Todo             color13    none       bold
 MatchParen       background color12
 Search           background color10
 IncSearch        foreground color11
