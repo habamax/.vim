@@ -31,4 +31,4 @@ set mouse=a ttymouse=xterm2
 
 if executable('rg') | set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m | endif
 
-silent! colorscheme bronzage
+exe "silent! colorscheme " . (has("gui_running") ? "sugarlily" : "bronzage")
