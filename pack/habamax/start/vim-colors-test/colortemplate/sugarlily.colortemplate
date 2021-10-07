@@ -116,6 +116,10 @@ SpellLocal       color03    none t=underline g=undercurl s=color03
 SpellRare        color11    none t=underline g=undercurl s=color11
 
 
+; Links
+Terminal         -> Normal
+
+
 ;;; :h group-names
 Comment          color08    none
 
