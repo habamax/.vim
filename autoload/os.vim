@@ -53,15 +53,15 @@ endfunc
 " Better gx to open URLs.
 " nnoremap <silent> gx :call os#gx()<CR>
 func! os#gx() abort
-    if has("win32") || has("win32unix")
-        let cmd = ':silent !start'
-    elseif executable('open')
-        let cmd = ":silent !open"
-    elseif exists("$WSLENV")
+    if exists("$WSLENV")
         lcd /mnt/c
         let cmd = ":silent !cmd.exe /C start"
+    elseif has("win32") || has("win32unix")
+        let cmd = ':silent !start'
     elseif executable('xdg-open')
         let cmd = ":silent !xdg-open"
+    elseif executable('open')
+        let cmd = ":silent !open"
     else
         echohl Error
         echomsg "Can't find proper opener for an URL!"
