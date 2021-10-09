@@ -55,7 +55,7 @@ endfunc
 func! os#gx() abort
     if has("win32") || has("win32unix")
         let cmd = ':silent !start'
-    elseif has("osx")
+    elseif toupper(substitute(system('uname'), '\n', '', '')) =~"DARWIN"
         let cmd = ":!open"
     elseif exists("$WSLENV")
         lcd /mnt/c
