@@ -55,13 +55,18 @@ endfunc
 func! os#gx() abort
     if has("win32") || has("win32unix")
         let cmd = ':silent !start'
-    elseif toupper(substitute(system('uname'), '\n', '', '')) =~"DARWIN"
-        let cmd = ":!open"
+    elseif executable('open')
+        let cmd = ":silent !open"
     elseif exists("$WSLENV")
         lcd /mnt/c
         let cmd = ":silent !cmd.exe /C start"
+    elseif executable('xdg-open')
+        let cmd = ":silent !xdg-open"
     else
-        let cmd = ":!xdg-open"
+        echohl Error
+        echomsg "Can't find proper opener for an URL!"
+        echohl None
+        return
     endif
 
     " URL regexes
