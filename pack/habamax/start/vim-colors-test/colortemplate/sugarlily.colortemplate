@@ -62,7 +62,7 @@ StatuslineTermNC color00    color07
 VertSplit        color07    color07
 
 Pmenu            none       color16
-PmenuSel         foreground color11
+PmenuSel         background color11
 PmenuSbar        none       color07
 PmenuThumb       none       color08
 
@@ -99,8 +99,8 @@ Question         color03    none
 Todo             color13    none       bold
 MatchParen       background color12
 Search           background color10
-IncSearch        foreground color11
-WildMenu         foreground color11
+IncSearch        background color11
+WildMenu         background color11
 ColorColumn      none       color15
 Cursor           background foreground
 lCursor          background color01
