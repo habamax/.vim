@@ -66,8 +66,8 @@ PmenuSel         background color11
 PmenuSbar        none       color07
 PmenuThumb       none       color08
 
-TabLine          foreground color15
-TabLineFill      color06    color07
+TabLine          foreground color15    underline
+TabLineFill      foreground color07    underline
 TabLineSel       foreground background bold
 
 ToolbarLine      none       none
