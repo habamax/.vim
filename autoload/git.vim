@@ -55,7 +55,7 @@ func! git#plug_update() abort
             call feedkeys(":"..msg_count.."messages\<CR>", 'n')
         endif
     endfunc
-    call timer_start(1000, {t->s:timer_handler(t)}, {"repeat": 100})
+    call timer_start(2000, {t->s:timer_handler(t)}, {"repeat": 100})
 endfunc
 
 
