@@ -15,7 +15,7 @@ Background: light
 Color: foreground #000000 16
 Color: background #FFFFFF 231
 
-Color: color00    #1C1C1C 234
+Color: color00    #444444 238
 Color: color08    #808080 244
 
 Color: color01    #D70000 160
@@ -57,7 +57,7 @@ Normal           foreground background
 EndOfBuffer      color07    none
 Statusline       color15    color08
 StatuslineNC     color00    color07
-StatuslineTerm   foreground color08
+StatuslineTerm   color15    color08
 StatuslineTermNC color00    color07
 VertSplit        color07    color07
 
@@ -66,7 +66,7 @@ PmenuSel         background color11
 PmenuSbar        none       color07
 PmenuThumb       none       color08
 
-TabLine          foreground color15
+TabLine          color00    color15
 TabLineFill      foreground color07
 TabLineSel       foreground background bold
 
