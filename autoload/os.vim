@@ -111,7 +111,6 @@ func! os#gx() abort
         endtry
     endif
 
-
     " barebone URL http://google.com
     if empty(URL)
         let URL = matchstr(expand("<cfile>"), rx_bare)
