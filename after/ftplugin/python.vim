@@ -6,5 +6,3 @@ endif
 
 let b:foldchar = ''
 setlocal foldignore=
-
-
