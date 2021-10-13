@@ -4,7 +4,6 @@ if executable('yapf')
     let &l:formatprg = "yapf"
 endif
 
-
 let b:foldchar = ''
 setlocal foldignore=
 
