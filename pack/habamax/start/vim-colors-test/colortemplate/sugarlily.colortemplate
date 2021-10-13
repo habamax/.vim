@@ -121,8 +121,8 @@ ColorColumn        none           color09
 Variant: gui 256
 ColorColumn        none           color15
 Variant: gui
-Cursor             background     foreground
-lCursor            background     color01
+Cursor             background     color01
+lCursor            background     foreground
 
 Variant: 16
 DiffChange         none           none
