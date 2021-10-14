@@ -111,6 +111,3 @@ let g:minisnip_default_maps = 1
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 let g:dirvish_mode = ':sort ,^.*[\/],'
-
-" ALE
-let g:ale_enabled = 0
