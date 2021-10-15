@@ -9,6 +9,7 @@ start/vim-minisnip	git@github.com:habamax/vim-minisnip
 
 # My colors
 opt/vim-bronzage	git@github.com:habamax/vim-bronzage.git
+opt/vim-sugarlily	git@github.com:habamax/vim-sugarlily.git
 opt/vim-saturnite	git@github.com:habamax/vim-saturnite.git
 opt/vim-freyeday	git@github.com:habamax/vim-freyeday.git
 

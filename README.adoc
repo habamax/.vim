@@ -14,6 +14,7 @@ Nothing fancy, just to keep it safe and available.
 == Colors
 
 * link:https://github.com/habamax/vim-bronzage[bronzage] -- dark background, was thinking of zenburn while creating it.
+* link:https://github.com/habamax/vim-sugarlily[sugarlily] -- white background, blue accents.
 * link:https://github.com/habamax/vim-saturnite[saturnite] -- dark background, variation of the awesome https://github.com/romainl/Apprentice[Apprentice];
 * link:https://github.com/habamax/vim-freyeday[freyeday] -- light background, to complement `saturnite`;
 * link:https://github.com/habamax/vim-alchemist[alchemist] -- dark background, variation of the awesome https://github.com/romainl/Apprentice[Apprentice];
