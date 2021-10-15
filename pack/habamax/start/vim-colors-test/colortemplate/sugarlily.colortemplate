@@ -112,7 +112,7 @@ MoreMsg            color04        none
 Question           color03        none
 
 Todo               color13        none           bold
-MatchParen         background     color12
+MatchParen         background     color14
 Search             background     color10
 IncSearch          background     color11
 WildMenu           background     color11
@@ -121,7 +121,7 @@ ColorColumn        none           color09
 Variant: gui 256
 ColorColumn        none           color15
 Variant: gui
-Cursor             background     color09
+Cursor             background     color04
 lCursor            background     color03
 
 Variant: 16
