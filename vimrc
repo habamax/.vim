@@ -7,7 +7,7 @@ set nohlsearch incsearch ignorecase
 set shiftwidth=4 softtabstop=-1 expandtab
 set autoindent
 set nostartofline virtualedit=block
-set ttimeout ttimeoutlen=0
+set ttimeout ttimeoutlen=50
 set belloff=all
 set ruler
 set signcolumn=number
