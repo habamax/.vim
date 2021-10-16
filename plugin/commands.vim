@@ -57,9 +57,6 @@ endif
 " open terminal with a cwd of a current buffer
 command! TermBuffer :bo call term_start(&shell, {"cwd": expand("%:p:h"), "term_finish": "close"})
 
-" run visual test for colorscheme
-command! TestColorscheme exe "so colors/tools/colorscheme_sample.vim"
-
 
 " Redirect the output of a Vim or external command into a scratch buffer
 command! -nargs=1 -complete=command -bar Redir silent call tools#redir(<q-args>)
@@ -68,10 +65,9 @@ command! -nargs=1 -complete=command -bar Redir silent call tools#redir(<q-args>)
 " Global command, inspired by romainl
 " https://gist.github.com/romainl/f7e2e506dc4d7827004e4994f1be2df6
 command! -bang -nargs=1 Global call setloclist(0, [], ' ',
-            \ {'title': 'Global ' .. <q-args>,
+            \ {'title': 'Global ' . <q-args>,
             \  'efm':   '%f:%l\ %m,%f:%l',
-            \  'lines': execute('g<bang>/' .. <q-args> .. '/#')
+            \  'lines': execute('g<bang>/' . <q-args> . '/#')
             \           ->split('\n')
-            \           ->map({_, val -> expand("%") .. ":" .. trim(val, 1)})
+            \           ->map({_, val -> expand("%") . ":" . trim(val)})
             \ }) | lwindow
-
