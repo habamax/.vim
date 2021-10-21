@@ -6,6 +6,8 @@ endif
 
 compiler rst2html
 
+setlocal textwidth=78
+
 setlocal formatlistpat=^\\s*
 setlocal formatlistpat+=[
 setlocal formatlistpat+=\\[({]\\?
@@ -24,4 +26,3 @@ setlocal formatlistpat+=^\\s*[*]\\+\\s\\+
 setlocal formatlistpat+=\\\|
 setlocal formatlistpat+=^\\s*[.]\\+\\s\\+
 
-setlocal textwidth=78
