@@ -25,6 +25,7 @@ augroup colorscheme | au!
     au Colorscheme saturnite,bronzage,sugarlily hi VertSplit guibg=NONE ctermbg=NONE
 augroup END
 
+
 if exists("$WSLENV")
     augroup WSLClip | au!
         au TextYankPost * if v:event.regname == '"' | call system("clip.exe ", v:event.regcontents) | endif
