@@ -23,8 +23,8 @@ func! os#wsl_to_windows_path(path) abort
 endfunc
 
 
-"" Open explorer(/finder/thunar...) where current file is located
-"" Only for win and wsl for now.
+" Open explorer(/finder/thunar...) where current file is located
+" Only for win and wsl for now.
 func! os#file_manager() abort
     " Windows only for now
     if has("win32") || os#is_wsl()
@@ -50,12 +50,15 @@ func! os#file_manager() abort
 endfunc
 
 
-" Better gx to open URLs.
-" nnoremap <silent> gx :call os#gx()<CR>
-func! os#gx() abort
+" Open filename in an OS
+func! os#open(url) abort
+    let url = a:url
     if exists("$WSLENV")
         lcd /mnt/c
         let cmd = ":silent !cmd.exe /C start"
+        if filereadable(a:url)
+            let url = os#wsl_to_windows_path(a:url)
+        endif
     elseif has("win32") || has("win32unix")
         let cmd = ':silent !start'
     elseif executable('xdg-open')
@@ -69,6 +72,22 @@ func! os#gx() abort
         return
     endif
 
+    try
+        echom cmd . ' "' . url . '"'
+        exe cmd . ' "' . url . '"'
+    catch
+        echohl Error
+        echomsg v:exception
+        echohl None
+    finally
+        if exists("$WSLENV") | lcd - | endif
+    endtry
+endfunc
+
+
+" Better gx to open URLs.
+" nnoremap <silent> gx :call os#gx()<CR>
+func! os#gx() abort
     " URL regexes
     let rx_base = '\%(\%(http\|ftp\|irc\)s\?\|file\)://\S'
     let rx_bare = rx_base . '\+'
@@ -120,7 +139,5 @@ func! os#gx() abort
         return
     endif
 
-    exe cmd . ' "' . escape(URL, '#%!')  . '"'
-
-    if exists("$WSLENV") | lcd - | endif
+    call os#open(escape(URL, '#%!'))
 endfunc
