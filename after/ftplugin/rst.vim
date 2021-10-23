@@ -6,6 +6,10 @@ endif
 
 compiler rst2html
 
+" TODO: add it to undo ftplugin
+command -buffer RSTViewHtml :call os#open(expand("%:p:r").'.html')
+nnoremap <buffer> goh :RSTViewHtml<CR>
+
 setlocal textwidth=78
 
 setlocal formatlistpat=^\\s*
