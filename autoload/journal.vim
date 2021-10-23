@@ -33,7 +33,7 @@ func! s:new_entry(jfilename) abort
     normal! gg
 
     let journal_heading = [repeat('=', 78), strftime("%Y"), repeat('=', 78), '']
-    if join(getline(1, 3), "\n") !~ '^=\{78}\n\s*\d\d\d\d\s*\n=\{78}'
+    if join(getline(1, 3), "\n") !~ '^=\{78}\n\s*.\{-}\d\d\d\d\s*.*\n=\{78}'
         call append(0, journal_heading)
         2center
     endif
