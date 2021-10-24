@@ -88,17 +88,30 @@ execute 'syn region rstExDirective contained matchgroup=rstDirective' .
 
 syn match rstSubstitutionDefinition contained /|.*|\_s\+/ nextgroup=@rstDirectives
 
-let s:inline = '[[:space:]/:<([{' . "'" . '"' . ']'
+" Inline markup recognition rules
+" https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#inline-markup
+" let s:inline_end = '[[:space:]/:<([{' . "'" . '"' . ']'
+let s:inline_start = '[[:space:][:punct:]]'
+let s:inline_end = '[[:space:][:punct:]]'
+
+execute 'syn region rstInterpretedText matchgroup=rstDelimiter' .
+      \ ' start=+\(^\|' . s:inline_start . '\)\zs`\ze\S+' .
+      \ ' skip=+\\`+' .
+      \ ' end=+\S\zs`\ze\($\|' . s:inline_end . '\)+'
+
+execute 'syn region rstInlineLiteral matchgroup=rstDelimiter' .
+      \ ' start=+\(^\|' . s:inline_start . '\)\zs``\ze\S+' .
+      \ ' end=+\S\zs``\ze\($\|' . s:inline_end . '\)+'
 
 execute 'syn region rstEmphasis matchgroup=rstDelimiter' .
-      \ ' start=+\(^\|' . s:inline . '\)\zs\*\ze\S+' .
+      \ ' start=+\(^\|' . s:inline_start . '\)\zs\*\ze\S+' .
       \ ' skip=+\\\*+' .
-      \ ' end=+\S\zs\*\ze\($\|' . s:inline . '\)+'
+      \ ' end=+\S\zs\*\ze\($\|' . s:inline_end . '\)+'
 
 execute 'syn region rstStrongEmphasis matchgroup=rstDelimiter' .
-      \ ' start=+\(^\|' . s:inline . '\)\zs\*\*\ze\S+' .
+      \ ' start=+\(^\|' . s:inline_start . '\)\zs\*\*\ze\S+' .
       \ ' skip=+\\\*+' .
-      \ ' end=+\S\zs\*\*\ze\($\|' . s:inline . '\)+'
+      \ ' end=+\S\zs\*\*\ze\($\|' . s:inline_end . '\)+'
 
 
 " function! s:DefineOneInlineMarkup(name, start, middle, end, char_left, char_right)
@@ -266,7 +279,7 @@ hi def link rstHyperlinkTarget              String
 hi def link rstExDirective                  String
 hi def link rstSubstitutionDefinition       rstDirective
 hi def link rstDelimiter                    Delimiter
-hi def link rstInterpretedTextOrHyperlinkReference  Identifier
+hi def link rstInterpretedText              Identifier
 hi def link rstInlineLiteral                String
 hi def link rstSubstitutionReference        PreProc
 hi def link rstInlineInternalTargets        Identifier
