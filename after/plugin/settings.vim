@@ -63,7 +63,7 @@ if exists("g:loaded_select")
         endif
     endfunc
 
-    nnoremap <silent> <space>te :Select template<CR>
+    nnoremap <silent> <space>i :Select template<CR>
 
     if !has("win32")
         let g:select_info.man = {}
