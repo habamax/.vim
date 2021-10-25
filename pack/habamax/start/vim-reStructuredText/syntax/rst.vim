@@ -1,5 +1,5 @@
 " Vim reST syntax file
-" Language: reStructuredText documentation format
+" Language: reStructuredText syntax file
 " Maintainer: Maxim Kim <habamax@gmail.com>
 " Description: Based on https://github.com/marshallward/vim-restructuredtext
 
@@ -13,6 +13,7 @@ set cpo&vim
 syn case ignore
 
 syn match rstTransition /^[=`:.'"~^_*+#-]\{4,}\s*$/
+
 
 " TODO: rename to rstInline
 syn cluster rstCruft contains=rstEmphasis,rstStrongEmphasis,
@@ -90,28 +91,47 @@ syn match rstSubstitutionDefinition contained /|.*|\_s\+/ nextgroup=@rstDirectiv
 
 " Inline markup recognition rules
 " https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#inline-markup
-" let s:inline_end = '[[:space:]/:<([{' . "'" . '"' . ']'
-let s:inline_start = '[[:space:][:punct:]]'
-let s:inline_end = '[[:space:][:punct:]]'
+let s:inline_start = '<(\[{"'."'"
+let s:inline_end = ')\]}>"'."'"
 
-execute 'syn region rstInterpretedText matchgroup=rstDelimiter' .
-      \ ' start=+\(^\|' . s:inline_start . '\)\zs`\ze\S+' .
-      \ ' skip=+\\`+' .
-      \ ' end=+\S\zs`\ze\($\|' . s:inline_end . '\)+'
+syn region rstInterpretedText matchgroup=rstDelimiter
+      \ start=+\(^\|[[:space:]-:/]\)\zs`\ze[^`[:space:]]+
+      \ skip=+\\`+
+      \ end=+\S\zs`\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
 
-execute 'syn region rstInlineLiteral matchgroup=rstDelimiter' .
-      \ ' start=+\(^\|' . s:inline_start . '\)\zs``\ze\S+' .
-      \ ' end=+\S\zs``\ze\($\|' . s:inline_end . '\)+'
+syn region rstInlineLiteral matchgroup=rstDelimiter
+      \ start=+\(^\|[[:space:]-:/]\)\zs``\ze\S+
+      \ end=+\S\zs``\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
 
-execute 'syn region rstEmphasis matchgroup=rstDelimiter' .
-      \ ' start=+\(^\|' . s:inline_start . '\)\zs\*\ze\S+' .
-      \ ' skip=+\\\*+' .
-      \ ' end=+\S\zs\*\ze\($\|' . s:inline_end . '\)+'
+syn region rstEmphasis matchgroup=rstDelimiter
+      \ start=+\%(^\|[[:space:]-:/]\)\zs\*\ze[^*[:space:]]+
+      \ skip=+\\\*+
+      \ end=+\S\zs\*\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
 
-execute 'syn region rstStrongEmphasis matchgroup=rstDelimiter' .
-      \ ' start=+\(^\|' . s:inline_start . '\)\zs\*\*\ze\S+' .
-      \ ' skip=+\\\*+' .
-      \ ' end=+\S\zs\*\*\ze\($\|' . s:inline_end . '\)+'
+syn region rstStrongEmphasis matchgroup=rstDelimiter
+      \ start=+\%(^\|[[:space:]-:/]\)\zs\*\*\ze[^[:space:]]+
+      \ skip=+\\\*+
+      \ end=+\S\zs\*\*\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
+
+for ch in [['(', ')'], ['{', '}'], ['<', '>'], ['\[', '\]'], ['"', '"'], ["'", "'"]]
+    execute 'syn region rstEmphasis matchgroup=rstDelimiter' .
+          \ ' start=+'.ch[0].'\zs\*\ze[^*[:space:]'.ch[1].']+' .
+          \ ' skip=+\\\*+' .
+          \ ' end=+\S\zs\*\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
+    execute 'syn region rstStrongEmphasis matchgroup=rstDelimiter' .
+          \ ' start=+'.ch[0].'\zs\*\*\ze[^[:space:]'.ch[1].']+' .
+          \ ' skip=+\\\*+' .
+          \ ' end=+\S\zs\*\*\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
+    execute 'syn region rstInterpretedText matchgroup=rstDelimiter' .
+          \ ' start=+'.ch[0].'\zs`\ze[^`[:space:]'.ch[1].']+' .
+          \ ' skip=+\\`+' .
+          \ ' end=+\S\zs`\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
+    execute 'syn region rstInlineLiteral matchgroup=rstDelimiter' .
+          \ ' start=+'.ch[0].'\zs``\ze[^[:space:]'.ch[1].']+' .
+          \ ' skip=+\\\*+' .
+          \ ' end=+\S\zs``\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
+endfor
+
 
 
 " function! s:DefineOneInlineMarkup(name, start, middle, end, char_left, char_right)
@@ -265,7 +285,7 @@ hi def link rstTodo                         Todo
 hi def link rstComment                      Comment
 hi def link rstSection                      Title
 hi def link rstSectionDelimiter             Type
-hi def link rstTransition                   rstSection
+hi def link rstTransition                   Delimiter
 hi def link rstLiteralBlock                 String
 hi def link rstQuotedLiteralBlock           String
 hi def link rstDoctestBlock                 PreProc
