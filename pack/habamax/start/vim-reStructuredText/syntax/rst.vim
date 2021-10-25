@@ -18,7 +18,7 @@ syn match rstTransition /^[=`:.'"~^_*+#-]\{4,}\s*$/
 " TODO: rename to rstInline
 syn cluster rstCruft contains=rstEmphasis,rstStrongEmphasis,
       \ rstInterpretedText,rstInlineLiteral,rstSubstitutionReference,
-      \ rstInlineInternalTargets,rstFootnoteReference,rstHyperlinkReference
+      \ rstInlineInternalTarget,rstFootnoteReference,rstHyperlinkReference
 
 syn region rstLiteralBlock matchgroup=rstDelimiter
       \ start='\(^\z(\s*\).*\)\@<=::\n\s*\n' skip='^\s*$' end='^\(\z1\s\+\)\@!'
@@ -50,13 +50,13 @@ syn cluster rstDirectives contains=rstFootnote,rstCitation,
 syn match rstExplicitMarkup '^\s*\.\.\_s'
       \ nextgroup=@rstDirectives,rstComment,rstSubstitutionDefinition
 
+syn keyword rstTodo contained FIXME TODO XXX NOTE
+
 " TODO: check if unicode is allowed...
 " Simple reference names are single words consisting of alphanumerics plus
 " isolated (no two adjacent) internal hyphens, underscores, periods, colons
 " and plus signs.
 let s:ref_name = '[[:alnum:]]\%([-_.:+]\?[[:alnum:]]\+\)*'
-
-syn keyword rstTodo contained FIXME TODO XXX NOTE
 
 execute 'syn region rstComment contained' .
       \ ' start=/.*/'
@@ -91,45 +91,60 @@ syn match rstSubstitutionDefinition contained /|.*|\_s\+/ nextgroup=@rstDirectiv
 
 " Inline markup recognition rules
 " https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#inline-markup
-let s:inline_start = '<(\[{"'."'"
-let s:inline_end = ')\]}>"'."'"
-
-syn region rstInterpretedText matchgroup=rstDelimiter
-      \ start=+\(^\|[[:space:]-:/]\)\zs`\ze[^`[:space:]]+
-      \ skip=+\\`+
-      \ end=+\S\zs`\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
-
-syn region rstInlineLiteral matchgroup=rstDelimiter
-      \ start=+\(^\|[[:space:]-:/]\)\zs``\ze\S+
-      \ end=+\S\zs``\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
+syn region rstStrongEmphasis matchgroup=rstDelimiter
+      \ start=+\%(^\|[[:space:]-:/]\)\zs\*\*\ze[^[:space:]]+
+      \ skip=+\\\*+
+      \ end=+\S\zs\*\*\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
 
 syn region rstEmphasis matchgroup=rstDelimiter
       \ start=+\%(^\|[[:space:]-:/]\)\zs\*\ze[^*[:space:]]+
       \ skip=+\\\*+
       \ end=+\S\zs\*\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
 
-syn region rstStrongEmphasis matchgroup=rstDelimiter
-      \ start=+\%(^\|[[:space:]-:/]\)\zs\*\*\ze[^[:space:]]+
-      \ skip=+\\\*+
-      \ end=+\S\zs\*\*\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
+syn region rstInlineLiteral matchgroup=rstDelimiter
+      \ start=+\(^\|[[:space:]-:/]\)\zs``\ze\S+
+      \ end=+\S\zs``\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
+
+syn region rstInlineInternalTarget matchgroup=rstDelimiter
+      \ start=+\(^\|[[:space:]-:/]\)\zs_`\ze[^`[:space:]]+
+      \ skip=+\\`+
+      \ end=+\S\zs`\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
+
+syn region rstInterpretedText matchgroup=rstDelimiter
+      \ start=+\(^\|[[:space:]-:/]\)\zs`\ze[^`[:space:]]+
+      \ skip=+\\`+
+      \ end=+\S\zs`_\{0,2}\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
+
+syn region rstSubstitutionReference matchgroup=rstDelimiter
+      \ start=+\%(^\|[[:space:]-:/]\)\zs|\ze[^|[:space:]]+
+      \ skip=+\\|+
+      \ end=+\S\zs|_\{0,2}\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
 
 for ch in [['(', ')'], ['{', '}'], ['<', '>'], ['\[', '\]'], ['"', '"'], ["'", "'"]]
-    execute 'syn region rstEmphasis matchgroup=rstDelimiter' .
-          \ ' start=+'.ch[0].'\zs\*\ze[^*[:space:]'.ch[1].']+' .
-          \ ' skip=+\\\*+' .
-          \ ' end=+\S\zs\*\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
     execute 'syn region rstStrongEmphasis matchgroup=rstDelimiter' .
           \ ' start=+'.ch[0].'\zs\*\*\ze[^[:space:]'.ch[1].']+' .
           \ ' skip=+\\\*+' .
           \ ' end=+\S\zs\*\*\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
-    execute 'syn region rstInterpretedText matchgroup=rstDelimiter' .
-          \ ' start=+'.ch[0].'\zs`\ze[^`[:space:]'.ch[1].']+' .
-          \ ' skip=+\\`+' .
-          \ ' end=+\S\zs`\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
+    execute 'syn region rstEmphasis matchgroup=rstDelimiter' .
+          \ ' start=+'.ch[0].'\zs\*\ze[^*[:space:]'.ch[1].']+' .
+          \ ' skip=+\\\*+' .
+          \ ' end=+\S\zs\*\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
     execute 'syn region rstInlineLiteral matchgroup=rstDelimiter' .
           \ ' start=+'.ch[0].'\zs``\ze[^[:space:]'.ch[1].']+' .
           \ ' skip=+\\\*+' .
           \ ' end=+\S\zs``\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
+    execute 'syn region rstInlineInternalTarget matchgroup=rstDelimiter' .
+          \ ' start=+'.ch[0].'\zs_`\ze[^`[:space:]'.ch[1].']+' .
+          \ ' skip=+\\`+' .
+          \ ' end=+\S\zs`\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
+    execute 'syn region rstInterpretedText matchgroup=rstDelimiter' .
+          \ ' start=+'.ch[0].'\zs`\ze[^`[:space:]'.ch[1].']+' .
+          \ ' skip=+\\`+' .
+          \ ' end=+\S\zs`_\{0,2}\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
+    execute 'syn region rstSubstitutionReference matchgroup=rstDelimiter' .
+          \ ' start=+'.ch[0].'\zs|\ze[^|[:space:]'.ch[1].']+' .
+          \ ' skip=+\\|+' .
+          \ ' end=+\S\zs|_\{0,2}\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
 endfor
 
 
@@ -178,11 +193,7 @@ endfor
 "     execute 'hi def link rst' . a:name . 'Delimiter' . ' rst' . a:name
 " endfunction
 
-" call s:DefineInlineMarkup('Emphasis', '\*', '\*', '\*')
-" call s:DefineInlineMarkup('StrongEmphasis', '\*\*', '\*', '\*\*')
 " call s:DefineInlineMarkup('InterpretedTextOrHyperlinkReference', '`', '`', '`_\{0,2}')
-" call s:DefineInlineMarkup('InlineLiteral', '``', "", '``')
-" call s:DefineInlineMarkup('SubstitutionReference', '|', '|', '|_\{0,2}')
 " call s:DefineInlineMarkup('InlineInternalTargets', '_`', '`', '`')
 
 syn match rstSectionDelimiter contained "\v^([=`:.'"~^_*+#-])\1+\s*$"
@@ -302,14 +313,14 @@ hi def link rstDelimiter                    Delimiter
 hi def link rstInterpretedText              Identifier
 hi def link rstInlineLiteral                String
 hi def link rstSubstitutionReference        PreProc
-hi def link rstInlineInternalTargets        Identifier
+hi def link rstInlineInternalTarget         Identifier
 hi def link rstFootnoteReference            Identifier
 hi def link rstCitationReference            Identifier
 hi def link rstHyperLinkReference           Identifier
 hi def link rstStandaloneHyperlink          Identifier
 hi def link rstCodeBlock                    String
-hi def rstEmphasis          term=italic cterm=italic gui=italic
-hi def rstStrongEmphasis    term=bold cterm=bold gui=bold
+hi def rstEmphasis term=italic cterm=italic gui=italic
+hi def rstStrongEmphasis term=bold cterm=bold gui=bold
 
 let b:current_syntax = "rst"
 
