@@ -147,55 +147,6 @@ for ch in [['(', ')'], ['{', '}'], ['<', '>'], ['\[', '\]'], ['"', '"'], ["'", "
           \ ' end=+\S\zs|_\{0,2}\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
 endfor
 
-
-
-" function! s:DefineOneInlineMarkup(name, start, middle, end, char_left, char_right)
-"   " Only escape the first char of a multichar delimiter (e.g. \* inside **)
-"   if a:start[0] == '\'
-"     let first = a:start[0:1]
-"   else
-"     let first = a:start[0]
-"   endif
-
-"   execute 'syn match rstEscape'.a:name.' +\\\\\|\\'.first.'+'.' contained'
-
-"   execute 'syn region rst' . a:name .
-"         \ ' start=+' . a:char_left . '\zs' . a:start .
-"         \ '\ze[^[:space:]' . a:char_right . a:start[strlen(a:start) - 1] . ']+' .
-"         \ a:middle .
-"         \ ' end=+' . a:end . '\ze\%($\|\s\|[''"’)\]}>/:.,;!?\\-]\)+' .
-"         \ ' contains=rstEscape' . a:name
-
-"   execute 'hi def link rstEscape'.a:name.' Special'
-" endfunction
-
-" function! s:DefineInlineMarkup(name, start, middle, end)
-"     let middle = a:middle != "" ?
-"           \ (' skip=+\\\\\|\\' . a:middle . '\|\s' . a:middle . '+') :
-"           \ ""
-
-"     call s:DefineOneInlineMarkup(a:name, a:start, middle, a:end, "'", "'")
-"     call s:DefineOneInlineMarkup(a:name, a:start, middle, a:end, '"', '"')
-"     call s:DefineOneInlineMarkup(a:name, a:start, middle, a:end, '(', ')')
-"     call s:DefineOneInlineMarkup(a:name, a:start, middle, a:end, '\[', '\]')
-"     call s:DefineOneInlineMarkup(a:name, a:start, middle, a:end, '{', '}')
-"     call s:DefineOneInlineMarkup(a:name, a:start, middle, a:end, '<', '>')
-"     call s:DefineOneInlineMarkup(a:name, a:start, middle, a:end, '’', '’')
-"     " TODO: Additional Unicode Pd, Po, Pi, Pf, Ps characters
-
-"     call s:DefineOneInlineMarkup(a:name, a:start, middle, a:end, '\%(^\|\s\|\%ua0\|[/:]\)', '')
-
-"     execute 'syn match rst' . a:name .
-"           \ ' +\%(^\|\s\|\%ua0\|[''"([{</:]\)\zs' . a:start .
-"           \ '[^[:space:]' . a:start[strlen(a:start) - 1] . ']'
-"           \ a:end . '\ze\%($\|\s\|[''")\]}>/:.,;!?\\-]\)+'
-
-"     execute 'hi def link rst' . a:name . 'Delimiter' . ' rst' . a:name
-" endfunction
-
-" call s:DefineInlineMarkup('InterpretedTextOrHyperlinkReference', '`', '`', '`_\{0,2}')
-" call s:DefineInlineMarkup('InlineInternalTargets', '_`', '`', '`')
-
 syn match rstSectionDelimiter contained "\v^([=`:.'"~^_*+#-])\1+\s*$"
 syn match rstSection "\v^%(([=`:.'"~^_*+#-])\1+\n)?.{1,2}\n([=`:.'"~^_*+#-])\2+$"
       \ contains=rstSectionDelimiter,@Spell
