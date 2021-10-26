@@ -19,7 +19,9 @@ syn match rstTransition /^[=`:.'"~^_*+#-]\{4,}\s*$/
 syn cluster rstCruft contains=rstEmphasis,rstStrongEmphasis,
       \ rstInterpretedText,rstInlineLiteral,rstSubstitutionReference,
       \ rstInlineInternalTarget,rstFootnoteReference,rstHyperlinkReference,
-      \ rstStandaloneHyperlink
+      \ rstStandaloneHyperlink,rstFieldName
+
+syn match rstDoubleColon /::/ contained
 
 syn region rstLiteralBlock matchgroup=rstDelimiter
       \ start='\(^\z(\s*\).*\)\@<=::\n\s*\n' skip='^\s*$' end='^\(\z1\s\+\)\@!'
@@ -29,8 +31,10 @@ syn region rstQuotedLiteralBlock matchgroup=rstDelimiter
       \ start="::\_s*\n\ze\z([!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]\)"
       \ end='^\z1\@!' contains=@NoSpell
 
-syn region rstDoctestBlock oneline display matchgroup=rstDelimiter
-      \ start='^>>>\s' end='^$'
+syn region rstDoctestBlock matchgroup=rstDelimiter
+      \ start='^\s*>>>\s' end='^\s*$'
+
+syn region rstFieldName start=+^\s*:+ skip=+\\:+ end=+:+ oneline
 
 syn cluster rstTables contains=rstTable,rstSimpleTable
 syn region rstTable transparent start='^\n\s*+[-=+]\+' end='^$'
@@ -75,20 +79,19 @@ execute 'syn region rstCitation contained matchgroup=rstDirective' .
       \ ' skip=+^$+' .
       \ ' end=+^\s\@!+ contains=@rstCruft,@NoSpell'
 
-syn region rstHyperlinkTarget contained matchgroup=rstDirective
+syn region rstHyperlinkTarget contained contains=rstStandaloneHyperlink matchgroup=rstDirective
       \ start='_\%(_\|[^:\\]*\%(\\.[^:\\]*\)*\):\_s' skip=+^$+ end=+^\s\@!+
 
-syn region rstHyperlinkTarget contained matchgroup=rstDirective
+syn region rstHyperlinkTarget contained contains=rstStandaloneHyperlink matchgroup=rstDirective
       \ start='_`[^`\\]*\%(\\.[^`\\]*\)*`:\_s' skip=+^$+ end=+^\s\@!+
 
-syn region rstHyperlinkTarget matchgroup=rstDirective
+syn region rstHyperlinkTarget contains=rstStandaloneHyperlink matchgroup=rstDirective
       \ start=+^__\_s+ skip=+^$+ end=+^\s\@!+
-      \ contains=rstStandaloneHyperlink
 
 execute 'syn region rstExDirective contained transparent matchgroup=rstDirective' .
-      \ ' start=+' . s:ref_name . '::\_s+' .
+      \ ' start=+' . s:ref_name . '\ze::\_s+' .
       \ ' skip=+^$+' .
-      \ ' end=+^\s\@!+ contains=@rstCruft,@rstTables,rstLiteralBlock'
+      \ ' end=+^\s\@!+ contains=rstDoubleColon,@rstCruft,@rstTables,rstLiteralBlock'
 
 
 syn match rstSubstitutionDefinition contained /|.*|\_s\+/ nextgroup=@rstDirectives
@@ -171,10 +174,17 @@ syn match rstStandaloneHyperlink contains=@NoSpell
       \ "\<\%(\%(\%(https\=\|file\|ftp\|gopher\)://\|\%(mailto\|news\):\)[^[:space:]'\"<>]\+\|www[[:alnum:]_-]*\.[[:alnum:]_-]\+\.[^[:space:]'\"<>]\+\)[[:alnum:]/]"
 
 syn region rstCodeBlock contained matchgroup=rstDirective
-      \ start=+\%(sourcecode\|code\%(-block\)\=\)::\s*\(\S*\)\?\s*\n\%(\s*:.*:\s*.*\s*\n\)*\n\ze\z(\s\+\)+
+      \ start="\c\%(sourcecode\|code\%(-block\)\=\)\ze::\_s*\n\z(\s\+\)"
       \ skip=+^$+
       \ end=+^\z1\@!+
-      \ contains=@NoSpell
+      \ contains=rstDirectiveArguments,@NoSpell
+
+execute 'syn region rstDirectiveArguments contained' .
+      \ ' matchgroup=rstDelimiter' .
+      \ ' start=+::.*+' .
+      \ ' end=+^\s*$+ contains=@rstCruft'
+
+
 syn cluster rstDirectives add=rstCodeBlock
 
 if !exists('g:rst_syntax_code_list') || type(g:rst_syntax_code_list) != type({})
@@ -198,14 +208,14 @@ for s:filetype in keys(g:rst_syntax_code_list)
           \. join(g:rst_syntax_code_list[s:filetype], '\|')
           \. '\)'
 
-    exe 'syn include @rst'.s:filetype.' syntax/'.s:filetype.'.vim'
-    exe 'syn region rstDirective'.s:filetype
-          \. ' matchgroup=rstDirective fold'
-          \. ' start="\c\%(sourcecode\|code\%(-block\)\=\)::\s\+'.s:alias_pattern.'\_s*\n\ze\z(\s\+\)"'
+    exe 'syn include @rstSyntax'.s:filetype.' syntax/'.s:filetype.'.vim'
+    exe 'syn region rstCodeBlock'.s:filetype
+          \. ' contained matchgroup=rstDirective'
+          \. ' start="\c\%(sourcecode\|code\%(-block\)\=\)\ze::\s\+'.s:alias_pattern.'\_s*\n\z(\s\+\)"'
           \. ' skip=#^$#'
           \. ' end=#^\z1\@!#'
-          \. ' contains=@NoSpell,@rst'.s:filetype
-    exe 'syn cluster rstDirectives add=rstDirective'.s:filetype
+          \. ' contains=rstDirectiveArguments,@NoSpell,@rstSyntax'.s:filetype
+    exe 'syn cluster rstDirectives add=rstCodeBlock'.s:filetype
 
     " reset 'isk' setting, if it has been changed
     if &l:iskeyword !=# prior_isk
@@ -224,23 +234,25 @@ hi def link rstTodo                         Todo
 hi def link rstComment                      Comment
 hi def link rstSection                      Title
 hi def link rstSectionDelimiter             Type
-hi def link rstTransition                   Delimiter
+hi def link rstDelimiter                    Delimiter
+hi def link rstTransition                   rstDelimiter
 hi def link rstLiteralBlock                 String
 hi def link rstQuotedLiteralBlock           String
 hi def link rstDoctestBlock                 PreProc
 hi def link rstTableLines                   rstDelimiter
 hi def link rstSimpleTableLines             rstTableLines
-hi def link rstExplicitMarkup               rstDirective
+hi def link rstExplicitMarkup               rstDelimiter
 hi def link rstDirective                    Keyword
 hi def link rstExDirective                  rstDirective
 hi def link rstFootnote                     String
 hi def link rstCitation                     String
 hi def link rstHyperlinkTarget              String
-hi def link rstSubstitutionDefinition       rstDirective
-hi def link rstDelimiter                    Delimiter
+hi def link rstDoubleColon                  rstDelimiter
+hi def link rstFieldName                    Constant
 hi def link rstInterpretedText              Identifier
 hi def link rstInlineLiteral                String
 hi def link rstSubstitutionReference        PreProc
+hi def link rstSubstitutionDefinition       rstSubstitutionReference
 hi def link rstInlineInternalTarget         Identifier
 hi def link rstFootnoteReference            Identifier
 hi def link rstCitationReference            Identifier
