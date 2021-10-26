@@ -32,7 +32,7 @@ syn region rstQuotedLiteralBlock matchgroup=rstDelimiter
 syn region rstDoctestBlock matchgroup=rstDelimiter
       \ start='^\s*>>>\s' end='^\s*$'
 
-syn region rstFieldName start=+^\s*:\ze\S+ skip=+\\:+ end=+\S\zs:+ oneline
+syn region rstFieldName start=+^\s*:\ze\S+ skip=+\\:+ end=+\S\zs:\ze\(\s\|$\)+ oneline
 
 syn cluster rstTables contains=rstTable,rstSimpleTable
 syn region rstTable transparent start='^\n\s*+[-=+]\+' end='^$'
@@ -92,7 +92,8 @@ execute 'syn region rstExDirective contained transparent matchgroup=rstDirective
       \ ' end=+^\s\@!+ contains=rstDoubleColon,@rstInlineMarkup,@rstTables'
 
 
-syn match rstSubstitutionDefinition contained /|.*|\_s\+/ nextgroup=@rstDirectives
+syn match rstSubstitutionDefinition contained /|.*|\_s\+/
+      \ nextgroup=@rstDirectives
 
 " Inline markup recognition rules
 " https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#inline-markup
@@ -100,56 +101,68 @@ syn region rstStrongEmphasis matchgroup=rstDelimiter
       \ start=+\%(^\|[[:space:]-:/]\)\zs\*\*\ze[^[:space:]]+
       \ skip=+\\\*+
       \ end=+\S\zs\*\*\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
+      \ concealends
 
 syn region rstEmphasis matchgroup=rstDelimiter
       \ start=+\%(^\|[[:space:]-:/]\)\zs\*\ze[^*[:space:]]+
       \ skip=+\\\*+
       \ end=+\S\zs\*\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
+      \ concealends
 
 syn region rstInlineLiteral matchgroup=rstDelimiter
       \ start=+\(^\|[[:space:]-:/]\)\zs``\ze\S+
       \ end=+\S\zs``\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
+      \ concealends
 
 syn region rstInlineInternalTarget matchgroup=rstDelimiter
       \ start=+\(^\|[[:space:]-:/]\)\zs_`\ze[^`[:space:]]+
       \ skip=+\\`+
       \ end=+\S\zs`\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
+      \ concealends
 
 syn region rstInterpretedText matchgroup=rstDelimiter contains=rstStandaloneHyperlink
       \ start=+\(^\|[[:space:]-:/]\)\zs`\ze[^`[:space:]]+
       \ skip=+\\`+
       \ end=+\S\zs`_\{0,2}\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
+      \ concealends
 
 syn region rstSubstitutionReference matchgroup=rstDelimiter
       \ start=+\%(^\|[[:space:]-:/]\)\zs|\ze[^|[:space:]]+
       \ skip=+\\|+
       \ end=+\S\zs|_\{0,2}\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
+      \ concealends
 
 for s:ch in [['(', ')'], ['{', '}'], ['<', '>'], ['\[', '\]'], ['"', '"'], ["'", "'"]]
     execute 'syn region rstStrongEmphasis matchgroup=rstDelimiter' .
           \ ' start=+'.s:ch[0].'\zs\*\*\ze[^[:space:]'.s:ch[1].']+' .
           \ ' skip=+\\\*+' .
-          \ ' end=+\S\zs\*\*\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
+          \ ' end=+\S\zs\*\*\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+' .
+          \ ' concealends'
     execute 'syn region rstEmphasis matchgroup=rstDelimiter' .
           \ ' start=+'.s:ch[0].'\zs\*\ze[^*[:space:]'.s:ch[1].']+' .
           \ ' skip=+\\\*+' .
-          \ ' end=+\S\zs\*\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
+          \ ' end=+\S\zs\*\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+' .
+          \ ' concealends'
     execute 'syn region rstInlineLiteral matchgroup=rstDelimiter' .
           \ ' start=+'.s:ch[0].'\zs``\ze[^[:space:]'.s:ch[1].']+' .
           \ ' skip=+\\\*+' .
-          \ ' end=+\S\zs``\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
+          \ ' end=+\S\zs``\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+' .
+          \ ' concealends'
     execute 'syn region rstInlineInternalTarget matchgroup=rstDelimiter' .
           \ ' start=+'.s:ch[0].'\zs_`\ze[^`[:space:]'.s:ch[1].']+' .
           \ ' skip=+\\`+' .
-          \ ' end=+\S\zs`\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
+          \ ' end=+\S\zs`\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+' .
+          \ ' concealends'
     execute 'syn region rstInterpretedText matchgroup=rstDelimiter contains=rstStandaloneHyperlink' .
           \ ' start=+'.s:ch[0].'\zs`\ze[^`[:space:]'.s:ch[1].']+' .
           \ ' skip=+\\`+' .
-          \ ' end=+\S\zs`_\{0,2}\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
+          \ ' end=+\S\zs`_\{0,2}\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+' .
+          \ ' concealends'
     execute 'syn region rstSubstitutionReference matchgroup=rstDelimiter' .
           \ ' start=+'.s:ch[0].'\zs|\ze[^|[:space:]'.s:ch[1].']+' .
           \ ' skip=+\\|+' .
-          \ ' end=+\S\zs|_\{0,2}\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
+          \ ' end=+\S\zs|_\{0,2}\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+' .
+          \ ' concealends'
 endfor
 
 syn match rstSectionDelimiter contained "\v^([=`:.'"~^_*+#-])\1+\s*$"
