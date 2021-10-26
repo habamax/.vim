@@ -36,19 +36,20 @@ syn region rstFieldName start=+^\s*:\ze\S+ skip=+\\:+ end=+\S\zs:\ze\(\s\|$\)+ o
 " TODO: add roles :kbd:`Ctrl`
 " syn region rstRole start=+\s*:\ze\S+ skip=+\\:+ end=+\S\zs:\ze`+ oneline
 
-syn cluster rstTables contains=rstTable,rstSimpleTable
-syn region rstTable transparent start='^\n\s*+[-=+]\+' end='^$'
-      \ contains=rstTableLines,@rstInlineMarkup
-syn match rstTableLines contained display '|\|+\%(=\+\|-\+\)\='
+" TODO: do I need table highlighting? If not consider removing them
+" syn cluster rstTables contains=rstTable,rstSimpleTable
+" syn region rstTable transparent start='^\n\s*+[-=+]\+' end='^$'
+"       \ contains=rstTableLines,@rstInlineMarkup
+" syn match rstTableLines contained display '|\|+\%(=\+\|-\+\)\='
 
-syn region rstSimpleTable transparent
-      \ start='^\n\%(\s*\)\@>\%(\%(=\+\)\@>\%(\s\+\)\@>\)\%(\%(\%(=\+\)\@>\%(\s*\)\@>\)\+\)\@>$'
-      \ end='^$'
-      \ contains=rstSimpleTableLines,@rstInlineMarkup
-syn match rstSimpleTableLines contained display
-      \ '^\%(\s*\)\@>\%(\%(=\+\)\@>\%(\s\+\)\@>\)\%(\%(\%(=\+\)\@>\%(\s*\)\@>\)\+\)\@>$'
-syn match rstSimpleTableLines contained display
-      \ '^\%(\s*\)\@>\%(\%(-\+\)\@>\%(\s\+\)\@>\)\%(\%(\%(-\+\)\@>\%(\s*\)\@>\)\+\)\@>$'
+" syn region rstSimpleTable transparent
+"       \ start='^\n\%(\s*\)\@>\%(\%(=\+\)\@>\%(\s\+\)\@>\)\%(\%(\%(=\+\)\@>\%(\s*\)\@>\)\+\)\@>$'
+"       \ end='^$'
+"       \ contains=rstSimpleTableLines,@rstInlineMarkup
+" syn match rstSimpleTableLines contained display
+"       \ '^\%(\s*\)\@>\%(\%(=\+\)\@>\%(\s\+\)\@>\)\%(\%(\%(=\+\)\@>\%(\s*\)\@>\)\+\)\@>$'
+" syn match rstSimpleTableLines contained display
+"       \ '^\%(\s*\)\@>\%(\%(-\+\)\@>\%(\s\+\)\@>\)\%(\%(\%(-\+\)\@>\%(\s*\)\@>\)\+\)\@>$'
 
 syn cluster rstDirectives contains=rstFootnote,rstCitation,
       \ rstHyperlinkTarget,rstExDirective
