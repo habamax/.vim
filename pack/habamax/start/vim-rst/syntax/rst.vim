@@ -4,7 +4,7 @@
 " Description: Based on https://github.com/marshallward/vim-restructuredtext
 
 if exists("b:current_syntax")
-  finish
+    finish
 endif
 
 let s:cpo_save = &cpo
@@ -187,14 +187,14 @@ syn cluster rstDirectives add=rstCodeBlock
 
 if !exists('g:rst_syntax_code_list') || type(g:rst_syntax_code_list) != type({})
     let g:rst_syntax_code_list = {
-        \ 'vim': ['vim'],
-        \ 'sql': ['sql'],
-        \ 'cpp': ['cpp', 'c++'],
-        \ 'python': ['python'],
-        \ 'json': ['json'],
-        \ 'javascript': ['js'],
-        \ 'sh': ['sh'],
-        \ }
+          \ 'vim': ['vim'],
+          \ 'sql': ['sql'],
+          \ 'cpp': ['cpp', 'c++'],
+          \ 'python': ['python'],
+          \ 'json': ['json'],
+          \ 'javascript': ['js'],
+          \ 'sh': ['sh'],
+          \ }
 endif
 
 for s:filetype in keys(g:rst_syntax_code_list)
