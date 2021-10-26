@@ -14,9 +14,7 @@ syn case ignore
 
 syn match rstTransition /^[=`:.'"~^_*+#-]\{4,}\s*$/
 
-
-" TODO: rename to rstInline
-syn cluster rstCruft contains=rstEmphasis,rstStrongEmphasis,
+syn cluster rstInlineMarkup contains=rstEmphasis,rstStrongEmphasis,
       \ rstInterpretedText,rstInlineLiteral,rstSubstitutionReference,
       \ rstInlineInternalTarget,rstFootnoteReference,rstHyperlinkReference,
       \ rstStandaloneHyperlink,rstFieldName
@@ -34,17 +32,17 @@ syn region rstQuotedLiteralBlock matchgroup=rstDelimiter
 syn region rstDoctestBlock matchgroup=rstDelimiter
       \ start='^\s*>>>\s' end='^\s*$'
 
-syn region rstFieldName start=+^\s*:+ skip=+\\:+ end=+:+ oneline
+syn region rstFieldName start=+^\s*:\ze\S+ skip=+\\:+ end=+\S\zs:+ oneline
 
 syn cluster rstTables contains=rstTable,rstSimpleTable
 syn region rstTable transparent start='^\n\s*+[-=+]\+' end='^$'
-      \ contains=rstTableLines,@rstCruft
+      \ contains=rstTableLines,@rstInlineMarkup
 syn match rstTableLines contained display '|\|+\%(=\+\|-\+\)\='
 
 syn region rstSimpleTable transparent
       \ start='^\n\%(\s*\)\@>\%(\%(=\+\)\@>\%(\s\+\)\@>\)\%(\%(\%(=\+\)\@>\%(\s*\)\@>\)\+\)\@>$'
       \ end='^$'
-      \ contains=rstSimpleTableLines,@rstCruft
+      \ contains=rstSimpleTableLines,@rstInlineMarkup
 syn match rstSimpleTableLines contained display
       \ '^\%(\s*\)\@>\%(\%(=\+\)\@>\%(\s\+\)\@>\)\%(\%(\%(=\+\)\@>\%(\s*\)\@>\)\+\)\@>$'
 syn match rstSimpleTableLines contained display
@@ -72,12 +70,12 @@ execute 'syn region rstComment contained' .
 execute 'syn region rstFootnote contained matchgroup=rstDirective' .
       \ ' start=+\[\%(\d\+\|#\%(' . s:ref_name . '\)\=\|\*\)\]\_s+' .
       \ ' skip=+^$+' .
-      \ ' end=+^\s\@!+ contains=@rstCruft,@NoSpell'
+      \ ' end=+^\s\@!+ contains=@rstInlineMarkup,@NoSpell'
 
 execute 'syn region rstCitation contained matchgroup=rstDirective' .
       \ ' start=+\[' . s:ref_name . '\]\_s+' .
       \ ' skip=+^$+' .
-      \ ' end=+^\s\@!+ contains=@rstCruft,@NoSpell'
+      \ ' end=+^\s\@!+ contains=@rstInlineMarkup,@NoSpell'
 
 syn region rstHyperlinkTarget contained contains=rstStandaloneHyperlink matchgroup=rstDirective
       \ start='_\%(_\|[^:\\]*\%(\\.[^:\\]*\)*\):\_s' skip=+^$+ end=+^\s\@!+
@@ -91,7 +89,7 @@ syn region rstHyperlinkTarget contains=rstStandaloneHyperlink matchgroup=rstDire
 execute 'syn region rstExDirective contained transparent matchgroup=rstDirective' .
       \ ' start=+' . s:ref_name . '\ze::\_s+' .
       \ ' skip=+^$+' .
-      \ ' end=+^\s\@!+ contains=rstDoubleColon,@rstCruft,@rstTables,rstLiteralBlock'
+      \ ' end=+^\s\@!+ contains=rstDoubleColon,@rstInlineMarkup,@rstTables'
 
 
 syn match rstSubstitutionDefinition contained /|.*|\_s\+/ nextgroup=@rstDirectives
@@ -182,7 +180,7 @@ syn region rstCodeBlock contained matchgroup=rstDirective
 execute 'syn region rstDirectiveArguments contained' .
       \ ' matchgroup=rstDelimiter' .
       \ ' start=+::.*+' .
-      \ ' end=+^\s*$+ contains=@rstCruft'
+      \ ' end=+^\s*$+ contains=@rstInlineMarkup'
 
 
 syn cluster rstDirectives add=rstCodeBlock
