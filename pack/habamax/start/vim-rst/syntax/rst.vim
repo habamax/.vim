@@ -1,5 +1,5 @@
-" Vim reST syntax file
-" Language: reStructuredText syntax file
+" Vim reStructuredText syntax file
+" Language: reStructuredText document format
 " Maintainer: Maxim Kim <habamax@gmail.com>
 " Description: Based on https://github.com/marshallward/vim-restructuredtext
 
@@ -177,26 +177,7 @@ syn region rstCodeBlock contained matchgroup=rstDirective
       \ contains=@NoSpell
 syn cluster rstDirectives add=rstCodeBlock
 
-if !exists('g:rst_syntax_code_list')
-    " A mapping from a Vim filetype to a list of alias patterns (pattern
-    " branches to be specific, see ':help /pattern'). E.g. given:
-    "
-    "   let g:rst_syntax_code_list = {
-    "       \ 'cpp': ['cpp', 'c++'],
-    "       \ }
-    "
-    " then the respective contents of the following two rST directives:
-    "
-    "   .. code:: cpp
-    "
-    "     auto i = 42;
-    "
-    "   .. code:: C++
-    "
-    "     auto i = 42;
-    "
-    " will both be highlighted as C++ code. As shown by the latter block
-    " pattern matching will be case-insensitive.
+if !exists('g:rst_syntax_code_list') || type(g:rst_syntax_code_list) != type({})
     let g:rst_syntax_code_list = {
         \ 'vim': ['vim'],
         \ 'sql': ['sql'],
@@ -206,13 +187,6 @@ if !exists('g:rst_syntax_code_list')
         \ 'javascript': ['js'],
         \ 'sh': ['sh'],
         \ }
-elseif type(g:rst_syntax_code_list) == type([])
-    " backward compatibility with former list format
-    let s:old_spec = g:rst_syntax_code_list
-    let g:rst_syntax_code_list = {}
-    for s:elem in s:old_spec
-        let g:rst_syntax_code_list[s:elem] = [s:elem]
-    endfor
 endif
 
 for s:filetype in keys(g:rst_syntax_code_list)
@@ -280,4 +254,3 @@ let b:current_syntax = "rst"
 
 let &cpo = s:cpo_save
 unlet s:cpo_save
-
