@@ -18,7 +18,8 @@ syn match rstTransition /^[=`:.'"~^_*+#-]\{4,}\s*$/
 " TODO: rename to rstInline
 syn cluster rstCruft contains=rstEmphasis,rstStrongEmphasis,
       \ rstInterpretedText,rstInlineLiteral,rstSubstitutionReference,
-      \ rstInlineInternalTarget,rstFootnoteReference,rstHyperlinkReference
+      \ rstInlineInternalTarget,rstFootnoteReference,rstHyperlinkReference,
+      \ rstStandaloneHyperlink
 
 syn region rstLiteralBlock matchgroup=rstDelimiter
       \ start='\(^\z(\s*\).*\)\@<=::\n\s*\n' skip='^\s*$' end='^\(\z1\s\+\)\@!'
@@ -31,6 +32,7 @@ syn region rstQuotedLiteralBlock matchgroup=rstDelimiter
 syn region rstDoctestBlock oneline display matchgroup=rstDelimiter
       \ start='^>>>\s' end='^$'
 
+syn cluster rstTables contains=rstTable,rstSimpleTable
 syn region rstTable transparent start='^\n\s*+[-=+]\+' end='^$'
       \ contains=rstTableLines,@rstCruft
 syn match rstTableLines contained display '|\|+\%(=\+\|-\+\)\='
@@ -81,11 +83,13 @@ syn region rstHyperlinkTarget contained matchgroup=rstDirective
 
 syn region rstHyperlinkTarget matchgroup=rstDirective
       \ start=+^__\_s+ skip=+^$+ end=+^\s\@!+
+      \ contains=rstStandaloneHyperlink
 
-execute 'syn region rstExDirective contained matchgroup=rstDirective' .
+execute 'syn region rstExDirective contained transparent matchgroup=rstDirective' .
       \ ' start=+' . s:ref_name . '::\_s+' .
       \ ' skip=+^$+' .
-      \ ' end=+^\s\@!+ contains=@rstCruft,rstLiteralBlock'
+      \ ' end=+^\s\@!+ contains=@rstCruft,@rstTables,rstLiteralBlock'
+
 
 syn match rstSubstitutionDefinition contained /|.*|\_s\+/ nextgroup=@rstDirectives
 
@@ -110,7 +114,7 @@ syn region rstInlineInternalTarget matchgroup=rstDelimiter
       \ skip=+\\`+
       \ end=+\S\zs`\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
 
-syn region rstInterpretedText matchgroup=rstDelimiter
+syn region rstInterpretedText matchgroup=rstDelimiter contains=rstStandaloneHyperlink
       \ start=+\(^\|[[:space:]-:/]\)\zs`\ze[^`[:space:]]+
       \ skip=+\\`+
       \ end=+\S\zs`_\{0,2}\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
@@ -120,29 +124,29 @@ syn region rstSubstitutionReference matchgroup=rstDelimiter
       \ skip=+\\|+
       \ end=+\S\zs|_\{0,2}\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
 
-for ch in [['(', ')'], ['{', '}'], ['<', '>'], ['\[', '\]'], ['"', '"'], ["'", "'"]]
+for s:ch in [['(', ')'], ['{', '}'], ['<', '>'], ['\[', '\]'], ['"', '"'], ["'", "'"]]
     execute 'syn region rstStrongEmphasis matchgroup=rstDelimiter' .
-          \ ' start=+'.ch[0].'\zs\*\*\ze[^[:space:]'.ch[1].']+' .
+          \ ' start=+'.s:ch[0].'\zs\*\*\ze[^[:space:]'.s:ch[1].']+' .
           \ ' skip=+\\\*+' .
           \ ' end=+\S\zs\*\*\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
     execute 'syn region rstEmphasis matchgroup=rstDelimiter' .
-          \ ' start=+'.ch[0].'\zs\*\ze[^*[:space:]'.ch[1].']+' .
+          \ ' start=+'.s:ch[0].'\zs\*\ze[^*[:space:]'.s:ch[1].']+' .
           \ ' skip=+\\\*+' .
           \ ' end=+\S\zs\*\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
     execute 'syn region rstInlineLiteral matchgroup=rstDelimiter' .
-          \ ' start=+'.ch[0].'\zs``\ze[^[:space:]'.ch[1].']+' .
+          \ ' start=+'.s:ch[0].'\zs``\ze[^[:space:]'.s:ch[1].']+' .
           \ ' skip=+\\\*+' .
           \ ' end=+\S\zs``\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
     execute 'syn region rstInlineInternalTarget matchgroup=rstDelimiter' .
-          \ ' start=+'.ch[0].'\zs_`\ze[^`[:space:]'.ch[1].']+' .
+          \ ' start=+'.s:ch[0].'\zs_`\ze[^`[:space:]'.s:ch[1].']+' .
           \ ' skip=+\\`+' .
           \ ' end=+\S\zs`\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
-    execute 'syn region rstInterpretedText matchgroup=rstDelimiter' .
-          \ ' start=+'.ch[0].'\zs`\ze[^`[:space:]'.ch[1].']+' .
+    execute 'syn region rstInterpretedText matchgroup=rstDelimiter contains=rstStandaloneHyperlink' .
+          \ ' start=+'.s:ch[0].'\zs`\ze[^`[:space:]'.s:ch[1].']+' .
           \ ' skip=+\\`+' .
           \ ' end=+\S\zs`_\{0,2}\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
     execute 'syn region rstSubstitutionReference matchgroup=rstDelimiter' .
-          \ ' start=+'.ch[0].'\zs|\ze[^|[:space:]'.ch[1].']+' .
+          \ ' start=+'.s:ch[0].'\zs|\ze[^|[:space:]'.s:ch[1].']+' .
           \ ' skip=+\\|+' .
           \ ' end=+\S\zs|_\{0,2}\ze\($\|[[:space:].,:;!?"'."'".'/\\>)\]}]\)+'
 endfor
@@ -185,22 +189,21 @@ if !exists('g:rst_syntax_code_list')
     "
     "   .. code:: cpp
     "
-    "       auto i = 42;
+    "     auto i = 42;
     "
     "   .. code:: C++
     "
-    "       auto i = 42;
+    "     auto i = 42;
     "
     " will both be highlighted as C++ code. As shown by the latter block
     " pattern matching will be case-insensitive.
     let g:rst_syntax_code_list = {
         \ 'vim': ['vim'],
-        \ 'java': ['java'],
+        \ 'sql': ['sql'],
         \ 'cpp': ['cpp', 'c++'],
-        \ 'lisp': ['lisp'],
-        \ 'php': ['php'],
         \ 'python': ['python'],
-        \ 'perl': ['perl'],
+        \ 'json': ['json'],
+        \ 'javascript': ['js'],
         \ 'sh': ['sh'],
         \ }
 elseif type(g:rst_syntax_code_list) == type([])
@@ -255,10 +258,10 @@ hi def link rstTableLines                   rstDelimiter
 hi def link rstSimpleTableLines             rstTableLines
 hi def link rstExplicitMarkup               rstDirective
 hi def link rstDirective                    Keyword
+hi def link rstExDirective                  rstDirective
 hi def link rstFootnote                     String
 hi def link rstCitation                     String
 hi def link rstHyperlinkTarget              String
-hi def link rstExDirective                  String
 hi def link rstSubstitutionDefinition       rstDirective
 hi def link rstDelimiter                    Delimiter
 hi def link rstInterpretedText              Identifier
@@ -268,7 +271,7 @@ hi def link rstInlineInternalTarget         Identifier
 hi def link rstFootnoteReference            Identifier
 hi def link rstCitationReference            Identifier
 hi def link rstHyperLinkReference           Identifier
-hi def link rstStandaloneHyperlink          Identifier
+hi def link rstStandaloneHyperlink          Underlined
 hi def link rstCodeBlock                    String
 hi def rstEmphasis term=italic cterm=italic gui=italic
 hi def rstStrongEmphasis term=bold cterm=bold gui=bold
