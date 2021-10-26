@@ -7,6 +7,15 @@ if exists("b:did_indent")
 endif
 let b:did_indent = 1
 
+
+let undo_opts = "setl indentexpr< indentkeys< nosmartindent<"
+
+if exists('b:undo_indent')
+    let b:undo_indent .= "|" . undo_opts
+else
+    let b:undo_indent = undo_opts
+endif
+
 " b:undo_indent
 " For undoing the effect of an indent script, the b:undo_indent variable should
 " be set accordingly.
