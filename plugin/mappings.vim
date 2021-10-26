@@ -122,6 +122,8 @@ nnoremap <silent> <space>- :call text#underline('-')<CR>
 nnoremap <silent> <space>~ :call text#underline('~')<CR>
 nnoremap <silent> <space>^ :call text#underline('^')<CR>
 nnoremap <silent> <space>+ :call text#underline('+')<CR>
+nnoremap <silent> <space>" :call text#underline('"')<CR>
+nnoremap <silent> <space>` :call text#underline('`')<CR>
 
 " find visually selected text
 xnoremap * y/<C-R>"<CR>
