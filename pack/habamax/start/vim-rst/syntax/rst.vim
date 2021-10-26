@@ -33,6 +33,8 @@ syn region rstDoctestBlock matchgroup=rstDelimiter
       \ start='^\s*>>>\s' end='^\s*$'
 
 syn region rstFieldName start=+^\s*:\ze\S+ skip=+\\:+ end=+\S\zs:\ze\(\s\|$\)+ oneline
+" TODO: add roles :kbd:`Ctrl`
+" syn region rstRole start=+\s*:\ze\S+ skip=+\\:+ end=+\S\zs:\ze`+ oneline
 
 syn cluster rstTables contains=rstTable,rstSimpleTable
 syn region rstTable transparent start='^\n\s*+[-=+]\+' end='^$'
