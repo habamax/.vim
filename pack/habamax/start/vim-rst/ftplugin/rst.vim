@@ -11,16 +11,16 @@ endif
 
 setlocal comments=
 
-let &l:formatlistpat = '^\s*\('
-let &l:formatlistpat .= '\([-+*]\)'
+let &l:formatlistpat = '^\s*\%('
+let &l:formatlistpat .= '\%([-+*]\)'
 let &l:formatlistpat .= '\|'
-let &l:formatlistpat .= '\(\d\+[.)]\)'
+let &l:formatlistpat .= '\%(\d\+[.)]\)'
 let &l:formatlistpat .= '\|'
-let &l:formatlistpat .= '\((\d\+)\)'
+let &l:formatlistpat .= '\%((\d\+)\)'
 let &l:formatlistpat .= '\|'
-let &l:formatlistpat .= '\(\(\a\|#\)[.)]\)'
+let &l:formatlistpat .= '\%(\%(\a\|#\)[.)]\)'
 let &l:formatlistpat .= '\|'
-let &l:formatlistpat .= '\((\(\a\|#\))\)'
+let &l:formatlistpat .= '\%((\%(\a\|#\))\)'
 let &l:formatlistpat .= '\|'
-let &l:formatlistpat .= '\(|\)'
+let &l:formatlistpat .= '\%(|\)'
 let &l:formatlistpat .= '\)\s\+'
