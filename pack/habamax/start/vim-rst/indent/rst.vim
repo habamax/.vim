@@ -29,26 +29,25 @@ func! ReStructuredTextIndent() abort
     let pind = indent(v:lnum - 1)
     let ppind = indent(pplnum)
 
+    let line = getline(v:lnum)
     let pline = getline(v:lnum - 1)
     let ppline = getline(pplnum)
 
     " prev non blank is a .. directive
     " add single indent
     if ppline =~ '^\s*\.\.\(\s\+\|$\)' && v:lnum - pplnum == 1
-        echo "attributes" v:lnum pplnum 
         return ppind + shiftwidth()
     endif
 
     " previous line is empty
     " use previous non blank indent
     if v:lnum - pplnum >= 2
-        echo "previuos line is empty" v:lnum pplnum
         return -1
     endif
 
 
     " indent list items according to formatlistpat
-    if pline =~ &l:formatlistpat
+    if pline =~ &l:formatlistpat && line !~ &l:formatlistpat
         return matchend(pline, &l:formatlistpat)
     endif
 
