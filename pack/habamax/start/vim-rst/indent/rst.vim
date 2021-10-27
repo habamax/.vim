@@ -45,6 +45,9 @@ func! ReStructuredTextIndent() abort
         return -1
     endif
 
+    " indent fancy table... maybe?
+
+    " indent simple table... maybe?
 
     " indent list items according to formatlistpat
     if pline =~ &l:formatlistpat && line !~ &l:formatlistpat
