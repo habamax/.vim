@@ -14,8 +14,8 @@ let &l:makeprg = printf("%s %s %s %s",
       \ get(g:, "g:rst2html_params",
       \       "--input-encoding=utf8"
       \     . " --table-style=align-center,booktabs,captionbelow"
-      \     . " --stylesheet-path=minimal.css,responsive.css,"
-      \     . ".docutils/habamax.css"),
+      \     . " --stylesheet-path=minimal.css,responsive.css"
+      \     . ",.docutils/habamax.css"),
       \ s:input,
       \ s:output
       \ )
