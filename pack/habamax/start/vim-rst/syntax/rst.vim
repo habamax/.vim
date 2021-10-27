@@ -53,9 +53,6 @@ syn region rstDoctestBlock matchgroup=rstDelimiter
       \ start='^\s*>>>\s' end='^\s*$'
 
 syn region rstFieldName start=+^\s*:\ze\S+ skip=+\\:+ end=+\S\zs:\ze\(\s\|$\)+ oneline
-" TODO: add roles :kbd:`Ctrl`
-" syn region rstRole start=+\s*:\ze\S+ skip=+\\:+ end=+\S\zs:\ze`+ oneline
-
 
 syn cluster rstDirectives contains=rstFootnote,rstCitation,
       \ rstHyperlinkTarget,rstExDirective
@@ -63,22 +60,20 @@ syn cluster rstDirectives contains=rstFootnote,rstCitation,
 syn match rstExplicitMarkup '^\s*\.\.\_s'
       \ nextgroup=@rstDirectives,rstComment,rstSubstitutionDefinition
 
-let s:ref_name = '[[:alnum:]]\%([-_.:+]\?[[:alnum:]]\+\)*'
+syn region rstComment contained
+      \ start=/.*/
+      \ skip=+^$+
+      \ end=/^\s\@!/
 
-execute 'syn region rstComment contained' .
-      \ ' start=/.*/'
-      \ ' skip=+^$+' .
-      \ ' end=/^\s\@!/'
+syn region rstFootnote contained matchgroup=rstDirective
+      \ start=+\[\%(\d\+\|#\%([[:alnum:]]\%([-_.:+]\?[[:alnum:]]\+\)*\)\=\|\*\)\]\_s+
+      \ skip=+^$+
+      \ end=+^\s\@!+ contains=@rstInlineMarkup,@NoSpell
 
-execute 'syn region rstFootnote contained matchgroup=rstDirective' .
-      \ ' start=+\[\%(\d\+\|#\%(' . s:ref_name . '\)\=\|\*\)\]\_s+' .
-      \ ' skip=+^$+' .
-      \ ' end=+^\s\@!+ contains=@rstInlineMarkup,@NoSpell'
-
-execute 'syn region rstCitation contained matchgroup=rstDirective' .
-      \ ' start=+\[' . s:ref_name . '\]\_s+' .
-      \ ' skip=+^$+' .
-      \ ' end=+^\s\@!+ contains=@rstInlineMarkup,@NoSpell'
+syn region rstCitation contained matchgroup=rstDirective
+      \ start=+\[[[:alnum:]]\%([-_.:+]\?[[:alnum:]]\+\)*\]\_s+
+      \ skip=+^$+
+      \ end=+^\s\@!+ contains=@rstInlineMarkup,@NoSpell
 
 syn region rstHyperlinkTarget contained contains=rstStandaloneHyperlink matchgroup=rstDirective
       \ start='_\%(_\|[^:\\]*\%(\\.[^:\\]*\)*\):\_s' skip=+^$+ end=+^\s\@!+
@@ -89,10 +84,10 @@ syn region rstHyperlinkTarget contained contains=rstStandaloneHyperlink matchgro
 syn region rstHyperlinkTarget contains=rstStandaloneHyperlink matchgroup=rstDirective
       \ start=+^__\_s+ skip=+^$+ end=+^\s\@!+
 
-execute 'syn region rstExDirective contained transparent matchgroup=rstDirective' .
-      \ ' start=+' . s:ref_name . '\ze::\_s+' .
-      \ ' skip=+^$+' .
-      \ ' end=+^\s\@!+ contains=rstDoubleColon,@rstInlineMarkup,@rstTables'
+syn region rstExDirective contained transparent matchgroup=rstDirective
+      \ start=+[[:alnum:]]\%([-_.:+]\?[[:alnum:]]\+\)*\ze::\_s+
+      \ skip=+^$+
+      \ end=+^\s\@!+ contains=rstDoubleColon,@rstInlineMarkup,@rstTables
 
 
 syn match rstSubstitutionDefinition contained /|.*|\_s\+/
@@ -124,9 +119,10 @@ syn region rstInlineInternalTarget matchgroup=rstDelimiter
       \ concealends
 
 syn region rstInterpretedText matchgroup=rstDelimiter contains=rstStandaloneHyperlink
-      \ start=+\(^\|[[:space:]-:/]\)\zs`\ze[^`[:space:]]+
+      \ start=+\(^\|[[:space:]-:/]\)\zs\%(:[[:alnum:]]\%([-_.:+]\?[[:alnum:]]\+\)*:\)\?`\ze[^`[:space:]]+
       \ skip=+\\`+
       \ end=+\S\zs`_\{0,2}\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
+      \ end=+\S\zs`\%(:[[:alnum:]]\%([-_.:+]\?[[:alnum:]]\+\)*:\)\?\ze\($\|[[:space:].,:;!?"'/\\>)\]}]\)+
       \ concealends
 
 syn region rstSubstitutionReference matchgroup=rstDelimiter
@@ -169,14 +165,14 @@ for s:ch in [['(', ')'], ['{', '}'], ['<', '>'], ['\[', '\]'], ['"', '"'], ["'",
 endfor
 
 " TODO: Can’t remember why these two can’t be defined like the ones above.
-execute 'syn match rstFootnoteReference contains=@NoSpell' .
-      \ ' +\%(\s\|^\)\[\%(\d\+\|#\%(' . s:ref_name . '\)\=\|\*\)\]_+'
+syn match rstFootnoteReference contains=@NoSpell
+      \ +\%(\s\|^\)\[\%(\d\+\|#\%([[:alnum:]]\%([-_.:+]\?[[:alnum:]]\+\)*\)\=\|\*\)\]_+
 
-execute 'syn match rstCitationReference contains=@NoSpell' .
-      \ ' +\%(\s\|^\)\[' . s:ref_name . '\]_\ze\%($\|\s\|[''")\]}>/:.,;!?\\-]\)+'
+syn match rstCitationReference contains=@NoSpell
+      \ +\%(\s\|^\)\[[[:alnum:]]\%([-_.:+]\?[[:alnum:]]\+\)*\]_\ze\%($\|\s\|[''")\]}>/:.,;!?\\-]\)+
 
-execute 'syn match rstHyperlinkReference' .
-      \ ' /\<' . s:ref_name . '__\=\ze\%($\|\s\|[''")\]}>/:.,;!?\\-]\)/'
+syn match rstHyperlinkReference
+      \ /\<[[:alnum:]]\%([-_.:+]\?[[:alnum:]]\+\)*__\=\ze\%($\|\s\|[''")\]}>/:.,;!?\\-]\)/
 
 syn match rstStandaloneHyperlink contains=@NoSpell
       \ "\<\%(\%(\%(https\=\|file\|ftp\|gopher\)://\|\%(mailto\|news\):\)[^[:space:]'\"<>]\+\|www[[:alnum:]_-]*\.[[:alnum:]_-]\+\.[^[:space:]'\"<>]\+\)[[:alnum:]/]"
@@ -187,10 +183,10 @@ syn region rstCodeBlock contained matchgroup=rstDirective
       \ end=+^\z1\@!+
       \ contains=rstDirectiveArguments,@NoSpell
 
-execute 'syn region rstDirectiveArguments contained' .
-      \ ' matchgroup=rstDelimiter' .
-      \ ' start=+::.*+' .
-      \ ' end=+^\s*$+ contains=@rstInlineMarkup'
+syn region rstDirectiveArguments contained
+      \ matchgroup=rstDelimiter
+      \ start=+::.*+
+      \ end=+^\s*$+ contains=@rstInlineMarkup
 
 
 syn cluster rstDirectives add=rstCodeBlock
