@@ -12,12 +12,27 @@ set cpo&vim
 
 syn case ignore
 
-syn match rstTransition /^[=`:.'"~^_*+#-]\{4,}\s*$/
-
 syn cluster rstInlineMarkup contains=rstEmphasis,rstStrongEmphasis,
       \ rstInterpretedText,rstInlineLiteral,rstSubstitutionReference,
       \ rstInlineInternalTarget,rstFootnoteReference,rstHyperlinkReference,
       \ rstStandaloneHyperlink,rstFieldName
+
+syn cluster rstTables contains=rstTable,rstSimpleTable
+syn region rstTable transparent start='^\n\s*+[-=+]\+' end='^$'
+      \ contains=rstTableLines,@rstInlineMarkup
+syn match rstTableLines contained display '|\|+\%(=\+\|-\+\)\='
+syn match rstSimpleTable
+      \ '^\s*\%(===\+\)\%(\s*===\+\)\+\s*$'
+syn match rstSimpleTable
+      \ '^\s*\%(---\+\)\%(\s*---\+\)\+\s*$'
+
+syn match rstSectionDelimiter contained "\v^([=`:.'"~^_*+#-])\1*\s*$"
+syn match rstSection "\v^%(%([=-]{3,}\s+[=-]{3,})\n)@<!\S.*\n([=`:.'"~^_*+#-])\1*$"
+      \ contains=rstSectionDelimiter,@Spell
+syn match rstSection "\v^%(([=`:.'"~^_*+#-])\1*\n).+\n([=`:.'"~^_*+#-])\2*$"
+      \ contains=rstSectionDelimiter,@Spell
+
+syn match rstTransition /^\n[=`:.'"~^_*+#-]\{4,}\s*\n$/
 
 syn match rstDoubleColon /::/ contained
 
@@ -36,28 +51,12 @@ syn region rstFieldName start=+^\s*:\ze\S+ skip=+\\:+ end=+\S\zs:\ze\(\s\|$\)+ o
 " TODO: add roles :kbd:`Ctrl`
 " syn region rstRole start=+\s*:\ze\S+ skip=+\\:+ end=+\S\zs:\ze`+ oneline
 
-" TODO: do I need table highlighting? If not consider removing them
-" syn cluster rstTables contains=rstTable,rstSimpleTable
-" syn region rstTable transparent start='^\n\s*+[-=+]\+' end='^$'
-"       \ contains=rstTableLines,@rstInlineMarkup
-" syn match rstTableLines contained display '|\|+\%(=\+\|-\+\)\='
-
-" syn region rstSimpleTable transparent
-"       \ start='^\n\%(\s*\)\@>\%(\%(=\+\)\@>\%(\s\+\)\@>\)\%(\%(\%(=\+\)\@>\%(\s*\)\@>\)\+\)\@>$'
-"       \ end='^$'
-"       \ contains=rstSimpleTableLines,@rstInlineMarkup
-" syn match rstSimpleTableLines contained display
-"       \ '^\%(\s*\)\@>\%(\%(=\+\)\@>\%(\s\+\)\@>\)\%(\%(\%(=\+\)\@>\%(\s*\)\@>\)\+\)\@>$'
-" syn match rstSimpleTableLines contained display
-"       \ '^\%(\s*\)\@>\%(\%(-\+\)\@>\%(\s\+\)\@>\)\%(\%(\%(-\+\)\@>\%(\s*\)\@>\)\+\)\@>$'
 
 syn cluster rstDirectives contains=rstFootnote,rstCitation,
       \ rstHyperlinkTarget,rstExDirective
 
 syn match rstExplicitMarkup '^\s*\.\.\_s'
       \ nextgroup=@rstDirectives,rstComment,rstSubstitutionDefinition
-
-syn keyword rstTodo contained FIXME TODO XXX NOTE
 
 " TODO: check if unicode is allowed...
 " Simple reference names are single words consisting of alphanumerics plus
@@ -68,7 +67,7 @@ let s:ref_name = '[[:alnum:]]\%([-_.:+]\?[[:alnum:]]\+\)*'
 execute 'syn region rstComment contained' .
       \ ' start=/.*/'
       \ ' skip=+^$+' .
-      \ ' end=/^\s\@!/ contains=rstTodo'
+      \ ' end=/^\s\@!/'
 
 execute 'syn region rstFootnote contained matchgroup=rstDirective' .
       \ ' start=+\[\%(\d\+\|#\%(' . s:ref_name . '\)\=\|\*\)\]\_s+' .
@@ -168,12 +167,6 @@ for s:ch in [['(', ')'], ['{', '}'], ['<', '>'], ['\[', '\]'], ['"', '"'], ["'",
           \ ' concealends'
 endfor
 
-syn match rstSectionDelimiter contained "\v^([=`:.'"~^_*+#-])\1+\s*$"
-syn match rstSection "\v^%(([=`:.'"~^_*+#-])\1+\n)?.{1,2}\n([=`:.'"~^_*+#-])\2+$"
-      \ contains=rstSectionDelimiter,@Spell
-syn match rstSection "\v^%(([=`:.'"~^_*+#-])\1{2,}\n)?.{3,}\n([=`:.'"~^_*+#-])\2{2,}$"
-      \ contains=rstSectionDelimiter,@Spell
-
 " TODO: Can’t remember why these two can’t be defined like the ones above.
 execute 'syn match rstFootnoteReference contains=@NoSpell' .
       \ ' +\%(\s\|^\)\[\%(\d\+\|#\%(' . s:ref_name . '\)\=\|\*\)\]_+'
@@ -254,7 +247,7 @@ hi def link rstLiteralBlock                 String
 hi def link rstQuotedLiteralBlock           String
 hi def link rstDoctestBlock                 PreProc
 hi def link rstTableLines                   rstDelimiter
-hi def link rstSimpleTableLines             rstTableLines
+hi def link rstSimpleTable                  rstTableLines
 hi def link rstExplicitMarkup               rstDelimiter
 hi def link rstDirective                    Keyword
 hi def link rstExDirective                  rstDirective
