@@ -4,6 +4,7 @@
 start/vim-select	git@github.com:habamax/vim-select.git
 start/vim-select-more	git@github.com:habamax/vim-select-more.git
 start/vim-asciidoctor	git@github.com:habamax/vim-asciidoctor.git
+start/vim-rst	git@github.com:habamax/vim-rst.git
 start/vim-godot	git@github.com:habamax/vim-godot.git
 start/vim-minisnip	git@github.com:habamax/vim-minisnip
 
