@@ -17,6 +17,8 @@ syn cluster rstInlineMarkup contains=rstEmphasis,rstStrongEmphasis,
       \ rstInlineInternalTarget,rstFootnoteReference,rstHyperlinkReference,
       \ rstStandaloneHyperlink,rstFieldName
 
+syn match rstLineBlock /^\s*|\s/
+
 syn cluster rstTables contains=rstTable,rstSimpleTable
 syn region rstTable transparent start='^\n\s*+[-=+]\+' end='^$'
       \ contains=rstTableLines,@rstInlineMarkup
@@ -256,6 +258,7 @@ hi def link rstCitation                     String
 hi def link rstHyperlinkTarget              String
 hi def link rstDoubleColon                  rstDelimiter
 hi def link rstFieldName                    Constant
+hi def link rstLineBlock                    rstDelimiter
 hi def link rstInterpretedText              Identifier
 hi def link rstInlineLiteral                String
 hi def link rstSubstitutionReference        PreProc
