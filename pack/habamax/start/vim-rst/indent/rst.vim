@@ -7,10 +7,6 @@ if exists("b:did_indent")
 endif
 let b:did_indent = 1
 
-if exists("*ReStructuredTextIndent")
-    finish
-endif
-
 let undo_opts = "setl inde< indk< si<"
 
 if exists('b:undo_indent')
@@ -23,6 +19,9 @@ setlocal indentexpr=ReStructuredTextIndent()
 setlocal indentkeys=!^F,o,O
 setlocal nosmartindent
 
+if exists("*ReStructuredTextIndent")
+    finish
+endif
 
 func! ReStructuredTextIndent() abort
     let pplnum = prevnonblank(v:lnum - 1)
