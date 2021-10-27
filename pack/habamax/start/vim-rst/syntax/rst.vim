@@ -15,9 +15,12 @@ syn case ignore
 syn cluster rstInlineMarkup contains=rstEmphasis,rstStrongEmphasis,
       \ rstInterpretedText,rstInlineLiteral,rstSubstitutionReference,
       \ rstInlineInternalTarget,rstFootnoteReference,rstHyperlinkReference,
-      \ rstStandaloneHyperlink,rstFieldName
+      \ rstStandaloneHyperlink,rstFieldName,rstListItem
 
-syn match rstLineBlock /^\s*|\s/
+syn match rstLineBlock /^\s*|/ contained
+
+let s:listpat = strpart(&l:formatlistpat, 0, strlen(&l:formatlistpat) - 4)
+execute 'syn match rstListItem /' . s:listpat . '\ze\s\+/ contains=rstLineBlock'
 
 syn cluster rstTables contains=rstTable,rstSimpleTable
 syn region rstTable transparent start='^\n\s*+[-=+]\+' end='^$'
@@ -259,6 +262,7 @@ hi def link rstHyperlinkTarget              String
 hi def link rstDoubleColon                  rstDelimiter
 hi def link rstFieldName                    Constant
 hi def link rstLineBlock                    rstDelimiter
+hi def link rstListItem                     Constant
 hi def link rstInterpretedText              Identifier
 hi def link rstInlineLiteral                String
 hi def link rstSubstitutionReference        PreProc
