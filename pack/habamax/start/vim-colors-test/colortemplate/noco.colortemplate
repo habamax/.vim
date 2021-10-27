@@ -12,9 +12,9 @@ Background: dark
 
 ;;; "No" color palette
 Color: foreground #D0D0D0 252
-Color: background #3A3A3A 237
+Color: background #303030 236
 
-Color: color00    #303030 236
+Color: color00    #3A3A3A 237
 Color: color01    #4E4E4E 239
 Color: color02    #767676 243
 Color: color03    #878787 102
@@ -24,8 +24,8 @@ Color: color06    #B2B2B2 249
 Color: color07    #BCBCBC 250
 Color: color08    #FFFFFF 231
 
-Term colors: color00 color01 color02 color03 color04 color05 color06 color07
-Term colors: color01 color02 color03 color04 color05 color06 color07 color08
+Term colors: background color03 color03 color03 color03 color03 color03 color05
+Term colors: color01 color03 color03 color03 color03 color03 color03 color08
 
 
 ;;; chrome
@@ -34,18 +34,18 @@ Normal           foreground background
 
 EndOfBuffer      color01    none
 Statusline       background color03
-StatuslineNC     color03    color01
+StatuslineNC     color03    color00
 StatuslineTerm   background color03
-StatuslineTermNC color03    color01
-VertSplit        color01    color01
+StatuslineTermNC color03    color00
+VertSplit        color00    color00
 
 Pmenu            none       color01
 PmenuSel         background color07
 PmenuSbar        none       color03
 PmenuThumb       none       color08
 
-TabLine          color03    color01
-TabLineFill      color05    color01
+TabLine          color03    color00
+TabLineFill      color05    color00
 TabLineSel       background color03
 
 ToolbarLine      none       none
@@ -54,7 +54,7 @@ ToolbarButton    background color05
 NonText          color01    none
 SpecialKey       color01    none
 
-Folded           color03    color00
+Folded           color08    none    bold
 Visual           background color07
 VisualNOS        background color07
 LineNr           color03    none
@@ -74,7 +74,7 @@ WarningMsg       color07    none
 MoreMsg          color03    none
 Question         color03    none
 
-Todo             color04    color01
+Todo             color08    none       bold
 MatchParen       color00    color06
 Search           color00    color04
 IncSearch        color00    color08
