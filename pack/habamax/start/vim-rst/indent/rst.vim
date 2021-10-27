@@ -2,13 +2,16 @@
 " Language: reStructuredText
 " Maintainer: Maxim Kim <habamax@gmail.com>
 
-" if exists("b:did_indent")
-"     finish
-" endif
+if exists("b:did_indent")
+    finish
+endif
 let b:did_indent = 1
 
+if exists("*ReStructuredTextIndent")
+    finish
+endif
 
-let undo_opts = "setl indentexpr< indentkeys< nosmartindent<"
+let undo_opts = "setl inde< indk< si<"
 
 if exists('b:undo_indent')
     let b:undo_indent .= "|" . undo_opts
@@ -20,13 +23,6 @@ setlocal indentexpr=ReStructuredTextIndent()
 setlocal indentkeys=!^F,o,O
 setlocal nosmartindent
 
-" if exists("*ReStructuredTextIndent")
-"     finish
-" endif
-
-let s:itemize = '^\s*[-*+]\s'
-let s:enumeration = '^\s*\%(\d\+\|#\)\.\s\+'
-let s:directive = '^\s*\.\.\(\s\+\|$\)'
 
 func! ReStructuredTextIndent() abort
     let pplnum = prevnonblank(v:lnum - 1)
@@ -39,7 +35,7 @@ func! ReStructuredTextIndent() abort
 
     " prev non blank is a .. directive
     " add single indent
-    if ppline =~ s:directive && v:lnum - pplnum == 1
+    if ppline =~ '^\s*\.\.\(\s\+\|$\)' && v:lnum - pplnum == 1
         echo "attributes" v:lnum pplnum 
         return ppind + shiftwidth()
     endif
@@ -51,39 +47,12 @@ func! ReStructuredTextIndent() abort
         return -1
     endif
 
-    echo "last"
+
+    " indent list items according to formatlistpat
+    if pline =~ &l:formatlistpat
+        return matchend(pline, &l:formatlistpat)
+    endif
 
     " return previous indent
     return pind
-
-    " let psnum = s:get_paragraph_start()
-
-    " if line =~ s:itemize
-    "     let ind += 2
-    " elseif line =~ s:enumeration
-    "     let ind += matchend(line, s:enumeration)
-    " endif
-
-    " let line = getline(v:lnum - 1)
-
-    " " Indent :FIELD: lines.  Don’t match if there is no text after the field or
-    " " if the text ends with a sent-ender.
-    " if line =~ '^:.\+:\s\{-1,\}\S.\+[^.!?:]$'
-    "     return matchend(line, '^:.\{-1,}:\s\+')
-    " endif
-
-    " if line =~ '^\s*$'
-    "     execute lnum
-    "     call search('^\s*\%([-*+]\s\|\%(\d\+\|#\)\.\s\|\.\.\|$\)', 'bW')
-    "     let line = getline('.')
-    "     if line =~ s:itemize
-    "         let ind -= 2
-    "     elseif line =~ s:enumeration
-    "         let ind -= matchend(line, s:enumeration)
-    "     elseif line =~ '^\s*\.\.'
-    "         let ind -= shiftwidth()
-    "     endif
-    " endif
-
-    " return ind
 endfunc
