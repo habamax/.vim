@@ -6,9 +6,13 @@
 
 " next regex is for numbered lists too but not sure if it makes sense
 let s:rx_bullets = '^\(\%(\s*[-*]\+\s\+\)\|\%(\s*\d\+\.\s\+\)\)'
-let s:rx_empty_checkbox = '\(\s*\[ \?\]\+\s*\)'
-let s:rx_marked_checkbox = '\(\s*\[[Xx]\]\+\s*\)'
-let s:rx_archive = '^\(#\|=\)\+ DONE'
+if get(g:, "checkbox_use_unicode", 1)
+    let s:rx_empty_checkbox = '\(\s*\)'
+    let s:rx_marked_checkbox = '\(\s*✓\s*\)'
+else
+    let s:rx_empty_checkbox = '\(\s*\[ \?\]\+\s*\)'
+    let s:rx_marked_checkbox = '\(\s*\[[Xx]\]\+\s*\)'
+endif
 
 """
 """ List checkboxes
@@ -27,12 +31,24 @@ endfunc
 
 fun! s:toggle_checkbox(lnum)
     let line = getline(a:lnum)
-    if s:is_list_item(line)
-        exe a:lnum.'s/'.s:rx_bullets.'/\1\[ \] /'
+    if s:is_checkbox_marked(line)
+        if get(g:, "checkbox_use_unicode", 1)
+            exe a:lnum.'s/'.s:rx_bullets.s:rx_marked_checkbox.'/\1/'
+        else
+            exe a:lnum.'s/'.s:rx_bullets.s:rx_marked_checkbox.'/\1\[ \] /'
+        endif
     elseif s:is_checkbox_empty(line)
-        exe a:lnum.'s/'.s:rx_bullets.s:rx_empty_checkbox.'/\1\[x\] /'
-    elseif s:is_checkbox_marked(line)
-        exe a:lnum.'s/'.s:rx_bullets.s:rx_marked_checkbox.'/\1\[ \] /'
+        if get(g:, "checkbox_use_unicode", 1)
+            exe a:lnum.'s/'.s:rx_bullets.s:rx_empty_checkbox.'/\1✓ /'
+        else
+            exe a:lnum.'s/'.s:rx_bullets.s:rx_empty_checkbox.'/\1\[x\] /'
+        endif
+    elseif s:is_list_item(line)
+        if get(g:, "checkbox_use_unicode", 1)
+            exe a:lnum.'s/'.s:rx_bullets.'/\1 /'
+        else
+            exe a:lnum.'s/'.s:rx_bullets.'/\1\[ \] /'
+        endif
     endif
 endfu
 
