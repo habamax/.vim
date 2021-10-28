@@ -81,6 +81,7 @@ func! os#open(url) abort
         echohl None
     finally
         if exists("$WSLENV") | lcd - | endif
+        redraw!
     endtry
 endfunc
 
