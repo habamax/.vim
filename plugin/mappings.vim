@@ -131,10 +131,9 @@ xnoremap * y/<C-R>"<CR>
 noremap <silent> <space>gi :call git#show_commit(v:count)<CR>
 noremap <silent> <space>gb :call git#blame()<CR>
 
-" edit global todo file
-nnoremap <silent> <space>gt :exe printf('e %s/todo.adoc', expand($DOCS ?? '~/docs'))<CR>
+nnoremap go <nop>
 " edit global journal file
-nnoremap <silent> <space>gj :call journal#new()<CR>
+nnoremap <silent> goj :call journal#new()<CR>
 
 
 nnoremap <silent> gof :call os#file_manager()<CR>
