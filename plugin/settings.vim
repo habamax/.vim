@@ -113,7 +113,7 @@ let g:loaded_netrwPlugin = 1
 let g:dirvish_mode = ':sort ,^.*[\/],'
 
 " vim-rst
-" let g:rst2html_opts =
-"       \   "--input-encoding=utf8"
-"       \ . " --table-style=align-center,booktabs,captionbelow"
-"       \ . " --stylesheet-path=minimal.css,responsive.css,.docutils/habamax.css"
+let g:rst2html_opts =
+      \   "--input-encoding=utf8"
+      \ . " --table-style=align-center,booktabs,captionbelow"
+      \ . " --stylesheet-path=minimal.css,responsive.css,.docutils/habamax.css"
