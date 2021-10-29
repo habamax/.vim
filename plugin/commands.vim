@@ -71,3 +71,7 @@ command! -bang -nargs=1 Global call setloclist(0, [], ' ',
             \           ->split('\n')
             \           ->map({_, val -> expand("%") . ":" . trim(val)})
             \ }) | lwindow
+
+
+" Helper command to show popup notifications
+command! -nargs=1 Show call popup_notification(<f-args>, {})
