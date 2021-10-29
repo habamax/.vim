@@ -8,7 +8,7 @@ func! git#plug_update() abort
     echom "Update plugins..."
     let cwd = fnamemodify($MYVIMRC, ":p:h")
     let bundle = 'plug'
-    let pack_list = cwd .. '/pack/plugs'
+    let pack_list = cwd . '/pack/plugs'
     let jobs = []
     let msg_count = 2
     func! s:out_cb(ch, msg) abort closure
@@ -27,7 +27,7 @@ func! git#plug_update() abort
             if empty(name) || empty(url)
                 continue
             endif
-            let path = cwd .. '/pack/'..bundle..'/' .. name
+            let path = cwd . '/pack/' . bundle . '/' . name
             if isdirectory(path)
                 let job = job_start([&shell, &shellcmdflag, 'git fetch --depth=1 && git reset --hard origin/HEAD && git clean -dfx'],
                             \ {"cwd": path,
@@ -35,7 +35,7 @@ func! git#plug_update() abort
                             \  "out_cb": function("s:out_cb")})
                 call add(s:pack_jobs, job)
             else
-                let job = job_start('git clone --depth=1 ' .. url .. ' ' .. path,
+                let job = job_start('git clone --depth=1 ' . url . ' ' . path,
                             \ {"cwd": cwd,
                             \  "err_cb": function("s:out_cb"),
                             \  "out_cb": function("s:out_cb")})
@@ -52,7 +52,7 @@ func! git#plug_update() abort
                 echom "Plugins are updated!"
             endif
             helptags ALL
-            call feedkeys(":"..msg_count.."messages\<CR>", 'n')
+            call feedkeys(":" . msg_count . "messages\<CR>", 'n')
         endif
     endfunc
     call timer_start(2000, {t->s:timer_handler(t)}, {"repeat": 100})
@@ -72,9 +72,9 @@ func! git#show_commit(count) range
 
     let depth = (a:count > 0 ? "" : "-n 1")
     let git_output = systemlist(
-                \ "git -C " .. shellescape(fnamemodify(resolve(expand('%:p')), ":h")) ..
-                \ " log --no-merges " .. depth .. " -L " ..
-                \ shellescape(a:firstline .. "," . a:lastline .. ":" .. resolve(expand("%:p")))
+                \ "git -C " . shellescape(fnamemodify(resolve(expand('%:p')), ":h")) .
+                \ " log --no-merges " . depth . " -L " .
+                \ shellescape(a:firstline . "," . a:lastline . ":" . resolve(expand("%:p")))
                 \ )
 
     let winnr = popup_atcursor(git_output, { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })
@@ -92,9 +92,9 @@ func! git#blame() range
     endif
 
     let git_output = systemlist(
-                \ "git -C " .. shellescape(fnamemodify(resolve(expand('%:p')), ":h")) ..
-                \ " blame -L " ..
-                \ a:firstline .. "," . a:lastline .. " " .. expand("%:t")
+                \ "git -C " . shellescape(fnamemodify(resolve(expand('%:p')), ":h")) .
+                \ " blame -L " .
+                \ a:firstline . "," . a:lastline . " " . expand("%:t")
                 \ )
 
     let winnr = popup_atcursor(git_output, { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })
