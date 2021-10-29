@@ -3,51 +3,57 @@
 """
 """ List item regexes
 """
+func! s:rx_empty_checkbox() abort
+    if get(g:, "checkbox_use_unicode", 1)
+        return '\(\s*\)'
+    else
+        return '\(\s*\[ \?\]\+\s*\)'
+    endif
+endfunc
 
-" next regex is for numbered lists too but not sure if it makes sense
-let s:rx_bullets = '^\(\%(\s*[-*]\+\s\+\)\|\%(\s*\d\+\.\s\+\)\)'
-if get(g:, "checkbox_use_unicode", 1)
-    let s:rx_empty_checkbox = '\(\s*\)'
-    let s:rx_marked_checkbox = '\(\s*✓\s*\)'
-else
-    let s:rx_empty_checkbox = '\(\s*\[ \?\]\+\s*\)'
-    let s:rx_marked_checkbox = '\(\s*\[[Xx]\]\+\s*\)'
-endif
+func! s:rx_marked_checkbox() abort
+    if get(g:, "checkbox_use_unicode", 1)
+        return '\(\s*✓\s*\)'
+    else
+        return '\(\s*\[[Xx]\]\+\s*\)'
+    endif
+endfunc
+
 
 """
 """ List checkboxes
 """
 func! s:is_list_item(line) abort
-    return a:line =~ s:rx_bullets && a:line !~ s:rx_bullets.s:rx_empty_checkbox.'\|'.s:rx_marked_checkbox
+    return a:line =~ &l:formatlistpat && a:line !~ &l:formatlistpat.s:rx_empty_checkbox().'\|'.s:rx_marked_checkbox()
 endfunc
 
 func! s:is_checkbox_empty(line) abort
-    return a:line =~ s:rx_bullets.s:rx_empty_checkbox
+    return a:line =~ &l:formatlistpat.s:rx_empty_checkbox()
 endfunc
 
 func! s:is_checkbox_marked(line) abort
-    return a:line =~ s:rx_bullets.s:rx_marked_checkbox
+    return a:line =~ &l:formatlistpat.s:rx_marked_checkbox()
 endfunc
 
 fun! s:toggle_checkbox(lnum)
     let line = getline(a:lnum)
     if s:is_checkbox_marked(line)
         if get(g:, "checkbox_use_unicode", 1)
-            exe a:lnum.'s/'.s:rx_bullets.s:rx_marked_checkbox.'/\1/'
+            exe a:lnum.'s/\('.&l:formatlistpat.'\)'.s:rx_marked_checkbox().'/\1/'
         else
-            exe a:lnum.'s/'.s:rx_bullets.s:rx_marked_checkbox.'/\1\[ \] /'
+            exe a:lnum.'s/\('.&l:formatlistpat.'\)'.s:rx_marked_checkbox().'/\1[ \] /'
         endif
     elseif s:is_checkbox_empty(line)
         if get(g:, "checkbox_use_unicode", 1)
-            exe a:lnum.'s/'.s:rx_bullets.s:rx_empty_checkbox.'/\1✓ /'
+            exe a:lnum.'s/\('.&l:formatlistpat.'\)'.s:rx_empty_checkbox().'/\1✓ /'
         else
-            exe a:lnum.'s/'.s:rx_bullets.s:rx_empty_checkbox.'/\1\[x\] /'
+            exe a:lnum.'s/\('.&l:formatlistpat.'\)'.s:rx_empty_checkbox().'/\1\[x\] /'
         endif
     elseif s:is_list_item(line)
         if get(g:, "checkbox_use_unicode", 1)
-            exe a:lnum.'s/'.s:rx_bullets.'/\1 /'
+            exe a:lnum.'s/'.&l:formatlistpat.'/& /'
         else
-            exe a:lnum.'s/'.s:rx_bullets.'/\1\[ \] /'
+            exe a:lnum.'s/'.&l:formatlistpat.'/&\[ \] /'
         endif
     endif
 endfu
