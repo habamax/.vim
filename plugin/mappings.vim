@@ -132,12 +132,12 @@ noremap <silent> <space>gi :call git#show_commit(v:count)<CR>
 noremap <silent> <space>gb :call git#blame()<CR>
 
 nnoremap go <nop>
-" edit global journal file
+" go to journal file
 nnoremap <silent> goj :call journal#new()<CR>
-
-
+" go to todo file
+nnoremap <silent> got :exe printf('e %s/todo.txt', expand($DOCS ?? '~/docs'))<CR>
+" go to current file in os file manager
 nnoremap <silent> gof :call os#file_manager()<CR>
-nnoremap got :TermBuffer<CR>
 
 
 " Save as
