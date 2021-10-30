@@ -116,4 +116,5 @@ let g:dirvish_mode = ':sort ,^.*[\/],'
 let g:rst2html_opts =
       \   "--input-encoding=utf8"
       \ . " --table-style=align-center,booktabs,captionbelow"
-      \ . " --stylesheet-path=minimal.css,responsive.css,.docutils/habamax.css"
+      \ . " --stylesheet-path=minimal.css,responsive.css,"
+      \ . expand($DOCS ?? '~/docs') . "/.docutils/habamax.css"
