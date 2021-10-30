@@ -10,8 +10,21 @@ compiler rst2html
 command -buffer RSTViewHtml :call os#open(expand("%:p:r").'.html')
 nnoremap <buffer> goh :RSTViewHtml<CR>
 
-command -buffer RSTHtmlRU :let b:rst2html_opts = g:rst2html_opts . " --language=ru" | compiler rst2html | Make
-command -buffer RSTHtml :let b:rst2html_opts = g:rst2html_opts | compiler rst2html | Make
+command -buffer -nargs=? -complete=locale RSTHtml call s:rst2html(<f-args>)
+
+func! s:rst2html(...) abort
+    if !empty(a:000)
+        let b:rst2html_opts = g:rst2html_opts . " --language=" . a:1
+    else
+        let b:rst2html_opts = g:rst2html_opts
+    endif
+    compiler rst2html
+    if exists(":Make")
+        Make
+    else
+        make
+    endif
+endfunc
 
 setlocal textwidth=79
 setlocal formatoptions=tnc
