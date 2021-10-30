@@ -30,13 +30,14 @@ func! s:new_entry(jfilename) abort
         exe "e " . a:jfilename
     endif
 
-    normal! gg
-
+    " search first 10 lines for a journal title
     let journal_heading = [repeat('#', 79), strftime("%Y"), repeat('#', 79), '']
-    if join(getline(1, 3), "\n") !~ '^#\{79}\n\s*.\{-}\d\d\d\d\s*.*\n#\{79}'
+    if join(getline(1, 10), "\n") !~ '\(^\|\n\)#\{79}\n\s*.\{-}\d\d\d\d\s*.*\n#\{79}'
         call append(0, journal_heading)
         2center
     endif
+
+    1
 
     let heading_date = [strftime("%Y-%m-%d"), repeat('=', 10)]
     if search('^'.heading_date[0].'\n'.repeat('=', 10), 'cw')
