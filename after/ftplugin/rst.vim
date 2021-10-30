@@ -29,3 +29,8 @@ endfunc
 setlocal textwidth=79
 setlocal formatoptions=tnc
 setlocal shiftwidth=2
+
+augroup checkmark | au!
+    au Syntax rst syn match rstCheckMark /✓/
+    au Syntax rst hi link rstCheckMark constant
+augroup END
