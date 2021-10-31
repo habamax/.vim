@@ -13,9 +13,9 @@ endfunc
 
 func! s:rx_marked_checkbox() abort
     if get(g:, "checkbox_use_unicode", 1)
-        return '\(\s*✓\s*\)'
+        return '\(\s*✓\s*\%(``\d\{4}-\d\d-\d\d``:\s*\)\?\)'
     else
-        return '\(\s*\[[Xx]\]\+\s*\)'
+        return '\(\s*\[[Xx]\]\+\s*\%(``\d\{4}-\d\d-\d\d``:\s*\)\?\)'
     endif
 endfunc
 
@@ -45,7 +45,7 @@ fun! s:toggle_checkbox(lnum)
         endif
     elseif s:is_checkbox_empty(line)
         if get(g:, "checkbox_use_unicode", 1)
-            exe a:lnum.'s/\('.&l:formatlistpat.'\)'.s:rx_empty_checkbox().'/\1✓ /'
+            exe a:lnum.'s/\('.&l:formatlistpat.'\)'.s:rx_empty_checkbox().'/\1✓ ``'.strftime("%Y-%m-%d").'``: /'
         else
             exe a:lnum.'s/\('.&l:formatlistpat.'\)'.s:rx_empty_checkbox().'/\1\[x\] /'
         endif
