@@ -31,6 +31,8 @@ setlocal formatoptions=tnc
 setlocal shiftwidth=2
 
 augroup checkmark | au!
-    au Syntax rst syn match rstCheckMark /✓/
-    au Syntax rst hi link rstCheckMark constant
+    au Syntax rst syn match rstCheckMark /✓\(\s*\d\{4}-\d\d-\d\d:\)\?/ contains=rstCheckMarkDate
+    au Syntax rst syn match rstCheckMarkDate /\d\{4}-\d\d-\d\d:/ contained
+    au Syntax rst hi link rstCheckMark Function
+    au Syntax rst hi link rstCheckMarkDate Special
 augroup END
