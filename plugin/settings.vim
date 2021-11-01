@@ -113,12 +113,10 @@ let g:loaded_netrwPlugin = 1
 let g:dirvish_mode = ':sort ,^.*[\/],'
 
 " vim-rst
-" Here probably some additional processing should be created
-" for changing --language of the rst2html output.
-      " \ . " --language=ru"
-" it is probably better to have this in config file of docutils?
 let g:rst2html_opts =
       \   "--input-encoding=utf8"
       \ . " --table-style=align-center,booktabs,captionbelow"
+      \ . " --syntax-highlight=short"
       \ . " --stylesheet-path=minimal.css,responsive.css,"
-      \ . expand($DOCS ?? '~/docs') . "/.docutils/habamax.css"
+      \ . expand($DOCS ?? '~/docs') . "/.docutils/habamax.css,"
+      \ . expand($DOCS ?? '~/docs') . "/.docutils/pygment.css"
