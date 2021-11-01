@@ -151,12 +151,23 @@ nnoremap <expr> <space>FR printf(":Move %s%s",
       \ empty(expand("%:e")) ? '' : repeat('<Left>', strchars(expand("%:e")) + 1))
 
 
-" Sort operator
-func! s:sort(type, ...)
-    '[,']sort
+" 'Array' sort operator
+" Will maintain commas
+" const whatever = [
+"     'acme',
+"     'bar',
+"     'baz',
+"     'foo'
+" ]
+func! s:sort(...)
+    '<,'>sort
+    " add commas to every line
+    '<,'>-1s/[^,]$/&,/e
+    " remove comma from the last line
+    '>s/,$//e
 endfunc
 nmap <silent> gs :set opfunc=<SID>sort<CR>g@
-xmap <silent> gs :sort<CR>
+xmap <silent> gs :<C-u>call <sid>sort()<CR>
 
 
 tnoremap <C-v> <C-w>""
