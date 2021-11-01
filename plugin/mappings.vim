@@ -159,15 +159,15 @@ nnoremap <expr> <space>FR printf(":Move %s%s",
 "     'baz',
 "     'foo'
 " ]
-func! s:sort(...)
-    '<,'>sort
+func! s:sort(...) range
+    '[,']sort
     " add commas to every line
-    '<,'>-1s/[^,]$/&,/e
+    '[,']s/[^,]$/&,/e
     " remove comma from the last line
-    '>s/,$//e
+    ']s/,$//e
 endfunc
 nmap <silent> gs :set opfunc=<SID>sort<CR>g@
-xmap <silent> gs :<C-u>call <sid>sort()<CR>
+xmap <silent> gs :sort <bar> s/[^,]$/&,/e <bar> '>s/,$//e<CR>
 
 
 tnoremap <C-v> <C-w>""
