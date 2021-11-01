@@ -153,12 +153,12 @@ nnoremap <expr> <space>FR printf(":Move %s%s",
 
 " 'Array' sort operator
 " Will maintain commas
-" const whatever = [
-"     'acme',
-"     'bar',
-"     'baz',
-"     'foo'
-" ]
+" const whatever = [   ->   const whatever = [
+"     'bar',                    'acme',
+"     'baz',                    'bar',
+"     'foo',                    'baz',
+"     'acme'                    'foo'
+" ]                         ]
 func! s:sort(...) range
     '[,']sort
     " add commas to every line
