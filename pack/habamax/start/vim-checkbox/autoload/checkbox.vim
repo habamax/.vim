@@ -2,8 +2,8 @@
 
 " Unlet if you don't want date to be inserted on marked list item
 let g:checkbox_mark_date = {}
-let g:checkbox_mark_date.rx = '\d\{4}-\d\d-\d\d:'
-let g:checkbox_mark_date.str = {-> strftime("%Y-%m-%d") . ': '}
+let g:checkbox_mark_date.rx = '(\d\{4}-\d\d-\d\d)'
+let g:checkbox_mark_date.str = {-> '(' . strftime("%Y-%m-%d") . ') '}
 
 
 """
