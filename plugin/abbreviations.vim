@@ -31,18 +31,6 @@ inorea ашчьу FIXME:
 inorea xxx: XXX:
 inorea чччЖ XXX:
 
-" Most useful for AsciiDoc but also good for others
-inorea note: NOTE:
-inorea тщеуЖ NOTE:
-inorea warn: WARNING:
-inorea цфктЖ WARNING:
-inorea impo: IMPORTANT:
-inorea шьзщЖ IMPORTANT:
-inorea tip: TIP:
-inorea ешзЖ TIP:
-inorea cau: CAUTION:
-inorea сфгЖ CAUTION:
-
 inorea wtf WTF
 inorea smth something
 inorea Smth Something
