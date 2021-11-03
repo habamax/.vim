@@ -17,10 +17,11 @@
 
 let s:paste_service = {
             \ '0x0' : [{-> 'https://0x0.st/'}, 'file=@-'],
+            \ 'envs' : [{-> 'https://envs.sh/'}, 'file=@-;'],
             \ 'clbin' : [{-> 'https://clbin.com/'}, 'clbin=<-'],
             \ 'dpaste': [{-> 'http://dpaste.com/api/v2/'}, 'content=<-'],
             \ 'ix' : [{-> 'http://ix.io/'}, 'f:1=<-'],
-            \ 'vpaste': [{-> 'http://vpaste.net/?ft=' .. &ft}, 'text=<-']
+            \ 'vpaste': [{-> 'http://vpaste.net/?ft=' . &ft}, 'text=<-']
             \}
 
 
@@ -32,7 +33,7 @@ func! share#paste(service, line1, line2) abort
     let url = s:paste_curl(l:Paste_url(), paste_param, a:line1, a:line2)
     let @+ = url
     let @@ = url
-    echom "Shared as " .. url
+    echom "Shared as " . url
 endfunc
 
 
