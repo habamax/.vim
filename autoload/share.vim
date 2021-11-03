@@ -5,7 +5,7 @@
 " Define command
 " command! -range=% -nargs=? -complete=customlist,share#complete Share call share#paste(<q-args>, <line1>, <line2>)
 "
-" Share whole buffer with default vpaste.net
+" Share whole buffer with default 0x0.st
 " :Share<CR>
 "
 " Share whole buffer with clbin.com
@@ -16,17 +16,18 @@
 
 
 let s:paste_service = {
-            \ 'vpaste': [{-> 'http://vpaste.net/?ft=' .. &ft}, 'text=<-'],
+            \ '0x0' : [{-> 'https://0x0.st/'}, 'file=@-'],
+            \ 'clbin' : [{-> 'https://clbin.com/'}, 'clbin=<-'],
             \ 'dpaste': [{-> 'http://dpaste.com/api/v2/'}, 'content=<-'],
-            \ 'ix'    : [{-> 'http://ix.io/'}, 'f:1=<-'],
-            \ 'clbin' : [{-> 'https://clbin.com/'}, 'clbin=<-']
+            \ 'ix' : [{-> 'http://ix.io/'}, 'f:1=<-'],
+            \ 'vpaste': [{-> 'http://vpaste.net/?ft=' .. &ft}, 'text=<-']
             \}
 
 
 " Paste lines from current buffer to one of the s:paste_service
 " Save URL in clipboard.
 func! share#paste(service, line1, line2) abort
-    let service = s:paste_service->get(a:service, s:paste_service.vpaste)
+    let service = s:paste_service->get(a:service, s:paste_service["0x0"])
     let [l:Paste_url, paste_param] = service
     let url = s:paste_curl(l:Paste_url(), paste_param, a:line1, a:line2)
     let @+ = url
