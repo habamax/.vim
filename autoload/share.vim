@@ -11,18 +11,18 @@
 " Share whole buffer with clbin.com
 " :Share clbin<CR>
 "
-" Share selection with vpaste.net
+" Share selection
 " :'<,'>Share<CR>
 
 
 let s:paste_service = {
-            \ '0x0' : [{-> 'https://0x0.st/'}, 'file=@-'],
-            \ 'envs' : [{-> 'https://envs.sh/'}, 'file=@-;'],
-            \ 'clbin' : [{-> 'https://clbin.com/'}, 'clbin=<-'],
-            \ 'dpaste': [{-> 'http://dpaste.com/api/v2/'}, 'content=<-'],
-            \ 'ix' : [{-> 'http://ix.io/'}, 'f:1=<-'],
-            \ 'vpaste': [{-> 'http://vpaste.net/?ft=' . &ft}, 'text=<-']
-            \}
+      \ '0x0'   : [{-> 'https://0x0.st/'}, 'file=@-'],
+      \ 'envs'  : [{-> 'https://envs.sh/'}, 'file=@-;'],
+      \ 'clbin' : [{-> 'https://clbin.com/'}, 'clbin=<-'],
+      \ 'dpaste': [{-> 'http://dpaste.com/api/v2/'}, 'content=<-'],
+      \ 'ix'    : [{-> 'http://ix.io/'}, 'f:1=<-'],
+      \ 'vpaste': [{-> 'http://vpaste.net/?ft=' . &ft}, 'text=<-']
+      \ }
 
 
 " Paste lines from current buffer to one of the s:paste_service
@@ -44,7 +44,7 @@ func! s:paste_curl(url, param, line1, line2) abort
         return
     endif
     let result = system(printf('curl -s -F "%s" "%s"', a:param, a:url),
-                \ join(getline(a:line1, a:line2), "\n"))
+          \ getline(a:line1, a:line2)->join("\n"))
     return result->trim()
 endfunc
 
