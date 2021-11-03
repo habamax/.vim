@@ -75,3 +75,6 @@ command! -bang -nargs=1 Global call setloclist(0, [], ' ',
 
 " Helper command to show popup notifications
 command! -nargs=1 Show call popup_notification(<f-args>, {})
+
+" Helper command to use old built-in colorschemes
+command! -nargs=1 -complete=color Colo exe "so $VIMRUNTIME/colors/" . <q-args> . ".vim"
