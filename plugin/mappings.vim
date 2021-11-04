@@ -136,6 +136,8 @@ nnoremap go <nop>
 nnoremap <silent> goj :call journal#new()<CR>
 " go to todo file
 nnoremap <silent> got :exe printf('e %s/todo.txt', expand($DOCS ?? '~/docs'))<CR>
+" go to *** file
+nnoremap <silent> gop :exe printf('e %s/creds.txt', expand($DOCS ?? '~/docs'))<CR>
 " go to current file in os file manager
 nnoremap <silent> gof :call os#file_manager()<CR>
 
