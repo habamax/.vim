@@ -33,11 +33,11 @@ endfunc
 
 " Underline current line with a chars
 " example mappings:
-" nnoremap <silent> <space>t= :call text#underline('=')<CR>
-" nnoremap <silent> <space>t- :call text#underline('-')<CR>
-" nnoremap <silent> <space>t~ :call text#underline('~')<CR>
-" nnoremap <silent> <space>t^ :call text#underline('^')<CR>
-" nnoremap <silent> <space>t+ :call text#underline('+')<CR>
+" nnoremap <silent> <space>= :call text#underline('=')<CR>
+" nnoremap <silent> <space>- :call text#underline('-')<CR>
+" nnoremap <silent> <space>~ :call text#underline('~')<CR>
+" nnoremap <silent> <space>^ :call text#underline('^')<CR>
+" nnoremap <silent> <space>+ :call text#underline('+')<CR>
 func! text#underline(char)
     let nextnr = line('.') + 1
     let line = matchlist(getline('.'), '^\(\s*\)\(.*\)$')
