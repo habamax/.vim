@@ -36,3 +36,34 @@ augroup checkmark | au!
     au Syntax rst hi link rstCheckMark Function
     au Syntax rst hi link rstCheckMarkDate Special
 augroup END
+
+
+
+command! -buffer -range RSTFixTable :call s:fixSimpleTable(<line1>, <line2>)
+
+func! s:fixSimpleTable(line1, line2) abort
+    let table = []
+    if getline(a:line1) !~ '^\s*\%(===\+\)\%(\s\+===\+\)\+\s*$'
+        return
+    endif
+    let col_width = split(getline(a:line1), '\s\+')->map({-> 0})
+    for lnum in range(a:line1, a:line2)
+        let columns = split(getline(lnum), '\s\s\+')
+        if getline(lnum) !~ '^\s*\%(\([=-]\)\1\+\)\%(\s\+\1\+\)\+\s*$'
+            if len(columns) == len(col_width)
+                let w = map(copy(columns), {_, v -> strchars(v)})
+                call map(col_width, {i, v -> v < w[i] ? w[i] : v})
+            endif
+        endif
+        call add(table, columns)
+    endfor
+    for row in table
+        if row[0] =~ '^\([=-]\)\1*$'
+            call map(row, {i, v -> strchars(v) < col_width[i] ? (v . repeat(v[0], col_width[i] - strchars(v))) : repeat(v[0], col_width[i])})
+        else
+            call map(row, {i, v -> strchars(v) < col_width[i] ? (v . repeat(' ', col_width[i] - strchars(v))) : v})
+        endif
+    endfor
+    call map(table, {_, v -> trim(join(v, '  '))})
+    call setline(a:line1, table)
+endfunc
