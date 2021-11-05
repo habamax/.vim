@@ -20,13 +20,6 @@ augroup win_autosize | au!
 augroup end
 
 
-augroup colorscheme | au!
-    hi VertSplit guibg=NONE ctermbg=NONE
-    au Colorscheme noco,saturnite,bronzage,sugarlily hi VertSplit guibg=NONE ctermbg=NONE
-    au Colorscheme sugarlily hi Normal guibg=#e4e4e4 ctermbg=254
-augroup END
-
-
 if exists("$WSLENV")
     augroup WSLClip | au!
         au TextYankPost * if v:event.regname == '"' | call system("clip.exe ", v:event.regcontents) | endif
