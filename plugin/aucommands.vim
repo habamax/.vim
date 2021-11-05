@@ -23,6 +23,7 @@ augroup end
 augroup colorscheme | au!
     hi VertSplit guibg=NONE ctermbg=NONE
     au Colorscheme noco,saturnite,bronzage,sugarlily hi VertSplit guibg=NONE ctermbg=NONE
+    au Colorscheme sugarlily hi Normal guibg=#f7f7f7
 augroup END
 
 
