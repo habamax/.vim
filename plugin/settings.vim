@@ -107,11 +107,6 @@ let g:lion_squeeze_spaces = 1
 let g:minisnip_default_maps = 1
 
 
-" vim-dirvish
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-let g:dirvish_mode = ':sort ,^.*[\/],'
-
 " vim-rst
 let g:rst2html_opts =
       \   "--input-encoding=utf8"

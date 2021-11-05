@@ -36,7 +36,6 @@ start/vim-closetag	git@github.com:alvan/vim-closetag.git
 start/vim-devdocs	git@github.com:romainl/vim-devdocs.git
 start/vim-colortemplate	git@github.com:lifepillar/vim-colortemplate.git
 start/Colorizer	git@github.com:chrisbra/Colorizer.git
-start/vim-dirvish	git@github.com:justinmk/vim-dirvish.git
 
 # Filetypes
 start/vim-elixir	git@github.com:elixir-editors/vim-elixir.git
