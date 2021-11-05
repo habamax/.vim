@@ -30,11 +30,16 @@ setlocal textwidth=79
 setlocal formatoptions=tnc
 setlocal shiftwidth=2
 
+func! s:hl_checkmark() abort
+    syn match rstCheckMark /✓\(\s*(\d\{4}-\d\d-\d\d)\)\?/ contains=rstCheckMarkDate
+    syn match rstCheckMarkDate /(\d\{4}-\d\d-\d\d)/ contained
+    hi link rstCheckMark Function
+    hi link rstCheckMarkDate Special
+endfunc
+
 augroup checkmark | au!
-    au Syntax rst syn match rstCheckMark /✓\(\s*(\d\{4}-\d\d-\d\d)\)\?/ contains=rstCheckMarkDate
-    au Syntax rst syn match rstCheckMarkDate /(\d\{4}-\d\d-\d\d)/ contained
-    au Syntax rst hi link rstCheckMark Function
-    au Syntax rst hi link rstCheckMarkDate Special
+    au Syntax rst call s:hl_checkmark()
+    au Colorscheme * call s:hl_checkmark()
 augroup END
 
 
