@@ -115,3 +115,11 @@ let g:rst2html_opts =
       \ . " --stylesheet-path=minimal.css,responsive.css,"
       \ . expand($DOCS ?? '~/docs') . "/.docutils/habamax.css,"
       \ . expand($DOCS ?? '~/docs') . "/.docutils/pygment.css"
+
+let g:rst_syntax_code_list = {
+      \ 'vim': ['vim'],
+      \ 'sql': ['sql'],
+      \ 'python': ['python'],
+      \ 'json': ['json'],
+      \ 'javascript': ['js'],
+      \ }
