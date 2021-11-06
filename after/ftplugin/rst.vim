@@ -51,7 +51,7 @@ func! s:fixSimpleTable(line1, line2) abort
     if getline(a:line1) !~ '^\s*\%(===\+\)\%(\s\+===\+\)\+\s*$'
         return
     endif
-    let col_width = split(getline(a:line1), '\s\+')->map({-> 0})
+    let col_width = split(getline(a:line1), '\s\s\+')->map({-> 0})
     for lnum in range(a:line1, a:line2)
         let columns = split(getline(lnum), '\s\s\+')
         if getline(lnum) !~ '^\s*\%(\([=-]\)\1\+\)\%(\s\+\1\+\)\+\s*$'
