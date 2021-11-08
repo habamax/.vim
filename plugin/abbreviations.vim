@@ -8,6 +8,7 @@ inorea -ю ->
 inorea =Ю =>
 inorea =ю =>
 
+inorea latex LaTeX
 inorea teh the
 inorea tihs this
 inorea thsi this
