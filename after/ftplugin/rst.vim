@@ -26,7 +26,7 @@ func! s:rst2html(...) abort
     endif
 endfunc
 
-setlocal textwidth=79
+setlocal textwidth=80
 setlocal formatoptions=tnc
 setlocal shiftwidth=2
 
