@@ -98,23 +98,23 @@ func! os#gx() abort
 
     " markdown URL [link text](http://ya.ru 'yandex search')
     try
-        let save_cursor = getcurpos()
+        let save_view = winsaveview()
         if searchpair('\[.\{-}\](', '', ')\zs', 'cbW', '', line('.')) > 0
             let URL = matchstr(getline('.')[col('.')-1:], '\[.\{-}\](\zs'.rx_embd.'\ze\(\s\+.\{-}\)\?)')
         endif
     finally
-        call setpos('.', save_cursor)
+        call winrestview(save_view)
     endtry
 
     " asciidoc URL http://yandex.ru[yandex search]
     if empty(URL)
         try
-            let save_cursor = getcurpos()
+            let save_view = winsaveview()
             if searchpair(rx_bare . '\[', '', '\]\zs', 'cbW', '', line('.')) > 0
                 let URL = matchstr(getline('.')[col('.')-1:], '\S\{-}\ze[')
             endif
         finally
-            call setpos('.', save_cursor)
+            call winrestview(save_view)
         endtry
     endif
 
@@ -122,12 +122,12 @@ func! os#gx() abort
     "          <a href="http://www.python.org"/>
     if empty(URL)
         try
-            let save_cursor = getcurpos()
+            let save_view = winsaveview()
             if searchpair('<a\s\+href=', '', '\%(</a>\|/>\)\zs', 'cbW', '', line('.')) > 0
                 let URL = matchstr(getline('.')[col('.')-1:], 'href=["'."'".']\?\zs\S\{-}\ze["'."'".']\?/\?>')
             endif
         finally
-            call setpos('.', save_cursor)
+            call winrestview(save_view)
         endtry
     endif
 
