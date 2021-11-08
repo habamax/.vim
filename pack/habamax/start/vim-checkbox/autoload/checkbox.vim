@@ -26,6 +26,15 @@ func! s:rx_marked_checkbox() abort
 endfunc
 
 
+func! s:rx_rejected_checkbox() abort
+    if get(g:, "checkbox_use_unicode", 1)
+        return '\(\s*✗\s*\%(' . get(g:, "checkbox_mark_date", {"rx": ""}).rx . '\s*\)\?\)'
+    else
+        return '\(\s*\[-\]\+\s*\%(' . get(g:, "checkbox_mark_date", {"rx": ""}).rx . '\s*\)\?\)'
+    endif
+endfunc
+
+
 """
 """ List checkboxes
 """
@@ -33,9 +42,17 @@ fun! s:toggle_checkbox(lnum)
     let line = getline(a:lnum)
     if s:is_checkbox_marked(line)
         if get(g:, "checkbox_use_unicode", 1)
-            exe a:lnum . 's/\(' . &l:formatlistpat . '\)' . s:rx_marked_checkbox() . '/\1/'
+            exe a:lnum . 's/\(' . &l:formatlistpat . '\)' . s:rx_marked_checkbox() . '/\1✗ '
+                  \ . get(g:, "checkbox_mark_date", {"str" : {-> ""}}).str() . '/'
         else
-            exe a:lnum . 's/\(' . &l:formatlistpat . '\)' . s:rx_marked_checkbox() . '/\1[ \] /'
+            exe a:lnum . 's/\(' . &l:formatlistpat . '\)' . s:rx_marked_checkbox() . '/\1[-\] '
+                  \ . get(g:, "checkbox_mark_date", {"str" : {-> ""}}).str() . '/'
+        endif
+    elseif s:is_checkbox_rejected(line)
+        if get(g:, "checkbox_use_unicode", 1)
+            exe a:lnum . 's/\(' . &l:formatlistpat . '\)' . s:rx_rejected_checkbox() . '/\1/'
+        else
+            exe a:lnum . 's/\(' . &l:formatlistpat . '\)' . s:rx_rejected_checkbox() . '/\1[ \] /'
         endif
     elseif s:is_checkbox_empty(line)
         if get(g:, "checkbox_use_unicode", 1)
@@ -67,6 +84,9 @@ func! s:is_checkbox_marked(line) abort
     return a:line =~ &l:formatlistpat.s:rx_marked_checkbox()
 endfunc
 
+func! s:is_checkbox_rejected(line) abort
+    return a:line =~ &l:formatlistpat.s:rx_rejected_checkbox()
+endfunc
 
 func! checkbox#toggle(line1, line2) abort
     let save_cursor = getcurpos()
