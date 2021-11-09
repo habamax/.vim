@@ -74,3 +74,22 @@ func! s:fixSimpleTable(line1, line2) abort
     call map(table, {_, v -> trim(join(v, '  '))})
     call setline(a:line1, table)
 endfunc
+
+func! RSTSectionFormat() abort
+    let section_delim = '^\([=`:."' . "'" . '~^_*+#-]\)\1*$'
+    let cline = getline('.')
+    if cline !~ section_delim && cline !~ '^\s\+\S'
+        let nline = getline(line('.') + 1)
+        let pline = getline(line('.') - 1)
+        if pline =~ '^\s*$' && nline =~ section_delim
+            call setline(line('.') + 1, repeat(nline[0], strchars(cline)))
+        elseif pline =~ section_delim && nline =~ section_delim && pline[0] == nline[0]
+            call setline(line('.') + 1, repeat(nline[0], strchars(cline)))
+            call setline(line('.') - 1, repeat(pline[0], strchars(cline)))
+        endif
+    endif
+endfunc
+
+augroup rst_section | au!
+    au InsertLeave <buffer> :call RSTSectionFormat()
+augroup END
