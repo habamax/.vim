@@ -45,7 +45,6 @@ nnoremap <silent> yos :set spell! spell?<CR>
 nnoremap <silent> yoc :set cursorline! cursorline?<CR>
 nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis") . "<CR>"
 nnoremap <expr> yob ':colo ' . (get(g:, 'colors_name', '') == 'bronzage' ? "sugarlily" : "bronzage") . "<CR>"
-nnoremap <expr> yof ':set bg='.(&bg=='dark'?'light':'dark')."<bar> colo def<CR>"
 
 
 " Window management
