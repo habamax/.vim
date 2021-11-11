@@ -49,6 +49,34 @@ func! os#file_manager() abort
     endif
 endfunc
 
+" Silently execute OS command
+func! os#exe(cmd) abort
+    if exists("$WSLENV")
+        lcd /mnt/c
+        let runner = ":silent !cmd.exe /C start"
+    elseif has("win32") || has("win32unix")
+        let runner = ':silent !start'
+    elseif executable('xdg-open')
+        let runner = ":silent !xdg-open"
+    elseif executable('open')
+        let runner = ":silent !open"
+    else
+        echohl Error
+        echomsg "Can't find an executor for a command!"
+        echohl None
+        return
+    endif
+    try
+        exe runner . ' ' . a:cmd
+    catch
+        echohl Error
+        echomsg v:exception
+        echohl None
+    finally
+        if exists("$WSLENV") | lcd - | endif
+        redraw!
+    endtry
+endfunc
 
 " Open filename in an OS
 func! os#open(url) abort
@@ -73,7 +101,6 @@ func! os#open(url) abort
     endif
 
     try
-        echom cmd . ' "' . url . '"'
         exe cmd . ' "' . url . '"'
     catch
         echohl Error

@@ -11,10 +11,10 @@ setlocal shiftwidth=2
 compiler rst2html
 
 " TODO: add it to undo ftplugin
-command -buffer RSTViewHtml :call os#open(expand("%:p:r").'.html')
-nnoremap <buffer> goh :RSTViewHtml<CR>
+command -buffer RstViewHtml :call os#open(expand("%:p:r").'.html')
+nnoremap <buffer> <space>oh :RstViewHtml<CR>
 
-command -buffer -nargs=? -complete=locale RSTHtml call s:rst2html(<f-args>)
+command -buffer -nargs=? -complete=locale Rst2Html call s:rst2html(<f-args>)
 
 func! s:rst2html(...) abort
     if !empty(a:000)
@@ -30,12 +30,13 @@ func! s:rst2html(...) abort
     endif
 endfunc
 
-command -buffer RSTPDF call system(printf('"%s" %s %s "%s"',
+command -buffer Rst2Pdf make | exe os#exe(printf('"%s" %s %s "%s"',
       \ 'C:/Program Files/Google/Chrome/Application/chrome.exe',
       \ '--headless --disable-gpu --print-to-pdf-no-header',
       \ '--print-to-pdf="' . expand("%:p:r") . '.pdf"',
       \ expand("%:p:r") . '.html'
       \ ))
+
 
 func! s:hl_checkmark() abort
     syn match rstCheckDone /✓\(\s*(\d\{4}-\d\d-\d\d)\)\?/ contains=rstCheckMarkDate
@@ -53,7 +54,7 @@ augroup END
 
 
 
-command! -buffer -range RSTFixTable :call s:fixSimpleTable(<line1>, <line2>)
+command! -buffer -range RstFixTable :call s:fixSimpleTable(<line1>, <line2>)
 
 func! s:fixSimpleTable(line1, line2) abort
     let table = []
