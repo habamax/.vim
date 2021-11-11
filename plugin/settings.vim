@@ -110,7 +110,9 @@ let g:minisnip_default_maps = 1
 " vim-rst
 let g:rst2html_opts =
       \   "--input-encoding=utf8"
-      \ . " --table-style=align-center,booktabs,captionbelow"
+      \ . " --smart-quotes=yes"
+      \ . " --strip-comments"
+      \ . " --date --table-style=align-center,booktabs,captionbelow"
       \ . " --syntax-highlight=short"
       \ . " --stylesheet-path=minimal.css,responsive.css,"
       \ . expand($DOCS ?? '~/docs') . "/.docutils/habamax.css,"
