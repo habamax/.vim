@@ -4,6 +4,10 @@ else
     let b:undo_ftplugin = "setl tw< sw< fo<"
 endif
 
+setlocal textwidth=80
+setlocal formatoptions=tnc
+setlocal shiftwidth=2
+
 compiler rst2html
 
 " TODO: add it to undo ftplugin
@@ -26,18 +30,12 @@ func! s:rst2html(...) abort
     endif
 endfunc
 
-setlocal textwidth=80
-setlocal formatoptions=tnc
-setlocal shiftwidth=2
-
-
 command -buffer RSTPDF call system(printf('"%s" %s %s "%s"',
       \ 'C:/Program Files/Google/Chrome/Application/chrome.exe',
       \ '--headless --disable-gpu --print-to-pdf-no-header',
       \ '--print-to-pdf="' . expand("%:p:r") . '.pdf"',
       \ expand("%:p:r") . '.html'
       \ ))
-
 
 func! s:hl_checkmark() abort
     syn match rstCheckDone /✓\(\s*(\d\{4}-\d\d-\d\d)\)\?/ contains=rstCheckMarkDate
