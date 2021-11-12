@@ -11,7 +11,6 @@ setlocal shiftwidth=2
 compiler rst2html
 
 " TODO: add it to undo ftplugin
-command -buffer RstViewHtml :call os#open(expand("%:p:r").'.html')
 nnoremap <buffer> <space>oh :RstViewHtml<CR>
 
 command -buffer -nargs=? -complete=locale Rst2Html call s:rst2html(<f-args>)
@@ -37,6 +36,8 @@ command -buffer Rst2Pdf make | exe os#exe(printf('"%s" %s %s "%s"',
       \ expand("%:p:r") . '.html'
       \ ))
 
+command -buffer RstViewHtml :call os#open(expand("%:p:r").'.html')
+command -buffer RstViewPdf :call os#open(expand("%:p:r").'.pdf')
 
 func! s:hl_checkmark() abort
     syn match rstCheckDone /✓\(\s*(\d\{4}-\d\d-\d\d)\)\?/ contains=rstCheckMarkDate
