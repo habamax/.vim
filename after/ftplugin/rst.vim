@@ -84,7 +84,7 @@ func! s:fixSimpleTable(line1, line2) abort
     call setline(a:line1, table)
 endfunc
 
-func! RSTSectionFormat() abort
+func! s:section_delimiter_adjust() abort
     let section_delim = '^\([=`:."' . "'" . '~^_*+#-]\)\1*$'
     let cline = getline('.')
     if cline !~ section_delim && cline !~ '^\s\+\S'
@@ -100,5 +100,5 @@ func! RSTSectionFormat() abort
 endfunc
 
 augroup rst_section | au!
-    au InsertLeave <buffer> :call RSTSectionFormat()
+    au InsertLeave <buffer> :call s:section_delimiter_adjust()
 augroup END
