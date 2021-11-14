@@ -20,7 +20,7 @@ set formatoptions=cqjl
 set backspace=indent,eol,start
 set nospell spelllang=ru,en
 set commentstring=
-set nrformats=bin,hex
+set nrformats=bin,hex,unsigned
 set foldmethod=indent foldlevelstart=1 foldminlines=2
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set wildmenu wildcharm=<C-z>
