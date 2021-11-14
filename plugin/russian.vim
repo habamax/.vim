@@ -1,4 +1,4 @@
-language messages en_US.UTF-8
+language messages C.UTF-8
 
 if has('langmap') && exists('+langremap')
   " Prevent that the langmap option applies to characters that result from a mapping.
