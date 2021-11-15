@@ -2,7 +2,7 @@ filetype plugin indent on
 syntax on
 
 set hidden confirm
-set fileformat=unix fileformats=
+set fileformat=unix fileformats=unix,dos
 set nohlsearch incsearch ignorecase
 set shiftwidth=4 softtabstop=-1 expandtab
 set autoindent
