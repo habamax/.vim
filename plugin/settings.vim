@@ -114,6 +114,7 @@ let g:rst2html_opts =
       \ . " --strip-comments"
       \ . " --table-style=align-center,booktabs,captionbelow"
       \ . " --syntax-highlight=short"
+      \ . " --template=". expand($DOCS ?? '~/docs') . "/.docutils/habamax.txt"
       \ . " --stylesheet-path=minimal.css,responsive.css,"
       \ . expand($DOCS ?? '~/docs') . "/.docutils/habamax.css,"
       \ . expand($DOCS ?? '~/docs') . "/.docutils/pygment.css"
