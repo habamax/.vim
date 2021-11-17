@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.txt set ft=rst
+autocmd BufNewFile,BufRead *.txt,*.rest set ft=rst
