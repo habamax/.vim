@@ -45,7 +45,7 @@ func! s:hl_checkmark() abort
     syn match rstCheckMarkDate /(\d\{4}-\d\d-\d\d)/ contained
     hi link rstCheckDone Function
     hi link rstCheckReject Error
-    hi link rstCheckMarkDate Special
+    hi link rstCheckMarkDate Comment
 endfunc
 
 augroup checkmark | au!
