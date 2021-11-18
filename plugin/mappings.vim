@@ -190,7 +190,7 @@ func! s:gq_format(...) abort
         unlet w:gqview
     endif
 endfunc
-nnoremap <silent> gq :let w:gqview = winsaveview()<CR>:set opfunc=Format<CR>g@
+nnoremap <silent> gq :let w:gqview = winsaveview()<CR>:set opfunc=<sid>gq_format<CR>g@
 
 
 tnoremap <C-v> <C-w>""
