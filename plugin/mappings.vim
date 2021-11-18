@@ -171,6 +171,28 @@ nmap <silent> gs :set opfunc=<SID>sort<CR>g@
 xmap <silent> gs :sort <bar> s/[^,]$/&,/e <bar> '>s/,$//e<CR>
 
 
+" gq wrapper that:
+" - tries its best at keeping the cursor in place
+" - tries to handle formatter errors
+func! s:gq_format(...) abort
+    if a:0 == 0
+        let &opfunc = matchstr(expand('<sfile>'), '[^. ]*$')
+        return 'g@'
+    endif
+    normal! '[v']gq
+    if v:shell_error > 0
+        silent undo
+        redraw
+        echomsg 'formatprg "' . &formatprg . '" exited with status ' . v:shell_error
+    endif
+    if exists("w:gqview")
+        call winrestview(w:gqview)
+        unlet w:gqview
+    endif
+endfunc
+nnoremap <silent> gq :let w:gqview = winsaveview()<CR>:set opfunc=Format<CR>g@
+
+
 tnoremap <C-v> <C-w>""
 
 
