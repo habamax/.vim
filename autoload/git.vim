@@ -77,7 +77,13 @@ func! git#show_commit(count) range
                 \ shellescape(a:firstline . "," . a:lastline . ":" . resolve(expand("%:p")))
                 \ )
 
-    let winnr = popup_atcursor(git_output, { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })
+    let winnr = popup_atcursor(git_output,
+          \{ "padding": [1,1,1,1],
+          \  "pos": "botleft",
+          \  "wrap": 0,
+          \  "filter": funcref("s:popup_filter"),
+          \  "filtermode": 'n'
+          \})
     call setbufvar(winbufnr(winnr), "&filetype", "git")
 endfunc
 
@@ -97,6 +103,28 @@ func! git#blame() range
                 \ a:firstline . "," . a:lastline . " " . expand("%:t")
                 \ )
 
-    let winnr = popup_atcursor(git_output, { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })
+    let winnr = popup_atcursor(git_output,
+          \{ "padding": [1,1,1,1],
+          \  "pos": "botleft",
+          \  "wrap": 0,
+          \  "filter": funcref("s:popup_filter"),
+          \  "filtermode": 'n'
+          \})
     call setbufvar(winbufnr(winnr), "&filetype", "git")
+endfunc
+
+func! s:popup_filter(winid, key) abort
+    if a:key == "j"
+        call win_execute(a:winid, "normal! \<C-d>")
+        return 1
+    endif
+    if a:key == "k"
+        call win_execute(a:winid, "normal! \<C-u>")
+        return 1
+    endif
+    if a:key == "\<ESC>"
+        call popup_close(a:winid)
+        return 1
+    endif
+    return 1
 endfunc
