@@ -87,6 +87,7 @@ endfunc
 func! s:section_delimiter_adjust() abort
     let section_delim = '^\([=`:."' . "'" . '~^_*+#-]\)\1*$'
     let cline = getline('.')
+    if cline =~ '^\s*$' | return | endif
     if cline !~ section_delim && cline !~ '^\s\+\S'
         let nline = getline(line('.') + 1)
         let pline = getline(line('.') - 1)
