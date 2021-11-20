@@ -127,7 +127,8 @@ nnoremap <silent> <space>` :call text#underline('`')<CR>
 " find visually selected text
 xnoremap * y/<C-R>"<CR>
 
-noremap <silent> <space>gi :call git#show_commit(v:count)<CR>
+nnoremap <silent> <space>gi :<C-u>call git#show_commit(v:count)<CR>
+xnoremap <silent> <space>gi :call git#show_commit(v:count)<CR>
 noremap <silent> <space>gb :call git#blame()<CR>
 
 nnoremap go <nop>
