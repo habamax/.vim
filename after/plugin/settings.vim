@@ -65,18 +65,6 @@ if exists("g:loaded_select")
 
     nnoremap <silent> <space>i :Select template<CR>
 
-    if !has("win32")
-        let g:select_info.man = {}
-        let g:select_info.man.data = {"job": "apropos ."}
-        let g:select_info.man.sink = {
-                    \ "transform": {_, v -> split(v, '\s(.\{-})\s')[0]},
-                    \ "action": {v -> s:man_sink(v)}
-                    \ }
-        func! s:man_sink(man) abort
-            runtime ftplugin/man.vim
-            exe ":Man " .. a:man
-        endfunc
-    endif
 endif
 
 
