@@ -12,6 +12,7 @@ compiler rst2html
 
 " TODO: add it to undo ftplugin
 nnoremap <buffer> <space>oh :RstViewHtml<CR>
+nnoremap <buffer> <space>op :RstViewPdf<CR>
 
 command -buffer -nargs=? -complete=locale Rst2Html call s:rst2html(<f-args>)
 
@@ -54,7 +55,6 @@ augroup checkmark | au!
 augroup END
 
 
-
 command! -buffer -range RstFixTable :call s:fixSimpleTable(<line1>, <line2>)
 
 func! s:fixSimpleTable(line1, line2) abort
@@ -83,6 +83,7 @@ func! s:fixSimpleTable(line1, line2) abort
     call map(table, {_, v -> trim(join(v, '  '))})
     call setline(a:line1, table)
 endfunc
+
 
 func! s:section_delimiter_adjust() abort
     let section_delim = '^\([=`:."' . "'" . '~^_*+#-]\)\1*$'
