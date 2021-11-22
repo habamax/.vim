@@ -56,6 +56,7 @@ nnoremap <silent><expr> <C-k> winnr('$') > 1 ? "\<C-w>W" : ":vs +b#\<CR>"
 tnoremap <silent><expr> <C-j> winnr('$') > 1 ? "\<C-w>w" : "\<C-w>:bel vs +b#\<CR>"
 tnoremap <silent><expr> <C-k> winnr('$') > 1 ? "\<C-w>W" : "\<C-w>:vs +b#\<CR>"
 nnoremap <silent> <C-w><space> :echo win#layout_toggle()<CR>
+nmap <silent> <C-w><C-space> <C-w><space>
 nnoremap <silent> <C-w><BS> :call win#lens_toggle()<CR>
 
 " Buffers
