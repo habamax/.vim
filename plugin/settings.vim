@@ -112,7 +112,6 @@ let g:rst2html_opts =
       \   "--input-encoding=utf8"
       \ . " --smart-quotes=yes"
       \ . " --strip-comments"
-      \ . " --table-style=booktabs"
       \ . " --syntax-highlight=short"
       \ . " --template=". expand($DOCS ?? '~/docs') . "/.docutils/habamax.txt"
       \ . " --stylesheet-path=minimal.css,responsive.css,"
