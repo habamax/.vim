@@ -18,7 +18,7 @@ if exists("g:loaded_select")
         nmap <space>to <Plug>(SelectToDo)
     endif
 
-    nnoremap <silent> <space>sv :exe "Select projectfile " .. fnamemodify($MYVIMRC, ":p:h")<cr>
+    nnoremap <silent> <space>sv :exe "Select gitfile " .. fnamemodify($MYVIMRC, ":p:h")<cr>
 
     let g:select_info = get(g:, "select_info", {})
 
