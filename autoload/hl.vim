@@ -5,10 +5,13 @@
 " nnoremap <silent><expr> <space>k hl#mark()
 " xnoremap <silent><expr> <space>k hl#mark()
 " nnoremap <silent><expr> <space>kk hl#mark() .. '_'
-" nnoremap <silent><expr> <space>0k hl#unmark()
-" xnoremap <silent><expr> <space>0k hl#unmark()
-" nnoremap <silent><expr> <space>0kk hl#unmark() .. '_'
-" hi HL guibg=#d7d7af guifg=#5f5f5f ctermbg=187 ctermfg=59
+" nnoremap <silent><expr> <space>u hl#unmark()
+" xnoremap <silent><expr> <space>u hl#unmark()
+" nnoremap <silent><expr> <space>uu hl#unmark() .. '_'
+" dark bg
+" hi HL guibg=#005f5f guifg=NONE ctermbg=23 ctermfg=NONE
+" light bg
+" hi HL guibg=#d7d7af guifg=NONE ctermbg=187 ctermfg=NONE
 
 
 func! hl#mark(type = '')
