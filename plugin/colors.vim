@@ -3,15 +3,12 @@ augroup colorscheme | au!
 augroup END
 
 if !has("gui_running")
-    let s:color = "bronzage"
+    silent! colorscheme bronzage
 else
     let s:hour = strftime("%H")
-    let s:minute = strftime("%M")
     if s:hour > 18 || s:hour < 7
-        let s:color = "bronzage"
+        silent! colorscheme bronzage
     else
-        let s:color = "sugarlily"
+        silent! colorscheme sugarlily
     endif
 endif
-
-exe "silent! colorscheme " . s:color
