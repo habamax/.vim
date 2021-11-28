@@ -41,8 +41,8 @@ command -buffer RstViewHtml :call os#open(expand("%:p:r").'.html')
 command -buffer RstViewPdf :call os#open(expand("%:p:r").'.pdf')
 
 func! s:hl_checkmark() abort
-    syn match rstCheckDone /✓\(\s*(\d\{4}-\d\d-\d\d)\)\?/ contains=rstCheckMarkDate
-    syn match rstCheckReject /✗\(\s*(\d\{4}-\d\d-\d\d)\)\?/ contains=rstCheckMarkDate
+    exe 'syn match rstCheckDone /\%('.&l:formatlistpat.'\)\@<=✓/ nextgroup=rstCheckMarkDate skipwhite'
+    exe 'syn match rstCheckReject /\%('.&l:formatlistpat.'\)\@<=✗/ nextgroup=rstCheckMarkDate skipwhite'
     syn match rstCheckMarkDate /(\d\{4}-\d\d-\d\d)/ contained
     hi link rstCheckDone Function
     hi link rstCheckReject Error
