@@ -181,7 +181,11 @@ func! s:gq_format(...) abort
         let &opfunc = matchstr(expand('<sfile>'), '[^. ]*$')
         return 'g@'
     endif
-    normal! '[v']gq
+    if a:1 == 'v'
+        normal! gvgq
+    else
+        normal! '[v']gq
+    endif
     if v:shell_error > 0
         silent undo
         redraw
@@ -193,6 +197,8 @@ func! s:gq_format(...) abort
     endif
 endfunc
 nnoremap <silent> gq :let w:gqview = winsaveview()<CR>:set opfunc=<sid>gq_format<CR>g@
+nmap <silent> gqq gq_
+xnoremap <silent> gq :<C-U>call <sid>gq_format('v')<CR>
 
 
 tnoremap <C-v> <C-w>""
