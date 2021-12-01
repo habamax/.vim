@@ -5,7 +5,7 @@ endfunc
 
 func! s:logger(kind, ...) abort
     let logfile = expand("~/.vimdata/vim".strftime("%Y%m%d").".log")
-    let logline = printf("%s - %s - %s: %s", strftime("%H:%M:%S"), expand("%"), a:kind, call("printf", a:000))
+    let logline = printf("%s - %s - %s: %s", strftime("%H:%M:%S"), expand("%:p"), a:kind, call("printf", a:000))
     call writefile([logline], logfile, "a")
 endfunc
 
