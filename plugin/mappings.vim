@@ -65,11 +65,11 @@ nnoremap <silent> <C-p> :bp<CR>
 tnoremap <silent> <C-n> <cmd>:bn<CR>
 tnoremap <silent> <C-p> <cmd>:bp<CR>
 
-" 24 simple text objects
+" 26 simple text objects
 " ----------------------
-" i_ i. i: i, i; i| i/ i\ i* i+ i- i#
-" a_ a. a: a, a; a| a/ a\ a* a+ a- a#
-for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#' ]
+" i_ i. i: i, i; i| i/ i\ i* i+ i- i# i<tab>
+" a_ a. a: a, a; a| a/ a\ a* a+ a- a# a<tab>
+for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#', '<tab>' ]
     execute 'xnoremap <silent> i' . char . ' :<C-u>call text#obj("' . char . '", 1)<CR>'
     execute 'xnoremap <silent> a' . char . ' :<C-u>call text#obj("' . char . '", 0)<CR>'
     execute 'onoremap <silent> i' . char . ' :normal vi' . char . '<CR>'
