@@ -30,3 +30,5 @@ set history=200
 set mouse=a ttymouse=sgr
 
 if executable('rg') | set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m | endif
+
+silent! colorscheme bronzage
