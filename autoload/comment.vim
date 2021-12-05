@@ -1,4 +1,9 @@
-func! s:comment(...)
+" Toggle comments
+" Usage:
+" nnoremap <silent> <expr> gc comment#toggle()
+" xnoremap <silent> <expr> gc comment#toggle()
+" nnoremap <silent> <expr> gcc comment#toggle() . '_'
+func! comment#toggle(...)
     if a:0 == 0
         let &opfunc = matchstr(expand('<sfile>'), '[^. ]*$')
         return 'g@'
@@ -39,6 +44,3 @@ func! s:comment(...)
     endfor
     noautocmd keepjumps call setline(lnum1, lines)
 endfunc
-nnoremap <silent> <expr> gc <SID>comment()
-xnoremap <silent> <expr> gc <SID>comment()
-nnoremap <silent> <expr> gcc <SID>comment() . '_'

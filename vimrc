@@ -155,6 +155,10 @@ nnoremap <silent> <space>+ :call text#underline('+')<CR>
 nnoremap <silent> <space>" :call text#underline('"')<CR>
 nnoremap <silent> <space>` :call text#underline('`')<CR>
 
+nnoremap <silent> <expr> gc comment#toggle()
+xnoremap <silent> <expr> gc comment#toggle()
+nnoremap <silent> <expr> gcc comment#toggle() . '_'
+
 " find visually selected text
 xnoremap * y/<C-R>"<CR>
 
