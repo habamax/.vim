@@ -301,8 +301,8 @@ command! WipeHiddenBuffers call win#delete_buffers()
 
 " remove trailing spaces
 command! FixTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
-            \:exe 'normal! ``'<bar>
-            \:echo 'Remove trailing spaces and ^Ms.'
+      \ :exe 'normal! ``'<bar>
+      \ :echo 'Remove trailing spaces and ^Ms.'
 
 command! -range FixSpaces <line1>,<line2>call text#fix_spaces()
 
