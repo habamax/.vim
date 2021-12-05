@@ -12,7 +12,7 @@
 " Usage:
 " command! -range FixSpaces <line1>,<line2>call text#fix_spaces()
 func! text#fix_spaces() range
-    let pos=getcurpos()
+    let view = winsaveview()
     " replace non-breaking space to space first
     exe printf('silent %d,%ds/\%%xA0/ /ge', a:firstline, a:lastline)
     " replace multiple spaces to a single space (preserving indent)
@@ -27,7 +27,7 @@ func! text#fix_spaces() range
     exe printf('silent %d,%ds/(\s/(/ge', a:firstline, a:lastline)
     " remove space at the end of line
     exe printf('silent %d,%ds/\s*$//ge', a:firstline, a:lastline)
-    call setpos('.', pos)
+    call winrestview(view)
 endfunc
 
 
@@ -78,7 +78,7 @@ let g:months = copy(s:months)
 " xnoremap <silent> ad :<C-u>call text#date_textobj(0)<CR>
 " onoremap ad :<C-u>normal vad<CR>
 func! text#date_textobj(inner)
-    let save_cursor = getcurpos()
+    let view = winsaveview()
     let cword = expand("<cword>")
     if  cword =~ '\d\{4}'
         let rx = '^\|'
@@ -110,7 +110,7 @@ func! text#date_textobj(inner)
         call search(rxdate, 'ecW')
         return
     endif
-    call setpos('.', save_cursor)
+    call winrestview(view)
 endfunc
 
 
