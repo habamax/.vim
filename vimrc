@@ -48,7 +48,7 @@ func! s:viml(...)
     @"
 endfunc
 nnoremap <silent> <expr> <space>v <SID>viml()
-xnoremap <silent> <space>v y:@"<cr>
+xnoremap <silent> <space>v y:@"<CR>
 nmap <space>vv V<space>v
 
 " localize it too
@@ -226,9 +226,9 @@ func! s:gq_format(...) abort
         unlet w:gqview
     endif
 endfunc
-nnoremap <silent> gq :let w:gqview = winsaveview()<CR>:set opfunc=<sid>gq_format<CR>g@
+nnoremap <silent> gq :let w:gqview = winsaveview()<CR>:set opfunc=<SID>gq_format<CR>g@
 nmap <silent> gqq gq_
-xnoremap <silent> gq :<C-U>call <sid>gq_format('v')<CR>
+xnoremap <silent> gq :<C-U>call <SID>gq_format('v')<CR>
 
 tnoremap <C-v> <C-w>""
 
