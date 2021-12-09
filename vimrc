@@ -331,7 +331,7 @@ if !has("win32")
 endif
 
 " open terminal with a cwd of a current buffer
-command! TermBuffer :bo call term_start(&shell, {"cwd": expand("%:p:h"), "term_finish": "close"})
+command! Term :bo call term_start(&shell, {"cwd": expand("%:p:h"), "term_finish": "close"})
 
 " redirect the output of a Vim or external command into a scratch buffer
 command! -nargs=1 -complete=command -bar Redir silent call v#redir(<q-args>)
