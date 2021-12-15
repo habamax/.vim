@@ -65,6 +65,31 @@ if exists("g:loaded_select")
 
     nnoremap <silent> <space>i :Select template<CR>
 
+    let g:select_info.tag = {}
+    let g:select_info.tag.data = {-> s:tag_data()}
+    let g:select_info.tag.sink = "tag %s"
+    let g:select_info.tag.sink = {
+            \ "transform": {_, v -> split(v, "\t")[1]},
+            \ "action": {v -> s:tag_sink(v)}
+            \ }
+    let g:select_info.tag.highlight = {
+          \ "DirectoryPrefix": ['\t\zs.\S\+$', 'Comment'],
+          \ "TagType": ['^\a', 'Type']
+          \ }
+    func! s:tag_data() abort
+        if !filereadable('tags') | return | endif
+        let result = []
+        for line in readfile('tags')
+            if line =~ '^!_TAG' | continue | endif
+            let info = split(line, "\t")
+            call add(result, printf("%s\t%-30S\t%s", info[3], info[0], info[1]))
+        endfor
+        return result
+    endfunc
+    func! s:tag_sink(value) abort
+        exe "tag " . escape(a:value, '"')
+    endfunc
+    nnoremap <silent> <space>sT :Select tag<CR>
 endif
 
 
