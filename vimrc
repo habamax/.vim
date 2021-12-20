@@ -326,7 +326,7 @@ func! s:sessionComplete(A, L, P)
 endfunc
 
 " write to a privileged file
-if !has("win32")
+if executable('sudo')
     command! W w !sudo tee "%" > /dev/null
 endif
 
