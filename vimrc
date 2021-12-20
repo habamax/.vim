@@ -31,8 +31,6 @@ set mouse=a ttymouse=sgr
 
 if executable('rg') | set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m | endif
 
-silent! colorscheme bronzage
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Non Plugin Mappings
@@ -289,6 +287,9 @@ if exists("$WSLENV")
     augroup END
 endif
 
+augroup colors | au!
+    au Colorscheme sugarlily hi Normal guibg=#dadada ctermbg=253
+augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Commands
@@ -348,3 +349,10 @@ command! -bang -nargs=1 Global call setloclist(0, [], ' ',
 
 " helper command to use old built-in colorschemes
 command! -nargs=1 -complete=color Colo exe "so $VIMRUNTIME/colors/" . <q-args> . ".vim"
+
+
+if has("gui_running")
+    silent! colorscheme sugarlily
+else
+    silent! colorscheme bronzage
+endif
