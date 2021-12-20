@@ -288,7 +288,7 @@ if exists("$WSLENV")
 endif
 
 augroup colors | au!
-    au Colorscheme sugarlily hi Normal guibg=#dadada ctermbg=253
+    au Colorscheme sugarlily hi Normal guibg=#dadad5 ctermbg=253
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
