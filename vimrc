@@ -314,6 +314,8 @@ command! GistSync call gist#sync()
 command! CD lcd %:p:h
 
 " save and load sessions
+let s:sdir = expand('~/.vimdata/sessions')
+if !isdirectory(s:sdir) | call mkdir(s:sdir, "p") | endif
 command! -nargs=1 -complete=customlist,<SID>sessionComplete S :mksession! ~/.vimdata/sessions/<args>
 command! -nargs=1 -complete=customlist,<SID>sessionComplete L :%bd <bar> so ~/.vimdata/sessions/<args>
 func! s:sessionComplete(A, L, P)
