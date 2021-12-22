@@ -339,20 +339,11 @@ command! Term :bo call term_start(&shell, {"cwd": expand("%:p:h"), "term_finish"
 " redirect the output of a Vim or external command into a scratch buffer
 command! -nargs=1 -complete=command -bar Redir silent call v#redir(<q-args>)
 
-" Global command, inspired by romainl
-" https://gist.github.com/romainl/f7e2e506dc4d7827004e4994f1be2df6
-command! -bang -nargs=1 Global call setloclist(0, [], ' ',
-      \ {'title': 'Global ' . <q-args>,
-      \  'efm':   '%f:%l\ %m,%f:%l',
-      \  'lines': execute('g<bang>/' . <q-args> . '/#')
-      \           ->split('\n')
-      \           ->map({_, val -> expand("%") . ":" . trim(val)})
-      \ }) | lwindow
-
 " helper command to use old built-in colorschemes
 command! -nargs=1 -complete=color Colo exe "so $VIMRUNTIME/colors/" . <q-args> . ".vim"
 
 
+" colors
 if has("gui_running")
     silent! colorscheme sugarlily
 else
