@@ -343,7 +343,8 @@ command! -nargs=1 -complete=command -bar Redir silent call v#redir(<q-args>)
 command! -nargs=1 -complete=color Colo exe "so $VIMRUNTIME/colors/" . <q-args> . ".vim"
 
 
-" colors
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colors
 if has("gui_running")
     silent! colorscheme sugarlily
 else
