@@ -77,7 +77,7 @@ nnoremap <silent> yol :set list! list?<CR>
 nnoremap <silent> yos :set spell! spell?<CR>
 nnoremap <silent> yoc :set cursorline! cursorline?<CR>
 nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis") . "<CR>"
-nnoremap <expr> yob ':colo ' . (get(g:, 'colors_name', '') == 'bronzage' ? "sugarlily" : "bronzage") . "<CR>"
+nnoremap <expr> yob ':colo ' . (get(g:, 'colors_name', '') == 'habamax' ? "sugarlily" : "habamax") . "<CR>"
 
 " window management
 nnoremap <silent> <C-w>m :resize<bar>vert resize<CR>
@@ -348,5 +348,5 @@ command! -nargs=1 -complete=color Colo exe "so $VIMRUNTIME/colors/" . <q-args> .
 if has("gui_running")
     silent! colorscheme sugarlily
 else
-    silent! colorscheme bronzage
+    silent! colorscheme habamax
 endif
