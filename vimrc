@@ -31,6 +31,7 @@ set mouse=a ttymouse=sgr
 
 if executable('rg') | set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m | endif
 
+silent! colorscheme habamax
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Non Plugin Mappings
@@ -341,12 +342,3 @@ command! -nargs=1 -complete=command -bar Redir silent call v#redir(<q-args>)
 
 " helper command to use old built-in colorschemes
 command! -nargs=1 -complete=color Colo exe "so $VIMRUNTIME/colors/" . <q-args> . ".vim"
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Colors
-if has("gui_running")
-    silent! colorscheme sugarlily
-else
-    silent! colorscheme habamax
-endif
