@@ -15,8 +15,8 @@ Background: dark
 Color: color00     #1C1C1C        234            black
 Color: color08     #444444        238            darkgrey
 
-Color: color01     #D7875F        173            darkred
-Color: color09     #D75F5F        167            red
+Color: color01     #D75F5F        167            darkred
+Color: color09     #D7875F        173            red
 
 Color: color02     #87AF87        108            darkgreen
 Color: color10     #AFD7AF        151            green
@@ -28,7 +28,7 @@ Color: color04     #5F87AF        67             darkblue
 Color: color12     #87AFD7        110            blue
 
 Color: color05     #875FAF        97             darkmagenta
-Color: color13     #AF5FD7        134            magenta
+Color: color13     #AF87D7        140            magenta
 
 Color: color06     #87AFAF        109            darkcyan
 Color: color14     #87D7D7        116            cyan
@@ -80,7 +80,7 @@ ToolbarButton      color00        color02
 NonText            color08        none
 SpecialKey         color08        none
 
-Folded             color07        none           bold
+Folded             color07        none           bold,underline
 
 Variant: gui 256 16
 Visual             color00        color12
@@ -102,14 +102,14 @@ SignColumn         none           none
 
 Underlined         color11        none           underline
 
-Error              color09        none
-ErrorMsg           color09        none
+Error              color01        none
+ErrorMsg           color01        none
 ModeMsg            color00        color03
 WarningMsg         color11        none
 MoreMsg            color02        none
-Question           color01        none
+Question           color09        none
 
-Todo               color14        color08
+Todo               color11        color16           bold
 MatchParen         color16        color03
 Search             color16        color02
 IncSearch          color16        color11
@@ -119,7 +119,7 @@ ColorColumn        color15        color04
 Variant: gui 256
 ColorColumn        none           color16
 Variant: gui
-Cursor             color00        color13
+Cursor             color00        color03
 lCursor            color00        color14
 
 Variant: 16
@@ -129,10 +129,10 @@ DiffChange         none           colorDiffC
 Variant: gui 256 16
 DiffAdd            none           none
 DiffText           color14        color04
-DiffDelete         color01        none
+DiffDelete         color09        none
 
-SpellBad           color09        none           t=underline g=undercurl s=color09
-SpellCap           color01        none           t=underline g=undercurl s=color01
+SpellBad           color01        none           t=underline g=undercurl s=color01
+SpellCap           color09        none           t=underline g=undercurl s=color09
 SpellLocal         color03        none           t=underline g=undercurl s=color03
 SpellRare          color11        none           t=underline g=undercurl s=color11
 
@@ -152,7 +152,7 @@ Variant: gui 256 16
 Identifier         color03        none
 Function           color11        none
 Statement          color12        none
-Constant           color01        none
+Constant           color09        none
 String             color02        none
 Character          color10        none
 PreProc            color06        none
