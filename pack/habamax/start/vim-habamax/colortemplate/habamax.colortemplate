@@ -107,9 +107,9 @@ MoreMsg            color02        none
 Question           color09        none
 
 Todo               color11        color16           bold
-MatchParen         color16        color03
-Search             color16        color02
-IncSearch          color16        color11
+MatchParen         none           color05
+Search             color00        color02
+IncSearch          color00        color11
 WildMenu           color00        color11
 Variant: 16
 ColorColumn        color15        color04
