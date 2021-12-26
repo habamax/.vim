@@ -27,8 +27,8 @@ Color: color11     #D7D787        186            yellow
 Color: color04     #5F87AF        67             darkblue
 Color: color12     #87AFD7        110            blue
 
-Color: color05     #875FAF        97             darkmagenta
-Color: color13     #AF87D7        140            magenta
+Color: color05     #875F87        96             darkmagenta
+Color: color13     #AF87AF        139            magenta
 
 Color: color06     #87AFAF        109            darkcyan
 Color: color14     #87D7D7        116            cyan
@@ -157,8 +157,8 @@ String             color02        none
 Character          color10        none
 PreProc            color06        none
 Type               color04        none
-Special            color05        none
-SpecialComment     color13        none
+Special            color13        none
+SpecialComment     color05        none
 
 Variant: gui 256 16
 Directory          color10        none           bold
