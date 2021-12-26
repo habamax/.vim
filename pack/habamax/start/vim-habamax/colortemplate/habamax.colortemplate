@@ -13,7 +13,7 @@ Background: dark
 
 ;;; Color palette
 Color: color00     #303030        236            black
-Color: color08     #444444        238            darkgrey
+Color: color08     #4E4E4E        239            darkgrey
 
 Color: color01     #D75F5F        167            darkred
 Color: color09     #D7875F        173            red
