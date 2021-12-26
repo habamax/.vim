@@ -157,7 +157,6 @@ Type               color04        none
 Special            color13        none
 SpecialComment     color05        none
 
-Variant: gui 256 16
 Directory          color13        none           bold
 Conceal            color07        none
 Ignore             none           none
