@@ -77,9 +77,8 @@ ToolbarButton      color00        color02
 NonText            color08        none
 SpecialKey         color08        none
 
-Folded             color07        none           bold,underline
+Folded             color07        none           underline
 
-Variant: gui 256 16
 Visual             color00        color12
 VisualNOS          color00        color12
 LineNr             color07        none
