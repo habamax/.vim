@@ -46,8 +46,8 @@ func! s:hl_checkmark() abort
     exe 'syn match rstCheckReject /\%('.&l:formatlistpat.'\)\@<=✗/ nextgroup=rstCheckMarkDate skipwhite containedin=rstMaybeSection'
     syn match rstCheckMarkDate /(\d\{4}-\d\d-\d\d)/ contained
     if &background == 'dark'
-      hi rstCheckDone ctermfg=green guifg=green gui=bold cterm=bold
-      hi rstCheckReject ctermfg=167 guifg=#d75f5f gui=bold cterm=bold
+      hi rstCheckDone ctermfg=108 guifg=#87AF87 gui=bold cterm=bold
+      hi rstCheckReject ctermfg=167 guifg=#d75F5F gui=bold cterm=bold
       hi rstCheckMarkDate ctermfg=240 guifg=#585858
     else
       hi rstCheckDone ctermfg=darkgreen guifg=#5faf00 gui=bold cterm=bold
