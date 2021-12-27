@@ -102,7 +102,8 @@ WarningMsg         color11        none
 MoreMsg            color02        none
 Question           color09        none
 
-Todo               color13        color00        reverse
+; TODO: 
+Todo               color03        color00        reverse
 MatchParen         none           none           reverse
 Search             color00        color02
 IncSearch          color00        color11
@@ -112,7 +113,7 @@ ColorColumn        color15        color04
 Variant: gui 256
 ColorColumn        none           color16
 Variant: gui
-Cursor             color00        color03
+Cursor             color00        color13
 lCursor            color00        color14
 
 Variant: 16
