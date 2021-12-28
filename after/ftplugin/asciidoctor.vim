@@ -2,8 +2,6 @@ compiler asciidoctor2pdf
 
 setlocal path+=**/*
 
-setl cole=3
-
 let b:comment_first_col = 1
 
 nnoremap <buffer> <space><space>oo :AsciidoctorOpenRAW<CR>
