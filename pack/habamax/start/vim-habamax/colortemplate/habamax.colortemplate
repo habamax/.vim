@@ -43,6 +43,10 @@ Term colors: color08 color09 color10 color11 color12 color13 color14 color15
 
 ;;; chrome
 
+Variant: gui
+Cursor             color00        color05
+lCursor            color00        color14
+
 Variant: gui 256 16
 
 Normal             color15        color00
@@ -54,18 +58,6 @@ StatuslineTerm     color00        color07
 StatuslineTermNC   color07        color08
 VertSplit          color08        color08
 
-Variant: 16
-Pmenu              color15        color08
-PmenuSel           color00        color03
-PmenuSbar          none           none
-PmenuThumb         none           color17
-Variant: gui 256
-Pmenu              none           color16
-PmenuSel           color00        color03
-PmenuSbar          none           none
-PmenuThumb         none           color07
-
-Variant: gui 256 16
 TabLine            color07        color08
 TabLineFill        none           color08
 TabLineSel         none           none
@@ -82,17 +74,41 @@ Visual             color00        color12
 VisualNOS          color00        color12
 LineNr             color07        none
 FoldColumn         color07        none
+
 Variant: 16
 CursorLine         none           none           underline
 CursorColumn       none           none           underline
 CursorLineNr       none           none           underline
 QuickFixLine       none           none           underline
+
+Pmenu              color15        color08
+PmenuThumb         none           color17
+
+ColorColumn        color15        color04
+
+DiffChange         none           none
+
 Variant: gui 256
 CursorLine         none           color16
 CursorColumn       none           color16
 CursorLineNr       none           color16
 QuickFixLine       none           color16
+
+Pmenu              none           color16
+PmenuThumb         none           color07
+
+ColorColumn        none           color16
+
+DiffChange         none           colorDiffC
+
 Variant: gui 256 16
+DiffAdd            none           none
+DiffText           color14        color04
+DiffDelete         color09        none
+
+PmenuSbar          none           none
+PmenuSel           color00        color03
+
 SignColumn         none           none
 
 Error              color01        color00        reverse
@@ -106,23 +122,7 @@ Todo               color11        color00        reverse
 MatchParen         none           none           reverse
 Search             color00        color02
 IncSearch          color00        color11
-WildMenu           color00        color03
-Variant: 16
-ColorColumn        color15        color04
-Variant: gui 256
-ColorColumn        none           color16
-Variant: gui
-Cursor             color00        color05
-lCursor            color00        color14
-
-Variant: 16
-DiffChange         none           none
-Variant: gui 256
-DiffChange         none           colorDiffC
-Variant: gui 256 16
-DiffAdd            none           none
-DiffText           color14        color04
-DiffDelete         color09        none
+WildMenu           color00        color11
 
 SpellBad           color01        none           t=underline g=undercurl s=color01
 SpellCap           color09        none           t=underline g=undercurl s=color09
