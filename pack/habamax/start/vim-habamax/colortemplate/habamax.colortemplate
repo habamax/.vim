@@ -29,7 +29,7 @@ Color: color13     #D7AFD7        182            magenta
 Color: color06     #5F8787        66             darkcyan
 Color: color14     #87AFAF        109            cyan
 
-Color: color07     #808080        244            grey
+Color: color07     #6c6c6c        242            grey
 Color: color15     #BCBCBC        250            white
 
 Color: color16     #1C1C1C        234            black
@@ -49,7 +49,7 @@ Normal             color15        color00
 
 EndOfBuffer        color08        none
 Statusline         color00        color07
-StatuslineNC       color07        color08
+StatuslineNC       color00        color08
 StatuslineTerm     color00        color07
 StatuslineTermNC   color07        color08
 VertSplit          color08        color08
