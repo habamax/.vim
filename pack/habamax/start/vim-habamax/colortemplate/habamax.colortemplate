@@ -35,7 +35,7 @@ Color: color15     #BCBCBC        250            white
 Color: color16     #1C1C1C        234            black
 Color: color17     #EEEEEE        255            white
 
-Color: colorDiffC  #3A3A3A        237            black
+Color: colorDiffC  #303030        236            black
 
 Term colors: color00 color01 color02 color03 color04 color05 color06 color07
 Term colors: color08 color09 color10 color11 color12 color13 color14 color15
@@ -86,8 +86,6 @@ PmenuThumb         none           color17
 
 ColorColumn        color15        color04
 
-DiffChange         none           none
-
 Variant: gui 256
 CursorLine         none           color16
 CursorColumn       none           color16
@@ -99,12 +97,11 @@ PmenuThumb         none           color07
 
 ColorColumn        none           color16
 
-DiffChange         none           colorDiffC
-
 Variant: gui 256 16
-DiffAdd            none           none
-DiffText           color14        color04
-DiffDelete         color09        none
+DiffAdd            color02        none           reverse
+DiffText           color09        none           reverse
+DiffDelete         color01        none           reverse
+DiffChange         color04        none           reverse
 
 PmenuSbar          none           none
 PmenuSel           color00        color03
