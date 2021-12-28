@@ -101,7 +101,7 @@ Variant: gui 256 16
 DiffAdd            color02        none           reverse
 DiffText           color09        none           reverse
 DiffDelete         color01        none           reverse
-DiffChange         color04        none           reverse
+DiffChange         color03        none           reverse
 
 PmenuSbar          none           none
 PmenuSel           color00        color03
