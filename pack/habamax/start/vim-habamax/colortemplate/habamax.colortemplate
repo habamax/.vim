@@ -68,7 +68,7 @@ ToolbarButton      color00        color02
 NonText            color08        none
 SpecialKey         color08        none
 
-Folded             color07        none           underline
+Folded             color07        none
 
 Visual             color00        color12
 VisualNOS          color00        color12
