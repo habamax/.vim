@@ -17,7 +17,7 @@ Color: color09     #D7875F        173            red
 Color: color02     #87AF87        108            darkgreen
 Color: color10     #AFD7AF        151            green
 
-Color: color03     #D7AF5F        179            darkyellow
+Color: color03     #AFAF87        144            darkyellow
 Color: color11     #D7D787        186            yellow
 
 Color: color04     #5F87AF        67             darkblue
@@ -56,12 +56,12 @@ VertSplit          color08        color08
 
 Variant: 16
 Pmenu              color15        color08
-PmenuSel           color00        color11
+PmenuSel           color00        color03
 PmenuSbar          none           none
 PmenuThumb         none           color17
 Variant: gui 256
 Pmenu              none           color16
-PmenuSel           color00        color11
+PmenuSel           color00        color03
 PmenuSbar          none           none
 PmenuThumb         none           color07
 
@@ -97,23 +97,23 @@ SignColumn         none           none
 
 Error              color01        color00        reverse
 ErrorMsg           color01        color00        reverse
-ModeMsg            color00        color03
-WarningMsg         color11        none
+ModeMsg            color00        color11
+WarningMsg         color03        none
 MoreMsg            color02        none
 Question           color09        none
 
 ; TODO: 
-Todo               color03        color00        reverse
+Todo               color11        color00        reverse
 MatchParen         none           none           reverse
-Search             color00        color02
-IncSearch          color00        color11
-WildMenu           color00        color11
+Search             color00        color03
+IncSearch          color00        color02
+WildMenu           color00        color03
 Variant: 16
 ColorColumn        color15        color04
 Variant: gui 256
 ColorColumn        none           color16
 Variant: gui
-Cursor             color00        color13
+Cursor             color00        color05
 lCursor            color00        color14
 
 Variant: 16
@@ -127,7 +127,7 @@ DiffDelete         color09        none
 
 SpellBad           color01        none           t=underline g=undercurl s=color01
 SpellCap           color09        none           t=underline g=undercurl s=color09
-SpellLocal         color03        none           t=underline g=undercurl s=color03
+SpellLocal         color13        none           t=underline g=undercurl s=color13
 SpellRare          color11        none           t=underline g=undercurl s=color11
 
 ; Links
@@ -147,7 +147,7 @@ Constant           color09        none
 String             color02        none
 Character          color10        none
 Identifier         color14        none
-Statement          color11        none
+Statement          color03        none
 PreProc            color04        none
 Type               color05        none
 Special            color06        none
