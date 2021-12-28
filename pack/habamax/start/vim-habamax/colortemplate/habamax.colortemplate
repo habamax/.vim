@@ -58,7 +58,7 @@ StatuslineTerm     color00        color07
 StatuslineTermNC   color07        color08
 VertSplit          color08        color08
 
-TabLine            color07        color08
+TabLine            none           color08
 TabLineFill        none           color08
 TabLineSel         none           none
 
