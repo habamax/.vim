@@ -14,7 +14,7 @@ set signcolumn=number
 set shortmess+=Ic
 set lazyredraw display=lastline
 set completeopt=menu,popup completepopup=highlight:Pmenu
-set list listchars=tab:›\ ,extends:→,precedes:←,nbsp:·,trail:·
+set list listchars=tab:›\ ,nbsp:·,trail:·,extends:→,precedes:←
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak
 set formatoptions=cqjl
 set backspace=indent,eol,start
