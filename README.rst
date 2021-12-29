@@ -3,13 +3,15 @@
 ********************************************************************************
 
 
-Nothing fancy, just to keep it safe and available.
+Personal vim configuration.
 
 
 Scratches of Not Invented Here
 ==============================
 
-vim-commentary a-like comment toggling:
+vim-commentary__ alike comment toggling:
+
+__ https://github.com/tpope/vim-commentary
 
 .. code:: vim
 
