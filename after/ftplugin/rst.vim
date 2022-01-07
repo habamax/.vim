@@ -50,9 +50,9 @@ func! s:hl_checkmark() abort
       hi rstCheckReject ctermfg=167 guifg=#d75F5F gui=bold cterm=bold
       hi rstCheckMarkDate ctermfg=240 guifg=#585858
     else
-      hi rstCheckDone ctermfg=darkgreen guifg=#5faf00 gui=bold cterm=bold
-      hi rstCheckReject ctermfg=red guifg=red gui=bold cterm=bold
-      hi rstCheckMarkDate ctermfg=darkgrey guifg=darkgrey
+      hi rstCheckDone ctermfg=28 guifg=#008700 gui=bold cterm=bold
+      hi rstCheckReject ctermfg=124 guifg=#AF0000 gui=bold cterm=bold
+      hi rstCheckMarkDate ctermfg=246 guifg=#949494
     endif
 endfunc
 
