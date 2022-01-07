@@ -78,7 +78,8 @@ nnoremap <silent> yol :set list! list?<CR>
 nnoremap <silent> yos :set spell! spell?<CR>
 nnoremap <silent> yoc :set cursorline! cursorline?<CR>
 nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis") . "<CR>"
-nnoremap <expr> yob ':colo ' . (get(g:, 'colors_name', '') == 'habamax' ? "sugarlily" : "habamax") . "<CR>"
+" nnoremap <expr> yob ':colo ' . (get(g:, 'colors_name', '') == 'habamax' ? "sugarlily" : "habamax") . "<CR>"
+nnoremap <expr> yob ':set bg=' . (&bg == 'dark' ? "light" : "dark") . "<CR>"
 
 " window management
 nnoremap <silent> <C-w>m :resize<bar>vert resize<CR>
