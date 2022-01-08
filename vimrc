@@ -33,6 +33,7 @@ if executable('rg') | set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m | endif
 
 silent! colorscheme habamax
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Non Plugin Mappings
 
@@ -287,6 +288,7 @@ endif
 augroup colors | au!
     au Colorscheme sugarlily hi Normal guibg=#dadad5 ctermbg=253
 augroup END
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Commands
