@@ -6,7 +6,7 @@ syntax on
 set hidden confirm
 set fileformat=unix fileformats=unix,dos
 set nohlsearch incsearch ignorecase
-set shiftwidth=4 softtabstop=-1 expandtab
+setg shiftwidth=4 softtabstop=-1 expandtab
 set autoindent
 set nostartofline virtualedit=block
 set ttimeout ttimeoutlen=50
@@ -15,15 +15,15 @@ set ruler
 set signcolumn=number
 set shortmess+=Ic
 set lazyredraw display=lastline
-set completeopt=menu,popup completepopup=highlight:Pmenu
-set list listchars=tab:›\ ,nbsp:·,trail:·,extends:→,precedes:←
+setg completeopt=menu,popup completepopup=highlight:Pmenu
+setg list listchars=tab:›\ ,nbsp:·,trail:·,extends:→,precedes:←
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak
 set formatoptions=cqjl
 set backspace=indent,eol,start
-set nospell spelllang=ru,en
-set commentstring=
+setg nospell spelllang=ru,en
+setg commentstring=
 set nrformats=bin,hex,unsigned
-set foldmethod=indent foldlevelstart=1 foldminlines=2
+setg foldmethod=indent foldlevelstart=1 foldminlines=2
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set wildmenu wildcharm=<C-z>
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
@@ -117,10 +117,10 @@ xnoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
 
 # number text object
 def s:number_textobj()
-    let rx_num = '\d\+\(\.\d\+\)*'
-    if search(rx_num, 'ceW')
+    var rx_num = '\d\+\(\.\d\+\)*'
+    if search(rx_num, 'ceW') > 0
         normal v
-        call search(rx_num, 'bcW')
+        search(rx_num, 'bcW')
     endif
 enddef
 xnoremap <silent> in :<C-u>call <SID>number_textobj()<CR>
