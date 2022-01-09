@@ -1,39 +1,40 @@
-" nnoremap <silent> ]x :call diff#next_change()<CR>
-" nnoremap <silent> [x :call diff#prev_change()<CR>
+vim9script
+# nnoremap <silent> ]x :call diff#next_change()<CR>
+# nnoremap <silent> [x :call diff#prev_change()<CR>
 
 
-func! diff#next_change() abort
+def diff#next_change()
     if !&diff
         return
     endif
-    let line = line('.')
+    var line = line('.')
     if diff_hlID(line, col('.')) == 28
-        let line += 1
+        line += 1
     endif
     while line <= line('$')
-        let change_pos = filter(range(1, len(getline(line))), 'diff_hlID(line, v:val) == 28')
+        var change_pos = filter(range(1, len(getline(line))), 'diff_hlID(line, v:val) == 28')
         if !empty(change_pos)
-            call cursor(line, change_pos[0])
+            cursor(line, change_pos[0])
             return
         endif
-        let line += 1
+        line += 1
     endwhile
-endfunc
+enddef
 
-func! diff#prev_change() abort
+def diff#prev_change()
     if !&diff
         return
     endif
-    let line = line('.')
+    var line = line('.')
     if diff_hlID(line, col('.')) == 28
-        let line -= 1
+        line -= 1
     endif
     while line > 1
-        let change_pos = filter(range(1, len(getline(line))), 'diff_hlID(line, v:val) == 28')
+        var change_pos = filter(range(1, len(getline(line))), 'diff_hlID(line, v:val) == 28')
         if !empty(change_pos)
-            call cursor(line, change_pos[0])
+            cursor(line, change_pos[0])
             return
         endif
-        let line -= 1
+        line -= 1
     endwhile
-endfunc
+enddef
