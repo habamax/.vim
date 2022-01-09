@@ -42,12 +42,13 @@ silent! colorscheme habamax
 # run legacy vimscript (operator)
 def s:viml(...args: list<any>): any
     if len(args) == 0
-        &opfunc = matchstr(expand('<sfile>'), '[^. ]*$')
+        &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
         return 'g@'
     endif
     var commands = {"line": "'[V']y", "char": "`[v`]y", "block": "`[\<c-v>`]y"}
     silent exe 'noautocmd keepjumps normal! ' .. get(commands, args[0], '')
     :@"
+    return ''
 enddef
 nnoremap <silent> <expr> <space>v <SID>viml()
 xnoremap <silent> <space>v y:@"<CR>
@@ -205,12 +206,12 @@ xmap <silent> gs :sort <bar> s/[^,]$/&,/e <bar> '>s/,$//e<CR>
 # gq wrapper that:
 # - tries its best at keeping the cursor in place
 # - tries to handle formatter errors
-def s:gq_format(...args: list<any>)
+def s:gq_format(...args: list<any>): string
     if len(args) == 0
-        &opfunc = matchstr(expand('<sfile>'), '[^. ]*$')
+        &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
         return 'g@'
     endif
-    if a:1 == 'v'
+    if args[0] == 'v'
         normal! gvgq
     else
         normal! '[v']gq
@@ -224,6 +225,7 @@ def s:gq_format(...args: list<any>)
         call winrestview(w:gqview)
         unlet w:gqview
     endif
+    return ''
 enddef
 nnoremap <silent> gq :let w:gqview = winsaveview()<CR>:set opfunc=<SID>gq_format<CR>g@
 nmap <silent> gqq gq_
