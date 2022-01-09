@@ -70,7 +70,7 @@ __ https://github.com/tpope/vim-commentary
 Colors
 ======
 
-- habamax_: dark background, this should be really the last dark one.
+- habamax_: dark/light background, this should be really the last one.
 - bronzage_: dark background, was thinking of zenburn while creating it.
 - sugarlily_: white background, blue accents.
 - saturnite_: dark background, variation of the awesome Apprentice_;
