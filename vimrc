@@ -275,23 +275,21 @@ augroup end
 augroup restore_pos | au!
     au BufReadPost *
           \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-          \ |   exe 'normal! g`"'
-          \ | endif
+          |    exe 'normal! g`"'
+          | endif
 augroup end
 
 augroup win_autosize | au!
-    au WinEnter * silent! call win#lens()
+    au WinEnter * silent! win#lens()
 augroup end
 
 if exists("$WSLENV")
     augroup WSLClip | au!
-        au TextYankPost * if v:event.regname == '"' | call system("clip.exe ", v:event.regcontents) | endif
+        au TextYankPost * if v:event.regname == '"'
+            |   call system("clip.exe ", v:event.regcontents)
+            | endif
     augroup END
 endif
-
-augroup colors | au!
-    au Colorscheme sugarlily hi Normal guibg=#dadad5 ctermbg=253
-augroup END
 
 
 ################################################################################
