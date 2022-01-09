@@ -37,7 +37,7 @@ silent! colorscheme habamax
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Non Plugin Mappings
 
-" run vimscript operator
+" run legacy vimscript (operator)
 func! s:viml(...)
     if a:0 == 0
         let &opfunc = matchstr(expand('<sfile>'), '[^. ]*$')
