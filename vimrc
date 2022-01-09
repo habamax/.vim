@@ -185,7 +185,6 @@ nnoremap <expr> <space>FR printf(":Move %s%s",
       \ expand("%:p"),
       \ empty(expand("%:e")) ? '' : repeat('<Left>', strchars(expand("%:e")) + 1))
 
-
 # 'array' sort operator
 # const whatever = [   ->   const whatever = [
 #     'bar',                    'acme',
