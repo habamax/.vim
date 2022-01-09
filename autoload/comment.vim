@@ -2,9 +2,11 @@ vim9script
 
 # Toggle comments
 # Usage:
-# nnoremap <silent> <expr> gc comment#toggle()
-# xnoremap <silent> <expr> gc comment#toggle()
-# nnoremap <silent> <expr> gcc comment#toggle() . '_'
+#   1. Save in ~/.vim/autoload/comment.vim
+#   2. Add following mappings to vimrc:
+#      nnoremap <silent> <expr> gc comment#toggle()
+#      xnoremap <silent> <expr> gc comment#toggle()
+#      nnoremap <silent> <expr> gcc comment#toggle() .. '_'
 def comment#toggle(...args: list<string>): string
     if len(args) == 0
         &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
