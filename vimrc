@@ -3,33 +3,33 @@ vim9script
 filetype plugin indent on
 syntax on
 
-set hidden confirm
-set fileformat=unix fileformats=unix,dos
-set nohlsearch incsearch ignorecase
+setg hidden confirm
+setg fileformat=unix fileformats=unix,dos
+setg nohlsearch incsearch ignorecase
 setg shiftwidth=4 softtabstop=-1 expandtab
-set autoindent
-set nostartofline virtualedit=block
-set ttimeout ttimeoutlen=50
-set belloff=all
-set ruler
-set signcolumn=number
-set shortmess+=Ic
-set lazyredraw display=lastline
+setg autoindent
+setg nostartofline virtualedit=block
+setg ttimeout ttimeoutlen=50
+setg belloff=all
+setg ruler
+setg signcolumn=number
+setg shortmess+=Ic
+setg lazyredraw display=lastline
 setg completeopt=menu,popup completepopup=highlight:Pmenu
 setg list listchars=tab:›\ ,nbsp:·,trail:·,extends:→,precedes:←
-set nowrap breakindent breakindentopt=sbr,list:-1 linebreak
-set formatoptions=cqjl
-set backspace=indent,eol,start
+setg nowrap breakindent breakindentopt=sbr,list:-1 linebreak
+setg formatoptions=cqjl
+setg backspace=indent,eol,start
 setg nospell spelllang=ru,en
 setg commentstring=
-set nrformats=bin,hex,unsigned
+setg nrformats=bin,hex,unsigned
 setg foldmethod=indent foldlevelstart=1 foldminlines=2
-set diffopt+=vertical,algorithm:histogram,indent-heuristic
-set wildmenu wildcharm=<C-z>
-set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
-set sessionoptions=buffers,curdir,tabpages,winsize
-set history=200
-set mouse=a ttymouse=sgr
+setg diffopt+=vertical,algorithm:histogram,indent-heuristic
+setg wildmenu wildcharm=<C-z>
+setg wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
+setg sessionoptions=buffers,curdir,tabpages,winsize
+setg history=200
+setg mouse=a ttymouse=sgr
 
 if executable('rg') | set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m | endif
 
