@@ -1,12 +1,13 @@
+vim9script
 language messages C.UTF-8
 
 if has('langmap') && exists('+langremap')
-  " Prevent that the langmap option applies to characters that result from a mapping.
-  " https://github.com/vim/vim/issues/3018
+  # Prevent that the langmap option applies to characters that result from a mapping.
+  # https://github.com/vim/vim/issues/3018
   set langremap
 endif
 
-" Keymap внутренняя раскладка + langmap (который надо использовать по минимуму)
+# Keymap внутренняя раскладка + langmap (который надо использовать по минимуму)
 if has('osx')
     set keymap=russian-jcukenmac
 
@@ -27,8 +28,8 @@ else
     set langmap+=ФЫВАПРОЛДЖЭЁ;ASDFGHJKL\\:\\"\\~
     set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
     set langmap+=№#
-    " breaks english .
-    " set langmap+=./
+    # breaks english .
+    # set langmap+=./
 endif
 
 set iminsert=0

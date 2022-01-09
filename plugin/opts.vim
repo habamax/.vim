@@ -35,16 +35,16 @@ g:asciidoctor_img_paste_command = 'gm convert clipboard: %s%s'
 g:asciidoctor_img_paste_pattern = 'img_%s_%s.png'
 
 g:asciidoctor_fenced_languages = ['python', 'vim', 'sql', 'json', 'xml']
-# let g:asciidoctor_css = 'asciidoctor-next.min.css'
-# let g:asciidoctor_css_path = expand($DOCS ?? '~/docs') .. '/.asciidoctor-themes'
+# g:asciidoctor_css = 'asciidoctor-next.min.css'
+# g:asciidoctor_css_path = expand($DOCS ?? '~/docs') .. '/.asciidoctor-themes'
 
 g:asciidoctor_pandoc_other_params = '--toc'
 g:asciidoctor_pandoc_data_dir = expand($DOCS ?? '~/docs') .. '/.pandoc'
 
 g:asciidoctor_syntax_conceal = 0
-# let g:asciidoctor_folding = 1
-# let g:asciidoctor_foldtitle_as_h1 = 0
-# let g:asciidoctor_fold_options = 1
+# g:asciidoctor_folding = 1
+# g:asciidoctor_foldtitle_as_h1 = 0
+# g:asciidoctor_fold_options = 1
 
 
 # vim-swap
