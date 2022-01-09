@@ -35,7 +35,7 @@ def win#lens()
                     winwidth(0)
                 ])
     var height = max([
-                    get(g:, "lens_pref_height", 20),
+                    get(g:, "lens_pref_height", 25),
                     winheight(0)
                 ])
 
