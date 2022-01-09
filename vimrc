@@ -81,8 +81,8 @@ nnoremap <silent> yor :set relativenumber! relativenumber?<CR>
 nnoremap <silent> yol :set list! list?<CR>
 nnoremap <silent> yos :set spell! spell?<CR>
 nnoremap <silent> yoc :set cursorline! cursorline?<CR>
-nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis") . "<CR>"
-nnoremap <expr> yob ':set bg=' . (&bg == 'dark' ? "light" : "dark") . "<CR>"
+nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
+nnoremap <expr> yob ':set bg=' .. (&bg == 'dark' ? "light" : "dark") .. "<CR>"
 
 # window management
 nnoremap <silent> <C-w>m :resize<bar>vert resize<CR>
@@ -156,7 +156,7 @@ nnoremap <silent> <space>` :call text#underline('`')<CR>
 
 nnoremap <silent> <expr> gc comment#toggle()
 xnoremap <silent> <expr> gc comment#toggle()
-nnoremap <silent> <expr> gcc comment#toggle() . '_'
+nnoremap <silent> <expr> gcc comment#toggle() .. '_'
 
 # find visually selected text
 xnoremap * y/<C-R>"<CR>
@@ -343,4 +343,4 @@ command! Term :bo call term_start(&shell, {"cwd": expand("%:p:h"), "term_finish"
 command! -nargs=1 -complete=command -bar Redir silent v#redir(<q-args>)
 
 # helper command to use old built-in colorschemes
-command! -nargs=1 -complete=color Colo exe "so $VIMRUNTIME/colors/" . <q-args> . ".vim"
+command! -nargs=1 -complete=color Colo exe "so $VIMRUNTIME/colors/" .. <q-args> .. ".vim"
