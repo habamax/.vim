@@ -31,7 +31,7 @@ setg sessionoptions=buffers,curdir,tabpages,winsize
 setg history=200
 setg mouse=a ttymouse=sgr
 
-if executable('rg') | set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m | endif
+if executable('rg') | setg grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m | endif
 
 silent! colorscheme habamax
 
@@ -260,8 +260,8 @@ if !isdirectory(&undodir)   | mkdir(&undodir, "p")   | endif
 if !isdirectory(&backupdir) | mkdir(&backupdir, "p") | endif
 if !isdirectory(&directory) | mkdir(&directory, "p") | endif
 
-set backup
-set undofile
+setg backup
+setg undofile
 
 
 ################################################################################
