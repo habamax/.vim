@@ -15,8 +15,7 @@ endfunc
 
 " Autosize windows.
 " There is lens.vim plugin but essentially this simplified version could be used
-" instead. Original lens.vim laaaags if switched to a huge file, it
-" calculates target width consuming whole file into memory....
+" instead.
 "
 " Add following lines somewhere in your vimrc:
 " augroup autosize_windows | au!
