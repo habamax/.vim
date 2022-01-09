@@ -33,6 +33,11 @@ set mouse=a ttymouse=sgr
 
 if executable('rg') | set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m | endif
 
+if $TERM =~ '^tmux'
+    set background=dark
+elseif has("gui_running")
+    set background=light
+endif
 silent! colorscheme habamax
 
 
