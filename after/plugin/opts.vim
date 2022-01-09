@@ -1,3 +1,5 @@
+vim9script
+
 if exists("g:loaded_select")
     nmap <space>e <Plug>(SelectFile)
     nmap <space>sm <Plug>(SelectMRU)
@@ -20,75 +22,74 @@ if exists("g:loaded_select")
 
     nnoremap <silent> <space>sv :exe "Select gitfile " .. fnamemodify($MYVIMRC, ":p:h")<cr>
 
-    let g:select_info = get(g:, "select_info", {})
+    g:select_info = get(g:, "select_info", {})
 
-    let g:select_info.session = {}
-    let g:select_info.session.data = {-> map(glob("~/.vimdata/sessions/*", 1, 1), {_, v -> fnamemodify(v, ":t")})}
-    let g:select_info.session.sink = "%%bd | source ~/.vimdata/sessions/%s"
+    g:select_info.session = {}
+    g:select_info.session.data = (..._) => map(glob("~/.vimdata/sessions/*", 1, 1), (_, v) => fnamemodify(v, ":t"))
+    g:select_info.session.sink = "%%bd | source ~/.vimdata/sessions/%s"
     nnoremap <silent> <space>ss :Select session<CR>
 
-    let g:select_info.template = {}
-    let g:select_info.template.data = {_, buf -> s:template_data(buf)}
-    let g:select_info.template.sink = {
-            \ "transform": {_, v -> fnameescape(fnamemodify($MYVIMRC, ':p:h') .. '/templates/' .. v)},
-            \ "action": {v -> s:template_sink(v)}
-            \ }
-    let g:select_info.template.highlight = {"DirectoryPrefix": ['\(\s*\d\+:\)\?\zs.*[/\\]\ze.*$', 'Comment']}
-
-    func! s:template_data(buf) abort
-        let path = fnamemodify($MYVIMRC, ':p:h') .. '/templates/'
-        let ft = getbufvar(a:buf.bufnr, '&filetype')
-        let ft_path = path .. ft
-        let tmpls = []
+    def s:template_data(buf: dict<any>): list<string>
+        var path = fnamemodify($MYVIMRC, ':p:h') .. '/templates/'
+        var ft = getbufvar(buf.bufnr, '&filetype')
+        var ft_path = path .. ft
+        var tmpls = []
 
         if !empty(ft) && isdirectory(ft_path)
-            let tmpls = map(readdirex(ft_path, {e -> e.type == 'file'}), {_, v -> ft .. '/' .. v.name})
+            tmpls = mapnew(readdirex(ft_path, (e) => e.type == 'file'), (_, v) => ft .. '/' .. v.name)
         endif
 
         if isdirectory(path)
-            call extend(tmpls, map(readdirex(path, {e -> e.type == 'file'}), {_, v -> v.name}))
+            extend(tmpls, mapnew(readdirex(path, (e) => e.type == 'file'), (_, v) => v.name))
         endif
 
         return tmpls
-    endfunc
+    enddef
 
-    func! s:template_sink(tfile) abort
-        let tlines = readfile(a:tfile)
-                    \->map({_, v, -> substitute(v, '!!\(.\{-}\)!!', '\=eval(submatch(1))', 'g')})
-        call append(line('.'), tlines)
+    def s:template_sink(tfile: string)
+        append(line('.'), readfile(tfile))
         if getline('.') =~ '^\s*$'
             del _
         else
             normal! j^
         endif
-    endfunc
+    enddef
 
+    g:select_info.template = {}
+    g:select_info.template.data = (_, buf) => s:template_data(buf)
+    g:select_info.template.sink = {
+            "transform": (_, v) => fnameescape(fnamemodify($MYVIMRC, ':p:h') .. '/templates/' .. v),
+            "action": (v) => s:template_sink(v)
+            }
+    g:select_info.template.highlight = {"DirectoryPrefix": ['\(\s*\d\+:\)\?\zs.*[/\\]\ze.*$', 'Comment']}
     nnoremap <silent> <space>i :Select template<CR>
 
-    let g:select_info.tag = {}
-    let g:select_info.tag.data = {-> s:tag_data()}
-    let g:select_info.tag.sink = "tag %s"
-    let g:select_info.tag.sink = {
-            \ "transform": {_, v -> split(v, "\t")[1]},
-            \ "action": {v -> s:tag_sink(v)}
-            \ }
-    let g:select_info.tag.highlight = {
-          \ "DirectoryPrefix": ['\t\zs.\S\+$', 'Comment'],
-          \ "TagType": ['^\a', 'Type']
-          \ }
-    func! s:tag_data() abort
-        if !filereadable('tags') | return | endif
-        let result = []
+    def s:tag_data(): list<string>
+        var result = []
+        if !filereadable('tags') 
+            return result
+        endif
         for line in readfile('tags')
             if line =~ '^!_TAG' | continue | endif
-            let info = split(line, "\t")
+            var info = split(line, "\t")
             call add(result, printf("%s\t%-30S\t%s", info[3], info[0], info[1]))
         endfor
         return result
-    endfunc
-    func! s:tag_sink(value) abort
-        exe "tag " . escape(a:value, '"')
-    endfunc
+    enddef
+    def s:tag_sink(value: string)
+        exe "tag " .. escape(value, '"')
+    enddef
+    g:select_info.tag = {}
+    g:select_info.tag.data = (..._) => s:tag_data()
+    g:select_info.tag.sink = "tag %s"
+    g:select_info.tag.sink = {
+            \ "transform": (_, v) => split(v, "\t")[1],
+            \ "action": (v) => s:tag_sink(v)
+            \ }
+    g:select_info.tag.highlight = {
+          \ "DirectoryPrefix": ['\t\zs.\S\+$', 'Comment'],
+          \ "TagType": ['^\a', 'Type']
+          \ }
     nnoremap <silent> <space>sT :Select tag<CR>
 endif
 
@@ -110,32 +111,31 @@ if exists("g:loaded_swap")
     nmap g> <Plug>(swap-next)
     nmap g. <Plug>(swap-interactive)
 
-    let g:swap#rules = deepcopy(g:swap#default_rules)
-    let g:swap#rules += [
-                \   {
-                \     'mode': 'n',
-                \     'description': 'Reorder the | bar | delimited | things |.',
-                \     'body': '|\%([^|]\+|\)\+',
-                \     'delimiter': ['\s*|\s*'],
-                \     'priority': -40
-                \   },
-                \
-                \   {
-                \     'description': 'Reorder the space-delimited EN/RU word under the cursor in normal mode.',
-                \     'mode': 'n',
-                \     'body': '\%([a-zA-Zа-яА-Я[:alnum:]]\+\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]]\+\)\?',
-                \     'delimiter': ['\s\+'],
-                \     'priority': -50
-                \   },
-                \
-                \   {
-                \     'description': 'Reorder the comma-delimited EN/RU word under the cursor in normal mode.',
-                \     'mode': 'n',
-                \     'body': '\%([a-zA-Zа-яА-Я[:alnum:]]\+,\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]]\+\)\?',
-                \     'delimiter': ['\s*,\s*'],
-                \     'priority': -10
-                \   }
-                \ ]
+    g:swap#rules = deepcopy(g:swap#default_rules)
+    g:swap#rules += [
+                {
+                  'mode': 'n',
+                  'description': 'Reorder the | bar | delimited | things |.',
+                  'body': '|\%([^|]\+|\)\+',
+                  'delimiter': ['\s*|\s*'],
+                  'priority': -40
+                },
+
+                {
+                  'description': 'Reorder the space-delimited EN/RU word under the cursor in normal mode.',
+                  'mode': 'n',
+                  'body': '\%([a-zA-Zа-яА-Я[:alnum:]]\+\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]]\+\)\?',
+                  'delimiter': ['\s\+'],
+                  'priority': -50
+                },
+
+                {
+                  'description': 'Reorder the comma-delimited EN/RU word under the cursor in normal mode.',
+                  'mode': 'n',
+                  'body': '\%([a-zA-Zа-яА-Я[:alnum:]]\+,\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]]\+\)\?',
+                  'delimiter': ['\s*,\s*'],
+                  'priority': -10
+                }]
 endif
 
 
@@ -154,20 +154,13 @@ if exists("g:loaded_guifont_size")
 endif
 
 
-if exists("g:loaded_surround")
-    let g:surround_{char2nr('c')} = "\\\1latex\1{\r}"
-endif
-
-
-
-" netrw
 if exists("g:loaded_netrwPlugin")
-    func! s:netrw_e() abort
+    def s:netrw_e()
         exe 'silent e ' .. expand("%:p:h")
-        call search('\<'..expand("#:t")..'\>')
-    endfunc
+        call search('\<' .. expand("#:t") .. '\>')
+    enddef
     nnoremap <silent> - :call <SID>netrw_e()<CR>
-    let g:netrw_banner = 0
+    g:netrw_banner = 0
 endif
 
 
