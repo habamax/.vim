@@ -1,34 +1,28 @@
+vim9script
 
-func! s:get_current_font()
-    let font = matchlist(&guifont, '\(.\{-}\):h\(\d\+\)')
+var s:orig_guifont: string = &guifont
+var s:orig_lines: number = &lines
+var s:orig_columns: number = &columns
 
-    if !exists("s:orig_guifont")
-        let s:orig_guifont = &guifont
-        let s:orig_lines = &lines
-        let s:orig_columns = &columns
-    endif
-
-    return [font[1], font[2]]
-endfunc
+def s:get_current_font(): list<any>
+    var font = matchlist(&guifont, '\(.\{-}\):h\(\d\+\)')
+    return [font[1], str2nr(font[2])]
+enddef
 
 
-func! guifont_size#change(op)
-    let [fontname,fontsize] = s:get_current_font()
-
-    if a:op == 'inc' && fontsize < 40
-        let new_font = fontname.':h'.(fontsize + 1)
-        let new_lines = float2nr(round(&lines * fontsize/str2float(fontsize + 1)))
-        let new_columns = float2nr(round(&columns * fontsize/str2float(fontsize + 1)))
-    elseif a:op == 'dec' && fontsize > 7
-        let new_font = fontname.':h'.(fontsize - 1)
-        let new_lines = float2nr(round(&lines * fontsize/str2float(fontsize - 1)))
-        let new_columns = float2nr(round(&columns * fontsize/str2float(fontsize - 1)))
-    elseif a:op == 'restore'
-        let new_font = s:orig_guifont
-        let new_lines = s:orig_lines
-        let new_columns = s:orig_columns
-    else
-        return
+def guifont_size#change(op: string)
+    var [fontname, fontsize] = s:get_current_font()
+    var new_font = s:orig_guifont
+    var new_lines = s:orig_lines
+    var new_columns = s:orig_columns
+    if op == 'inc' && fontsize < 40
+        new_font = fontname .. ':h' .. (fontsize + 1)
+        new_lines = float2nr(round(&lines * fontsize / (fontsize + 1)))
+        new_columns = float2nr(round(&columns * fontsize / (fontsize + 1)))
+    elseif op == 'dec' && fontsize > 7
+        new_font = fontname .. ':h' .. (fontsize - 1)
+        new_lines = float2nr(round(&lines * fontsize / (fontsize - 1)))
+        new_columns = float2nr(round(&columns * fontsize / (fontsize - 1)))
     endif
 
     if new_lines > 10 && new_columns > 10
@@ -37,8 +31,8 @@ func! guifont_size#change(op)
     endif
 
     if exists("*win#lens")
-        call win#lens()
+        win#lens()
     else
         wincmd =
     endif
-endfunc
+enddef
