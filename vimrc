@@ -341,7 +341,7 @@ endif
 command! Term :bo call term_start(&shell, {"cwd": expand("%:p:h"), "term_finish": "close"})
 
 # redirect the output of a Vim or external command into a scratch buffer
-command! -nargs=1 -complete=command -bar Redir silent call v#redir(<q-args>)
+command! -nargs=1 -complete=command -bar Redir silent v#redir(<q-args>)
 
 # helper command to use old built-in colorschemes
 command! -nargs=1 -complete=color Colo exe "so $VIMRUNTIME/colors/" . <q-args> . ".vim"

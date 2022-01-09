@@ -1,57 +1,50 @@
-" Redirect the output of a Vim command into a scratch buffer
-" https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
-" Usage:
-" Add command to your vimrc
-" command! -nargs=1 -complete=command Redir silent call tools#redir(<q-args>)
-" To use:
-" :Redir version
-" Vim version would be in a new window
-func! v#redir(cmd) abort
+vim9script
+
+# Redirect the output of a Vim command into a scratch buffer
+# https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
+# Usage:
+# Add command to your vimrc
+# command! -nargs=1 -complete=command Redir silent tools#redir(<q-args>)
+# To use:
+# :Redir version
+# Vim version would be in a new window
+def v#redir(cmd: string)
     for win in range(1, winnr('$'))
-        if getwinvar(win, 'scratch')
-            execute win . 'windo close'
+        if getwinvar(win, 'scratch', 0)
+            execute ':' .. win .. 'windo close'
         endif
     endfor
-    if version > 704
-        let output = split(execute(a:cmd), "\n")
-    else
-        redir => redir_out
-        exe a:cmd
-        redir END
-        let output = split(redir_out, "\n")
-    endif
     vnew
-    let w:scratch = 1
+    w:scratch = 1
     setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile
-    call setline(1, output)
-endfunc
+    setline(1, split(execute(cmd), "\n"))
+enddef
 
 
-" Helper notification function
-func! v#popup(...) abort
-    call popup_notification(call("printf", a:000), {})
-endfunc
+# Helper notification function
+def v#popup(...args: list<any>)
+    popup_notification(call("printf", args), {})
+enddef
 
+# Loggers
+def s:logger(kind: string, ...args: list<any>)
+    var logfile = expand("~/.vimdata/vim" .. strftime("%Y%m%d") .. ".log")
+    var logline = printf("%s - %s - %s: %s", strftime("%H:%M:%S"), expand("%:p"), kind, call("printf", args))
+    writefile([logline], logfile, "a")
+enddef
 
-" Loggers
-func! s:logger(kind, ...) abort
-    let logfile = expand("~/.vimdata/vim".strftime("%Y%m%d").".log")
-    let logline = printf("%s - %s - %s: %s", strftime("%H:%M:%S"), expand("%:p"), a:kind, call("printf", a:000))
-    call writefile([logline], logfile, "a")
-endfunc
+def v#log(...args: list<any>)
+    call("s:logger", ["DEBUG"] + args)
+enddef
 
-func! v#log(...) abort
-    call call("s:logger", ["DEBUG"] + a:000)
-endfunc
+def v#logi(...args: list<any>)
+    call("s:logger", ["INFO"] + args)
+enddef
 
-func! v#logi(...) abort
-    call call("s:logger", ["INFO"] + a:000)
-endfunc
+def v#loge(...args: list<any>)
+    call("s:logger", ["ERROR"] + args)
+enddef
 
-func! v#loge(...) abort
-    call call("s:logger", ["ERROR"] + a:000)
-endfunc
-
-func! v#logw(...) abort
-    call call("s:logger", ["WARNING"] + a:000)
-endfunc
+def v#logw(...args: list<any>)
+    call("s:logger", ["WARNING"] + args)
+enddef
