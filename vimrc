@@ -12,7 +12,7 @@ set nostartofline virtualedit=block
 set ttimeout ttimeoutlen=50
 set belloff=all
 set ruler
-set signcolumn=number
+set number signcolumn=number
 set shortmess+=Ic
 set lazyredraw display=lastline
 set completeopt=menu,popup completepopup=highlight:Pmenu
