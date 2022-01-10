@@ -4,10 +4,10 @@ vim9script
 # Usage:
 #   1. Save in ~/.vim/autoload/comment.vim
 #   2. Add following mappings to vimrc:
-#      nnoremap <silent> <expr> gc comment#toggle()
-#      xnoremap <silent> <expr> gc comment#toggle()
-#      nnoremap <silent> <expr> gcc comment#toggle() .. '_'
-def comment#toggle(...args: list<string>): string
+#      nnoremap <silent> <expr> gc comment#Toggle()
+#      xnoremap <silent> <expr> gc comment#Toggle()
+#      nnoremap <silent> <expr> gcc comment#Toggle() .. '_'
+def comment#Toggle(...args: list<string>): string
     if len(args) == 0
         &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
         return 'g@'
