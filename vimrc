@@ -316,9 +316,9 @@ command! CD lcd %:p:h
 # save and load sessions
 var s:sdir = expand('~/.vimdata/sessions')
 if !isdirectory(s:sdir) | mkdir(s:sdir, "p") | endif
-command! -nargs=1 -complete=customlist,<SID>sessionComplete S :mksession! ~/.vimdata/sessions/<args>
-command! -nargs=1 -complete=customlist,<SID>sessionComplete L :%bd <bar> so ~/.vimdata/sessions/<args>
-def s:sessionComplete(A: string, L: string, P: number): list<string>
+command! -nargs=1 -complete=customlist,SessionComplete S :mksession! ~/.vimdata/sessions/<args>
+command! -nargs=1 -complete=customlist,SessionComplete L :%bd <bar> so ~/.vimdata/sessions/<args>
+def SessionComplete(A: string, L: string, P: number): list<string>
     var fullpaths = split(globpath("~/.vimdata/sessions/", "*"), "\n")
     var result = mapnew(fullpaths, (k, v) => fnamemodify(v, ":t"))
     if empty(A)
