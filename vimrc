@@ -92,6 +92,7 @@ nnoremap <expr> yob ':set bg=' .. (&bg == 'dark' ? "light" : "dark") .. "<CR>"
 
 # windows
 nnoremap <silent> <C-j> :wincmd w<CR>
+nnoremap <silent> <C-k> :wincmd W<CR>
 
 # buffers
 nnoremap <silent> <C-n> :bn<CR>
