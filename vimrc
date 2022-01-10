@@ -90,6 +90,9 @@ nnoremap <silent> yoc :set cursorline! cursorline?<CR>
 nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
 nnoremap <expr> yob ':set bg=' .. (&bg == 'dark' ? "light" : "dark") .. "<CR>"
 
+# windows
+nnoremap <silent> <C-j> :wincmd w<CR>
+
 # buffers
 nnoremap <silent> <C-n> :bn<CR>
 nnoremap <silent> <C-p> :bp<CR>
@@ -139,8 +142,6 @@ inoremap <C-l> <C-g>u<ESC>[s1z=gi<C-g>u
 
 # syntax group names under cursor
 nnoremap <space>ts :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')))<CR>
-
-nnoremap <silent> <C-l> :nohl<CR>:diffupdate<CR><C-l>
 
 nnoremap <silent> <space># :call text#underline('#')<CR>
 nnoremap <silent> <space>* :call text#underline('*')<CR>
