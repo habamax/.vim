@@ -89,14 +89,6 @@ nnoremap <silent> yoc :set cursorline! cursorline?<CR>
 nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
 nnoremap <expr> yob ':set bg=' .. (&bg == 'dark' ? "light" : "dark") .. "<CR>"
 
-# window management
-nnoremap <silent> <C-w>m :resize<bar>vert resize<CR>
-nmap <C-w><C-m> <C-w>m
-tmap <silent> <C-w>m <C-w>:resize<bar>vert resize<CR>
-nnoremap <silent> <C-w><space> :echo win#layout_toggle()<CR>
-nmap <silent> <C-w><C-space> <C-w><space>
-nnoremap <silent> <C-w><BS> :call win#lens_toggle()<CR>
-
 # buffers
 nnoremap <silent> <C-n> :bn<CR>
 nnoremap <silent> <C-p> :bp<CR>
@@ -284,10 +276,6 @@ augroup restore_pos | au!
           | endif
 augroup end
 
-augroup win_autosize | au!
-    au WinEnter * silent! win#lens()
-augroup end
-
 if exists("$WSLENV")
     augroup WSLClip | au!
         au TextYankPost * if v:event.regname == '"'
@@ -303,8 +291,14 @@ endif
 # update packages
 command! PlugUp call git#plug_update()
 
-# wipe all hidden buffers
-command! WipeHiddenBuffers call win#delete_buffers()
+# Wipe all hidden buffers
+def WipeHiddenBuffers()
+    var buffers = filter(getbufinfo(), (_, v) => v.hidden)
+    if !empty(buffers)
+        execute 'confirm bwipeout' join(mapnew(buffers, (_, v) => v.bufnr))
+    endif
+enddef
+command! WipeHiddenBuffers WipeHiddenBuffers()
 
 # remove trailing spaces
 command! FixTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
