@@ -21,16 +21,16 @@ __ https://github.com/tpope/vim-commentary
   # Usage:
   #   1. Save in ~/.vim/autoload/comment.vim
   #   2. Add following mappings to vimrc:
-  #      nnoremap <silent> <expr> gc comment#toggle()
-  #      xnoremap <silent> <expr> gc comment#toggle()
-  #      nnoremap <silent> <expr> gcc comment#toggle() .. '_'
-  def comment#toggle(...args: list<string>): string
+  #      nnoremap <silent> <expr> gc comment#Toggle()
+  #      xnoremap <silent> <expr> gc comment#Toggle()
+  #      nnoremap <silent> <expr> gcc comment#Toggle() .. '_'
+  export def Toggle(...args: list<string>): string
       if len(args) == 0
           &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
           return 'g@'
       endif
       if empty(&cms) | return '' | endif
-      var cms = substitute(substitute(&cms, '\s\zs%s\s*', ' %s', ''), '%s\ze\s', '%s ', '')
+      var cms = substitute(substitute(&cms, '\S\zs%s\s*', ' %s', ''), '%s\ze\S', '%s ', '')
       var [lnum1, lnum2] = [line("'["), line("']")]
       var cms_l = split(escape(cms, '*.'), '%s')
       if len(cms_l) == 0 | return '' | endif
