@@ -46,7 +46,7 @@ silent! colorscheme habamax
 # Non Plugin Mappings
 
 # run legacy vimscript (operator)
-def s:viml(...args: list<any>): any
+def VimL(...args: list<any>): any
     if len(args) == 0
         &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
         return 'g@'
@@ -56,7 +56,7 @@ def s:viml(...args: list<any>): any
     :@"
     return ''
 enddef
-nnoremap <silent> <expr> <space>v <SID>viml()
+nnoremap <silent> <expr> <space>v <SID>VimL()
 xnoremap <silent> <space>v y:@"<CR>
 nmap <space>vv V<space>v
 
@@ -114,14 +114,14 @@ xnoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
 xnoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
 
 # number text object
-def s:number_textobj()
+def NumberTextObj()
     var rx_num = '\d\+\(\.\d\+\)*'
     if search(rx_num, 'ceW') > 0
         normal v
         search(rx_num, 'bcW')
     endif
 enddef
-xnoremap <silent> in :<C-u>call <SID>number_textobj()<CR>
+xnoremap <silent> in :<C-u>call <SID>NumberTextObj()<CR>
 onoremap in :<C-u>normal vin<CR>
 
 # date text object
@@ -188,20 +188,20 @@ nnoremap <expr> <space>FR printf(":Move %s%s",
 #     'foo',                    'baz',
 #     'acme'                    'foo'
 # ]                         ]
-def s:sort(..._: list<any>)
+def Sort(..._: list<any>)
     :'[,']sort
     # add commas to every line
     :'[,']s/[^,]$/&,/e
     # remove comma from the last line
     :']s/,$//e
 enddef
-nmap <silent> gs :set opfunc=<SID>sort<CR>g@
+nmap <silent> gs :set opfunc=<SID>Sort<CR>g@
 xmap <silent> gs :sort <bar> s/[^,]$/&,/e <bar> '>s/,$//e<CR>
 
 # gq wrapper that:
 # - tries its best at keeping the cursor in place
 # - tries to handle formatter errors
-def s:gq_format(...args: list<any>): string
+def GqFormat(...args: list<any>): string
     if len(args) == 0
         &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
         return 'g@'
@@ -222,7 +222,7 @@ def s:gq_format(...args: list<any>): string
     endif
     return ''
 enddef
-nnoremap <silent> gq :let w:gqview = winsaveview()<CR>:set opfunc=<SID>gq_format<CR>g@
+nnoremap <silent> gq :let w:gqview = winsaveview()<CR>:set opfunc=<SID>GqFormat<CR>g@
 nmap <silent> gqq gq_
 xnoremap <silent> gq :<C-U>call <SID>gq_format('v')<CR>
 
@@ -313,8 +313,8 @@ command! GistSync call gist#sync()
 command! CD lcd %:p:h
 
 # save and load sessions
-var s:sdir = expand('~/.vimdata/sessions')
-if !isdirectory(s:sdir) | mkdir(s:sdir, "p") | endif
+var sdir = expand('~/.vimdata/sessions')
+if !isdirectory(sdir) | mkdir(sdir, "p") | endif
 command! -nargs=1 -complete=customlist,SessionComplete S :mksession! ~/.vimdata/sessions/<args>
 command! -nargs=1 -complete=customlist,SessionComplete L :%bd <bar> so ~/.vimdata/sessions/<args>
 def SessionComplete(A: string, L: string, P: number): list<string>
