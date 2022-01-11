@@ -117,7 +117,7 @@ xnoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
 def NumberTextObj()
     var rx_num = '\d\+\(\.\d\+\)*'
     if search(rx_num, 'ceW') > 0
-        normal v
+        normal! v
         search(rx_num, 'bcW')
     endif
 enddef
