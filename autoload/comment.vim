@@ -4,7 +4,6 @@ vim9script
 # Usage:
 #   1. Save in ~/.vim/autoload/comment.vim
 #   2. Add following mappings to vimrc:
-#      import autoload 'comment.vim'
 #      nnoremap <silent> <expr> gc comment#Toggle()
 #      xnoremap <silent> <expr> gc comment#Toggle()
 #      nnoremap <silent> <expr> gcc comment#Toggle() .. '_'
