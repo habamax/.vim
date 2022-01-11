@@ -164,9 +164,10 @@ nnoremap <silent> <space>+ :call text#underline('+')<CR>
 nnoremap <silent> <space>" :call text#underline('"')<CR>
 nnoremap <silent> <space>` :call text#underline('`')<CR>
 
-nnoremap <silent> <expr> gc comment#Toggle()
-xnoremap <silent> <expr> gc comment#Toggle()
-nnoremap <silent> <expr> gcc comment#Toggle() .. '_'
+import autoload 'comment.vim'
+nnoremap <silent> <expr> gc comment.Toggle()
+xnoremap <silent> <expr> gc comment.Toggle()
+nnoremap <silent> <expr> gcc comment.Toggle() .. '_'
 
 # find visually selected text
 xnoremap * y/<C-R>"<CR>
