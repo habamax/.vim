@@ -90,6 +90,20 @@ nnoremap <silent> yoc :set cursorline! cursorline?<CR>
 nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
 nnoremap <expr> yob ':set bg=' .. (&bg == 'dark' ? "light" : "dark") .. "<CR>"
 
+# windows
+def ReadableWin()
+    var w = max([90, winwidth(0)])
+    var h = max([25, winheight(0)])
+    execute 'vertical resize' w
+    execute 'resize' h
+    setlocal winfixwidth winfixheight
+    wincmd =
+    setlocal nowinfixwidth nowinfixheight
+    normal! ze
+enddef
+nnoremap <silent> <C-w>m :call <sid>ReadableWin()<CR>
+nmap <C-w><C-m> <C-w>m
+
 # buffers
 nnoremap <silent> <C-n> :bn<CR>
 nnoremap <silent> <C-p> :bp<CR>
