@@ -88,15 +88,15 @@ g:lens_disabled_filetypes = ['fugitiveblame', 'selectprompt', 'selectresults']
 g:vimtex_compiler_latexrun_engines = {'_': 'lualatex'}
 g:vimtex_compiler_latexmk_engines = {'_': '-lualatex'}
 g:vimtex_compiler_latexmk = {
-             'build_dir': () => expand("%:t:r"),
-             'options': [
-                   '-shell-escape',
-                   '-verbose',
-                   '-file-line-error',
-                   '-synctex=1',
-                   '-interaction=nonstopmode',
-                 ],
-                }
+    'build_dir': () => expand("%:t:r"),
+    'options': [
+        '-shell-escape',
+        '-verbose',
+        '-file-line-error',
+        '-synctex=1',
+        '-interaction=nonstopmode',
+        ],
+    }
 g:vimtex_syntax_packages = {'minted': {'load': 1}}
 
 
@@ -109,20 +109,19 @@ g:minisnip_default_maps = 1
 
 
 # vim-rst
-g:rst2html_opts =
-         "--input-encoding=utf8"
-       .. " --smart-quotes=yes"
-       .. " --strip-comments"
-       .. " --syntax-highlight=short"
-       .. " --template=" .. expand($DOCS ?? '~/docs') .. "/.docutils/habamax.txt"
-       .. " --stylesheet-path=minimal.css,responsive.css,"
-       .. expand($DOCS ?? '~/docs') .. "/.docutils/habamax.css,"
-       .. expand($DOCS ?? '~/docs') .. "/.docutils/pygment.css"
+g:rst2html_opts = "--input-encoding=utf8"
+               .. " --smart-quotes=yes"
+               .. " --strip-comments"
+               .. " --syntax-highlight=short"
+               .. " --template=" .. expand($DOCS ?? '~/docs') .. "/.docutils/habamax.txt"
+               .. " --stylesheet-path=minimal.css,responsive.css,"
+               .. expand($DOCS ?? '~/docs') .. "/.docutils/habamax.css,"
+               .. expand($DOCS ?? '~/docs') .. "/.docutils/pygment.css"
 
 g:rst_syntax_code_list = {
-       'vim': ['vim'],
-       'sql': ['sql'],
-       'python': ['python'],
-       'json': ['json'],
-       'javascript': ['js'],
-       }
+   'vim': ['vim'],
+   'sql': ['sql'],
+   'python': ['python'],
+   'json': ['json'],
+   'javascript': ['js'],
+   }
