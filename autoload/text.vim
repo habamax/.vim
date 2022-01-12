@@ -170,10 +170,10 @@ def text#ObjIndent(inner: bool)
             ln_start -= 1
         endwhile
 
-        while indent(ln_end) == 0 && ln_end <= line('$') && getline(ln_end) !~ '^\s*$'
+        while ln_end <= line('$') && indent(ln_end) == 0 && getline(ln_end) !~ '^\s*$'
             ln_end += 1
         endwhile
-        while indent(ln_end) > 0 && ln_end <= line('$')
+        while ln_end <= line('$') && indent(ln_end) > 0
             ln_end = s:nextnonblank(ln_end + 1)
         endwhile
     endif
