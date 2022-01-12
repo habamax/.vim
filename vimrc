@@ -188,13 +188,13 @@ nnoremap <expr> <space>FR printf(":Move %s%s",
       \ expand("%:p"),
       \ empty(expand("%:e")) ? '' : repeat('<Left>', strchars(expand("%:e")) + 1))
 
-# 'array' sort operator
+# 'array' sort operator:
 # const whatever = [   ->   const whatever = [
-#     'bar',                    'acme',
-#     'baz',                    'bar',
-#     'foo',                    'baz',
-#     'acme'                    'foo'
-# ]                         ]
+#     'bar',           ->       'acme',
+#     'baz',           ->       'bar',
+#     'foo',           ->       'baz',
+#     'acme'           ->       'foo'
+# ]                    ->   ]
 def Sort(..._: list<any>)
     :'[,']sort
     # add commas to every line
