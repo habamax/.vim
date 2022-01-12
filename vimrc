@@ -116,33 +116,26 @@ tnoremap <silent> <C-p> <cmd>:bp<CR>
 # i_ i. i: i, i; i| i/ i\ i* i+ i- i# i<tab>
 # a_ a. a: a, a; a| a/ a\ a* a+ a- a# a<tab>
 for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#', '<tab>' ]
-    execute 'xnoremap <silent> i' .. char .. ' :<C-u>call text#obj("' .. char .. '", 1)<CR>'
-    execute 'xnoremap <silent> a' .. char .. ' :<C-u>call text#obj("' .. char .. '", 0)<CR>'
+    execute 'xnoremap <silent> i' .. char .. ' :<C-u>call text#Obj("' .. char .. '", 1)<CR>'
+    execute 'xnoremap <silent> a' .. char .. ' :<C-u>call text#Obj("' .. char .. '", 0)<CR>'
     execute 'onoremap <silent> i' .. char .. ' :normal vi' .. char .. '<CR>'
     execute 'onoremap <silent> a' .. char .. ' :normal va' .. char .. '<CR>'
 endfor
 
-# indent text object
-onoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
-onoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
-xnoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
-xnoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
+# indent text object: XXX: refactor to vim9script all
+# text#ObjIndent/ObjDate/ObjNumber etc
+onoremap <silent>ii :<C-u>call text#ObjIndent(v:true)<CR>
+onoremap <silent>ai :<C-u>call text#ObjIndent(v:false)<CR>
+xnoremap <silent>ii :<C-u>call text#ObjIndent(v:true)<CR>
+xnoremap <silent>ai :<C-u>call text#ObjIndent(v:false)<CR>
 
-# number text object
-def NumberTextObj()
-    var rx_num = '\d\+\(\.\d\+\)*'
-    if search(rx_num, 'ceW') > 0
-        normal! v
-        search(rx_num, 'bcW')
-    endif
-enddef
-xnoremap <silent> in :<C-u>call <SID>NumberTextObj()<CR>
+xnoremap <silent> in :<C-u>call text#ObjNumber()<CR>
 onoremap in :<C-u>normal vin<CR>
 
 # date text object
-xnoremap <silent> id :<C-u>call text#date_textobj(1)<CR>
+xnoremap <silent> id :<C-u>call text#ObjDate(1)<CR>
 onoremap id :<C-u>normal vid<CR>
-xnoremap <silent> ad :<C-u>call text#date_textobj(0)<CR>
+xnoremap <silent> ad :<C-u>call text#ObjDate(0)<CR>
 onoremap ad :<C-u>normal vad<CR>
 
 # CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
@@ -155,15 +148,15 @@ inoremap <C-l> <C-g>u<ESC>[s1z=gi<C-g>u
 # syntax group names under cursor
 nnoremap <space>ts :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')))<CR>
 
-nnoremap <silent> <space># :call text#underline('#')<CR>
-nnoremap <silent> <space>* :call text#underline('*')<CR>
-nnoremap <silent> <space>= :call text#underline('=')<CR>
-nnoremap <silent> <space>- :call text#underline('-')<CR>
-nnoremap <silent> <space>~ :call text#underline('~')<CR>
-nnoremap <silent> <space>^ :call text#underline('^')<CR>
-nnoremap <silent> <space>+ :call text#underline('+')<CR>
-nnoremap <silent> <space>" :call text#underline('"')<CR>
-nnoremap <silent> <space>` :call text#underline('`')<CR>
+nnoremap <silent> <space># :call text#Underline('#')<CR>
+nnoremap <silent> <space>* :call text#Underline('*')<CR>
+nnoremap <silent> <space>= :call text#Underline('=')<CR>
+nnoremap <silent> <space>- :call text#Underline('-')<CR>
+nnoremap <silent> <space>~ :call text#Underline('~')<CR>
+nnoremap <silent> <space>^ :call text#Underline('^')<CR>
+nnoremap <silent> <space>+ :call text#Underline('+')<CR>
+nnoremap <silent> <space>" :call text#Underline('"')<CR>
+nnoremap <silent> <space>` :call text#Underline('`')<CR>
 
 nnoremap <silent> <expr> gc comment#Toggle()
 xnoremap <silent> <expr> gc comment#Toggle()
@@ -319,7 +312,7 @@ command! FixTrailingSpaces :silent! %s/\v(\s+$)|(\r+$)//g<bar>
       \ :exe 'normal! ``'<bar>
       \ :echo 'Remove trailing spaces and ^Ms.'
 
-command! -range FixSpaces <line1>,<line2>call text#fix_spaces()
+command! -range FixSpaces call text#FixSpaces(<line1>, <line2>)
 
 command! -range=% -nargs=? -complete=customlist,share#complete Share call share#paste(<q-args>, <line1>, <line2>)
 
