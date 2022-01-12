@@ -122,8 +122,7 @@ for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', 
     execute 'onoremap <silent> a' .. char .. ' :normal va' .. char .. '<CR>'
 endfor
 
-# indent text object: XXX: refactor to vim9script all
-# text#ObjIndent/ObjDate/ObjNumber etc
+# indent text object
 onoremap <silent>ii :<C-u>call text#ObjIndent(v:true)<CR>
 onoremap <silent>ai :<C-u>call text#ObjIndent(v:false)<CR>
 xnoremap <silent>ii :<C-u>call text#ObjIndent(v:true)<CR>
