@@ -34,10 +34,10 @@ set path=.,,
 
 if executable('rg') | set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m | endif
 
-if $TERM =~ '^tmux'
-    set background=dark
-elseif has("gui_running")
+if has("gui_running")
     set background=light
+else
+    set background=dark
 endif
 silent! colorscheme habamax
 
