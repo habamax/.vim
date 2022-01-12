@@ -225,8 +225,8 @@ enddef
 # a_ a. a: a, a; a| a/ a\ a* a+ a- a# a<tab>
 # Usage:
 # for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#', '<tab>' ]
-#     execute 'xnoremap <silent> i' .. char .. ' :<C-u>call text#obj("' .. char .. '", 1)<CR>'
-#     execute 'xnoremap <silent> a' .. char .. ' :<C-u>call text#obj("' .. char .. '", 0)<CR>'
+#     execute 'xnoremap <silent> i' .. char .. ' :<C-u>call text#Obj("' .. char .. '", 1)<CR>'
+#     execute 'xnoremap <silent> a' .. char .. ' :<C-u>call text#Obj("' .. char .. '", 0)<CR>'
 #     execute 'onoremap <silent> i' .. char .. ' :normal vi' .. char .. '<CR>'
 #     execute 'onoremap <silent> a' .. char .. ' :normal va' .. char .. '<CR>'
 # endfor
