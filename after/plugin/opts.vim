@@ -155,11 +155,6 @@ endif
 
 
 if exists("g:loaded_netrwPlugin")
-    def s:netrw_e()
-        exe 'silent e ' .. expand("%:p:h")
-        call search('\<' .. expand("#:t") .. '\>')
-    enddef
-    nnoremap <silent> - :call <SID>netrw_e()<CR>
     g:netrw_banner = 0
 endif
 
