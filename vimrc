@@ -34,11 +34,7 @@ set path=.,,
 
 if executable('rg') | set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m | endif
 
-if has("gui_running")
-    set background=light
-else
-    set background=dark
-endif
+&background = has("gui_running") ? "light" : "dark"
 silent! colorscheme habamax
 
 
