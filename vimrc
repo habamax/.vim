@@ -34,7 +34,26 @@ set path=.,,
 
 if executable('rg') | set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m | endif
 
-&background = has("gui_running") ? "light" : "dark"
+
+################################################################################
+# Colors
+
+if has("gui_running")
+    def Lights()
+        var hour = strftime("%H")->str2nr()
+        var bg: string
+        if hour > 7 && hour < 20
+            bg = "light"
+        else
+            bg = "dark"
+        endif
+        if bg != &bg | &bg = bg | endif
+    enddef
+    Lights()
+    timer_start(5 * 60000, (_) => Lights(), {repeat: -1})
+else
+    set bg=dark
+endif
 silent! colorscheme habamax
 
 
