@@ -58,7 +58,7 @@ def os#exe(cmd: string)
     if exists("$WSLENV")
         lcd /mnt/c
         runner = ":silent !cmd.exe /C start"
-    elseif has("win32") || has("win32unix")
+    elseif executable('cmd.exe')
         runner = ':silent !start'
     elseif executable('xdg-open')
         runner = ":silent !xdg-open"
@@ -82,6 +82,7 @@ def os#exe(cmd: string)
     endtry
 enddef
 
+
 # Open filename in an OS
 def os#open(url: string)
     var url_x = url
@@ -92,7 +93,7 @@ def os#open(url: string)
         if filereadable(url)
             url_x = os#wsl_to_windows_path(url)
         endif
-    elseif has("win32") || has("win32unix")
+    elseif executable('cmd.exe')
         cmd = ':silent !start'
     elseif executable('xdg-open')
         cmd = ":silent !xdg-open"
