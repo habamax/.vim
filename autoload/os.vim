@@ -1,5 +1,6 @@
 vim9script
 
+
 # Return true if vim is in WSL environment
 def os#is_wsl(): bool
     return exists("$WSLENV")
@@ -51,6 +52,7 @@ def os#file_manager()
         echomsg "Not yet implemented!"
     endif
 enddef
+
 
 # Silently execute OS command
 def os#exe(cmd: string)
