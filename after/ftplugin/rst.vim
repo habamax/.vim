@@ -14,6 +14,7 @@ compiler rst2html
 nnoremap <buffer> <space><space>oh :RstViewHtml<CR>
 nnoremap <buffer> <space><space>op :RstViewPdf<CR>
 nnoremap <buffer> <space><space>cp :Rst2Pdf<CR>
+nnoremap <buffer> <space><space>ch :Rst2Html<CR>
 
 command -buffer -nargs=? -complete=locale Rst2Html call s:rst2html(<f-args>)
 
