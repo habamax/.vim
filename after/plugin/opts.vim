@@ -1,9 +1,9 @@
 vim9script
 
 if exists("g:loaded_select")
-    nmap <space>e <Plug>(SelectFile)
+    nmap <space>f <Plug>(SelectFile)
     nmap <space>sm <Plug>(SelectMRU)
-    nmap <space>f <Plug>(SelectProjectFile)
+    nmap <space>sf <Plug>(SelectProjectFile)
     nmap <space>sp <Plug>(SelectProject)
     nmap <space>b  <Plug>(SelectBuffer)
 
