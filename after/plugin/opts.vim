@@ -58,9 +58,9 @@ if exists("g:loaded_select")
     g:select_info.template = {}
     g:select_info.template.data = (_, buf) => s:template_data(buf)
     g:select_info.template.sink = {
-            "transform": (_, v) => fnameescape(fnamemodify($MYVIMRC, ':p:h') .. '/templates/' .. v),
-            "action": (v) => s:template_sink(v)
-            }
+        transform: (_, v) => fnameescape(fnamemodify($MYVIMRC, ':p:h') .. '/templates/' .. v),
+        action: (v) => s:template_sink(v)
+    }
     g:select_info.template.highlight = {"DirectoryPrefix": ['\(\s*\d\+:\)\?\zs.*[/\\]\ze.*$', 'Comment']}
     nnoremap <silent> <space>i :Select template<CR>
 
@@ -83,13 +83,13 @@ if exists("g:loaded_select")
     g:select_info.tag.data = (..._) => s:tag_data()
     g:select_info.tag.sink = "tag %s"
     g:select_info.tag.sink = {
-            \ "transform": (_, v) => split(v, "\t")[1],
-            \ "action": (v) => s:tag_sink(v)
-            \ }
+        transform: (_, v) => split(v, "\t")[1],
+        action: (v) => s:tag_sink(v)
+    }
     g:select_info.tag.highlight = {
-          \ "DirectoryPrefix": ['\t\zs.\S\+$', 'Comment'],
-          \ "TagType": ['^\a', 'Type']
-          \ }
+        DirectoryPrefix: ['\t\zs.\S\+$', 'Comment'],
+        TagType: ['^\a', 'Type']
+    }
     nnoremap <silent> <space>sT :Select tag<CR>
 endif
 
@@ -113,29 +113,28 @@ if exists("g:loaded_swap")
 
     g:swap#rules = deepcopy(g:swap#default_rules)
     g:swap#rules += [
-                {
-                  'mode': 'n',
-                  'description': 'Reorder the | bar | delimited | things |.',
-                  'body': '|\%([^|]\+|\)\+',
-                  'delimiter': ['\s*|\s*'],
-                  'priority': -40
-                },
-
-                {
-                  'description': 'Reorder the space-delimited EN/RU word under the cursor in normal mode.',
-                  'mode': 'n',
-                  'body': '\%([a-zA-Zа-яА-Я[:alnum:]]\+\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]]\+\)\?',
-                  'delimiter': ['\s\+'],
-                  'priority': -50
-                },
-
-                {
-                  'description': 'Reorder the comma-delimited EN/RU word under the cursor in normal mode.',
-                  'mode': 'n',
-                  'body': '\%([a-zA-Zа-яА-Я[:alnum:]]\+,\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]]\+\)\?',
-                  'delimiter': ['\s*,\s*'],
-                  'priority': -10
-                }]
+        {
+            mode: 'n',
+            description: 'Reorder the | bar | delimited | things |.',
+            body: '|\%([^|]\+|\)\+',
+            delimiter: ['\s*|\s*'],
+            priority: -40
+        },
+        {
+            description: 'Reorder the space-delimited EN/RU word under the cursor in normal mode.',
+            mode: 'n',
+            body: '\%([a-zA-Zа-яА-Я[:alnum:]]\+\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]]\+\)\?',
+            delimiter: ['\s\+'],
+            priority: -50
+        },
+        {
+            description: 'Reorder the comma-delimited EN/RU word under the cursor in normal mode.',
+            mode: 'n',
+            body: '\%([a-zA-Zа-яА-Я[:alnum:]]\+,\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]]\+\)\?',
+            delimiter: ['\s*,\s*'],
+            priority: -10
+        }
+    ]
 endif
 
 
@@ -157,5 +156,3 @@ endif
 if exists("g:loaded_netrwPlugin")
     g:netrw_banner = 0
 endif
-
-

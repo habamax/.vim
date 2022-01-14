@@ -88,15 +88,15 @@ g:lens_disabled_filetypes = ['fugitiveblame', 'selectprompt', 'selectresults']
 g:vimtex_compiler_latexrun_engines = {'_': 'lualatex'}
 g:vimtex_compiler_latexmk_engines = {'_': '-lualatex'}
 g:vimtex_compiler_latexmk = {
-    'build_dir': () => expand("%:t:r"),
-    'options': [
+    build_dir: () => expand("%:t:r"),
+    options: [
         '-shell-escape',
         '-verbose',
         '-file-line-error',
         '-synctex=1',
         '-interaction=nonstopmode',
-        ],
-    }
+    ],
+}
 g:vimtex_syntax_packages = {'minted': {'load': 1}}
 
 
@@ -119,9 +119,9 @@ g:rst2html_opts = "--input-encoding=utf8"
                .. expand($DOCS ?? '~/docs') .. "/.docutils/pygment.css"
 
 g:rst_syntax_code_list = {
-   'vim': ['vim'],
-   'sql': ['sql'],
-   'python': ['python'],
-   'json': ['json'],
-   'javascript': ['js'],
-   }
+   vim: ['vim'],
+   sql: ['sql'],
+   python: ['python'],
+   json: ['json'],
+   javascript: ['js'],
+}
