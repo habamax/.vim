@@ -1,3 +1,5 @@
+vim9script
+
 setl textwidth=80
 setl keywordprg=:help
 
@@ -5,17 +7,17 @@ if !&readonly
     setlocal ff=unix
 endif
 
-let g:vim_indent_cont = 6
+g:vim_indent_cont = 6
 
-func! s:strip_vim_syntax() abort
+def StripSyntax()
     hi link vimVar Normal
     hi link vimOper Normal
     hi link vimParenSep Normal
     hi link vimSep Normal
-endfunc
+enddef
 
-call s:strip_vim_syntax()
+StripSyntax()
 
 augroup strip_vim_syntax | au!
-    au ColorScheme * call s:strip_vim_syntax()
+    au ColorScheme * call StripSyntax()
 augroup END
