@@ -6,8 +6,11 @@
 Personal vim configuration.
 
 
-Scratches of Not Invented Here
-==============================
+Because why not?
+================
+
+Commenting
+----------
 
 vim-commentary__ alike comment toggling:
 
@@ -67,6 +70,32 @@ __ https://github.com/tpope/vim-commentary
       noautocmd keepjumps setline(lnum1, lines)
       return ''
   enddef
+
+
+Background change
+-----------------
+
+Auto change ``&background`` in GUI Vim depending on time (check every 5 mins):
+
+.. code:: vim
+
+  if has("gui_running")
+      def Lights()
+          var hour = strftime("%H")->str2nr()
+          var bg: string
+          if hour > 7 && hour < 19
+              bg = "light"
+          else
+              bg = "dark"
+          endif
+          if bg != &bg | &bg = bg | endif
+      enddef
+      Lights()
+      timer_start(5 * 60000, (_) => Lights(), {repeat: -1})
+  else
+      set bg=dark
+  endif
+  silent! colorscheme habamax
 
 
 Colors
