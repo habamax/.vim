@@ -50,7 +50,9 @@ if has("gui_running")
         if bg != &bg | &bg = bg | endif
     enddef
     Lights()
-    timer_start(5 * 60000, (_) => Lights(), {repeat: -1})
+    if !exists("g:lights_timer")
+        g:lights_timer = timer_start(5 * 60000, (_) => Lights(), {repeat: -1})
+    endif
 else
     set bg=dark
 endif
