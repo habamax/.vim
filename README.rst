@@ -79,6 +79,8 @@ Auto change ``&background`` in GUI Vim depending on time (check every 5 mins):
 
 .. code:: vim
 
+  vim9script
+
   if has("gui_running")
       def Lights()
           var hour = strftime("%H")->str2nr()
@@ -98,6 +100,7 @@ Auto change ``&background`` in GUI Vim depending on time (check every 5 mins):
   else
       set bg=dark
   endif
+  # colorscheme should support both dark and light colors
   silent! colorscheme habamax
 
 
