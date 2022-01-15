@@ -107,7 +107,9 @@ nnoremap <silent> yos :set spell! spell?<CR>
 nnoremap <silent> yoc :set cursorline! cursorline?<CR>
 nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
 nnoremap <expr> yob ':set bg=' .. (&bg == 'dark' ? "light" : "dark") .. "<CR>"
-nnoremap <expr> yog ':set cc=' .. (empty(&cc) ? '80' : '') .. "<CR>"
+nnoremap <silent> yog :exe "let b:cc = &cc??80 \| set cc=" .. (empty(&cc) ? b:cc : '')<CR>
+nnoremap <silent> yog :let b:cc = &cc ?? b:cc ?? 80 \| let &cc = (empty(&cc) ? b:cc : '')<CR>
+
 
 # windows
 def ReadableWin(width: number, height: number)
