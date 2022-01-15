@@ -91,9 +91,10 @@ Auto change ``&background`` in GUI Vim depending on time (check every 5 mins):
           if bg != &bg | &bg = bg | endif
       enddef
       Lights()
-      if !exists("g:lights_timer")
-          g:lights_timer = timer_start(5 * 60000, (_) => Lights(), {repeat: -1})
+      if exists("g:lights_timer")
+          timer_stop(g:lights_timer)
       endif
+      g:lights_timer = timer_start(5 * 60000, (_) => Lights(), {repeat: -1})
   else
       set bg=dark
   endif
