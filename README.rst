@@ -6,8 +6,8 @@
 Personal vim configuration.
 
 
-Because why not?
-================
+Vimscript scratches
+===================
 
 Commenting
 ----------
