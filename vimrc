@@ -55,6 +55,7 @@ if has("gui_running")
     endif
     g:lights_timer = timer_start(5 * 60000, (_) => Lights(), {repeat: -1})
 else
+    if has("win32") | set t_Co=256 | endif
     set bg=dark
 endif
 silent! colorscheme habamax
