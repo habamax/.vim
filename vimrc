@@ -108,6 +108,7 @@ nnoremap <silent> yoc :set cursorline! cursorline?<CR>
 nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
 nnoremap <expr> yob ':set bg=' .. (&bg == 'dark' ? "light" : "dark") .. "<CR>"
 nnoremap <silent> yog :let b:cc = &cc ?? get(b:, "cc", 80) \| let &cc = (empty(&cc) ? b:cc : '')<CR>
+nnoremap <silent> yoG :unlet b:cc \| set cc=<CR>
 
 
 # windows
@@ -337,6 +338,9 @@ command! -range=% -nargs=? -complete=customlist,share#complete Share call share#
 command! GistSync call gist#sync()
 
 command! CD lcd %:p:h
+
+# add cursorcolumn for a current column
+command! CC :exe "set cc+=" .. col('.')
 
 # save and load sessions
 var sdir = expand('~/.vimdata/sessions')
