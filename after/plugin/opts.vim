@@ -76,15 +76,14 @@ if exists("g:loaded_select")
         endfor
         return result
     enddef
-    def s:tag_sink(value: string)
-        exe "tag " .. escape(value, '"')
-    enddef
     g:select_info.tag = {}
     g:select_info.tag.data = (..._) => s:tag_data()
     g:select_info.tag.sink = "tag %s"
     g:select_info.tag.sink = {
         transform: (_, v) => split(v, "\t")[1],
-        action: (v) => s:tag_sink(v)
+        action: (v) => {
+            exe "tag " .. escape(v, '"')
+        }
     }
     g:select_info.tag.highlight = {
         DirectoryPrefix: ['\t\zs.\S\+$', 'Comment'],
