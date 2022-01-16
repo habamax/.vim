@@ -92,11 +92,11 @@ if exists("g:loaded_select")
     nnoremap <silent> <space>sT :Select tag<CR>
 
     g:select_info.bookmark = {}
-    g:select_info.bookmark.data = (..._) => readfile(fnamemodify($MYVIMRC, ":p:h") .. "/.bookmarks")
+    g:select_info.bookmark.data = (..._) => readfile(expand("~/.vimdata/bookmarks"))
     g:select_info.bookmark.sink = {
         transform: (_, v) => split(v, "\t")[1],
         action: (v) => {
-            var vals = split(v, ":")
+            var vals = split(v, "|")
             exe "confirm e" vals[0]
             if len(vals) == 3
                 exe ":" vals[1]
@@ -114,9 +114,9 @@ if exists("g:loaded_select")
         if empty(name)
             name = expand("%:t")
         endif
-        var bookmarkFile = fnamemodify($MYVIMRC, ":p:h") .. "/.bookmarks"
+        var bookmarkFile = expand("~/.vimdata/bookmarks")
         var bookmarks = []
-        var bookmark = printf("%s\t%s:%s:%s", name, expand("%:p"), line('.'), col('.'))
+        var bookmark = printf("%s\t%s|%s|%s", name, expand("%:p"), line('.'), col('.'))
         if filereadable(bookmarkFile)
             bookmarks = readfile(bookmarkFile)
         endif
