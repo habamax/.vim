@@ -375,3 +375,4 @@ command! ColoCheck ru colors/tools/check_colors.vim
 command! ColoBase  ru colors/tools/sample_base.vim
 command! ColoMess  ru colors/tools/sample_messages.vim
 command! ColoPopu  ru colors/tools/sample_popupmenu.vim
+command! ColoDiff  ru colors/tools/sample_diff.vim
