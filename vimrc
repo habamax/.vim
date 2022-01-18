@@ -379,4 +379,4 @@ command! ColoBase  silent tabonly | silent wincmd o | enew | ru colors/tools/sam
 command! ColoMess  silent tabonly | silent wincmd o | enew | ru colors/tools/sample_messages.vim
 command! ColoPopu  silent tabonly | silent wincmd o | enew | ru colors/tools/sample_popupmenu.vim
 command! ColoDiff  silent tabonly | silent wincmd o | enew | ru colors/tools/sample_diff.vim
-command! Tco if &t_Co == 16 | set t_Co=256 | else | set t_Co=16 | endif
+command! Tco leg if &t_Co == 16 | set t_Co=256 | else | set t_Co=16 | endif
