@@ -152,21 +152,21 @@ def text#ObjIndent(inner: bool)
 
     var indent = indent(ln_start)
     if indent > 0
-        while indent(ln_start) >= indent && ln_start > 0
+        while ln_start > 0 && indent(ln_start) >= indent 
             ln_start = prevnonblank(ln_start - 1)
         endwhile
 
-        while indent(ln_end) >= indent && ln_end <= line('$')
+        while ln_end <= line('$') && indent(ln_end) >= indent
             ln_end = s:nextnonblank(ln_end + 1)
         endwhile
     else
-        while indent(ln_start) == 0 && ln_start > 0 && getline(ln_start) !~ '^\s*$'
+        while ln_start > 0 && indent(ln_start) == 0 && getline(ln_start) !~ '^\s*$'
             ln_start -= 1
         endwhile
-        while indent(ln_start) > 0 && ln_start > 0
+        while ln_start > 0 && indent(ln_start) > 0
             ln_start = prevnonblank(ln_start - 1)
         endwhile
-        while indent(ln_start) == 0 && ln_start > 0 && getline(ln_start) !~ '^\s*$'
+        while ln_start > 0 && indent(ln_start) == 0 && getline(ln_start) !~ '^\s*$'
             ln_start -= 1
         endwhile
 
