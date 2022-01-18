@@ -92,4 +92,10 @@ snippet err
 	echomsg "${1:Error message!}"
 	echohl None
 snippet p
-	call v#popup(${1})
+	v#popup(${1})
+snippet v9
+	vim9script
+snippet def
+	def ${1:Func}(${2})
+		${3}
+	enddef
