@@ -158,6 +158,12 @@ onoremap id :<C-u>normal vid<CR>
 xnoremap <silent> ad :<C-u>call text#ObjDate(0)<CR>
 onoremap ad :<C-u>normal vad<CR>
 
+# line text object
+xnoremap <silent> il :<C-u>call text#ObjLine(1)<CR>
+onoremap il :<C-u>normal vil<CR>
+xnoremap <silent> al :<C-u>call text#ObjLine(0)<CR>
+onoremap al :<C-u>normal val<CR>
+
 # CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 # so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>

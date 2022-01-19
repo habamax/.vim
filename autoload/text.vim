@@ -132,6 +132,16 @@ def text#ObjNumber()
 enddef
 
 
+# Line text object
+def text#ObjLine(inner: bool)
+    if inner
+        normal! _vg_
+    else
+        normal! 0v$
+    endif
+enddef
+
+
 # Indent text object
 # Useful for python-like indentation based programming lanugages
 # Usage:
