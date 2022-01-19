@@ -363,7 +363,7 @@ endif
 # open terminal with a cwd of a current buffer
 command! Term :bo call term_start(&shell, {"cwd": expand("%:p:h"), "term_finish": "close"})
 if executable("cmd")
-    command! Shell silent !cmd.exe
+    command! Sh silent !start cmd.exe
 endif
 
 # redirect the output of a Vim or external command into a scratch buffer
