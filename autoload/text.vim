@@ -135,9 +135,9 @@ enddef
 # Line text object
 def text#ObjLine(inner: bool)
     if inner
-        normal! g_vg^
+        normal! g_v^
     else
-        normal! g$vg0
+        normal! $v0
     endif
 enddef
 
