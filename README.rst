@@ -107,9 +107,9 @@ Auto change ``&background`` in GUI Vim depending on time (check every 5 mins):
 Colors
 ======
 
-- habamax_: dark/light background, this should be really the last one.
-- bronzage_: dark background, was thinking of zenburn while creating it.
-- sugarlily_: white background, blue accents.
+- habamax_: dark/light background, this should be really the last one;
+- bronzage_: dark background, was thinking of zenburn while creating it;
+- sugarlily_: white background, blue accents;
 - saturnite_: dark background, variation of the awesome Apprentice_;
 - freyeday_: light background, to complement ``saturnite``;
 - alchemist_: dark background, variation of the awesome Apprentice_;
