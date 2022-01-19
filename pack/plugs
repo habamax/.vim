@@ -31,7 +31,6 @@ start/vimtex	git@github.com:lervag/vimtex.git
 start/editorconfig-vim	git@github.com:editorconfig/editorconfig-vim.git
 
 # Nice to have
-start/vim-eunuch	git@github.com:tpope/vim-eunuch.git
 start/vim-closetag	git@github.com:alvan/vim-closetag.git
 start/vim-devdocs	git@github.com:romainl/vim-devdocs.git
 start/vim-colortemplate	git@github.com:lifepillar/vim-colortemplate.git

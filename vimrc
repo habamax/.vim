@@ -205,15 +205,6 @@ nnoremap <silent> gop :exe printf('e %s/creds.txt', expand($DOCS ?? '~/docs'))<C
 # go to current file in os file manager
 nnoremap <silent> gof :call os#file_manager()<CR>
 
-# save as
-nnoremap <expr> <space>FS printf(":saveas %s%s",
-      \ expand("%:p"),
-      \ empty(expand("%:e")) ? '' : repeat('<Left>', strchars(expand("%:e")) + 1))
-
-# rename (valid if vim-eunuch is installed)
-nnoremap <expr> <space>FR printf(":Move %s%s",
-      \ expand("%:p"),
-      \ empty(expand("%:e")) ? '' : repeat('<Left>', strchars(expand("%:e")) + 1))
 
 # 'array' sort operator:
 # const whatever = [   ->   const whatever = [
