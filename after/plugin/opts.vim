@@ -166,6 +166,14 @@ if exists("g:loaded_swap")
             body: '\%([a-zA-Zа-яА-Я[:alnum:]]\+,\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]]\+\)\?',
             delimiter: ['\s*,\s*'],
             priority: -10
+        },
+        {
+            description: 'Reorder the tab-delimited EN/RU word under the cursor in normal mode.',
+            mode: 'n',
+            body: '\%([^\t]\+\t\)\+\%([^\t]\+\)',
+            # body: '\%([a-zA-Zа-яА-Я[:alnum:]/.:\@-]\+\t\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]/.:\@-]\+\)\?',
+            delimiter: ['\s*\t\s*'],
+            priority: -10
         }
     ]
 endif
