@@ -151,30 +151,22 @@ if exists("g:loaded_swap")
             description: 'Reorder the | bar | delimited | things |.',
             body: '|\%([^|]\+|\)\+',
             delimiter: ['\s*|\s*'],
-            priority: -40
+            priority: 0
         },
         {
-            description: 'Reorder the space-delimited EN/RU word under the cursor in normal mode.',
+            description: 'Reorder the space-delimited things.',
             mode: 'n',
-            body: '\%([a-zA-Zа-яА-Я[:alnum:]]\+\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]]\+\)\?',
+            body: '\%([^[:space:]]\+\s*\)\+\%([^[:space:]]\+\)\?',
             delimiter: ['\s\+'],
             priority: -50
         },
         {
-            description: 'Reorder the comma-delimited EN/RU word under the cursor in normal mode.',
+            description: 'Reorder the comma-delimited things.',
             mode: 'n',
-            body: '\%([a-zA-Zа-яА-Я[:alnum:]]\+,\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]]\+\)\?',
+            body: '\%([^,]\+,\s*\)\+\%([^,]\+\)\?',
             delimiter: ['\s*,\s*'],
-            priority: -10
+            priority: -5
         },
-        {
-            description: 'Reorder the tab-delimited EN/RU word under the cursor in normal mode.',
-            mode: 'n',
-            body: '\%([^\t]\+\t\)\+\%([^\t]\+\)',
-            # body: '\%([a-zA-Zа-яА-Я[:alnum:]/.:\@-]\+\t\s*\)\+\%([a-zA-Zа-яА-Я[:alnum:]/.:\@-]\+\)\?',
-            delimiter: ['\s*\t\s*'],
-            priority: -10
-        }
     ]
 endif
 
