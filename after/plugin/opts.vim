@@ -189,3 +189,8 @@ endif
 if exists("g:loaded_netrwPlugin")
     g:netrw_banner = 0
 endif
+
+
+if exists(":Limelight") == 2
+    g:limelight_default_coefficient = 0.8
+endif
