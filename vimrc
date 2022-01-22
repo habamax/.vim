@@ -378,5 +378,5 @@ command! ColoPopu  tabnew | ru colors/tools/sample_popupmenu.vim
 command! ColoDiff  tabnew | ru colors/tools/sample_diff.vim
 if !has("gui_running")
     command! Tco leg if &t_Co == 16 | set t_Co=256 | else | set t_Co=16 | endif
-    nnoremap <F2> :Tco<CR>
+    nnoremap <F2> :Tco<CR>:echo "t_Co =" &t_Co<CR>
 endif
