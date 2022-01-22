@@ -42,7 +42,7 @@ if has("gui_running")
     def Lights()
         var hour = strftime("%H")->str2nr()
         var bg: string
-        if hour > 8 && hour < 18
+        if hour > 8 && hour < 17
             bg = "light"
         else
             bg = "dark"
