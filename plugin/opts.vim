@@ -125,3 +125,7 @@ g:rst_syntax_code_list = {
    json: ['json'],
    javascript: ['js'],
 }
+
+
+# vim-sandwich
+g:textobj_sandwich_no_default_key_mappings = 1
