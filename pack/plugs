@@ -16,10 +16,10 @@ opt/vim-saturnite	git@github.com:habamax/vim-saturnite.git
 opt/vim-freyeday	git@github.com:habamax/vim-freyeday.git
 
 # Very nice to have
-start/vim-rooter	git@github.com:airblade/vim-rooter.git
 start/traces.vim	git@github.com:markonm/traces.vim.git
-opt/vim-fugitive	git@github.com:tpope/vim-fugitive.git
+start/vim-rooter	git@github.com:airblade/vim-rooter.git
 opt/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
+opt/vim-fugitive	git@github.com:tpope/vim-fugitive.git
 opt/gv.vim	git@github.com:junegunn/gv.vim.git
 start/vim-sandwich	git@github.com:machakann/vim-sandwich
 start/vim-swap	git@github.com:machakann/vim-swap.git
