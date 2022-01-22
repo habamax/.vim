@@ -376,5 +376,7 @@ command! ColoBase  ru colors/tools/sample_base.vim
 command! ColoMess  tabnew | ru colors/tools/sample_messages.vim
 command! ColoPopu  tabnew | ru colors/tools/sample_popupmenu.vim
 command! ColoDiff  tabnew | ru colors/tools/sample_diff.vim
-command! Tco leg if &t_Co == 16 | set t_Co=256 | else | set t_Co=16 | endif
-nnoremap <F2> :Tco<CR>
+if !has("gui_running")
+    command! Tco leg if &t_Co == 16 | set t_Co=256 | else | set t_Co=16 | endif
+    nnoremap <F2> :Tco<CR>
+endif
