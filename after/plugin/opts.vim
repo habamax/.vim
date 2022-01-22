@@ -149,7 +149,7 @@ if exists("g:loaded_swap")
         {
             mode: 'n',
             description: 'Reorder the | bar | delimited | things |.',
-            body: '|\%([^|]\+|\)\+',
+            body: '|\zs\%([^|]\+|\s*\)\+\%([^|]\+\)',
             delimiter: ['\s*|\s*'],
             priority: 0
         },
@@ -158,12 +158,12 @@ if exists("g:loaded_swap")
             mode: 'n',
             body: '\%([^[:space:]]\+\s*\)\+\%([^[:space:]]\+\)\?',
             delimiter: ['\s\+'],
-            priority: -50
+            priority: -49
         },
         {
             description: 'Reorder the comma-delimited things.',
             mode: 'n',
-            body: '\%([^,]\+,\s*\)\+\%([^,]\+\)\?',
+            body: '\%([^,]*,\s*\)\+\%([^,]*\)',
             delimiter: ['\s*,\s*'],
             priority: -5
         },
