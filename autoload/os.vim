@@ -44,10 +44,10 @@ def os#file_manager()
 
         if os#is_wsl()
             path = os#wsl_to_windows_path(path)
-            job_start(['cmd.exe /s /c','explorer.exe', '/select,' .. path])
-        else
-            silent exe '!start explorer.exe /select,' .. path
+            # job_start(['cmd.exe /s /c', 'explorer.exe', '/select,' .. path])
         endif
+        job_start('cmd.exe /s /c explorer.exe /select,' .. path)
+        # silent exe '!start explorer.exe /select,' .. path
     else
         echomsg "Not yet implemented!"
     endif
