@@ -44,7 +44,9 @@ def os#file_manager()
 
         if os#is_wsl()
             path = escape(os#wsl_to_windows_path(path), '\')
+            lcd /mnt/c
             exe 'silent !cmd.exe /s /c start explorer.exe /select,' .. path
+            lcd -
             redraw!
         else
             silent exe '!start explorer.exe /select,' .. path
