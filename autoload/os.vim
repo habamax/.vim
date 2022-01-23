@@ -31,7 +31,7 @@ enddef
 def os#file_manager()
     var path = ''
     # Windows only for now
-    if has("win32") || os#is_wsl()
+    if executable("cmd.exe")
         if exists("b:netrw_curdir")
             path = substitute(b:netrw_curdir, "/", "\\", "g")
         elseif exists("b:dirvish")
@@ -44,7 +44,7 @@ def os#file_manager()
 
         if os#is_wsl()
             path = os#wsl_to_windows_path(path)
-            job_start(['explorer.exe', '/select,' .. path])
+            job_start(['cmd.exe /s /c','explorer.exe', '/select,' .. path])
         else
             silent exe '!start explorer.exe /select,' .. path
         endif
