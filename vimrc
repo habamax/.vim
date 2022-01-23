@@ -123,7 +123,7 @@ def ReadableWin(width: number, height: number)
     setlocal nowinfixwidth nowinfixheight
     normal! ze
 enddef
-nnoremap <silent> <C-w>m :call <sid>ReadableWin(90, 25)<CR>
+nnoremap <silent> <C-w>m :call <sid>ReadableWin(90, 30)<CR>
 nmap <C-w><C-m> <C-w>m
 
 # buffers
