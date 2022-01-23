@@ -47,7 +47,7 @@ def os#file_manager()
             exe 'silent !cmd.exe /s /c start explorer.exe /select,' .. path
             redraw!
         else
-            silent exe '!start explorer.exe /select,' .. path
+            exe '!start explorer.exe /select,' .. path
         endif
     else
         echomsg "Not yet implemented!"
