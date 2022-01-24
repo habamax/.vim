@@ -45,7 +45,7 @@ def os#file_manager()
         if os#is_wsl()
             path = escape(os#wsl_to_windows_path(path), '\')
             lcd /mnt/c
-            exe 'silent !cmd.exe /s /c start explorer.exe /select,' .. path
+            exe 'silent !cmd.exe /c start explorer.exe /select,' .. path
             lcd -
             redraw!
         else
@@ -62,7 +62,7 @@ def os#exe(cmd: string)
     var runner = ''
     if exists("$WSLENV")
         lcd /mnt/c
-        runner = ":silent !cmd.exe /C start"
+        runner = ':silent !cmd.exe /C start ""'
     elseif executable('cmd.exe')
         runner = ':silent !start'
     elseif executable('xdg-open')
@@ -94,7 +94,7 @@ def os#open(url: string)
     var cmd = ''
     if exists("$WSLENV")
         lcd /mnt/c
-        cmd = ":silent !cmd.exe /C start"
+        cmd = ':silent !cmd.exe /C start ""'
         if filereadable(url)
             url_x = os#wsl_to_windows_path(url)
         endif
