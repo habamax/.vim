@@ -109,7 +109,7 @@ nnoremap <silent> yoc :set nocursorcolumn cursorline! cursorline?<CR>
 nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
 nnoremap <expr> yob ':set bg=' .. (&bg == 'dark' ? "light" : "dark") .. "<CR>"
 nnoremap <silent> yog :let b:cc = &cc ?? get(b:, "cc", 80) \| let &cc = (empty(&cc) ? b:cc : '')<CR>
-nnoremap <silent> yoG :unlet b:cc \| set cc=<CR>
+nnoremap <silent> yoG :if exists("b:cc") \| unlet b:cc \| endif \| set cc=<CR>
 
 
 # windows
