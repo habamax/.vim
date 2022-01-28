@@ -249,7 +249,7 @@ def GqFormat(...args: list<any>): string
 enddef
 nnoremap <silent> gq :let w:gqview = winsaveview()<CR>:set opfunc=<SID>GqFormat<CR>g@
 nmap <silent> gqq gq_
-xnoremap <silent> gq :<C-U>call <SID>gq_format('v')<CR>
+xnoremap <silent> gq :<C-U>call <SID>GqFormat('v')<CR>
 
 tnoremap <C-v> <C-w>""
 
