@@ -165,7 +165,7 @@ onoremap <silent> al :<C-u>normal val<CR>
 inoremap <C-U> <C-G>u<C-U>
 
 # spell correction for the first suggested
-inoremap <C-l> <C-g>u<ESC>[s1z=gi<C-g>u
+inoremap <C-l> <C-g>u<ESC>[s1z=`]a<C-g>u
 
 # syntax group names under cursor
 nnoremap <space>ts :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')))<CR>
