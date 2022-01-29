@@ -63,7 +63,7 @@ def os#exe(cmd: string)
         lcd /mnt/c
         runner = ':silent !cmd.exe /C start ""'
     elseif executable('cmd.exe')
-        runner = ':silent !start'
+        runner = ':silent !start ""'
     elseif executable('xdg-open')
         runner = ":silent !xdg-open"
     elseif executable('open')
@@ -98,7 +98,7 @@ def os#open(url: string)
             url_x = os#wsl_to_windows_path(url)
         endif
     elseif executable('cmd.exe')
-        cmd = ':silent !start'
+        cmd = ':silent !start ""'
     elseif executable('xdg-open')
         cmd = ":silent !xdg-open"
     elseif executable('open')
