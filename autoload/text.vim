@@ -264,8 +264,8 @@ def text#Toggle()
     var toggles = {
         true: 'false', false: 'true', True: 'False', False: 'True', TRUE: 'FALSE', FALSE: 'TRUE',
         yes: 'no', no: 'yes', Yes: 'No', No: 'Yes', YES: 'NO', NO: 'YES',
+        on: 'off', off: 'on', On: 'Off', Off: 'On', ON: 'OFF', OFF: 'ON',
         open: 'close', close: 'open', Open: 'Close', Close: 'Open',
-        on: 'off', off: 'on', On: 'Off', Off: 'On',
         dark: 'light', light: 'dark',
         width: 'height', height: 'width',
         first: 'last', last: 'first',
