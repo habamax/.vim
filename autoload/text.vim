@@ -259,8 +259,8 @@ enddef
 
 
 # Toggle current word
-# nnoremap <expr> <BS> text#Toggle()
-def text#Toggle(): string
+# nnoremap <silent> <BS> <cmd>call text#Toggle()<CR>
+def text#Toggle()
     var toggles = {
         true: 'false', false: 'true', True: 'False', False: 'True', TRUE: 'FALSE', FALSE: 'TRUE',
         yes: 'no', no: 'yes', Yes: 'No', No: 'Yes', YES: 'NO', NO: 'YES',
@@ -273,8 +273,6 @@ def text#Toggle(): string
     }
     var word = expand("<cword>")
     if toggles->has_key(word)
-        return '"_ciw' .. toggles[word] .. "\<esc>"
+        execute 'normal! "_ciw' .. toggles[word]
     endif
-    return ''
 enddef
-
