@@ -79,11 +79,6 @@ nnoremap <silent> <expr> <space>v <SID>VimL()
 xnoremap <silent> <space>v y:@"<CR>
 nmap <space>vv V<space>v
 
-# localize it too
-nmap <space>мм <space>vv
-xmap <silent> <space>м <space>v
-nmap <space>м <space>v
-
 g:maplocalleader = "\<space>\<space>"
 
 # enhance search, only if wildcharm is set to <C-z>
