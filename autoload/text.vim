@@ -262,16 +262,10 @@ enddef
 # nnoremap <expr> <BS> text#Toggle()
 def text#Toggle(): string
     var toggles = {
-        true: 'false', false: 'true',
-        True: 'False', False: 'True',
-        TRUE: 'FALSE', FALSE: 'TRUE',
-        yes: 'no', no: 'yes',
-        Yes: 'No', No: 'Yes',
-        YES: 'NO', NO: 'YES',
-        open: 'close', close: 'open',
-        Open: 'Close', Close: 'Open',
-        on: 'off', off: 'on',
-        On: 'Off', Off: 'On',
+        true: 'false', false: 'true', True: 'False', False: 'True', TRUE: 'FALSE', FALSE: 'TRUE',
+        yes: 'no', no: 'yes', Yes: 'No', No: 'Yes', YES: 'NO', NO: 'YES',
+        open: 'close', close: 'open', Open: 'Close', Close: 'Open',
+        on: 'off', off: 'on', On: 'Off', Off: 'On',
         dark: 'light', light: 'dark',
         width: 'height', height: 'width',
         first: 'last', last: 'first',
