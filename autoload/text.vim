@@ -259,10 +259,8 @@ enddef
 
 
 # Toggle current word
+# nnoremap <expr> <BS> text#Toggle()
 def text#Toggle(): string
-    var word = expand("<cword>")
-    var cmd = '"_ciw'
-    var esc = "\<esc>"
     var toggles = {
         true: 'false', false: 'true',
         True: 'False', False: 'True',
@@ -276,9 +274,13 @@ def text#Toggle(): string
         on: 'off', off: 'on',
         On: 'Off', Off: 'On',
         dark: 'light', light: 'dark',
+        width: 'height', height: 'width',
+        first: 'last', last: 'first',
+        top: 'right', right: 'bottom', bottom: 'left', left: 'center', center: 'top',
     }
+    var word = expand("<cword>")
     if toggles->has_key(word)
-        return cmd .. toggles[word] .. esc
+        return '"_ciw' .. toggles[word] .. "\<esc>"
     endif
     return ''
 enddef
