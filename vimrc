@@ -111,6 +111,7 @@ nnoremap <expr> yob ':set bg=' .. (&bg == 'dark' ? "light" : "dark") .. "<CR>"
 nnoremap <silent> yog :let b:cc = &cc ?? get(b:, "cc", 80) \| let &cc = (empty(&cc) ? b:cc : '')<CR>
 nnoremap <silent> yoG :if exists("b:cc") \| unlet b:cc \| endif \| set cc=<CR>
 
+nnoremap <expr> <BS> text#Toggle()
 
 # windows
 def ReadableWin(width: number, height: number)

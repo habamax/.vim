@@ -256,3 +256,30 @@ def text#Obj(char: string, inner: bool)
         return
     endif
 enddef
+
+
+# Toggle current word
+def text#Toggle(): string
+    var word = expand("<cword>")
+    var cmd = '"_ciw'
+    var esc = "\<esc>"
+    var toggles = {
+        true: 'false', false: 'true',
+        True: 'False', False: 'True',
+        TRUE: 'FALSE', FALSE: 'TRUE',
+        yes: 'no', no: 'yes',
+        Yes: 'No', No: 'Yes',
+        YES: 'NO', NO: 'YES',
+        0: '1', 1: '0',
+        open: 'close', close: 'open',
+        Open: 'Close', Close: 'Open',
+        on: 'off', off: 'on',
+        On: 'Off', Off: 'On',
+        dark: 'light', light: 'dark',
+    }
+    if toggles->has_key(word)
+        return cmd .. toggles[word] .. esc
+    endif
+    return ''
+enddef
+
