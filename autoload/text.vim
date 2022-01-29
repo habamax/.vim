@@ -268,7 +268,6 @@ def text#Toggle(): string
         yes: 'no', no: 'yes',
         Yes: 'No', No: 'Yes',
         YES: 'NO', NO: 'YES',
-        0: '1', 1: '0',
         open: 'close', close: 'open',
         Open: 'Close', Close: 'Open',
         on: 'off', off: 'on',
