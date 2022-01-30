@@ -1,4 +1,6 @@
-/pack/plug/
+/pack/bundle/
+/pack/lang/
+/pack/habamax/
 **/tags
 .netrwbook
 *.html

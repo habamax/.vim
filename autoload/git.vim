@@ -7,7 +7,6 @@ func! git#plug_update() abort
     let s:pack_jobs = []
     echom "Update plugins..."
     let cwd = fnamemodify($MYVIMRC, ":p:h")
-    let bundle = 'plug'
     let pack_list = cwd . '/pack/plugs'
     let jobs = []
     let msg_count = 2
@@ -27,7 +26,7 @@ func! git#plug_update() abort
             if empty(name) || empty(url)
                 continue
             endif
-            let path = cwd . '/pack/' . bundle . '/' . name
+            let path = cwd .. '/pack/' .. name
             if isdirectory(path)
                 let job = job_start([&shell, &shellcmdflag, 'git fetch --depth=1 && git reset --hard origin/HEAD && git clean -dfx'],
                             \ {"cwd": path,

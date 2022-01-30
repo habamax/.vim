@@ -1,38 +1,38 @@
-# vim: ts=30 noet
+# vim: ts=35 noet
 
 # My
-start/vim-select	git@github.com:habamax/vim-select.git
-start/vim-select-more	git@github.com:habamax/vim-select-more.git
-start/vim-asciidoctor	git@github.com:habamax/vim-asciidoctor.git
-start/vim-rst	git@github.com:habamax/vim-rst.git
-start/vim-godot	git@github.com:habamax/vim-godot.git
-start/vim-minisnip	git@github.com:habamax/vim-minisnip
+habamax/start/vim-select	git@github.com:habamax/vim-select.git
+habamax/start/vim-select-more	git@github.com:habamax/vim-select-more.git
+habamax/start/vim-asciidoctor	git@github.com:habamax/vim-asciidoctor.git
+habamax/start/vim-rst	git@github.com:habamax/vim-rst.git
+habamax/start/vim-godot	git@github.com:habamax/vim-godot.git
+habamax/start/vim-minisnip	git@github.com:habamax/vim-minisnip
 
 # My colors
-opt/vim-habamax	git@github.com:habamax/vim-habamax.git
-opt/vim-bronzage	git@github.com:habamax/vim-bronzage.git
-opt/vim-sugarlily	git@github.com:habamax/vim-sugarlily.git
-opt/vim-saturnite	git@github.com:habamax/vim-saturnite.git
-opt/vim-freyeday	git@github.com:habamax/vim-freyeday.git
+habamax/opt/vim-habamax	git@github.com:habamax/vim-habamax.git
+habamax/opt/vim-bronzage	git@github.com:habamax/vim-bronzage.git
+habamax/opt/vim-sugarlily	git@github.com:habamax/vim-sugarlily.git
+habamax/opt/vim-saturnite	git@github.com:habamax/vim-saturnite.git
+habamax/opt/vim-freyeday	git@github.com:habamax/vim-freyeday.git
 
 # Very nice to have
-start/traces.vim	git@github.com:markonm/traces.vim.git
-start/vim-rooter	git@github.com:airblade/vim-rooter.git
-opt/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
-opt/vim-fugitive	git@github.com:tpope/vim-fugitive.git
-start/vim-sandwich	git@github.com:machakann/vim-sandwich
-start/vim-swap	git@github.com:machakann/vim-swap.git
-start/vim-lion	git@github.com:tommcdo/vim-lion.git
+bundle/start/traces.vim	git@github.com:markonm/traces.vim.git
+bundle/start/vim-rooter	git@github.com:airblade/vim-rooter.git
+bundle/opt/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
+bundle/opt/vim-fugitive	git@github.com:tpope/vim-fugitive.git
+bundle/start/vim-sandwich	git@github.com:machakann/vim-sandwich
+bundle/start/vim-swap	git@github.com:machakann/vim-swap.git
+bundle/start/vim-lion	git@github.com:tommcdo/vim-lion.git
 
 # Nice to have
-start/vim-closetag	git@github.com:alvan/vim-closetag.git
-start/vim-devdocs	git@github.com:romainl/vim-devdocs.git
-start/vim-colortemplate	git@github.com:lifepillar/vim-colortemplate.git
-start/Colorizer	git@github.com:chrisbra/Colorizer.git
-start/editorconfig-vim	git@github.com:editorconfig/editorconfig-vim.git
-opt/gv.vim	git@github.com:junegunn/gv.vim.git
-start/limelight.vim	git@github.com:junegunn/limelight.vim.git
+bundle/start/vim-closetag	git@github.com:alvan/vim-closetag.git
+bundle/start/vim-devdocs	git@github.com:romainl/vim-devdocs.git
+bundle/start/vim-colortemplate	git@github.com:lifepillar/vim-colortemplate.git
+bundle/start/Colorizer	git@github.com:chrisbra/Colorizer.git
+bundle/start/editorconfig-vim	git@github.com:editorconfig/editorconfig-vim.git
+bundle/opt/gv.vim	git@github.com:junegunn/gv.vim.git
+bundle/start/limelight.vim	git@github.com:junegunn/limelight.vim.git
 
 # Filetypes
-start/vimtex	git@github.com:lervag/vimtex.git
-start/vim-elixir	git@github.com:elixir-editors/vim-elixir.git
+lang/start/vimtex	git@github.com:lervag/vimtex.git
+lang/start/vim-elixir	git@github.com:elixir-editors/vim-elixir.git
