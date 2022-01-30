@@ -356,7 +356,6 @@ endif
 # Colors
 
 augroup colors | au!
-    au Colorscheme habamax hi Comment gui=italic cterm=italic
     au Colorscheme habamax
           \  if &bg == "dark"
           \|    hi Normal guibg=#262830
@@ -369,6 +368,7 @@ augroup colors | au!
           \|    hi Folded guibg=#e4e4e1
           \|    hi LineNr guibg=#e4e4e1
           \| endif
+          \| hi Comment gui=italic cterm=italic
 augroup END
 
 if has("gui_running")
