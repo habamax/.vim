@@ -36,32 +36,6 @@ if executable('rg') | set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m | endif
 
 
 ################################################################################
-# Colors
-
-if has("gui_running")
-    def Lights()
-        var hour = strftime("%H")->str2nr()
-        var bg: string
-        if hour > 8 && hour < 17
-            bg = "light"
-        else
-            bg = "dark"
-        endif
-        if bg != &bg | &bg = bg | endif
-    enddef
-    Lights()
-    if exists("g:lights_timer")
-        timer_stop(g:lights_timer)
-    endif
-    g:lights_timer = timer_start(5 * 60000, (_) => Lights(), {repeat: -1})
-else
-    if has("win32") | set t_Co=256 | endif
-    set bg=dark
-endif
-silent! colorscheme habamax
-
-
-################################################################################
 # Non Plugin Mappings
 
 # run legacy vimscript (operator)
@@ -304,6 +278,10 @@ if exists("$WSLENV")
     augroup END
 endif
 
+augroup colors | au!
+    au Colorscheme habamax hi Comment gui=italic cterm=italic
+augroup END
+
 
 ################################################################################
 # Commands
@@ -376,3 +354,29 @@ if !has("gui_running")
     command! Tco leg if &t_Co == 16 | set t_Co=256 | else | set t_Co=16 | endif
     nnoremap <F2> :Tco<CR>:echo "t_Co =" &t_Co<CR>
 endif
+
+
+################################################################################
+# Colors
+
+if has("gui_running")
+    def Lights()
+        var hour = strftime("%H")->str2nr()
+        var bg: string
+        if hour > 8 && hour < 17
+            bg = "light"
+        else
+            bg = "dark"
+        endif
+        if bg != &bg | &bg = bg | endif
+    enddef
+    Lights()
+    if exists("g:lights_timer")
+        timer_stop(g:lights_timer)
+    endif
+    g:lights_timer = timer_start(5 * 60000, (_) => Lights(), {repeat: -1})
+else
+    if has("win32") | set t_Co=256 | endif
+    set bg=dark
+endif
+silent! colorscheme habamax
