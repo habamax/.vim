@@ -76,7 +76,7 @@ nnoremap <silent> yol :set list! list?<CR>
 nnoremap <silent> yos :set spell! spell?<CR>
 nnoremap <silent> yoc :set nocursorcolumn cursorline! cursorline?<CR>
 nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
-nnoremap <expr> yob ':set bg=' .. (&bg == 'dark' ? "light" : "dark") .. "<CR>"
+nnoremap <expr> yob ':let g:auto_bg = 0 \| set bg=' .. (&bg == 'dark' ? "light" : "dark") .. "<CR>"
 nnoremap <silent> yog :let b:cc = &cc ?? get(b:, "cc", 80) \| let &cc = (empty(&cc) ? b:cc : '')<CR>
 nnoremap <silent> yoG :if exists("b:cc") \| unlet b:cc \| endif \| set cc=<CR>
 
@@ -373,6 +373,7 @@ augroup END
 
 if has("gui_running")
     def Lights()
+        if !get(g:, "auto_bg", 1) | return | endif
         var hour = strftime("%H")->str2nr()
         var bg: string
         if hour > 8 && hour < 17
