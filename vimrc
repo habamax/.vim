@@ -358,10 +358,10 @@ endif
 augroup colors | au!
     au Colorscheme habamax
           \  if &bg == "dark"
-          \|    hi Normal guibg=#262830
-          \|    hi Cursorline guibg=#303234
-          \|    hi Folded guibg=#1c1e20
-          \|    hi LineNr guibg=#1c1e20
+          \|    hi Normal guibg=#21262D
+          \|    hi Cursorline guibg=#2B3037
+          \|    hi Folded guibg=#181C23
+          \|    hi LineNr guibg=#181C23
           \| else
           \|    hi Normal guibg=#dadad7
           \|    hi Cursorline guibg=#d0d0cd
