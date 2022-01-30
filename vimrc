@@ -256,7 +256,7 @@ set undofile
 
 
 ################################################################################
-# Autocommands
+# General Autocommands
 
 augroup hlsearch | au!
     au CmdlineEnter /,\? :set hlsearch
@@ -277,10 +277,6 @@ if exists("$WSLENV")
             | endif
     augroup END
 endif
-
-augroup colors | au!
-    au Colorscheme habamax hi Comment gui=italic cterm=italic
-augroup END
 
 
 ################################################################################
@@ -358,6 +354,22 @@ endif
 
 ################################################################################
 # Colors
+
+augroup colors | au!
+    au Colorscheme habamax hi Comment gui=italic cterm=italic
+    au Colorscheme habamax
+          \  if &bg == "dark"
+          \|    hi Normal guibg=#262830
+          \|    hi Cursorline guibg=#303234
+          \|    hi Folded guibg=#1c1e20
+          \|    hi LineNr guibg=#1c1e20
+          \| else
+          \|    hi Normal guibg=#dadad7
+          \|    hi Cursorline guibg=#d0d0cd
+          \|    hi Folded guibg=#e4e4e1
+          \|    hi LineNr guibg=#e4e4e1
+          \| endif
+augroup END
 
 if has("gui_running")
     def Lights()
