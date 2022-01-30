@@ -21,7 +21,6 @@ set nowrap breakindent breakindentopt=sbr,list:-1 linebreak
 set formatoptions=cqjl
 set backspace=indent,eol,start
 set nospell spelllang=ru,en
-set commentstring=
 set nrformats=bin,hex,unsigned
 set foldmethod=indent foldlevelstart=1 foldminlines=2
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
