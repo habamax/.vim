@@ -359,8 +359,9 @@ augroup colors | au!
           \  if &bg == "dark"
           \|    hi Normal guibg=#21262B
           \|    hi Cursorline guibg=#2B3035
-          \|    hi Folded guibg=#181C21
-          \|    hi LineNr guibg=#181C21
+          \|    hi Folded guibg=#181C21 guifg=#8E949E
+          \|    hi LineNr guibg=#181C21 guifg=#5B6270
+          \|    hi Comment guifg=#5B6270
           \| else
           \|    hi Normal guibg=#dadad7
           \|    hi Cursorline guibg=#d0d0cd
