@@ -34,8 +34,6 @@ export def FileManager()
     if executable("cmd.exe")
         if exists("b:netrw_curdir")
             path = substitute(b:netrw_curdir, "/", "\\", "g")
-        elseif exists("b:dirvish")
-            path = getline('.')
         elseif expand("%:p") == ""
             path = expand("%:p:h")
         else
