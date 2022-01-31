@@ -32,15 +32,15 @@ func! s:rst2html(...) abort
     endif
 endfunc
 
-command -buffer Rst2Pdf make | exe os#exe(printf('"%s" %s %s "%s"',
+command -buffer Rst2Pdf make | call os#Exe(printf('"%s" %s %s "%s"',
       \ 'C:/Program Files/Google/Chrome/Application/chrome.exe',
       \ '--headless --disable-gpu --print-to-pdf-no-header',
       \ '--print-to-pdf="' . expand("%:p:r") . '.pdf"',
       \ expand("%:p:r") . '.html'
       \ ))
 
-command -buffer RstViewHtml :call os#open(expand("%:p:r").'.html')
-command -buffer RstViewPdf :call os#open(expand("%:p:r").'.pdf')
+command -buffer RstViewHtml :call os#Open(expand("%:p:r").'.html')
+command -buffer RstViewPdf :call os#Open(expand("%:p:r").'.pdf')
 
 func! s:hl_checkmark() abort
     exe 'syn match rstCheckDone /\%('.&l:formatlistpat.'\)\@<=✓/ nextgroup=rstCheckMarkDate skipwhite containedin=rstMaybeSection'

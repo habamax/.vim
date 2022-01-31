@@ -56,32 +56,12 @@ enddef
 
 # Silently execute OS command
 export def Exe(cmd: string)
-    var runner = ''
-    if executable('cmd.exe')
-        runner = 'cmd.exe /C start ""'
-    elseif executable('xdg-open')
-        runner = "xdg-open"
-    elseif executable('open')
-        runner = "open"
-    else
-        echohl Error
-        echomsg "Can't find an executor for a command!"
-        echohl None
-        return
+    var job_opts = {}
+    if exists("$WSLENV")
+        job_opts.cwd = "/mnt/c"
     endif
-    try
-        if exists("$WSLENV")
-            lcd /mnt/c
-        endif
-        job_start(printf('%s "%s"', runner, cmd))
-    catch
-        echohl Error
-        echomsg v:exception
-        echohl None
-    finally
-        if exists("$WSLENV") | lcd - | endif
-        redraw!
-    endtry
+    g:cmd = cmd
+    job_start(cmd, job_opts)
 enddef
 
 
@@ -101,26 +81,18 @@ export def Open(url: string)
         echohl None
         return
     endif
-    try
-        if exists("$WSLENV")
-            lcd /mnt/c
-            if filereadable(url)
-                url_x = WslToWindowsPath(url)
-            endif
+    var job_opts = {}
+    if exists("$WSLENV")
+        job_opts.cwd = "/mnt/c"
+        if filereadable(url)
+            url_x = WslToWindowsPath(url)
         endif
-        job_start(printf('%s "%s"', cmd, url_x))
-    catch
-        echohl Error
-        echomsg v:exception
-        echohl None
-    finally
-        if exists("$WSLENV") | lcd - | endif
-        redraw!
-    endtry
+    endif
+    job_start(printf('%s "%s"', cmd, url_x), job_opts)
 enddef
 
 
-# Better gx to open URLs.
+# Better gx to open URLs. https://ya.ru
 # nnoremap <silent> gx :call os#Gx()<CR>
 export def Gx()
     # URL regexes
