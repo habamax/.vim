@@ -13,7 +13,7 @@ vim9script
 # * remove space at the end of line
 # Usage:
 # command! -range FixSpaces call text#fix_spaces(<line1>,<line2>)
-def text#FixSpaces(line1: number, line2: number)
+export def FixSpaces(line1: number, line2: number)
     var view = winsaveview()
     # replace non-breaking space to space first
     exe printf('silent :%d,%ds/\%%xA0/ /ge', line1, line2)
@@ -40,7 +40,7 @@ enddef
 # nnoremap <silent> <space>~ :call text#Underline('~')<CR>
 # nnoremap <silent> <space>^ :call text#Underline('^')<CR>
 # nnoremap <silent> <space>+ :call text#Underline('+')<CR>
-def text#Underline(char: string)
+export def Underline(char: string)
     var nextnr = line('.') + 1
     var line = matchlist(getline('.'), '^\(\s*\)\(.*\)$')
     if empty(line[2]) | return | endif
@@ -79,7 +79,7 @@ g:months = copy(s:months)
 # onoremap id :<C-u>normal vid<CR>
 # xnoremap <silent> ad :<C-u>call text#ObjDate(0)<CR>
 # onoremap ad :<C-u>normal vad<CR>
-def text#ObjDate(inner: bool)
+export def ObjDate(inner: bool)
     var view = winsaveview()
     var cword = expand("<cword>")
     if  cword =~ '\d\{4}'
@@ -116,14 +116,14 @@ def text#ObjDate(inner: bool)
 enddef
 
 
-def text#ObjDateRu()
+export def ObjDateRu()
     var [year, month, day] = split(strftime("%Y-%m-%d"), '-')
     return printf("%d %s %s", day, s:months_ru[month-1], year)
 enddef
 
 
 # number text object
-def text#ObjNumber()
+export def ObjNumber()
     var rx_num = '\d\+\(\.\d\+\)*'
     if search(rx_num, 'ceW') > 0
         normal! v
@@ -133,7 +133,7 @@ enddef
 
 
 # Line text object
-def text#ObjLine(inner: bool)
+export def ObjLine(inner: bool)
     if inner
         normal! g_v^
     else
@@ -149,7 +149,7 @@ enddef
 # onoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
 # xnoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
 # xnoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
-def text#ObjIndent(inner: bool)
+export def ObjIndent(inner: bool)
     var ln_start: number
     var ln_end: number
     if getline('.') =~ '^\s*$'
@@ -240,7 +240,7 @@ enddef
 #     execute 'onoremap <silent> i' .. char .. ' :normal vi' .. char .. '<CR>'
 #     execute 'onoremap <silent> a' .. char .. ' :normal va' .. char .. '<CR>'
 # endfor
-def text#Obj(char: string, inner: bool)
+export def Obj(char: string, inner: bool)
     var lnum = line('.')
     var echar = escape(char, '.*')
     if (search('^\|' .. echar, 'cnbW', lnum) > 0 && search(echar, 'W', lnum) > 0)
@@ -260,7 +260,7 @@ enddef
 
 # Toggle current word
 # nnoremap <silent> <BS> <cmd>call text#Toggle()<CR>
-def text#Toggle()
+export def Toggle()
     var toggles = {
         true: 'false', false: 'true', True: 'False', False: 'True', TRUE: 'FALSE', FALSE: 'TRUE',
         yes: 'no', no: 'yes', Yes: 'No', No: 'Yes', YES: 'NO', NO: 'YES',

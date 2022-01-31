@@ -4,11 +4,11 @@ vim9script
 # https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
 # Usage:
 # Add command to your vimrc
-# command! -nargs=1 -complete=command Redir silent tools#redir(<q-args>)
+# command! -nargs=1 -complete=command Redir silent tools#Redir(<q-args>)
 # To use:
 # :Redir version
 # Vim version would be in a new window
-def v#redir(cmd: string)
+export def Redir(cmd: string)
     for win in range(1, winnr('$'))
         if getwinvar(win, 'scratch', 0)
             execute ':' .. win .. 'windo close'
@@ -22,7 +22,7 @@ enddef
 
 
 # Helper notification function
-def v#popup(...args: list<any>)
+export def Popup(...args: list<any>)
     popup_notification(call("printf", args), {})
 enddef
 
@@ -33,18 +33,18 @@ def s:logger(kind: string, ...args: list<any>)
     writefile([logline], logfile, "a")
 enddef
 
-def v#log(...args: list<any>)
+export def Log(...args: list<any>)
     call("s:logger", ["DEBUG"] + args)
 enddef
 
-def v#logi(...args: list<any>)
+export def Logi(...args: list<any>)
     call("s:logger", ["INFO"] + args)
 enddef
 
-def v#loge(...args: list<any>)
+export def Loge(...args: list<any>)
     call("s:logger", ["ERROR"] + args)
 enddef
 
-def v#logw(...args: list<any>)
+export def Logw(...args: list<any>)
     call("s:logger", ["WARNING"] + args)
 enddef

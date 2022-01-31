@@ -2,14 +2,14 @@ vim9script
 
 
 # Return true if vim is in WSL environment
-def os#is_wsl(): bool
+export def IsWsl(): bool
     return exists("$WSLENV")
 enddef
 
 
 # Return Windows path from WSL
-def os#wsl_to_windows_path(path: string): string
-    if !os#is_wsl()
+export def WslToWindowsPath(path: string): string
+    if !IsWsl()
         return path
     endif
 
@@ -28,7 +28,7 @@ enddef
 
 # Open explorer(/finder/thunar...) where current file is located
 # Only for win and wsl for now.
-def os#file_manager()
+export def FileManager()
     var path = ''
     # Windows only for now
     if executable("cmd.exe")
@@ -42,8 +42,8 @@ def os#file_manager()
             path = expand("%:p")
         endif
 
-        if os#is_wsl()
-            path = escape(os#wsl_to_windows_path(path), '\')
+        if IsWsl()
+            path = escape(WslToWindowsPath(path), '\')
             lcd /mnt/c
             job_start('cmd.exe /c start explorer.exe /select,' .. path)
             lcd -
@@ -57,17 +57,14 @@ enddef
 
 
 # Silently execute OS command
-def os#exe(cmd: string)
+export def Exe(cmd: string)
     var runner = ''
-    if exists("$WSLENV")
-        lcd /mnt/c
-        runner = ':silent !cmd.exe /C start ""'
-    elseif executable('cmd.exe')
-        runner = ':silent !start ""'
+    if executable('cmd.exe')
+        runner = 'cmd.exe /C start ""'
     elseif executable('xdg-open')
-        runner = ":silent !xdg-open"
+        runner = "xdg-open"
     elseif executable('open')
-        runner = ":silent !open"
+        runner = "open"
     else
         echohl Error
         echomsg "Can't find an executor for a command!"
@@ -75,7 +72,10 @@ def os#exe(cmd: string)
         return
     endif
     try
-        exe runner . ' ' . cmd
+        if exists("$WSLENV")
+            lcd /mnt/c
+        endif
+        job_start(printf('%s "%s"', runner, cmd))
     catch
         echohl Error
         echomsg v:exception
@@ -88,21 +88,15 @@ enddef
 
 
 # Open filename in an OS
-def os#open(url: string)
+export def Open(url: string)
     var url_x = url
     var cmd = ''
-    if exists("$WSLENV")
-        lcd /mnt/c
-        cmd = ':silent !cmd.exe /C start ""'
-        if filereadable(url)
-            url_x = os#wsl_to_windows_path(url)
-        endif
-    elseif executable('cmd.exe')
-        cmd = ':silent !start ""'
+    if executable('cmd.exe')
+        cmd = 'cmd.exe /C start ""'
     elseif executable('xdg-open')
-        cmd = ":silent !xdg-open"
+        cmd = "xdg-open"
     elseif executable('open')
-        cmd = ":silent !open"
+        cmd = "open"
     else
         echohl Error
         echomsg "Can't find proper opener for an URL!"
@@ -110,7 +104,13 @@ def os#open(url: string)
         return
     endif
     try
-        exe cmd .. ' "' .. url_x .. '"'
+        if exists("$WSLENV")
+            lcd /mnt/c
+            if filereadable(url)
+                url_x = WslToWindowsPath(url)
+            endif
+        endif
+        job_start(printf('%s "%s"', cmd, url_x))
     catch
         echohl Error
         echomsg v:exception
@@ -123,8 +123,8 @@ enddef
 
 
 # Better gx to open URLs.
-# nnoremap <silent> gx :call os#gx()<CR>
-def os#gx()
+# nnoremap <silent> gx :call os#Gx()<CR>
+export def Gx()
     # URL regexes
     var rx_base = '\%(\%(http\|ftp\|irc\)s\?\|file\)://\S'
     var rx_bare = rx_base .. '\+'
@@ -177,5 +177,5 @@ def os#gx()
         return
     endif
 
-    os#open(escape(URL, '#%!'))
+    Open(escape(URL, '#%!'))
 enddef

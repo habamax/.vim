@@ -1,9 +1,9 @@
 vim9script
-# nnoremap <silent> ]x :call diff#next_change()<CR>
-# nnoremap <silent> [x :call diff#prev_change()<CR>
+# nnoremap <silent> ]x :call diff#NextChange()<CR>
+# nnoremap <silent> [x :call diff#PrevChange()<CR>
 
 
-def diff#next_change()
+export def NextChange()
     if !&diff
         return
     endif
@@ -21,7 +21,7 @@ def diff#next_change()
     endwhile
 enddef
 
-def diff#prev_change()
+export def PrevChange()
     if !&diff
         return
     endif

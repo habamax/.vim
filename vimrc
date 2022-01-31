@@ -172,7 +172,7 @@ nnoremap <silent> got :exe printf('e %s/todo.txt', expand($DOCS ?? '~/docs'))<CR
 # go to *** file
 nnoremap <silent> gop :exe printf('e %s/creds.txt', expand($DOCS ?? '~/docs'))<CR>
 # go to current file in os file manager
-nnoremap <silent> gof :call os#file_manager()<CR>
+nnoremap <silent> gof :call os#FileManager()<CR>
 
 
 # 'array' sort operator:
@@ -233,11 +233,11 @@ nnoremap <silent> [w :lprevious<CR>
 nnoremap <silent> [W :lfirst<CR>
 
 # next/prev change for diff mode
-nnoremap <silent> ]x :call diff#next_change()<CR>
-nnoremap <silent> [x :call diff#prev_change()<CR>
+nnoremap <silent> ]x :call diff#NextChange()<CR>
+nnoremap <silent> [x :call diff#PrevChange()<CR>
 
 # open URLs
-nnoremap <silent> gx :call os#gx()<CR>
+nnoremap <silent> gx :call os#Gx()<CR>
 
 
 ################################################################################
@@ -336,7 +336,7 @@ if executable("cmd")
 endif
 
 # redirect the output of a Vim or external command into a scratch buffer
-command! -nargs=1 -complete=command -bar Redir silent v#redir(<q-args>)
+command! -nargs=1 -complete=command -bar Redir silent v#Redir(<q-args>)
 
 # helper command and mapping to work with legacy colorschemes
 command! -nargs=1 -complete=color Colo exe "so $VIMRUNTIME/colors/" .. <q-args> .. ".vim"
