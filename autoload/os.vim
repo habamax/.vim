@@ -42,14 +42,12 @@ export def FileManager()
             path = expand("%:p")
         endif
 
+        var job_opts = {}
         if IsWsl()
             path = escape(WslToWindowsPath(path), '\')
-            lcd /mnt/c
-            job_start('cmd.exe /c start explorer.exe /select,' .. path)
-            lcd -
-        else
-            silent exe '!start explorer.exe /select,' .. path
+            job_opts.cwd = "/mnt/c"
         endif
+        job_start('cmd.exe /c start explorer.exe /select,' .. path, {cwd: "/mnt/c"})
     else
         echomsg "Not yet implemented!"
     endif
