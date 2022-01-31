@@ -25,11 +25,7 @@ func! s:rst2html(...) abort
         let b:rst2html_opts = g:rst2html_opts
     endif
     compiler rst2html
-    if exists(":Make")
-        Make
-    else
-        make
-    endif
+    make
 endfunc
 
 command -buffer Rst2Pdf make | call os#Exe(printf('"%s" %s %s "%s"',
