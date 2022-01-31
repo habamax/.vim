@@ -101,8 +101,8 @@ nnoremap <silent> <C-p> :bp<CR>
 tnoremap <silent> <C-n> <cmd>:bn<CR>
 tnoremap <silent> <C-p> <cmd>:bp<CR>
 
-# 26 simple text objects
-# ----------------------
+# simple text objects
+# -------------------
 # i_ i. i: i, i; i| i/ i\ i* i+ i- i# i<tab>
 # a_ a. a: a, a; a| a/ a\ a* a+ a- a# a<tab>
 for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#', '<tab>' ]
