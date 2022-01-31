@@ -47,7 +47,7 @@ export def FileManager()
             path = escape(WslToWindowsPath(path), '\')
             job_opts.cwd = "/mnt/c"
         endif
-        job_start('cmd.exe /c start explorer.exe /select,' .. path, {cwd: "/mnt/c"})
+        job_start('cmd.exe /c start explorer.exe /select,' .. path, job_opts)
     else
         echomsg "Not yet implemented!"
     endif
