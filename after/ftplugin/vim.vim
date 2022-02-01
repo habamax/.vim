@@ -21,3 +21,9 @@ StripSyntax()
 augroup strip_vim_syntax | au!
     au ColorScheme * call StripSyntax()
 augroup END
+
+def Fold()
+    silent! norm! zf/^enddef/e
+enddef
+
+nnoremap <silent><buffer> <F2> :g#^def\s#silent! exe "norm! zd" \| call <sid>Fold()<CR>
