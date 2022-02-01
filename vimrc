@@ -22,7 +22,6 @@ set formatoptions=cqjl
 set backspace=indent,eol,start
 set nospell spelllang=ru,en
 set nrformats=bin,hex,unsigned
-set foldmethod=indent foldlevelstart=1 foldminlines=2
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set wildmenu wildcharm=<C-z>
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
@@ -61,10 +60,6 @@ if &wildcharm == 26
 endif
 
 nnoremap <space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
-
-# manual folding
-nnoremap zf <cmd>setl fdm&<CR>zf
-xnoremap zf <cmd>setl fdm&<CR>zf
 
 # toggles
 nnoremap <silent> yoh :set hlsearch! hlsearch?<CR>
@@ -330,7 +325,7 @@ if executable('sudo')
 endif
 
 # open terminal with a cwd of a current buffer
-command! Term :bo call term_start(&shell, {"cwd": expand("%:p:h"), "term_finish": "close"})
+command! Term :bo call term_start(&shell, {"cwd": expand("%:p:h"), "term_finish": "close", "vertical": 1})
 if executable("cmd")
     command! Sh silent !start cmd.exe
 endif
