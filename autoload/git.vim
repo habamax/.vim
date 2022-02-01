@@ -1,5 +1,5 @@
-" Update or install plugins listed in plugs
-func! git#plug_update() abort
+" Update or install plugins listed in packs
+func! git#pack_update() abort
     if !reduce(get(s:, 'pack_jobs', []), {acc, val -> acc && job_status(val) != 'run'}, v:true)
         echo "Previous update is not finished yet!"
         return
@@ -7,7 +7,7 @@ func! git#plug_update() abort
     let s:pack_jobs = []
     echom "Update plugins..."
     let cwd = fnamemodify($MYVIMRC, ":p:h")
-    let pack_list = cwd . '/pack/plugs'
+    let pack_list = cwd . '/pack/packs'
     let jobs = []
     let msg_count = 2
     func! s:out_cb(ch, msg) abort closure

@@ -282,7 +282,7 @@ endif
 # Commands
 
 # update packages
-command! PlugUp call git#plug_update()
+command! PackUp call git#pack_update()
 
 # Wipe all hidden buffers
 def WipeHiddenBuffers()
