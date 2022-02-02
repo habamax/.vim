@@ -87,8 +87,10 @@ def ReadableWin(width: number, height: number)
     setlocal nowinfixwidth nowinfixheight
     normal! ze
 enddef
-nnoremap <silent> <C-w>m :call <sid>ReadableWin(90, 30)<CR>
-nmap <C-w><C-m> <C-w>m
+noremap <silent> <C-w>m <ScriptCmd>ReadableWin(90, 30)<CR>
+map <C-w><C-m> <C-w>m
+tnoremap <silent> <C-w>m <ScriptCmd>ReadableWin(90, 30)<CR>
+tmap <C-w><C-m> <C-w>m
 
 # buffers
 nnoremap <silent> <C-n> :bn<CR>
@@ -206,14 +208,14 @@ def GqFormat(...args: list<any>): string
         echomsg 'formatprg "' .. &formatprg .. '" exited with status ' .. v:shell_error
     endif
     if exists("w:gqview")
-        call winrestview(w:gqview)
+        winrestview(w:gqview)
         unlet w:gqview
     endif
     return ''
 enddef
 nnoremap <silent> gq :let w:gqview = winsaveview()<CR>:set opfunc=<SID>GqFormat<CR>g@
 nmap <silent> gqq gq_
-xnoremap <silent> gq :<C-U>call <SID>GqFormat('v')<CR>
+xnoremap <silent> gq <ScriptCmd>GqFormat('v')<CR>
 
 tnoremap <C-v> <C-w>""
 
