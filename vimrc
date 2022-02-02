@@ -351,23 +351,6 @@ endif
 ################################################################################
 # Colors
 
-augroup colors | au!
-    au Colorscheme habamax
-          \  if &bg == "dark"
-          \|    hi Normal guibg=#21262B
-          \|    hi Cursorline guibg=#2B3035
-          \|    hi Folded guibg=#181C21 guifg=#8E949E
-          \|    hi LineNr guibg=#181C21 guifg=#5B6270
-          \|    hi Comment guifg=#5B6270
-          \| else
-          \|    hi Normal guibg=#dadad7
-          \|    hi Cursorline guibg=#d0d0cd
-          \|    hi Folded guibg=#e4e4e1
-          \|    hi LineNr guibg=#e4e4e1
-          \| endif
-          \| hi Comment gui=italic cterm=italic
-augroup END
-
 if has("gui_running")
     def Lights()
         if !get(g:, "auto_bg", 1) | return | endif
