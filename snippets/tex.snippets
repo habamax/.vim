@@ -31,7 +31,6 @@ snippet article
 		\usepackage{currfile-abspath}
 		\getabspath{\jobname.log}
 		\ifthenelse{\equal{\theabsdir}{\thepwd}}% using ifthen package
-		%\ifdefstrequal{\theabsdir}{\thepwd}% using etoolbox package
 		{}{\PassOptionsToPackage{outputdir=\theabsdir}{minted}}
 		% code blocks
 		\usepackage{minted}
