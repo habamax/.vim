@@ -171,6 +171,10 @@ nnoremap <silent> gop :exe printf('e %s/creds.txt', expand($DOCS ?? '~/docs'))<C
 # go to current file in os file manager
 nnoremap <silent> gof :call os#FileManager()<CR>
 
+# send to single visible :terminal
+xnoremap <expr> <space>r term#Send()
+nnoremap <expr> <space>r term#Send()
+nnoremap <expr> <space>rr term#Send() .. '_'
 
 # 'array' sort operator:
 # const whatever = [   ->   const whatever = [
