@@ -31,11 +31,11 @@ export def Send(...args: list<any>): string
     var commands = {"line": "'[V']y", "char": "`[v`]y", "block": "`[\<c-v>`]y"}
     silent exe 'noautocmd keepjumps normal! ' .. get(commands, args[0], '')
 
-    var text = substitute(@", '\n\|$', '\r', "g")
-    # if !&expandtab
-    #     text = substitute(text, '\t', repeat(' ', shiftwidth()), "g")
-    # endif
-    term_sendkeys(winbufnr(term_window), text)
+    var text = split(@", "\n")
+    if len(text) > 0 && text[-1] =~ '^\s\+'
+        text[-1] ..= "\r"
+    endif
+    term_sendkeys(winbufnr(term_window), text->join("\r") .. "\r")
 
     &selection = sel_save
     setreg('"', reg_save)
