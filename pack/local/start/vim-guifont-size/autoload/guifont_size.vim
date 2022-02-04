@@ -4,14 +4,14 @@ var s:orig_guifont: string = &guifont
 var s:orig_lines: number = &lines
 var s:orig_columns: number = &columns
 
-def s:get_current_font(): list<any>
+def GetCurrentFont(): list<any>
     var font = matchlist(&guifont, '\(.\{-}\):h\(\d\+\)')
     return [font[1], str2nr(font[2])]
 enddef
 
 
-def guifont_size#change(op: string)
-    var [fontname, fontsize] = s:get_current_font()
+export def Change(op: string)
+    var [fontname, fontsize] = GetCurrentFont()
     var new_font = s:orig_guifont
     var new_lines = s:orig_lines
     var new_columns = s:orig_columns
