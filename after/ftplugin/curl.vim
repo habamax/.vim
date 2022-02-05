@@ -1,2 +1,2 @@
-nnoremap <buffer> <space><space>r :Curl<CR>
-xnoremap <buffer> <space><space>r :Curl<CR>
+nnoremap <buffer> <space><space>e :Curl<CR>
+xnoremap <buffer> <space><space>e :Curl<CR>
