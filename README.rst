@@ -20,6 +20,8 @@ __ https://github.com/tpope/vim-commentary
 
   vim9script
 
+  # Toggle comments
+  # Usage:
   #   1. Save in ~/.vim/autoload/comment.vim
   #   2. Add following mappings to vimrc:
   #      nnoremap <silent> <expr> gc comment#Toggle()
@@ -55,12 +57,13 @@ __ https://github.com/tpope/vim-commentary
           if getline(lnum) =~ '^\s*$'
               line = getline(lnum)
           elseif comment
-              # handle %
-              cms = substitute(cms, '%s\@!', '%%', 'g')
               if exists("g:comment_first_col") || exists("b:comment_first_col")
-                  line = printf(cms, getline(lnum))
+                  # handle % with substitute
+                  line = printf(substitute(cms, '%s\@!', '%%', 'g'), getline(lnum))
               else
-                  line = printf(indent_start .. cms, strpart(getline(lnum), strlen(indent_start)))
+                  # handle % with substitute
+                  line = printf(indent_start .. substitute(cms, '%s\@!', '%%', 'g'),
+                          strpart(getline(lnum), strlen(indent_start)))
               endif
           else
               line = substitute(getline(lnum), '^\s*\zs' .. cms_l[0] .. '\|' .. cms_l[1] .. '$', '', 'g')
