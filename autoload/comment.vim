@@ -37,6 +37,8 @@ export def Toggle(...args: list<string>): string
         if getline(lnum) =~ '^\s*$'
             line = getline(lnum)
         elseif comment
+            # handle %
+            cms = substitute(cms, '%s\@!', '%%', 'g')
             if exists("g:comment_first_col") || exists("b:comment_first_col")
                 line = printf(cms, getline(lnum))
             else
