@@ -29,7 +29,7 @@ if exists("g:loaded_select")
     g:select_info.session.sink = "%%bd | source ~/.vimdata/sessions/%s"
     nnoremap <silent> <space>ss :Select session<CR>
 
-    def s:template_data(buf: dict<any>): list<string>
+    def TemplateData(buf: dict<any>): list<string>
         var path = fnamemodify($MYVIMRC, ':p:h') .. '/templates/'
         var ft = getbufvar(buf.bufnr, '&filetype')
         var ft_path = path .. ft
@@ -46,7 +46,7 @@ if exists("g:loaded_select")
         return tmpls
     enddef
 
-    def s:template_sink(tfile: string)
+    def TemplateSink(tfile: string)
         append(line('.'), readfile(tfile))
         if getline('.') =~ '^\s*$'
             del _
@@ -56,15 +56,15 @@ if exists("g:loaded_select")
     enddef
 
     g:select_info.template = {}
-    g:select_info.template.data = (_, buf) => s:template_data(buf)
+    g:select_info.template.data = (_, buf) => TemplateData(buf)
     g:select_info.template.sink = {
         transform: (_, v) => fnameescape(fnamemodify($MYVIMRC, ':p:h') .. '/templates/' .. v),
-        action: (v) => s:template_sink(v)
+        action: (v) => TemplateSink(v)
     }
     g:select_info.template.highlight = {"DirectoryPrefix": ['\(\s*\d\+:\)\?\zs.*[/\\]\ze.*$', 'Comment']}
     nnoremap <silent> <space>i :Select template<CR>
 
-    def s:tag_data(): list<string>
+    def TagData(): list<string>
         var result = []
         if !filereadable('tags') 
             return result
@@ -77,7 +77,7 @@ if exists("g:loaded_select")
         return result
     enddef
     g:select_info.tag = {}
-    g:select_info.tag.data = (..._) => s:tag_data()
+    g:select_info.tag.data = (..._) => TagData()
     g:select_info.tag.sink = "tag %s"
     g:select_info.tag.sink = {
         transform: (_, v) => split(v, "\t")[1],
