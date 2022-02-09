@@ -19,7 +19,7 @@ export def WslToWindowsPath(path: string): string
 
     var res = systemlist('wslpath -w ' .. path)
     if !empty(res)
-        return res[0]
+        return substitute(res[0], '\\', '/', 'g')
     else
         return path
     endif
