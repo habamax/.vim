@@ -153,7 +153,7 @@ export def ObjIndent(inner: bool)
     var ln_start: number
     var ln_end: number
     if getline('.') =~ '^\s*$'
-        ln_start = s:detect_nearest_line()
+        ln_start = DetectNearestLine()
         ln_end = ln_start
     else
         ln_start = line('.')
@@ -167,7 +167,7 @@ export def ObjIndent(inner: bool)
         endwhile
 
         while ln_end <= line('$') && indent(ln_end) >= indent
-            ln_end = s:nextnonblank(ln_end + 1)
+            ln_end = NextNonBlank(ln_end + 1)
         endwhile
     else
         while ln_start > 0 && indent(ln_start) == 0 && getline(ln_start) !~ '^\s*$'
@@ -184,12 +184,12 @@ export def ObjIndent(inner: bool)
             ln_end += 1
         endwhile
         while ln_end <= line('$') && indent(ln_end) > 0
-            ln_end = s:nextnonblank(ln_end + 1)
+            ln_end = NextNonBlank(ln_end + 1)
         endwhile
     endif
 
     if inner || indent == 0
-        ln_start = s:nextnonblank(ln_start + 1)
+        ln_start = NextNonBlank(ln_start + 1)
     endif
 
     if inner
@@ -208,7 +208,7 @@ export def ObjIndent(inner: bool)
 enddef
 
 
-def s:nextnonblank(lnum: number): number
+def NextNonBlank(lnum: number): number
     var res = nextnonblank(lnum)
     if res == 0
         res = line('$') + 1
@@ -217,9 +217,9 @@ def s:nextnonblank(lnum: number): number
 enddef
 
 
-def s:detect_nearest_line(): number
+def DetectNearestLine(): number
     var lnum = line('.')
-    var nline = s:nextnonblank(lnum)
+    var nline = NextNonBlank(lnum)
     var pline = prevnonblank(lnum)
     if abs(nline - lnum) > abs(pline - lnum) || getline(nline) =~ '^\s*$'
         return pline
