@@ -99,7 +99,7 @@ def MapL()
     normal! L
     if line == line('$')
         normal! zb
-    elseif line == line('.') && line != line('$')
+    elseif line == line('.')
         normal! zt
     endif
 enddef
