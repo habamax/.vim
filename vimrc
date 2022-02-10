@@ -111,8 +111,8 @@ def MapH()
     endif
 enddef
 
-nnoremap L <ScriptCmd>MapL()<CR>
-nnoremap H <ScriptCmd>MapH()<CR>
+noremap L <ScriptCmd>MapL()<CR>
+noremap H <ScriptCmd>MapH()<CR>
 
 # buffers
 nnoremap <silent> <C-n> :bn<CR>
