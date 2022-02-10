@@ -92,6 +92,27 @@ map <C-w><C-m> <C-w>m
 tnoremap <silent> <C-w>m <ScriptCmd>ReadableWin(90, 30)<CR>
 tmap <C-w><C-m> <C-w>m
 
+# navigation
+def MapL()
+    var line = line('.')
+    normal! L
+    if line == line('$')
+        normal! zb
+    elseif line == line('.') && line != line('$')
+        normal! zt
+    endif
+enddef
+def MapH()
+    var line = line('.')
+    normal! H
+    if line == line('.')
+        normal! zb
+    endif
+enddef
+
+nnoremap L <ScriptCmd>MapL()<CR>
+nnoremap H <ScriptCmd>MapH()<CR>
+
 # buffers
 nnoremap <silent> <C-n> :bn<CR>
 nnoremap <silent> <C-p> :bp<CR>
