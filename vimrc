@@ -76,7 +76,7 @@ nnoremap <expr>   yob ':let g:auto_bg = 0 \| set bg=' .. (&bg == 'dark' ? "light
 nnoremap <silent> yog :let b:cc = &cc ?? get(b:, "cc", 80) \| let &cc = (empty(&cc) ? b:cc : '')<CR>
 # toggle colorcolumn for a current column
 def ToggleCC()
-    var col: string = "" .. col('.')
+    var col: string = "" .. virtcol('.')
     if index(split(&cc, ","), col) == -1
         exe "set cc+=" .. col
     else
