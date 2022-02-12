@@ -70,7 +70,6 @@ nnoremap <silent> yon :set number! number?<CR>
 nnoremap <silent> yor :set relativenumber! relativenumber?<CR>
 nnoremap <silent> yol :set list! list?<CR>
 nnoremap <silent> yos :set spell! spell?<CR>
-nnoremap <silent> yoc :set nocursorcolumn cursorline! cursorline?<CR>
 nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
 nnoremap <expr> yob ':let g:auto_bg = 0 \| set bg=' .. (&bg == 'dark' ? "light" : "dark") .. "<CR>"
 nnoremap <silent> yog :let b:cc = &cc ?? get(b:, "cc", 80) \| let &cc = (empty(&cc) ? b:cc : '')<CR>
