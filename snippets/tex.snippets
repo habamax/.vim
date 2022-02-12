@@ -32,6 +32,8 @@ snippet article
 	% "better" paragraphs
 	\usepackage{parskip}
 
+	\usepackage{xcolor}
+
 	% if outputdir is specified, minted output should be adjusted
 	\usepackage{ifthen}
 	\usepackage{currfile-abspath}
@@ -42,14 +44,12 @@ snippet article
 	\usepackage{minted}
 	\usepackage{mdframed}
 	\surroundwithmdframed[
-		backgroundcolor=code_bg,
+		backgroundcolor=gray!5!white,
 		rightline=false,
 		bottomline=false,
 		topline=false,
 		linewidth=1pt,
 		linecolor=lightgray]{minted}
-	\usepackage{xcolor}
-	\definecolor{code_bg}{rgb}{0.97, 0.97, 0.97}
 
 	% urls
 	\usepackage[colorlinks=true, linkcolor=black, urlcolor=blue]{hyperref}
@@ -63,8 +63,7 @@ snippet article
 	{\raggedright
 	\begin{center}
 	{\Huge \bfseries \sffamily \@title}\\[10mm]
-	{\@author}\\\@date\\[1mm]
-	{\rule{\linewidth}{0.5mm}}\\[15mm]
+	{\@author}\\\@date\\[10mm]
 	\end{center}}}
 	\makeatother
 

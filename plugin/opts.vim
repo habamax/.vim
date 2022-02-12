@@ -98,6 +98,14 @@ g:vimtex_compiler_latexmk = {
     ],
 }
 g:vimtex_syntax_packages = {'minted': {'load': 1}}
+g:vimtex_toc_config = {
+    show_help: 0,
+    layer_keys: {content: 'C',
+          label: 'B',
+          todo: 'T',
+          include: 'I'
+    }
+}
 
 
 # lion
