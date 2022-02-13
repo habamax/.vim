@@ -66,7 +66,11 @@ if &wildcharm == 26
     cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
 endif
 
+# searches
 nnoremap <space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
+nnoremap <space>/ /<C-r>=expand("<cword>")<CR>
+xnoremap <space>/ y/<C-R>"
+xnoremap * y/<C-R>"<CR>
 
 # toggles
 nnoremap <silent> yoh :set hlsearch! hlsearch?<CR>
@@ -192,9 +196,6 @@ nnoremap <silent> <space>` :call text#Underline('`')<CR>
 nnoremap <silent> <expr> gc comment#Toggle()
 xnoremap <silent> <expr> gc comment#Toggle()
 nnoremap <silent> <expr> gcc comment#Toggle() .. '_'
-
-# find visually selected text
-xnoremap * y/<C-R>"<CR>
 
 nnoremap <silent> <space>gi :<C-u>call git#show_commit(v:count)<CR>
 xnoremap <silent> <space>gi :call git#show_commit(v:count)<CR>
