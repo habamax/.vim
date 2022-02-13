@@ -427,4 +427,6 @@ augroup habamax | au!
           \| hi! link sqlKeyword           Statement
 augroup END
 
-silent! colorscheme habamax
+if !has("gui_running")
+    silent! colorscheme habamax
+endif
