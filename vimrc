@@ -416,6 +416,7 @@ augroup habamax | au!
           \| hi! link javaScriptIdentifier Statement
           \| hi! link yamlBlockMappingKey  Statement
           \| hi! link rubyDefine           Statement
+          \| hi! link sqlKeyword           Statement
 augroup END
 
 silent! colorscheme habamax
