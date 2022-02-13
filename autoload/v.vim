@@ -27,24 +27,24 @@ export def Popup(...args: list<any>)
 enddef
 
 # Loggers
-def s:logger(kind: string, ...args: list<any>)
+def Logger(kind: string, ...args: list<any>)
     var logfile = expand("~/.vimdata/vim" .. strftime("%Y%m%d") .. ".log")
     var logline = printf("%s - %s - %s: %s", strftime("%H:%M:%S"), expand("%:p"), kind, call("printf", args))
     writefile([logline], logfile, "a")
 enddef
 
 export def Log(...args: list<any>)
-    call("s:logger", ["DEBUG"] + args)
+    call("Logger", ["DEBUG"] + args)
 enddef
 
 export def Logi(...args: list<any>)
-    call("s:logger", ["INFO"] + args)
+    call("Logger", ["INFO"] + args)
 enddef
 
 export def Loge(...args: list<any>)
-    call("s:logger", ["ERROR"] + args)
+    call("Logger", ["ERROR"] + args)
 enddef
 
 export def Logw(...args: list<any>)
-    call("s:logger", ["WARNING"] + args)
+    call("Logger", ["WARNING"] + args)
 enddef

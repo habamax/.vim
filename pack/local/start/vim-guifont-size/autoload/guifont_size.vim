@@ -1,8 +1,8 @@
 vim9script
 
-var s:orig_guifont: string = &guifont
-var s:orig_lines: number = &lines
-var s:orig_columns: number = &columns
+var orig_guifont: string = &guifont
+var orig_lines: number = &lines
+var orig_columns: number = &columns
 
 def GetCurrentFont(): list<any>
     var font = matchlist(&guifont, '\(.\{-}\):h\(\d\+\)')
@@ -12,9 +12,9 @@ enddef
 
 export def Change(op: string)
     var [fontname, fontsize] = GetCurrentFont()
-    var new_font = s:orig_guifont
-    var new_lines = s:orig_lines
-    var new_columns = s:orig_columns
+    var new_font = orig_guifont
+    var new_lines = orig_lines
+    var new_columns = orig_columns
     if op == 'inc' && fontsize < 40
         new_font = fontname .. ':h' .. (fontsize + 1)
         new_lines = float2nr(round(&lines * fontsize / (fontsize + 1)))

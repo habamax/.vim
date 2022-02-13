@@ -54,19 +54,19 @@ enddef
 
 
 # Dates (text object and stuff)
-var s:mons_en = ['Jan', 'Feb', 'Mar', 'Apr',
+var mons_en = ['Jan', 'Feb', 'Mar', 'Apr',
                  'May', 'Jun', 'Jul', 'Aug',
                  'Sep', 'Oct', 'Nov', 'Dec']
-var s:months_en = ['January', 'February', 'March', 'April',
+var months_en = ['January', 'February', 'March', 'April',
                    'May', 'June', 'July', 'August',
                    'September', 'October', 'November', 'December']
-var s:months_ru = ['января', 'февраля', 'марта', 'апреля',
+var months_ru = ['января', 'февраля', 'марта', 'апреля',
                    'мая', 'июня', 'июля', 'августа',
                    'сентября', 'октября', 'ноября', 'декабря']
 
-var s:months = extend(s:months_en, s:months_ru)
-s:months = extend(s:months, s:mons_en)
-g:months = copy(s:months)
+var months = extend(months_en, months_ru)
+months = extend(months, mons_en)
+g:months = copy(months)
 
 # * ISO-8601 2020-03-21
 # * RU 21 марта 2020
@@ -84,25 +84,25 @@ export def ObjDate(inner: bool)
     var cword = expand("<cword>")
     if  cword =~ '\d\{4}'
         # var rx = '^\|'
-        var rx = '\%(\D\d\{1,2}\s\+\%(' .. join(s:months, '\|') .. '\)\)'
+        var rx = '\%(\D\d\{1,2}\s\+\%(' .. join(months, '\|') .. '\)\)'
         rx ..= '\|'
-        rx ..= '\%(\s*\%(' .. join(s:months, '\|') .. '\)\s\+\d\{1,2},\)'
+        rx ..= '\%(\s*\%(' .. join(months, '\|') .. '\)\s\+\d\{1,2},\)'
         if !search(rx, 'bcW', line('.'))
             search('\s*\D', 'bcW', line('.'))
         endif
-    elseif cword =~ join(s:months, '\|')
+    elseif cword =~ join(months, '\|')
         search('^\|\D\ze\d\{1,2}\s\+', 'bceW')
     elseif cword =~ '\d\{1,2}'
-        if !search('^\|\S\ze\%(' .. join(s:months, '\|') .. '\)\s\+\d\{1,2}', 'bceW')
+        if !search('^\|\S\ze\%(' .. join(months, '\|') .. '\)\s\+\d\{1,2}', 'bceW')
             search('^\|[^0-9\-]', 'becW')
         endif
     endif
 
     var rxdate = '\%(\d\{4}-\d\{2}-\d\{2}\)'
     rxdate ..= '\|'
-    rxdate ..= '\%(\d\{1,2}\s\+\%(' .. join(s:months, '\|') .. '\)\s\+\d\{4}\)'
+    rxdate ..= '\%(\d\{1,2}\s\+\%(' .. join(months, '\|') .. '\)\s\+\d\{4}\)'
     rxdate ..= '\|'
-    rxdate ..= '\%(\%(' .. join(s:months, '\|') .. '\)\s\+\d\{1,2},\s\+\d\{4}\)'
+    rxdate ..= '\%(\%(' .. join(months, '\|') .. '\)\s\+\d\{1,2},\s\+\d\{4}\)'
     if !inner
         rxdate = '\s*\%(' .. rxdate .. '\)\s*'
     endif
@@ -118,7 +118,7 @@ enddef
 
 export def ObjDateRu()
     var [year, month, day] = split(strftime("%Y-%m-%d"), '-')
-    return printf("%d %s %s", day, s:months_ru[month-1], year)
+    return printf("%d %s %s", day, months_ru[month-1], year)
 enddef
 
 
