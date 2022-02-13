@@ -406,6 +406,7 @@ else
     if has("win32") | set t_Co=256 | endif
     set bg=dark
 endif
+
 augroup habamax | au!
     au Colorscheme habamax
           \  hi Statement gui=bold   cterm=bold
@@ -416,4 +417,5 @@ augroup habamax | au!
           \| hi! link yamlBlockMappingKey  Statement
           \| hi! link rubyDefine           Statement
 augroup END
+
 silent! colorscheme habamax
