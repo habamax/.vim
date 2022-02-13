@@ -408,11 +408,12 @@ else
 endif
 augroup habamax | au!
     au Colorscheme habamax
-          \  hi Statement gui=bold cterm=bold
-          \| hi Type gui=bold cterm=bold
-          \| hi Comment gui=italic cterm=italic
-          \| hi! link javaScriptFunction Statement
+          \  hi Statement gui=bold   cterm=bold
+          \| hi Type      gui=bold   cterm=bold
+          \| hi Comment   gui=italic cterm=italic
+          \| hi! link javaScriptFunction   Statement
           \| hi! link javaScriptIdentifier Statement
-          \| hi! link yamlBlockMappingKey Statement
+          \| hi! link yamlBlockMappingKey  Statement
+          \| hi! link rubyDefine           Statement
 augroup END
 silent! colorscheme habamax
