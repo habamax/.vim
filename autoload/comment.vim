@@ -15,7 +15,7 @@ export def Toggle(...args: list<string>): string
     if empty(&cms) | return '' | endif
     var cms = substitute(substitute(&cms, '\S\zs%s\s*', ' %s', ''), '%s\ze\S', '%s ', '')
     var [lnum1, lnum2] = [line("'["), line("']")]
-    var cms_l = split(escape(cms, '*.'), '%s')
+    var cms_l = split(escape(cms, '*.'), '\s*%s\s*')
     if len(cms_l) == 0 | return '' | endif
     if len(cms_l) == 1 | call add(cms_l, '') | endif
     var comment = 0
@@ -46,7 +46,7 @@ export def Toggle(...args: list<string>): string
                         strpart(getline(lnum), strlen(indent_start)))
             endif
         else
-            line = substitute(getline(lnum), '^\s*\zs' .. cms_l[0] .. '\|' .. cms_l[1] .. '$', '', 'g')
+            line = substitute(getline(lnum), '^\s*\zs' .. cms_l[0] .. ' \?\| \?' .. cms_l[1] .. '$', '', 'g')
         endif
         add(lines, line)
     endfor
