@@ -73,7 +73,7 @@ nnoremap <expr>   yov ":set ve=" .. (&ve == "block" ? "all" : "block") .. "<CR>"
 nnoremap <expr>   yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
 nnoremap <expr>   yob ':let g:auto_bg = 0 \| set bg=' .. (&bg == 'dark' ? "light" : "dark") .. "<CR>"
 nnoremap <silent> yog :let b:cc = &cc ?? get(b:, "cc", 80) \| let &cc = (empty(&cc) ? b:cc : '')<CR>
-# toggle colorcolumn for a current column
+# toggle colorcolumn for at cursor position
 def ToggleCC()
     var col: string = "" .. virtcol('.')
     if index(split(&cc, ","), col) == -1
