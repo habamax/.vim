@@ -99,7 +99,7 @@ nnoremap <silent> yoC :if exists("b:cc") \| unlet b:cc \| endif \| set cc=<CR>
 nnoremap <silent> <BS> <cmd>call text#Toggle()<CR>
 
 # windows
-def ReadableWin(width: number, height: number)
+def ResizeWin(width: number, height: number)
     var w = max([width, winwidth(0)])
     var h = max([height, winheight(0)])
     execute 'vertical resize' w
@@ -109,9 +109,9 @@ def ReadableWin(width: number, height: number)
     setlocal nowinfixwidth nowinfixheight
     normal! ze
 enddef
-noremap <silent> <C-w>m <ScriptCmd>ReadableWin(90, 30)<CR>
+noremap <silent> <C-w>m <ScriptCmd>ResizeWin(90, 30)<CR>
 map <C-w><C-m> <C-w>m
-tnoremap <silent> <C-w>m <ScriptCmd>ReadableWin(90, 30)<CR>
+tnoremap <silent> <C-w>m <ScriptCmd>ResizeWin(90, 30)<CR>
 tmap <C-w><C-m> <C-w>m
 
 # navigation
