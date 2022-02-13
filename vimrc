@@ -31,14 +31,12 @@ set history=200
 set mouse=a ttymouse=sgr
 set path=.,,
 
+
 ################################################################################
 # Grepping
 
-if executable('ugrep')
-    set grepprg=ugrep\ -RInk\ -j\ -u\ --tabs=1\ --ignore-files
-    set grepformat=%f:%l:%c:%m,%f+%l+%c+%m,%-G%f\\\|%l\\\|%c\\\|%m
-elseif executable('rg')
-    set grepprg=rg\ --vimgrep grepformat=%f:%l:%c:%m 
+if executable('rg')
+    set grepprg=rg\ -i\ --vimgrep grepformat=%f:%l:%c:%m
 endif
 
 
