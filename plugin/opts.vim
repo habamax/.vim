@@ -108,10 +108,6 @@ g:vimtex_toc_config = {
 }
 
 
-# lion
-g:lion_squeeze_spaces = 1
-
-
 # vim-minisnip
 g:minisnip_default_maps = 1
 
