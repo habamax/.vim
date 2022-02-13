@@ -12,4 +12,3 @@ let g:loaded_guifont_size = 1
 nnoremap <silent> <Plug>(GUIFontSizeInc) :call guifont_size#Change('inc')<CR>
 nnoremap <silent> <Plug>(GUIFontSizeDec) :call guifont_size#Change('dec')<CR>
 nnoremap <silent> <Plug>(GUIFontSizeRestore) :call guifont_size#Change('restore')<CR>
-
