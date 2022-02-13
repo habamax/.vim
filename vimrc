@@ -406,4 +406,10 @@ else
     if has("win32") | set t_Co=256 | endif
     set bg=dark
 endif
+augroup habamax | au!
+    au Colorscheme habamax 
+          \  hi Statement gui=bold cterm=bold
+          \| hi Type gui=bold cterm=bold
+          \| hi Comment gui=italic cterm=italic
+augroup END
 silent! colorscheme habamax
