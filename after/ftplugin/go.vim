@@ -1,4 +1,4 @@
-setl tabstop=8 shiftwidth=0
+setl shiftwidth=0
 setl noexpandtab
 setl formatprg=gofmt
 
