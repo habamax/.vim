@@ -1,10 +1,10 @@
 setl commentstring=<!--%s-->
 
 "" header textobject
-onoremap <buffer><silent> ih :<C-u>call <sid>header_textobj(v:true)<CR>
-onoremap <buffer><silent> ah :<C-u>call <sid>header_textobj(v:false)<CR>
-xnoremap <buffer><silent> ih :<C-u>call <sid>header_textobj(v:true)<CR>
-xnoremap <buffer><silent> ah :<C-u>call <sid>header_textobj(v:false)<CR>
+onoremap <buffer><silent> iP :<C-u>call <sid>header_textobj(v:true)<CR>
+onoremap <buffer><silent> aP :<C-u>call <sid>header_textobj(v:false)<CR>
+xnoremap <buffer><silent> iP :<C-u>call <sid>header_textobj(v:true)<CR>
+xnoremap <buffer><silent> aP :<C-u>call <sid>header_textobj(v:false)<CR>
 
 
 "" Markdown header text object
