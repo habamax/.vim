@@ -303,11 +303,13 @@ augroup hlsearch | au!
     au CmdlineLeave /,\? :set nohlsearch
 augroup end
 
-augroup restore_pos | au!
+augroup positions | au!
     au BufReadPost *
           \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
           |    exe 'normal! g`"'
           | endif
+    au BufLeave vimrc,*.vim normal! mV
+    au BufLeave *.txt,*.rst normal! mT
 augroup end
 
 if exists("$WSLENV")
