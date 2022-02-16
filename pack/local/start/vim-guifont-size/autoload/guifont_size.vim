@@ -30,9 +30,5 @@ export def Change(op: string)
         exe printf('set lines=%s columns=%s', new_lines, new_columns)
     endif
 
-    if exists("*win#lens")
-        win#lens()
-    else
-        wincmd =
-    endif
+    wincmd =
 enddef
