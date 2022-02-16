@@ -15,19 +15,23 @@ export def Change(op: string)
     var new_font = orig_guifont
     var new_lines = orig_lines
     var new_columns = orig_columns
-    if op == 'inc' && fontsize < 40
+    if op == 'inc'
         new_font = fontname .. ':h' .. (fontsize + 1)
-        new_lines = float2nr(round(&lines * fontsize / (fontsize + 1)))
-        new_columns = float2nr(round(&columns * fontsize / (fontsize + 1)))
-    elseif op == 'dec' && fontsize > 7
+        new_lines = float2nr(round(&lines * fontsize / (fontsize + 1))) + 1
+        new_columns = float2nr(round(&columns * fontsize / (fontsize + 1))) + 1
+    elseif op == 'dec'
         new_font = fontname .. ':h' .. (fontsize - 1)
-        new_lines = float2nr(round(&lines * fontsize / (fontsize - 1)))
-        new_columns = float2nr(round(&columns * fontsize / (fontsize - 1)))
+        new_lines = float2nr(round(&lines * fontsize / (fontsize - 1))) + 1
+        new_columns = float2nr(round(&columns * fontsize / (fontsize - 1))) + 1
+    endif
+
+    if (fontsize < 8 && op == 'dec') || (fontsize > 30 && op == 'inc')
+        return
     endif
 
     if new_lines > 10 && new_columns > 10
-        exe printf('set guifont=%s', escape(new_font, ' '))
         exe printf('set lines=%s columns=%s', new_lines, new_columns)
+        exe printf('set guifont=%s', escape(new_font, ' '))
     endif
 
     wincmd =
