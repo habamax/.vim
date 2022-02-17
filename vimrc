@@ -390,6 +390,9 @@ if !has("gui_running")
     command! Tco leg if &t_Co == 16 | set t_Co=256 | else | set t_Co=16 | endif
     nnoremap <F9> :Tco<CR>:echo "t_Co =" &t_Co<CR>
 endif
+augroup xterm256 | au!
+    au BufEnter *xterm256-palette.txt runtime colors/tools/colorize_xterm.vim
+augroup END
 
 
 ################################################################################
