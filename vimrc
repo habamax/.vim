@@ -391,7 +391,7 @@ if !has("gui_running")
     nnoremap <F9> :Tco<CR>:echo "t_Co =" &t_Co<CR>
 endif
 augroup xterm256 | au!
-    au BufEnter *xterm256-palette.txt runtime colors/tools/colorize_xterm.vim
+    au BufEnter *xterm256-palette.txt,*habamax.txt runtime scripts/colorize_xterm.vim
 augroup END
 
 
