@@ -26,20 +26,17 @@ def HL(ln_start: number, ln_end: number)
         echom "Can't find xterm colors!"
         return
     endif
-    for line in getline(ln_start, ln_end)
+    for lnum in range(ln_start, ln_end)
+        var line = getline(lnum)
         if empty(line) | continue | endif
         var colors = split(line, '\s\s\+')->map((_, v) => split(trim(v), '\s\+'))
         for color in colors
             if empty(color) | continue | endif
-            exe "syn match Hi" .. color[0] .. " /" .. color[1] .. "/"
-            exe "hi Hi" .. color[0] .. " guibg=" .. color[1] .. " ctermbg=" .. color[0]
-                \ .. " guifg=" .. FG(color[0]).gui .. " ctermfg=" .. FG(color[0]).term
+            exe printf('syn match Hi%s /\%%%sl%s/', color[0], lnum, color[1])
+            exe printf("hi Hi%s guibg=%s ctermbg=%s guifg=%s ctermfg=%s", color[0], color[1], color[0],
+                \ FG(color[0]).gui, FG(color[0]).term)
         endfor
     endfor
 enddef
 
-# 16-255
-HL(search("16 #000000", "n"), search("237 #3a3a3a", "n"))
-
-# 0-15
-HL(search("0 #000000", "n"), search("7 #c0c0c0", "n"))
+HL(search("0 #000000", "n"), search("237 #3a3a3a", "n"))
