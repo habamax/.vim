@@ -1,0 +1,31 @@
+*habamax.txt*         Personal habamax help
+
+
+
+BUILD VIM ON DEBIAN                                         *build-vim-debian*
+================================================================================
+
+INSTALL BUILD TOOLS AND DEV LIBS
+>
+  sudo apt install build-essential
+  sudo apt install libncurses5-dev libx11-dev libxpm-dev libxt-dev python-dev
+
+
+REMOVE STOCK VIM
+>
+  sudo apt remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common
+
+
+GET VIM SOURCES
+>
+  cd ~
+  mkdir .temp
+  cd .temp
+  git clone https://github.com/vim/vim.git
+
+
+MAKE AND INSTALL
+>
+  make distclean
+  ./configure --with-features=huge --enable-multibyte --enable-gui=gtk3 --enable-python3interp
+  sudo make install
