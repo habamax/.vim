@@ -2,8 +2,8 @@
 
 
 
-BUILD VIM ON DEBIAN                                         *build-vim-debian*
-================================================================================
+BUILD VIM ON DEBIAN                                           *build-vim-debian*
+==============================================================================
 
 INSTALL BUILD TOOLS AND DEV LIBS
 >
