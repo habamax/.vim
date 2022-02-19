@@ -429,6 +429,10 @@ augroup habamax | au!
           \| hi! link yamlBlockMappingKey  Statement
           \| hi! link rubyDefine           Statement
           \| hi! link sqlKeyword           Statement
+          \| hi! link vimVar               Normal
+          \| hi! link vimOper              Normal
+          \| hi! link vimSep               Normal
+          \| hi! link vimParenSep          Normal
 augroup END
 
 if !has("gui_running")
