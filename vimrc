@@ -382,7 +382,7 @@ command! -nargs=1 -complete=command -bar Redir silent v#Redir(<q-args>)
 command! -nargs=1 -complete=color Colo exe "so $VIMRUNTIME/colors/" .. <q-args> .. ".vim"
 command! ColoCheck ru colors/tools/check_colors.vim
 command! ColoMisc  ru colors/tools/sample_misc.vim
-command! ColoMess  tabnew | ru colors/tools/sample_messages.vim
+command! ColoMess  ru colors/tools/sample_messages.vim
 command! ColoPopu  tabnew | ru colors/tools/sample_popupmenu.vim
 command! ColoDiff  tabnew | ru colors/tools/sample_diff.vim
 command! ColoQF    tabnew | ru colors/tools/sample_quickfix.vim
