@@ -388,7 +388,9 @@ command! ColoDiff  tabnew | ru colors/tools/sample_diff.vim
 command! ColoQF    tabnew | ru colors/tools/sample_quickfix.vim
 command! ColoTerm  tabnew | ru colors/tools/sample_terminal.vim
 command! ColoWin   tabnew | ru colors/tools/sample_windows.vim
-command! ColoSpell tabnew | ru colors/tools/sample_spell.vim
+command! ColoSpell tabnew |
+      \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/vim/start/colorschemes" |
+      \ ru colors/tools/sample_spell.vim
 if !has("gui_running")
     command! Tco leg if &t_Co == 16 | set t_Co=256 | else | set t_Co=16 | endif
     nnoremap <F9> :Tco<CR>:echo "t_Co =" &t_Co<CR>
