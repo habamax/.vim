@@ -21,7 +21,7 @@ set list listchars=tab:›\ ,nbsp:·,trail:·,extends:→,precedes:←
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak
 set formatoptions=cqjl
 set backspace=indent,eol,start
-set nospell spelllang=ru,en
+set nospell spelllang=en,ru
 set nrformats=bin,hex,unsigned
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set wildmenu wildcharm=<C-z> wildoptions=pum pumheight=20
