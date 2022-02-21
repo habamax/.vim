@@ -104,7 +104,7 @@ VisualNOS            color00        color02
 Pmenu                none           colorB
 PmenuThumb           none           color02
 PmenuSbar            none           none
-PmenuSel             color00        color10
+PmenuSel             color00        color02
 
 SignColumn           none           none
 
@@ -118,7 +118,7 @@ Todo                 color11        color00        reverse
 MatchParen           none           none           reverse
 Search               color00        color02
 IncSearch            color00        colorC
-WildMenu             color00        color10
+WildMenu             color00        color02
 
 debugPC              color00        color04
 debugBreakpoint      color00        color09
