@@ -77,7 +77,7 @@ CursorLineNr       colorC         none           bold
 LineNr             colorNonT      none
 NonText            colorNonT      none
 
-Visual             color00        color10
+Visual             color00        color02
 VisualNOS          color00        color02
 
 Pmenu              none           colorB
