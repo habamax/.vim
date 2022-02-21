@@ -51,7 +51,7 @@ Color: colorGr     #5F875F        65             darkgreen
 Color: colorLine   #303030        236            darkgrey
 Color: colorB      #1C1C1C        234            darkgrey
 Color: colorNonT   #444444        238            darkgrey
-Color: colorC      #5FFF00        82             green
+Color: colorC      #5FFF5F        83             green
 Color: colorlC     #FFAF5F        215            red
 
 Term colors: color00 color01 color02 color03 color04 color05 color06 color07
