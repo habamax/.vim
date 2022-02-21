@@ -88,9 +88,9 @@ PmenuSel           color00        color10
 SignColumn         none           none
 
 Error              color01        color00        reverse
-ModeMsg            color00        color11
+ModeMsg            color10        none           bold
 MoreMsg            color02        none
-Question           color03        none
+Question           color10        none
 WarningMsg         color09        none
 
 Todo               color11        color00        reverse
