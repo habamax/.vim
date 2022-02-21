@@ -84,9 +84,10 @@ Auto change ``&background`` in GUI Vim depending on time (check every 5 mins):
 
   if has("gui_running")
       def Lights()
+          if !get(g:, "auto_bg", 1) | return | endif
           var hour = strftime("%H")->str2nr()
           var bg: string
-          if hour > 7 && hour < 19
+          if hour > 8 && hour < 17
               bg = "light"
           else
               bg = "dark"
@@ -99,6 +100,7 @@ Auto change ``&background`` in GUI Vim depending on time (check every 5 mins):
       endif
       g:lights_timer = timer_start(5 * 60000, (_) => Lights(), {repeat: -1})
   else
+      if has("win32") | set t_Co=256 | endif
       set bg=dark
   endif
   # colorscheme should support both dark and light colors
