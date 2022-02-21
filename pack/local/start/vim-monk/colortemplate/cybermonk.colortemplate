@@ -1,0 +1,159 @@
+; vim: cc=20,35,50 vsts=19,15,15,4
+Full name: cybermonk
+Short name: cybermonk
+Description: Not a much.
+Author: Maxim Kim <habamax@gmail.com>
+
+
+;;; Links
+ErrorMsg           -> Error
+FoldColumn         -> LineNr
+LineNrAbove        -> LineNr
+LineNrBelow        -> LineNr
+Terminal           -> Normal
+StatuslineTerm     -> Statusline
+StatuslineTermNC   -> StatuslineNC
+TabLineFill        -> TabLine
+EndOfBuffer        -> NonText
+SpecialKey         -> NonText
+Debug              -> Special
+
+
+Background: dark
+
+;;; Color palette
+Color: color00     #262626        235            black
+Color: color08     #626262        241            darkgrey
+
+Color: color01     #D75F5F        167            darkred
+Color: color09     #D7875F        173            red
+
+Color: color02     #87AF87        108            darkgreen
+Color: color10     #AFD7AF        151            green
+
+Color: color03     #AFAF87        144            darkyellow
+Color: color11     #D7D787        186            yellow
+
+Color: color04     #5F87AF        67             blue
+Color: color12     #87AFD7        110            blue
+
+Color: color05     #AF87AF        139            darkmagenta
+Color: color13     #D7AFD7        182            magenta
+
+Color: color06     #5F8787        66             darkcyan
+Color: color14     #87AFAF        109            cyan
+
+Color: color07     #949494        246            grey
+Color: color15     #BCBCBC        250            white
+
+Color: colorGr     #5F875F        65             darkgreen
+
+Color: colorLine   #303030        236            darkgrey
+Color: colorB      #1C1C1C        234            darkgrey
+Color: colorNonT   #444444        238            darkgrey
+Color: colorC      #5FFF00        82             green
+Color: colorlC     #FFAF5F        215            red
+
+Term colors: color00 color01 color02 color03 color04 color05 color06 color07
+Term colors: color08 color09 color10 color11 color12 color13 color14 color15
+
+;;; chrome
+Variant: gui 256 16
+
+Normal             color02        color00
+
+Statusline         color00        color10
+StatuslineNC       color00        colorGr
+VertSplit          colorGr        colorGr
+
+TabLine            color00        colorGr
+TabLineSel         none           none
+
+ToolbarLine        none           none
+ToolbarButton      color00        color10
+
+QuickFixLine       color10        color00        reverse
+CursorLineNr       colorC         none           bold
+LineNr             colorNonT      none
+NonText            colorNonT      none
+
+Visual             color00        color10
+VisualNOS          color00        color02
+
+Pmenu              none           colorB
+PmenuThumb         none           color02
+PmenuSbar          none           none
+PmenuSel           color00        color10
+
+SignColumn         none           none
+
+Error              color01        color00        reverse
+ModeMsg            color00        color11
+MoreMsg            color02        none
+Question           color03        none
+WarningMsg         color09        none
+
+Todo               color11        color00        reverse
+MatchParen         none           none           reverse
+Search             color00        color02
+IncSearch          color00        colorC
+WildMenu           color00        color10
+
+debugPC            color00        color04
+debugBreakpoint    color00        color09
+
+Variant: gui
+Cursor             color00        colorC
+lCursor            color00        colorlC
+
+Variant: 16
+CursorLine         none           none           underline
+CursorColumn       none           none           reverse
+Folded             color07        none           bold
+ColorColumn        color00        color03
+
+Variant: gui 256
+CursorLine         none           colorLine
+CursorColumn       none           colorLine
+Folded             colorGr        colorB
+ColorColumn        none           colorB
+
+Variant: gui
+SpellBad           none           none           t=underline g=undercurl s=color01
+SpellCap           none           none           t=underline g=undercurl s=color04
+SpellLocal         none           none           t=underline g=undercurl s=color02
+SpellRare          none           none           t=underline g=undercurl s=color13
+Variant: 256 16
+SpellBad           color01        none           t=underline g=undercurl s=color01
+SpellCap           color04        none           t=underline g=undercurl s=color04
+SpellLocal         color02        none           t=underline g=undercurl s=color02
+SpellRare          color13        none           t=underline g=undercurl s=color13
+
+
+;;; :h group-names
+Variant: gui 256 16
+Comment            colorGr        none           italic
+Constant           color10        none
+Identifier         color02        none
+
+Statement          color02        none           bold
+PreProc            color02        none
+Type               color02        none           bold
+
+Special            color02        none
+
+Underlined         color10        none           underline
+
+Title              color10        none           bold
+Directory          color10        none           bold
+
+Conceal            colorGr        none
+Ignore             none           none
+
+
+; Diff colors
+Include: _diff
+
+
+; No color support
+Include: _tcozero
