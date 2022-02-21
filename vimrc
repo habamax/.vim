@@ -308,8 +308,6 @@ augroup positions | au!
           \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
           |    exe 'normal! g`"'
           | endif
-    au BufLeave vimrc,*.vim normal! mV
-    au BufLeave *.txt,*.rst normal! mT
 augroup end
 
 if exists("$WSLENV")
