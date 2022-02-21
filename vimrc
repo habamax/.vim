@@ -440,5 +440,6 @@ augroup habamax | au!
 augroup END
 
 if !has("gui_running")
-    silent! colorscheme habamax
+    # silent! colorscheme habamax
+    silent! colorscheme cybermonk
 endif

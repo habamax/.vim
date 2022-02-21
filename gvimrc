@@ -12,4 +12,5 @@ set guifont=JetBrains\ Mono\ NL:h13
 " З3Э -- буква З, цифра 3, буква Э
 " 1lI0OQB8 =-+*:(){}[]
 
-silent! colorscheme habamax
+" silent! colorscheme habamax
+silent! colorscheme cybermonk
