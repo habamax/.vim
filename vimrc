@@ -427,9 +427,8 @@ augroup END
 if !has("gui_running") && has("win32") | set t_Co=256 | endif
 
 augroup habamax | au!
-    au Colorscheme habamax,cybermonk
-          \  hi Comment   gui=italic cterm=italic
-          \| hi! link pythonInclude        Statement
+    au Colorscheme habamax
+          \  hi Comment gui=italic cterm=italic
           \| hi! link javaScriptFunction   Statement
           \| hi! link javaScriptIdentifier Statement
           \| hi! link yamlBlockMappingKey  Statement
