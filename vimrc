@@ -427,12 +427,13 @@ augroup END
 if !has("gui_running") && has("win32") | set t_Co=256 | endif
 
 augroup habamax | au!
-    au Colorscheme habamax
+    au Colorscheme habamax,cybermonk
           \  hi Comment   gui=italic cterm=italic
           \| hi! link javaScriptFunction   Statement
           \| hi! link javaScriptIdentifier Statement
           \| hi! link yamlBlockMappingKey  Statement
           \| hi! link rubyDefine           Statement
+          \| hi! link rubyMacro            Statement
           \| hi! link sqlKeyword           Statement
           \| hi! link vimVar               Normal
           \| hi! link vimOper              Normal
