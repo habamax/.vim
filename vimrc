@@ -401,8 +401,6 @@ augroup END
 ################################################################################
 # Colors
 
-if !has("gui_running") && has("win32") | set t_Co=256 | endif
-
 augroup habamax | au!
     au Colorscheme habamax
           \  hi Comment gui=italic cterm=italic
@@ -419,6 +417,8 @@ augroup habamax | au!
 augroup END
 
 if !has("gui_running")
+    if has("win32") | set t_Co=256 | endif
+
     # silent! colorscheme habamax
     silent! colorscheme cybermonk
 endif
