@@ -381,11 +381,13 @@ command! -nargs=1 -complete=color Colo exe "so $VIMRUNTIME/colors/" .. <q-args> 
 command! ColoCheck ru colors/tools/check_colors.vim
 command! ColoMisc  ru colors/tools/sample_misc.vim
 command! ColoMess  ru colors/tools/sample_messages.vim
-command! ColoPopu  tabnew | ru colors/tools/sample_popupmenu.vim
 command! ColoDiff  tabnew | ru colors/tools/sample_diff.vim
 command! ColoQF    tabnew | ru colors/tools/sample_quickfix.vim
 command! ColoTerm  tabnew | ru colors/tools/sample_terminal.vim
 command! ColoWin   tabnew | ru colors/tools/sample_windows.vim
+command! ColoPopu  tabnew |
+      \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/vim/start/colorschemes" |
+      \ ru colors/tools/sample_popupmenu.vim
 command! ColoSpell tabnew |
       \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/vim/start/colorschemes" |
       \ ru colors/tools/sample_spell.vim
