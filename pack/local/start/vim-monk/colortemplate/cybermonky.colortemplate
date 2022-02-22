@@ -50,7 +50,7 @@ SignColumn           none           none
 
 Error                color01        color00        reverse
 ModeMsg              color11        none           bold
-MoreMsg              color03        none
+MoreMsg              color03        none           bold
 Question             color11        none
 WarningMsg           color09        none
 
