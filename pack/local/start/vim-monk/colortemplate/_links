@@ -1,0 +1,37 @@
+; vim: cc=22,37,52 vsts=21,15,15,4
+
+;;; Links
+ErrorMsg                            -> Error
+FoldColumn                          -> LineNr
+LineNrAbove                         -> LineNr
+LineNrBelow                         -> LineNr
+Terminal                            -> Normal
+StatuslineTerm                      -> Statusline
+StatuslineTermNC                    -> StatuslineNC
+TabLineFill                         -> TabLine
+EndOfBuffer                         -> NonText
+SpecialKey                          -> NonText
+Debug                               -> Special
+
+;;; ft links
+pythonInclude                       -> Statement
+javaScriptFunction                  -> Statement
+javaScriptIdentifier                -> Statement
+yamlBlockMappingKey                 -> Statement
+rubyDefine                          -> Statement
+rubyMacro                           -> Statement
+sqlKeyword                          -> Statement
+vimVar                              -> Normal
+vimOper                             -> Normal
+vimSep                              -> Normal
+vimParenSep                         -> Normal
+gitCommitSummary                    -> Title
+fugitiveHeader                      -> Title
+fugitiveHeading                     -> Title
+fugitiveStagedHeading               -> Title
+fugitiveUnstagedHeading             -> Title
+fugitiveUntrackedHeading            -> Title
+diffRemoved                         -> DiffDelete
+diffAdded                           -> DiffAdd
+colortemplateKey                    -> Title
+

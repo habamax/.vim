@@ -1,0 +1,30 @@
+; vim: cc=22,37,52 vsts=21,15,15,4
+
+;;; Color palette
+Color: color00       #262626        235            black
+Color: color08       #626262        241            darkgrey
+
+Color: color01       #D75F5F        167            darkred
+Color: color09       #D7875F        173            red
+
+Color: color02       #87AF87        108            darkgreen
+Color: color10       #AFD7AF        151            green
+
+Color: color03       #AFAF87        144            darkyellow
+Color: color11       #D7D7AF        187            yellow
+
+Color: color04       #5F87AF        67             blue
+Color: color12       #87AFD7        110            blue
+
+Color: color05       #AF87AF        139            darkmagenta
+Color: color13       #D7AFD7        182            magenta
+
+Color: color06       #5F8787        66             darkcyan
+Color: color14       #87AFAF        109            cyan
+
+Color: color07       #949494        246            grey
+Color: color15       #BCBCBC        250            white
+
+Color: colorLine     #303030        236            darkgrey
+Color: colorB        #1C1C1C        234            darkgrey
+Color: colorNonT     #444444        238            darkgrey

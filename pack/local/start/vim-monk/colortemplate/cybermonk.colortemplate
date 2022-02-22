@@ -5,73 +5,13 @@ Description: Cyber space needs a proper shepherd to guide and protect.
 Author: Maxim Kim <habamax@gmail.com>
 
 
-;;; Links
-ErrorMsg                            -> Error
-FoldColumn                          -> LineNr
-LineNrAbove                         -> LineNr
-LineNrBelow                         -> LineNr
-Terminal                            -> Normal
-StatuslineTerm                      -> Statusline
-StatuslineTermNC                    -> StatuslineNC
-TabLineFill                         -> TabLine
-EndOfBuffer                         -> NonText
-SpecialKey                          -> NonText
-Debug                               -> Special
-
-;;; ft links
-pythonInclude                       -> Statement
-javaScriptFunction                  -> Statement
-javaScriptIdentifier                -> Statement
-yamlBlockMappingKey                 -> Statement
-rubyDefine                          -> Statement
-rubyMacro                           -> Statement
-sqlKeyword                          -> Statement
-vimVar                              -> Normal
-vimOper                             -> Normal
-vimSep                              -> Normal
-vimParenSep                         -> Normal
-gitCommitSummary                    -> Title
-fugitiveHeader                      -> Title
-fugitiveHeading                     -> Title
-fugitiveStagedHeading               -> Title
-fugitiveUnstagedHeading             -> Title
-fugitiveUntrackedHeading            -> Title
-diffRemoved                         -> DiffDelete
-diffAdded                           -> DiffAdd
-colortemplateKey                    -> Title
+Include: _links
 
 Background: dark
 
-;;; Color palette
-Color: color00       #262626        235            black
-Color: color08       #626262        241            darkgrey
-
-Color: color01       #D75F5F        167            darkred
-Color: color09       #D7875F        173            red
-
-Color: color02       #87AF87        108            darkgreen
-Color: color10       #AFD7AF        151            green
-
-Color: color03       #AFAF87        144            darkyellow
-Color: color11       #D7D787        186            yellow
-
-Color: color04       #5F87AF        67             blue
-Color: color12       #87AFD7        110            blue
-
-Color: color05       #AF87AF        139            darkmagenta
-Color: color13       #D7AFD7        182            magenta
-
-Color: color06       #5F8787        66             darkcyan
-Color: color14       #87AFAF        109            cyan
-
-Color: color07       #949494        246            grey
-Color: color15       #BCBCBC        250            white
+Include: _palette
 
 Color: colorCm       #5F875F        65             darkgreen
-
-Color: colorLine     #303030        236            darkgrey
-Color: colorB        #1C1C1C        234            darkgrey
-Color: colorNonT     #444444        238            darkgrey
 Color: colorC        #5FFF5F        83             green
 Color: colorlC       #FFAF5F        215            red
 
