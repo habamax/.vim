@@ -401,6 +401,26 @@ augroup END
 ################################################################################
 # Colors
 
+if has("gui_running")
+  def Lights()
+      if !get(g:, "auto_bg", 1) | return | endif
+      if get(g:, "colors_name", "default") != "habamax" | return | endif
+      var hour = strftime("%H")->str2nr()
+      var bg: string
+      if hour > 8 && hour < 17
+          bg = "light"
+      else
+          bg = "dark"
+      endif
+      if bg != &bg | &bg = bg | endif
+  enddef
+  Lights()
+  if exists("g:lights_timer")
+      timer_stop(g:lights_timer)
+  endif
+  g:lights_timer = timer_start(5 * 60000, (_) => Lights(), {repeat: -1})
+endif
+
 augroup habamax | au!
     au Colorscheme habamax
           \  hi Comment gui=italic cterm=italic
