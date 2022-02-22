@@ -37,4 +37,4 @@ g:lights_timer = timer_start(5 * 60000, (_) => Lights(), {repeat: -1})
 
 
 # silent! colorscheme habamax
-silent! colorscheme cybermonk
+silent! colorscheme cybermonky

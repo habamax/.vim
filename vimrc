@@ -420,5 +420,5 @@ if !has("gui_running")
     if has("win32") | set t_Co=256 | endif
 
     # silent! colorscheme habamax
-    silent! colorscheme cybermonk
+    silent! colorscheme cybermonky
 endif

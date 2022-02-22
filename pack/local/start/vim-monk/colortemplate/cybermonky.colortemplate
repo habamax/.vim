@@ -1,6 +1,6 @@
 ; vim: cc=22,37,52 vsts=21,15,15,4
-Full name: cybermonk
-Short name: cybermonk
+Full name: cybermonky
+Short name: cybermonky
 Description: Cyber space needs a proper shepherd to guide and protect.
 Author: Maxim Kim <habamax@gmail.com>
 
@@ -67,13 +67,13 @@ Color: color14       #87AFAF        109            cyan
 Color: color07       #949494        246            grey
 Color: color15       #BCBCBC        250            white
 
-Color: colorCm       #5F875F        65             darkgreen
+Color: colorCm       #87875F        101            darkyellow
 
 Color: colorLine     #303030        236            darkgrey
 Color: colorB        #1C1C1C        234            darkgrey
 Color: colorNonT     #444444        238            darkgrey
-Color: colorC        #5FFF5F        83             green
-Color: colorlC       #FFAF5F        215            red
+Color: colorC        #FFFF87        228            yellow
+Color: colorlC       #87FF5F        119            green
 
 Term colors: color00 color01 color02 color03 color04 color05 color06 color07
 Term colors: color08 color09 color10 color11 color12 color13 color14 color15
@@ -81,9 +81,9 @@ Term colors: color08 color09 color10 color11 color12 color13 color14 color15
 ;;; chrome
 Variant: gui 256 16
 
-Normal               color02        color00
+Normal               color03        color00
 
-Statusline           color00        color10
+Statusline           color00        color11
 StatuslineNC         color00        colorCm
 VertSplit            colorCm        colorCm
 
@@ -91,34 +91,34 @@ TabLine              color00        colorCm
 TabLineSel           none           none
 
 ToolbarLine          none           none
-ToolbarButton        color00        color10
+ToolbarButton        color00        color11
 
-QuickFixLine         color10        color00        reverse
+QuickFixLine         color11        color00        reverse
 CursorLineNr         colorC         none           bold
 LineNr               colorNonT      none
 NonText              colorNonT      none
 
-Visual               color00        color02
-VisualNOS            color00        color02
+Visual               color00        color03
+VisualNOS            color00        color03
 
 Pmenu                none           colorB
-PmenuThumb           none           color02
+PmenuThumb           none           color03
 PmenuSbar            none           none
-PmenuSel             color00        color02
+PmenuSel             color00        color03
 
 SignColumn           none           none
 
 Error                color01        color00        reverse
 ModeMsg              color10        none           bold
-MoreMsg              color02        none
+MoreMsg              color03        none
 Question             color10        none
 WarningMsg           color09        none
 
 Todo                 color11        color00        reverse
 MatchParen           none           none           reverse
-Search               color00        color02
+Search               color00        color03
 IncSearch            color00        colorC
-WildMenu             color00        color02
+WildMenu             color00        color03
 
 debugPC              color00        color04
 debugBreakpoint      color00        color09
@@ -154,19 +154,19 @@ SpellRare            color13        none           t=underline g=undercurl s=col
 ;;; :h group-names
 Variant: gui 256 16
 Comment              colorCm        none           italic
-Constant             color10        none
-Identifier           color02        none
+Constant             color11        none
+Identifier           color03        none
 
-Statement            color02        none           bold
-PreProc              color02        none
-Type                 color02        none           bold
+Statement            color03        none           bold
+PreProc              color03        none
+Type                 color03        none           bold
 
-Special              color02        none
+Special              color03        none
 
-Underlined           color10        none           underline
+Underlined           color11        none           underline
 
-Title                color10        none           bold
-Directory            color10        none           bold
+Title                color11        none           bold
+Directory            color11        none           bold
 
 Conceal              colorCm        none
 Ignore               none           none
