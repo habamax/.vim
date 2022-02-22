@@ -12,7 +12,7 @@ Background: dark
 Include: _palette
 
 Color: colorCm       #87875F        101            darkyellow
-Color: colorC        #FFFF87        228            yellow
+Color: colorC        #FFAF5F        215            yellow
 Color: colorlC       #87FF5F        119            green
 
 Term colors: color00 color01 color02 color03 color04 color05 color06 color07
