@@ -422,5 +422,5 @@ if !has("gui_running")
     if has("win32") | set t_Co=256 | endif
 
     # silent! colorscheme habamax
-    silent! colorscheme cybermonky
+    exe "silent! colorscheme cybermonk" .. ['', 'y']->get(rand() % 2)
 endif
