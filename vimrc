@@ -180,9 +180,6 @@ inoremap <C-U> <C-G>u<C-U>
 # spell correction for the first suggested
 inoremap <C-l> <C-g>u<ESC>[s1z=`]a<C-g>u
 
-# syntax group names under cursor
-nnoremap <space>ts :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')))<CR>
-
 nnoremap <silent> <space># :call text#Underline('#')<CR>
 nnoremap <silent> <space>* :call text#Underline('*')<CR>
 nnoremap <silent> <space>= :call text#Underline('=')<CR>
@@ -346,6 +343,9 @@ command! -range=% -nargs=? -complete=customlist,share#complete Share call share#
 command! GistSync call gist#sync()
 
 command! CD lcd %:p:h
+
+# syntax group names under cursor
+command! Sy :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')))
 
 # save and load sessions
 var sdir = expand('~/.vimdata/sessions')
