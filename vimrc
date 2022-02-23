@@ -345,7 +345,7 @@ command! GistSync call gist#sync()
 command! CD lcd %:p:h
 
 # syntax group names under cursor
-command! Sy :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')))
+command! Sy :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')))
 
 # save and load sessions
 var sdir = expand('~/.vimdata/sessions')
