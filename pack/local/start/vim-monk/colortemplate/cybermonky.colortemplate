@@ -54,7 +54,7 @@ MoreMsg              color03        none           bold
 Question             color11        none
 WarningMsg           color09        none
 
-Todo                 color11        color00        reverse
+Todo                 color10        color00        reverse
 MatchParen           none           none           reverse
 Search               color00        color03
 IncSearch            color00        colorC
@@ -103,7 +103,7 @@ Type                 color03        none           bold
 
 Special              color03        none
 
-Underlined           color11        none           underline
+Underlined           none           none           underline
 
 Title                color11        none           bold
 Directory            color11        none           bold

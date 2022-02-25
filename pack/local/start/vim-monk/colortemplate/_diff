@@ -13,4 +13,4 @@ Color: fgDiff      #000000        16             black
 DiffAdd            bgDiffA        fgDiff         reverse
 DiffChange         bgDiffC        fgDiff         reverse
 DiffText           bgDiffT        fgDiff         reverse
-DiffDelete         bgDiffD        none           reverse
+DiffDelete         bgDiffD        fgDiff         reverse
