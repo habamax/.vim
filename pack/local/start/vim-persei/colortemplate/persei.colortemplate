@@ -49,7 +49,7 @@ WarningMsg           color09        none
 
 Todo                 color10        color00        reverse
 MatchParen           none           none           reverse
-Search               color00        color03
+Search               color00        color11
 IncSearch            color00        colorC
 WildMenu             color00        color03
 
