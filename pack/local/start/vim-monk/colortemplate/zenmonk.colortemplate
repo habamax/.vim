@@ -94,8 +94,8 @@ SpellRare            color13        none           t=underline g=undercurl s=col
 ;;; :h group-names
 Variant: gui 256 16
 Comment              color08        none
-Constant             color14        none
-Identifier           color12        none
+Constant             color12        none
+Identifier           color14        none
 
 Statement            color03        none
 PreProc              color05        none
