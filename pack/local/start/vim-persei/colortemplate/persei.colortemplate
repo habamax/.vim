@@ -90,7 +90,7 @@ Comment              color08        none
 Constant             color12        none
 Identifier           color14        none
 
-Statement            color03        none
+Statement            color11        none
 PreProc              color05        none
 Type                 color02        none
 
