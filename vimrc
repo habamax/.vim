@@ -24,7 +24,7 @@ set backspace=indent,eol,start
 set nospell spelllang=en,ru
 set nrformats=bin,hex,unsigned
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
-set wildmenu wildcharm=<C-z> wildoptions=pum pumheight=20
+set wildmenu wildcharm=<C-z> wildoptions=pum,fuzzy pumheight=20
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 set sessionoptions=buffers,curdir,tabpages,winsize
 set history=200
