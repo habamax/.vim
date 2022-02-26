@@ -61,9 +61,9 @@ Cursor               color00        colorC
 lCursor              color00        colorlC
 
 Variant: 16
-CursorLine           none           none           underline
-CursorColumn         none           none           reverse
-Folded               color07        none           underline
+CursorLine           color00        color11
+CursorColumn         color00        color11
+Folded               color06        none
 ColorColumn          color00        color03
 
 Variant: gui 256
