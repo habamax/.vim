@@ -27,7 +27,7 @@ ToolbarLine          none           none
 ToolbarButton        color03        colorNonT
 
 QuickFixLine         color11        color00        reverse
-CursorLineNr         colorC         none           g=bold
+CursorLineNr         colorC         none
 LineNr               colorNonT      none
 NonText              colorNonT      none
 
