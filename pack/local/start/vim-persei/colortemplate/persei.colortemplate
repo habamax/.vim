@@ -27,7 +27,7 @@ ToolbarLine          none           none
 ToolbarButton        color03        colorNonT
 
 QuickFixLine         color11        color00        reverse
-CursorLineNr         colorC         none           bold
+CursorLineNr         colorC         none           g=bold
 LineNr               colorNonT      none
 NonText              colorNonT      none
 
@@ -63,7 +63,7 @@ lCursor              color00        colorlC
 Variant: 16
 CursorLine           none           none           underline
 CursorColumn         none           none           reverse
-Folded               color07        none           bold
+Folded               color07        none           underline
 ColorColumn          color00        color03
 
 Variant: gui 256
@@ -98,8 +98,8 @@ Special              color09        none
 
 Underlined           color04        none           underline
 
-Title                color05        none           bold
-Directory            color06        none           bold
+Title                color13        none           g=bold
+Directory            color06        none           g=bold
 
 Conceal              color08        none
 Ignore               none           none
