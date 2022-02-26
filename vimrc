@@ -404,9 +404,8 @@ augroup END
 # Colors
 
 augroup habamax | au!
-    au Colorscheme habamax
-          \  hi Comment gui=italic cterm=italic
-          \| hi! link javaScriptFunction   Statement
+    au Colorscheme habamax,persei
+          \  hi! link javaScriptFunction   Statement
           \| hi! link javaScriptIdentifier Statement
           \| hi! link yamlBlockMappingKey  Statement
           \| hi! link rubyDefine           Statement
