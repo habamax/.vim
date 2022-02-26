@@ -1,7 +1,7 @@
 ; vim: cc=22,37,52 vsts=21,15,15,4
-Full name: zenmonk
-Short name: zenmonk
-Description: Zen of the monk
+Full name: persei
+Short name: persei
+Description: Deep in the space this yellow giant star shines away the warmth we see from the past.
 Author: Maxim Kim <habamax@gmail.com>
 
 
@@ -10,13 +10,6 @@ Include: _links_def
 Background: dark
 
 Include: _palette
-
-; Color: colorCm       #87875F        101            darkyellow
-Color: colorC        #FFAF5F        215            yellow
-Color: colorlC       #87FF5F        119            green
-
-Term colors: color00 color01 color02 color03 color04 color05 color06 color07
-Term colors: color08 color09 color10 color11 color12 color13 color14 color15
 
 ;;; chrome
 Variant: gui 256 16
@@ -106,7 +99,7 @@ Special              color09        none
 Underlined           color04        none           underline
 
 Title                color09        none           bold
-Directory            color03        none           bold
+Directory            color11        none           bold
 
 Conceal              color08        none
 Ignore               none           none
