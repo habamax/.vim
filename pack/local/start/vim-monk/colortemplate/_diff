@@ -10,7 +10,7 @@ Color: bgDiffD     #AF5FAF        133            magenta
 Color: bgDiffT     #00AFAF        37             darkcyan
 Color: fgDiff      #000000        16             black
 
-DiffAdd            bgDiffA        fgDiff         reverse
-DiffChange         bgDiffC        fgDiff         reverse
-DiffText           bgDiffT        fgDiff         reverse
-DiffDelete         bgDiffD        fgDiff         reverse
+DiffAdd            fgDiff         bgDiffA
+DiffChange         fgDiff         bgDiffC
+DiffText           fgDiff         bgDiffT
+DiffDelete         fgDiff         bgDiffD
