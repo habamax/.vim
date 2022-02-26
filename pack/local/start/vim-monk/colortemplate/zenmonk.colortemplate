@@ -5,13 +5,13 @@ Description: Zen of the monk
 Author: Maxim Kim <habamax@gmail.com>
 
 
-; Include: _links
+Include: _links_def
 
 Background: dark
 
-Include: _palette_zen
+Include: _palette
 
-Color: colorCm       #87875F        101            darkyellow
+; Color: colorCm       #87875F        101            darkyellow
 Color: colorC        #FFAF5F        215            yellow
 Color: colorlC       #87FF5F        119            green
 
@@ -21,13 +21,13 @@ Term colors: color08 color09 color10 color11 color12 color13 color14 color15
 ;;; chrome
 Variant: gui 256 16
 
-Normal               color03        color00
+Normal               color15        color00
 
-Statusline           color00        color11
-StatuslineNC         color00        colorCm
-VertSplit            colorCm        colorCm
+Statusline           color00        color07
+StatuslineNC         color00        color08
+VertSplit            color08        color08
 
-TabLine              color00        colorCm
+TabLine              color00        color08
 TabLineSel           none           none
 
 ToolbarLine          none           none
@@ -76,7 +76,7 @@ ColorColumn          color00        color03
 Variant: gui 256
 CursorLine           none           colorLine
 CursorColumn         none           colorLine
-Folded               colorCm        colorB
+Folded               color07        colorB
 ColorColumn          none           colorB
 
 Variant: gui
@@ -93,23 +93,22 @@ SpellRare            color13        none           t=underline g=undercurl s=col
 
 ;;; :h group-names
 Variant: gui 256 16
-Comment              color08        none           italic
-Constant             color12        none
-String               color09        none
-Identifier           color03        none
+Comment              color08        none
+Constant             color14        none
+Identifier           color12        none
 
-Statement            color11        none           bold
-PreProc              color06        none
-Type                 color02        none           bold
+Statement            color03        none
+PreProc              color05        none
+Type                 color02        none
 
-Special              color03        none
+Special              color09        none
 
-Underlined           color11        none           underline
+Underlined           color04        none           underline
 
-Title                color11        none           bold
+Title                color09        none           bold
 Directory            color03        none           bold
 
-Conceal              colorCm        none
+Conceal              color08        none
 Ignore               none           none
 
 

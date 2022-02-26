@@ -5,7 +5,8 @@ Description: Cyber space needs a proper shepherd to guide and protect... in gold
 Author: Maxim Kim <habamax@gmail.com>
 
 
-Include: _links
+Include: _links_def
+Include: _links_ft
 
 Background: dark
 

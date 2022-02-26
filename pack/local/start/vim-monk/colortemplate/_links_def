@@ -1,0 +1,14 @@
+; vim: ft=colortemplate cc=22,37,52 vsts=21,15,15,4
+
+;;; Links
+ErrorMsg                            -> Error
+FoldColumn                          -> LineNr
+LineNrAbove                         -> LineNr
+LineNrBelow                         -> LineNr
+Terminal                            -> Normal
+StatuslineTerm                      -> Statusline
+StatuslineTermNC                    -> StatuslineNC
+TabLineFill                         -> TabLine
+EndOfBuffer                         -> NonText
+SpecialKey                          -> NonText
+Debug                               -> Special

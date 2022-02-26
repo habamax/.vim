@@ -113,7 +113,8 @@ Ignore               none           none
 
 
 ; Diff colors
-Include: _diff
+Include: _links_def
+Include: _links_ft
 
 
 ; No color support
