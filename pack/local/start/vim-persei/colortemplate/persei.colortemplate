@@ -99,7 +99,7 @@ Special              color09        none
 Underlined           color04        none           underline
 
 Title                color09        none           bold
-Directory            color11        none           bold
+Directory            color06        none           bold
 
 Conceal              color08        none
 Ignore               none           none
