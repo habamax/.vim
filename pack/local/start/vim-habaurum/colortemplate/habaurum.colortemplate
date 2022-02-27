@@ -1,7 +1,7 @@
 ; vim: cc=22,37,52 vsts=21,15,15,4
-Full name: persei
-Short name: persei
-Description: Deep in the space this yellow giant star shines away the warmth we see from the past.
+Full name: habaurum
+Short name: habaurum
+Description: This must be a dream all I want is to see you But then I think you take a part of my soul.
 Author: Maxim Kim <habamax@gmail.com>
 
 
@@ -26,7 +26,7 @@ TabLineSel           none           none
 ToolbarLine          none           none
 ToolbarButton        color15        colorNonT
 
-QuickFixLine         color11        color00        reverse
+QuickFixLine         color00        color11
 CursorLineNr         colorC         none
 LineNr               colorNonT      none
 NonText              colorNonT      none
@@ -42,14 +42,14 @@ PmenuSel             color00        color03
 SignColumn           none           none
 
 Error                color01        color00        reverse
-ModeMsg              color14        none
+ModeMsg              color11        none
 MoreMsg              color03        none
 Question             color02        none
 WarningMsg           color09        none
 
-Todo                 color10        color00        reverse
+Todo                 color11        color00        reverse
 MatchParen           none           none           reverse
-Search               color00        color11
+Search               color00        color02
 IncSearch            color00        colorC
 WildMenu             color00        color03
 
@@ -99,7 +99,7 @@ Special              color09        none
 
 Underlined           color04        none           underline
 
-Title                color13        none           g=bold
+Title                color03        none           g=bold
 Directory            color06        none           g=bold
 
 Conceal              color08        none
