@@ -404,7 +404,7 @@ augroup END
 # Colors
 
 augroup habamax | au!
-    au Colorscheme habamax,persei
+    au Colorscheme habamax
           \  hi! link javaScriptFunction   Statement
           \| hi! link javaScriptIdentifier Statement
           \| hi! link yamlBlockMappingKey  Statement
@@ -421,5 +421,5 @@ if !has("gui_running")
     if has("win32") | set t_Co=256 | endif
 
     # silent! colorscheme habamax
-    silent! colorscheme persei
+    exe "silent! colorscheme cybermonk" .. ['', 'y']->get(rand() % 2)
 endif
