@@ -87,12 +87,14 @@ SpellRare            color13        none           t=underline g=undercurl s=col
 ;;; :h group-names
 Variant: gui 256 16
 Comment              color08        none
-Constant             color12        none
+Constant             color02        none
+; String               color02        none
 Identifier           color14        none
+Function             color03        none
 
 Statement            color11        none
 PreProc              color05        none
-Type                 color02        none
+Type                 color12        none
 
 Special              color09        none
 
