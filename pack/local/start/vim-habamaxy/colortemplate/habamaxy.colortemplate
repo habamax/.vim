@@ -1,7 +1,7 @@
 ; vim: cc=22,37,52 vsts=21,15,15,4
-Full name: habaurum
-Short name: habaurum
-Description: This must be a dream all I want is to see you But then I think you take a part of my soul.
+Full name: habamaxy
+Short name: habamaxy
+Description: Dark canvas gold flecks.
 Author: Maxim Kim <habamax@gmail.com>
 
 
@@ -42,7 +42,7 @@ PmenuSel             color00        color03
 SignColumn           none           none
 
 Error                color01        color00        reverse
-ModeMsg              color00        color12
+ModeMsg              color00        color14
 MoreMsg              color03        none
 Question             color02        none
 WarningMsg           color09        none
