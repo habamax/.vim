@@ -5,7 +5,8 @@ Description: Cyber space needs a proper shepherd to guide and protect.
 Author: Maxim Kim <habamax@gmail.com>
 
 
-Include: _links
+Include: _links_def
+Include: _links_ft
 
 Background: dark
 
@@ -113,8 +114,7 @@ Ignore               none           none
 
 
 ; Diff colors
-Include: _links_def
-Include: _links_ft
+Include: _diff
 
 
 ; No color support
