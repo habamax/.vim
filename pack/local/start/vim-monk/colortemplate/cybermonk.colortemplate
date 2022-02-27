@@ -64,21 +64,21 @@ WildMenu             color00        color02
 debugPC              color00        color04
 debugBreakpoint      color00        color09
 
-Variant: gui
-Cursor               color00        colorC
-lCursor              color00        colorlC
+CursorLine           none           colorLine
+CursorColumn         none           colorLine
 
 Variant: 16
-CursorLine           none           none           underline
-CursorColumn         none           none           reverse
 Folded               color07        none           bold
 ColorColumn          color00        color03
 
 Variant: gui 256
-CursorLine           none           colorLine
-CursorColumn         none           colorLine
 Folded               colorCm        colorB
 ColorColumn          none           colorB
+
+Variant: gui
+Cursor               color00        colorC
+lCursor              color00        colorlC
+
 
 Variant: gui
 SpellBad             none           none           t=underline g=undercurl s=color01
@@ -94,7 +94,7 @@ SpellRare            color13        none           t=underline g=undercurl s=col
 
 ;;; :h group-names
 Variant: gui 256 16
-Comment              colorCm        none           italic
+Comment              colorCm        none
 Constant             color10        none
 Identifier           color02        none
 
