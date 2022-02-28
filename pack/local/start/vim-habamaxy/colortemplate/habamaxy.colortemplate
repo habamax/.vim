@@ -101,7 +101,7 @@ Special              color06        none
 Underlined           color12        none           underline
 
 Title                color13        none           g=bold
-Directory            color06        none           g=bold
+Directory            color14        none           g=bold
 
 Conceal              color08        none
 Ignore               none           none
