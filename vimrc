@@ -350,16 +350,10 @@ command! Sy :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:v
 # save and load sessions
 var sdir = expand('~/.vimdata/sessions')
 if !isdirectory(sdir) | mkdir(sdir, "p") | endif
-command! -nargs=1 -complete=customlist,SessionComplete S :mksession! ~/.vimdata/sessions/<args>
-command! -nargs=1 -complete=customlist,SessionComplete L :%bd <bar> so ~/.vimdata/sessions/<args>
-def SessionComplete(A: string, L: string, P: number): list<string>
-    var fullpaths = split(globpath("~/.vimdata/sessions/", "*"), "\n")
-    var result = mapnew(fullpaths, (k, v) => fnamemodify(v, ":t"))
-    if empty(A)
-        return result
-    else
-        return result->matchfuzzy(A)
-    endif
+command! -nargs=1 -complete=custom,SessionComplete S :mksession! ~/.vimdata/sessions/<args>
+command! -nargs=1 -complete=custom,SessionComplete L :%bd <bar> so ~/.vimdata/sessions/<args>
+def SessionComplete(_a: string, _c: string, _p: number): string
+    return globpath("~/.vimdata/sessions/", "*")->split("\n")->mapnew((_, v) => fnamemodify(v, ":t"))->join("\n")
 enddef
 
 # write to a privileged file
