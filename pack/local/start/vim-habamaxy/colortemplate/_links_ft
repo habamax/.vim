@@ -1,12 +1,6 @@
 ; vim: ft=colortemplate cc=22,37,52 vsts=21,15,15,4
 
 ;;; ft links
-pythonInclude                       -> Statement
-javaScriptFunction                  -> Statement
-javaScriptIdentifier                -> Statement
-yamlBlockMappingKey                 -> Statement
-rubyDefine                          -> Statement
-rubyMacro                           -> Statement
 sqlKeyword                          -> Statement
 vimVar                              -> Normal
 vimOper                             -> Normal
