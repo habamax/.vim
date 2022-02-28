@@ -6,6 +6,7 @@ Author: Maxim Kim <habamax@gmail.com>
 
 
 Include: _links_def
+Include: _links_ft
 
 Background: dark
 
@@ -97,7 +98,7 @@ Type                 color12        none
 
 Special              color06        none
 
-Underlined           color04        none           underline
+Underlined           color12        none           underline
 
 Title                color13        none           g=bold
 Directory            color06        none           g=bold

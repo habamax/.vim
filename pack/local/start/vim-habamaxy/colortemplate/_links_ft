@@ -1,4 +1,4 @@
-; vim: cc=22,37,52 vsts=21,15,15,4
+; vim: ft=colortemplate cc=22,37,52 vsts=21,15,15,4
 
 ;;; ft links
 pythonInclude                       -> Statement
@@ -13,12 +13,7 @@ vimOper                             -> Normal
 vimSep                              -> Normal
 vimParenSep                         -> Normal
 gitCommitSummary                    -> Title
-fugitiveHeader                      -> Title
-fugitiveHeading                     -> Title
-fugitiveStagedHeading               -> Title
-fugitiveUnstagedHeading             -> Title
-fugitiveUntrackedHeading            -> Title
-diffRemoved                         -> DiffDelete
-diffAdded                           -> DiffAdd
-colortemplateKey                    -> Title
-
+colortemplateKey                    -> Statement
+colortemplateAttr                   -> String
+colortemplateAttrs                  -> Constant
+markdownUrl                         -> String
