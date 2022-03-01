@@ -353,7 +353,7 @@ if !isdirectory(sdir) | mkdir(sdir, "p") | endif
 command! -nargs=1 -complete=custom,SessionComplete S :mksession! ~/.vimdata/sessions/<args>
 command! -nargs=1 -complete=custom,SessionComplete L :%bd <bar> so ~/.vimdata/sessions/<args>
 def SessionComplete(_a: string, _c: string, _p: number): string
-    return globpath("~/.vimdata/sessions/", "*")->split("\n")->mapnew((_, v) => fnamemodify(v, ":t"))->join("\n")
+    return globpath("~/.vimdata/sessions/", "*", 0, 1)->mapnew((_, v) => fnamemodify(v, ":t"))->join("\n")
 enddef
 
 # write to a privileged file
