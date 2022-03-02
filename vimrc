@@ -81,7 +81,7 @@ nnoremap <silent> yol :set list! list?<CR>
 nnoremap <silent> yos :set spell! spell?<CR>
 nnoremap <silent> yov :let &ve=(&ve == "block" ? "all" : "block")<CR>:set ve<CR>
 nnoremap <expr>   yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
-nnoremap <silent> yob :let g:auto_bg = 0 \| let &bg=(&bg == "dark" ? "light" : "dark")<CR>
+nnoremap <silent> yob :let g:auto_bg = 0<CR>:exe "set bg=" .. (&bg == "dark" ? "light" : "dark")<CR>
 nnoremap <silent> yog :let b:cc = &cc ?? get(b:, "cc", 80) \| let &cc = (empty(&cc) ? b:cc : '')<CR>
 # toggle colorcolumn for at cursor position
 def ToggleCC()
