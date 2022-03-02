@@ -36,7 +36,7 @@ Visual               color00        color03
 VisualNOS            color00        color03
 
 Pmenu                none           colorB
-PmenuThumb           none           color03
+PmenuThumb           none           color07
 PmenuSbar            none           none
 PmenuSel             color00        color03
 
