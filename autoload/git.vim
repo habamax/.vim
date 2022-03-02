@@ -81,9 +81,9 @@ func! git#show_commit(count) range
     let winnr = popup_atcursor(git_output,
           \{ "padding": [1,1,1,1],
           \  "pos": "botleft",
-          \  "wrap": 0,
           \  "filter": funcref("s:popup_filter"),
-          \  "filtermode": 'n'
+          \  "filtermode": 'n',
+          \  "mapping": 0
           \})
     call setbufvar(winbufnr(winnr), "&filetype", "git")
 endfunc
@@ -107,14 +107,18 @@ func! git#blame() range
     let winnr = popup_atcursor(git_output,
           \{ "padding": [1,1,1,1],
           \  "pos": "botleft",
-          \  "wrap": 0,
           \  "filter": funcref("s:popup_filter"),
-          \  "filtermode": 'n'
+          \  "filtermode": 'n',
+          \  "mapping": 0
           \})
     call setbufvar(winbufnr(winnr), "&filetype", "git")
 endfunc
 
 func! s:popup_filter(winid, key) abort
+    if a:key == "\<Space>"
+        call win_execute(a:winid, "normal! \<C-d>\<C-d>")
+        return 1
+    endif
     if a:key == "j"
         call win_execute(a:winid, "normal! \<C-d>")
         return 1
