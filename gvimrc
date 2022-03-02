@@ -16,7 +16,7 @@ set lines=999
 # Auto change background
 def Lights()
   if !get(g:, "auto_bg", 1) | return | endif
-  if get(g:, "colors_name", "default") != "habamax" | return | endif
+  if get(g:, "colors_name", "habamax") != "habamax" | return | endif
   var hour = strftime("%H")->str2nr()
   var bg: string
   if hour > 8 && hour < 17
@@ -36,6 +36,5 @@ endif
 g:lights_timer = timer_start(5 * 60000, (_) => Lights(), {repeat: -1})
 
 
-# silent! colorscheme habamax
-silent! colorscheme habamaxy
-# exe "silent! colorscheme cybermonk" .. ['', 'y']->get(rand() % 2)
+silent! colorscheme habamax
+# silent! colorscheme habamaxy

@@ -416,5 +416,4 @@ if !has("gui_running")
 
     # silent! colorscheme habamax
     silent! colorscheme habamaxy
-    # exe "silent! colorscheme cybermonk" .. ['', 'y']->get(rand() % 2)
 endif
