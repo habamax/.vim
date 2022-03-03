@@ -141,7 +141,7 @@ nnoremap <silent> <C-p> <cmd>bp<CR>
 tnoremap <silent> <C-n> <cmd>bn<CR>
 tnoremap <silent> <C-p> <cmd>bp<CR>
 
-nnoremap <space>b :<C-u>b <C-z><C-p>
+nnoremap <space>b :<C-u>b <C-d>
 
 # simple text objects
 # -------------------
