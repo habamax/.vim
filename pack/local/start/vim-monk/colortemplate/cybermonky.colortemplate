@@ -35,7 +35,7 @@ ToolbarLine          none           none
 ToolbarButton        color00        color11
 
 QuickFixLine         color11        color00        reverse
-CursorLineNr         colorC         none           bold
+CursorLineNr         colorC         none           g=bold
 LineNr               colorNonT      none
 NonText              colorNonT      none
 
@@ -99,16 +99,16 @@ Comment              colorCm        none
 Constant             color11        none
 Identifier           color03        none
 
-Statement            color03        none           bold
+Statement            color03        none
 PreProc              color03        none
-Type                 color03        none           bold
+Type                 color03        none
 
 Special              color03        none
 
 Underlined           none           none           underline
 
-Title                color11        none           bold
-Directory            color11        none           bold
+Title                color11        none           g=bold
+Directory            color03        none           g=bold
 
 Conceal              colorCm        none
 Ignore               none           none

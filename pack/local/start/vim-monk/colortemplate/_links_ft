@@ -21,4 +21,4 @@ fugitiveUntrackedHeading            -> Title
 diffRemoved                         -> DiffDelete
 diffAdded                           -> DiffAdd
 colortemplateKey                    -> Title
-
+SelectMatched                       -> String
