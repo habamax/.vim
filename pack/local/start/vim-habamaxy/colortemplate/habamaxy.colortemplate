@@ -5,12 +5,13 @@ Description: Dark canvas, gold flecks.
 Author: Maxim Kim <habamax@gmail.com>
 
 
+Include: _palette
+
 Include: _links_def
 Include: _links_ft
 
-Background: dark
 
-Include: _palette
+Background: dark
 
 ;;; chrome
 Variant: gui 256 16
@@ -106,6 +107,9 @@ Directory            color14        none           g=bold
 Conceal              color08        none
 Ignore               none           none
 
+
+; Plugin definitions
+Include: _plugs_def
 
 ; Diff colors
 Include: _diff
