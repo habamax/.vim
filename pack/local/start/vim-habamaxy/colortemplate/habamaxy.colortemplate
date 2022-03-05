@@ -33,8 +33,8 @@ CursorLineNr         colorC         none           g=bold
 LineNr               colorNonT      none
 NonText              colorNonT      none
 
-Visual               color00        color03
-VisualNOS            color00        color03
+Visual               color00        color14
+VisualNOS            color00        color14
 
 Pmenu                none           colorB
 PmenuThumb           none           color08
@@ -44,7 +44,7 @@ PmenuSel             color00        color03
 SignColumn           none           none
 
 Error                color01        color00        reverse
-ModeMsg              color00        color14
+ModeMsg              color00        color13
 MoreMsg              color03        none
 Question             color02        none
 WarningMsg           color09        none
