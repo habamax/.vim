@@ -12,7 +12,6 @@ Background: dark
 
 Include: _palette
 
-Color: colorCm       #5F875F        65             darkgreen
 Color: colorC        #5FFF5F        83             green
 Color: colorlC       #FFAF5F        215            red
 
@@ -25,17 +24,17 @@ Variant: gui 256 16
 Normal               color02        color00
 
 Statusline           color00        color10
-StatuslineNC         color00        colorCm
-VertSplit            colorCm        colorCm
+StatuslineNC         color00        color02
+VertSplit            color02        color02
 
-TabLine              color00        colorCm
+TabLine              color00        color02
 TabLineSel           none           none
 
 ToolbarLine          none           none
 ToolbarButton        color00        color10
 
 QuickFixLine         color10        color00        reverse
-CursorLineNr         colorC         none           g=bold
+CursorLineNr         colorC         none           bold
 LineNr               colorNonT      none
 NonText              colorNonT      none
 
@@ -72,7 +71,7 @@ Folded               color07        none           bold
 ColorColumn          color00        color03
 
 Variant: gui 256
-Folded               colorCm        colorB
+Folded               color08        colorB
 ColorColumn          none           colorB
 
 Variant: gui
@@ -94,22 +93,22 @@ SpellRare            color13        none           t=underline g=undercurl s=col
 
 ;;; :h group-names
 Variant: gui 256 16
-Comment              colorCm        none
+Comment              color08        none
 Constant             color10        none
 Identifier           color02        none
 
-Statement            color02        none
+Statement            color02        none           bold
 PreProc              color02        none
-Type                 color02        none
+Type                 color02        none           bold
 
 Special              color02        none
 
 Underlined           none           none           underline
 
-Title                color10        none           g=bold
-Directory            color02        none           g=bold
+Title                color10        none           bold
+Directory            color02        none           bold
 
-Conceal              colorCm        none
+Conceal              color08        none
 Ignore               none           none
 
 

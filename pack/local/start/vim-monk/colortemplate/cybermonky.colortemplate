@@ -12,7 +12,6 @@ Background: dark
 
 Include: _palette
 
-Color: colorCm       #87875F        101            darkyellow
 Color: colorC        #FFAF5F        215            yellow
 Color: colorlC       #87FF5F        119            green
 
@@ -25,17 +24,17 @@ Variant: gui 256 16
 Normal               color03        color00
 
 Statusline           color00        color11
-StatuslineNC         color00        colorCm
-VertSplit            colorCm        colorCm
+StatuslineNC         color00        color03
+VertSplit            color03        color03
 
-TabLine              color00        colorCm
+TabLine              color00        color03
 TabLineSel           none           none
 
 ToolbarLine          none           none
 ToolbarButton        color00        color11
 
 QuickFixLine         color11        color00        reverse
-CursorLineNr         colorC         none           g=bold
+CursorLineNr         colorC         none           bold
 LineNr               colorNonT      none
 NonText              colorNonT      none
 
@@ -73,7 +72,7 @@ Folded               color07        none           bold
 ColorColumn          color00        color03
 
 Variant: gui 256
-Folded               colorCm        colorB
+Folded               color03        colorB
 ColorColumn          none           colorB
 
 Variant: gui
@@ -95,22 +94,22 @@ SpellRare            color13        none           t=underline g=undercurl s=col
 
 ;;; :h group-names
 Variant: gui 256 16
-Comment              colorCm        none
+Comment              color08        none
 Constant             color11        none
 Identifier           color03        none
 
-Statement            color03        none
+Statement            color03        none           bold
 PreProc              color03        none
-Type                 color03        none
+Type                 color03        none           bold
 
 Special              color03        none
 
 Underlined           none           none           underline
 
-Title                color11        none           g=bold
-Directory            color03        none           g=bold
+Title                color11        none           bold
+Directory            color03        none           bold
 
-Conceal              colorCm        none
+Conceal              color08        none
 Ignore               none           none
 
 
