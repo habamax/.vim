@@ -5,9 +5,9 @@ Variant:    gui 256 16
 Background: dark
 
 Color: bgDiffA     #5F875F        65             darkgreen
-Color: bgDiffD     #AF5FAF        133            darkmagenta
+Color: bgDiffD     #875F87        96             darkmagenta
 Color: bgDiffC     #5F87AF        67             darkblue
-Color: bgDiffT     #00AFAF        37             darkcyan
+Color: bgDiffT     #005F5F        23             darkcyan
 Color: fgDiff      #FFFFFF        231            white
 
 DiffAdd            fgDiff         bgDiffA
