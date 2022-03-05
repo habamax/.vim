@@ -143,3 +143,7 @@ nmap dss <Plug>(sandwich-delete-auto)
 nmap cs <Plug>(sandwich-replace)
 nmap css <Plug>(sandwich-replace-auto)
 xmap S <Plug>(sandwich-add)
+
+
+# ALE
+g:ale_virtualtext_cursor = 1
