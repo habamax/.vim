@@ -138,7 +138,7 @@ export def Gx()
 
     # barebone URL http://google.com
     if empty(URL)
-        URL = matchstr(expand("<cfile>"), rx_bare)
+        URL = matchstr(expand("<cWORD>"), rx_bare)
     endif
 
     if empty(URL)
