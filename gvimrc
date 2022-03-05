@@ -13,4 +13,6 @@ set guifont=JetBrains\ Mono\ NL:h13
 set columns=130
 set lines=999
 
-silent! colorscheme habamax
+exe "silent! colorscheme "
+      \ .. ["habamax", "cybermonk"]->get(rand() % 2)
+      \ .. ['', 'y']->get(rand() % 2)
