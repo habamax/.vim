@@ -374,7 +374,7 @@ command! -nargs=1 -complete=command -bar Redir silent v#Redir(<q-args>)
 # helper command and mapping to work with legacy colorschemes
 command! -nargs=1 -complete=color Colo exe "so $VIMRUNTIME/colors/" .. <q-args> .. ".vim"
 command! ColoCheck ru colors/tools/check_colors.vim
-command! ColoMisc  ru colors/tools/sample_misc.vim
+command! ColoMisc  tabnew | ru colors/tools/sample_misc.vim
 command! ColoMess  ru colors/tools/sample_messages.vim
 command! ColoDiff  tabnew | ru colors/tools/sample_diff.vim
 command! ColoQF    tabnew | ru colors/tools/sample_quickfix.vim
