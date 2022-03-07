@@ -9,6 +9,4 @@ Terminal                            -> Normal
 StatuslineTerm                      -> Statusline
 StatuslineTermNC                    -> StatuslineNC
 TabLineFill                         -> TabLine
-EndOfBuffer                         -> NonText
-SpecialKey                          -> NonText
 Debug                               -> Special

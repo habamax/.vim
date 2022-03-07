@@ -414,7 +414,6 @@ augroup END
 
 if !has("gui_running")
     if has("win32") | set t_Co=256 | endif
-
     set background=dark
-    exe "silent! colorscheme habamax" .. ['', 'y']->get(rand() % 2)
 endif
+exe "silent! colorscheme habamax" .. ['', 'y']->get(rand() % 2)

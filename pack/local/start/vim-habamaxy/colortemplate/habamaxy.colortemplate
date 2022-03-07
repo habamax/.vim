@@ -7,11 +7,11 @@ Author: Maxim Kim <habamax@gmail.com>
 
 Include: _palette
 
+Background: dark
+
 Include: _links_def
 Include: _links_ft
-
-
-Background: dark
+Include: _plugs_def
 
 ;;; chrome
 Variant: gui 256 16
@@ -32,6 +32,8 @@ QuickFixLine         color00        color11
 CursorLineNr         colorC         none           g=bold
 LineNr               colorNonT      none
 NonText              colorNonT      none
+EndOfBuffer          colorNonT      none
+SpecialKey           colorNonT      none
 
 Visual               color00        color14
 VisualNOS            color00        color14
@@ -107,9 +109,6 @@ Directory            color14        none           g=bold
 Conceal              color08        none
 Ignore               none           none
 
-
-; Plugin definitions
-Include: _plugs_def
 
 ; Diff colors
 Include: _diff
