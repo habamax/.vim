@@ -1,7 +1,6 @@
 ; vim: ft=colortemplate cc=22,37,52 vsts=21,15,15,4
 
 ;;; Links
-ErrorMsg                            -> Error
 FoldColumn                          -> LineNr
 LineNrAbove                         -> LineNr
 LineNrBelow                         -> LineNr
