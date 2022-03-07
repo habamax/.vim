@@ -416,7 +416,6 @@ if !has("gui_running")
     if has("win32") | set t_Co=256 | endif
     set background=dark
 endif
-# exe "silent! colorscheme habamax" .. ['', 'y']->get(rand() % 2)
 if strftime("%u")->str2nr() % 2 == 0
     colorscheme habamax
 else
