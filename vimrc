@@ -108,9 +108,9 @@ def ResizeWin(width: number, height: number)
     setlocal nowinfixwidth nowinfixheight
     normal! ze
 enddef
-noremap <silent> <C-w>m <ScriptCmd>ResizeWin(90, 30)<CR>
+noremap <silent> <C-w>m <ScriptCmd>ResizeWin(v:count * 10 + 90, 30)<CR>
 map <C-w><C-m> <C-w>m
-tnoremap <silent> <C-w>m <ScriptCmd>ResizeWin(90, 30)<CR>
+tnoremap <silent> <C-w>m <ScriptCmd>ResizeWin(v:count * 10 + 90, 30)<CR>
 tmap <C-w><C-m> <C-w>m
 
 # navigation
