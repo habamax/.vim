@@ -25,9 +25,9 @@ export def Change(op: string)
     var new_font = orig_guifont
 
     if op == 'inc'
-        new_font = fontname .. (has("win32") ? 'h:' : '  ') .. (fontsize + 1)
+        new_font = fontname .. (has("win32") ? ':h' : '  ') .. (fontsize + 1)
     elseif op == 'dec'
-        new_font = fontname .. (has("win32") ? 'h:' : '  ') .. (fontsize - 1)
+        new_font = fontname .. (has("win32") ? ':h' : '  ') .. (fontsize - 1)
     endif
 
     if has("win32")
