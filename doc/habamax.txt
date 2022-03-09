@@ -1,9 +1,33 @@
 *habamax.txt*         Personal habamax help
 
 
-
-BUILD VIM ON DEBIAN                                           *build-vim-debian*
+BUILD VIM FROM SOURCE                                         *build-vim-debian*
 ==============================================================================
+
+GET VIM SOURCES
+>
+  cd ~
+  mkdir prj
+  cd ~/prj
+  git clone https://github.com/vim/vim.git
+
+
+FEDORA                                                        *build-vim-fedora*
+------------------------------------------------------------------------------
+
+INSTALL BUILD TOOLS AND DEV LIBS
+>
+  sudo yum builddep vim-X11
+
+
+MAKE AND INSTALL
+>
+  ./configure --with-features=huge --enable-gui=gtk3 --enable-python3interp
+  sudo make install
+
+
+DEBIAN                                                        *build-vim-debian*
+------------------------------------------------------------------------------
 
 INSTALL BUILD TOOLS AND DEV LIBS
 >
@@ -16,18 +40,9 @@ REMOVE STOCK VIM
   sudo apt remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common
 
 
-GET VIM SOURCES
->
-  cd ~
-  mkdir .temp
-  cd .temp
-  git clone https://github.com/vim/vim.git
-
-
 MAKE AND INSTALL
 >
-  make distclean
-  ./configure --with-features=huge --enable-multibyte --enable-gui=gtk3 --enable-python3interp
+  ./configure --with-features=huge --enable-gui=gtk3 --enable-python3interp
   sudo make install
 
 
