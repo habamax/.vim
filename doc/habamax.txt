@@ -1,7 +1,7 @@
 *habamax.txt*         Personal habamax help
 
 
-BUILD VIM FROM SOURCE                                         *build-vim-debian*
+BUILD VIM FROM SOURCE                                                *build-vim*
 ==============================================================================
 
 GET VIM SOURCES
