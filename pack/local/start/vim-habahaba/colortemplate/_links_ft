@@ -1,0 +1,10 @@
+; vim: ft=colortemplate cc=22,37,52 vsts=21,15,15,4
+
+;;; ft links
+sqlKeyword                          -> Statement
+vimVar                              -> Normal
+vimOper                             -> Normal
+vimSep                              -> Normal
+vimParenSep                         -> Normal
+gitCommitSummary                    -> Title
+markdownUrl                         -> String
