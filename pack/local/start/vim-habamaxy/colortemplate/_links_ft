@@ -7,7 +7,4 @@ vimOper                             -> Normal
 vimSep                              -> Normal
 vimParenSep                         -> Normal
 gitCommitSummary                    -> Title
-colortemplateKey                    -> Statement
-colortemplateAttr                   -> String
-colortemplateAttrs                  -> Constant
 markdownUrl                         -> String
