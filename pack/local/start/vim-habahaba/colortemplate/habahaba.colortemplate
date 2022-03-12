@@ -53,7 +53,7 @@ SignColumn           none           none
 
 Error                color01        color00        reverse
 ErrorMsg             color01        color00        reverse
-ModeMsg              color00        color13
+ModeMsg              color00        color05
 MoreMsg              color03        none
 Question             color02        none
 WarningMsg           color09        none
