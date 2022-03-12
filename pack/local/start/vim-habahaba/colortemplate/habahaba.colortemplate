@@ -1,8 +1,8 @@
 ; vim: cc=22,37,52 vsts=21,15,15,4
-Full name: habahaba
-Short name: habahaba
-Description: Black is the color of my true love's editor.
-Author: Maxim Kim <habamax@gmail.com>
+Full name:   habahaba
+Short name:  habahaba
+Description: Just black.
+Author:      Maxim Kim <habamax@gmail.com>
 
 
 Include: _palette
