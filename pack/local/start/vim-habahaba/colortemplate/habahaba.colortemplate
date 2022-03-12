@@ -1,6 +1,6 @@
 ; vim: cc=22,37,52 vsts=21,15,15,4
-Full name:   haba
-Short name:  haba
+Full name:   habahaba
+Short name:  habahaba
 Description: haba haba haba.
 Author:      Maxim Kim <habamax@gmail.com>
 
@@ -59,7 +59,7 @@ Question             color02        none
 WarningMsg           color09        none
 
 Todo                 color11        color00        reverse
-MatchParen           color00        color13
+MatchParen           color00        color06
 Search               color00        color02
 IncSearch            color00        colorC
 WildMenu             color00        color03
