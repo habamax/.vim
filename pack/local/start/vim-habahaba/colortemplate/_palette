@@ -1,7 +1,7 @@
 ; vim: ft=colortemplate cc=22,37,52 vsts=21,15,15,4
 
 ;;; Color palette
-Color: color00       #000000        16             black
+Color: color00       #1C1C1C        234            black
 Color: color08       #767676        243            darkgrey
 
 Color: color01       #D75F5F        167            darkred
@@ -23,10 +23,10 @@ Color: color06       #5F8787        66             darkcyan
 Color: color14       #87AFAF        109            cyan
 
 Color: color07       #9E9E9E        247            grey
-Color: color15       #D0D0D0        252            white
+Color: color15       #BCBCBC        250            white
 
 Color: colorLine     #262626        235            darkgrey
-Color: colorB        #1C1C1C        234            darkgrey
+Color: colorB        #303030        236            darkgrey
 Color: colorNonT     #585858        240            darkgrey
 
 Color: colorC        #FFAF5F        215            yellow
