@@ -25,8 +25,8 @@ Color: color14       #87AFAF        109            cyan
 Color: color07       #9E9E9E        247            grey
 Color: color15       #BCBCBC        250            white
 
-Color: colorLine     #262626        235            darkgrey
-Color: colorB        #303030        236            darkgrey
+Color: colorLine     #303030        236            darkgrey
+Color: colorB        #262626        235            darkgrey
 Color: colorNonT     #585858        240            darkgrey
 
 Color: colorC        #FFAF5F        215            yellow
