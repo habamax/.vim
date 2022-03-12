@@ -414,12 +414,5 @@ augroup END
 
 if !has("gui_running")
     if has("win32") | set t_Co=256 | endif
-    set background=dark
 endif
 colorscheme habahaba
-
-# if strftime("%u")->str2nr() % 2 == 0
-#     colorscheme habamax
-# else
-#     colorscheme habamaxy
-# endif
