@@ -400,9 +400,7 @@ augroup END
 
 augroup habamax | au!
     au Colorscheme habamax
-          \  hi! link javaScriptFunction   Statement
-          \| hi! link javaScriptIdentifier Statement
-          \| hi! link yamlBlockMappingKey  Statement
+          \  hi! link yamlBlockMappingKey  Statement
           \| hi! link rubyDefine           Statement
           \| hi! link rubyMacro            Statement
           \| hi! link sqlKeyword           Statement
