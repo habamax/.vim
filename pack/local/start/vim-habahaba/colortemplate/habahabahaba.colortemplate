@@ -1,86 +1,91 @@
 ; vim: cc=22,37,52 vsts=21,15,15,4
-Full name:   habahaba
-Short name:  habahaba
-Description: haba haba haba.
+Full name:   habahabahaba
+Short name:  habahabahaba
+Description: haba haba haba indeed.
 Author:      Maxim Kim <habamax@gmail.com>
 
 
-Include: _palette_dark
+Include: _palette_light
 
-Background: dark
+Background: light
 
 Include: _links_ft
 Include: _plugs_def
 
-;;; chrome
+;;; chrome TODO:
 Variant: gui 256 16
 
-Normal               color15        color00
-Terminal             color15        color00
+Normal               color00        color15
+Terminal             color00        color15
 
-Statusline           color00        color07
-StatuslineNC         color00        color08
-StatuslineTerm       color00        color07
-StatuslineTermNC     color00        color08
-VertSplit            color08        color08
+Statusline           color15        color08
+StatuslineTerm       color15        color08
+VertSplit            color07        color07
 
-TabLine              color00        color08
-TabLineFill          color00        color08
+TabLine              none           color07
+TabLineFill          none           color07
 TabLineSel           none           none
 
 ToolbarLine          none           none
 ToolbarButton        color00        colorNonT
 
-QuickFixLine         color00        color11
+QuickFixLine         color15        color12
 CursorLineNr         colorC         none           g=bold
 LineNr               colorNonT      none
 LineNrAbove          colorNonT      none
 LineNrBelow          colorNonT      none
 NonText              colorNonT      none
+FoldColumn           colorNonT      none
 EndOfBuffer          colorNonT      none
 SpecialKey           colorNonT      none
-FoldColumn           colorNonT      none
-
-Visual               color00        color14
-VisualNOS            color00        color14
 
 Pmenu                none           colorB
-PmenuThumb           none           color08
+PmenuThumb           none           color07
 PmenuSbar            none           none
-PmenuSel             color00        color03
+PmenuSel             color00        color11
 
 SignColumn           none           none
 
-Error                color01        color00        reverse
-ErrorMsg             color01        color00        reverse
-ModeMsg              color00        color05
-MoreMsg              color03        none
-Question             color02        none
+Error                color01        color15        reverse
+ErrorMsg             color01        color15        reverse
+ModeMsg              color15        color13
+MoreMsg              color02        none
+Question             color03        none
 WarningMsg           color09        none
 
 Todo                 color11        color00        reverse
-MatchParen           color00        color06
-Search               color00        color02
-IncSearch            color00        colorC
-WildMenu             color00        color03
+MatchParen           color15        color06
+Search               color15        colorS
+IncSearch            color15        colorC
+WildMenu             color00        color11
 
-debugPC              color00        color04
-debugBreakpoint      color00        color09
+debugPC              color15        color04
+debugBreakpoint      color15        color01
+
 
 Variant: gui
-Cursor               color00        colorC
+Cursor               color15        colorC
 lCursor              color00        colorlC
 
 Variant: 16
-CursorLine           color00        color11
+
+StatuslineNC         color00        color07
+StatuslineTermNC     color00        color07
+Visual               color00        color14
+VisualNOS            color00        color14
+CursorLine           none           color11
 CursorColumn         color00        color11
-Folded               color06        none
+Folded               color00        color03
 ColorColumn          color00        color03
 
 Variant: gui 256
+
+StatuslineNC         color15        color07
+Visual               color15        color14
+VisualNOS            color15        color14
 CursorLine           none           colorLine
 CursorColumn         none           colorLine
-Folded               color07        colorB
+Folded               color08        colorB
 ColorColumn          none           colorB
 
 Variant: gui
@@ -96,31 +101,36 @@ SpellRare            color13        none           t=underline g=undercurl s=col
 
 
 ;;; :h group-names
-Variant: gui 256 16
+Variant: gui 256
+Comment              color07        none
+PreProc              color03        none
+Variant: 16
 Comment              color08        none
+PreProc              color06        none
+
+Variant: gui 256 16
 Constant             color09        none
-String               color02        none
+String               color10        none
 Character            color02        none
-Identifier           color14        none
+Identifier           color06        none
 
 Statement            color05        none
-PreProc              color03        none
 Type                 color04        none
 
-Special              color06        none
+Special              color14        none
 
 Underlined           color12        none           underline
 
-Title                color11        none           g=bold
+Title                color03        none           g=bold
 Directory            color04        none           g=bold
 
 Conceal              color08        none
 Ignore               none           none
 
-Debug                color06        none
+Debug                color14        none
 
 ; Diff colors
-Include: _diff_dark
+Include: _diff_light
 
 
 ; No color support

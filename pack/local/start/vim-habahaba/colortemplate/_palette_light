@@ -1,0 +1,37 @@
+; vim: ft=colortemplate cc=22,37,52 vsts=21,15,15,4
+
+;;; Color palette
+Color: color00       #262626        235            black
+Color: color08       #626262        241            darkgrey
+
+Color: color01       #AF0000        124            darkred
+Color: color09       #AF5F00        130            red
+
+Color: color02       #005F00        22             darkgreen
+Color: color10       #008700        28             darkgreen
+
+Color: color03       #875F00        94             darkyellow
+Color: color11       #D7D787        186            yellow
+
+Color: color04       #005FAF        25             darkblue
+Color: color12       #5F87AF        67             blue
+
+Color: color05       #870087        90             darkmagenta
+Color: color13       #AF5FAF        133            darkmagenta
+
+Color: color06       #008787        30             blue
+Color: color14       #5F8787        66             darkcyan
+
+Color: color07       #949494        246            grey
+Color: color15       #FFFFFF        231            white
+
+Color: colorLine     #E4E4E4        254            grey
+Color: colorB        #EEEEEE        255            grey
+Color: colorNonT     #B2B2B2        249            grey
+Color: colorC        #AF5F87        132            red
+Color: colorlC       #0000FF        21             blue
+Color: colorS        #87AF87        21             green
+
+
+Term colors: color00 color01 color02 color03 color04 color05 color06 color07
+Term colors: color08 color09 color10 color11 color12 color13 color14 color15
