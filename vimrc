@@ -415,4 +415,4 @@ augroup END
 if !has("gui_running")
     if has("win32") | set t_Co=256 | endif
 endif
-colorscheme haba
+colorscheme habamaxy
