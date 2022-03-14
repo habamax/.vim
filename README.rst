@@ -110,7 +110,8 @@ Auto change ``&background`` in GUI Vim depending on time (check every 5 mins):
 Colors
 ======
 
-- habamax_: dark/light background, this should be really the last one;
+- habamax_: dark background, this should be really the last one;
+- habaurora_: light background, graish;
 - bronzage_: dark background, was thinking of zenburn while creating it;
 - sugarlily_: white background, blue accents;
 - saturnite_: dark background, variation of the awesome Apprentice_;
@@ -122,6 +123,7 @@ Colors
 - habanight_: black background variation of base16-default-dark colorscheme.
 
 .. _habamax: https://github.com/habamax/vim-habamax
+.. _habaurora: https://github.com/habamax/vim-habaurora
 .. _bronzage: https://github.com/habamax/vim-bronzage
 .. _sugarlily: https://github.com/habamax/vim-sugarlily
 .. _saturnite: https://github.com/habamax/vim-saturnite
