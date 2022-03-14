@@ -416,7 +416,7 @@ if !has("gui_running")
 endif
 
 if strftime("%u")->str2nr() % 2 == 0
-    colorscheme habamax
-else
     colorscheme habamaxy
+else
+    colorscheme habamax
 endif
