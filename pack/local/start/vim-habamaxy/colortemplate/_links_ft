@@ -12,3 +12,4 @@ elixirKeyword                       -> Statement
 elixirBlockDefinition               -> Statement
 elixirModuleDefine                  -> Statement
 elixirDefine                        -> Statement
+elixirOperator                      -> Normal
