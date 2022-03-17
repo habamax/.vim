@@ -8,3 +8,7 @@ vimSep                              -> Normal
 vimParenSep                         -> Normal
 gitCommitSummary                    -> Title
 markdownUrl                         -> String
+elixirKeyword                       -> Statement
+elixirBlockDefinition               -> Statement
+elixirModuleDefine                  -> Statement
+elixirDefine                        -> Statement
