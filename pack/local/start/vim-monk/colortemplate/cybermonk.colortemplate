@@ -103,7 +103,7 @@ Type                 color02        none           bold
 
 Special              color02        none
 
-Underlined           none           none           underline
+Underlined           color10        none           underline
 
 Title                color10        none           bold
 Directory            color02        none           bold

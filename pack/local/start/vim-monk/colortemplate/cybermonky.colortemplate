@@ -104,7 +104,7 @@ Type                 color03        none           bold
 
 Special              color03        none
 
-Underlined           none           none           underline
+Underlined           color11        none           underline
 
 Title                color11        none           bold
 Directory            color03        none           bold
