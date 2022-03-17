@@ -398,18 +398,6 @@ augroup END
 ################################################################################
 # Colors
 
-augroup habamax | au!
-    au Colorscheme habamax
-          \  hi! link yamlBlockMappingKey  Statement
-          \| hi! link rubyDefine           Statement
-          \| hi! link rubyMacro            Statement
-          \| hi! link sqlKeyword           Statement
-          \| hi! link vimVar               Normal
-          \| hi! link vimOper              Normal
-          \| hi! link vimSep               Normal
-          \| hi! link vimParenSep          Normal
-augroup END
-
 if !has("gui_running")
     if has("win32") | set t_Co=256 | endif
     if strftime("%u")->str2nr() % 2 == 0

@@ -2,6 +2,9 @@
 
 ;;; ft links
 sqlKeyword                          -> Statement
+yamlBlockMappingKey                 -> Statement
+rubyMacro                           -> Statement
+rubyDefine                          -> Statement
 vimVar                              -> Normal
 vimOper                             -> Normal
 vimSep                              -> Normal
@@ -12,4 +15,4 @@ elixirKeyword                       -> Statement
 elixirBlockDefinition               -> Statement
 elixirModuleDefine                  -> Statement
 elixirDefine                        -> Statement
-elixirOperator                      -> Normal
+elixirOperator                      -> PreProc

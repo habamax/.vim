@@ -22,3 +22,9 @@ diffRemoved                         -> DiffDelete
 diffAdded                           -> DiffAdd
 colortemplateKey                    -> Title
 SelectMatched                       -> String
+elixirKeyword                       -> Statement
+elixirBlockDefinition               -> Statement
+elixirModuleDefine                  -> Statement
+elixirDefine                        -> Statement
+elixirOperator                      -> Normal
+elixirModuleDeclaration             -> Title
