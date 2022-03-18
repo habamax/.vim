@@ -1,0 +1,28 @@
+snippet >
+	|> ${1}
+snippet &
+	&(${1:&1}${2})
+snippet if
+	if ${1:true} do
+		${2}
+	end
+snippet ife
+	if ${1:true} do
+		${2}
+	else
+		${3}
+	end
+snippet un
+	unless ${1:false} do
+		${2}
+	end
+snippet case
+	case ${1} do
+		_ -> "fallback"
+	end
+snippet cond
+	cond do
+		${1}
+	end
+snippet fn
+	fn ${1} -> ${2} end
