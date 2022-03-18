@@ -90,7 +90,7 @@ endfunc
 
 
 " Blame current (selected) line.
-" Usage: noremap <silent> <Leader>gb :call git#blame()<CR>
+" Usage: noremap <silent> <Space>gb :call git#blame()<CR>
 " Note: should be in .vim/autoload/git.vim
 func! git#blame() range
     if !executable('git')
