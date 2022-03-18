@@ -64,7 +64,7 @@ Question             color02        none
 WarningMsg           color09        none
 
 Todo                 color11        color00        reverse
-MatchParen           color00        color13
+MatchParen           color13        color00        reverse
 Search               color00        color02
 IncSearch            color00        colorC
 WildMenu             color00        color03
