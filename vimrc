@@ -43,19 +43,17 @@ endif
 ################################################################################
 # Non Plugin Mappings
 
-# run legacy vimscript (operator)
-def VimL(...args: list<any>): any
+# source vimscript (operator)
+def SourceVim(...args: list<any>): any
     if len(args) == 0
         &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
         return 'g@'
     endif
-    var commands = {"line": "'[V']y", "char": "`[v`]y", "block": "`[\<c-v>`]y"}
-    silent exe 'noautocmd keepjumps normal! ' .. get(commands, args[0], '')
-    :@"
+    :'[,']source
     return ''
 enddef
-nnoremap <silent> <expr> <space>v <SID>VimL()
-xnoremap <silent> <space>v y:@"<CR>
+nnoremap <silent> <expr> <space>v <SID>SourceVim()
+xnoremap <silent> <space>v :source<CR>
 nmap <space>vv V<space>v
 
 g:maplocalleader = "\<space>\<space>"
