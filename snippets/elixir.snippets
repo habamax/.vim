@@ -29,18 +29,18 @@ snippet cond
 		${1}
 	end
 snippet fn
-	fn ${1} -> ${2} end
+	fn ${1}-> ${2} end
 snippet defm
 	defmodule ${1:ModuleName} do
 		${2}
 	end
 snippet def
-	def ${1:func_name}(${2}) do
-		${3::ok}
+	def ${1:func_name} do
+		${2::ok}
 	end
 snippet defp
-	defp ${1:func_name}(${2}) do
-		${3::ok}
+	defp ${1:func_name} do
+		${2::ok}
 	end
 snippet map
 	Enum.map(${1})
