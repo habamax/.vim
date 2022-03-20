@@ -64,8 +64,9 @@ if &wildcharm == 26
     cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
 endif
 
-# searches
+# search&replace
 nnoremap <space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
+xnoremap <space>% y:%s/<C-r>=escape(@", '^~$\&*.[]')<CR>//g<left><left>
 nnoremap <space>/ /<C-r>=expand("<cword>")<CR>
 xnoremap <space>/ y/<C-R>"
 xnoremap * y/<C-R>"<CR>
