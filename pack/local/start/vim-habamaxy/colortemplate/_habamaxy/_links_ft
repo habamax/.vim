@@ -15,4 +15,5 @@ elixirKeyword                       -> Statement
 elixirBlockDefinition               -> Statement
 elixirModuleDefine                  -> Statement
 elixirDefine                        -> Statement
+elixirPrivateDefine                 -> Statement
 elixirOperator                      -> PreProc
