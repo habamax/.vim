@@ -26,3 +26,15 @@ snippet cond
 	end
 snippet fn
 	fn ${1} -> ${2} end
+snippet defm
+	defmodule ${1:ModuleName} do
+		${2}
+	end
+snippet def
+	def ${1:func_name} do
+		${2::ok}
+	end
+snippet defp
+	defp ${1:func_name} do
+		${2::ok}
+	end
