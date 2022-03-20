@@ -10,11 +10,9 @@ Color: color09       #FF875F        209            red
 Color: color02       #87AF87        108            darkgreen
 Color: color10       #AFD7AF        151            green
 
-; Color: color03       #AFAF87        144            darkyellow
+Color: color03       #AFAF87        144            darkyellow
 ; Color: color11       #DFDF87        186            yellow
-; Color: color11       #DFDF5F        185            yellow
-Color: color03       #AF875F        137            darkyellow
-Color: color11       #D7AF5F        179            yellow
+Color: color11       #DFDF5F        185            yellow
 
 Color: color04       #5F87AF        67             blue
 Color: color12       #87AFD7        110            blue
