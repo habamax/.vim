@@ -1,3 +1,7 @@
+snippet p
+	IO.puts(${1})
+snippet #
+	#{${1}}
 snippet >
 	|> ${1}
 snippet &
@@ -31,10 +35,28 @@ snippet defm
 		${2}
 	end
 snippet def
-	def ${1:func_name} do
-		${2::ok}
+	def ${1:func_name}(${2}) do
+		${3::ok}
 	end
 snippet defp
-	defp ${1:func_name} do
-		${2::ok}
+	defp ${1:func_name}(${2}) do
+		${3::ok}
 	end
+snippet map
+	Enum.map(${1})
+snippet smap
+	Stream.map(${1})
+snippet red
+	Enum.reduce(${1})
+snippet sred
+	Stream.reduce(${1})
+snippet take
+	Enum.take(${1})
+snippet doc
+	@doc """
+	${1}
+	"""
+snippet mdoc
+	@moduledoc """
+	${1}
+	"""
