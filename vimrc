@@ -54,7 +54,7 @@ def SourceVim(...args: list<any>): any
 enddef
 nnoremap <silent> <expr> <space>v <SID>SourceVim()
 xnoremap <silent> <space>v :source<CR>
-nmap <space>vv V<space>v
+nnoremap <space>vv :.source<CR>
 
 g:maplocalleader = "\<space>\<space>"
 
