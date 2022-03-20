@@ -53,7 +53,8 @@ g:swap_no_default_key_mappings = 1
 
 # vim-rooter
 g:rooter_change_directory_for_non_project_files = ''
-g:rooter_patterns = ['.git', '.hg', '.svn', 'Makefile', 'go.mod', 'mix.exs']
+g:rooter_patterns = ['.git', '.hg', '.svn',
+        'Makefile', 'go.mod', 'mix.exs', 'package.json']
 
 g:rooter_silent_chdir = 1
 
