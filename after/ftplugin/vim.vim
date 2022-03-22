@@ -14,4 +14,4 @@ def Fold()
 enddef
 
 nnoremap <silent><buffer> <F2> :g#^def\s#silent! exe "norm! zd" \| call <sid>Fold()<CR>
-nnoremap <F5> :update<CR>:so%<CR>
+nnoremap <buffer> <F5> :source<CR>
