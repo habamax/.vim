@@ -103,8 +103,8 @@ nnoremap <silent> <BS> <cmd>call text#Toggle()<CR>
 # Move line up/down
 nnoremap <silent> <C-k> <cmd>silent! move-2<CR>==
 nnoremap <silent> <C-j> <cmd>silent! move+1<CR>==
-inoremap <silent> <C-k> <cmd>silent! move-2<CR><C-f>
-inoremap <silent> <C-j> <cmd>silent! move+1<CR><C-f>
+# inoremap <silent> <C-k> <cmd>silent! move-2<CR><C-f>
+# inoremap <silent> <C-j> <cmd>silent! move+1<CR><C-f>
 # Move selected lines up/down
 xnoremap <silent> <C-k> :<C-u>silent! '<,'>move-2<CR>gv=gv
 xnoremap <silent> <C-j> :<C-u>silent! '<,'>move'>+<CR>gv=gv
