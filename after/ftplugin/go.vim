@@ -19,5 +19,5 @@ def PopupHelp(symbol: string)
     popup#ShowAtCursor(systemlist("go doc " .. symbol))
 enddef
 
-nnoremap <buffer> K :call <SID>PopupHelp(expand("<cfile>"))<CR>
-xnoremap <buffer> K y:call <SID>PopupHelp(@@)<CR>
+nnoremap <silent><buffer> K :call <SID>PopupHelp(expand("<cfile>"))<CR>
+xnoremap <silent><buffer> K y:call <SID>PopupHelp(@@)<CR>
