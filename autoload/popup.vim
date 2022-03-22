@@ -3,7 +3,10 @@ vim9script
 # Returns winnr of created popup window
 export def ShowAtCursor(text: any): number
     var winnr = popup_atcursor(text, {
-            padding: [1, 1, 1, 1],
+            padding: [0, 1, 0, 1],
+            border: [],
+            # borderchars: ['━', '┃', '━', '┃', '┏', '┓', '┛', '┗'],
+            borderchars: ['─', '│', '─', '│', '┌', '┐', '┘', '└'],
             pos: "botleft",
             filter: "PopupFilter",
             filtermode: 'n',
