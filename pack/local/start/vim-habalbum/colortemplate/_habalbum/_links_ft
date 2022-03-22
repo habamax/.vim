@@ -1,0 +1,32 @@
+; vim: ft=colortemplate cc=22,37,52 vsts=21,15,15,4
+
+;;; ft links
+sqlKeyword                          -> Statement
+yamlBlockMappingKey                 -> Statement
+rubyMacro                           -> Statement
+rubyDefine                          -> Statement
+vimVar                              -> Normal
+vimOper                             -> Normal
+vimSep                              -> Normal
+vimParenSep                         -> Normal
+markdownUrl                         -> String
+elixirOperator                      -> PreProc
+elixirKeyword                       -> Statement
+elixirBlockDefinition               -> Statement
+elixirDefine                        -> Statement
+elixirPrivateDefine                 -> Statement
+elixirGuard                         -> Statement
+elixirPrivateGuard                  -> Statement
+elixirModuleDefine                  -> Statement
+elixirProtocolDefine                -> Statement
+elixirImplDefine                    -> Statement
+elixirRecordDefine                  -> Statement
+elixirPrivateRecordDefine           -> Statement
+elixirMacroDefine                   -> Statement
+elixirPrivateMacroDefine            -> Statement
+elixirDelegateDefine                -> Statement
+elixirOverridableDefine             -> Statement
+elixirExceptionDefine               -> Statement
+elixirCallbackDefine                -> Statement
+elixirStructDefine                  -> Statement
+elixirExUnitMacro                   -> Statement

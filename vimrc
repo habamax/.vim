@@ -416,5 +416,6 @@ if !has("gui_running")
         colorscheme habamax
     endif
 else
-    colorscheme habaurora
+    # colorscheme habaurora
+    colorscheme habalbum
 endif
