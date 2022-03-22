@@ -13,6 +13,10 @@ if exists(":DD")
     setlocal keywordprg=:DD\ go
 endif
 
+nnoremap <buffer> <F5> :!go run %<CR>
+
+compiler go
+
 " func! s:goDocPopup(keyword) abort
 "     let winid = popup_atcursor('', {
 " 		\ "title": 'go doc ' . a:keyword,
