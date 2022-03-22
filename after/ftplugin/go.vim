@@ -1,32 +1,23 @@
+vim9script
+
+compiler go
+
 setl shiftwidth=0
 setl noexpandtab
 setl formatprg=gofmt
 
 if executable("goimports")
-    " go install golang.org/x/tools/cmd/goimports@latest
+    # go install golang.org/x/tools/cmd/goimports@latest
     command! -buffer Fmt :%!goimports
 else
     command! -buffer Fmt :%!gofmt
 endif
 
-if exists(":DD")
-    setlocal keywordprg=:DD\ go
-endif
-
 nnoremap <buffer> <F5> :!go run %<CR>
 
-compiler go
+def PopupHelp(symbol: string)
+    popup#ShowAtCursor(systemlist("go doc " .. symbol))
+enddef
 
-" func! s:goDocPopup(keyword) abort
-"     let winid = popup_atcursor('', {
-" 		\ "title": 'go doc ' . a:keyword,
-" 		\ "border": [],
-" 		\ "borderchars": ['─', '│', '─', '│', '┌', '┐', '┘', '└'],
-" 		\ "padding": [],
-" 		\ "mapping": 0,
-" 		\})
-"     let bufnr = winbufnr(winid)
-"     call setbufline(bufnr, 1, systemlist("go doc " . a:keyword))
-" endfunc
-
-" nnoremap <buffer> K :call <SID>goDocPopup("")
+nnoremap <buffer> K :call <SID>PopupHelp(expand("<cfile>"))<CR>
+xnoremap <buffer> K y:call <SID>PopupHelp(@@)<CR>
