@@ -56,7 +56,7 @@ VertSplit          color07        color07
 
 TabLine            none           color07
 TabLineFill        none           color07
-TabLineSel         none           none
+TabLineSel         color00        color15
 
 ToolbarLine        none           none
 ToolbarButton      color00        colorNonT
