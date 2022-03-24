@@ -8,7 +8,8 @@ endif
 setlocal foldignore=
 
 def PopupHelp(symbol: string)
-    popup#ShowAtCursor(systemlist("python -m pydoc " .. symbol))
+    var winid = popup#ShowAtCursor(systemlist("python -m pydoc " .. symbol))
+    setbufvar(winbufnr(winid), "&ft", "rst")
 enddef
 
 nnoremap <silent><buffer> K :call <SID>PopupHelp(expand("<cfile>"))<CR>
