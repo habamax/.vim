@@ -115,10 +115,13 @@ def ResizeWin(width: number, height: number)
     var h = max([height, winheight(0)])
     execute 'vertical resize' w
     execute 'resize' h
-    setlocal winfixwidth winfixheight
-    wincmd =
-    setlocal nowinfixwidth nowinfixheight
-    normal! ze
+    try
+        setlocal winfixwidth winfixheight
+        wincmd =
+    finally
+        setlocal nowinfixwidth nowinfixheight
+        normal! ze
+    endtry
 enddef
 noremap <silent> <C-w>m <ScriptCmd>ResizeWin(v:count * 10 + 90, 30)<CR>
 map <C-w><C-m> <C-w>m
