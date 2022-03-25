@@ -140,11 +140,6 @@ enddef
 noremap L <ScriptCmd>MapL()<CR>
 noremap H <ScriptCmd>MapH()<CR>
 
-# windows
-nnoremap <silent> <C-h> <C-w>h
-nnoremap <silent> <C-j> <C-w>j
-nnoremap <silent> <C-k> <C-w>k
-nnoremap <silent> <C-l> <C-w>l
 
 # buffers
 nnoremap <silent> <C-n> <cmd>bn<CR>
