@@ -100,15 +100,6 @@ nnoremap <silent> yoC :if exists("b:cc") \| unlet b:cc \| endif \| set cc=<CR>
 
 nnoremap <silent> <BS> <cmd>call text#Toggle()<CR>
 
-# Move line up/down
-nnoremap <silent> <C-k> <cmd>silent! move-2<CR>==
-nnoremap <silent> <C-j> <cmd>silent! move+1<CR>==
-# inoremap <silent> <C-k> <cmd>silent! move-2<CR><C-f>
-# inoremap <silent> <C-j> <cmd>silent! move+1<CR><C-f>
-# Move selected lines up/down
-xnoremap <silent> <C-k> :<C-u>silent! '<,'>move-2<CR>gv=gv
-xnoremap <silent> <C-j> :<C-u>silent! '<,'>move'>+<CR>gv=gv
-
 # windows
 def ResizeWin(width: number, height: number)
     var w = max([width, winwidth(0)])
