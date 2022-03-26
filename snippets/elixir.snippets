@@ -1,3 +1,5 @@
+snippet i
+	IO.inspect(${1})
 snippet p
 	IO.puts(${1})
 snippet #
@@ -30,8 +32,13 @@ snippet cond
 	end
 snippet fn
 	fn ${1}-> ${2} end
-snippet defm
-	defmodule ${1:ModuleName} do
+snippet defm "Define module"
+	defmodule ${1:`expand("%:p")->tr('\/', '..')->matchstr('\%(lib\|test\)\.\zs.*\ze\.exs\?$')->substitute('\%(^\|_\|\.\zs\)\(.\)', '\u\1', 'g')`} do
+		${2}
+	end
+snippet deftm "Define Test module"
+	defmodule ${1:`expand("%:p")->tr('\/', '..')->matchstr('\%(lib\|test\)\.\zs.*\ze\.exs\?$')->substitute('\%(^\|_\|\.\zs\)\(.\)', '\u\1', 'g')`} do
+		use ExUnit.Case, async: true
 		${2}
 	end
 snippet def
@@ -53,10 +60,10 @@ snippet sred
 snippet take
 	Enum.take(${1})
 snippet doc
-	@doc """
+	@doc ~S"""
 	${1}
 	"""
 snippet mdoc
-	@moduledoc """
+	@moduledoc ~S"""
 	${1}
 	"""
