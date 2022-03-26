@@ -351,8 +351,7 @@ command! -range=% -nargs=? -complete=customlist,share#complete Share call share#
 command! GistSync call gist#sync()
 
 command! CD lcd %:p:h
-# TODO: check if it works on linux, -p might be needed?
-command! MD call system("mkdir " .. expand("%:p:h"))
+command! MD call mkdir(expand("%:p:h"), "p")
 
 # syntax group names under cursor
 command! Sy :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')))
