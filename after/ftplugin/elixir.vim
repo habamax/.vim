@@ -1,5 +1,7 @@
 vim9script
 
+setlocal formatoptions-=cro
+
 command! -buffer Fmt :up | silent! call system("mix format ", expand("%")) | e
 
 def PopupHelp(symbol: string)
