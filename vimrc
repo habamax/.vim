@@ -303,6 +303,10 @@ set undofile
 ################################################################################
 # General Autocommands
 
+augroup global_overrides | au!
+    au Filetype * :setl formatoptions-=cro
+augroup end
+
 augroup hlsearch | au!
     au CmdlineEnter /,\? :set hlsearch
     au CmdlineLeave /,\? :set nohlsearch
