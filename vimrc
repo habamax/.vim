@@ -319,10 +319,6 @@ augroup positions | au!
           | endif
 augroup end
 
-augroup colors_override | au!
-    au Colorscheme * hi Comment gui=italic cterm=italic
-augroup END
-
 if exists("$WSLENV")
     augroup WSLClip | au!
         au TextYankPost * if v:event.regname == '"'
@@ -413,6 +409,10 @@ augroup END
 
 ################################################################################
 # Colors
+
+augroup colors_override | au!
+    au Colorscheme * hi Comment gui=italic cterm=italic
+augroup END
 
 if !has("gui_running")
     if has("win32") | set t_Co=256 | endif
