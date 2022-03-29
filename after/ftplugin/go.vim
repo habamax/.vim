@@ -13,7 +13,7 @@ else
     command! -buffer Fmt :%!gofmt
 endif
 
-nnoremap <buffer> <F5> :!go run %<CR>
+nnoremap <buffer> <F5> :botright term ++rows=10 go run %<CR>
 
 def PopupHelp(symbol: string)
     popup#ShowAtCursor(systemlist("go doc " .. symbol))
