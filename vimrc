@@ -303,20 +303,27 @@ set undofile
 ################################################################################
 # General Autocommands
 
-augroup global_overrides | au!
-    au Filetype * :setl formatoptions-=cro
+augroup hlsearch | au!
 augroup end
 
-augroup hlsearch | au!
+augroup general_au | au!
     au CmdlineEnter /,\? :set hlsearch
     au CmdlineLeave /,\? :set nohlsearch
-augroup end
 
-augroup positions | au!
+    au Filetype * :setl formatoptions-=cro
+
+    # goto last known position of the buffer
     au BufReadPost *
           \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
           |    exe 'normal! g`"'
           | endif
+
+    # create non-existent directory before buffer save
+    au BufWritePre *
+          \ if !isdirectory(expand("%:p:h"))
+          |    call mkdir(expand("%:p:h"), "p")
+          | endif
+
 augroup end
 
 if exists("$WSLENV")
