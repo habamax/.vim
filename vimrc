@@ -419,6 +419,16 @@ augroup END
 
 augroup colors_override | au!
     au Colorscheme * hi Comment gui=italic cterm=italic
+    au Colorscheme habaurora hi Normal guibg=#e6e7de
+    au Colorscheme habaurora hi! link TablineSel Normal
+    au Colorscheme habaurora hi Folded guibg=#f0f2e7
+    au Colorscheme habaurora hi CursorLine guibg=#dbdcd5
+    au Colorscheme habaurora hi Pmenu guibg=#f5f7ed
+    au Colorscheme habaurora hi Statusline guibg=#626257
+    au Colorscheme habaurora hi StatuslineNC guibg=#94948A
+    au Colorscheme habaurora hi Tabline guibg=#94948A
+    au Colorscheme habaurora hi TablineFill guibg=#94948A
+    au Colorscheme habaurora hi VertSplit guibg=#94948A
 augroup END
 
 if !has("gui_running")
