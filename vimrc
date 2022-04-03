@@ -417,18 +417,36 @@ augroup END
 ################################################################################
 # Colors
 
+def HabAurora()
+    hi Normal guibg=#e6e7de
+    hi! link TablineSel Normal
+    hi Folded guibg=#f0f2e7
+    hi CursorLine guibg=#dbdcd5
+    hi Pmenu guibg=#f5f7ed
+    hi Statusline guibg=#626257
+    hi StatuslineNC guibg=#94948A
+    hi Tabline guibg=#94948A
+    hi TablineFill guibg=#94948A
+    hi VertSplit guibg=#94948A
+enddef
+
+def HabAlbum()
+    hi Normal guibg=#fefff7
+    hi! link TablineSel Normal
+    hi Folded guibg=#f0f2e7
+    hi CursorLine guibg=#ebece5
+    hi Pmenu guibg=#f5f7ed
+    hi Statusline guibg=#626257
+    hi StatuslineNC guibg=#94948A
+    hi Tabline guibg=#94948A
+    hi TablineFill guibg=#94948A
+    hi VertSplit guibg=#94948A
+enddef
+
 augroup colors_override | au!
     au Colorscheme * hi Comment gui=italic cterm=italic
-    au Colorscheme habaurora hi Normal guibg=#e6e7de
-    au Colorscheme habaurora hi! link TablineSel Normal
-    au Colorscheme habaurora hi Folded guibg=#f0f2e7
-    au Colorscheme habaurora hi CursorLine guibg=#dbdcd5
-    au Colorscheme habaurora hi Pmenu guibg=#f5f7ed
-    au Colorscheme habaurora hi Statusline guibg=#626257
-    au Colorscheme habaurora hi StatuslineNC guibg=#94948A
-    au Colorscheme habaurora hi Tabline guibg=#94948A
-    au Colorscheme habaurora hi TablineFill guibg=#94948A
-    au Colorscheme habaurora hi VertSplit guibg=#94948A
+    au Colorscheme habaurora HabAurora()
+    au Colorscheme habalbum HabAlbum()
 augroup END
 
 if !has("gui_running")
