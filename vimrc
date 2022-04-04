@@ -431,11 +431,11 @@ def HabAurora()
 enddef
 
 def HabAlbum()
-    hi Normal guibg=#fefff7
+    hi Normal guibg=#f6f6ef
     hi! link TablineSel Normal
-    hi Folded guibg=#f0f2e7
+    hi Folded guibg=#fefff7
     hi CursorLine guibg=#ebece5
-    hi Pmenu guibg=#f5f7ed
+    hi Pmenu guibg=#efefe7
     hi Statusline guibg=#626257
     hi StatuslineNC guibg=#94948A
     hi Tabline guibg=#94948A
@@ -457,6 +457,6 @@ if !has("gui_running")
         colorscheme habamax
     endif
 else
-    colorscheme habaurora
-    # colorscheme habalbum
+    # colorscheme habaurora
+    colorscheme habalbum
 endif
