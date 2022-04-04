@@ -445,8 +445,6 @@ enddef
 
 augroup colors_override | au!
     au Colorscheme * hi Comment gui=italic cterm=italic
-    au Colorscheme habaurora HabAurora()
-    au Colorscheme habalbum HabAlbum()
 augroup END
 
 if !has("gui_running")
@@ -458,5 +456,6 @@ if !has("gui_running")
     endif
 else
     # colorscheme habaurora
-    colorscheme habalbum
+    # colorscheme habalbum
+    colorscheme habarena
 endif
