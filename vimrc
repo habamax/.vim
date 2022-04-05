@@ -417,32 +417,6 @@ augroup END
 ################################################################################
 # Colors
 
-def HabAurora()
-    hi Normal guibg=#e6e7de
-    hi! link TablineSel Normal
-    hi Folded guibg=#f0f2e7
-    hi CursorLine guibg=#dbdcd5
-    hi Pmenu guibg=#f5f7ed
-    hi Statusline guibg=#626257
-    hi StatuslineNC guibg=#94948A
-    hi Tabline guibg=#94948A
-    hi TablineFill guibg=#94948A
-    hi VertSplit guibg=#94948A
-enddef
-
-def HabAlbum()
-    hi Normal guibg=#f6f6ef
-    hi! link TablineSel Normal
-    hi Folded guibg=#fefff7
-    hi CursorLine guibg=#ebece5
-    hi Pmenu guibg=#efefe7
-    hi Statusline guibg=#626257
-    hi StatuslineNC guibg=#94948A
-    hi Tabline guibg=#94948A
-    hi TablineFill guibg=#94948A
-    hi VertSplit guibg=#94948A
-enddef
-
 augroup colors_override | au!
     au Colorscheme * hi Comment gui=italic cterm=italic
 augroup END
@@ -457,5 +431,6 @@ if !has("gui_running")
 else
     # colorscheme habaurora
     # colorscheme habalbum
-    colorscheme habarena
+    # colorscheme habarena
+    colorscheme habazure
 endif
