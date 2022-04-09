@@ -301,41 +301,6 @@ set undofile
 
 
 ################################################################################
-# General Autocommands
-
-augroup hlsearch | au!
-augroup end
-
-augroup general_au | au!
-    au CmdlineEnter /,\? :set hlsearch
-    au CmdlineLeave /,\? :set nohlsearch
-
-    au Filetype * :setl formatoptions-=cro
-
-    # goto last known position of the buffer
-    au BufReadPost *
-          \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-          |    exe 'normal! g`"'
-          | endif
-
-    # create non-existent directory before buffer save
-    au BufWritePre *
-          \ if !isdirectory(expand("%:p:h"))
-          |    call mkdir(expand("%:p:h"), "p")
-          | endif
-
-augroup end
-
-if exists("$WSLENV")
-    augroup WSLClip | au!
-        au TextYankPost * if v:event.regname == '"'
-            |   call system("clip.exe ", v:event.regcontents)
-            | endif
-    augroup END
-endif
-
-
-################################################################################
 # Commands
 
 # update packages
@@ -415,11 +380,38 @@ augroup END
 
 
 ################################################################################
-# Colors
+# Autocommands
+
+augroup hlsearch | au!
+augroup end
+
+augroup general_au | au!
+    au CmdlineEnter /,\? :set hlsearch
+    au CmdlineLeave /,\? :set nohlsearch
+
+    au Filetype * :setl formatoptions-=cro
+
+    # goto last known position of the buffer
+    au BufReadPost *
+          \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+          |    exe 'normal! g`"'
+          | endif
+
+    # create non-existent directory before buffer save
+    au BufWritePre *
+          \ if !isdirectory(expand("%:p:h"))
+          |    call mkdir(expand("%:p:h"), "p")
+          | endif
+
+augroup end
 
 augroup colors_override | au!
     au Colorscheme * hi Comment gui=italic cterm=italic
 augroup END
+
+
+################################################################################
+# Colors
 
 if !has("gui_running")
     if has("win32") | set t_Co=256 | endif
