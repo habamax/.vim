@@ -423,6 +423,5 @@ if !has("gui_running")
 else
     # colorscheme habaurora
     # colorscheme habalbum
-    # colorscheme habarena
-    colorscheme habazure
+    exe "colorscheme " .. ['habazure', 'habarena'][rand() % 2]
 endif
