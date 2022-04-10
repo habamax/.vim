@@ -382,9 +382,6 @@ augroup END
 ################################################################################
 # Autocommands
 
-augroup hlsearch | au!
-augroup end
-
 augroup general_au | au!
     au CmdlineEnter /,\? :set hlsearch
     au CmdlineLeave /,\? :set nohlsearch
