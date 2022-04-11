@@ -383,8 +383,8 @@ augroup END
 # Autocommands
 
 augroup general_au | au!
-    au CmdlineEnter /,\? :set hlsearch
-    au CmdlineLeave /,\? :set nohlsearch
+    au CmdlineEnter /,\? set hlsearch
+    au CmdlineLeave /,\? set nohlsearch
 
     au Filetype * :setl formatoptions-=cro
 
