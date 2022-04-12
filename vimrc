@@ -412,13 +412,9 @@ augroup END
 
 if !has("gui_running")
     if has("win32") | set t_Co=256 | endif
-    if strftime("%u")->str2nr() % 2 == 0
-        colorscheme habamaxy
-    else
-        colorscheme habamax
-    endif
+    exe "silent! colorscheme habamax" .. ['', 'y'][rand() % 2]
 else
     # colorscheme habaurora
     # colorscheme habalbum
-    exe "colorscheme " .. ['habazure', 'habarena'][rand() % 2]
+    exe "silent! colorscheme " .. ['habazure', 'habarena'][rand() % 2]
 endif
