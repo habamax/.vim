@@ -134,9 +134,3 @@ Colors
 .. _polar: https://github.com/habamax/vim-polar
 .. _habanight: https://github.com/habamax/vim-habanight
 .. _Apprentice: https://github.com/romainl/Apprentice
-
-
-Look'n'Feel
-===========
-
-.. image:: https://user-images.githubusercontent.com/234774/147636918-7929aacc-86d8-4e59-8389-b1501022d2c7.gif
