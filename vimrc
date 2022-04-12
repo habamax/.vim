@@ -414,7 +414,7 @@ if !has("gui_running")
     if has("win32") | set t_Co=256 | endif
     exe "silent! colorscheme habamax" .. ['', 'y'][rand() % 2]
 else
-    # colorscheme habaurora
-    # colorscheme habalbum
-    exe "silent! colorscheme " .. ['habazure', 'habarena'][rand() % 2]
+    # exe "silent! colorscheme " .. ['habaurora', 'habalbum'][rand() % 2]
+    # exe "silent! colorscheme " .. ['habazure', 'habarena'][rand() % 2]
+    exe "silent! colorscheme haba" .. ['zure', 'rena', 'urora', 'lbum'][rand() % 4]
 endif
