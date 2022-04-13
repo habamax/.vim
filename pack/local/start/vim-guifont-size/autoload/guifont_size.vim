@@ -4,48 +4,38 @@ var orig_guifont: string = &guifont
 var orig_lines: number = &lines
 var orig_columns: number = &columns
 
-def GetCurrentFont(): list<any>
-    var font: list<string>
+
+def GetFontParams(font: string): list<any>
+    var params: list<string>
     if has("win32")
-        font = matchlist(&guifont, '\(.\{-}\):h\(\d\+\)')
+        params = matchlist(font, '\(.\{-}\):h\(\d\+\)')
     else
-        font = matchlist(&guifont, '\(.\{-}\)\ \(\d\+\)$')
+        params = matchlist(font, '\(.\{-}\)\ \(\d\+\)$')
     endif
-    return [font[1], str2nr(font[2])]
+    return [params[1], str2nr(params[2])]
 enddef
 
 
 export def Change(op: string)
-    var [fontname, fontsize] = GetCurrentFont()
 
-    if (fontsize < 8 && op == 'dec') || (fontsize > 30 && op == 'inc')
-        return
-    endif
+    var cur_fonts = &guifont->split(",")
+    var new_fonts = []
 
-    var new_font = orig_guifont
+    for font in cur_fonts
+        var [fontname, fontsize] = GetFontParams(font)
 
-    if op == 'inc'
-        new_font = fontname .. (has("win32") ? ':h' : '  ') .. (fontsize + 1)
-    elseif op == 'dec'
-        new_font = fontname .. (has("win32") ? ':h' : '  ') .. (fontsize - 1)
-    endif
+        if (fontsize < 8 && op == 'dec') || (fontsize > 30 && op == 'inc')
+            return
+        endif
 
-    if has("win32")
-        var lines = orig_lines
-        var columns = orig_columns
         if op == 'inc'
-            lines = float2nr(round(&lines * fontsize / (fontsize + 1))) + 1
-            columns = float2nr(round(&columns * fontsize / (fontsize + 1))) + 1
+            new_fonts->add(fontname .. (has("win32") ? ':h' : ' ') .. (fontsize + 1))
         elseif op == 'dec'
-            lines = float2nr(round(&lines * fontsize / (fontsize - 1))) + 1
-            columns = float2nr(round(&columns * fontsize / (fontsize - 1))) + 1
+            new_fonts->add(fontname .. (has("win32") ? ':h' : ' ') .. (fontsize - 1))
         endif
-        if lines > 10 && columns > 10
-            exe printf('set lines=%s columns=%s', lines, columns)
-        endif
-    endif
+    endfor
 
-    exe printf('set guifont=%s', escape(new_font, ' '))
+    exe printf('set guifont=%s', escape(new_fonts->join(','), ' '))
 
     wincmd =
 enddef
