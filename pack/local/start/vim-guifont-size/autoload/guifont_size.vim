@@ -17,7 +17,6 @@ enddef
 
 
 export def Change(op: string)
-
     var cur_fonts = &guifont->split(",")
     var new_fonts = []
 
