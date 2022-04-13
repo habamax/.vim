@@ -5,8 +5,8 @@ vim9script
 # Desc: Text manipulation functions.
 
 # Fix text:
-# * replace non-breaking spaces to spaces
-# * replace multiple spaces to a single space (preserving indent)
+# * replace non-breaking spaces with spaces
+# * replace multiple spaces with a single space (preserving indent)
 # * remove spaces between closed braces: ) ) -> ))
 # * remove space before closed brace: word ) -> word)
 # * remove space after opened brace: ( word -> (word
