@@ -31,10 +31,6 @@ set history=200
 set mouse=a ttymouse=sgr
 set path=.,,
 
-
-################################################################################
-# Grepping
-
 if executable('rg')
     set grepprg=rg\ -i\ --vimgrep grepformat=%f:%l:%c:%m
 endif
