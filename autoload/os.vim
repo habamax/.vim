@@ -30,22 +30,23 @@ enddef
 # Only for win and wsl for now.
 export def FileManager()
     var path = ''
-    # Windows only for now
-    if executable("cmd.exe")
-        if exists("b:netrw_curdir")
-            path = substitute(b:netrw_curdir, "/", "\\", "g")
-        elseif expand("%:p") == ""
-            path = expand("%:p:h")
-        else
-            path = expand("%:p")
-        endif
+    if exists("b:netrw_curdir")
+        path = substitute(b:netrw_curdir, "/", "\\", "g")
+    elseif expand("%:p") == ""
+        path = expand("%:p:h")
+    else
+        path = expand("%:p")
+    endif
 
+    if executable("cmd.exe")
         var job_opts = {}
         if IsWsl()
             path = escape(WslToWindowsPath(path), '\')
             job_opts.cwd = "/mnt/c"
         endif
         job_start('cmd.exe /c start explorer.exe /select,' .. path, job_opts)
+    elseif executable("nautilus")
+        job_start('nautilus --select ' .. path)
     else
         echomsg "Not yet implemented!"
     endif
