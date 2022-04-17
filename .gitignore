@@ -1,6 +1,7 @@
 /pack/bundle/
 /pack/lang/
 /pack/habamax/
+/pack/vim/
 **/tags
 .netrwbook
 *.html
