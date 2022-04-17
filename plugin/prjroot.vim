@@ -10,6 +10,10 @@ var rootMarkers = {
 
 
 def SetProjectRoot()
+    if &buftype != '' && &buftype != 'nofile'
+        return
+    endif
+
     var rootDir = ''
     for dir in rootMarkers.dirs
         rootDir = finddir(dir, expand("%:h") .. ";")
