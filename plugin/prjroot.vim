@@ -5,7 +5,7 @@ vim9script
 
 var rootMarkers = {
     dirs: ['.git', '.hg'],
-    files: ['mix.exs', 'go.mod']
+    files: ['mix.exs', 'go.mod', 'package.json']
 }
 
 
