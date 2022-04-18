@@ -28,12 +28,21 @@ func! s:rst2html(...) abort
     make
 endfunc
 
-command -buffer Rst2Pdf make | call os#Exe(printf('"%s" %s %s "%s"',
-      \ 'C:/Program Files/Google/Chrome/Application/chrome.exe',
-      \ '--headless --disable-gpu --print-to-pdf-no-header',
-      \ '--print-to-pdf="' . expand("%:p:r") . '.pdf"',
-      \ expand("%:p:r") . '.html'
-      \ ))
+let s:chrome = ''
+if executable('google-chrome')
+    let s:chrome = 'google-chrome'
+elseif executable('C:/Program Files/Google/Chrome/Application/chrome.exe')
+    let s:chrome = 'C:/Program Files/Google/Chrome/Application/chrome.exe'
+endif
+
+if !s:chrome->empty()
+    command -buffer Rst2Pdf make | call os#Exe(printf('"%s" %s %s "%s"',
+          \ s:chrome,
+          \ '--headless --disable-gpu --print-to-pdf-no-header',
+          \ '--print-to-pdf="' . expand("%:p:r") . '.pdf"',
+          \ expand("%:p:r") . '.html'
+          \ ))
+endif
 
 command -buffer RstViewHtml :call os#Open(expand("%:p:r").'.html')
 command -buffer RstViewPdf :call os#Open(expand("%:p:r").'.pdf')
