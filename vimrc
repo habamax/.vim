@@ -400,6 +400,7 @@ augroup end
 
 augroup colors_override | au!
     au Colorscheme * hi Comment gui=italic cterm=italic
+    au Colorscheme habamax* hi Normal ctermbg=NONE
 augroup END
 
 
