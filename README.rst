@@ -18,6 +18,8 @@ __ https://github.com/tpope/vim-commentary
 
 .. code:: vim
 
+  vim9script
+
   # Toggle comments
   # Usage:
   #   1. Save in ~/.vim/autoload/comment.vim
