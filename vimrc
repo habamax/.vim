@@ -400,14 +400,14 @@ augroup general_au | au!
 augroup end
 
 augroup colors_override | au!
-    au Colorscheme * hi Comment gui=italic cterm=italic
-    au Colorscheme habamax* hi Normal ctermbg=NONE
-    au OptionSet background
+    au OptionSet background ++nested
           \   if v:option_new == 'light'
           \ |     colorscheme habazure
           \ | else
           \ |     colorscheme habamax
           \ | endif
+    au Colorscheme * hi Comment gui=italic cterm=italic
+    au Colorscheme habamax* hi Normal ctermbg=NONE
 augroup END
 
 
