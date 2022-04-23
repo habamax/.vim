@@ -80,6 +80,7 @@ nnoremap <silent> yol :set list! list?<CR>
 nnoremap <silent> yos :set spell! spell?<CR>
 nnoremap <silent> yov :let &ve=(&ve == "block" ? "all" : "block")<CR>:set ve<CR>
 nnoremap <expr>   yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
+nnoremap <silent> yob :let &bg = (&bg == "light" ? "dark" : "light")<CR>
 nnoremap <silent> yog :let b:cc = &cc ?? get(b:, "cc", 80) \| let &cc = (empty(&cc) ? b:cc : '')<CR>
 # toggle colorcolumn for at cursor position
 def ToggleCC()
@@ -401,6 +402,12 @@ augroup end
 augroup colors_override | au!
     au Colorscheme * hi Comment gui=italic cterm=italic
     au Colorscheme habamax* hi Normal ctermbg=NONE
+    au OptionSet background
+          \   if v:option_new == 'light'
+          \ |     colorscheme habazure
+          \ | else
+          \ |     colorscheme habamax
+          \ | endif
 augroup END
 
 
