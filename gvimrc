@@ -6,10 +6,9 @@ set guioptions=cM
 set linespace=0
 if has("win32")
     # set guifont=JetBrains\ Mono\ NL:h13,Consolas:h13
-    set guifont=Iosevka\ Term\ SS16:h13,Consolas:h13
-    # set guifont=Iosevka\ Term\ SS16\ extended:h13,Consolas:h13
+    set guifont=Iosevka\ Term\ SS16:h15,Consolas:h13
 else
-    set guifont=JetBrains\ Mono\ NL\ 13,Monospace\ 13
+    set guifont=Monospace\ 15
 endif
 
 # quick font check:
