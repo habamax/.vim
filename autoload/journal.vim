@@ -31,8 +31,8 @@ func! s:new_entry(jfilename) abort
     endif
 
     " search first 10 lines for a journal title
-    let journal_heading = [repeat('*', 80), strftime("%Y"), repeat('*', 80), '']
-    if join(getline(1, 10), "\n") !~ '\(^\|\n\)\*\{80}\n\s*.\{-}\d\d\d\d\s*.*\n\*\{80}'
+    let journal_heading = [repeat('#', 80), strftime("%Y"), repeat('#', 80), '']
+    if join(getline(1, 10), "\n") !~ '\(^\|\n\)#\{80}\n\s*.\{-}\d\d\d\d\s*.*\n#\{80}'
         call append(0, journal_heading)
         2center
     endif
