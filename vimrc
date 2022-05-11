@@ -39,6 +39,11 @@ endif
 ################################################################################
 # Non Plugin Mappings
 
+nnoremap <C-h> <cmd>wincmd h<CR>
+nnoremap <C-j> <cmd>wincmd j<CR>
+nnoremap <C-k> <cmd>wincmd k<CR>
+nnoremap <C-l> <cmd>wincmd l<CR>
+
 # source vimscript (operator)
 def SourceVim(...args: list<any>): any
     if len(args) == 0
