@@ -1,7 +1,5 @@
 vim9script
 
-# <Ctrl-R>register in insert mode is not covered...
-
 if $XDG_SESSION_TYPE != 'wayland'
     finish
 endif
@@ -31,3 +29,6 @@ nnoremap "+p <ScriptCmd>WLPaste()<CR>p
 nnoremap "+P <ScriptCmd>WLPaste()<CR>P
 nnoremap "*p <ScriptCmd>WLPaste()<CR>p
 nnoremap "*P <ScriptCmd>WLPaste()<CR>P
+
+inoremap <C-r>+ <ScriptCmd>WLPaste()<CR><C-r>"
+inoremap <C-r>* <ScriptCmd>WLPaste()<CR><C-r>"
