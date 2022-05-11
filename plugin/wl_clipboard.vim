@@ -7,7 +7,6 @@ if $XDG_SESSION_TYPE != 'wayland'
 endif
 
 def WLYank(event: dict<any>)
-    echo "yank!"
     if event.regname =~ '[+*]'
         system('wl-copy', getreg("@"))
     endif
