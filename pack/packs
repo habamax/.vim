@@ -19,7 +19,6 @@ habamax/opt/vim-freyeday	git@github.com:habamax/vim-freyeday.git
 
 # Very nice to have
 bundle/start/traces.vim	git@github.com:markonm/traces.vim.git
-bundle/opt/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
 bundle/opt/vim-fugitive	git@github.com:tpope/vim-fugitive.git
 bundle/start/vim-sandwich	git@github.com:machakann/vim-sandwich
 bundle/start/vim-swap	git@github.com:machakann/vim-swap.git
