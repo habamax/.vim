@@ -11,4 +11,5 @@ def SynInclude(syn: string, start: number, end: number)
           \ .. ' contains=@NoSpell,@SyntaxInclude_' .. syn
 enddef
 
-xnoremap <space>s :<C-u>call <SID>SynInclude('sql', line("'<"), line("'>"))<CR>
+xnoremap <space>ss :<C-u>call <SID>SynInclude('sql', line("'<"), line("'>"))<CR>
+xnoremap <space>sh :<C-u>call <SID>SynInclude('sh', line("'<"), line("'>"))<CR>
