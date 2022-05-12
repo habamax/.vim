@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.txt,*.rest set ft=rst
+autocmd BufNewFile,BufRead *.txt,*.rest if &buftype != "help" | set ft=rst | endif
