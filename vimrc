@@ -28,7 +28,6 @@ set wildmenu wildcharm=<C-z> wildoptions=pum,fuzzy pumheight=20
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,*.pdf,*.docx,*.xlsx,*.png
 set sessionoptions=buffers,curdir,tabpages,winsize
 set history=200
-set mouse=a ttymouse=sgr
 set path=.,,
 
 if executable('rg')
