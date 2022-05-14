@@ -395,11 +395,9 @@ augroup general_au | au!
           \ if !isdirectory(expand("%:p:h"))
           |    call mkdir(expand("%:p:h"), "p")
           | endif
-
 augroup end
 
 augroup colors_override | au!
-
     au OptionSet background ++nested
           \   if v:option_new == 'light'
           \ |     colorscheme habazure
