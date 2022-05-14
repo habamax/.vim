@@ -44,7 +44,7 @@ def SourceVim(...args: list<any>): any
         &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
         return 'g@'
     endif
-    if getline(1) =~ '^vim9script$'
+    if getline(1) =~ '^vim9script$' || getline("'[") =~ '^\s*vim9script\s*$'
         vim9cmd :'[,']source
     else
         :'[,']source
