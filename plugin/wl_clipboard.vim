@@ -15,7 +15,7 @@ enddef
 
 def WLPaste(pasteCmd: string)
     setreg("@", system('wl-paste --no-newline')->substitute('', '', 'g'))
-    exe "normal! " .. pasteCmd
+    exe 'normal! ""' .. pasteCmd
 enddef
 
 
