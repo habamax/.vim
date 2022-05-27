@@ -23,6 +23,7 @@ augroup WLYank | au!
     au TextYankPost * call WLYank(v:event)
 augroup END
 
+
 if &clipboard =~ '\<unnamed\(plus\)\?\>'
     xnoremap p <ScriptCmd>WLPaste("p")<CR>
     xnoremap P <ScriptCmd>WLPaste("P")<CR>
