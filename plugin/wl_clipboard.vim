@@ -7,7 +7,7 @@ endif
 
 
 def WLYank(event: dict<any>)
-    if event.regname =~ '[+*]'
+    if event.regname =~ '[+*]' || &clipboard =~ '\<unnamed\(plus\)\?\>'
         system('wl-copy', getreg("@"))
     endif
 enddef
@@ -23,6 +23,12 @@ augroup WLYank | au!
     au TextYankPost * call WLYank(v:event)
 augroup END
 
+if &clipboard =~ '\<unnamed\(plus\)\?\>'
+    xnoremap p <ScriptCmd>WLPaste("p")<CR>
+    xnoremap P <ScriptCmd>WLPaste("P")<CR>
+    nnoremap p <ScriptCmd>WLPaste("p")<CR>
+    nnoremap P <ScriptCmd>WLPaste("P")<CR>
+endif
 
 xnoremap "+p <ScriptCmd>WLPaste("p")<CR>
 xnoremap "+P <ScriptCmd>WLPaste("P")<CR>
