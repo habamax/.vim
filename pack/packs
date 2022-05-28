@@ -38,3 +38,6 @@ bundle/start/ale	git@github.com:dense-analysis/ale.git
 # Filetypes
 lang/start/vimtex	git@github.com:lervag/vimtex.git
 lang/start/vim-elixir	git@github.com:elixir-editors/vim-elixir.git
+
+# Check other plugins
+check/start/vim-malotru	git@github.com:romainl/vim-malotru.git
