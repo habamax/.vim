@@ -401,7 +401,7 @@ augroup end
 augroup colors_override | au!
     au OptionSet background ++nested
           \   if v:option_new == 'light'
-          \ |     colorscheme habazure
+          \ |     colorscheme habaurora
           \ | else
           \ |     colorscheme habamax
           \ | endif
@@ -419,5 +419,6 @@ if !has("gui_running")
     if has("win32") | set t_Co=256 | endif
     exe "silent! colorscheme habamax" .. ['', 'y'][rand() % 2]
 else
-    exe "silent! colorscheme haba" .. ['zure', 'rena', 'urora', 'lbum'][rand() % 4]
+    # exe "silent! colorscheme haba" .. ['zure', 'rena', 'urora', 'lbum'][rand() % 4]
+    silent! colorscheme habaurora
 endif
