@@ -405,8 +405,7 @@ augroup colors_override | au!
           \ | else
           \ |     colorscheme habamax
           \ | endif
-    au Colorscheme * hi Comment gui=italic cterm=italic
-          \ | hi VertSplit ctermbg=NONE guibg=NONE
+    au Colorscheme * hi VertSplit ctermbg=NONE guibg=NONE
     au Colorscheme habamax* hi Normal ctermbg=NONE
           \ | hi Terminal ctermbg=NONE
 augroup END
