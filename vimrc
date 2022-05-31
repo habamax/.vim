@@ -414,10 +414,4 @@ augroup END
 ################################################################################
 # Colors
 
-if !has("gui_running")
-    if has("win32") | set t_Co=256 | endif
-    exe "silent! colorscheme habamax" .. ['', 'y'][rand() % 2]
-else
-    # exe "silent! colorscheme haba" .. ['zure', 'rena', 'urora', 'lbum'][rand() % 4]
-    silent! colorscheme habaurora
-endif
+silent! colorscheme habamax
