@@ -407,6 +407,10 @@ augroup colors_override | au!
           \ | endif
     au Colorscheme habamax* hi Normal ctermbg=NONE
           \ | hi Terminal ctermbg=NONE
+    au Colorscheme malotru hi Normal ctermbg=NONE
+          \ | hi Terminal ctermbg=NONE
+          \ | hi Cursorline ctermbg=236 guibg=#303030
+          \ | hi Cursor guifg=#000000 guibg=#FFFFFF
 augroup END
 
 
