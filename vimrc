@@ -409,6 +409,7 @@ augroup colors_override | au!
           \ | hi Terminal ctermbg=NONE
     au Colorscheme malotru
           \   hi Cursorline ctermbg=236 guibg=#303030
+          \ | hi CursorlineNr ctermfg=231 cterm=bold guifg=#FFFFFF gui=bold
           \ | hi Cursor guifg=#000000 guibg=#FFFFFF
 augroup END
 
