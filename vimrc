@@ -404,7 +404,7 @@ augroup colors_override | au!
           \ | else
           \ |     colorscheme habamax
           \ | endif
-    au Colorscheme habamax*
+    au Colorscheme habamax
           \   hi Normal ctermbg=NONE
           \ | hi Terminal ctermbg=NONE
     au Colorscheme malotru
