@@ -18,6 +18,7 @@ set display=lastline
 set completeopt=menu,popup completepopup=highlight:Pmenu
 set number relativenumber cursorline cursorlineopt=number
 set list listchars=tab:›\ ,nbsp:·,trail:·,extends:→,precedes:←
+set fillchars+=vert:│
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak
 set formatoptions=qjl
 set backspace=indent,eol,start
@@ -406,7 +407,7 @@ augroup colors_override | au!
           \ | endif
     au Colorscheme habamax
           \   hi Normal ctermbg=NONE
-          \ | hi Terminal ctermbg=NONE
+          \ | hi VertSplit ctermbg=NONE guibg=NONE
     au Colorscheme malotru
           \   hi Normal ctermbg=NONE
           \ | hi Cursorline ctermbg=236 guibg=#303030
