@@ -410,6 +410,7 @@ augroup colors_override | au!
           \ | hi VertSplit ctermbg=NONE guibg=NONE
     au Colorscheme malotru
           \   hi Normal ctermbg=NONE
+          \ | hi Title ctermfg=231 cterm=bold guibg=#FFFFFF gui=bold
           \ | hi Cursorline ctermbg=236 guibg=#303030
           \ | hi CursorlineNr ctermfg=231 cterm=bold guifg=#FFFFFF gui=bold
           \ | hi Cursor guifg=#000000 guibg=#FFFFFF
