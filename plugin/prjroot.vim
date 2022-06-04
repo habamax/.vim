@@ -14,6 +14,10 @@ def SetProjectRoot()
         return
     endif
 
+    if !isdirectory(expand("%:h"))
+        return
+    endif
+
     var rootDir = ''
     for dir in rootMarkers.dirs
         rootDir = finddir(dir, expand("%:h") .. ";")
