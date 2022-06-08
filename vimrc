@@ -384,7 +384,7 @@ augroup colors_override | au!
           \ | endif
     au Colorscheme habamax
           \   hi Normal ctermbg=NONE
-          \ | hi VertSplit ctermbg=NONE guibg=NONE
+          \ | hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE
     au Colorscheme malotru
           \   hi Normal ctermbg=NONE
           \ | hi Title ctermfg=231 cterm=bold guifg=#FFFFFF gui=bold
