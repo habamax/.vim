@@ -74,14 +74,11 @@ xnoremap * y/<C-R>"<CR>
 # toggles
 nnoremap <silent> yoh :set hlsearch! hlsearch?<CR>
 nnoremap <silent> yow :set wrap! wrap?<CR>
-nnoremap <silent> yon :set number! number?<CR>
-nnoremap <silent> yor :set relativenumber! relativenumber?<CR>
-nnoremap <silent> yol :set list! list?<CR>
 nnoremap <silent> yos :set spell! spell?<CR>
 nnoremap <silent> yov :let &ve=(&ve == "block" ? "all" : "block")<CR>:set ve<CR>
 nnoremap <expr>   yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
 nnoremap <silent> yob :let &bg = (&bg == "light" ? "dark" : "light")<CR>
-nnoremap <silent> yog :let b:cc = &cc ?? get(b:, "cc", 80) \| let &cc = (empty(&cc) ? b:cc : '')<CR>
+nnoremap <silent> yoL :let b:cc = &cc ?? get(b:, "cc", 80) \| let &cc = (empty(&cc) ? b:cc : '')<CR>
 # toggle colorcolumn for at cursor position
 def ToggleCC()
     var col: string = "" .. virtcol('.')
@@ -91,8 +88,7 @@ def ToggleCC()
         exe "set cc-=" .. col
     endif
 enddef
-nnoremap <silent> yoc <ScriptCmd>ToggleCC()<CR>
-nnoremap <silent> yoC :if exists("b:cc") \| unlet b:cc \| endif \| set cc=<CR>
+nnoremap <silent> yol <ScriptCmd>ToggleCC()<CR>
 
 
 nnoremap <silent> <BS> <cmd>call text#Toggle()<CR>
