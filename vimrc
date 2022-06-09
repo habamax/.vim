@@ -78,17 +78,37 @@ nnoremap <silent> yos :set spell! spell?<CR>
 nnoremap <silent> yov :let &ve=(&ve == "block" ? "all" : "block")<CR>:set ve<CR>
 nnoremap <expr>   yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
 nnoremap <silent> yob :let &bg = (&bg == "light" ? "dark" : "light")<CR>
-nnoremap <silent> yoL :let b:cc = &cc ?? get(b:, "cc", 80) \| let &cc = (empty(&cc) ? b:cc : '')<CR>
-# toggle colorcolumn for at cursor position
-def ToggleCC()
-    var col: string = "" .. virtcol('.')
-    if index(split(&cc, ","), col) == -1
-        exe "set cc+=" .. col
+
+# toggle colorcolumn at cursor position
+# set vartabstop accordingly
+def ToggleCC(all: bool = false)
+    if all
+        b:cc = &cc ?? get(b:, "cc", 80)
+        &cc = empty(&cc) ? b:cc : ""
     else
-        exe "set cc-=" .. col
+        var col = virtcol('.')
+        var cc = split(&cc, ",")->map((_, v) => str2nr(v))
+        if index(cc, col) == -1
+            exe "set cc=" .. cc->add(col)->sort('f')->map((_, v) => printf("%s", v))->join(',')
+        else
+            exe "set cc-=" .. col
+        endif
+    endif
+    var cc = split(&cc, ",")->map((_, v) => str2nr(v))
+    if len(cc) > 1 || len(cc) == 1 && cc[0] < 60
+        setl vsts&
+        var shift = 1
+        for v in cc
+            exe "set vsts+=" .. (v - shift)
+            shift = v
+        endfor
+        exe "setl vsts+=" .. &sw
+    else
+        setl vsts&
     endif
 enddef
 nnoremap <silent> yol <ScriptCmd>ToggleCC()<CR>
+nnoremap <silent> yoL <ScriptCmd>ToggleCC(true)<CR>
 
 
 nnoremap <silent> <BS> <cmd>call text#Toggle()<CR>
