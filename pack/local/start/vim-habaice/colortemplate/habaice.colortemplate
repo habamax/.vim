@@ -148,7 +148,7 @@ MatchParen         none           colorMP
 
 
 Variant: 256 16
-Visual             color15        colorV
+Visual             color00        colorV
 MatchParen         colorMP        color15        reverse
 
 
