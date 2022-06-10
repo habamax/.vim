@@ -396,12 +396,13 @@ augroup end
 augroup colors_override | au!
     au OptionSet background ++nested
           \   if v:option_new == 'light'
-          \ |     colorscheme habaurora
+          \ |     colorscheme habaice
           \ | else
           \ |     colorscheme habamax
           \ | endif
     au Colorscheme habamax
           \   hi Normal ctermbg=NONE
+    au Colorscheme haba*
           \ | hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE
     au Colorscheme malotru
           \   hi Normal ctermbg=NONE
