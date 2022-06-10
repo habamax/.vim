@@ -83,7 +83,7 @@ nnoremap <silent> yob :let &bg = (&bg == "light" ? "dark" : "light")<CR>
 # set vartabstop accordingly
 def ToggleCC(all: bool = false)
     if all
-        b:cc = &cc ?? get(b:, "cc", 80)
+        b:cc = &cc ?? get(b:, "cc", "80")
         &cc = empty(&cc) ? b:cc : ""
     else
         var col = virtcol('.')
