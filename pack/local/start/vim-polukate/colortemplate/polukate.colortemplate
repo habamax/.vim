@@ -1,6 +1,6 @@
 ; vim: cc=20,35,50 vsts=19,15,15,4
-Full name: mossture
-Short name: mossture
+Full name: polukate
+Short name: polukate
 Description: Light colorscheme.
 Author: Maxim Kim <habamax@gmail.com>
 
@@ -36,12 +36,12 @@ Color: colorB      #EAEEEA        255            grey
 Color: colorNonT   #B0B2B0        249            grey
 Color: colorC      #000000        16             black
 Color: colorlC     #0000FF        21             blue
-Color: colorV      #AFD7AF        151            green
+Color: colorV      #5F87AF        67             darkblue
 Color: colorMP     #C5E7C5        30             darkcyan
 
 ; Diff colors
 Color: diffAdd     #D5D5C0        187            darkyellow
-Color: diffDelete  #B0BDB0        250            darkgray
+Color: diffDelete  #AF5F00        130            darkred
 Color: diffChange  #D0D5D0        188            lightgray
 Color: diffText    #B0BDB0        250            darkgray
 Color: fgDiff      #000000        16             black
@@ -98,9 +98,9 @@ Statusline         color15        color08
 StatuslineTerm     color15        color08
 VertSplit          color07        color07
 
-TabLine            none           color07
+TabLine            color15        color07
 TabLineFill        none           color07
-TabLineSel         color00        color15
+TabLineSel         color00        color15        bold
 
 ToolbarLine        none           none
 ToolbarButton      color00        colorNonT
@@ -143,12 +143,12 @@ debugBreakpoint    color15        color01
 Variant: gui
 Cursor             colorC         color15        reverse
 lCursor            colorlC        color00        reverse
-Visual             color00        colorV
+Visual             color15        colorV
 MatchParen         none           colorMP
 
 
 Variant: 256 16
-Visual             color00        colorV
+Visual             color15        colorV
 MatchParen         colorMP        color15        reverse
 
 
