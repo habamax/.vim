@@ -51,18 +51,19 @@ Term colors: color00 color01 color02 color03 color04 color05 color06 color07
 Term colors: color08 color09 color10 color11 color12 color13 color14 color15
 
 ; links
+xmlTagName                        -> Statement
 javaScriptFunction                -> Statement
 javaScriptIdentifier              -> Statement
 sqlKeyword                        -> Statement
 yamlBlockMappingKey               -> Statement
 rubyMacro                         -> Statement
 rubyDefine                        -> Statement
+vimGroup                          -> Normal
 vimVar                            -> Normal
 vimOper                           -> Normal
 vimSep                            -> Normal
 vimParenSep                       -> Normal
 vimCommentString                  -> Comment
-markdownUrl                       -> String
 pythonInclude                     -> Statement
 elixirOperator                    -> Statement
 elixirKeyword                     -> Statement
