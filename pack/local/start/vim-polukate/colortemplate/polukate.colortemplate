@@ -14,7 +14,7 @@ Color: color01     #870000        88             darkred
 Color: color09     #AF0000        124            red
 
 Color: color02     #005F00        22             darkgreen
-Color: color10     #008700        28             darkgreen
+Color: color10     #008700        28             green
 
 Color: color03     #878700        100            darkyellow
 Color: color11     #D7D787        186            yellow
@@ -23,10 +23,10 @@ Color: color04     #005FAF        25             darkblue
 Color: color12     #0087D7        32             blue
 
 Color: color05     #870087        90             darkmagenta
-Color: color13     #5F5FAF        133            darkmagenta
+Color: color13     #AF5FAF        133            magenta
 
 Color: color06     #005f5f        23             darkcyan
-Color: color14     #5F8787        66             darkcyan
+Color: color14     #5F8787        66             cyan
 
 Color: color07     #808080        244            grey
 Color: color15     #e0e4e0        254            white
@@ -52,12 +52,12 @@ Term colors: color08 color09 color10 color11 color12 color13 color14 color15
 
 
 ; links
-fugitiveSymbolicRef               -> String
+fugitiveSymbolicRef               -> Type
 fugitiveHeading                   -> Statement
 fugitiveStagedHeading             -> Statement
 fugitiveUnstagedHeading           -> Statement
-fugitiveStagedModifier            -> Special
-fugitiveUnstagedModifier          -> Special
+fugitiveStagedModifier            -> PreProc
+fugitiveUnstagedModifier          -> PreProc
 fugitiveHash                      -> Constant
 colortemplateKey                  -> Statement
 xmlTagName                        -> Statement
@@ -196,13 +196,12 @@ SpellRare          color13        none           underline
 Variant: gui 256 16
 Comment            color04        none
 Constant           color01        none
-String             color10        none
-Identifier         color00        none
+Identifier         color06        none
 
 Statement          color00        none           bold
-Type               color00        none           bold
+Type               color02        none           bold
 
-PreProc            color08        none
+PreProc            color05        none
 Special            color07        none
 Underlined         color00        none           underline
 
