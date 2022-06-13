@@ -34,7 +34,8 @@ Color: color15     #e4e6e4        254            white
 Color: colorLine   #D7DAD7        253            grey
 Color: colorB      #EEF1EE        255            grey
 Color: colorNonT   #9EA09E        247            grey
-Color: colorTab    #B2B4B2        247            grey
+Color: colorTab    #B2B4B2        247            lightgrey
+Color: colorNC     #262626        235            black
 Color: colorC      #000000        16             black
 Color: colorlC     #0000FF        21             blue
 Color: colorV      #5F87AF        67             darkblue
@@ -108,10 +109,10 @@ Terminal           color00        color15
 
 Statusline         color15        color00        bold
 StatuslineTerm     color15        color00        bold
-VertSplit          color08        color08
+VertSplit          colorNC        colorNC
 
-TabLine            color00        colorTab        underline
-TabLineFill        none           color00        reverse,underline
+TabLine            color00        colorTab       underline
+TabLineFill        none           colorNC        underline
 TabLineSel         color00        color15        bold
 
 ToolbarLine        none           none
@@ -173,8 +174,8 @@ Folded             color00        color03
 ColorColumn        color00        color03
 
 Variant: gui 256
-StatuslineNC       colorTab       color00
-StatuslineTermNC   colorTab       color00
+StatuslineNC       colorTab       colorNC
+StatuslineTermNC   colorTab       colorNC
 VisualNOS          color15        color14
 CursorLine         none           colorLine
 CursorColumn       none           colorLine
