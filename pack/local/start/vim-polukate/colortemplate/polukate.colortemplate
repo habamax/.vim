@@ -60,6 +60,10 @@ fugitiveUnstagedHeading           -> Statement
 fugitiveStagedModifier            -> PreProc
 fugitiveUnstagedModifier          -> PreProc
 fugitiveHash                      -> Constant
+markdownHeadingDelimiter          -> PreProc
+rstSectionDelimiter               -> PreProc
+rstDirective                      -> Special
+rstFieldName                      -> Special
 colortemplateKey                  -> Statement
 xmlTagName                        -> Statement
 javaScriptFunction                -> Statement
@@ -136,7 +140,7 @@ SignColumn         none           none
 
 Error              color01        color15        reverse
 ErrorMsg           color01        color15        bold,reverse
-ModeMsg            color01        none           bold
+ModeMsg            color00        none           bold
 MoreMsg            color02        none           bold
 Question           color05        none           bold
 WarningMsg         color09        none           bold
