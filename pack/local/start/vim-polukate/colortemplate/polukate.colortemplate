@@ -134,14 +134,13 @@ PmenuSel           color00        color11
 SignColumn         none           none
 
 Error              color01        color15        reverse
-ErrorMsg           color01        color15        reverse
-ModeMsg            color00        color11
-MoreMsg            color02        none
-Question           color03        none
-WarningMsg         color09        none
+ErrorMsg           color01        color15        bold,reverse
+ModeMsg            color15        color04        bold
+MoreMsg            color02        none           bold
+Question           color05        none           bold
+WarningMsg         color09        none           bold
 
-
-Todo               color11        color00        reverse
+Todo               color06        color15        bold,reverse
 Search             color15        color10
 IncSearch          color15        colorC
 CurSearch          color15        color03
