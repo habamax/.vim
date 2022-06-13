@@ -29,11 +29,11 @@ Color: color06     #005f5f        23             darkcyan
 Color: color14     #5F8787        66             cyan
 
 Color: color07     #808080        244            grey
-Color: color15     #e4e8e4        254            white
+Color: color15     #e4e6e4        254            white
 
 Color: colorLine   #D7DAD7        253            grey
-Color: colorB      #EEF3EE        255            grey
-Color: colorNonT   #B2B6B2        249            grey
+Color: colorB      #EEF1EE        255            grey
+Color: colorNonT   #B2B4B2        249            grey
 Color: colorC      #000000        16             black
 Color: colorlC     #0000FF        21             blue
 Color: colorV      #5F87AF        67             darkblue
