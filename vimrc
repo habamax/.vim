@@ -138,6 +138,7 @@ def MapL()
     normal! L
     if line == line('$')
         normal! zb
+        exe "normal! \<C-e>"
     elseif line == line('.')
         normal! zt
     endif
