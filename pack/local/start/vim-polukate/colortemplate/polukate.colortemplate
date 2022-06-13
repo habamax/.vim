@@ -34,6 +34,7 @@ Color: color15     #e4e6e4        254            white
 Color: colorLine   #D7DAD7        253            grey
 Color: colorB      #EEF1EE        255            grey
 Color: colorNonT   #9EA09E        247            grey
+Color: colorTab    #B2B4B2        247            grey
 Color: colorC      #000000        16             black
 Color: colorlC     #0000FF        21             blue
 Color: colorV      #5F87AF        67             darkblue
@@ -109,14 +110,14 @@ Statusline         color15        color00        bold
 StatuslineTerm     color15        color00        bold
 VertSplit          color08        color08
 
-TabLine            color15        color07
-TabLineFill        none           color07
+TabLine            color00        colorTab        underline
+TabLineFill        none           color00        reverse,underline
 TabLineSel         color00        color15        bold
 
 ToolbarLine        none           none
 ToolbarButton      color00        colorNonT      bold
 
-QuickFixLine       color00        color11
+QuickFixLine       color15        color12
 CursorLineNr       colorC         none           bold
 LineNr             colorNonT      none
 LineNrAbove        colorNonT      none
@@ -129,22 +130,22 @@ SpecialKey         colorNonT      none
 Pmenu              none           colorB
 PmenuThumb         none           color07
 PmenuSbar          none           none
-PmenuSel           color00        color11
+PmenuSel           color15        color04
 
 SignColumn         none           none
 
 Error              color01        color15        reverse
 ErrorMsg           color01        color15        bold,reverse
-ModeMsg            color15        color04        bold
+ModeMsg            color01        none           bold
 MoreMsg            color02        none           bold
 Question           color05        none           bold
 WarningMsg         color09        none           bold
 
 Todo               color06        color15        bold,reverse
-Search             color15        color10
-IncSearch          color15        colorC
-CurSearch          color15        color03
-WildMenu           color00        color11
+Search             color00        color11
+IncSearch          color15        color10
+CurSearch          color15        color10
+WildMenu           color00        color11        bold
 
 debugPC            color04        none           reverse
 debugBreakpoint    color06        none           reverse
@@ -163,8 +164,8 @@ MatchParen         colorMP        color15        reverse
 
 
 Variant: 16
-StatuslineNC       color00        color07
-StatuslineTermNC   color00        color07
+StatuslineNC       colorTab       color00
+StatuslineTermNC   colorTab       color00
 VisualNOS          color00        color14
 CursorLine         none           none           underline
 CursorColumn       color00        color11
@@ -172,8 +173,8 @@ Folded             color00        color03
 ColorColumn        color00        color03
 
 Variant: gui 256
-StatuslineNC       color15        color08
-StatuslineTermNC   color15        color08
+StatuslineNC       colorTab       color00
+StatuslineTermNC   colorTab       color00
 VisualNOS          color15        color14
 CursorLine         none           colorLine
 CursorColumn       none           colorLine
