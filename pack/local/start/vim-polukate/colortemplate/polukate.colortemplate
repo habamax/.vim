@@ -62,8 +62,9 @@ fugitiveUnstagedModifier          -> PreProc
 fugitiveHash                      -> Constant
 markdownHeadingDelimiter          -> PreProc
 rstSectionDelimiter               -> Statement
-rstDirective                      -> Special
-rstFieldName                      -> Special
+rstDirective                      -> PreProc
+rstFieldName                      -> PreProc
+rstDelimiter                      -> PreProc
 colortemplateKey                  -> Statement
 xmlTagName                        -> Statement
 javaScriptFunction                -> Statement
@@ -200,13 +201,13 @@ SpellRare          color13        none           underline
 Variant: gui 256 16
 Comment            color04        none
 Constant           color01        none
-Identifier         color06        none
+Identifier         color00        none
 
 Statement          color00        none           bold
 Type               color02        none           bold
 
-PreProc            color05        none
-Special            color07        none
+PreProc            color08        none
+Special            color05        none
 Underlined         color00        none           underline
 
 Title              color00        none           bold
