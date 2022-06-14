@@ -61,7 +61,7 @@ fugitiveStagedModifier            -> PreProc
 fugitiveUnstagedModifier          -> PreProc
 fugitiveHash                      -> Constant
 markdownHeadingDelimiter          -> PreProc
-rstSectionDelimiter               -> PreProc
+rstSectionDelimiter               -> Statement
 rstDirective                      -> Special
 rstFieldName                      -> Special
 colortemplateKey                  -> Statement
