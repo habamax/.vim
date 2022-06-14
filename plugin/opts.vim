@@ -2,6 +2,9 @@ vim9script
 # Check after/plugin/settings.vim for settings that depends on plugin existence
 # Plugin settings
 
+# annoing for huge-line json like files, turn it off
+g:loaded_matchparen = 1
+
 packadd cfilter
 
 # vim-gutentags
