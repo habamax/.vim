@@ -1,4 +1,4 @@
-; vim: cc=20,35,50 vsts=19,15,15,4
+; vim: cc=20,35,50 vsts=19,15,15,4,15
 Full name: polukate
 Short name: polukate
 Description: Light colorscheme. A little bit bold.
@@ -63,6 +63,7 @@ fugitiveHash                      -> Constant
 markdownHeadingDelimiter          -> PreProc
 rstSectionDelimiter               -> Statement
 rstDirective                      -> Special
+rstHyperlinkReference             -> Special
 rstFieldName                      -> Special
 rstDelimiter                      -> Special
 colortemplateKey                  -> Statement
