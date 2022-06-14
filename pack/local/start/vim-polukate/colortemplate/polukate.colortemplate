@@ -57,14 +57,14 @@ fugitiveSymbolicRef               -> Type
 fugitiveHeading                   -> Statement
 fugitiveStagedHeading             -> Statement
 fugitiveUnstagedHeading           -> Statement
-fugitiveStagedModifier            -> PreProc
-fugitiveUnstagedModifier          -> PreProc
+fugitiveStagedModifier            -> Special
+fugitiveUnstagedModifier          -> Special
 fugitiveHash                      -> Constant
 markdownHeadingDelimiter          -> PreProc
 rstSectionDelimiter               -> Statement
-rstDirective                      -> PreProc
-rstFieldName                      -> PreProc
-rstDelimiter                      -> PreProc
+rstDirective                      -> Special
+rstFieldName                      -> Special
+rstDelimiter                      -> Special
 colortemplateKey                  -> Statement
 xmlTagName                        -> Statement
 javaScriptFunction                -> Statement
@@ -207,7 +207,7 @@ Statement          color00        none           bold
 Type               color02        none           bold
 
 PreProc            color08        none
-Special            color05        none
+Special            color08        none
 Underlined         color00        none           underline
 
 Title              color00        none           bold
