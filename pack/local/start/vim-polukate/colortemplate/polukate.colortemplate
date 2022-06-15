@@ -16,7 +16,7 @@ Color: color09     #AF0000        124            red
 Color: color02     #005F00        22             darkgreen
 Color: color10     #008700        28             green
 
-Color: color03     #878700        100            darkyellow
+Color: color03     #5F5F00        58            darkyellow
 Color: color11     #D7D787        186            yellow
 
 Color: color04     #005FAF        25             darkblue
@@ -209,7 +209,7 @@ Statement          color00        none           bold
 Type               color02        none           bold
 
 PreProc            color08        none
-Special            color08        none
+Special            color03        none
 Underlined         color00        none           underline
 
 Title              color00        none           bold
@@ -223,6 +223,9 @@ DiffAdd            fgDiff         diffAdd
 DiffChange         fgDiff         diffChange
 DiffText           fgDiff         diffText
 DiffDelete         diffDelete     none
+diffAdded          color01        none
+diffRemoved        color02        none
+diffSubname        color05        none
 
 
 ; No color support
