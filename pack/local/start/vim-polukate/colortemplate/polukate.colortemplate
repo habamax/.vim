@@ -140,9 +140,9 @@ PmenuSel           color15        color04
 
 SignColumn         none           none
 
-Error              color01        color15        reverse
-ErrorMsg           color01        color15        bold,reverse
-ModeMsg            color13        none           bold,reverse
+Error              color09        color15        reverse
+ErrorMsg           color09        color15        bold,reverse
+ModeMsg            color04        none           bold,reverse
 MoreMsg            color02        none           bold
 Question           color05        none           bold
 WarningMsg         color09        none           bold
