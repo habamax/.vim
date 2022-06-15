@@ -223,8 +223,8 @@ DiffAdd            fgDiff         diffAdd
 DiffChange         fgDiff         diffChange
 DiffText           fgDiff         diffText
 DiffDelete         diffDelete     none
-diffAdded          color01        none
-diffRemoved        color02        none
+diffAdded          color02        none
+diffRemoved        color01        none
 diffSubname        color05        none
 
 
