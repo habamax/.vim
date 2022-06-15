@@ -209,7 +209,7 @@ Statement          color00        none           bold
 Type               color02        none           bold
 
 PreProc            color08        none
-Special            color03        none
+Special            color08        none
 Underlined         color00        none           underline
 
 Title              color00        none           bold
