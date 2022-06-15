@@ -121,7 +121,7 @@ TabLineFill        none           color00        underline
 TabLineSel         color00        color15        bold
 
 ToolbarLine        none           none
-ToolbarButton      color00        colorNonT      bold
+ToolbarButton      color15        color10        bold
 
 QuickFixLine       color15        color12
 CursorLineNr       colorC         none           bold
@@ -142,7 +142,7 @@ SignColumn         none           none
 
 Error              color01        color15        reverse
 ErrorMsg           color01        color15        bold,reverse
-ModeMsg            color08        none           bold,reverse
+ModeMsg            color13        none           bold,reverse
 MoreMsg            color02        none           bold
 Question           color05        none           bold
 WarningMsg         color09        none           bold
