@@ -213,7 +213,7 @@ Special            color08        none
 Underlined         color00        none           underline
 
 Title              color00        none           bold
-Directory          color02        none           bold
+Directory          color06        none           bold
 
 Conceal            none           none
 Ignore             none           none
