@@ -265,7 +265,7 @@ def GqFormat(...args: list<any>): string
     else
         normal! '[v']gq
     endif
-    if v:shell_error > 0
+    if v:shell_error > get(b:, "formatprg_err", 0)
         silent undo
         redraw
         echomsg 'formatprg "' .. &formatprg .. '" exited with status ' .. v:shell_error
