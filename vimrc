@@ -397,9 +397,9 @@ augroup end
 augroup colors_override | au!
     au OptionSet background ++nested
           \   if v:option_new == 'light'
-          \ |     colorscheme polukate
+          \ |     colorscheme svetlo
           \ | else
-          \ |     colorscheme habamax
+          \ |     colorscheme temno
           \ | endif
     au Colorscheme habamax hi Normal ctermbg=NONE
     au Colorscheme polukate,haba*
@@ -416,13 +416,13 @@ augroup END
 ################################################################################
 # Colors
 
-silent! colorscheme habamax
+silent! colorscheme temno
 
 # helper command and mapping to work with legacy colorschemes
-command! -nargs=1 -complete=color Colo exe "so $VIMRUNTIME/colors/" .. <q-args> .. ".vim"
 command! ColoCheck ru colors/tools/check_colors.vim
 command! ColoMisc  tabnew | ru colors/tools/sample_misc.vim
 command! ColoMess  ru colors/tools/sample_messages.vim
+command! -nargs=1 -complete=color Colo exe "so $VIMRUNTIME/colors/" .. <q-args> .. ".vim"
 command! ColoDiff  tabnew | ru colors/tools/sample_diff.vim
 command! ColoQF    tabnew | ru colors/tools/sample_quickfix.vim
 command! ColoTerm  tabnew | ru colors/tools/sample_terminal.vim

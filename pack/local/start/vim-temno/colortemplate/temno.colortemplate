@@ -1,0 +1,232 @@
+; vim: cc=20,35,50 vsts=19,15,15,4,15
+Full name: temno
+Short name: temno
+Description: Dark colorscheme.
+Author: Maxim Kim <habamax@gmail.com>
+
+Background: dark
+
+;;; Color palette
+Color: color00     #000000        16             black
+Color: color08     #878787        102            darkgrey
+
+Color: color01     #AF0000        124            darkred
+Color: color09     #FF0000        196            red
+
+Color: color02     #5FAF5F        71             darkgreen
+Color: color10     #87FF5F        119            green
+
+Color: color03     #DFAF00        178            darkyellow
+Color: color11     #FFDF5F        221            yellow
+
+Color: color04     #005FAF        25             darkblue
+Color: color12     #5FAFFF        75             blue
+
+Color: color05     #AF5FAF        133            darkmagenta
+Color: color13     #D787D7        176            magenta
+
+Color: color06     #005f5f        23             darkcyan
+Color: color14     #5F8787        66             cyan
+
+Color: color07     #C6C6C6        251            grey
+Color: color15     #FFFFFF        231            white
+
+Color: colorLine   #303030        236            darkgrey
+Color: colorB      #262626        235            darkgrey
+Color: colorNonT   #585858        240            darkgrey
+Color: colorTab    #B2B2B2        240            grey
+Color: colorC      #FFFFFF        231            white
+Color: colorlC     #0000FF        21             blue
+Color: colorV      #87AFD7        119            blue
+Color: colorMP     #C5E7C5        30             darkcyan
+
+; Diff colors
+Color: diffAdd     #D5D5C0        187            darkyellow
+Color: diffDelete  #870000        88             darkred
+Color: diffChange  #D0D5D0        252            lightgray
+Color: diffText    #B0BDB0        250            darkgray
+Color: fgDiff      #000000        16             black
+
+
+Term colors: color00 color01 color02 color03 color04 color05 color06 color07
+Term colors: color08 color09 color10 color11 color12 color13 color14 color15
+
+
+; links
+fugitiveSymbolicRef               -> Type
+fugitiveHeading                   -> Statement
+fugitiveStagedHeading             -> Statement
+fugitiveUnstagedHeading           -> Statement
+fugitiveStagedModifier            -> Special
+fugitiveUnstagedModifier          -> Special
+fugitiveHash                      -> Constant
+markdownHeadingDelimiter          -> PreProc
+rstSectionDelimiter               -> Statement
+rstDirective                      -> Special
+rstHyperlinkReference             -> Special
+rstFieldName                      -> Special
+rstDelimiter                      -> Special
+colortemplateKey                  -> Statement
+xmlTagName                        -> Statement
+javaScriptFunction                -> Statement
+javaScriptIdentifier              -> Statement
+sqlKeyword                        -> Statement
+yamlBlockMappingKey               -> Statement
+rubyMacro                         -> Statement
+rubyDefine                        -> Statement
+vimGroup                          -> Normal
+vimVar                            -> Normal
+vimOper                           -> Normal
+vimSep                            -> Normal
+vimParenSep                       -> Normal
+vimCommentString                  -> Comment
+pythonInclude                     -> Statement
+elixirOperator                    -> Statement
+elixirKeyword                     -> Statement
+elixirBlockDefinition             -> Statement
+elixirDefine                      -> Statement
+elixirPrivateDefine               -> Statement
+elixirGuard                       -> Statement
+elixirPrivateGuard                -> Statement
+elixirModuleDefine                -> Statement
+elixirProtocolDefine              -> Statement
+elixirImplDefine                  -> Statement
+elixirRecordDefine                -> Statement
+elixirPrivateRecordDefine         -> Statement
+elixirMacroDefine                 -> Statement
+elixirPrivateMacroDefine          -> Statement
+elixirDelegateDefine              -> Statement
+elixirOverridableDefine           -> Statement
+elixirExceptionDefine             -> Statement
+elixirCallbackDefine              -> Statement
+elixirStructDefine                -> Statement
+elixirExUnitMacro                 -> Statement
+elixirInclude                     -> Statement
+elixirVariable                    -> Special
+elixirAtom                        -> Constant
+elixirDocTest                     -> String
+
+
+;;; chrome
+Variant: gui 256 16
+
+Normal             color07        color00
+Terminal           color07        color00
+
+Statusline         color00        color07        bold
+StatuslineTerm     color00        color07        bold
+VertSplit          color08        color08
+
+TabLine            color00        colorTab
+TabLineFill        none           color08
+TabLineSel         color15        color00        bold
+
+ToolbarLine        none           none
+ToolbarButton      color00        color15        bold
+
+QuickFixLine       color15        color12
+CursorLineNr       colorC         none           bold
+LineNr             colorNonT      none
+LineNrAbove        colorNonT      none
+LineNrBelow        colorNonT      none
+NonText            colorNonT      none
+FoldColumn         colorNonT      none
+EndOfBuffer        colorNonT      none
+SpecialKey         colorNonT      none
+
+Pmenu              none           colorB
+PmenuThumb         none           color07
+PmenuSbar          none           none
+PmenuSel           none           color04
+
+SignColumn         none           none
+
+Error              color09        color15        reverse
+ErrorMsg           color09        color15        bold,reverse
+ModeMsg            color11        none           bold,reverse
+MoreMsg            color10        none           bold
+Question           color13        none           bold
+WarningMsg         color09        none           bold
+
+Todo               color14        color00        bold,reverse
+Search             color00        color11
+IncSearch          color00        color10
+CurSearch          color00        color10
+WildMenu           color00        color11        bold
+
+debugPC            color04        none           reverse
+debugBreakpoint    color06        none           reverse
+
+
+Variant: gui
+Cursor             color15        color00        reverse
+lCursor            colorlC        color00        reverse
+Visual             color00        colorV
+MatchParen         none           colorMP
+
+
+Variant: 256 16
+Visual             color00        colorV
+MatchParen         colorMP        color15        reverse
+
+
+Variant: 16
+StatuslineNC       colorTab       color00
+StatuslineTermNC   colorTab       color00
+VisualNOS          color00        color14
+CursorLine         none           none           underline
+CursorColumn       color00        color11
+Folded             color00        color03
+ColorColumn        color00        color03
+
+Variant: gui 256
+StatuslineNC       color00        color08
+StatuslineTermNC   color00        color08
+VisualNOS          color15        color14
+CursorLine         none           colorLine
+CursorColumn       none           colorLine
+Folded             color08        colorB
+ColorColumn        none           colorB
+
+Variant: gui
+SpellBad           none           none           g=undercurl s=color01
+SpellCap           none           none           g=undercurl s=color04
+SpellLocal         none           none           g=undercurl s=color02
+SpellRare          none           none           g=undercurl s=color13
+Variant: 256 16
+SpellBad           color01        none           underline
+SpellCap           color04        none           underline
+SpellLocal         color02        none           underline
+SpellRare          color13        none           underline
+
+;;; :h group-names
+Variant: gui 256 16
+Comment            color12        none
+Constant           color11        none
+Identifier         none           none
+
+Statement          color15        none           bold
+Type               color02        none           bold
+
+PreProc            color08        none
+Special            color08        none
+Underlined         color15        none           underline
+
+Title              color15        none           bold
+Directory          color06        none           bold
+
+Conceal            none           none
+Ignore             none           none
+
+Variant:           gui 256 16
+DiffAdd            fgDiff         diffAdd
+DiffChange         fgDiff         diffChange
+DiffText           fgDiff         diffText
+DiffDelete         diffDelete     none
+diffAdded          color10        none
+diffRemoved        color09        none
+diffSubname        color13        none
+
+
+; No color support
+Include: _tcozero
