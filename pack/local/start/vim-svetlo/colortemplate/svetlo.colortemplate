@@ -16,7 +16,7 @@ Color: color09     #AF0000        124            red
 Color: color02     #005F00        22             darkgreen
 Color: color10     #008700        28             green
 
-Color: color03     #878700        100            darkyellow
+Color: color03     #87875F        101            darkyellow
 Color: color11     #D7D787        186            yellow
 
 Color: color04     #005FAF        25             darkblue
@@ -143,7 +143,7 @@ SignColumn         none           none
 
 Error              color09        color15        reverse
 ErrorMsg           color09        color15        bold,reverse
-ModeMsg            color06        none           bold,reverse
+ModeMsg            color11        color00        bold,reverse
 MoreMsg            color02        none           bold
 Question           color05        none           bold
 WarningMsg         color09        none           bold
