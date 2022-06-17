@@ -401,7 +401,9 @@ augroup colors_override | au!
           \ | else
           \ |     colorscheme temno
           \ | endif
-    au Colorscheme habamax,temno hi Normal ctermbg=NONE
+    au Colorscheme habamax,temno
+          \   hi Normal ctermbg=NONE
+          \ | hi TabLineSel ctermbg=NONE
     au Colorscheme temno,svetlo,habamax
           \ | hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE
     au Colorscheme malotru
