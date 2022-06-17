@@ -32,7 +32,7 @@ Color: color07     #C6C6C6        251            grey
 Color: color15     #FFFFFF        231            white
 
 Color: colorLine   #303030        236            darkgrey
-Color: colorB      #262626        235            darkgrey
+Color: colorB      #262626        235            black
 Color: colorNonT   #585858        240            darkgrey
 Color: colorTab    #B2B2B2        240            grey
 Color: colorC      #FFFFFF        231            white
@@ -171,8 +171,8 @@ MatchParen         colorMP        color15        reverse
 
 
 Variant: 16
-StatuslineNC       colorTab       color00
-StatuslineTermNC   colorTab       color00
+StatuslineNC       color00        color08
+StatuslineTermNC   color00        color00
 VisualNOS          color00        color14
 CursorLine         none           none           underline
 CursorColumn       color00        color11
