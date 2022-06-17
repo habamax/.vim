@@ -189,14 +189,14 @@ Folded             color08        colorB
 ColorColumn        none           colorB
 
 Variant: gui
-SpellBad           none           none           g=undercurl s=color01
+SpellBad           none           none           g=undercurl s=color09
 SpellCap           none           none           g=undercurl s=color04
 SpellLocal         none           none           g=undercurl s=color02
 SpellRare          none           none           g=undercurl s=color13
 Variant: 256 16
-SpellBad           color01        none           underline
-SpellCap           color04        none           underline
-SpellLocal         color02        none           underline
+SpellBad           color09        none           underline
+SpellCap           color12        none           underline
+SpellLocal         color10        none           underline
 SpellRare          color13        none           underline
 
 ;;; :h group-names
