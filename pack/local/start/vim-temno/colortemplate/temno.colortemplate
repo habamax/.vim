@@ -41,10 +41,10 @@ Color: colorV      #87AFD7        110            blue
 Color: colorMP     #C5E7C5        30             darkcyan
 
 ; Diff colors
-Color: diffAdd     #D5D5C0        187            darkyellow
+Color: diffAdd     #5FAF5F        71             darkyellow
 Color: diffDelete  #DFAF00        178            darkyellow
-Color: diffChange  #D0D5D0        252            lightgray
-Color: diffText    #B0BDB0        250            darkgray
+Color: diffChange  #D0D0D0        252            lightgray
+Color: diffText    #B0B0B0        145            darkgray
 Color: fgDiff      #000000        16             black
 
 
