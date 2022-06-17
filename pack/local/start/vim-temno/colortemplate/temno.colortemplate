@@ -34,7 +34,7 @@ Color: color15     #FFFFFF        231            white
 Color: colorLine   #303030        236            darkgrey
 Color: colorB      #262626        235            black
 Color: colorNonT   #585858        240            darkgrey
-Color: colorTab    #B2B2B2        240            grey
+Color: colorTab    #585858        240            grey
 Color: colorC      #FFFFFF        231            white
 Color: colorlC     #0000FF        21             blue
 Color: colorV      #87AFD7        110            blue
