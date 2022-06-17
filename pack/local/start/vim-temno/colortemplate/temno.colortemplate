@@ -117,9 +117,9 @@ Statusline         color00        color07        bold
 StatuslineTerm     color00        color07        bold
 VertSplit          color08        color08
 
-TabLine            color00        colorTab
+TabLine            color07        colorTab
 TabLineFill        none           color08
-TabLineSel         color15        color00        bold
+TabLineSel         color07        color00        bold
 
 ToolbarLine        none           none
 ToolbarButton      color00        color15        bold
