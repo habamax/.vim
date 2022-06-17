@@ -143,7 +143,7 @@ SignColumn         none           none
 
 Error              color09        color15        reverse
 ErrorMsg           color09        color15        bold,reverse
-ModeMsg            color04        none           bold,reverse
+ModeMsg            color06        none           bold,reverse
 MoreMsg            color02        none           bold
 Question           color05        none           bold
 WarningMsg         color09        none           bold
