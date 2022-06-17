@@ -42,7 +42,7 @@ Color: colorMP     #C5E7C5        30             darkcyan
 
 ; Diff colors
 Color: diffAdd     #D5D5C0        187            darkyellow
-Color: diffDelete  #870000        88             darkred
+Color: diffDelete  #AF0000        124            darkred
 Color: diffChange  #D0D5D0        252            lightgray
 Color: diffText    #B0BDB0        250            darkgray
 Color: fgDiff      #000000        16             black
