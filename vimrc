@@ -401,8 +401,8 @@ augroup colors_override | au!
           \ | else
           \ |     colorscheme temno
           \ | endif
-    au Colorscheme habamax hi Normal ctermbg=NONE
-    au Colorscheme polukate,haba*
+    au Colorscheme habamax,temno hi Normal ctermbg=NONE
+    au Colorscheme temno,svetlo,habamax
           \ | hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE
     au Colorscheme malotru
           \   hi Normal ctermbg=NONE
