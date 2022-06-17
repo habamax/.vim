@@ -25,8 +25,8 @@ Color: color12     #5FAFFF        75             blue
 Color: color05     #AF5FAF        133            darkmagenta
 Color: color13     #D787D7        176            magenta
 
-Color: color06     #005f5f        23             darkcyan
-Color: color14     #5F8787        66             cyan
+Color: color06     #5F8787        66             darkcyan
+Color: color14     #5FAFAF        73             cyan
 
 Color: color07     #C6C6C6        251            grey
 Color: color15     #FFFFFF        231            white
@@ -213,7 +213,7 @@ Special            color08        none
 Underlined         color15        none           underline
 
 Title              color15        none           bold
-Directory          color06        none           bold
+Directory          color14        none           bold
 
 Conceal            none           none
 Ignore             none           none
