@@ -162,12 +162,12 @@ Variant: gui
 Cursor             color15        color00        reverse
 lCursor            colorlC        color00        reverse
 Visual             color00        colorV
-MatchParen         none           colorMP
+MatchParen         colorMP        color00        reverse
 
 
 Variant: 256 16
 Visual             color00        colorV
-MatchParen         colorMP        color15        reverse
+MatchParen         colorMP        color00        reverse
 
 
 Variant: 16
