@@ -99,6 +99,7 @@ def ToggleCC(all: bool = false)
         setl vsts&
         var shift = 1
         for v in cc
+            if v == 1 | continue | endif
             exe "set vsts+=" .. (v - shift)
             shift = v
         endfor
