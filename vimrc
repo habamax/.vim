@@ -372,6 +372,10 @@ endif
 # redirect the output of a Vim or external command into a scratch buffer
 command! -nargs=1 -complete=command -bar Redir silent v#Redir(<q-args>)
 
+# base64
+command! Base64 call append('.', trim(system("python -m base64", getline('.'))))
+command! Base64Decode call append('.', trim(system("python -m base64 -d", getline('.'))))
+
 
 ################################################################################
 # Autocommands
