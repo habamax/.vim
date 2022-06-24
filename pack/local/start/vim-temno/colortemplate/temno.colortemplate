@@ -53,6 +53,7 @@ Term colors: color08 color09 color10 color11 color12 color13 color14 color15
 
 
 ; links
+helpHeader                        -> Title
 helpHyperTextJump                 -> Special
 fugitiveSymbolicRef               -> Type
 fugitiveHeading                   -> Statement
