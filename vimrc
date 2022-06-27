@@ -108,8 +108,8 @@ def ToggleCC(all: bool = false)
         setl vsts&
     endif
 enddef
-nnoremap <silent> yol <ScriptCmd>ToggleCC()<CR>
-nnoremap <silent> yoL <ScriptCmd>ToggleCC(true)<CR>
+nnoremap <silent> yoc <ScriptCmd>ToggleCC()<CR>
+nnoremap <silent> yoC <ScriptCmd>ToggleCC(true)<CR>
 
 
 nnoremap <silent> <BS> <cmd>call text#Toggle()<CR>
