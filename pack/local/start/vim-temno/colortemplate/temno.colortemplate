@@ -63,6 +63,7 @@ fugitiveUnstagedHeading           -> Statement
 fugitiveStagedModifier            -> Special
 fugitiveUnstagedModifier          -> Special
 fugitiveHash                      -> Constant
+diffFile                          -> Preproc
 markdownHeadingDelimiter          -> PreProc
 rstSectionDelimiter               -> Statement
 rstDirective                      -> Special

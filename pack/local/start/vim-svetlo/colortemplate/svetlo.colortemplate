@@ -10,8 +10,8 @@ Background: light
 Color: color00     #000000        16             black
 Color: color08     #626262        241            darkgrey
 
-Color: color01     #AF0000        124            darkred
-Color: color09     #FF0000        196            red
+Color: color01     #870000        88             darkred
+Color: color09     #D70000        160            red
 
 Color: color02     #005F00        22             darkgreen
 Color: color10     #008700        28             green
@@ -63,6 +63,7 @@ fugitiveUnstagedHeading           -> Statement
 fugitiveStagedModifier            -> Special
 fugitiveUnstagedModifier          -> Special
 fugitiveHash                      -> Constant
+diffFile                          -> Preproc
 markdownHeadingDelimiter          -> PreProc
 rstSectionDelimiter               -> Statement
 rstDirective                      -> Special
@@ -226,8 +227,8 @@ DiffAdd            fgDiff         diffAdd
 DiffChange         fgDiff         diffChange
 DiffText           fgDiff         diffText
 DiffDelete         diffDelete     none
-diffAdded          color02        none
-diffRemoved        color01        none
+diffAdded          color10        none
+diffRemoved        color09        none
 diffSubname        color05        none
 
 
