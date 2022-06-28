@@ -423,7 +423,11 @@ augroup END
 ################################################################################
 # Colors
 
-silent! colorscheme temno
+if &bg == 'light'
+    silent! colorscheme svetlo
+else
+    silent! colorscheme temno
+endif
 
 # helper command and mapping to work with legacy colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
