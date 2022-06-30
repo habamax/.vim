@@ -406,14 +406,13 @@ augroup colors_override | au!
           \ | else
           \ |     colorscheme temno
           \ | endif
-    au Colorscheme habamax,temno
-          \   hi Normal ctermbg=NONE
-          \ | hi TabLineSel ctermbg=NONE
+    # au Colorscheme habamax,temno
+    #       \   hi Normal ctermbg=NONE
+    #       \ | hi TabLineSel ctermbg=NONE
     au Colorscheme temno,svetlo,habamax
-          \ | hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE
+          \   hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE
     au Colorscheme malotru
-          \   hi Normal ctermbg=NONE
-          \ | hi Title ctermfg=231 cterm=bold guifg=#FFFFFF gui=bold
+          \   hi Title ctermfg=231 cterm=bold guifg=#FFFFFF gui=bold
           \ | hi Cursorline ctermbg=236 guibg=#303030
           \ | hi CursorlineNr ctermfg=231 cterm=bold guifg=#FFFFFF gui=bold
           \ | hi Cursor guifg=#000000 guibg=#FFFFFF
