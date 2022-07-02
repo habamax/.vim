@@ -422,7 +422,7 @@ augroup END
 ################################################################################
 # Colors
 
-if &bg == 'light'
+if $VIMBACKGROUND == 'light'
     silent! colorscheme svetlo
 else
     silent! colorscheme temno
