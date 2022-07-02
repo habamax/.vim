@@ -37,7 +37,7 @@ Color: colorNonT   #585858        240            darkgrey
 Color: colorTab    #585858        240            grey
 Color: colorC      #FFFFFF        231            white
 Color: colorlC     #0000FF        21             blue
-Color: colorV      #87AFD7        110            blue
+Color: colorV      #005F87        24             darkblue
 Color: colorMP     #C5E7C5        30             darkcyan
 
 ; Diff colors
@@ -165,12 +165,12 @@ debugBreakpoint    color06        none           reverse
 Variant: gui
 Cursor             color15        color00        reverse
 lCursor            colorlC        color00        reverse
-Visual             color00        colorV
+Visual             color15        colorV
 MatchParen         colorMP        color00        reverse
 
 
 Variant: 256 16
-Visual             color00        colorV
+Visual             color15        colorV
 MatchParen         colorMP        color00        reverse
 
 
