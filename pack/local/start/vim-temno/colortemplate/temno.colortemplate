@@ -19,7 +19,7 @@ Color: color10     #87FF5F        119            green
 Color: color03     #AF875F        137            darkyellow
 Color: color11     #FFDF87        222            yellow
 
-Color: color04     #005FAF        25             darkblue
+Color: color04     #5F87AF        67             darkblue
 Color: color12     #5FAFFF        75             blue
 
 Color: color05     #AF5FAF        133            darkmagenta
@@ -141,7 +141,7 @@ SpecialKey         colorNonT      none
 Pmenu              none           colorB
 PmenuThumb         none           color07
 PmenuSbar          none           none
-PmenuSel           none           color04
+PmenuSel           color00        color03
 
 SignColumn         none           none
 

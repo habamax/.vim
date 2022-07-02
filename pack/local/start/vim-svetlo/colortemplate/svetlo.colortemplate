@@ -16,7 +16,7 @@ Color: color09     #D70000        160            red
 Color: color02     #005F00        22             darkgreen
 Color: color10     #008700        28             green
 
-Color: color03     #87875F        101            darkyellow
+Color: color03     #AF875F        137            darkyellow
 Color: color11     #D7D787        186            yellow
 
 Color: color04     #005FAF        25             darkblue
@@ -141,7 +141,7 @@ SpecialKey         colorNonT      none
 Pmenu              none           colorB
 PmenuThumb         none           color07
 PmenuSbar          none           none
-PmenuSel           color15        color04
+PmenuSel           color15        color03
 
 SignColumn         none           none
 
