@@ -407,10 +407,8 @@ augroup colors_override | au!
           \ |     colorscheme lunaperche
           \ | endif
     au Colorscheme habamax,lunaperche
-          \   if $VIMBACKGROUND != 'light'
-          \ |     hi Normal ctermbg=NONE
-          \ |     hi TabLineSel ctermbg=NONE
-          \ | endif
+          \   hi Normal ctermbg=NONE
+          \ | hi TabLineSel ctermbg=NONE
     au Colorscheme lunaperche,perchesole,habamax
           \   hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE
     au Colorscheme malotru
@@ -424,11 +422,8 @@ augroup END
 ################################################################################
 # Colors
 
-if $VIMBACKGROUND == 'light'
-    silent! colorscheme perchesole
-else
-    silent! colorscheme lunaperche
-endif
+# silent! colorscheme perchesole
+silent! colorscheme lunaperche
 
 # helper command and mapping to work with legacy colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
