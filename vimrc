@@ -402,16 +402,16 @@ augroup end
 augroup colors_override | au!
     au OptionSet background ++nested
           \   if v:option_new == 'light'
-          \ |     colorscheme svetlo
+          \ |     colorscheme perchesole
           \ | else
-          \ |     colorscheme temno
+          \ |     colorscheme lunaperche
           \ | endif
-    au Colorscheme habamax,temno
+    au Colorscheme habamax,lunaperche
           \   if $VIMBACKGROUND != 'light'
           \ |     hi Normal ctermbg=NONE
           \ |     hi TabLineSel ctermbg=NONE
           \ | endif
-    au Colorscheme temno,svetlo,habamax
+    au Colorscheme lunaperche,perchesole,habamax
           \   hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE
     au Colorscheme malotru
           \   hi Title ctermfg=231 cterm=bold guifg=#FFFFFF gui=bold
@@ -425,9 +425,9 @@ augroup END
 # Colors
 
 if $VIMBACKGROUND == 'light'
-    silent! colorscheme svetlo
+    silent! colorscheme perchesole
 else
-    silent! colorscheme temno
+    silent! colorscheme lunaperche
 endif
 
 # helper command and mapping to work with legacy colorschemes
