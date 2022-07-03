@@ -1,7 +1,7 @@
 vim9script
 
 
-if $XDG_SESSION_TYPE != 'wayland'
+if $TERM != 'foot'
     finish
 endif
 
