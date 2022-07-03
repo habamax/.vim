@@ -110,15 +110,19 @@ elixirVariable                    -> Special
 elixirAtom                        -> Constant
 elixirDocTest                     -> String
 
+; default links
+Terminal                          -> Normal
+StatuslineTerm                    -> Statusline
+StatuslineTermNC                  -> StatuslineNC
+
 
 ;;; chrome
 Variant: gui 256 16
 
 Normal             color07        color00
-Terminal           color07        color00
 
 Statusline         color00        color07        bold
-StatuslineTerm     color00        color07        bold
+StatuslineNC       color00        color08
 VertSplit          color08        color08
 
 TabLine            color07        colorTab
@@ -175,8 +179,6 @@ MatchParen         colorMP        color00        reverse
 
 
 Variant: 16
-StatuslineNC       color00        color08
-StatuslineTermNC   color00        color00
 VisualNOS          color00        color06
 CursorLine         none           none           underline
 CursorColumn       color00        color11
@@ -184,8 +186,6 @@ Folded             color00        color03
 ColorColumn        color00        color03
 
 Variant: gui 256
-StatuslineNC       color00        color08
-StatuslineTermNC   color00        color08
 VisualNOS          color00        color06
 CursorLine         none           colorLine
 CursorColumn       none           colorLine
