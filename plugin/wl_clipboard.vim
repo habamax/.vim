@@ -7,7 +7,7 @@ endif
 
 
 def WLYank(event: dict<any>)
-    if event.regname =~ '[+*]' || &clipboard =~ '\<unnamed\(plus\)\?\>'
+    if event.regname =~ '+' || &clipboard =~ '\<unnamed\(plus\)\?\>'
         system('wl-copy', getreg("@"))
     endif
 enddef
