@@ -128,7 +128,7 @@ TabLineSel         color07        color00        bold
 ToolbarLine        none           none
 ToolbarButton      color00        color15        bold
 
-QuickFixLine       color15        color12
+QuickFixLine       color00        color12
 CursorLineNr       colorC         none           bold
 LineNr             colorNonT      none
 LineNrAbove        colorNonT      none
@@ -177,7 +177,7 @@ MatchParen         colorMP        color00        reverse
 Variant: 16
 StatuslineNC       color00        color08
 StatuslineTermNC   color00        color00
-VisualNOS          color00        color14
+VisualNOS          color00        color06
 CursorLine         none           none           underline
 CursorColumn       color00        color11
 Folded             color00        color03
@@ -186,7 +186,7 @@ ColorColumn        color00        color03
 Variant: gui 256
 StatuslineNC       color00        color08
 StatuslineTermNC   color00        color08
-VisualNOS          color15        color14
+VisualNOS          color00        color06
 CursorLine         none           colorLine
 CursorColumn       none           colorLine
 Folded             color08        colorB
