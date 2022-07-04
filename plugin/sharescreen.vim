@@ -1,6 +1,8 @@
 vim9script
 
 ## screenshort0x0.py
+## Doesn't work with gnome on wayland
+##
 ## # pip install pillow
 ## import os, uuid, tempfile as tf
 ## from PIL import ImageGrab
@@ -13,7 +15,17 @@ vim9script
 ## os.system(f"curl -F file=@{img_file} http://0x0.st")
 
 def ShareScreen()
-    var url = systemlist('screenshot0x0.py')[-1]
+    var url = ""
+    if executable("gnome-screenshot")
+        var img_file = tempname()
+        system($'gnome-screenshot --file={img_file}')
+        url = system($"curl -F file=@{img_file} http://0x0.st")
+    elseif executable("screenshot0x0.py")
+        url = systemlist('screenshot0x0.py')[-1]
+    else
+        echo "Can't share the screen!"
+        return
+    endif
     setreg("+", url)
     echo url
 enddef
