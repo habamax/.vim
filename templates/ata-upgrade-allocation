@@ -1,8 +1,8 @@
-*Customer:*                       Customer name
-*Current version:*                13.7
-*Desired version:*                13.8
-*Timing:*                         2022-07-08
-*EM from Services:*               @mxmkm
+*Customer:* Customer name
+*Current version:* 13.7
+*Desired version:* 13.8
+*Timing:* 2022-07-08
+*EM from Services:* @mxmkm
 *Slack channel for coordination:* #p_xxx_tech
 *Any useful details:*
     The upgrade is needed ...
