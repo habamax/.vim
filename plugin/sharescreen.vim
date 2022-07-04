@@ -20,5 +20,5 @@ enddef
 
 command! ShareScreen call ShareScreen()
 
-noremap <F12> <ScriptCmd>ShareScreen<CR>
-xnoremap <F12> <ScriptCmd>ShareScreen<CR>
+nnoremap <space><F12> <ScriptCmd>ShareScreen<CR>
+xnoremap <space><F12> <ScriptCmd>ShareScreen<CR>
