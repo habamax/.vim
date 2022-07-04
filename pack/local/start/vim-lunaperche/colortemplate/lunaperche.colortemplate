@@ -10,8 +10,8 @@ Background: dark
 Color: color00     #000000        16             black
 Color: color08     #878787        102            darkgrey
 
-Color: color01     #AF0000        124            darkred
-Color: color09     #FF0000        196            red
+Color: color01     #AF5F5F        131            darkred
+Color: color09     #FF5F5F        203            red
 
 Color: color02     #5FD75F        77             darkgreen
 Color: color10     #87FF5F        119            green
