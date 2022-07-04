@@ -422,8 +422,11 @@ augroup END
 ################################################################################
 # Colors
 
-# silent! colorscheme perchesole
-silent! colorscheme lunaperche
+if has("gui_running")
+    silent! colorscheme perchesole
+else
+    silent! colorscheme lunaperche
+endif
 
 # helper command and mapping to work with legacy colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
