@@ -55,14 +55,14 @@ enddef
 
 # Dates (text object and stuff)
 var mons_en = ['Jan', 'Feb', 'Mar', 'Apr',
-                 'May', 'Jun', 'Jul', 'Aug',
-                 'Sep', 'Oct', 'Nov', 'Dec']
-var months_en = ['January', 'February', 'March', 'April',
-                   'May', 'June', 'July', 'August',
-                   'September', 'October', 'November', 'December']
-var months_ru = ['января', 'февраля', 'марта', 'апреля',
-                   'мая', 'июня', 'июля', 'августа',
-                   'сентября', 'октября', 'ноября', 'декабря']
+               'May', 'Jun', 'Jul', 'Aug',
+               'Sep', 'Oct', 'Nov', 'Dec']
+var months_en = ['January',   'February', 'March',    'April',
+                 'May',       'June',     'July',     'August',
+                 'September', 'October',  'November', 'December']
+var months_ru = ['января',   'февраля', 'марта',  'апреля',
+                 'мая',      'июня',    'июля',   'августа',
+                 'сентября', 'октября', 'ноября', 'декабря']
 
 var months = extend(months_en, months_ru)
 months = extend(months, mons_en)
@@ -148,7 +148,6 @@ enddef
 
 
 # Indent text object
-# Useful for python-like indentation based programming lanugages
 # Usage:
 # onoremap <silent>ii :<C-u>call text#obj_indent(v:true)<CR>
 # onoremap <silent>ai :<C-u>call text#obj_indent(v:false)<CR>
@@ -158,7 +157,7 @@ export def ObjIndent(inner: bool)
     var ln_start: number
     var ln_end: number
     if getline('.') =~ '^\s*$'
-        ln_start = DetectNearestLine()
+        ln_start = prevnonblank('.')
         ln_end = ln_start
     else
         ln_start = line('.')
@@ -166,41 +165,21 @@ export def ObjIndent(inner: bool)
     endif
 
     var indent = indent(ln_start)
-    if indent > 0
-        while ln_start > 0 && indent(ln_start) >= indent 
-            ln_start = prevnonblank(ln_start - 1)
-        endwhile
 
-        while ln_end <= line('$') && indent(ln_end) >= indent
-            ln_end = NextNonBlank(ln_end + 1)
-        endwhile
-    else
-        while ln_start > 0 && indent(ln_start) == 0 && getline(ln_start) !~ '^\s*$'
-            ln_start -= 1
-        endwhile
-        while ln_start > 0 && indent(ln_start) > 0
-            ln_start = prevnonblank(ln_start - 1)
-        endwhile
-        while ln_start > 0 && indent(ln_start) == 0 && getline(ln_start) !~ '^\s*$'
-            ln_start -= 1
-        endwhile
+    while ln_start > 0 && indent(ln_start) >= indent
+        ln_start = prevnonblank(ln_start - 1)
+    endwhile
 
-        while ln_end <= line('$') && indent(ln_end) == 0 && getline(ln_end) !~ '^\s*$'
-            ln_end += 1
-        endwhile
-        while ln_end <= line('$') && indent(ln_end) > 0
-            ln_end = NextNonBlank(ln_end + 1)
-        endwhile
-    endif
-
-    if inner || indent == 0
-        ln_start = NextNonBlank(ln_start + 1)
-    endif
+    while ln_end <= line('$') && indent(ln_end) >= indent
+        ln_end = nextnonblank(ln_end + 1) ?? line('$') + 1
+    endwhile
 
     if inner
+        ln_start = nextnonblank(ln_start + 1) ?? line('$') + 1
         ln_end = prevnonblank(ln_end - 1)
     else
-        ln_end = ln_end - 1
+        ln_start += 1
+        ln_end -= 1
     endif
 
     if ln_end < ln_start
@@ -210,27 +189,6 @@ export def ObjIndent(inner: bool)
     exe ":" ln_end
     normal! V
     exe ":" ln_start
-enddef
-
-
-def NextNonBlank(lnum: number): number
-    var res = nextnonblank(lnum)
-    if res == 0
-        res = line('$') + 1
-    endif
-    return res
-enddef
-
-
-def DetectNearestLine(): number
-    var lnum = line('.')
-    var nline = NextNonBlank(lnum)
-    var pline = prevnonblank(lnum)
-    if abs(nline - lnum) > abs(pline - lnum) || getline(nline) =~ '^\s*$'
-        return pline
-    else
-        return nline
-    endif
 enddef
 
 
