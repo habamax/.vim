@@ -1,9 +1,6 @@
 vim9script
 
 var orig_guifont: string = &guifont
-var orig_lines: number = &lines
-var orig_columns: number = &columns
-
 
 def GetFontParams(font: string): list<any>
     var params: list<string>
@@ -34,7 +31,11 @@ export def Change(op: string)
         endif
     endfor
 
-    exe printf('set guifont=%s', escape(new_fonts->join(','), ' '))
+    if op == 'restore'
+        exe printf('&guifont = "%s"', orig_guifont)
+    else
+        exe printf('set guifont=%s', escape(new_fonts->join(','), ' '))
+    endif
 
     wincmd =
 enddef
