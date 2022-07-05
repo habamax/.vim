@@ -55,7 +55,7 @@ Term colors: color08 color09 color10 color11 color12 color13 color14 color15
 ; links
 helpVim                           -> Title
 helpHeader                        -> Title
-helpHyperTextJump                 -> Special
+helpHyperTextJump                 -> Underlined
 fugitiveSymbolicRef               -> Type
 fugitiveHeading                   -> Statement
 fugitiveStagedHeading             -> Statement
@@ -213,7 +213,7 @@ Type               color02        none           bold
 
 PreProc            color08        none
 Special            color08        none
-Underlined         color00        none           underline
+Underlined         none           none           underline
 
 Title              color00        none           bold
 Directory          color06        none           bold
