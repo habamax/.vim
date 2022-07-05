@@ -75,38 +75,43 @@ __ https://github.com/tpope/vim-commentary
   enddef
 
 
-Background change
------------------
-
-Auto change ``&background`` in GUI Vim depending on time (check every 5 mins):
+Toggle ColorColumn at cursor position
+-------------------------------------
 
 .. code:: vim
 
-  vim9script
-
-  if has("gui_running")
-      def Lights()
-          if !get(g:, "auto_bg", 1) | return | endif
-          var hour = strftime("%H")->str2nr()
-          var bg: string
-          if hour > 8 && hour < 17
-              bg = "light"
+  # toggle colorcolumn at cursor position
+  # set vartabstop accordingly
+  def ToggleCC(all: bool = false)
+      if all
+          b:cc = &cc ?? get(b:, "cc", "80")
+          &cc = empty(&cc) ? b:cc : ""
+      else
+          var col = virtcol('.')
+          var cc = split(&cc, ",")->map((_, v) => str2nr(v))
+          if index(cc, col) == -1
+              exe "set cc=" .. cc->add(col)->sort('f')->map((_, v) => printf("%s", v))->join(',')
           else
-              bg = "dark"
+              exe "set cc-=" .. col
           endif
-          if bg != &bg | &bg = bg | endif
-      enddef
-      Lights()
-      if exists("g:lights_timer")
-          timer_stop(g:lights_timer)
       endif
-      g:lights_timer = timer_start(5 * 60000, (_) => Lights(), {repeat: -1})
-  else
-      if has("win32") | set t_Co=256 | endif
-      set bg=dark
-  endif
-  # colorscheme should support both dark and light colors
-  silent! colorscheme habamax
+      var cc = split(&cc, ",")->map((_, v) => str2nr(v))
+      if len(cc) > 1 || len(cc) == 1 && cc[0] < 60
+          setl vsts&
+          var shift = 1
+          for v in cc
+              if v == 1 | continue | endif
+              exe "set vsts+=" .. (v - shift)
+              shift = v
+          endfor
+          exe "setl vsts+=" .. &sw
+      else
+          setl vsts&
+      endif
+  enddef
+  nnoremap <silent> yoc <ScriptCmd>ToggleCC()<CR>
+  nnoremap <silent> yoC <ScriptCmd>ToggleCC(true)<CR>
+
 
 
 Colors
