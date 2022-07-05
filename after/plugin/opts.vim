@@ -180,9 +180,9 @@ endif
 
 
 if exists("g:loaded_guifont_size")
-    nmap <A-=> <Plug>(GUIFontSizeInc)
-    nmap <A--> <Plug>(GUIFontSizeDec)
-    nmap <A-0> <Plug>(GUIFontSizeRestore)
+    nmap <C-=> <Plug>(GUIFontSizeInc)
+    nmap <C--> <Plug>(GUIFontSizeDec)
+    nmap <C-0> <Plug>(GUIFontSizeRestore)
 endif
 
 
