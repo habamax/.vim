@@ -111,8 +111,10 @@ enddef
 nnoremap <silent> yoc <ScriptCmd>ToggleCC()<CR>
 nnoremap <silent> yoC <ScriptCmd>ToggleCC(true)<CR>
 
-
 nnoremap <silent> <BS> <cmd>call text#Toggle()<CR>
+
+# print maybe-function name
+nnoremap [f <cmd>echo getline(search('^[[:alpha:]$_]', 'bcnW'))<CR>
 
 # windows
 def ResizeWin(width: number, height: number)
