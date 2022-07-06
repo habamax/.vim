@@ -1,7 +1,7 @@
 ********************************************************************************
-                         polukate colorscheme for vim
+                            Perchè il sole a Milano?
 ********************************************************************************
 
-Light grayish Vim colorscheme.
+Vim colorscheme with a white background.
 
 Supports GUI and TUI with standard Xterm 256-color palette.
