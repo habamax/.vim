@@ -1,7 +1,7 @@
 ********************************************************************************
-                         polukate colorscheme for vim
+                        Portofino? Dimmi la luna perchè?
 ********************************************************************************
 
-Light grayish Vim colorscheme.
+Vim colorscheme with black background.
 
 Supports GUI and TUI with standard Xterm 256-color palette.
