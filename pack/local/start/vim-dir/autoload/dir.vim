@@ -12,7 +12,7 @@ export def Open(name: string = '')
     var dir_name = isdirectory(expand(name)) ? expand(name) : expand("%:p:h")
     if &ft != "dirvim"
         new
-        set ft=dirvim
+        set ft=dir
     endif
     :%d _
     b:dir = readdirex(dir_name)
