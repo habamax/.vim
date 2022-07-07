@@ -2,8 +2,9 @@ vim9script
 
 # {'group': '', 'perm': 'rwxrwxrwx', 'name': '.bundle', 'user': '', 'type': 'dir', 'time': 1655218125, 'size': 0}
 def PrintDir(dir: list<dict<any>>)
-    setline(1, printf("%-9s %-8s %-8s %-8s %s", "perm", "group", "user", "size", "name"))
-    var strdir = dir->mapnew((_, v) => printf("%-9s %-8s %-8s %-8s %s", v.perm, v.group, v.user, v.size, v.name))
+    setline(1, printf("%-10s %-8s %-8s %-8s %s", "permission", "owner", "group", "size", "name"))
+    var strdir = dir->mapnew((_, v) => printf("%-9s %-8s %-8s %-8s %s",
+            (v.type == 'file' ? '-' : v.type[0]) .. v.perm, v.user, v.group, v.size, v.name))
     setline(2, strdir)
 enddef
 
