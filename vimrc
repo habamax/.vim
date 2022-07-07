@@ -8,7 +8,7 @@ set fileformat=unix fileformats=unix,dos
 set nohlsearch incsearch ignorecase
 set shiftwidth=4 softtabstop=-1 expandtab
 set autoindent
-set nostartofline virtualedit=block
+set virtualedit=block
 set ttimeout ttimeoutlen=50
 set belloff=all
 set ruler
@@ -411,7 +411,7 @@ augroup colors_override | au!
     au Colorscheme habamax,lunaperche
           \   hi Normal ctermbg=NONE
           \ | hi TabLineSel ctermbg=NONE
-    au Colorscheme lunaperche,perchesole,habamax
+    au Colorscheme lunaperche,perchesole,haba*
           \   hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE
     au Colorscheme malotru
           \   hi Title ctermfg=231 cterm=bold guifg=#FFFFFF gui=bold
