@@ -157,7 +157,7 @@ export def ObjIndent(inner: bool)
     var ln_start: number
     var ln_end: number
     if getline('.') =~ '^\s*$'
-        ln_start = prevnonblank('.')
+        ln_start = prevnonblank('.') ?? 1
         ln_end = ln_start
     else
         ln_start = line('.')
