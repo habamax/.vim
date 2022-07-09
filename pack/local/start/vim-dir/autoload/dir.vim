@@ -14,22 +14,31 @@ enddef
 def PrintDir(dir: list<dict<any>>)
     :%d _
     setline(1, b:dir_cwd)
-    setline(2, "")
     var strdir = []
     if has("win32")
-        strdir = dir->mapnew((_, v) =>
-                printf("%-9s  %-8s  %s  %s", PermStr(v), v.size, strftime("%Y-%m-%d %H:%M", v.time), v.name))
+        strdir = dir->mapnew(
+                      (_, v) => printf("%-9s  %-8s  %s  %s",
+                          PermStr(v), v.size,
+                          strftime("%Y-%m-%d %H:%M", v.time),
+                          v.name))
     else
-        strdir = dir->mapnew((_, v) =>
-                printf("%-9s  %-8s  %-8s  %-8s  %s  %s", PermStr(v), v.user, v.group, v.size, strftime("%Y-%m-%d %H:%M", v.time), v.name))
+        strdir = dir->mapnew(
+                      (_, v) => printf("%-9s  %-8s  %-8s  %-8s  %s  %s",
+                          PermStr(v), v.user, v.group, v.size,
+                          strftime("%Y-%m-%d %H:%M", v.time),
+                          v.name))
     endif
-    setline(3, strdir)
+    if len(strdir) > 0
+        setline(2, [""] + strdir)
+    endif
 enddef
 
 
 def ReadDir(name: string): list<dict<any>>
-    return readdirex(resolve(name), (v) => v.type != 'file')
-         + readdirex(resolve(name), (v) => v.type == 'file')
+    var path = resolve(name)
+    var dirs = readdirex(path, (v) => v.type =~ 'dir\|junction' || (v.type == 'link' && isdirectory(v.name)))
+    var files = readdirex(path, (v) => v.type == 'file' || (v.type == 'link' && !isdirectory(v.name)))
+    return dirs + files
 enddef
 
 
@@ -52,9 +61,11 @@ export def Open(name: string = '', focus: string = '')
         b:dir = ReadDir(oname)
         b:dir_cwd = oname->substitute('\', '/', 'g')
         PrintDir(b:dir)
+        norm! j
         if empty(focus)
-            search("name")
-            norm! j
+            if len(b:dir) > 0
+                search(b:dir[0].name)
+            endif
         else
             search(focus)
         endif
