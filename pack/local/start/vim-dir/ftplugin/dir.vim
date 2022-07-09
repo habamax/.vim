@@ -18,3 +18,8 @@ enddef
 
 nnoremap <buffer> <cr> <scriptcmd>Action()<cr>
 nnoremap <buffer> <bs> <scriptcmd>ActionUp()<cr>
+
+
+# augroup dirautocommands | au!
+#     au BufRead <buffer> echom "hello" | dir.Open()
+# augroup END
