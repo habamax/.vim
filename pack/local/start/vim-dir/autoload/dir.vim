@@ -83,10 +83,10 @@ export def Open(name: string = '', focus: string = '')
         norm! j
         if empty(focus)
             if len(b:dir) > 0
-                search(b:dir[0].name)
+                search(escape(b:dir[0].name, '~$.'))
             endif
         else
-            search(focus)
+            search(escape(focus, '~$.'))
         endif
         # XXX: provide new name if taken already!
         exe $"file dir://{oname}"
