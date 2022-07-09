@@ -230,6 +230,16 @@ diffAdded          color10        none
 diffRemoved        color09        none
 diffSubname        color05        none
 
+; other ftplugins
+dirType            color01        none
+dirPermissionUser  color06        none
+dirPermissionGroup color05        none
+dirPermissionOther color04        none
+dirOwner           color03        none
+dirGroup           color03        none
+dirTime            color07        none
+dirSize            color01        none
+
 
 ; No color support
 Include: _tcozero
