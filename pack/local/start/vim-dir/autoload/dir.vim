@@ -16,19 +16,32 @@ def FmtTime(t: number): string
 enddef
 
 
+def FmtSize(s: number): string
+    if s >= 10 * 1073741824
+        return $"{s / 1073741824}G"
+    elseif s >= 10 * 1048576
+        return $"{s / 1048576}M"
+    elseif s >= 1048576
+        return $"{s / 1024}K"
+    else
+        return $"{s}"
+    endif
+enddef
+
+
 def PrintDir(dir: list<dict<any>>)
     :%d _
     setline(1, b:dir_cwd)
     var strdir = []
     if has("win32")
         strdir = dir->mapnew(
-                      (_, v) => printf("%-9s  %-8s  %s  %s",
-                          FmtPerm(v), v.size,
+                      (_, v) => printf("%-9s  %8s  %s  %s",
+                          FmtPerm(v), FmtSize(v.size),
                           strftime("%Y-%m-%d %H:%M", v.time),
                           v.name))
     else
         strdir = dir->mapnew(
-                      (_, v) => printf("%-9s  %-8s  %-8s  %-8s  %s  %s",
+                      (_, v) => printf("%-9s  %8s  %-8s  %-8s  %s  %s",
                           FmtPerm(v), v.user, v.group, v.size,
                           strftime("%Y-%m-%d %H:%M", v.time),
                           FmtName(v)))
