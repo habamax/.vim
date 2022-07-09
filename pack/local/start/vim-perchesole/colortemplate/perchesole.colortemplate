@@ -239,6 +239,7 @@ dirOwner           color03        none
 dirGroup           color03        none
 dirTime            color07        none
 dirSize            color01        none
+dirSizeMod         color06        none
 
 
 ; No color support
