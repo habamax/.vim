@@ -8,6 +8,7 @@ syn match dirCwd "\%^.*$"
 
 syn match dirDirectory "^[dj].*$" contains=dirType
 syn match dirFile "^[-].*$" contains=dirType
+syn match dirLink "^[l].*$" contains=dirType
 
 syn match dirType "^[-djl]" contained nextgroup=dirPermissionUser
 syn match dirPermissionUser "[-r][-w][-x]" contained nextgroup=dirPermissionGroup
@@ -34,5 +35,6 @@ hi def link dirGroup Identifier
 hi def link dirSize Constant
 hi def link dirTime String
 hi def link dirDirectory Directory
+hi def link dirLink Type
 
 b:current_syntax = "dir"

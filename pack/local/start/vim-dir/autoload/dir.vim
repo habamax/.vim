@@ -1,12 +1,17 @@
 vim9script
 
 
-def PermStr(e: dict<any>): string
+def FmtPerm(e: dict<any>): string
     return (e.type == 'file' ? '-' : e.type[0]) .. e.perm
 enddef
 
 
-def TimeStr(t: number): string
+def FmtName(e: dict<any>): string
+    return e.name .. (e.type =~ 'link' ? ' -> ' .. resolve(e.name) : '')
+enddef
+
+
+def FmtTime(t: number): string
     return (e.type == 'file' ? '-' : e.type[0]) .. e.perm
 enddef
 
@@ -18,15 +23,15 @@ def PrintDir(dir: list<dict<any>>)
     if has("win32")
         strdir = dir->mapnew(
                       (_, v) => printf("%-9s  %-8s  %s  %s",
-                          PermStr(v), v.size,
+                          FmtPerm(v), v.size,
                           strftime("%Y-%m-%d %H:%M", v.time),
                           v.name))
     else
         strdir = dir->mapnew(
                       (_, v) => printf("%-9s  %-8s  %-8s  %-8s  %s  %s",
-                          PermStr(v), v.user, v.group, v.size,
+                          FmtPerm(v), v.user, v.group, v.size,
                           strftime("%Y-%m-%d %H:%M", v.time),
-                          v.name))
+                          FmtName(v)))
     endif
     if len(strdir) > 0
         setline(2, [""] + strdir)
@@ -36,8 +41,8 @@ enddef
 
 def ReadDir(name: string): list<dict<any>>
     var path = resolve(name)
-    var dirs = readdirex(path, (v) => v.type =~ 'dir\|junction' || (v.type == 'link' && isdirectory(v.name)))
-    var files = readdirex(path, (v) => v.type == 'file' || (v.type == 'link' && !isdirectory(v.name)))
+    var dirs = readdirex(path, (v) => v.type =~ 'dir\|junction\|linkd')
+    var files = readdirex(path, (v) => v.type =~ 'file\|link$')
     return dirs + files
 enddef
 
@@ -60,6 +65,7 @@ export def Open(name: string = '', focus: string = '')
     if isdirectory(oname)
         b:dir = ReadDir(oname)
         b:dir_cwd = oname->substitute('\', '/', 'g')
+        exe $"lcd {oname}"
         PrintDir(b:dir)
         norm! j
         if empty(focus)
@@ -69,7 +75,6 @@ export def Open(name: string = '', focus: string = '')
         else
             search(focus)
         endif
-        exe $"lcd {oname}"
         # XXX: provide new name if taken already!
         exe $"file dir://{oname}"
     else
