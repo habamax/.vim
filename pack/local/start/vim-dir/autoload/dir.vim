@@ -35,7 +35,9 @@ export def Open(name: string = '', focus: string = '')
     if &ft == "dir" && exists("b:dir") && exists("b:dir_cwd")
         oname = name
     else
-        new
+        if !empty(bufname()) || &modified
+            new
+        endif
         set ft=dir
         set buftype=nofile
         set bufhidden=unload
