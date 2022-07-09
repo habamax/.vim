@@ -41,8 +41,8 @@ def PrintDir(dir: list<dict<any>>)
                           v.name))
     else
         strdir = dir->mapnew(
-                      (_, v) => printf("%-9s  %8s  %-8s  %-8s  %s  %s",
-                          FmtPerm(v), v.user, v.group, v.size,
+                      (_, v) => printf("%-9s  %8s  %-8s  %8s  %s  %s",
+                          FmtPerm(v), v.user, v.group, FmtSize(v.size),
                           strftime("%Y-%m-%d %H:%M", v.time),
                           FmtName(v)))
     endif
