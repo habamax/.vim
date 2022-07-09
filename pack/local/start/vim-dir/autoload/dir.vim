@@ -6,21 +6,24 @@ def PermStr(e: dict<any>): string
 enddef
 
 
+def TimeStr(t: number): string
+    return (e.type == 'file' ? '-' : e.type[0]) .. e.perm
+enddef
+
+
 def PrintDir(dir: list<dict<any>>)
     :%d _
     setline(1, b:dir_cwd)
     setline(2, "")
     var strdir = []
     if has("win32")
-        setline(3, printf("%-10s %-8s %s", "permission", "size", "name"))
         strdir = dir->mapnew((_, v) =>
-                printf("%-9s %-8s %s", PermStr(v), v.size, v.name))
+                printf("%-9s  %-8s  %s  %s", PermStr(v), v.size, strftime("%Y-%m-%d %H:%M", v.time), v.name))
     else
-        setline(3, printf("%-10s %-8s %-8s %-8s %s", "permission", "owner", "group", "size", "name"))
         strdir = dir->mapnew((_, v) =>
-                printf("%-9s %-8s %-8s %-8s %s", PermStr(v), v.user, v.group, v.size, v.name))
+                printf("%-9s  %-8s  %-8s  %-8s  %s  %s", PermStr(v), v.user, v.group, v.size, v.time, v.name))
     endif
-    setline(4, strdir)
+    setline(3, strdir)
 enddef
 
 

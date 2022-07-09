@@ -4,7 +4,7 @@ import autoload 'dir.vim'
 
 
 def Action()
-    var idx = line('.') - 4
+    var idx = line('.') - 3
     if idx < 0 | return | endif
     var cwd = trim(b:dir_cwd, '/', 2)
     dir.Open($"{cwd}/{b:dir[idx].name}")
