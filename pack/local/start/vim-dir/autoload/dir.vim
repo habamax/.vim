@@ -30,6 +30,10 @@ def FmtSize(s: number): string
     endif
 enddef
 
+def FileForSearch(v: string): string
+    return '\s\zs' .. escape(v, '~$.') .. '\($\| ->\)'
+enddef
+
 
 def PrintDir(dir: list<dict<any>>)
     setl ma nomod noro
@@ -116,10 +120,10 @@ export def Open(name: string = '', mod: string = '')
         norm! j
         if empty(maybe_focus)
             if len(b:dir) > 0
-                search('\<' .. escape(b:dir[0].name, '~$.') .. '\($\| ->\)')
+                search(FileForSearch(b:dir[0].name))
             endif
         else
-            search('\<' .. escape(maybe_focus, '~$.') .. '\($\| ->\)')
+            search(FileForSearch(maybe_focus))
         endif
     else
         exe $"e {oname}"
