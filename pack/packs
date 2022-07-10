@@ -7,6 +7,7 @@ habamax/start/vim-asciidoctor	git@github.com:habamax/vim-asciidoctor.git
 habamax/start/vim-rst	git@github.com:habamax/vim-rst.git
 habamax/start/vim-godot	git@github.com:habamax/vim-godot.git
 habamax/start/vim-minisnip	git@github.com:habamax/vim-minisnip
+habamax/start/vim-dir	git@github.com:habamax/vim-dir.git
 
 # My colors
 habamax/opt/vim-habamax	git@github.com:habamax/vim-habamax.git
