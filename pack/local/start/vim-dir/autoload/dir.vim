@@ -116,10 +116,10 @@ export def Open(name: string = '', mod: string = '')
         norm! j
         if empty(maybe_focus)
             if len(b:dir) > 0
-                search(escape(b:dir[0].name, '~$.') .. '\($\| ->\)')
+                search('\<' .. escape(b:dir[0].name, '~$.') .. '\($\| ->\)')
             endif
         else
-            search(escape(maybe_focus, '~$.') .. '\($\| ->\)')
+            search('\<' .. escape(maybe_focus, '~$.') .. '\($\| ->\)')
         endif
     else
         exe $"e {oname}"
