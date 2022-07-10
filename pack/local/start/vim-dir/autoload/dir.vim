@@ -74,11 +74,11 @@ export def Open(name: string = '', mod: string = '')
                 ?? expand("%:p:h"))->substitute('\', '/', 'g')
     var maybe_focus = ""
     if (&ft != 'dir' && filereadable(expand("%"))) ||
-       (&ft == 'dir' && len(oname) < len(get(b:, "dir_cwd", "")) && isdirectory(expand("%:t")))
+        (&ft == 'dir' && len(oname) < len(get(b:, "dir_cwd", "")) && isdirectory($"{oname}/{expand('%:t')}"))
         maybe_focus = expand("%:t")
     endif
 
-    if oname =~ './$'
+    if oname =~ './$' && oname !~ '^\u:/$'
         oname = oname->trim('/', 2)
     endif
     if !isabsolutepath(oname)
@@ -134,7 +134,7 @@ enddef
 
 export def Action(mod: string = '')
     if line('.') == 1
-        var new_dir = getline(1)[0 : searchpos('/\|$', '', 1)[1] - 2]
+        var new_dir = getline(1)[0 : searchpos('/\|$', '', 1)[1] - 1]
         if isdirectory(new_dir)
             Open(new_dir, mod)
         endif
