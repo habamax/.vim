@@ -74,7 +74,7 @@ export def Open(name: string = '', mod: string = '')
                 ?? expand("%:p:h"))->substitute('\', '/', 'g')
     var maybe_focus = ""
     if (&ft != 'dir' && filereadable(expand("%"))) ||
-       (&ft == 'dir' && len(oname) < len(get(b:, "dir_cwd", "")))
+       (&ft == 'dir' && len(oname) < len(get(b:, "dir_cwd", "")) && isdirectory(expand("%:t")))
         maybe_focus = expand("%:t")
     endif
 
@@ -118,6 +118,7 @@ export def Open(name: string = '', mod: string = '')
         b:dir_cwd = oname
         PrintDir(b:dir)
         norm! j
+        norm! $2F/l
         if empty(maybe_focus)
             if len(b:dir) > 0
                 search(FileForSearch(b:dir[0].name))
@@ -132,10 +133,17 @@ enddef
 
 
 export def Action(mod: string = '')
-    var idx = line('.') - 3
-    if idx < 0 | return | endif
-    var cwd = trim(b:dir_cwd, '/', 2)
-    Open($"{cwd}/{b:dir[idx].name}", mod)
+    if line('.') == 1
+        var new_dir = getline(1)[0 : searchpos('/\|$', '', 1)[1] - 2]
+        if isdirectory(new_dir)
+            Open(new_dir, mod)
+        endif
+    else
+        var idx = line('.') - 3
+        if idx < 0 | return | endif
+        var cwd = trim(b:dir_cwd, '/', 2)
+        Open($"{cwd}/{b:dir[idx].name}", mod)
+    endif
 enddef
 
 
