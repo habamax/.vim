@@ -13,6 +13,5 @@ nnoremap <buffer> t <scriptcmd>dir.Action("tabe")<cr>
 
 
 augroup dirautocommands | au!
-    # au BufRead <buffer> echom "hello" | dir.Open()
-    # au Filetype dir echo "DIR"
+    au BufReadCmd dir://* dir.Open()
 augroup END
