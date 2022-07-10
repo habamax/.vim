@@ -62,11 +62,20 @@ def ReadDir(name: string): list<dict<any>>
 enddef
 
 
-export def Open(name: string = '', focus: string = '')
+export def Open(name: string = '', mod: string = '')
     var oname = (expand(name)
                 ?? get(b:, "dir_cwd", '')
                 ?? expand("%:p:h"))->substitute('\', '/', 'g')
-    var maybe_focus = expand("%:t")
+    var maybe_focus = ""
+    if (&ft != 'dir' && filereadable(expand("%"))) ||
+       (&ft == 'dir' && len(oname) < len(b:dir_cwd))
+        maybe_focus = expand("%:t")
+    endif
+
+    if !empty(mod)
+        exe $"{mod}"
+    endif
+
     if isdirectory(oname)
         var new_bufname = $"dir://{oname}"
         if &hidden
@@ -96,38 +105,28 @@ export def Open(name: string = '', focus: string = '')
         b:dir_cwd = oname
         PrintDir(b:dir)
         norm! j
-        # if empty(focus)
-        #     if len(b:dir) > 0
-        #         search(escape(b:dir[0].name, '~$.'))
-        #     endif
-        # else
-            search(escape(maybe_focus, '~$.'))
-            echom maybe_focus
-        # endif
-        # if empty(focus)
-        #     if len(b:dir) > 0
-        #         search(escape(b:dir[0].name, '~$.'))
-        #     endif
-        # else
-        #     search(escape(focus, '~$.'))
-        # endif
+        if empty(maybe_focus)
+            if len(b:dir) > 0
+                search(escape(b:dir[0].name, '~$.') .. '\($\| ->\)')
+            endif
+        else
+            search(escape(maybe_focus, '~$.') .. '\($\| ->\)')
+        endif
     else
         exe $"e {oname}"
     endif
 enddef
 
 
-
-
-export def Action()
+export def Action(mod: string = '')
     var idx = line('.') - 3
     if idx < 0 | return | endif
     var cwd = trim(b:dir_cwd, '/', 2)
-    Open($"{cwd}/{b:dir[idx].name}")
+    Open($"{cwd}/{b:dir[idx].name}", mod)
 enddef
 
 
 export def ActionUp()
-    Open(fnamemodify(b:dir_cwd, ":h"), fnamemodify(b:dir_cwd, ":t"))
+    Open(fnamemodify(b:dir_cwd, ":h"))
 enddef
 
