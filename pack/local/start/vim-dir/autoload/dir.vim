@@ -70,8 +70,15 @@ export def Open(name: string = '', mod: string = '')
                 ?? expand("%:p:h"))->substitute('\', '/', 'g')
     var maybe_focus = ""
     if (&ft != 'dir' && filereadable(expand("%"))) ||
-       (&ft == 'dir' && len(oname) < len(b:dir_cwd))
+       (&ft == 'dir' && len(oname) < len(get(b:, "dir_cwd", "")))
         maybe_focus = expand("%:t")
+    endif
+
+    if oname =~ './$'
+        oname = oname->trim('/', 2)
+    endif
+    if !isabsolutepath(oname)
+        oname = simplify($"{getcwd()}/{oname}")
     endif
 
     if !empty(mod)
