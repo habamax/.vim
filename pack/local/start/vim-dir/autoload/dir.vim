@@ -134,7 +134,7 @@ enddef
 
 export def Action(mod: string = '')
     if line('.') == 1
-        var new_dir = getline(1)[0 : searchpos('/\|$', '', 1)[1] - 1]
+        var new_dir = getline(1)[0 : searchpos('/\|$', 'c', 1)[1] - 1]
         if isdirectory(new_dir)
             Open(new_dir, mod)
         endif
