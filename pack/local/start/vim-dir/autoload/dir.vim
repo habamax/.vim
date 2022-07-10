@@ -1,5 +1,7 @@
 vim9script
 
+import autoload './popup.vim'
+
 
 def FmtPerm(e: dict<any>): string
     return (e.type == 'file' ? '-' : e.type[0]) .. e.perm
@@ -130,3 +132,12 @@ export def ActionUp()
     Open(fnamemodify(b:dir_cwd, ":h"))
 enddef
 
+
+export def ActionPreview()
+    var idx = line('.') - 3
+    if idx < 0 | return | endif
+    var cwd = trim(b:dir_cwd, '/', 2)
+    if filereadable($"{cwd}/{b:dir[idx].name}")
+        popup.Show(readfile($"{cwd}/{b:dir[idx].name}", "", 100), $"{b:dir[idx].name}")
+    endif
+enddef
