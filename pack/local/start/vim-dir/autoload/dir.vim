@@ -101,7 +101,6 @@ export def Open(name: string = '', focus: string = '')
         #         search(escape(b:dir[0].name, '~$.'))
         #     endif
         # else
-        if len(maybe_focus) > len(oname)
             search(escape(maybe_focus, '~$.'))
             echom maybe_focus
         # endif
