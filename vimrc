@@ -8,6 +8,7 @@ set fileformat=unix fileformats=unix,dos
 set nohlsearch incsearch ignorecase
 set shiftwidth=4 softtabstop=-1 expandtab
 set autoindent
+set nostartofline
 set virtualedit=block
 set ttimeout ttimeoutlen=50
 set belloff=all
