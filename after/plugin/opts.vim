@@ -186,6 +186,11 @@ if exists("g:loaded_guifont_size")
 endif
 
 
+if exists("g:loaded_dir")
+    nnoremap <bs> <scriptcmd>Dir<cr>
+endif
+
+
 if exists("g:loaded_netrwPlugin")
     g:netrw_banner = 0
 endif
