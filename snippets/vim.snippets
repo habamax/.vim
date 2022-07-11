@@ -56,36 +56,36 @@ snippet didp plugin guard
 	if exists('g:loaded_${1:pluginname}')
 		finish
 	endif
-	let g:loaded_$1 = 1
+	g:loaded_$1 = 1
 snippet didf ftplugin guard
 	if exists("b:did_ftplugin")
 		finish
 	endif
-	let b:did_ftplugin = 1
+	b:did_ftplugin = 1
 snippet didi indent guard
 	if exists("b:did_indent")
 		finish
 	endif
-	let b:did_indent = 1
+	b:did_indent = 1
 snippet undof ftplugin undo
-	let s:undo_opts = "setl ${1:expandtab}<${2}"
+	var undo_opts = "setl ${1:expandtab}<${2}"
 
 	setlocal $1
 
 	if exists('b:undo_ftplugin')
-		let b:undo_ftplugin .= "|" .. s:undo_opts
+		b:undo_ftplugin ..= "|" .. undo_opts
 	else
-		let b:undo_ftplugin = s:undo_opts
+		b:undo_ftplugin = undo_opts
 	endif
 snippet undoi indent undo
-	let s:undo_opts = "setl ${1:inde}<${2}"
+	var undo_opts = "setl ${1:inde}<${2}"
 
 	setlocal $1
 
 	if exists('b:undo_indent')
-		let b:undo_indent .= "|" .. s:undo_opts
+		b:undo_indent ..= "|" .. undo_opts
 	else
-		let b:undo_indent = s:undo_opts
+		b:undo_indent = undo_opts
 	endif
 snippet err
 	echohl Error
