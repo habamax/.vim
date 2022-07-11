@@ -111,7 +111,7 @@ enddef
 nnoremap <silent> yoc <ScriptCmd>ToggleCC()<CR>
 nnoremap <silent> yoC <ScriptCmd>ToggleCC(true)<CR>
 
-nnoremap <silent> <BS> <cmd>call text#Toggle()<CR>
+nnoremap <silent> <space><cr> <cmd>call text#Toggle()<CR>
 
 # print maybe-function name
 nnoremap [f <cmd>echo getline(search('^[[:alpha:]$_]', 'bcnW'))<CR>
@@ -164,7 +164,6 @@ nnoremap <silent> <C-p> <cmd>bp<CR>
 tnoremap <silent> <C-n> <cmd>bn<CR>
 tnoremap <silent> <C-p> <cmd>bp<CR>
 
-nnoremap <space>b :<C-u>b <C-d>
 
 # simple text objects
 # -------------------
