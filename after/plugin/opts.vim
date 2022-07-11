@@ -62,7 +62,7 @@ if exists("g:loaded_select")
         action: (v) => TemplateSink(v)
     }
     g:select_info.template.highlight = {"DirectoryPrefix": ['\(\s*\d\+:\)\?\zs.*[/\\]\ze.*$', 'Comment']}
-    nnoremap <silent> <space>i :Select template<CR>
+    nnoremap <silent> <space>si :Select template<CR>
 
     def TagData(): list<string>
         var result = []
