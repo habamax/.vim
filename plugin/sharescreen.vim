@@ -21,8 +21,8 @@ def ShareScreen()
         var img_file = tempname()
         system($'gnome-screenshot --file={img_file}')
         url = system($"curl -F file=@{img_file} http://0x0.st")
-    elseif executable("cmd.exe") && executable("screenshot0x0.py")
-        if exists("$WSLENV")
+    elseif executable("cmd.exe")
+        if exists("$WSLENV") && executable("screenshot0x0.py")
             var exepath = os.WslToWindowsPath(exepath('screenshot0x0.py'))
             var cmd = $'cmd.exe /C "{exepath}"'
             url = systemlist(cmd)[-1]
