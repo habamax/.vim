@@ -13,6 +13,7 @@ vim9script
 ## img.save(img_file)
 ##
 ## os.system(f"curl -F file=@{img_file} http://0x0.st")
+import autoload 'os.vim'
 
 def ShareScreen()
     var url = ""
@@ -20,14 +21,20 @@ def ShareScreen()
         var img_file = tempname()
         system($'gnome-screenshot --file={img_file}')
         url = system($"curl -F file=@{img_file} http://0x0.st")
-    elseif executable("cmd.exe")
-        url = systemlist('screenshot0x0.py')[-1]
+    elseif executable("cmd.exe") && executable("screenshot0x0.py")
+        if exists("$WSLENV")
+            var exepath = os.WslToWindowsPath(exepath('screenshot0x0.py'))
+            var cmd = $'cmd.exe /C "{exepath}"'
+            url = systemlist(cmd)[-1]
+        else
+            url = systemlist('screenshot0x0.py')[-1]
+        endif
     else
         echo "Can't share the screen!"
         return
     endif
     setreg("+", url)
-    echo url
+    echom url
 enddef
 
 command! ShareScreen call ShareScreen()
