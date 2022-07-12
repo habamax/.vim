@@ -10,5 +10,7 @@ endfu
 
 nnoremap <buffer> <space><space><space> :call <sid>help_heading()<CR>
 nnoremap <buffer> <cr> <C-]>
+nnoremap <buffer> o <C-]>
+nnoremap <buffer> u <C-t>
 nnoremap <buffer> J <cmd>call search('\|[^\|[:space:]]\+\|', 'z')<cr>
 nnoremap <buffer> K <cmd>call search('\|[^\|[:space:]]\+\|', 'zb')<cr>
