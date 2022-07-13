@@ -236,9 +236,6 @@ dirType            color11        none
 dirPermissionUser  color06        none
 dirPermissionGroup color05        none
 dirPermissionOther color04        none
-; dirPermissionUser  color15        none
-; dirPermissionGroup color04        none
-; dirPermissionOther color01        none
 dirOwner           color01        none
 dirGroup           color01        none
 dirTime            color08        none
