@@ -12,11 +12,6 @@ habamax/start/vim-dir	git@github.com:habamax/vim-dir.git
 # My colors
 habamax/opt/vim-habamax	git@github.com:habamax/vim-habamax.git
 habamax/opt/vim-habaurora	git@github.com:habamax/vim-habaurora.git
-habamax/opt/vim-alchemist	git@github.com:habamax/vim-alchemist.git
-habamax/opt/vim-bronzage	git@github.com:habamax/vim-bronzage.git
-habamax/opt/vim-sugarlily	git@github.com:habamax/vim-sugarlily.git
-habamax/opt/vim-saturnite	git@github.com:habamax/vim-saturnite.git
-habamax/opt/vim-freyeday	git@github.com:habamax/vim-freyeday.git
 
 # Very nice to have
 bundle/start/traces.vim	git@github.com:markonm/traces.vim.git
