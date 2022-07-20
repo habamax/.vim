@@ -1,7 +1,3 @@
-snippet fu
-	func! ${1:F}(${2}) abort
-		${3}
-	endfunc
 snippet for
 	for ${1:needle} in ${2:haystack}
 		${3}
@@ -9,7 +5,7 @@ snippet for
 snippet wh
 	while ${1:condition}
 		${2}
-	endw
+	endwhile
 snippet if
 	if ${1:condition}
 		${2}
@@ -48,8 +44,8 @@ snippet try
 	finally
 		${4}
 	endtry
-snippet {
-	{${1} -> ${2}}
+snippet =>
+	(${1:v}) => ${2:v}
 snippet ?
 	(${1} ? ${2} : ${3})
 snippet didp plugin guard
@@ -89,7 +85,7 @@ snippet undoi indent undo
 	endif
 snippet err
 	echohl Error
-	echomsg "${1:Error message!}"
+	echomsg $'${1:Error message!}'
 	echohl None
 snippet echo
 	echo $"{${1}}"
