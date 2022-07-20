@@ -155,7 +155,7 @@ MoreMsg            color02        none           bold
 Question           color05        none           bold
 WarningMsg         color09        none           bold
 
-Todo               color06        color15        bold,reverse
+Todo               color06        color15        reverse
 Search             color00        color11
 IncSearch          color15        color10
 CurSearch          color15        color10
