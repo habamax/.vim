@@ -231,10 +231,10 @@ diffRemoved        color09        none
 diffSubname        color05        none
 
 ; other ftplugins
-dirType            color01        none
-dirPermissionUser  color06        none
-dirPermissionGroup color05        none
-dirPermissionOther color04        none
+dirType            color03        none
+dirPermissionUser  color00        none
+dirPermissionGroup color04        none
+dirPermissionOther color05        none
 dirOwner           color03        none
 dirGroup           color03        none
 dirTime            color07        none
