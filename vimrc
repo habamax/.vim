@@ -307,9 +307,10 @@ nnoremap <silent> gx :call os#Gx()<CR>
 ################################################################################
 # Swap & Backup & Undo
 
-&directory = expand('~/.vimdata/swap//')
-&backupdir = expand('~/.vimdata/backup//')
-&undodir = expand('~/.vimdata/undo//')
+var vimdata = $'{has("win32") ? expand("$APPDATA") : expand("~/config")}/vim-data'
+&directory = expand($'{vimdata}/swap/')
+&backupdir = expand($'{vimdata}/backup//')
+&undodir = expand($'{vimdata}/undo//')
 if !isdirectory(&undodir)   | mkdir(&undodir, "p")   | endif
 if !isdirectory(&backupdir) | mkdir(&backupdir, "p") | endif
 if !isdirectory(&directory) | mkdir(&directory, "p") | endif

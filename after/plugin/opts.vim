@@ -25,8 +25,8 @@ if exists("g:loaded_select")
     g:select_info = get(g:, "select_info", {})
 
     g:select_info.session = {}
-    g:select_info.session.data = (..._) => map(glob("~/.vimdata/sessions/*", 1, 1), (_, v) => fnamemodify(v, ":t"))
-    g:select_info.session.sink = "%%bd | source ~/.vimdata/sessions/%s"
+    g:select_info.session.data = (..._) => map(glob($'{has("win32") ? expand("$APPDATA") : expand("~/config")}/vim-data/sessions/*', 1, 1), (_, v) => fnamemodify(v, ":t"))
+    g:select_info.session.sink = $'%%bd | source {has("win32") ? expand("$APPDATA") : expand("~/config")}/vim-data/sessions/%s'
     nnoremap <silent> <space>ss :Select session<CR>
 
     def TemplateData(buf: dict<any>): list<string>
