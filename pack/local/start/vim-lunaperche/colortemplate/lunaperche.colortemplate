@@ -232,10 +232,10 @@ diffRemoved        diffDelete     none
 diffSubname        color13        none
 
 ; other ftplugins
-dirType            color03        none
-dirPermissionUser  color15        none
-dirPermissionGroup color12        none
-dirPermissionOther color09        none
+dirType            color05        none
+dirPermissionUser  color02        none
+dirPermissionGroup color03        none
+dirPermissionOther color06        none
 dirOwner           color08        none
 dirGroup           color08        none
 dirTime            color08        none
