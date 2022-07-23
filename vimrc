@@ -352,8 +352,7 @@ command! MD call mkdir(expand("%:p:h"), "p")
 command! Sy :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')))
 
 # save and load sessions
-var sdir = expand('~/.vimdata/sessions')
-if !isdirectory(sdir) | mkdir(sdir, "p") | endif
+if !isdirectory($'{g:vimdata}/sessions') | mkdir($'{g:vimdata}/sessions', "p") | endif
 command! -nargs=1 -complete=custom,SessionComplete S :exe $'mksession! {g:vimdata}/sessions/<args>'
 command! -nargs=1 -complete=custom,SessionComplete L :%bd <bar> exe $'so {g:vimdata}/sessions/<args>'
 def SessionComplete(_a: string, _c: string, _p: number): string
