@@ -25,8 +25,8 @@ if exists("g:loaded_select")
     g:select_info = get(g:, "select_info", {})
 
     g:select_info.session = {}
-    g:select_info.session.data = (..._) => map(glob($'{has("win32") ? expand("$APPDATA") : expand("~/config")}/vim-data/sessions/*', 1, 1), (_, v) => fnamemodify(v, ":t"))
-    g:select_info.session.sink = $'%%bd | source {has("win32") ? expand("$APPDATA") : expand("~/config")}/vim-data/sessions/%s'
+    g:select_info.session.data = (..._) => map(glob($'{g:vimdata}/sessions/*', 1, 1), (_, v) => fnamemodify(v, ":t"))
+    g:select_info.session.sink = $'%%bd | source {g:vimdata}/sessions/%s'
     nnoremap <silent> <space>ss :Select session<CR>
 
     def TemplateData(buf: dict<any>): list<string>
@@ -92,7 +92,7 @@ if exists("g:loaded_select")
     nnoremap <silent> <space>sT :Select tag<CR>
 
     g:select_info.bookmark = {}
-    g:select_info.bookmark.data = (..._) => readfile(expand("~/.vimdata/bookmarks"))
+    g:select_info.bookmark.data = (..._) => readfile($'{g:vimdata}/bookmarks')
     g:select_info.bookmark.sink = {
         transform: (_, v) => split(v, "\t")[1],
         action: (v) => {
@@ -114,7 +114,7 @@ if exists("g:loaded_select")
         if empty(name)
             name = expand("%:t")
         endif
-        var bookmarkFile = expand("~/.vimdata/bookmarks")
+        var bookmarkFile = $'{g:vimdata}/bookmarks'
         var bookmarks = []
         var bookmark = printf("%s\t%s|%s|%s", name, expand("%:p"), line('.'), col('.'))
         if filereadable(bookmarkFile)

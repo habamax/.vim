@@ -307,10 +307,10 @@ nnoremap <silent> gx :call os#Gx()<CR>
 ################################################################################
 # Swap & Backup & Undo
 
-var vimdata = $'{has("win32") ? expand("$APPDATA") : expand("~/config")}/vim-data'
-&directory = expand($'{vimdata}/swap/')
-&backupdir = expand($'{vimdata}/backup//')
-&undodir = expand($'{vimdata}/undo//')
+g:vimdata = $'{has("win32") ? expand("$APPDATA") : expand("~/.config")}/vim-data'
+&directory = expand($'{g:vimdata}/swap/')
+&backupdir = expand($'{g:vimdata}/backup//')
+&undodir = expand($'{g:vimdata}/undo//')
 if !isdirectory(&undodir)   | mkdir(&undodir, "p")   | endif
 if !isdirectory(&backupdir) | mkdir(&backupdir, "p") | endif
 if !isdirectory(&directory) | mkdir(&directory, "p") | endif
@@ -354,10 +354,10 @@ command! Sy :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:v
 # save and load sessions
 var sdir = expand('~/.vimdata/sessions')
 if !isdirectory(sdir) | mkdir(sdir, "p") | endif
-command! -nargs=1 -complete=custom,SessionComplete S :mksession! ~/.vimdata/sessions/<args>
-command! -nargs=1 -complete=custom,SessionComplete L :%bd <bar> so ~/.vimdata/sessions/<args>
+command! -nargs=1 -complete=custom,SessionComplete S :exe $'mksession! {g:vimdata}/sessions/<args>'
+command! -nargs=1 -complete=custom,SessionComplete L :%bd <bar> exe $'so {g:vimdata}/sessions/<args>'
 def SessionComplete(_a: string, _c: string, _p: number): string
-    return globpath("~/.vimdata/sessions/", "*", 0, 1)->mapnew((_, v) => fnamemodify(v, ":t"))->join("\n")
+    return globpath($'{g:vimdata}/sessions/', "*", 0, 1)->mapnew((_, v) => fnamemodify(v, ":t"))->join("\n")
 enddef
 
 # write to a privileged file
