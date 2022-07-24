@@ -412,6 +412,10 @@ augroup colors_override | au!
           \ | hi TabLineSel ctermbg=NONE
     au Colorscheme lunaperche,perchesole,haba*
           \   hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE
+    au Colorscheme quiet
+          \   hi CursorLineNr ctermbg=NONE guibg=NONE
+          \ | hi Directory cterm=bold gui=bold
+          \ | hi SelectMatched cterm=bold,underline gui=bold,underline
     au Colorscheme malotru
           \   hi Title ctermfg=231 cterm=bold guifg=#FFFFFF gui=bold
           \ | hi Cursorline ctermbg=236 guibg=#303030
