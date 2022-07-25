@@ -79,6 +79,7 @@ nnoremap <silent> yos :set spell! spell?<CR>
 nnoremap <silent> yov :let &ve=(&ve == "block" ? "all" : "block")<CR>:set ve<CR>
 nnoremap <expr>   yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
 nnoremap <silent> yob :let &bg = (&bg == "light" ? "dark" : "light")<CR>
+nnoremap <silent> yoB :noau let &bg = (&bg == "light" ? "dark" : "light")<CR>
 
 # toggle colorcolumn at cursor position
 # set vartabstop accordingly
