@@ -206,7 +206,7 @@ SpellRare          color13        none           underline
 Variant: gui 256 16
 Comment            color04        none
 Constant           color01        none
-Identifier         color00        none
+Identifier         none           none
 
 Statement          color00        none           bold
 Type               color02        none           bold

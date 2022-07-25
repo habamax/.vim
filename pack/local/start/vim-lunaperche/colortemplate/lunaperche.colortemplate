@@ -209,8 +209,8 @@ Comment            color12        none
 Constant           color11        none
 Identifier         none           none
 
-Statement          color15        none           bold
-Type               color02        none           bold
+Statement          color15        none
+Type               color02        none
 
 PreProc            color08        none
 Special            color08        none
