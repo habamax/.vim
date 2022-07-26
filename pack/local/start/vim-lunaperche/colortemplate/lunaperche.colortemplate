@@ -121,16 +121,16 @@ Variant: gui 256 16
 
 Normal             color07        color00
 
-Statusline         color00        color07        bold
+Statusline         color00        color07
 StatuslineNC       color00        color08
 VertSplit          color08        color08
 
 TabLine            color07        colorTab
 TabLineFill        none           color08
-TabLineSel         color07        color00        bold
+TabLineSel         color15        color00
 
 ToolbarLine        none           none
-ToolbarButton      color00        color15        bold
+ToolbarButton      color00        color15
 
 QuickFixLine       color00        color12
 CursorLineNr       colorC         none
@@ -151,16 +151,16 @@ SignColumn         none           none
 
 Error              color15        color09
 ErrorMsg           color15        color09
-ModeMsg            color11        none           bold,reverse
-MoreMsg            color10        none           bold
-Question           color13        none           bold
-WarningMsg         color09        none           bold
+ModeMsg            color11        none           reverse
+MoreMsg            color10        none
+Question           color13        none
+WarningMsg         color09        none
 
 Todo               color14        color00        reverse
 Search             color00        color11
 IncSearch          color00        color10
 CurSearch          color00        color10
-WildMenu           color00        color11        bold
+WildMenu           color00        color11
 
 debugPC            color04        none           reverse
 debugBreakpoint    color06        none           reverse
