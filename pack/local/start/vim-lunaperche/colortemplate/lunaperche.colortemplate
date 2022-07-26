@@ -241,7 +241,3 @@ dirGroup           color08        none
 dirTime            color08        none
 dirSize            color11        none
 dirSizeMod         color05        none
-
-
-; No color support
-Include: _tcozero
