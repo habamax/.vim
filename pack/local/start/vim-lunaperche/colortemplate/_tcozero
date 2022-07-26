@@ -42,7 +42,6 @@ StatusLine     omit   omit    reverse,bold
 StatusLineNC   omit   omit    bold,underline
 TabLine        omit   omit    underline,bold
 TabLineFill    omit   omit
-Terminal       omit   omit
 TabLineSel     omit   omit    reverse,bold
 Title          omit   omit
 VertSplit      omit   omit
