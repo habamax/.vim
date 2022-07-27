@@ -60,6 +60,7 @@ fugitiveSymbolicRef               -> Type
 fugitiveHeading                   -> Statement
 fugitiveStagedHeading             -> Statement
 fugitiveUnstagedHeading           -> Statement
+fugitiveUntrackedHeading          -> Statement
 fugitiveStagedModifier            -> Special
 fugitiveUnstagedModifier          -> Special
 fugitiveHash                      -> Constant
