@@ -71,6 +71,7 @@ rstDirective                      -> Special
 rstHyperlinkReference             -> Special
 rstFieldName                      -> Special
 rstDelimiter                      -> Special
+rstInterpretedText                -> Special
 colortemplateKey                  -> Statement
 xmlTagName                        -> Statement
 javaScriptFunction                -> Statement
