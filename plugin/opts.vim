@@ -7,12 +7,6 @@ g:loaded_matchparen = 1
 
 packadd cfilter
 
-# vim-gutentags
-if executable("ctags")
-    silent! packadd vim-gutentags
-endif
-
-
 # Git
 if executable("git")
     silent! packadd vim-fugitive
