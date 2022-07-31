@@ -28,7 +28,7 @@ Color: color13     #FFAFD7        218            magenta
 Color: color06     #5FAFAF        73             darkcyan
 Color: color14     #87DFDF        116            cyan
 
-Color: color07     #BCBCBC        250            grey
+Color: color07     #C6C6C6        251            grey
 Color: color15     #FFFFFF        231            white
 
 Color: colorLine   #303030        236            darkgrey
@@ -66,7 +66,7 @@ fugitiveUnstagedModifier          -> Special
 fugitiveHash                      -> Constant
 diffFile                          -> Preproc
 markdownHeadingDelimiter          -> PreProc
-rstSectionDelimiter               -> Statement
+rstSectionDelimiter               -> Title
 rstDirective                      -> Special
 rstHyperlinkReference             -> Special
 rstFieldName                      -> Special
@@ -129,7 +129,7 @@ VertSplit          color08        color08
 
 TabLine            color07        colorTab
 TabLineFill        none           color08
-TabLineSel         color15        color00
+TabLineSel         color07        color00        bold
 
 ToolbarLine        none           none
 ToolbarButton      color00        color15
@@ -211,8 +211,8 @@ Comment            color12        none
 Constant           color11        none
 Identifier         none           none
 
-Statement          color15        none
-Type               color02        none
+Statement          color15        none           bold
+Type               color02        none           bold
 
 PreProc            color08        none
 Special            color08        none
