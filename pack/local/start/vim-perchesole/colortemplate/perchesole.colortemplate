@@ -152,7 +152,7 @@ SignColumn         none           none
 
 Error              color15        color09
 ErrorMsg           color15        color09
-ModeMsg            color11        color00        bold,reverse
+ModeMsg            color11        color00        reverse
 MoreMsg            color02        none           bold
 Question           color05        none           bold
 WarningMsg         color09        none           bold
