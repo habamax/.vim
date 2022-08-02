@@ -18,11 +18,7 @@ export def WslToWindowsPath(path: string): string
     endif
 
     var res = systemlist($"wslpath -w '{path}'")
-    if !empty(res)
-        return substitute(res[0], '\\', '/', 'g')
-    else
-        return path
-    endif
+    return empty(res) ? path : res[0]
 enddef
 
 
@@ -84,7 +80,7 @@ export def Open(url: string)
     if exists("$WSLENV")
         job_opts.cwd = "/mnt/c"
         if filereadable(url)
-            url_x = WslToWindowsPath(url)
+            url_x = WslToWindowsPath(url)->escape('\\')
         endif
     endif
     job_start(printf('%s "%s"', cmd, url_x), job_opts)
