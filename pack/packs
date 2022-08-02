@@ -9,9 +9,6 @@ habamax/start/vim-godot	git@github.com:habamax/vim-godot.git
 habamax/start/vim-minisnip	git@github.com:habamax/vim-minisnip
 habamax/start/vim-dir	git@github.com:habamax/vim-dir.git
 
-# My colors
-habamax/opt/vim-habaurora	git@github.com:habamax/vim-habaurora.git
-
 # Very nice to have
 bundle/start/traces.vim	git@github.com:markonm/traces.vim.git
 bundle/opt/vim-fugitive	git@github.com:tpope/vim-fugitive.git
