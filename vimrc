@@ -79,7 +79,6 @@ nnoremap <silent> yos :set spell! spell?<CR>
 nnoremap <silent> yov :let &ve=(&ve == "block" ? "all" : "block")<CR>:set ve<CR>
 nnoremap <expr>   yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
 nnoremap <silent> yob :let &bg = (&bg == "light" ? "dark" : "light")<CR>
-nnoremap <silent> yoB :noau let &bg = (&bg == "light" ? "dark" : "light")<CR>
 
 # toggle colorcolumn at cursor position
 # set vartabstop accordingly
@@ -402,16 +401,10 @@ augroup general_au | au!
 augroup end
 
 augroup colors_override | au!
-    au OptionSet background ++nested
-          \   if v:option_new == 'light'
-          \ |     colorscheme perchesole
-          \ | else
-          \ |     colorscheme lunaperche
-          \ | endif
-    au Colorscheme habamax,lunaperche
+    au Colorscheme habamax
           \   hi Normal ctermbg=NONE
           \ | hi TabLineSel ctermbg=NONE
-    au Colorscheme lunaperche,perchesole,haba*
+    au Colorscheme lunaperche,haba*
           \   hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE
     au Colorscheme quiet
           \   hi CursorLineNr ctermbg=NONE guibg=NONE
@@ -434,10 +427,11 @@ augroup END
 # Colors
 
 if has("gui_running")
-    silent! colorscheme perchesole
+    set bg=light
 else
-    silent! colorscheme lunaperche
+    set bg=dark
 endif
+silent! colorscheme lunaperche
 
 # helper command and mapping to work with legacy colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
