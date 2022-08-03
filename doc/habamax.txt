@@ -1,8 +1,8 @@
 *habamax.txt*         Personal habamax help
 
 
-BUILD VIM FROM SOURCE                                                *build-vim*
-==============================================================================
+BUILD VIM FROM SOURCE                                *build-vim*
+=====================
 
 GET VIM SOURCES
 >
@@ -12,8 +12,8 @@ GET VIM SOURCES
   git clone https://github.com/vim/vim.git
 
 
-FEDORA                                                        *build-vim-fedora*
-------------------------------------------------------------------------------
+FEDORA                                               *build-vim-fedora*
+------
 
 INSTALL BUILD TOOLS AND DEV LIBS
 >
@@ -26,8 +26,8 @@ MAKE AND INSTALL
   sudo make install
 
 
-DEBIAN                                                        *build-vim-debian*
-------------------------------------------------------------------------------
+DEBIAN                                               *build-vim-debian*
+------
 
 INSTALL BUILD TOOLS AND DEV LIBS
 >
@@ -47,12 +47,12 @@ MAKE AND INSTALL
 
 
 
-LIST OF COLORS                                                 *xterm256-colors*
-==============================================================================
+LIST OF COLORS                                       *xterm256-colors*
+==============
 
 Source of the colors:
 
-  https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
+  https://www.ditig.com/256-colors-cheat-sheet
 
 
   0 #000000 black             8 #808080 darkgrey
@@ -92,18 +92,18 @@ Source of the colors:
 128 #af00d7   134 #af5fd7   140 #af87d7   146 #afafd7   152 #afd7d7   158 #afffd7
 129 #af00ff   135 #af5fff   141 #af87ff   147 #afafff   153 #afd7ff   159 #afffff
 
-160 #d70000   166 #d75f00   172 #d78700   178 #dfaf00   184 #dfd700   190 #dfff00
-161 #d7005f   167 #d75f5f   173 #d7875f   179 #dfaf5f   185 #dfd75f   191 #dfff5f
-162 #d70087   168 #d75f87   174 #d78787   180 #dfaf87   186 #dfd787   192 #dfff87
-163 #d700af   169 #d75faf   175 #d787af   181 #dfafaf   187 #dfd7af   193 #dfffaf
-164 #d700d7   170 #d75fd7   176 #d787d7   182 #dfafdf   188 #dfd7df   194 #dfffdf
-165 #d700ff   171 #d75fff   177 #d787ff   183 #dfafff   189 #dfd7ff   195 #dfffff
+160 #d70000   166 #d75f00   172 #d78700   178 #d7af00   184 #d7d700   190 #d7ff00
+161 #d7005f   167 #d75f5f   173 #d7875f   179 #d7af5f   185 #d7d75f   191 #d7ff5f
+162 #d70087   168 #d75f87   174 #d78787   180 #d7af87   186 #d7d787   192 #d7ff87
+163 #d700af   169 #d75faf   175 #d787af   181 #d7afaf   187 #d7d7af   193 #d7ffaf
+164 #d700d7   170 #d75fd7   176 #d787d7   182 #d7afd7   188 #d7d7d7   194 #d7ffd7
+165 #d700ff   171 #d75fff   177 #d787ff   183 #d7afff   189 #d7d7ff   195 #d7ffff
 
 196 #ff0000   202 #ff5f00   208 #ff8700   214 #ffaf00   220 #ffd700   226 #ffff00
 197 #ff005f   203 #ff5f5f   209 #ff875f   215 #ffaf5f   221 #ffd75f   227 #ffff5f
 198 #ff0087   204 #ff5f87   210 #ff8787   216 #ffaf87   222 #ffd787   228 #ffff87
 199 #ff00af   205 #ff5faf   211 #ff87af   217 #ffafaf   223 #ffd7af   229 #ffffaf
-200 #ff00df   206 #ff5fdf   212 #ff87df   218 #ffafdf   224 #ffd7df   230 #ffffdf
+200 #ff00d7   206 #ff5fd7   212 #ff87d7   218 #ffafd7   224 #ffd7d7   230 #ffffd7
 201 #ff00ff   207 #ff5fff   213 #ff87ff   219 #ffafff   225 #ffd7ff   231 #ffffff
 
 232 #080808   238 #444444   244 #808080   250 #bcbcbc
