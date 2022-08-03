@@ -417,6 +417,11 @@ augroup colors_override | au!
           \   hi CursorLineNr ctermbg=NONE guibg=NONE
           \ | hi Directory cterm=bold gui=bold
           \ | hi SelectMatched cterm=bold,underline gui=bold,underline
+          \ | if &bg == "dark"
+          \ |     hi Constant ctermfg=214 guifg=#ffaf00
+          \ | else
+          \ |     hi Constant ctermfg=124 guifg=#af0000
+          \ | endif
     au Colorscheme malotru
           \   hi Title ctermfg=231 cterm=bold guifg=#FFFFFF gui=bold
           \ | hi Cursorline ctermbg=236 guibg=#303030
