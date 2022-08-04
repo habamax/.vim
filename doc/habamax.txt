@@ -55,14 +55,14 @@ Source of the colors:
   https://www.ditig.com/256-colors-cheat-sheet
 
 
-  0 #000000 black             8 #808080 darkgrey
-  1 #800000 darkred           9 #ff0000 red
-  2 #008000 darkgreen        10 #00ff00 green
-  3 #808000 darkyellow       11 #ffff00 yellow
-  4 #000080 darkblue         12 #0000ff blue
-  5 #800080 darkmagenta      13 #ff00ff magenta
-  6 #008080 darkcyan         14 #00ffff cyan
-  7 #c0c0c0 grey             15 #ffffff white
+  0 #000000 black             8 #7f7f7f darkgrey
+  1 #cd0000 darkred           9 #ff0000 red
+  2 #00cd00 darkgreen        10 #00ff00 green
+  3 #cdcd00 darkyellow       11 #ffff00 yellow
+  4 #0000ee darkblue         12 #5c5cff blue
+  5 #cd00cd darkmagenta      13 #ff00ff magenta
+  6 #00cdcd darkcyan         14 #00ffff cyan
+  7 #e5e5e5 grey             15 #ffffff white
 
  16 #000000    22 #005f00    28 #008700    34 #00af00    40 #00d700    46 #00ff00
  17 #00005f    23 #005f5f    29 #00875f    35 #00af5f    41 #00d75f    47 #00ff5f
