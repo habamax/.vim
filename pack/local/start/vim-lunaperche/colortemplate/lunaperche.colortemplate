@@ -306,7 +306,7 @@ Normal             color00        color15
 
 Statusline         color15        color00        bold
 StatuslineNC       color15        color08
-VertSplit          color00        color00
+VertSplit          color08        color08
 
 TabLine            color00        colorTab
 TabLineFill        none           color08
