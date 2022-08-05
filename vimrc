@@ -418,6 +418,7 @@ augroup END
 ################################################################################
 # Colors
 
+set bg=dark
 silent! colorscheme lunaperche
 
 
