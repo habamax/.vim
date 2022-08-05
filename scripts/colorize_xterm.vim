@@ -29,14 +29,14 @@ def HL(ln_start: number, ln_end: number)
     for lnum in range(ln_start, ln_end)
         var line = getline(lnum)
         if empty(line) | continue | endif
-        var colors = split(line, '\s\s\+')->map((_, v) => split(trim(v), '\s\+'))
+        var colors = split(line, '\s\{6,}')->map((_, v) => split(trim(v), '\s\+'))
         for color in colors
             if empty(color) | continue | endif
-            exe printf('syn match Hi%s /\%%%sl%s/', color[0], lnum, color[1])
+            exe printf('syn match Hi%s /\%%%sl%s/', color[0], lnum, $'\s\{{10}}\ze\s{color[0]}\s\+{color[1]}')
             exe printf("hi Hi%s guibg=%s ctermbg=%s guifg=%s ctermfg=%s", color[0], color[1], color[0],
                 \ FG(color[0]).gui, FG(color[0]).term)
         endfor
     endfor
 enddef
 
-HL(search("0 #000000", "n"), search("237 #3a3a3a", "n"))
+HL(search("0 #000000", "n"), search("255 #eeeeee", "n"))
