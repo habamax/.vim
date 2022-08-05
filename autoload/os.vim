@@ -26,9 +26,7 @@ enddef
 # Only for win and wsl for now.
 export def FileManager()
     var path = ''
-    if exists("b:netrw_curdir")
-        path = substitute(b:netrw_curdir, "/", "\\", "g")
-    elseif expand("%:p") == ""
+    if expand("%:p") == ""
         path = expand("%:p:h")
     else
         path = expand("%:p")
@@ -40,7 +38,7 @@ export def FileManager()
             path = escape(WslToWindowsPath(path), '\')
             job_opts.cwd = "/mnt/c"
         endif
-        job_start('cmd.exe /c start explorer.exe /select,' .. path, job_opts)
+        job_start('cmd.exe /c start "" explorer.exe /select,' .. path, job_opts)
     elseif executable("nautilus")
         job_start('nautilus --select ' .. path)
     else
