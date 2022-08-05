@@ -403,8 +403,6 @@ augroup colors_override | au!
     au Colorscheme habamax
           \   hi Normal ctermbg=NONE
           \ | hi TabLineSel ctermbg=NONE
-    au Colorscheme lunaperche,haba*
-          \   hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE
     au Colorscheme quiet
           \   hi CursorLineNr ctermbg=NONE guibg=NONE
           \ | hi Directory cterm=bold gui=bold
@@ -414,11 +412,6 @@ augroup colors_override | au!
           \ | else
           \ |     hi Constant ctermfg=124 guifg=#af0000
           \ | endif
-    au Colorscheme malotru
-          \   hi Title ctermfg=231 cterm=bold guifg=#FFFFFF gui=bold
-          \ | hi Cursorline ctermbg=236 guibg=#303030
-          \ | hi CursorlineNr ctermfg=231 cterm=bold guifg=#FFFFFF gui=bold
-          \ | hi Cursor guifg=#000000 guibg=#FFFFFF
 augroup END
 
 
