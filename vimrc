@@ -418,12 +418,8 @@ augroup END
 ################################################################################
 # Colors
 
-if has("gui_running")
-    set bg=light
-else
-    set bg=dark
-endif
 silent! colorscheme lunaperche
+
 
 # helper command and mapping to work with legacy colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
