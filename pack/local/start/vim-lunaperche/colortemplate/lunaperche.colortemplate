@@ -1,103 +1,8 @@
 ; vim: cc=20,35,50 vsts=19,15,15,4,15
 Full name: Perchè il sole a Milano? Portofino? Dimmi la luna perchè?
 Short name: lunaperche
-Description: Black(la luna perchè?)/White(perchè il sole) background colorscheme with not so many colors.
+Description: White(perchè il sole)/Black(la luna perchè?) background colorscheme with not so many colors.
 Author: Maxim Kim <habamax@gmail.com>
-
-Background: dark
-
-;;; Color palette
-Color: color00     #000000        16             black
-Color: color08     #878787        102            darkgrey
-
-Color: color01     #AF5F5F        131            darkred
-Color: color09     #FF5F5F        203            red
-
-Color: color02     #5FD75F        77             darkgreen
-Color: color10     #87FF5F        119            green
-
-Color: color03     #AF875F        137            darkyellow
-Color: color11     #FFD787        222            yellow
-
-Color: color04     #5F87AF        67             darkblue
-Color: color12     #87AFD7        110            blue
-
-Color: color05     #D787AF        175            darkmagenta
-Color: color13     #FFAFD7        218            magenta
-
-Color: color06     #5FAFAF        73             darkcyan
-Color: color14     #87D7D7        116            cyan
-
-Color: color07     #C6C6C6        251            grey
-Color: color15     #FFFFFF        231            white
-
-Color: colorLine   #303030        236            darkgrey
-Color: colorB      #262626        235            black
-Color: colorNonT   #585858        240            darkgrey
-Color: colorTab    #585858        240            grey
-Color: colorC      #FFFFFF        231            white
-Color: colorlC     #0000FF        21             blue
-Color: colorV      #005F87        24             darkblue
-Color: colorMP     #C5E7C5        30             darkcyan
-
-; Diff colors
-Color: diffAdd     #5FAF5F        71             darkyellow
-Color: diffDelete  #D78787        174            darkred
-Color: diffChange  #D0D0D0        252            lightgray
-Color: diffText    #B0B0B0        145            darkgray
-Color: fgDiff      #000000        16             black
-
-Term colors: color00 color01 color02 color03 color04 color05 color06 color07
-Term colors: color08 color09 color10 color11 color12 color13 color14 color15
-
-
-
-Background: light
-
-;;; Color palette
-Color: color00     #000000        16             black
-Color: color08     #626262        241            darkgrey
-
-Color: color01     #870000        88             darkred
-Color: color09     #D70000        160            red
-
-Color: color02     #005F00        22             darkgreen
-Color: color10     #008700        28             green
-
-Color: color03     #AF875F        137            darkyellow
-Color: color11     #D7D787        186            yellow
-
-Color: color04     #005FAF        25             darkblue
-Color: color12     #0087D7        32             blue
-
-Color: color05     #870087        90             darkmagenta
-Color: color13     #AF00AF        133            magenta
-
-Color: color06     #005f5f        23             darkcyan
-Color: color14     #5F8787        66             cyan
-
-Color: color07     #808080        244            grey
-Color: color15     #FFFFFF        231            white
-
-Color: colorLine   #E4E4E4        254            grey
-Color: colorB      #EEEEEE        255            grey
-Color: colorNonT   #9E9E9E        247            grey
-Color: colorTab    #B2B2B2        247            lightgrey
-Color: colorC      #000000        16             black
-Color: colorlC     #0000FF        21             blue
-Color: colorV      #5F87AF        67             darkblue
-Color: colorMP     #C5E7C5        30             darkcyan
-
-; Diff colors
-Color: diffAdd     #D5D5C0        187            darkyellow
-Color: diffDelete  #870000        88             darkred
-Color: diffChange  #D0D5D0        252            lightgray
-Color: diffText    #B0BDB0        250            darkgray
-Color: fgDiff      #000000        16             black
-
-Term colors: color00 color01 color02 color03 color04 color05 color06 color07
-Term colors: color08 color09 color10 color11 color12 color13 color14 color15
-
 
 Background: any
 
@@ -168,6 +73,51 @@ StatuslineTermNC                  -> StatuslineNC
 
 
 Background: dark
+
+;;; Color palette
+Color: color00     #000000        16             black
+Color: color08     #878787        102            darkgrey
+
+Color: color01     #AF5F5F        131            darkred
+Color: color09     #FF5F5F        203            red
+
+Color: color02     #5FD75F        77             darkgreen
+Color: color10     #87FF5F        119            green
+
+Color: color03     #AF875F        137            darkyellow
+Color: color11     #FFD787        222            yellow
+
+Color: color04     #5F87AF        67             darkblue
+Color: color12     #87AFD7        110            blue
+
+Color: color05     #D787AF        175            darkmagenta
+Color: color13     #FFAFD7        218            magenta
+
+Color: color06     #5FAFAF        73             darkcyan
+Color: color14     #87D7D7        116            cyan
+
+Color: color07     #C6C6C6        251            grey
+Color: color15     #FFFFFF        231            white
+
+Color: colorLine   #303030        236            darkgrey
+Color: colorB      #262626        235            black
+Color: colorNonT   #585858        240            darkgrey
+Color: colorTab    #585858        240            grey
+Color: colorC      #FFFFFF        231            white
+Color: colorlC     #0000FF        21             blue
+Color: colorV      #005F87        24             darkblue
+Color: colorMP     #C5E7C5        30             darkcyan
+
+; Diff colors
+Color: diffAdd     #5FAF5F        71             darkyellow
+Color: diffDelete  #D78787        174            darkred
+Color: diffChange  #D0D0D0        252            lightgray
+Color: diffText    #B0B0B0        145            darkgray
+Color: fgDiff      #000000        16             black
+
+Term colors: color00 color01 color02 color03 color04 color05 color06 color07
+Term colors: color08 color09 color10 color11 color12 color13 color14 color15
+
 
 ;;; chrome
 Variant: gui 256 16
@@ -299,6 +249,51 @@ dirSizeMod         color05        none
 
 Background: light
 
+;;; Color palette
+Color: color00     #000000        16             black
+Color: color08     #626262        241            darkgrey
+
+Color: color01     #870000        88             darkred
+Color: color09     #D70000        160            red
+
+Color: color02     #005F00        22             darkgreen
+Color: color10     #008700        28             green
+
+Color: color03     #AF875F        137            darkyellow
+Color: color11     #D7D787        186            yellow
+
+Color: color04     #005FAF        25             darkblue
+Color: color12     #0087D7        32             blue
+
+Color: color05     #870087        90             darkmagenta
+Color: color13     #AF00AF        133            magenta
+
+Color: color06     #5F8787        66             darkcyan
+Color: color14     #5FAFAF        73             cyan
+
+Color: color07     #808080        244            grey
+Color: color15     #FFFFFF        231            white
+
+Color: colorLine   #E4E4E4        254            grey
+Color: colorB      #EEEEEE        255            grey
+Color: colorNonT   #9E9E9E        247            grey
+Color: colorTab    #B2B2B2        247            lightgrey
+Color: colorC      #000000        16             black
+Color: colorlC     #0000FF        21             blue
+Color: colorV      #5F87AF        67             darkblue
+Color: colorMP     #C5E7C5        30             darkcyan
+
+; Diff colors
+Color: diffAdd     #D5D5C0        187            darkyellow
+Color: diffDelete  #870000        88             darkred
+Color: diffChange  #D0D5D0        252            lightgray
+Color: diffText    #B0BDB0        250            darkgray
+Color: fgDiff      #000000        16             black
+
+Term colors: color00 color01 color02 color03 color04 color05 color06 color07
+Term colors: color08 color09 color10 color11 color12 color13 color14 color15
+
+
 ;;; chrome
 Variant: gui 256 16
 
@@ -339,7 +334,7 @@ MoreMsg            color02        none           bold
 Question           color05        none           bold
 WarningMsg         color09        none           bold
 
-Todo               color14        color15        reverse
+Todo               color06        color15        reverse
 Search             color00        color11
 IncSearch          color15        color10
 CurSearch          color15        color10
