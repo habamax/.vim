@@ -403,6 +403,11 @@ augroup colors_override | au!
     au Colorscheme habamax
           \   hi Normal ctermbg=NONE
           \ | hi TabLineSel ctermbg=NONE
+    au Colorscheme lunaperche
+          \   if &bg == "dark"
+          \ |     hi Normal ctermbg=NONE
+          \ |     hi TabLineSel ctermbg=NONE
+          \ | endif
     au Colorscheme quiet
           \   hi CursorLineNr ctermbg=NONE guibg=NONE
           \ | hi Directory cterm=bold gui=bold
