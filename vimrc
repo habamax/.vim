@@ -453,7 +453,7 @@ augroup END
 
 ################## EXPERIMENTS
 
-# finish
+finish
 
 # Show popup list, execute callback with a single parameter.
 export def FilterMenu(items: list<string>, title: string, Callback: func(any))
