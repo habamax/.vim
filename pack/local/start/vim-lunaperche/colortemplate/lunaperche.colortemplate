@@ -268,8 +268,8 @@ Color: color12     #0087D7        32             blue
 Color: color05     #870087        90             darkmagenta
 Color: color13     #AF00AF        133            magenta
 
-Color: color06     #5F8787        66             darkcyan
-Color: color14     #5FAFAF        73             cyan
+Color: color06     #008787        30             darkcyan
+Color: color14     #5fAFAF        73             cyan
 
 Color: color07     #808080        244            grey
 Color: color15     #FFFFFF        231            white
