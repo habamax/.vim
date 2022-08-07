@@ -6,7 +6,7 @@ export def FilterMenu(items: list<string>, title: string, Callback: func(any))
     var prompt = ""
     var filtered_items = items
     var winid = popup_create(items, {
-        title: $"{title}: ... type to filter ...",
+        title: $"{title}: >>> type to filter <<<",
         pos: 'center',
         drag: 0,
         wrap: 0,
@@ -25,15 +25,22 @@ export def FilterMenu(items: list<string>, title: string, Callback: func(any))
             elseif key == "\<S-tab>" || key == "\<C-p>"
                 win_execute(id, "normal! k")
             elseif key != "\<cursorhold>"
-                if key == "\<C-U>"
+                if key == "\<C-U>" && prompt->strcharlen() > 0
                     prompt = ""
                     filtered_items = items
+                elseif (key == "\<C-h>" || key == "\<bs>") && prompt->strcharlen() > 0
+                    prompt = prompt->strcharpart(0, prompt->strcharlen() - 1)
+                    if empty(prompt)
+                        filtered_items = items
+                    else
+                        filtered_items = items->matchfuzzy(prompt)
+                    endif
                 elseif key =~ '\p'
                     prompt ..= key
                     filtered_items = items->matchfuzzy(prompt)
                 endif
                 popup_settext(id, filtered_items)
-                popup_setoptions(id, {title: $"{title}: {prompt}"})
+                popup_setoptions(id, {title: $"{title}: {prompt ?? '>>> type to filter <<<'}"})
             endif
             return true
         },
