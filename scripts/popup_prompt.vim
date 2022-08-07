@@ -1,20 +1,13 @@
 vim9script
 
 
-
 # Show popup list, execute callback with a single parameter.
 export def FilterMenu(items: list<string>, title: string, Callback: func(any))
     var prompt = ""
     var filtered_items = items
-    var edit_id = popup_create($"{title}: │", {
-        hidden: true,
-        padding: [0, 1, 0, 1],
-        mapping: 0,
-    })
-    var main_id = popup_create(items, {
-        line: 10,
-        col: 10,
-        pos: 'topleft',
+    var winid = popup_create(items, {
+        title: $"{title}: ... type to filter ...",
+        pos: 'center',
         drag: 0,
         wrap: 0,
         minwidth: (&columns * 0.6)->float2nr(),
@@ -25,24 +18,22 @@ export def FilterMenu(items: list<string>, title: string, Callback: func(any))
         filter: (id, key) => {
             if key == "\<esc>"
                 popup_close(id, -1)
-                popup_close(edit_id)
-            elseif key == "\<cr>"
+            elseif key == "\<cr>" && filtered_items->len() > 0
                 popup_close(id, getcurpos(id)[1])
-                popup_close(edit_id)
             elseif key == "\<tab>" || key == "\<C-n>"
                 win_execute(id, "normal! j")
             elseif key == "\<S-tab>" || key == "\<C-p>"
                 win_execute(id, "normal! k")
-            elseif key == "\<C-U>"
-                prompt = ""
-                filtered_items = items
+            elseif key != "\<cursorhold>"
+                if key == "\<C-U>"
+                    prompt = ""
+                    filtered_items = items
+                elseif key =~ '\p'
+                    prompt ..= key
+                    filtered_items = items->matchfuzzy(prompt)
+                endif
                 popup_settext(id, filtered_items)
-                popup_settext(edit_id, $"{title}: {prompt}")
-            elseif key != "\<cursorhold>" && key =~ '\p'
-                prompt ..= key
-                filtered_items = items->matchfuzzy(prompt)
-                popup_settext(id, filtered_items)
-                popup_settext(edit_id, $"{title}: {prompt}")
+                popup_setoptions(id, {title: $"{title}: {prompt}"})
             endif
             return true
         },
@@ -53,18 +44,30 @@ export def FilterMenu(items: list<string>, title: string, Callback: func(any))
             }
         })
 
-        win_execute(main_id, "setl nu")
+    win_execute(winid, "setl nu")
 
-        var main_win = popup_getpos(main_id)
-        popup_move(edit_id, {line: (main_win.line - 1), col: main_win.col})
-        popup_setoptions(edit_id, {minwidth: main_win.core_width})
-        popup_show(edit_id)
 enddef
 
 FilterMenu(["Однажды в студеную",
-            "Зимнюю пору",
-            "hello",
-            "hello world",
+            "He was aware there were numerous wonders of this world including the",
+            "unexplained creations of humankind that showed the wonder of our",
+            "ingenuity. There are huge heads on Easter Island. There are the",
+            "Egyptian pyramids. There's Stonehenge. But he now stood in front of a",
+            "newly discovered monument that simply didn't make any sense and he",
+            "wondered how he was ever going to be able to explain it.",
+            "The trees, therefore, must be such old and primitive techniques that",
+            "they thought nothing of them, deeming them so inconsequential that even",
+            "savages like us would know of them and not be suspicious. At that, they",
+            "probably didn't have too much time after they detected us orbiting and",
+            "intending to land. And if that were true, there could be only one place",
+            "where their civilization was hidden.",
+            "The wave crashed and hit the sandcastle head-on. The sandcastle began",
+            "to melt under the waves force and as the wave receded, half the",
+            "sandcastle was gone. The next wave hit, not quite as strong, but still",
+            "managed to cover the remains of the sandcastle and take more of it",
+            "away. The third wave, a big one, crashed over the sandcastle completely",
+            "covering and engulfing it. When it receded, there was no trace the",
+            "sandcastle ever existed and hours of hard work disappeared forever.",
             "world is on fire"], "Buffers", (res) => {
         echo res
     })
