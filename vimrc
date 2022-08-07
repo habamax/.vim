@@ -453,22 +453,25 @@ augroup END
 
 ################## EXPERIMENTS
 
-finish
+# finish
 
 # Show popup list, execute callback with a single parameter.
 export def FilterMenu(items: list<string>, title: string, Callback: func(any))
     var prompt = ""
-    var edit_id = popup_create("Buffers: │", {
+    var filtered_items = items
+    var edit_id = popup_create($"{title}: │", {
         hidden: true,
         padding: [0, 1, 0, 1],
         mapping: 0,
     })
     var main_id = popup_create(items, {
-        pos: 'center',
+        line: 10,
+        col: 10,
+        pos: 'topleft',
         drag: 0,
         wrap: 0,
         minwidth: (&columns * 0.6)->float2nr(),
-        minheight: 10,
+        maxheight: (&lines * 0.8)->float2nr(),
         cursorline: 1,
         padding: [0, 1, 0, 1],
         mapping: 0,
@@ -485,20 +488,21 @@ export def FilterMenu(items: list<string>, title: string, Callback: func(any))
                 win_execute(id, "normal! k")
             elseif key == "\<C-U>"
                 prompt = ""
-                popup_settext(id, items)
-                popup_settext(edit_id, prompt)
+                filtered_items = items
+                popup_settext(id, filtered_items)
+                popup_settext(edit_id, $"{title}: {prompt}")
             elseif key != "\<cursorhold>" && key =~ '\p'
                 prompt ..= key
-                popup_settext(id, items->copy()->matchfuzzy(prompt))
-                popup_settext(edit_id, prompt)
+                filtered_items = items->matchfuzzy(prompt)
+                popup_settext(id, filtered_items)
+                popup_settext(edit_id, $"{title}: {prompt}")
             endif
             return true
         },
         callback: (id, result) => {
                 if result > 0
-                    Callback(items[result - 1])
+                    Callback(filtered_items[result - 1])
                 endif
-                echom prompt
             }
         })
 
@@ -514,6 +518,6 @@ FilterMenu(["Однажды в студеную",
             "Зимнюю пору",
             "hello",
             "hello world",
-            "world is on fire"], "select", (res) => {
+            "world is on fire"], "Buffers", (res) => {
         echo res
     })
