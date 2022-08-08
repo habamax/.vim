@@ -1,8 +1,6 @@
 # vim: ts=35 noet
 
 # My
-habamax/start/vim-select	git@github.com:habamax/vim-select.git
-habamax/start/vim-select-more	git@github.com:habamax/vim-select-more.git
 habamax/start/vim-asciidoctor	git@github.com:habamax/vim-asciidoctor.git
 habamax/start/vim-rst	git@github.com:habamax/vim-rst.git
 habamax/start/vim-godot	git@github.com:habamax/vim-godot.git

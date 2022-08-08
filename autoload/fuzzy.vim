@@ -41,7 +41,10 @@ export def MRU()
 enddef
 
 
-export def GitFile()
+export def GitFile(path: string = "")
+    if !empty(path)
+        exe $"lcd {path}"
+    endif
     popup.FilterMenu("Git File", systemlist('git ls-files'),
             (res, key) => {
                 if key == "\<c-t>"
@@ -56,3 +59,47 @@ export def GitFile()
             })
 enddef
 
+
+export def Colorscheme()
+    popup.FilterMenu("Colorscheme",
+            getcompletion("", "color"),
+            (res, key) => {
+                exe $":colorscheme {res.text}"
+            })
+enddef
+
+
+export def Template()
+    var path = $"{fnamemodify($MYVIMRC, ':p:h')}/templates/"
+    var ft = getbufvar(bufnr(), '&filetype')
+    var ft_path = path .. ft
+    var tmpls = []
+
+    if !empty(ft) && isdirectory(ft_path)
+        tmpls = mapnew(readdirex(ft_path, (e) => e.type == 'file'), (_, v) => $"{ft}/{v.name}")
+    endif
+
+    if isdirectory(path)
+        extend(tmpls, mapnew(readdirex(path, (e) => e.type == 'file'), (_, v) => v.name))
+    endif
+
+    popup.FilterMenu("Template",
+            tmpls,
+            (res, key) => {
+                append(line('.'), readfile($"{path}/{res.text}"))
+                if getline('.') =~ '^\s*$'
+                    del _
+                else
+                    normal! j^
+                endif
+            })
+enddef
+
+
+export def Session()
+    popup.FilterMenu("Session",
+            map(glob($'{g:vimdata}/sessions/*', 1, 1), (_, v) => fnamemodify(v, ":t")),
+            (res, key) => {
+                exe $':%%bd | source {g:vimdata}/sessions/{res.text}'
+            })
+enddef
