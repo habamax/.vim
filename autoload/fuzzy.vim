@@ -151,5 +151,9 @@ export def File(path: string = "")
             else
                 exe $"confirm e {res.path}/{res.text}"
             endif
+        }, (winid) => {
+            echo "helererel"
+            win_execute(winid, 'syn match FilterMenuDirectory "^.*/"')
+            hi def link FilterMenuDirectory Directory
         })
 enddef

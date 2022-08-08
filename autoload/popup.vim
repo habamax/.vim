@@ -82,7 +82,7 @@ enddef
 #                 exe $":b {res.bufnr}"
 #             endif
 #         })
-export def FilterMenu(title: string, items: list<any>, Callback: func(any, string))
+export def FilterMenu(title: string, items: list<any>, Callback: func(any, string), Setup: func(number) = null_function)
     if len(items) < 1 | return | endif
     if empty(prop_type_get('FilterMenuMatch'))
         hi def link FilterMenuMatch Constant
@@ -180,4 +180,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
         })
 
     win_execute(winid, "setl nu cursorline cursorlineopt=both")
+    if Setup != null_function
+        Setup(winid)
+    endif
 enddef
