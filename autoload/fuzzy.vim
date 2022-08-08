@@ -42,8 +42,7 @@ enddef
 
 
 export def GitFile()
-    popup.FilterMenu("Git File",
-            systemlist('git ls-files'),
+    popup.FilterMenu("Git File", systemlist('git ls-files'),
             (res, key) => {
                 if key == "\<c-t>"
                     exe $":tab e {res.text}"

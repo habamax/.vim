@@ -136,7 +136,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
                 win_execute(id, "normal! j")
             elseif key == "\<S-tab>" || key == "\<C-p>"
                 win_execute(id, "normal! k")
-            elseif key != "\<cursorhold>"
+            elseif key != "\<cursorhold>" && key != "\<ignore>"
                 if key == "\<C-U>" && !empty(prompt)
                     prompt = ""
                     filtered_items = [items_dict]
