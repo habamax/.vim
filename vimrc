@@ -58,6 +58,11 @@ nnoremap <silent> <expr> <space>vv <SID>SourceVim() .. '_'
 
 g:maplocalleader = "\<space>\<space>"
 
+
+# fuzzy
+import autoload 'fuzzy.vim'
+nnoremap <space>b <scriptcmd>fuzzy.Buffers()<CR>
+
 # enhance search, only if wildcharm is set to <C-z>
 if &wildcharm == 26
     cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"

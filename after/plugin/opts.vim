@@ -5,7 +5,7 @@ if exists("g:loaded_select")
     nmap <space>sm <Plug>(SelectMRU)
     nmap <space>sf <Plug>(SelectProjectFile)
     nmap <space>sp <Plug>(SelectProject)
-    nmap <space>b  <Plug>(SelectBuffer)
+    # nmap <space>b  <Plug>(SelectBuffer)
 
     nnoremap <space>s <nop>
     if exists("g:loaded_select_more")
