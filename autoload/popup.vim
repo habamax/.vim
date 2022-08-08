@@ -133,9 +133,17 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
                     && filtered_items[0]->len() > 0
                 popup_close(id, {idx: getcurpos(id)[1], key: key})
             elseif key == "\<tab>" || key == "\<C-n>"
+                var ln = getcurpos(id)[1]
                 win_execute(id, "normal! j")
+                if ln == getcurpos(id)[1]
+                    win_execute(id, "normal! gg")
+                endif
             elseif key == "\<S-tab>" || key == "\<C-p>"
+                var ln = getcurpos(id)[1]
                 win_execute(id, "normal! k")
+                if ln == getcurpos(id)[1]
+                    win_execute(id, "normal! G")
+                endif
             elseif key != "\<cursorhold>" && key != "\<ignore>"
                 if key == "\<C-U>" && !empty(prompt)
                     prompt = ""
