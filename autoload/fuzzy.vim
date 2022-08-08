@@ -111,7 +111,15 @@ export def Bookmark()
                 return {text: v.name, file: v.file, line: v.line, col: v.col}
             }),
             (res, key) => {
-                exe $"confirm e {res.file}"
+                if key == "\<C-j>"
+                    exe $"split {res.file}"
+                elseif key == "\<C-v>"
+                    exe $"vert split {res.file}"
+                elseif key == "\<C-t>"
+                    exe $"tabe {res.file}"
+                else
+                    exe $"confirm e {res.file}"
+                endif
                 exe $":{res.line}"
                 exe $"normal! {res.col}|"
             })
