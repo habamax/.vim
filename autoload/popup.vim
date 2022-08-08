@@ -120,7 +120,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
         border: [],
         borderchars: ['─', '│', '─', '│', '┌', '┐', '┘', '└'],
         drag: 0,
-        wrap: 0,
+        wrap: 1,
         minwidth: (&columns * 0.6)->float2nr(),
         maxheight: (&lines * 0.8)->float2nr(),
         cursorline: false,

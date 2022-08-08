@@ -43,10 +43,7 @@ enddef
 
 export def GitFile()
     popup.FilterMenu("Git File",
-            v:oldfiles->copy()->filter((_, v) => {
-                return filereadable(expand(v)) &&
-                       expand(v)->stridx(expand("$VIMRUNTIME")) == -1
-            }),
+            systemlist('git ls-files'),
             (res, key) => {
                 if key == "\<c-t>"
                     exe $":tab e {res.text}"
