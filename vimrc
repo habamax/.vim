@@ -68,6 +68,8 @@ nnoremap <space>fv <scriptcmd>fuzzy.GitFile(fnamemodify($MYVIMRC, ":p:h"))<CR>
 nnoremap <space>fc <scriptcmd>fuzzy.Colorscheme()<CR>
 nnoremap <space>fi <scriptcmd>fuzzy.Template()<CR>
 nnoremap <space>fs <scriptcmd>fuzzy.Session()<CR>
+nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
+
 
 # enhance search, only if wildcharm is set to <C-z>
 if &wildcharm == 26
@@ -386,6 +388,32 @@ command! -nargs=1 -complete=command -bar Redir silent v#Redir(<q-args>)
 # base64
 command! Base64 call append('.', trim(system("python -m base64", getline('.'))))
 command! Base64Decode call append('.', trim(system("python -m base64 -d", getline('.'))))
+
+# bookmarks
+def SaveBookmark()
+    if empty(expand("%")) | return | endif
+    var name = input("Save bookmark: ", expand("%:t"))
+    if empty(name)
+        name = expand("%:t")
+    endif
+    var bookmarks = []
+    var bookmarkFile = $'{g:vimdata}/bookmarks.json'
+
+    try
+        if !filereadable(bookmarkFile)
+            mkdir(fnamemodify(bookmarkFile, ":p:h"), "p")
+        else
+            bookmarks = readfile(bookmarkFile)->join()->json_decode()
+        endif
+        bookmarks->add({name: name, file: expand("%:p"), line: line('.'), col: col('.')})
+        [bookmarks->json_encode()]->writefile(bookmarkFile)
+    catch
+        echohl Error
+        echomsg v:exception
+        echohl None
+    endtry
+enddef
+command! Bookmark call SaveBookmark()
 
 
 ################################################################################

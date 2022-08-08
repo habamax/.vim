@@ -1,45 +1,5 @@
 vim9script
 
-if exists("g:loaded_select")
-    g:select_info = get(g:, "select_info", {})
-
-
-    g:select_info.bookmark = {}
-    g:select_info.bookmark.data = (..._) => readfile($'{g:vimdata}/bookmarks')
-    g:select_info.bookmark.sink = {
-        transform: (_, v) => split(v, "\t")[1],
-        action: (v) => {
-            var vals = split(v, "|")
-            exe "confirm e" vals[0]
-            if len(vals) == 3
-                exe ":" vals[1]
-                exe "normal!" .. vals[2] .. "|"
-            endif
-        }
-    }
-    g:select_info.bookmark.highlight = {
-        DirectoryPrefix: ['\t\zs.\S\+$', 'Comment']
-    }
-    nnoremap <silent> <space>sb :Select bookmark<CR>
-    def SaveBookmark()
-        if empty(expand("%")) | return | endif
-        var name = input("Save bookmark: ", expand("%:t"))
-        if empty(name)
-            name = expand("%:t")
-        endif
-        var bookmarkFile = $'{g:vimdata}/bookmarks'
-        var bookmarks = []
-        var bookmark = printf("%s\t%s|%s|%s", name, expand("%:p"), line('.'), col('.'))
-        if filereadable(bookmarkFile)
-            bookmarks = readfile(bookmarkFile)
-        endif
-        add(bookmarks, bookmark)
-        writefile(bookmarks, bookmarkFile)
-    enddef
-    command! Bookmark call SaveBookmark()
-endif
-
-
 if exists("g:loaded_fugitive")
     command! Glog Git log -p --follow -- %
     command! GlogSummary Git log --follow -- %

@@ -103,3 +103,16 @@ export def Session()
                 exe $':%%bd | source {g:vimdata}/sessions/{res.text}'
             })
 enddef
+
+
+export def Bookmark()
+    popup.FilterMenu("Bookmark",
+            readfile($'{g:vimdata}/bookmarks.json')->join()->json_decode()->mapnew((_, v) => {
+                return {text: v.name, file: v.file, line: v.line, col: v.col}
+            }),
+            (res, key) => {
+                exe $"confirm e {res.file}"
+                exe $":{res.line}"
+                exe $"normal! {res.col}|"
+            })
+enddef
