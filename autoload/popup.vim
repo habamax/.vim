@@ -150,7 +150,6 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
                     filtered_items = [items_dict]
                 elseif (key == "\<C-h>" || key == "\<bs>")
                     if empty(prompt)
-                        echo "world"
                         popup_close(id, {idx: getcurpos(id)[1], key: key})
                         return true
                     endif
