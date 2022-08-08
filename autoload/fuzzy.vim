@@ -20,3 +20,43 @@ export def Buffers()
             })
 enddef
 
+
+export def MRU()
+    popup.FilterMenu("MRU",
+            v:oldfiles->copy()->filter((_, v) => {
+                return filereadable(expand(v)) &&
+                       expand(v)->stridx(expand("$VIMRUNTIME")) == -1
+            }),
+            (res, key) => {
+                if key == "\<c-t>"
+                    exe $":tab e {res.text}"
+                elseif key == "\<c-j>"
+                    exe $":split {res.text}"
+                elseif key == "\<c-v>"
+                    exe $":vert split {res.text}"
+                else
+                    exe $":e {res.text}"
+                endif
+            })
+enddef
+
+
+export def GitFile()
+    popup.FilterMenu("Git File",
+            v:oldfiles->copy()->filter((_, v) => {
+                return filereadable(expand(v)) &&
+                       expand(v)->stridx(expand("$VIMRUNTIME")) == -1
+            }),
+            (res, key) => {
+                if key == "\<c-t>"
+                    exe $":tab e {res.text}"
+                elseif key == "\<c-j>"
+                    exe $":split {res.text}"
+                elseif key == "\<c-v>"
+                    exe $":vert split {res.text}"
+                else
+                    exe $":e {res.text}"
+                endif
+            })
+enddef
+

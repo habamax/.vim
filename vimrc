@@ -62,6 +62,7 @@ g:maplocalleader = "\<space>\<space>"
 # fuzzy
 import autoload 'fuzzy.vim'
 nnoremap <space>b <scriptcmd>fuzzy.Buffers()<CR>
+nnoremap <space>m <scriptcmd>fuzzy.MRU()<CR>
 
 # enhance search, only if wildcharm is set to <C-z>
 if &wildcharm == 26
