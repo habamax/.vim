@@ -2,7 +2,7 @@ vim9script
 
 import autoload 'popup.vim'
 
-export def Buffers()
+export def Buffer()
     popup.FilterMenu("Buffers",
             getbufinfo({'buflisted': 1})->mapnew((_, v) => {
                     return {bufnr: v.bufnr, text: (v.name ?? $'[{v.bufnr}: No Name]')}
@@ -123,4 +123,33 @@ export def Bookmark()
                 exe $":{res.line}"
                 exe $"normal! {res.col}|"
             })
+enddef
+
+
+export def File(path: string = "")
+    var opath = path ?? expand("%:p:h")
+    if !isdirectory(opath)
+        opath = getcwd()
+    endif
+    var files = readdirex(opath, (d) => d.type =~ '\%(dir\|linkd\)$')->map((_, v) => {
+                return {text: $"{v.name}/", path: opath}
+            }) + readdirex(opath, (d) => d.type =~ '\%(file\|link\)$')->map((_, v) => {
+                return {text: v.name, path: opath}
+            })
+
+    popup.FilterMenu("File", files, (res, key) => {
+            if (key == "\<bs>" || key == "\<c-h>") && isdirectory(fnamemodify(res.path, ':p:h:h'))
+                File($"{fnamemodify(res.path, ':p:h:h')}")
+            elseif isdirectory($"{res.path}/{res.text}")
+                File($"{res.path}/{res.text}")
+            elseif key == "\<C-j>"
+                exe $"split {res.path}/{res.text}"
+            elseif key == "\<C-v>"
+                exe $"vert split {res.path}/{res.text}"
+            elseif key == "\<C-t>"
+                exe $"tabe {res.path}/{res.text}"
+            else
+                exe $"confirm e {res.path}/{res.text}"
+            endif
+        })
 enddef

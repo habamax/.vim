@@ -61,7 +61,8 @@ g:maplocalleader = "\<space>\<space>"
 
 # fuzzy
 import autoload 'fuzzy.vim'
-nnoremap <space>b <scriptcmd>fuzzy.Buffers()<CR>
+nnoremap <space>ff <scriptcmd>fuzzy.File()<CR>
+nnoremap <space>b <scriptcmd>fuzzy.Buffer()<CR>
 nnoremap <space>fm <scriptcmd>fuzzy.MRU()<CR>
 nnoremap <space>fg <scriptcmd>fuzzy.GitFile()<CR>
 nnoremap <space>fv <scriptcmd>fuzzy.GitFile(fnamemodify($MYVIMRC, ":p:h"))<CR>
