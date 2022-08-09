@@ -112,7 +112,7 @@ enddef
 export def Bookmark()
     popup.FilterMenu("Bookmark",
             readfile($'{g:vimdata}/bookmarks.json')->join()->json_decode()->mapnew((_, v) => {
-                return {text: v.name, file: v.file, line: v.line, col: v.col}
+                return {text: $"{v.name} ({v.file})", file: v.file, line: v.line, col: v.col}
             }),
             (res, key) => {
                 if key == "\<C-j>"
@@ -126,6 +126,10 @@ export def Bookmark()
                 endif
                 exe $":{res.line}"
                 exe $"normal! {res.col}|"
+            },
+            (winid) => {
+                win_execute(winid, 'syn match FilterMenuDirectorySubtle "(.*)$"')
+                hi def link FilterMenuDirectorySubtle Comment
             })
 enddef
 
