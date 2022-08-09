@@ -114,15 +114,18 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
             })
         endif
     enddef
+    var height = min([&lines - 6, items->len()])
+    var pos_top = ((&lines - height) / 2) - 1
     var winid = popup_create(Printify(filtered_items, []), {
         title: $" {title}: {hint} ",
-        pos: 'center',
+        line: pos_top,
+        minwidth: (&columns * 0.6)->float2nr(),
+        minheight: height,
+        maxheight: height,
         border: [],
         borderchars: ['─', '│', '─', '│', '┌', '┐', '┘', '└'],
         drag: 0,
         wrap: 1,
-        minwidth: (&columns * 0.6)->float2nr(),
-        maxheight: (&lines * 0.8)->float2nr(),
         cursorline: false,
         padding: [0, 1, 0, 1],
         mapping: 0,
