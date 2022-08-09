@@ -17,6 +17,10 @@ export def Buffer()
                 else
                     exe $":b {res.bufnr}"
                 endif
+            },
+            (winid) => {
+                win_execute(winid, 'syn match FilterMenuDirectorySubtle "^.*\(/\|\\\)"')
+                hi def link FilterMenuDirectorySubtle Comment
             })
 enddef
 
