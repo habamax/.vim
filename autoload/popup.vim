@@ -125,7 +125,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
         minheight: height,
         maxheight: height,
         border: [],
-        borderchars: ['─', '│', '─', '│', '┌', '┐', '┘', '└'],
+        borderchars: ['─', '│', '─', '│', '╭', '╮', '╯', '╰'],
         drag: 0,
         wrap: 1,
         cursorline: false,
