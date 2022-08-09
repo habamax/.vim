@@ -121,6 +121,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
         title: $" {title}: {hint} ",
         line: pos_top,
         minwidth: (&columns * 0.6)->float2nr(),
+        maxwidth: (&columns - 5),
         minheight: height,
         maxheight: height,
         border: [],
