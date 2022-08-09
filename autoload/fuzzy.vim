@@ -181,3 +181,12 @@ export def File(path: string = "")
             hi def link FilterMenuDirectory Directory
         })
 enddef
+
+
+export def Filetype()
+    popup.FilterMenu("Filetype",
+            getcompletion("", "filetype"),
+            (res, key) => {
+                exe $":set ft={res.text}"
+            })
+enddef
