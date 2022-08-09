@@ -21,7 +21,7 @@ set number relativenumber cursorline cursorlineopt=number
 set list listchars=tab:›\ ,nbsp:·,trail:·,extends:→,precedes:←
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak
 set formatoptions=qjl
-set foldmethod=manual foldminlines=3 foldnestmax=3 nofoldenable
+set foldmethod=indent foldminlines=4 foldnestmax=3
 set backspace=indent,eol,start
 set nospell spelllang=en,ru
 set nrformats=bin,hex,unsigned
@@ -319,6 +319,9 @@ nnoremap <silent> [x :call diff#PrevChange()<CR>
 
 # open URLs
 nnoremap <silent> gx :call os#Gx()<CR>
+
+# manual folds
+nnoremap zf <cmd>set fdm&<CR>zf
 
 
 ################################################################################
