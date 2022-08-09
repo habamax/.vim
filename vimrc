@@ -72,6 +72,7 @@ nnoremap <space>fi <scriptcmd>fuzzy.Template()<CR>
 nnoremap <space>fs <scriptcmd>fuzzy.Session()<CR>
 nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
 nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
+nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
 
 
 # enhance search, only if wildcharm is set to <C-z>

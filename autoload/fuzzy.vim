@@ -2,6 +2,7 @@ vim9script
 
 import autoload 'popup.vim'
 
+
 export def Buffer()
     popup.FilterMenu("Buffers",
             getbufinfo({'buflisted': 1})->mapnew((_, v) => {
@@ -189,4 +190,37 @@ export def Filetype()
             (res, key) => {
                 exe $":set ft={res.text}"
             })
+enddef
+
+
+export def Highlight()
+    var hl = hlget()->mapnew((_, v) => {
+        if v->has_key("cleared")
+            return {text: $"xxx {v.name} cleared", name: v.name,
+                    value: $"hi {v.name}"}
+        elseif v->has_key("linksto")
+            return {text: $"xxx {v.name} links to {v.linksto}", name: v.name,
+                    value: $"hi link {v.name} {v.linksto}"}
+        else
+            var cterm = v->has_key('cterm') ? $' cterm={v.cterm->keys()->join(",")}' : ''
+            var ctermfg = v->has_key('ctermfg') ? $' ctermfg={v.ctermfg}' : ''
+            var ctermbg = v->has_key('ctermbg') ? $' ctermbg={v.ctermbg}' : ''
+            var guifg = v->has_key('guifg') ? $' guifg={v.guifg}' : ''
+            var guibg = v->has_key('guibg') ? $' guibg={v.guibg}' : ''
+            return {text: $"xxx {v.name}{ctermfg}{ctermbg}{cterm}{guifg}{guibg}",
+                    name: v.name,
+                    value: $"hi {v.name}{ctermfg}{ctermbg}{cterm}{guifg}{guibg}"}
+        endif
+    })
+    popup.FilterMenu("Highlight", hl,
+        (res, key) => {
+            feedkeys($":{res.value}")
+        },
+        (winid) => {
+        win_execute(winid, $"syn match FilterMenuHiLinksTo 'links to'")
+        hi def link FilterMenuHiLinksTo Question
+        for h in hl
+            win_execute(winid, $"syn match {h.name} '^xxx\\ze {h.name}'")
+        endfor
+    })
 enddef
