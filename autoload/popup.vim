@@ -83,7 +83,6 @@ enddef
 #             endif
 #         })
 export def FilterMenu(title: string, items: list<any>, Callback: func(any, string), Setup: func(number) = null_function)
-    if len(items) < 1 | return | endif
     if empty(prop_type_get('FilterMenuMatch'))
         hi def link FilterMenuMatch Constant
         prop_type_add('FilterMenuMatch', {highlight: "FilterMenuMatch", override: true, priority: 1000, combine: true})
@@ -91,7 +90,9 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
     var prompt = ""
     var hint = ">>> type to filter <<<"
     var items_dict: list<dict<any>>
-    if items[0]->type() != v:t_dict
+    if len(items) < 1
+        items_dict = [{text: ""}]
+    elseif items[0]->type() != v:t_dict
         items_dict = items->mapnew((_, v) => {
             return {text: v}
         })

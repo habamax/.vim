@@ -136,6 +136,9 @@ export def File(path: string = "")
             }) + readdirex(opath, (d) => d.type =~ '\%(file\|link\)$')->map((_, v) => {
                 return {text: v.name, path: opath}
             })
+    if empty(files)
+        files = [{text: "", path: opath}]
+    endif
 
     popup.FilterMenu("File", files, (res, key) => {
             if (key == "\<bs>" || key == "\<c-h>") && isdirectory(fnamemodify(res.path, ':p:h:h'))
