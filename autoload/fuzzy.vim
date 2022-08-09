@@ -202,14 +202,15 @@ export def Highlight()
             return {text: $"xxx {v.name} links to {v.linksto}", name: v.name,
                     value: $"hi link {v.name} {v.linksto}"}
         else
-            var cterm = v->has_key('cterm') ? $' cterm={v.cterm->keys()->join(",")}' : ''
             var ctermfg = v->has_key('ctermfg') ? $' ctermfg={v.ctermfg}' : ''
             var ctermbg = v->has_key('ctermbg') ? $' ctermbg={v.ctermbg}' : ''
+            var cterm = v->has_key('cterm') ? $' cterm={v.cterm->keys()->join(",")}' : ''
             var guifg = v->has_key('guifg') ? $' guifg={v.guifg}' : ''
             var guibg = v->has_key('guibg') ? $' guibg={v.guibg}' : ''
-            return {text: $"xxx {v.name}{ctermfg}{ctermbg}{cterm}{guifg}{guibg}",
+            var gui = v->has_key('gui') ? $' gui={v.gui->keys()->join(",")}' : ''
+            return {text: $"xxx {v.name}{ctermfg}{ctermbg}{cterm}{guifg}{guibg}{gui}",
                     name: v.name,
-                    value: $"hi {v.name}{ctermfg}{ctermbg}{cterm}{guifg}{guibg}"}
+                    value: $"hi {v.name}{ctermfg}{ctermbg}{cterm}{guifg}{guibg}{gui}"}
         endif
     })
     popup.FilterMenu("Highlight", hl,
@@ -217,8 +218,8 @@ export def Highlight()
             feedkeys($":{res.value}")
         },
         (winid) => {
-        win_execute(winid, $"syn match FilterMenuHiLinksTo 'links to'")
-        hi def link FilterMenuHiLinksTo Question
+        win_execute(winid, $"syn match FilterMenuHiLinksTo '\\(links to\\)\\|\\(cleared\\)'")
+        hi def link FilterMenuHiLinksTo Comment
         for h in hl
             win_execute(winid, $"syn match {h.name} '^xxx\\ze {h.name}'")
         endfor
