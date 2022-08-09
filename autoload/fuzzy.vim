@@ -78,6 +78,10 @@ export def Colorscheme()
             getcompletion("", "color"),
             (res, key) => {
                 exe $":colorscheme {res.text}"
+            },
+            (winid) => {
+                win_execute(winid, $'syn match FilterMenuColorscheme "^{g:colors_name}$"')
+                hi def link FilterMenuColorscheme Statement
             })
 enddef
 
