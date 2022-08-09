@@ -166,7 +166,7 @@ export def File(path: string = "")
             if (key == "\<bs>" || key == "\<c-h>") && isdirectory(fnamemodify(res.path, ':p:h:h'))
                 File($"{fnamemodify(res.path, ':p:h:h')}")
             elseif isdirectory($"{res.path}{sep}{res.name}")
-                File($"{res.path}{sep}{res.name}")
+                File($"{res.path}{res.path[-1] == sep ? '' : sep}{res.name}")
             elseif key == "\<C-j>"
                 exe $"split {res.path}{sep}{res.name}"
             elseif key == "\<C-v>"
