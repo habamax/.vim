@@ -148,35 +148,36 @@ enddef
 
 
 export def File(path: string = "")
+    var sep = has("win32") ? '\' : '/'
     var opath = path ?? expand("%:p:h")
     if !isdirectory(opath)
         opath = getcwd()
     endif
     var files = readdirex(opath, (d) => d.type =~ '\%(dir\|linkd\)$')->map((_, v) => {
-                return {text: $"{v.name}/", path: opath}
+                return {text: $"{v.name}{sep}", name: v.name, path: opath}
             }) + readdirex(opath, (d) => d.type =~ '\%(file\|link\)$')->map((_, v) => {
-                return {text: v.name, path: opath}
+                return {text: v.name, name: v.name, path: opath}
             })
     if empty(files)
-        files = [{text: "", path: opath}]
+        files = [{text: "", name: "", path: opath}]
     endif
 
-    popup.FilterMenu("File", files, (res, key) => {
+    popup.FilterMenu(pathshorten(opath), files, (res, key) => {
             if (key == "\<bs>" || key == "\<c-h>") && isdirectory(fnamemodify(res.path, ':p:h:h'))
                 File($"{fnamemodify(res.path, ':p:h:h')}")
-            elseif isdirectory($"{res.path}/{res.text}")
-                File($"{res.path}/{res.text}")
+            elseif isdirectory($"{res.path}{sep}{res.name}")
+                File($"{res.path}{sep}{res.name}")
             elseif key == "\<C-j>"
-                exe $"split {res.path}/{res.text}"
+                exe $"split {res.path}{sep}{res.name}"
             elseif key == "\<C-v>"
-                exe $"vert split {res.path}/{res.text}"
+                exe $"vert split {res.path}{sep}{res.name}"
             elseif key == "\<C-t>"
-                exe $"tabe {res.path}/{res.text}"
+                exe $"tabe {res.path}{sep}{res.name}"
             else
-                exe $"confirm e {res.path}/{res.text}"
+                exe $"confirm e {res.path}{sep}{res.name}"
             endif
         }, (winid) => {
-            win_execute(winid, 'syn match FilterMenuDirectory "^.*/"')
+            win_execute(winid, $"syn match FilterMenuDirectory '^.*{sep->escape('\\')}'")
             hi def link FilterMenuDirectory Directory
         })
 enddef
