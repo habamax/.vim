@@ -47,7 +47,6 @@ export def MRU()
                 win_execute(winid, 'syn match FilterMenuDirectorySubtle "^.*\(/\|\\\)"')
                 hi def link FilterMenuDirectorySubtle Comment
             })
-
 enddef
 
 
