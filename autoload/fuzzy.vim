@@ -37,7 +37,12 @@ export def MRU()
                 else
                     exe $":e {res.text}"
                 endif
+            },
+            (winid) => {
+                win_execute(winid, 'syn match FilterMenuDirectorySubtle "^.*\(/\|\\\)"')
+                hi def link FilterMenuDirectorySubtle Comment
             })
+
 enddef
 
 
@@ -58,7 +63,7 @@ export def GitFile(path: string = "")
                 endif
             },
             (winid) => {
-                win_execute(winid, 'syn match FilterMenuDirectorySubtle "^.*/\|\\"')
+                win_execute(winid, 'syn match FilterMenuDirectorySubtle "^.*\(/\|\\\)"')
                 hi def link FilterMenuDirectorySubtle Comment
             })
 enddef
