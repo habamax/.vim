@@ -3,10 +3,10 @@ vim9script
 setl commentstring=<!--%s-->
 
 # header textobject
-onoremap <buffer><silent> iP :<C-u>call <sid>HeaderTextObj(v:true)<CR>
-onoremap <buffer><silent> aP :<C-u>call <sid>HeaderTextObj(v:false)<CR>
-xnoremap <buffer><silent> iP :<C-u>call <sid>HeaderTextObj(v:true)<CR>
-xnoremap <buffer><silent> aP :<C-u>call <sid>HeaderTextObj(v:false)<CR>
+onoremap <buffer><silent> iP <scriptcmd>HeaderTextObj(true)<CR>
+onoremap <buffer><silent> aP <scriptcmd>HeaderTextObj(false)<CR>
+xnoremap <buffer><silent> iP <esc><scriptcmd>HeaderTextObj(true)<CR>
+xnoremap <buffer><silent> aP <esc><scriptcmd>HeaderTextObj(false)<CR>
 
 
 # Markdown header text object
@@ -16,10 +16,10 @@ xnoremap <buffer><silent> aP :<C-u>call <sid>HeaderTextObj(v:false)<CR>
 #   level(excluded) or end of file.
 def HeaderTextObj(inner: bool)
     var lnum_start = search('^#\+\s\+[^[:space:]=]', "ncbW")
-    if lnum_start
+    if lnum_start > 0
         var lvlheader = matchstr(getline(lnum_start), '^#\+')
         var lnum_end = search('^#\{1,' .. len(lvlheader) .. '}\s', "nW")
-        if !lnum_end
+        if lnum_end == 0
             lnum_end = search('\%$', 'cnW')
         else
             lnum_end -= 1
@@ -28,8 +28,9 @@ def HeaderTextObj(inner: bool)
             lnum_start += 1
         endif
 
-        exe ":" .. lnum_end
+        echom lnum_start lnum_end
+        exe $":{lnum_end}"
         normal! V
-        exe ":" .. lnum_start
+        exe $":{lnum_start}"
     endif
 enddef
