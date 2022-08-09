@@ -180,7 +180,7 @@ export def File(path: string = "")
         }, (winid) => {
             win_execute(winid, $"syn match FilterMenuDirectory '^.*{sep->escape('\\')}'")
             hi def link FilterMenuDirectory Directory
-        })
+        }, true)
 enddef
 
 
