@@ -1,9 +1,13 @@
 vim9script
-# Check after/plugin/settings.vim for settings that depends on plugin existence
+# Check after/plugin/opts.vim for settings that depends on plugin existence
 # Plugin settings
 
 # annoing for huge-line json like files, turn it off
 g:loaded_matchparen = 1
+
+# turn off netrw
+g:loaded_netrw = 1
+g:loaded_netrwPlugin = 1
 
 packadd cfilter
 
