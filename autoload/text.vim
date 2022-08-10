@@ -135,12 +135,7 @@ enddef
 # Line text object
 export def ObjLine(inner: bool)
     if inner
-        # for non-wrapped line following works:
-        # normal! g_v^
-        # but for wrapped line it is a bit trickier:
-        normal! g$
-        search('\S', 'cb')
-        normal! vg^
+        normal! g_v^
     else
         normal! $v0
     endif
