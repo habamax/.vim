@@ -119,7 +119,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
     var height = min([&lines - 6, items->len()])
     var pos_top = ((&lines - height) / 2) - 1
     var winid = popup_create(Printify(filtered_items, []), {
-        title: $" ({items_count}/{items_count}) {title}: {hint} ",
+        title: $"({items_count}/{items_count}) {title}: {hint} ",
         line: pos_top,
         minwidth: (&columns * 0.6)->float2nr(),
         maxwidth: (&columns - 5),
@@ -170,7 +170,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
                     filtered_items = items_dict->matchfuzzypos(prompt, {key: "text"})
                 endif
                 popup_settext(id, Printify(filtered_items, []))
-                popup_setoptions(id, {title: $" ({filtered_items[0]->len()}/{items_count}) {title}: {prompt ?? hint} "})
+                popup_setoptions(id, {title: $"({filtered_items[0]->len()}/{items_count}) {title}: {prompt ?? hint} "})
             endif
             return true
         },
