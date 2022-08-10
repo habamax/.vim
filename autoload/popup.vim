@@ -149,7 +149,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
                 if ln == getcurpos(id)[1]
                     win_execute(id, "normal! G")
                 endif
-            elseif key != "\<cursorhold>" && key != "\<ignore>"
+            elseif ["\<cursorhold>", "\<ignore>"]->index(key) == -1
                 if key == "\<C-U>" && !empty(prompt)
                     prompt = ""
                     filtered_items = [items_dict]
