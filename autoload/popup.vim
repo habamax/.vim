@@ -5,7 +5,7 @@ export def ShowAtCursor(text: any): number
     var winnr = popup_atcursor(CleanCR(text), {
             padding: [0, 1, 0, 1],
             border: [],
-            borderchars: ['─', '│', '─', '│', '┌', '┐', '┘', '└'],
+            borderchars: ['─', '│', '─', '│', '╭', '╮', '╯', '╰'],
             pos: "botleft",
             filter: "PopupFilter",
             filtermode: 'n',
