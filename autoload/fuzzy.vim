@@ -183,6 +183,27 @@ export def File(path: string = "")
 enddef
 
 
+export def FileGlob(path: string = "")
+    var opath = isdirectory(expand(path)) ? path : getcwd()
+    popup.FilterMenu("File", glob($'{opath}/**', 1, true),
+            (res, key) => {
+                if key == "\<c-t>"
+                    exe $":tab e {res.text}"
+                elseif key == "\<c-j>"
+                    exe $":split {res.text}"
+                elseif key == "\<c-v>"
+                    exe $":vert split {res.text}"
+                else
+                    exe $":e {res.text}"
+                endif
+            },
+            (winid) => {
+                win_execute(winid, 'syn match FilterMenuDirectorySubtle "^.*\(/\|\\\)"')
+                hi def link FilterMenuDirectorySubtle Comment
+            })
+enddef
+
+
 export def Filetype()
     popup.FilterMenu("Filetype",
             getcompletion("", "filetype"),
