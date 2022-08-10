@@ -6,8 +6,8 @@ import autoload 'popup.vim'
 export def Buffer()
     popup.FilterMenu("Buffers",
             getbufinfo({'buflisted': 1})->mapnew((_, v) => {
-                    return {bufnr: v.bufnr, text: (v.name ?? $'[{v.bufnr}: No Name]')}
-                }),
+                    return {bufnr: v.bufnr, text: (v.name ?? $'[{v.bufnr}: No Name]'), lastused: v.lastused}
+                })->sort((i, j) => i.lastused > j.lastused ? -1 : i.lastused == j.lastused ? 0 : 1),
             (res, key) => {
                 if key == "\<c-t>"
                     exe $":tab sb {res.bufnr}"
