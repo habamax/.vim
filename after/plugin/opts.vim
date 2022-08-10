@@ -55,6 +55,7 @@ endif
 if exists("g:loaded_guifont_size")
     nmap <C-=> <Plug>(GUIFontSizeInc)
     nmap <C-_> <Plug>(GUIFontSizeDec)
+    nmap <C--> <Plug>(GUIFontSizeDec)
     nmap <C-0> <Plug>(GUIFontSizeRestore)
 endif
 
