@@ -186,9 +186,19 @@ export def File(path: string = "")
 enddef
 
 
-export def FileGlob(path: string = "")
+export def FileTree(path: string = "")
     var opath = isdirectory(expand(path)) ? path : getcwd()
-    popup.FilterMenu("File", glob($'{opath}/**', 1, true),
+    def Tree(dir: string): list<string>
+        var result = readdirex(dir, (v) => v.type =~ 'file\|link$')->mapnew((_, f) => f.name)
+        var dirs = readdirex(dir, (v) => v.type =~ 'dir\|linkd\|junction' && v.name != '.git')->mapnew((_, f) => f.name)
+        while !empty(dirs)
+            var next_dir = dirs->remove(0)
+            result += readdirex(next_dir, (v) => v.type =~ 'file\|link$')->mapnew((_, f) => $"{next_dir}/{f.name}")
+            dirs += readdirex(next_dir, (v) => v.type =~ 'dir\|linkd\|junction' && v.name != '.git')->mapnew((_, f) => $"{next_dir}/{f.name}")
+        endwhile
+        return result
+    enddef
+    popup.FilterMenu("File", Tree(opath),
             (res, key) => {
                 if key == "\<c-t>"
                     exe $":tab e {res.text}"
@@ -199,6 +209,21 @@ export def FileGlob(path: string = "")
                 else
                     exe $":e {res.text}"
                 endif
+                var projects_file = $'{g:vimdata}/projects.json'
+                var projects = []
+                try
+                    if !filereadable(projects_file)
+                        mkdir(fnamemodify(projects_file, ":p:h"), "p")
+                    else
+                        projects = readfile(projects_file)->join()->json_decode()
+                    endif
+                    projects->add({path: opath})->sort()->uniq()
+                    [projects->json_encode()]->writefile(projects_file)
+                catch
+                    echohl Error
+                    echomsg v:exception
+                    echohl None
+                endtry
             },
             (winid) => {
                 win_execute(winid, 'syn match FilterMenuDirectorySubtle "^.*\(/\|\\\)"')
@@ -279,3 +304,21 @@ export def CmdHistory()
         })
 enddef
 
+
+export def Project()
+    var projects = []
+    var projects_file = $'{g:vimdata}/projects.json'
+    if filereadable(projects_file)
+        try
+            projects = readfile(projects_file)->join()->json_decode()->mapnew((_, v) => {
+                return {text: v.path}
+            })
+        catch
+            return
+        endtry
+    endif
+    popup.FilterMenu("Project", projects,
+            (res, key) => {
+                FileGlob(res.text)
+            })
+enddef

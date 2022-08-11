@@ -63,7 +63,7 @@ g:maplocalleader = "\<space>\<space>"
 # fuzzy
 import autoload 'fuzzy.vim'
 nnoremap <space>ff <scriptcmd>fuzzy.File()<CR>
-nnoremap <space>fF <scriptcmd>fuzzy.FileGlob()<CR>
+nnoremap <space>fF <scriptcmd>fuzzy.FileTree()<CR>
 nnoremap <space>b <scriptcmd>fuzzy.Buffer()<CR>
 nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
 nnoremap <space>fm <scriptcmd>fuzzy.MRU()<CR>
@@ -79,6 +79,7 @@ nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
 nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
 nnoremap <space>fR <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
 nnoremap <space>; <scriptcmd>fuzzy.CmdHistory()<CR>
+nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
 
 
 # enhance search, only if wildcharm is set to <C-z>
