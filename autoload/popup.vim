@@ -136,7 +136,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
             if key == "\<esc>"
                 popup_close(id, -1)
             elseif ["\<cr>", "\<C-j>", "\<C-v>", "\<C-t>"]->index(key) > -1
-                    && filtered_items[0]->len() > 0
+                    && filtered_items[0]->len() > 0 && items_count > 0
                 popup_close(id, {idx: getcurpos(id)[1], key: key})
             elseif key == "\<tab>" || key == "\<C-n>"
                 var ln = getcurpos(id)[1]
@@ -170,7 +170,8 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
                     filtered_items = items_dict->matchfuzzypos(prompt, {key: "text"})
                 endif
                 popup_settext(id, Printify(filtered_items, []))
-                popup_setoptions(id, {title: $" ({filtered_items[0]->len()}/{items_count}) {title}: {prompt ?? hint} "})
+                popup_setoptions(id,
+                    {title: $" ({items_count > 0 ? filtered_items[0]->len() : 0}/{items_count}) {title}: {prompt ?? hint} "})
             endif
             return true
         },
