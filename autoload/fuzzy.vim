@@ -319,6 +319,6 @@ export def Project()
     endif
     popup.FilterMenu("Project", projects,
             (res, key) => {
-                FileGlob(res.text)
+                FileTree(res.text)
             })
 enddef
