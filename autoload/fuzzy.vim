@@ -384,5 +384,4 @@ export def ReStructuredTextHeading()
         (res, key) => {
             exe $":{res.linenr - 1}"
         })
-
 enddef
