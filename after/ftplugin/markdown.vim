@@ -14,20 +14,33 @@ def MarkdownHeading()
     var view = winsaveview()
     var h_s: string
     redir => h_s
-    :silent g/^#\+\s\S\+/p l#
+    :silent! g/^\(#\+\s\S\+\)\|\(\S\+.*\n\(=\+\|-\+\)\)$/p l#
     redir END
     winrestview(view)
     var h_list = h_s->split("\\s*\n\\s*")->mapnew((_, v) => {
         var cols = v->split('^\d\+\zs\s\+')
-        var lvl = matchstr(cols[1], '^#\+')->len() - 2
-        return {text: $'{repeat("  ", lvl)}{cols[1]->trim("# ")}', linenr: cols[0]}
+        var lvl = 0
+        var next_linenr = cols[0]->str2nr() + 1
+        if getline(next_linenr) =~ '^=\+'
+            lvl = 0
+        elseif getline(next_linenr) =~ '^-\+'
+            lvl = 1
+        else
+            # TODO: check syntax?
+            lvl = matchstr(cols[1], '^#\+')->len() - 1
+        endif
+        return {text: $'{repeat("\t", lvl)}{cols[1]->trim("# ")}', linenr: cols[0]}
     })
     popup.FilterMenu("Heading", h_list,
         (res, key) => {
             exe $":{res.linenr}"
+        },
+        (winid) => {
+            win_execute(winid, "setl ts=4 list")
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>MarkdownHeading()<CR>
+
 
 # Markdown header text object
 # * inner object is the text between prev section header(excluded) and the next
