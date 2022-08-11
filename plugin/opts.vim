@@ -125,12 +125,12 @@ g:rst2html_opts = "--input-encoding=utf8"
                .. expand($DOCS ?? '~/docs') .. "/.docutils/pygment.css"
 
 g:rst_syntax_code_list = {
-   vim: ['vim'],
-   sql: ['sql'],
-   python: ['python'],
-   json: ['json'],
-   javascript: ['js'],
-   elixir: ['elixir'],
+    vim: ['vim'],
+    sql: ['sql'],
+    python: ['python'],
+    json: ['json'],
+    javascript: ['js'],
+    elixir: ['elixir'],
 }
 
 
