@@ -8,6 +8,8 @@ onoremap <buffer><silent> aP <scriptcmd>HeaderTextObj(false)<CR>
 xnoremap <buffer><silent> iP <esc><scriptcmd>HeaderTextObj(true)<CR>
 xnoremap <buffer><silent> aP <esc><scriptcmd>HeaderTextObj(false)<CR>
 
+import autoload 'fuzzy.vim'
+nnoremap <buffer> <space>z <scriptcmd>fuzzy.MarkdownHeading()<CR>
 
 # Markdown header text object
 # * inner object is the text between prev section header(excluded) and the next

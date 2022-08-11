@@ -11,6 +11,9 @@ setlocal shiftwidth=2
 compiler rst2html
 
 " TODO: add it to undo ftplugin
+
+nnoremap <buffer> <space>z <cmd>call fuzzy#ReStructuredTextHeading()<CR>
+
 nnoremap <buffer> <space><space>oh :RstViewHtml<CR>
 nnoremap <buffer> <space><space>op :RstViewPdf<CR>
 nnoremap <buffer> <space><space>cp :Rst2Pdf<CR>

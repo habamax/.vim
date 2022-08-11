@@ -334,3 +334,55 @@ export def Project()
                 FileTree(res.text)
             })
 enddef
+
+
+export def MarkdownHeading()
+    var view = winsaveview()
+    var h_s: string
+    redir => h_s
+    :silent g/^#\+\s\S\+/p l#
+    redir END
+    winrestview(view)
+    var h_list = h_s->split("\\s*\n\\s*")->mapnew((_, v) => {
+        var cols = v->split('^\d\+\zs\s\+')
+        var lvl = matchstr(cols[1], '^#\+')->len() - 2
+        return {text: $'{repeat("  ", lvl)}{cols[1]->trim("# ")}', linenr: cols[0]}
+    })
+    popup.FilterMenu("Heading", h_list,
+        (res, key) => {
+            exe $":{res.linenr}"
+        })
+enddef
+
+
+export def ReStructuredTextHeading()
+    var view = winsaveview()
+    var underlines: string
+    redir => underlines
+    :silent g/^\([-=#~*^]\)\1\+\s*$/p l#
+    redir END
+    winrestview(view)
+
+    var headings: list<dict<any>>
+    var maybe_h: bool = false
+    var lvl_ch: list<string> = []
+    for u in underlines->split("\n")
+        var info = u->split()
+        var [linenr: number, char: string] = [info[0]->str2nr(), info[1][0]]
+        var line = getline(linenr - 1)
+        if line =~ '^\S\+'
+            var lvl = lvl_ch->index(char)
+            if lvl == -1
+                lvl_ch->add(char)
+                lvl = lvl_ch->len() - 1
+            endif
+            headings->add({text: $'{repeat("    ", lvl)}{line}', linenr: linenr, lvl: lvl})
+        endif
+    endfor
+
+    popup.FilterMenu("Heading", headings,
+        (res, key) => {
+            exe $":{res.linenr - 1}"
+        })
+
+enddef
