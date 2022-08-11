@@ -50,10 +50,6 @@ MAKE AND INSTALL
 LIST OF COLORS                                       *xterm256-colors*
 ==============
 
-Source of the colors:
-
-  https://www.ditig.com/256-colors-cheat-sheet
-
 
                    0 #000000 black                    8  #7f7f7f darkgrey
                    1 #cd0000 darkred                  9  #ff0000 red
