@@ -245,3 +245,22 @@ export def Highlight()
         endfor
     })
 enddef
+
+
+export def Help()
+    var help_tags = globpath(&rtp, "doc/tags", 0, 1)->mapnew((_, v) => {
+        return readfile(v)->mapnew((_, line) => {
+            return {text: line->split("\t")[0]}
+        })
+    })->flattennew()
+    popup.FilterMenu("Help", help_tags,
+            (res, key) => {
+                if key == "\<c-t>"
+                    exe $":tab help {res.text}"
+                elseif key == "\<c-v>"
+                    exe $":vert help {res.text}"
+                else
+                    exe $":help {res.text}"
+                endif
+            })
+enddef
