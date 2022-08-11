@@ -190,16 +190,25 @@ export def FileTree(path: string = "")
     var opath = isdirectory(expand(path)) ? path : getcwd()
     exe $"lcd {opath}"
     def Tree(dir: string): list<string>
+        var ignore_dirs = [".git", ".hg", ".bundle"]
         var result = readdirex(dir, (v) => v.type =~ 'file\|link$')->mapnew((_, f) => f.name)
-        var dirs = readdirex(dir, (v) => v.type =~ 'dir\|linkd\|junction' && v.name != '.git')->mapnew((_, f) => f.name)
-        while !empty(dirs)
+        var dirs = readdirex(dir, (v) => v.type =~ 'dir\|linkd\|junction' && ignore_dirs->index(v.name) == -1)->mapnew((_, f) => f.name)
+        while !empty(dirs) && result->len() < 10000 && dirs->len() < 200
             var next_dir = dirs->remove(0)
             result += readdirex(next_dir, (v) => v.type =~ 'file\|link$')->mapnew((_, f) => $"{next_dir}/{f.name}")
-            dirs += readdirex(next_dir, (v) => v.type =~ 'dir\|linkd\|junction' && v.name != '.git')->mapnew((_, f) => $"{next_dir}/{f.name}")
+            dirs += readdirex(next_dir, (v) => v.type =~ 'dir\|linkd\|junction' && ignore_dirs->index(v.name) == -1)->mapnew((_, f) => $"{next_dir}/{f.name}")
         endwhile
         return result
     enddef
-    popup.FilterMenu("File", Tree(opath),
+    var files = []
+    if executable('fd')
+        files = systemlist('fd --path-separator / --type f --hidden --follow --exclude .git')
+    elseif executable('rg')
+        files = systemlist('rg --path-separator / --files --hidden --glob !.git')
+    else
+        files = Tree(opath)
+    endif
+    popup.FilterMenu("File", files,
             (res, key) => {
                 if key == "\<c-t>"
                     exe $":tab e {res.text}"
