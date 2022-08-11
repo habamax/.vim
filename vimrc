@@ -180,13 +180,6 @@ noremap L <ScriptCmd>MapL()<CR>
 noremap H <ScriptCmd>MapH()<CR>
 
 
-# buffers
-nnoremap <silent> <C-n> <cmd>bn<CR>
-nnoremap <silent> <C-p> <cmd>bp<CR>
-tnoremap <silent> <C-n> <cmd>bn<CR>
-tnoremap <silent> <C-p> <cmd>bp<CR>
-
-
 # simple text objects
 # -------------------
 # i_ i. i: i, i; i| i/ i\ i* i+ i- i# i<tab>
