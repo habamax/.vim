@@ -8,8 +8,26 @@ onoremap <buffer><silent> aP <scriptcmd>HeaderTextObj(false)<CR>
 xnoremap <buffer><silent> iP <esc><scriptcmd>HeaderTextObj(true)<CR>
 xnoremap <buffer><silent> aP <esc><scriptcmd>HeaderTextObj(false)<CR>
 
-import autoload 'fuzzy.vim'
-nnoremap <buffer> <space>z <scriptcmd>fuzzy.MarkdownHeading()<CR>
+import autoload 'popup.vim'
+
+def MarkdownHeading()
+    var view = winsaveview()
+    var h_s: string
+    redir => h_s
+    :silent g/^#\+\s\S\+/p l#
+    redir END
+    winrestview(view)
+    var h_list = h_s->split("\\s*\n\\s*")->mapnew((_, v) => {
+        var cols = v->split('^\d\+\zs\s\+')
+        var lvl = matchstr(cols[1], '^#\+')->len() - 2
+        return {text: $'{repeat("  ", lvl)}{cols[1]->trim("# ")}', linenr: cols[0]}
+    })
+    popup.FilterMenu("Heading", h_list,
+        (res, key) => {
+            exe $":{res.linenr}"
+        })
+enddef
+nnoremap <buffer> <space>z <scriptcmd>MarkdownHeading()<CR>
 
 # Markdown header text object
 # * inner object is the text between prev section header(excluded) and the next
