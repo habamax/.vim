@@ -238,12 +238,12 @@ export def Highlight()
             feedkeys($":{res.value}")
         },
         (winid) => {
-        win_execute(winid, $"syn match FilterMenuHiLinksTo '\\(links to\\)\\|\\(cleared\\)'")
-        hi def link FilterMenuHiLinksTo Comment
-        for h in hl
-            win_execute(winid, $"syn match {h.name} '^xxx\\ze {h.name}'")
-        endfor
-    })
+            win_execute(winid, $"syn match FilterMenuHiLinksTo '\\(links to\\)\\|\\(cleared\\)'")
+            hi def link FilterMenuHiLinksTo Comment
+            for h in hl
+                win_execute(winid, $"syn match {h.name} '^xxx\\ze {h.name}'")
+            endfor
+        })
 enddef
 
 
@@ -264,3 +264,15 @@ export def Help()
                 endif
             })
 enddef
+
+
+export def CmdHistory()
+    var cmd_history = [{text: histget("cmd")}] + range(1, histnr("cmd"))->mapnew((i, _) => {
+        return {text: histget("cmd", i), idx: i}
+    })->filter((_, v) => v.text !~ "^\s*$")->sort((el1, el2) => el1.idx == el2.idx ? 0 : el1.idx > el2.idx ? -1 : 1)
+    popup.FilterMenu("Command History", cmd_history,
+        (res, key) => {
+            feedkeys($":{res.text}\<C-f>")
+        })
+enddef
+

@@ -78,6 +78,7 @@ nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
 nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
 nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
 nnoremap <space>fR <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
+nnoremap <space>; <scriptcmd>fuzzy.CmdHistory()<CR>
 
 
 # enhance search, only if wildcharm is set to <C-z>
