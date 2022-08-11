@@ -243,8 +243,10 @@ enddef
 
 
 export def Filetype()
-    popup.FilterMenu("Filetype",
-            getcompletion("", "filetype"),
+    var ft_list = globpath(&rtp, "ftplugin/*.vim", 0, 1)->mapnew((_, v) => {
+        return {text: fnamemodify(v, ":t:r")}
+    })->sort()->uniq()
+    popup.FilterMenu("Filetype", ft_list,
             (res, key) => {
                 exe $":set ft={res.text}"
             })
