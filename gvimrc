@@ -10,8 +10,8 @@ set guicursor+=r-cr:hor20-Cursor/lCursor-blinkon0
 set guicursor+=sm:block-Cursor-blinkon0
 
 
-set linespace=-2
 if has("win32")
+    set linespace=-2
     set guifont=Jetbrains\ Mono\ NL:h13,Cascadia\ Mono\ SemiLight:h14,Dejavu\ Sans\ Mono:h14,Consolas:h15
 else
     set guifont=Monospace\ 14
