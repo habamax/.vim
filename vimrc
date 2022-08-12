@@ -446,6 +446,11 @@ augroup general_au | au!
 augroup end
 
 
+augroup xterm256 | au!
+    au BufEnter *doc/xterm256-colors.txt runtime scripts/colorize_xterm.vim
+augroup END
+
+
 ################################################################################
 # Colors
 
@@ -472,6 +477,3 @@ if !has("gui_running")
     command! Tco leg if &t_Co == 16 | set t_Co=256 | else | set t_Co=16 | endif
     nnoremap <F9> :Tco<CR>:echo "t_Co =" &t_Co<CR>
 endif
-augroup xterm256 | au!
-    au BufEnter *doc/xterm256-colors.txt runtime scripts/colorize_xterm.vim
-augroup END
