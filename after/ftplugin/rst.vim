@@ -15,7 +15,7 @@ compiler rst2html
 # TODO: add it to undo ftplugin
 
 import autoload 'popup.vim'
-def ReStructuredTextHeading()
+def Toc()
     var view = winsaveview()
     var underlines: string
     redir => underlines
@@ -36,16 +36,19 @@ def ReStructuredTextHeading()
                 lvl_ch->add(char)
                 lvl = lvl_ch->len() - 1
             endif
-            headings->add({text: $'{repeat("    ", lvl)}{line}', linenr: linenr, lvl: lvl})
+            headings->add({text: $'{repeat("\t", lvl)}{line}', linenr: linenr, lvl: lvl})
         endif
     endfor
 
     popup.FilterMenu("Heading", headings,
         (res, key) => {
             exe $":{res.linenr - 1}"
+        },
+        (winid) => {
+            win_execute(winid, "setl ts=4")
         })
 enddef
-nnoremap <buffer> <space>z <scriptcmd>ReStructuredTextHeading()<CR>
+nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
 
 nnoremap <buffer> <space><space>oh :RstViewHtml<CR>
 nnoremap <buffer> <space><space>op :RstViewPdf<CR>

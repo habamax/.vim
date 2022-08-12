@@ -10,7 +10,7 @@ xnoremap <buffer><silent> aP <esc><scriptcmd>HeaderTextObj(false)<CR>
 
 import autoload 'popup.vim'
 
-def MarkdownHeading()
+def Toc()
     var view = winsaveview()
     var h_s: string
     redir => h_s
@@ -39,7 +39,7 @@ def MarkdownHeading()
             win_execute(winid, "setl ts=4 list")
         })
 enddef
-nnoremap <buffer> <space>z <scriptcmd>MarkdownHeading()<CR>
+nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
 
 
 # Markdown header text object
