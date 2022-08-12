@@ -28,21 +28,21 @@ def Toc()
                     lvl_ch->add(line[0] .. line[0])
                     lvl = lvl_ch->len() - 1
                 endif
-                toc->add({text: $'{repeat("\t", lvl)}{pline->trim()} ({nr})', linenr: nr})
+                toc->add({text: $'{repeat("\t", lvl)}{pline->trim()} ({nr - 1})', linenr: nr - 1})
             elseif pline =~ '^\S'
                 var lvl = lvl_ch->index(line[0])
                 if lvl == -1
                     lvl_ch->add(line[0])
                     lvl = lvl_ch->len() - 1
                 endif
-                toc->add({text: $'{repeat("\t", lvl)}{pline->trim()} ({nr})', linenr: nr})
+                toc->add({text: $'{repeat("\t", lvl)}{pline->trim()} ({nr - 1})', linenr: nr - 1})
             endif
         endif
     endfor
 
     popup.FilterMenu("TOC", toc,
         (res, key) => {
-            exe $":{res.linenr - 1}"
+            exe $":{res.linenr}"
             normal! zz
         },
         (winid) => {
