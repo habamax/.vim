@@ -26,7 +26,7 @@ def Toc()
         endif
     endfor
 
-    popup.FilterMenu("Heading", toc,
+    popup.FilterMenu("TOC", toc,
         (res, key) => {
             exe $":{res.linenr}"
         },
