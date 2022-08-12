@@ -23,9 +23,9 @@ def Toc()
         var ppline = getline(nr - 2)
         if line =~ '^\([-=#*~]\)\1*\s*$'
             if pline =~ '\S' && ppline == line
-                var lvl = lvl_ch->index(line[0])
+                var lvl = lvl_ch->index(line[0] .. line[0])
                 if lvl == -1
-                    lvl_ch->add(line[0])
+                    lvl_ch->add(line[0] .. line[0])
                     lvl = lvl_ch->len() - 1
                 endif
                 toc->add({text: $'{repeat("\t", lvl)}{pline->trim()}', linenr: nr})
