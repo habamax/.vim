@@ -423,6 +423,7 @@ dirGroup                       color07        none
 dirTime                        color07        none
 dirSize                        color01        none
 dirSizeMod                     color06        none
+dirLink                        color10        none
 dirFilterMenuBookmarkPath      color08        none
 dirFilterMenuHistoryPath       color08        none
 FilterMenuDirectorySubtle      color08        none
