@@ -15,14 +15,14 @@ def Toc()
         var line = getline(nr)
         if line =~ '^#\+\s\S\+'
             var lvl = line->matchstr('^#\+')->len() - 1
-            toc->add({text: $'{repeat("\t", lvl)}{line->trim(" #")}', linenr: nr})
+            toc->add({text: $'{repeat("\t", lvl)}{line->trim(" #")} ({nr})', linenr: nr})
             continue
         endif
         var pline = getline(nr - 1)
         if line =~ '^=\+$' && pline =~ '^\S\+'
-            toc->add({text: pline, linenr: nr - 1})
+            toc->add({text: $"{pline} ({nr - 1})", linenr: nr - 1})
         elseif line =~ '^-\+$' && pline =~ '^\S\+'
-            toc->add({text: $"\t{pline}", linenr: nr - 1})
+            toc->add({text: $"\t{pline} ({nr - 1})", linenr: nr - 1})
         endif
     endfor
 
@@ -32,6 +32,8 @@ def Toc()
         },
         (winid) => {
             win_execute(winid, "setl ts=4 list")
+            win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
+            hi def link FilterMenuLineNr Comment
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>

@@ -28,14 +28,14 @@ def Toc()
                     lvl_ch->add(line[0] .. line[0])
                     lvl = lvl_ch->len() - 1
                 endif
-                toc->add({text: $'{repeat("\t", lvl)}{pline->trim()}', linenr: nr})
+                toc->add({text: $'{repeat("\t", lvl)}{pline->trim()} ({nr})', linenr: nr})
             elseif pline =~ '^\S'
                 var lvl = lvl_ch->index(line[0])
                 if lvl == -1
                     lvl_ch->add(line[0])
                     lvl = lvl_ch->len() - 1
                 endif
-                toc->add({text: $'{repeat("\t", lvl)}{pline->trim()}', linenr: nr})
+                toc->add({text: $'{repeat("\t", lvl)}{pline->trim()} ({nr})', linenr: nr})
             endif
         endif
     endfor
@@ -46,6 +46,8 @@ def Toc()
         },
         (winid) => {
             win_execute(winid, "setl ts=4 list")
+            win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
+            hi def link FilterMenuLineNr Comment
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
@@ -55,7 +57,7 @@ nnoremap <buffer> <space><space>op :RstViewPdf<CR>
 nnoremap <buffer> <space><space>cp :Rst2Pdf<CR>
 nnoremap <buffer> <space><space>ch :Rst2Html<CR>
 
-def Rst2Html(locale: string)
+def Rst2Html(locale: string = "")
     if !empty(locale)
         b:rst2html_opts = g:rst2html_opts .. " --language=" .. locale
     else
