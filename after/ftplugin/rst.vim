@@ -12,40 +12,40 @@ setlocal shiftwidth=2
 
 compiler rst2html
 
-# TODO: add it to undo ftplugin
 
 import autoload 'popup.vim'
 def Toc()
-    var view = winsaveview()
-    var underlines: string
-    redir => underlines
-    :silent g/^\([-=#~*^]\)\1\+\s*$/p l#
-    redir END
-    winrestview(view)
-
-    var headings: list<dict<any>>
-    var maybe_h: bool = false
+    var toc: list<dict<any>> = []
     var lvl_ch: list<string> = []
-    for u in underlines->split("\n")
-        var info = u->split()
-        var [linenr: number, char: string] = [info[0]->str2nr(), info[1][0]]
-        var line = getline(linenr - 1)
-        if line =~ '^\S\+'
-            var lvl = lvl_ch->index(char)
-            if lvl == -1
-                lvl_ch->add(char)
-                lvl = lvl_ch->len() - 1
+    for nr in range(1, line('$'))
+        var line = getline(nr)
+        var pline = getline(nr - 1)
+        var ppline = getline(nr - 2)
+        if line =~ '^\([-=#*~]\)\1*\s*$'
+            if pline =~ '\S' && ppline == line
+                var lvl = lvl_ch->index(line[0])
+                if lvl == -1
+                    lvl_ch->add(line[0])
+                    lvl = lvl_ch->len() - 1
+                endif
+                toc->add({text: $'{repeat("\t", lvl)}{pline->trim()}', linenr: nr})
+            elseif pline =~ '^\S'
+                var lvl = lvl_ch->index(line[0])
+                if lvl == -1
+                    lvl_ch->add(line[0])
+                    lvl = lvl_ch->len() - 1
+                endif
+                toc->add({text: $'{repeat("\t", lvl)}{pline->trim()}', linenr: nr})
             endif
-            headings->add({text: $'{repeat("\t", lvl)}{line}', linenr: linenr, lvl: lvl})
         endif
     endfor
 
-    popup.FilterMenu("Heading", headings,
+    popup.FilterMenu("Heading", toc,
         (res, key) => {
             exe $":{res.linenr - 1}"
         },
         (winid) => {
-            win_execute(winid, "setl ts=4")
+            win_execute(winid, "setl ts=4 list")
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>

@@ -9,29 +9,24 @@ xnoremap <buffer><silent> iP <esc><scriptcmd>HeaderTextObj(true)<CR>
 xnoremap <buffer><silent> aP <esc><scriptcmd>HeaderTextObj(false)<CR>
 
 import autoload 'popup.vim'
-
 def Toc()
-    var view = winsaveview()
-    var h_s: string
-    redir => h_s
-    :silent! g/^\(#\+\s\S\+\)\|\(\S\+.*\n\(=\+\|-\+\)\)$/p l#
-    redir END
-    winrestview(view)
-    var h_list = h_s->split("\\s*\n\\s*")->mapnew((_, v) => {
-        var cols = v->split('^\d\+\zs\s\+')
-        var lvl = 0
-        var next_linenr = cols[0]->str2nr() + 1
-        if getline(next_linenr) =~ '^=\+'
-            lvl = 0
-        elseif getline(next_linenr) =~ '^-\+'
-            lvl = 1
-        else
-            # TODO: check syntax?
-            lvl = matchstr(cols[1], '^#\+')->len() - 1
+    var toc = []
+    for nr in range(1, line('$'))
+        var line = getline(nr)
+        if line =~ '^#\+\s\S\+'
+            var lvl = line->matchstr('^#\+')->len() - 1
+            toc->add({text: $'{repeat("\t", lvl)}{line->trim(" #")}', linenr: nr})
+            continue
         endif
-        return {text: $'{repeat("\t", lvl)}{cols[1]->trim("# ")}', linenr: cols[0]}
-    })
-    popup.FilterMenu("Heading", h_list,
+        var pline = getline(nr - 1)
+        if line =~ '^=\+$' && pline =~ '^\S\+'
+            toc->add({text: pline, linenr: nr - 1})
+        elseif line =~ '^-\+$' && pline =~ '^\S\+'
+            toc->add({text: $"\t{pline}", linenr: nr - 1})
+        endif
+    endfor
+
+    popup.FilterMenu("Heading", toc,
         (res, key) => {
             exe $":{res.linenr}"
         },
