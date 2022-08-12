@@ -19,13 +19,19 @@ def Things()
     for nr in range(1, line('$'))
         var line = getline(nr)
         if line =~ '\<def \k\+(' || line =~ '\<fu\%[nction]!\?\s\+\([sgl]:\)\?\k\+('
-            things->add({text: line, linenr: nr})
+            things->add({text: $"{line} ({nr})", linenr: nr})
         endif
     endfor
     popup.FilterMenu("Vim Things", things,
         (res, key) => {
             exe $":{res.linenr}"
+            normal! zz
+        },
+        (winid) => {
+            win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
+            hi def link FilterMenuLineNr Comment
         })
+
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
 
