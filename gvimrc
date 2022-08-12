@@ -12,7 +12,7 @@ set guicursor+=sm:block-Cursor-blinkon0
 
 set linespace=0
 if has("win32")
-    set guifont=Consolas:h14
+    set guifont=Hack:h14,Consolas:h14
 else
     set guifont=Monospace\ 14
 endif
