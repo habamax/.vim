@@ -247,6 +247,7 @@ dirSizeMod                     color05        none
 FilterMenuDirectorySubtle      color08        none
 dirFilterMenuBookmarkPath      color08        none
 dirFilterMenuHistoryPath       color08        none
+FilterMenuLineNr               color08        none
 
 
 
@@ -425,3 +426,4 @@ dirSizeMod                     color06        none
 dirFilterMenuBookmarkPath      color08        none
 dirFilterMenuHistoryPath       color08        none
 FilterMenuDirectorySubtle      color08        none
+FilterMenuLineNr               color08        none
