@@ -227,15 +227,16 @@ inoremap <C-U> <C-G>u<C-U>
 # spell correction for the first suggested
 inoremap <C-l> <C-g>u<ESC>[s1z=`]a<C-g>u
 
-nnoremap <silent> <space># :call text#Underline('#')<CR>
-nnoremap <silent> <space>* :call text#Underline('*')<CR>
-nnoremap <silent> <space>= :call text#Underline('=')<CR>
-nnoremap <silent> <space>- :call text#Underline('-')<CR>
-nnoremap <silent> <space>~ :call text#Underline('~')<CR>
-nnoremap <silent> <space>^ :call text#Underline('^')<CR>
-nnoremap <silent> <space>+ :call text#Underline('+')<CR>
-nnoremap <silent> <space>" :call text#Underline('"')<CR>
-nnoremap <silent> <space>` :call text#Underline('`')<CR>
+import autoload 'text.vim'
+nnoremap <silent> <space># <scriptcmd>text.Underline('#')<CR>
+nnoremap <silent> <space>* <scriptcmd>text.Underline('*')<CR>
+nnoremap <silent> <space>= <scriptcmd>text.Underline('=')<CR>
+nnoremap <silent> <space>- <scriptcmd>text.Underline('-')<CR>
+nnoremap <silent> <space>~ <scriptcmd>text.Underline('~')<CR>
+nnoremap <silent> <space>^ <scriptcmd>text.Underline('^')<CR>
+nnoremap <silent> <space>+ <scriptcmd>text.Underline('+')<CR>
+nnoremap <silent> <space>" <scriptcmd>text.Underline('"')<CR>
+nnoremap <silent> <space>` <scriptcmd>text.Underline('`')<CR>
 
 import autoload 'comment.vim'
 nnoremap <silent> <expr> gc comment.Toggle()
