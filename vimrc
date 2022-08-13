@@ -330,9 +330,6 @@ nnoremap <silent> ]W :llast<CR>
 nnoremap <silent> [w :lprevious<CR>
 nnoremap <silent> [W :lfirst<CR>
 
-# next/prev change for diff mode
-nnoremap <silent> ]x :call diff#NextChange()<CR>
-nnoremap <silent> [x :call diff#PrevChange()<CR>
 
 # manual folds
 nnoremap zf <cmd>set fdm&<CR>zf
@@ -403,9 +400,6 @@ command! Term :bo call term_start(&shell, {"cwd": expand("%:p:h"), "term_finish"
 if executable("cmd")
     command! Sh silent !start cmd.exe
 endif
-
-# redirect the output of a Vim or external command into a scratch buffer
-command! -nargs=1 -complete=command -bar Redir silent v#Redir(<q-args>)
 
 # base64
 command! Base64 call append('.', trim(system("python -m base64", getline('.'))))
