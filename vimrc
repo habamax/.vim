@@ -253,7 +253,8 @@ xnoremap <silent> <space>gb <scriptcmd>git.Blame(line("v"), line("."))<CR>
 
 nnoremap go <nop>
 # go to journal file
-nnoremap <silent> goj :call journal#new()<CR>
+import autoload 'journal.vim'
+nnoremap <silent> goj <scriptcmd>journal.New()<CR>
 # go to todo file
 nnoremap <silent> got :exe printf('e %s/todo.txt', expand($DOCS ?? '~/docs'))<CR>
 # go to *** file
