@@ -261,9 +261,10 @@ nnoremap <silent> gop :exe printf('e %s/creds.txt', expand($DOCS ?? '~/docs'))<C
 nnoremap <silent> gof :call os#FileManager()<CR>
 
 # send to single visible :terminal
-xnoremap <expr> <space>t term#Send()
-nnoremap <expr> <space>t term#Send()
-nnoremap <expr> <space>tt term#Send() .. '_'
+import autoload 'term.vim'
+xnoremap <expr> <space>t term.Send()
+nnoremap <expr> <space>t term.Send()
+nnoremap <expr> <space>tt term.Send() .. '_'
 
 # 'array' sort operator:
 # const whatever = [   ->   const whatever = [

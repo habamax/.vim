@@ -1,8 +1,9 @@
 vim9script
 
-# xnoremap <expr> <space>e term#Send()
-# nnoremap <expr> <space>e term#Send()
-# nnoremap <expr> <space>ee term#Send() .. '_'
+# import autoload 'term.vim'
+# xnoremap <expr> <space>t term.Send()
+# nnoremap <expr> <space>t term.Send()
+# nnoremap <expr> <space>tt term.Send() .. '_'
 export def Send(...args: list<any>): string
     if len(args) == 0
         &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
