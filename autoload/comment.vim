@@ -4,9 +4,10 @@ vim9script
 # Usage:
 #   1. Save in ~/.vim/autoload/comment.vim
 #   2. Add following mappings to vimrc:
-#      nnoremap <silent> <expr> gc comment#Toggle()
-#      xnoremap <silent> <expr> gc comment#Toggle()
-#      nnoremap <silent> <expr> gcc comment#Toggle() .. '_'
+#       import autoload 'comment.vim'
+#       nnoremap <silent> <expr> gc comment.Toggle()
+#       xnoremap <silent> <expr> gc comment.Toggle()
+#       nnoremap <silent> <expr> gcc comment.Toggle() .. '_'
 export def Toggle(...args: list<string>): string
     if len(args) == 0
         &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')

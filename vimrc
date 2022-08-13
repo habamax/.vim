@@ -237,9 +237,10 @@ nnoremap <silent> <space>+ :call text#Underline('+')<CR>
 nnoremap <silent> <space>" :call text#Underline('"')<CR>
 nnoremap <silent> <space>` :call text#Underline('`')<CR>
 
-nnoremap <silent> <expr> gc comment#Toggle()
-xnoremap <silent> <expr> gc comment#Toggle()
-nnoremap <silent> <expr> gcc comment#Toggle() .. '_'
+import autoload 'comment.vim'
+nnoremap <silent> <expr> gc comment.Toggle()
+xnoremap <silent> <expr> gc comment.Toggle()
+nnoremap <silent> <expr> gcc comment.Toggle() .. '_'
 
 import autoload 'git.vim'
 nnoremap <silent> <space>gi <scriptcmd>git.ShowCommit(v:count)<CR>
