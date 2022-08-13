@@ -473,7 +473,7 @@ set bg=dark
 silent! colorscheme lunaperche
 
 
-# helper command and mapping to work with legacy colorschemes
+# helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
 command! ColoMisc  tabnew | ru colors/tools/sample_misc.vim
 command! ColoMess  ru colors/tools/sample_messages.vim
