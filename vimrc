@@ -31,6 +31,13 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.swp
 set sessionoptions=buffers,curdir,tabpages,winsize
 set history=200
 set path=.,,
+set viminfo='200,<50,s10
+
+if has("win32")
+    set viminfofile=~/vimfiles/viminfo
+else
+    set viminfofile=~/.vim/viminfo
+endif
 
 if executable('rg')
     set grepprg=rg\ -i\ --vimgrep grepformat=%f:%l:%c:%m

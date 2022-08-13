@@ -10,4 +10,4 @@
 *.pyc
 *.temp
 /tags
-/.selectprojects
+/viminfo
