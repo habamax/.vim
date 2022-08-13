@@ -257,8 +257,13 @@ nnoremap <silent> goj :call journal#new()<CR>
 nnoremap <silent> got :exe printf('e %s/todo.txt', expand($DOCS ?? '~/docs'))<CR>
 # go to *** file
 nnoremap <silent> gop :exe printf('e %s/creds.txt', expand($DOCS ?? '~/docs'))<CR>
+
+import autoload 'os.vim'
 # go to current file in os file manager
-nnoremap <silent> gof :call os#FileManager()<CR>
+nnoremap <silent> gof <scriptcmd>os.FileManager()<CR>
+# open URLs
+nnoremap <silent> gx <scriptcmd>os.Gx()<CR>
+
 
 # send to single visible :terminal
 import autoload 'term.vim'
@@ -328,9 +333,6 @@ nnoremap <silent> [W :lfirst<CR>
 # next/prev change for diff mode
 nnoremap <silent> ]x :call diff#NextChange()<CR>
 nnoremap <silent> [x :call diff#PrevChange()<CR>
-
-# open URLs
-nnoremap <silent> gx :call os#Gx()<CR>
 
 # manual folds
 nnoremap zf <cmd>set fdm&<CR>zf
