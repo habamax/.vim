@@ -142,7 +142,7 @@ enddef
 nnoremap <silent> yoc <ScriptCmd>ToggleCC()<CR>
 nnoremap <silent> yoC <ScriptCmd>ToggleCC(true)<CR>
 
-nnoremap <silent> <space><cr> <cmd>call text#Toggle()<CR>
+nnoremap <silent> <space><cr> <scriptcmd>text.Toggle()<CR>
 
 # print maybe-function name
 nnoremap [f <cmd>echo getline(search('^[[:alpha:]$_]', 'bcnW'))<CR>
@@ -188,36 +188,38 @@ noremap L <ScriptCmd>MapL()<CR>
 noremap H <ScriptCmd>MapH()<CR>
 
 
+import autoload 'text.vim'
+
 # simple text objects
 # -------------------
 # i_ i. i: i, i; i| i/ i\ i* i+ i- i# i<tab>
 # a_ a. a: a, a; a| a/ a\ a* a+ a- a# a<tab>
 for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#', '<tab>' ]
-    execute 'xnoremap <silent> i' .. char .. ' :<C-u>call text#Obj("' .. char .. '", 1)<CR>'
-    execute 'xnoremap <silent> a' .. char .. ' :<C-u>call text#Obj("' .. char .. '", 0)<CR>'
+    execute 'xnoremap <silent> i' .. char .. ' <esc><scriptcmd>text.Obj("' .. char .. '", 1)<CR>'
+    execute 'xnoremap <silent> a' .. char .. ' <esc><scriptcmd>text.Obj("' .. char .. '", 0)<CR>'
     execute 'onoremap <silent> i' .. char .. ' :normal vi' .. char .. '<CR>'
     execute 'onoremap <silent> a' .. char .. ' :normal va' .. char .. '<CR>'
 endfor
 
 # indent text object
-onoremap <silent>ii :<C-u>call text#ObjIndent(v:true)<CR>
-onoremap <silent>ai :<C-u>call text#ObjIndent(v:false)<CR>
-xnoremap <silent>ii :<C-u>call text#ObjIndent(v:true)<CR>
-xnoremap <silent>ai :<C-u>call text#ObjIndent(v:false)<CR>
+onoremap <silent>ii <scriptcmd>text.ObjIndent(v:true)<CR>
+onoremap <silent>ai <scriptcmd>text.ObjIndent(v:false)<CR>
+xnoremap <silent>ii <esc><scriptcmd>text.ObjIndent(v:true)<CR>
+xnoremap <silent>ai <esc><scriptcmd>text.ObjIndent(v:false)<CR>
 
-xnoremap <silent> in :<C-u>call text#ObjNumber()<CR>
+xnoremap <silent> in <esc><scriptcmd>text.ObjNumber()<CR>
 onoremap <silent> in :<C-u>normal vin<CR>
 
 # date text object
-xnoremap <silent> id :<C-u>call text#ObjDate(1)<CR>
+xnoremap <silent> id <esc><scriptcmd>text.ObjDate(1)<CR>
 onoremap <silent> id :<C-u>normal vid<CR>
-xnoremap <silent> ad :<C-u>call text#ObjDate(0)<CR>
+xnoremap <silent> ad <esc><scriptcmd>text.ObjDate(0)<CR>
 onoremap <silent> ad :<C-u>normal vad<CR>
 
 # line text object
-xnoremap <silent> il :<C-u>call text#ObjLine(1)<CR>
+xnoremap <silent> il <esc><scriptcmd>text.ObjLine(1)<CR>
 onoremap <silent> il :<C-u>normal vil<CR>
-xnoremap <silent> al :<C-u>call text#ObjLine(0)<CR>
+xnoremap <silent> al <esc><scriptcmd>text.ObjLine(0)<CR>
 onoremap <silent> al :<C-u>normal val<CR>
 
 # CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
@@ -227,7 +229,6 @@ inoremap <C-U> <C-G>u<C-U>
 # spell correction for the first suggested
 inoremap <C-l> <C-g>u<ESC>[s1z=`]a<C-g>u
 
-import autoload 'text.vim'
 nnoremap <silent> <space># <scriptcmd>text.Underline('#')<CR>
 nnoremap <silent> <space>* <scriptcmd>text.Underline('*')<CR>
 nnoremap <silent> <space>= <scriptcmd>text.Underline('=')<CR>
@@ -369,7 +370,7 @@ command! FixTrailingSpaces :silent! :%s/\v(\s+$)|(\r+$)//g<bar>
       \ :exe 'normal! ``'<bar>
       \ :echo 'Remove trailing spaces and ^Ms.'
 
-command! -range FixSpaces call text#FixSpaces(<line1>, <line2>)
+command! -range FixSpaces text.FixSpaces(<line1>, <line2>)
 
 command! -range=% -nargs=? -complete=customlist,share#complete Share call share#paste(<q-args>, <line1>, <line2>)
 
