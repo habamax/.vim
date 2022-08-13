@@ -28,7 +28,7 @@ export def Toggle(...args: list<string>): string
             indent_min = indent(lnum)
             indent_start = matchstr(getline(lnum), '^\s*')
         endif
-        if getline(lnum) !~ '^\s*' .. cms_l[0] .. '.*' .. cms_l[1] .. '$'
+        if getline(lnum) !~ $'^\s*{cms_l[0]}.*{cms_l[1]}$'
             comment = 1
         endif
     endfor
@@ -47,7 +47,7 @@ export def Toggle(...args: list<string>): string
                         strpart(getline(lnum), strlen(indent_start)))
             endif
         else
-            line = substitute(getline(lnum), '^\s*\zs' .. cms_l[0] .. ' \?\| \?' .. cms_l[1] .. '$', '', 'g')
+            line = substitute(getline(lnum), $'^\s*\zs{cms_l[0]} \?\| \?{cms_l[1]}$', '', 'g')
         endif
         add(lines, line)
     endfor
