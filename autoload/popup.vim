@@ -7,8 +7,7 @@ export def ShowAtCursor(text: any): number
             border: [],
             borderchars: ['─', '│', '─', '│', '╭', '╮', '╯', '╰'],
             pos: "botleft",
-            filter: "PopupFilter",
-            filtermode: 'n',
+            filter: PopupFilter,
             mapping: 0
           })
     return winnr
@@ -19,13 +18,17 @@ def PopupFilter(winid: number, key: string): bool
     if key == "\<Space>"
         win_execute(winid, "normal! \<C-d>\<C-d>")
         return true
-    endif
-    if key == "j"
+    elseif key == "j"
         win_execute(winid, "normal! \<C-d>")
         return true
-    endif
-    if key == "k"
+    elseif key == "k"
         win_execute(winid, "normal! \<C-u>")
+        return true
+    elseif key == "g"
+        win_execute(winid, "normal! gg")
+        return true
+    elseif key == "G"
+        win_execute(winid, "normal! G")
         return true
     endif
     if key == "\<ESC>"

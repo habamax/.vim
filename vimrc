@@ -234,9 +234,11 @@ nnoremap <silent> <expr> gc comment#Toggle()
 xnoremap <silent> <expr> gc comment#Toggle()
 nnoremap <silent> <expr> gcc comment#Toggle() .. '_'
 
-nnoremap <silent> <space>gi :<C-u>call git#show_commit(v:count)<CR>
-xnoremap <silent> <space>gi :call git#show_commit(v:count)<CR>
-noremap <silent> <space>gb :call git#blame()<CR>
+import autoload 'git.vim'
+nnoremap <silent> <space>gi <scriptcmd>git.ShowCommit(v:count)<CR>
+xnoremap <silent> <space>gi <scriptcmd>git.ShowCommit(v:count, line("v"), line("."))<CR>
+nnoremap <silent> <space>gb <scriptcmd>git.Blame()<CR>
+xnoremap <silent> <space>gb <scriptcmd>git.Blame(line("v"), line("."))<CR>
 
 nnoremap go <nop>
 # go to journal file
@@ -342,7 +344,7 @@ set undofile
 # Commands
 
 # update packages
-command! PackUp call git#pack_update()
+command! PackUp git.PackUpdate()
 
 # Wipe all hidden buffers
 def WipeHiddenBuffers()

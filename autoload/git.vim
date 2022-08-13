@@ -1,103 +1,105 @@
-" Update or install plugins listed in packs
-func! git#pack_update() abort
-    if !reduce(get(s:, 'pack_jobs', []), {acc, val -> acc && job_status(val) != 'run'}, v:true)
+vim9script
+
+import autoload 'popup.vim'
+
+var pack_jobs = []
+
+# Update or install plugins listed in packs
+export def PackUpdate()
+    if !reduce(pack_jobs, (acc, val) => acc && job_status(val) != 'run', true)
         echo "Previous update is not finished yet!"
         return
     endif
-    let s:pack_jobs = []
+    pack_jobs = []
     echom "Update plugins..."
-    let cwd = fnamemodify($MYVIMRC, ":p:h")
-    let pack_list = cwd . '/pack/packs'
-    let jobs = []
-    let msg_count = 2
-    func! s:out_cb(ch, msg) abort closure
-        if a:msg !~ '.*up to date.$' && a:msg !~ '^HEAD' && a:msg !~ '^Removing .*tags' && a:msg !~ '^Updating files'
-            let msg_count += 1
-            echom a:msg
+    var cwd = fnamemodify($MYVIMRC, ":p:h")
+    var pack_list = $'{cwd}/pack/packs'
+    var jobs = []
+    var msg_count = 2
+    def OutCb(ch: channel, msg: string)
+        if msg !~ '.*up to date.$' && msg !~ '^HEAD' && msg !~ '^Removing .*tags' && msg !~ '^Updating files'
+            msg_count += 1
+            echom msg
         endif
-    endfunc
+    enddef
     if filereadable(pack_list)
-        let plugs = readfile(pack_list)
+        var plugs = readfile(pack_list)
         for pinfo in plugs
             if pinfo =~ '^\s*#' || pinfo =~ '^\s*$'
                 continue
             endif
-            let [name, url] = pinfo->split()
+            var [name, url] = pinfo->split()
             if empty(name) || empty(url)
                 continue
             endif
-            let path = cwd .. '/pack/' .. name
+            var path = $"{cwd}/pack/{name}"
             if isdirectory(path)
-                let job = job_start([&shell, &shellcmdflag, 'git fetch --depth=1 && git reset --hard origin/HEAD && git clean -dfx'],
-                            \ {"cwd": path,
-                            \  "err_cb": function("s:out_cb"),
-                            \  "out_cb": function("s:out_cb")})
-                call add(s:pack_jobs, job)
+                var job = job_start([&shell, &shellcmdflag, 'git fetch --depth=1 && git reset --hard origin/HEAD && git clean -dfx'],
+                              {"cwd": path, "err_cb": OutCb, "out_cb": OutCb})
+                pack_jobs->add(job)
             else
-                let job = job_start('git clone --depth=1 ' . url . ' ' . path,
-                            \ {"cwd": cwd,
-                            \  "err_cb": function("s:out_cb"),
-                            \  "out_cb": function("s:out_cb")})
-                call add(s:pack_jobs, job)
+                var job = job_start($'git clone --depth=1 {url} {path}',
+                              {"cwd": cwd, "err_cb": OutCb, "out_cb": OutCb})
+                pack_jobs->add(job)
             endif
         endfor
     endif
-    func! s:timer_handler(t) abort closure
-        if reduce(get(s:, 'pack_jobs', []), {acc, val -> acc && job_status(val) != 'run'}, v:true)
-            call timer_stop(a:t)
+    def TimerHandler(t: number)
+        if reduce(pack_jobs, (acc, val) => acc && job_status(val) != 'run', true)
+            timer_stop(t)
             if msg_count == 2
                 echom "No updates available."
             else
                 echom "Plugins are updated!"
             endif
             helptags ALL
-            call feedkeys(":" . msg_count . "messages\<CR>", 'n')
+            feedkeys($":{msg_count} messages\<CR>", 'n')
         endif
-    endfunc
-    call timer_start(2000, {t->s:timer_handler(t)}, {"repeat": 100})
-endfunc
+    enddef
+    timer_start(2000, (t) => TimerHandler(t), {"repeat": 100})
+enddef
 
 
-" Show commit that introduced current(selected) line
-" If a count was given, show full history
-" Src: https://www.reddit.com/r/vim/comments/i50pce/how_to_show_commit_that_introduced_current_line/
-" Usage:
-"   nnoremap <silent> <space>gi :<C-u>call git#show_commit(v:count)<CR>
-"   xnoremap <silent> <space>gi :call git#show_commit(v:count)<CR>
-" Note: should be in .vim/autoload/git.vim
-func! git#show_commit(count) range
+# Show commit that introduced current(selected) line
+# If a count was given, show full history
+# Src: https://www.reddit.com/r/vim/comments/i50pce/how_to_show_commit_that_introduced_current_line/
+# Usage:
+#   import autoload 'git.vim'
+#   nnoremap <silent> <space>gi <scriptcmd>git.ShowCommit(v:count)<CR>
+#   xnoremap <silent> <space>gi <scriptcmd>git.ShowCommit(v:count, line("v"), line("."))<CR>
+export def ShowCommit(count: number, firstline: number = line("."), lastline: number = line("."))
     if !executable('git')
         echoerr "Git is not installed!"
         return
     endif
 
-    let depth = (a:count > 0 ? "" : "-n 1")
-    let git_output = systemlist(
-                \ "git -C " . shellescape(fnamemodify(resolve(expand('%:p')), ":h")) .
-                \ " log --no-merges " . depth . " -L " .
-                \ shellescape(a:firstline . "," . a:lastline . ":" . resolve(expand("%:p")))
-                \ )
+    var depth = (count > 0 ? "" : "-n 1")
+    var git_output = systemlist(
+                  "git -C " .. shellescape(fnamemodify(resolve(expand('%:p')), ":h")) ..
+                  $" log --no-merges {depth} -L " ..
+                  shellescape($'{firstline},{lastline}:{resolve(expand("%:p"))}')
+              )
 
-    let winnr = popup#ShowAtCursor(git_output)
-    call setbufvar(winbufnr(winnr), "&filetype", "git")
-endfunc
+    var winnr = popup.ShowAtCursor(git_output)
+    setbufvar(winbufnr(winnr), "&filetype", "git")
+enddef
 
 
-" Blame current (selected) line.
-" Usage: noremap <silent> <Space>gb :call git#blame()<CR>
-" Note: should be in .vim/autoload/git.vim
-func! git#blame() range
+# Blame current (selected) line.
+# Usage:
+#   import autoload 'git.vim'
+#   nnoremap <silent> <space>gb <scriptcmd>git.Blame()<CR>
+#   xnoremap <silent> <space>gb <scriptcmd>git.Blame(line("v"), line("."))<CR>
+export def Blame(firstline: number = line("."), lastline: number = line("."))
     if !executable('git')
         echoerr "Git is not installed!"
         return
     endif
 
-    let git_output = systemlist(
-                \ "git -C " . shellescape(fnamemodify(resolve(expand('%:p')), ":h")) .
-                \ " blame -L " .
-                \ a:firstline . "," . a:lastline . " " . expand("%:t")
-                \ )
+    var git_output = systemlist(
+                  "git -C " .. shellescape(fnamemodify(resolve(expand('%:p')), ":h")) ..
+                  $' blame -L {firstline},{lastline} {expand("%:t")}')
 
-    let winnr = popup#ShowAtCursor(git_output)
-    call setbufvar(winbufnr(winnr), "&filetype", "git")
-endfunc
+    var winnr = popup.ShowAtCursor(git_output)
+    setbufvar(winbufnr(winnr), "&filetype", "git")
+enddef
