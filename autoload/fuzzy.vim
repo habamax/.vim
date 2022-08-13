@@ -334,3 +334,24 @@ export def Project()
                 FileTree(res.text)
             })
 enddef
+
+
+export def DumbJump()
+    var word = expand("<cword>")
+    var lines = []
+    for nr in range(1, line('$'))
+        var line = getline(nr)
+        if line->stridx(word) > -1
+            lines->add({text: $"{line} ({nr})", linenr: nr})
+        endif
+    endfor
+    popup.FilterMenu($'Jump with "{word}"', lines,
+            (res, key) => {
+                exe $":{res.linenr}"
+                normal! zz
+            },
+            (winid) => {
+                win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
+                hi def link FilterMenuLineNr Comment
+            })
+enddef
