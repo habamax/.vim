@@ -437,7 +437,7 @@ command! Bookmark call SaveBookmark()
 ################################################################################
 # Autocommands
 
-augroup general_au | au!
+augroup general | au!
     au CmdlineEnter /,\? set hlsearch
     au CmdlineLeave /,\? set nohlsearch
 
