@@ -10,7 +10,7 @@ Background: any
 helpVim                        -> Title
 helpHeader                     -> Title
 helpHyperTextJump              -> Underlined
-fugitiveSymbolicRef            -> Type
+fugitiveSymbolicRef            -> Special
 fugitiveHeading                -> Statement
 fugitiveStagedHeading          -> Statement
 fugitiveUnstagedHeading        -> Statement
@@ -213,7 +213,7 @@ Constant                       color11        none
 Identifier                     none           none
 
 Statement                      color15        none           bold
-Type                           color02        none           bold
+Type                           none           none
 
 PreProc                        none           none
 Special                        color08        none
@@ -392,7 +392,7 @@ Constant                       color01        none
 Identifier                     none           none
 
 Statement                      color00        none           bold
-Type                           color02        none           bold
+Type                           none           none
 
 PreProc                        none           none
 Special                        color08        none
