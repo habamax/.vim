@@ -101,5 +101,5 @@ export def Blame(firstline: number = line("."), lastline: number = line("."))
                   $' blame -L {firstline},{lastline} {expand("%:t")}')
 
     var winnr = popup.ShowAtCursor(git_output)
-    setbufvar(winbufnr(winnr), "&filetype", "git")
+    setbufvar(winbufnr(winnr), "&filetype", "fugitiveblame")
 enddef
