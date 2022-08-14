@@ -18,8 +18,8 @@ fugitiveUntrackedHeading       -> Statement
 fugitiveStagedModifier         -> Special
 fugitiveUnstagedModifier       -> Special
 fugitiveHash                   -> Constant
-diffFile                       -> Preproc
-markdownHeadingDelimiter       -> PreProc
+diffFile                       -> Special
+markdownHeadingDelimiter       -> Special
 rstSectionDelimiter            -> Title
 rstDirective                   -> Special
 rstHyperlinkReference          -> Special
@@ -215,7 +215,7 @@ Identifier                     none           none
 Statement                      color15        none           bold
 Type                           color02        none           bold
 
-PreProc                        color08        none
+PreProc                        none           none
 Special                        color08        none
 Underlined                     none           none           underline
 
@@ -394,7 +394,7 @@ Identifier                     none           none
 Statement                      color00        none           bold
 Type                           color02        none           bold
 
-PreProc                        color08        none
+PreProc                        none           none
 Special                        color08        none
 Underlined                     none           none           underline
 
