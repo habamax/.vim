@@ -104,7 +104,7 @@ Color: colorB                  #1C1C1C        234            black
 Color: colorNonT               #585858        240            darkgrey
 Color: colorTab                #585858        240            grey
 Color: colorC                  #FFFFFF        231            white
-Color: colorlC                 #0000FF        21             blue
+Color: colorlC                 #FF5FFF        207            magenta
 Color: colorV                  #005F87        24             darkblue
 Color: colorMP                 #C5E7C5        30             darkcyan
 
@@ -283,7 +283,7 @@ Color: colorB                  #EEEEEE        255            grey
 Color: colorNonT               #9E9E9E        247            grey
 Color: colorTab                #B2B2B2        247            lightgrey
 Color: colorC                  #000000        16             black
-Color: colorlC                 #0000FF        21             blue
+Color: colorlC                 #FF00FF        201            magenta
 Color: colorV                  #5F87AF        67             darkblue
 Color: colorMP                 #C5E7C5        30             darkcyan
 
