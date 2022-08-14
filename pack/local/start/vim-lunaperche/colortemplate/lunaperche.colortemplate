@@ -136,7 +136,7 @@ ToolbarLine                    none           none
 ToolbarButton                  color00        color15
 
 QuickFixLine                   color00        color12
-CursorLineNr                   colorC         none
+CursorLineNr                   colorC         none           bold
 LineNr                         colorNonT      none
 LineNrAbove                    colorNonT      none
 LineNrBelow                    colorNonT      none
