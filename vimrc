@@ -461,10 +461,6 @@ augroup xterm256 | au!
     au BufEnter *doc/xterm256-colors.txt runtime scripts/colorize_xterm.vim
 augroup END
 
-augroup colorschemes | au!
-    au colorscheme * hi Comment gui=italic cterm=italic
-augroup END
-
 
 ################################################################################
 # Colors
