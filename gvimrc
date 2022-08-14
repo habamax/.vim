@@ -5,7 +5,7 @@ set guioptions=cM
 
 set linespace=-1
 if has("win32")
-    set guifont=Iosevka\ Habamax:h14,Hack:h14,Consolas:h14
+    set guifont=Iosevka\ Habamax:h15,Hack:h14,Consolas:h14
 else
     set guifont=Monospace\ 14
 endif
