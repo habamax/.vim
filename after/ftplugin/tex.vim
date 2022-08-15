@@ -3,39 +3,76 @@ vim9script
 setlocal formatlistpat=\\s*\\\\item\\s\\+
 
 import autoload 'popup.vim'
-def Toc()
-    def Strip(line: string, name: string): string
-        var res = line->matchstr($'\\{name}\s*{{\zs.*\ze}}')
-        var emb = res->matchstr('\\\zs\a\+\ze\s*{.*}')
-        if !empty(emb)
-            return Strip(res, emb)
-        else
-            return res
+
+def Strip(line: string): string
+    var res = ""
+    var states = [""]
+    for ch in line
+        var state = states[-1]
+        if state == ""
+            if ch == '\'
+                states->add("cmdstart")
+            else
+                res ..= ch
+            endif
+        elseif state == 'cmdstart'
+            if ch == '{' | states->add("cmdin") | endif
+            if ch == ' '
+                states->remove(-1)
+                res ..= ch
+            endif
+        elseif state == 'cmdin'
+            if ch == '\'
+                states->add("cmdstart")
+            elseif ch == '}'
+                states->remove(-1)
+            else
+                res ..= ch
+            endif
         endif
-    enddef
+    endfor
+    return res
+enddef
+
+
+def Extract(nr: number, name: string): string
+    exe $":{nr}"
+    normal! 0
+    search($'\\{name}\s*{{', 'W', nr)
+    silent normal! %yiB
+    var res = @"->substitute("\\s*\n\\s*", " ", "g")
+    return Strip(res)
+enddef
+
+
+def Toc()
+    var view = winsaveview()
+    var save_reg = @0
     var toc = []
     for nr in range(1, line('$'))
         var line = getline(nr)
         if line =~ '\\title\s*{'
-            toc->add({text: $"{line->Strip('title')} ({nr})",
+            toc->add({text: $"{nr->Extract('title')} ({nr})",
                       linenr: nr})
         elseif line =~ '\\section\s*{'
-            toc->add({text: $"\t{line->Strip('section')} ({nr})",
+            toc->add({text: $"\t{nr->Extract('section')} ({nr})",
                       linenr: nr})
         elseif line =~ '\\subsection\s*{'
-            toc->add({text: $"\t\t{line->Strip('subsection')} ({nr})",
+            toc->add({text: $"\t\t{nr->Extract('subsection')} ({nr})",
                      linenr: nr})
         elseif line =~ '\\subsubsection\s*{'
-            toc->add({text: $"\t\t\t{line->Strip('subsubsection')} ({nr})",
+            toc->add({text: $"\t\t\t{nr->Extract('subsubsection')} ({nr})",
                       linenr: nr})
         elseif line =~ '\\paragraph\s*{'
-            toc->add({text: $"\t\t\t\t{line->Strip('paragraph')} ({nr})",
+            toc->add({text: $"\t\t\t\t{nr->Extract('paragraph')} ({nr})",
                       linenr: nr})
         elseif line =~ '\\subparagraph\s*{'
-            toc->add({text: $"\t\t\t\t\t{line->Strip('subparagraph')} ({nr})",
+            toc->add({text: $"\t\t\t\t\t{nr->Extract('subparagraph')} ({nr})",
                       linenr: nr})
         endif
     endfor
+    @0 = save_reg
+    winrestview(view)
 
     popup.FilterMenu("TOC", toc,
         (res, key) => {
