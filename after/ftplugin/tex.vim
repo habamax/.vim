@@ -40,6 +40,7 @@ def Toc()
     popup.FilterMenu("TOC", toc,
         (res, key) => {
             exe $":{res.linenr}"
+            normal! zz
         },
         (winid) => {
             win_execute(winid, "setl ts=4 list")
