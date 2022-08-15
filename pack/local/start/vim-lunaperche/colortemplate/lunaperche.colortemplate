@@ -10,15 +10,15 @@ Background: any
 helpVim                        -> Title
 helpHeader                     -> Title
 helpHyperTextJump              -> Underlined
-fugitiveSymbolicRef            -> Special
+fugitiveSymbolicRef            -> PreProc
 fugitiveHeading                -> Statement
 fugitiveStagedHeading          -> Statement
 fugitiveUnstagedHeading        -> Statement
 fugitiveUntrackedHeading       -> Statement
-fugitiveStagedModifier         -> Special
-fugitiveUnstagedModifier       -> Special
+fugitiveStagedModifier         -> PreProc
+fugitiveUnstagedModifier       -> PreProc
 fugitiveHash                   -> Constant
-diffFile                       -> Special
+diffFile                       -> PreProc
 markdownHeadingDelimiter       -> Special
 rstSectionDelimiter            -> Title
 rstDirective                   -> Special
@@ -213,9 +213,9 @@ Constant                       color11        none
 Identifier                     none           none
 
 Statement                      color15        none           bold
-Type                           none           none
+Type                           color10        none           bold
 
-PreProc                        none           none
+PreProc                        color03        none
 Special                        color08        none
 Underlined                     none           none           underline
 
@@ -263,7 +263,7 @@ Color: color09                 #D70000        160            red
 Color: color02                 #005F00        22             darkgreen
 Color: color10                 #008700        28             green
 
-Color: color03                 #AF875F        137            darkyellow
+Color: color03                 #875F00        94             darkyellow
 Color: color11                 #D7D787        186            yellow
 
 Color: color04                 #005FAF        25             darkblue
@@ -392,9 +392,9 @@ Constant                       color01        none
 Identifier                     none           none
 
 Statement                      color00        none           bold
-Type                           none           none
+Type                           color02        none           bold
 
-PreProc                        none           none
+PreProc                        color03        none
 Special                        color08        none
 Underlined                     none           none           underline
 
