@@ -21,7 +21,6 @@ bundle/start/vim-colortemplate	git@github.com:lifepillar/vim-colortemplate.git
 bundle/start/Colorizer	git@github.com:chrisbra/Colorizer.git
 bundle/start/editorconfig-vim	git@github.com:editorconfig/editorconfig-vim.git
 bundle/opt/gv.vim	git@github.com:junegunn/gv.vim.git
-bundle/start/ale	git@github.com:dense-analysis/ale.git
 
 # Filetypes
 lang/start/vimtex	git@github.com:lervag/vimtex.git
