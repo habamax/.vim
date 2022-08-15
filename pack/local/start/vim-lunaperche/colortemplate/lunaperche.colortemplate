@@ -71,6 +71,8 @@ elixirDocTest                  -> String
 Terminal                       -> Normal
 StatuslineTerm                 -> Statusline
 StatuslineTermNC               -> StatuslineNC
+LineNrAbove                    -> LineNr
+LineNrBelow                    -> LineNr
 
 
 Background: dark
@@ -121,7 +123,7 @@ Term colors: color08 color09 color10 color11 color12 color13 color14 color15
 
 
 ;;; chrome
-Variant: gui 256 16
+Variant: gui 256 16 8
 
 Normal                         color07        color00
 
@@ -139,8 +141,6 @@ ToolbarButton                  color00        color15
 QuickFixLine                   color00        color12
 CursorLineNr                   colorC         none           bold
 LineNr                         colorNonT      none
-LineNrAbove                    colorNonT      none
-LineNrBelow                    colorNonT      none
 NonText                        colorNonT      none
 FoldColumn                     colorNonT      none
 EndOfBuffer                    colorNonT      none
@@ -177,12 +177,12 @@ Visual                         color15        colorV
 MatchParen                     colorMP        color00        reverse
 
 
-Variant: 256 16
+Variant: 256 16 8
 Visual                         color15        colorV
 MatchParen                     colorMP        color00        reverse
 
 
-Variant: 16
+Variant: 16 8
 VisualNOS                      color00        color06
 CursorLine                     none           none           underline
 CursorColumn                   color00        color11
@@ -201,14 +201,14 @@ SpellBad                       none           none           g=undercurl s=color
 SpellCap                       none           none           g=undercurl s=color04
 SpellLocal                     none           none           g=undercurl s=color02
 SpellRare                      none           none           g=undercurl s=color13
-Variant: 256 16
+Variant: 256 16 8
 SpellBad                       color09        none           underline
 SpellCap                       color12        none           underline
 SpellLocal                     color10        none           underline
 SpellRare                      color13        none           underline
 
 ;;; :h group-names
-Variant: gui 256 16
+Variant: gui 256 16 8
 Comment                        color12        none
 Constant                       color11        none
 Identifier                     none           none
@@ -226,7 +226,7 @@ Directory                      color14        none           bold
 Conceal                        none           none
 Ignore                         none           none
 
-Variant: gui 256 16
+Variant: gui 256 16 8
 DiffAdd                        fgDiff         diffAdd
 DiffChange                     fgDiff         diffChange
 DiffText                       fgDiff         diffText
@@ -249,6 +249,91 @@ FilterMenuDirectorySubtle      color08        none
 dirFilterMenuBookmarkPath      color08        none
 dirFilterMenuHistoryPath       color08        none
 FilterMenuLineNr               color08        none
+
+
+
+Variant: 8
+Normal                         color07        color00
+
+Statusline                     color00        color07        bold
+StatuslineNC                   color00        color07
+VertSplit                      color07        color07
+
+TabLine                        color07        color00        reverse
+TabLineFill                    none           color07
+TabLineSel                     color07        color00
+
+ToolbarLine                    none           none
+ToolbarButton                  color00        color07        bold
+
+QuickFixLine                   color07        color04        bold
+CursorLineNr                   color00        none           bold
+LineNr                         color03        none
+NonText                        color00        none
+FoldColumn                     color00        none
+EndOfBuffer                    color00        none
+SpecialKey                     color00        none
+
+Pmenu                          color00        color03
+PmenuThumb                     none           color07
+PmenuSbar                      none           none
+PmenuSel                       color00        color01
+
+SignColumn                     none           none
+
+Error                          color07        color01
+ErrorMsg                       color07        color01
+ModeMsg                        color03        color00        reverse
+MoreMsg                        color02        none           bold
+Question                       color05        none           bold
+WarningMsg                     color01        none           bold
+
+Todo                           color06        color00        reverse
+Search                         color00        color03
+IncSearch                      color00        color02
+CurSearch                      color00        color02
+WildMenu                       color00        color03        bold
+
+debugPC                        color04        none           reverse
+debugBreakpoint                color06        none           reverse
+
+
+Visual                         color00        colorV
+MatchParen                     colorMP        color00        reverse
+
+VisualNOS                      color00        color06
+CursorLine                     none           none           underline
+CursorColumn                   color00        color03
+Folded                         color00        color03
+ColorColumn                    color00        color03
+
+SpellBad                       color01        none           underline,reverse
+SpellCap                       color04        none           underline,reverse
+SpellLocal                     color02        color00        underline,reverse
+SpellRare                      color05        none           underline,reverse
+
+Comment                        color04        none
+Constant                       color01        none
+Identifier                     none           none
+
+Statement                      color00        none           bold
+Type                           color02        none           bold
+
+PreProc                        color03        none
+Special                        none           none
+Underlined                     none           none           underline
+
+Title                          color00        none           bold
+Directory                      color06        none           bold
+
+Conceal                        none           none
+Ignore                         none           none
+
+
+DiffAdd                        fgDiff         diffAdd
+DiffChange                     fgDiff         diffChange
+DiffText                       fgDiff         diffText
+DiffDelete                     diffDelete     none
 
 
 
@@ -318,8 +403,6 @@ ToolbarButton                  color15        color00        bold
 QuickFixLine                   color15        color12
 CursorLineNr                   colorC         none           bold
 LineNr                         colorNonT      none
-LineNrAbove                    colorNonT      none
-LineNrBelow                    colorNonT      none
 NonText                        colorNonT      none
 FoldColumn                     colorNonT      none
 EndOfBuffer                    colorNonT      none
@@ -429,3 +512,88 @@ dirFilterMenuBookmarkPath      color08        none
 dirFilterMenuHistoryPath       color08        none
 FilterMenuDirectorySubtle      color08        none
 FilterMenuLineNr               color08        none
+
+
+
+Variant: 8
+Normal                         color00        color07
+
+Statusline                     color07        color00        bold
+StatuslineNC                   color07        color08
+VertSplit                      color00        color00
+
+TabLine                        color00        color07        reverse
+TabLineFill                    none           color08
+TabLineSel                     color00        color07
+
+ToolbarLine                    none           none
+ToolbarButton                  color07        color00        bold
+
+QuickFixLine                   color07        color04        bold
+CursorLineNr                   color00        none           bold
+LineNr                         color03        none
+NonText                        color00        none
+FoldColumn                     color00        none
+EndOfBuffer                    color00        none
+SpecialKey                     color00        none
+
+Pmenu                          color00        color03
+PmenuThumb                     none           color00
+PmenuSbar                      none           none
+PmenuSel                       color00        color01
+
+SignColumn                     none           none
+
+Error                          color07        color01
+ErrorMsg                       color07        color01
+ModeMsg                        color03        color00        reverse
+MoreMsg                        color02        none           bold
+Question                       color05        none           bold
+WarningMsg                     color01        none           bold
+
+Todo                           color06        color00        reverse
+Search                         color00        color03
+IncSearch                      color00        color02
+CurSearch                      color00        color02
+WildMenu                       color00        color03        bold
+
+debugPC                        color04        none           reverse
+debugBreakpoint                color06        none           reverse
+
+
+Visual                         color07        colorV
+MatchParen                     colorMP        color07        reverse
+
+VisualNOS                      color00        color06
+CursorLine                     none           none           underline
+CursorColumn                   color00        color03
+Folded                         color00        color03
+ColorColumn                    color00        color03
+
+SpellBad                       color01        none           underline,reverse
+SpellCap                       color04        none           underline,reverse
+SpellLocal                     color02        color00        underline,reverse
+SpellRare                      color05        none           underline,reverse
+
+Comment                        color04        none
+Constant                       color01        none
+Identifier                     none           none
+
+Statement                      color00        none           bold
+Type                           color02        none           bold
+
+PreProc                        color03        none
+Special                        none           none
+Underlined                     none           none           underline
+
+Title                          color00        none           bold
+Directory                      color06        none           bold
+
+Conceal                        none           none
+Ignore                         none           none
+
+
+DiffAdd                        fgDiff         diffAdd
+DiffChange                     fgDiff         diffChange
+DiffText                       fgDiff         diffText
+DiffDelete                     diffDelete     none
