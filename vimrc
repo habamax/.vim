@@ -465,5 +465,9 @@ augroup END
 ################################################################################
 # Colors
 
-set bg=dark
+if has("win32") && has("gui_running")
+    set bg=light
+else
+    set bg=dark
+endif
 silent! colorscheme lunaperche
