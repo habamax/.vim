@@ -33,8 +33,8 @@ def NewEntry(jfilename: string)
     endif
 
     # search first 10 lines for a journal title
-    var journal_heading = [repeat('#', 80), strftime("%Y"), repeat('#', 80), '']
-    if join(getline(1, 10), "\n") !~ '\(^\|\n\)#\{80}\n\s*.\{-}\d\d\d\d\s*.*\n#\{80}'
+    var journal_heading = [repeat('=', 80), strftime("%Y"), repeat('=', 80), '']
+    if join(getline(1, 10), "\n") !~ '\(^\|\n\)=\{80}\n\s*.\{-}\d\d\d\d\s*.*\n=\{80}'
         append(0, journal_heading)
         :2center
     endif
