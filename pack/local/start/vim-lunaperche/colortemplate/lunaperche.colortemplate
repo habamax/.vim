@@ -284,9 +284,9 @@ SignColumn                     none           none
 Error                          color07        color01
 ErrorMsg                       color07        color01
 ModeMsg                        color03        color00        reverse
-MoreMsg                        color02        none           bold
-Question                       color05        none           bold
-WarningMsg                     color01        none           bold
+MoreMsg                        color02        none
+Question                       color05        none
+WarningMsg                     color01        none
 
 Todo                           color06        color00        reverse
 Search                         color03        color00        reverse
@@ -547,9 +547,9 @@ SignColumn                     none           none
 Error                          color07        color01
 ErrorMsg                       color07        color01
 ModeMsg                        color03        color00        reverse
-MoreMsg                        color02        none           bold
-Question                       color05        none           bold
-WarningMsg                     color01        none           bold
+MoreMsg                        color02        none
+Question                       color05        none
+WarningMsg                     color01        none
 
 Todo                           color06        color00        reverse
 Search                         color00        color03
