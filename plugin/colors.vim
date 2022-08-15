@@ -4,7 +4,7 @@ vim9script
 command! ColoCheck ru colors/tools/check_colors.vim
 command! ColoMisc  tabnew | ru colors/tools/sample_misc.vim
 command! ColoMess  ru colors/tools/sample_messages.vim
-command! -nargs=1 -complete=color Colo exe "so $VIMRUNTIME/colors/" .. <q-args> .. ".vim"
+command! -nargs=1 -complete=color Colo exe "ru colors/legacy_colors/" .. <q-args> .. ".vim"
 command! ColoDiff  tabnew | ru colors/tools/sample_diff.vim
 command! ColoQF    tabnew | ru colors/tools/sample_quickfix.vim
 command! ColoTerm  tabnew | ru colors/tools/sample_terminal.vim
