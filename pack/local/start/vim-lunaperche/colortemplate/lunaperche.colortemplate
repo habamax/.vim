@@ -39,6 +39,7 @@ vimVar                         -> Normal
 vimOper                        -> Normal
 vimSep                         -> Normal
 vimParenSep                    -> Normal
+vimOption                      -> Normal
 vimCommentString               -> Comment
 pythonInclude                  -> Statement
 elixirOperator                 -> Statement
