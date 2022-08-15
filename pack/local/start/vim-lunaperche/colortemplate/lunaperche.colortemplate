@@ -112,7 +112,7 @@ Color: colorV                  #005F87        24             darkblue
 Color: colorMP                 #C5E7C5        30             darkcyan
 
 ; Diff colors
-Color: diffAdd                 #5FAF5F        71             darkyellow
+Color: diffAdd                 #5FAF5F        71             darkgreen
 Color: diffDelete              #D78787        174            darkred
 Color: diffChange              #D0D0D0        252            lightgray
 Color: diffText                #B0B0B0        145            darkgray
@@ -131,7 +131,7 @@ Statusline                     color00        color07
 StatuslineNC                   color00        color08
 VertSplit                      color08        color08
 
-TabLine                        color07        colorTab
+TabLine                        color00        colorTab
 TabLineFill                    none           color08
 TabLineSel                     color07        color00        bold
 
@@ -346,8 +346,8 @@ Color: color08                 #626262        241            darkgrey
 Color: color01                 #870000        88             darkred
 Color: color09                 #D70000        160            red
 
-Color: color02                 #005F00        22             darkgreen
-Color: color10                 #008700        28             green
+Color: color02                 #008700        28             darkgreen
+Color: color10                 #5FAF5F        71             green
 
 Color: color03                 #875F00        94             darkyellow
 Color: color11                 #D7D787        186            yellow
@@ -374,7 +374,7 @@ Color: colorV                  #5F87AF        67             darkblue
 Color: colorMP                 #C5E7C5        30             darkcyan
 
 ; Diff colors
-Color: diffAdd                 #D5D5C0        187            darkyellow
+Color: diffAdd                 #C0D5C0        151            darkgreen
 Color: diffDelete              #870000        88             darkred
 Color: diffChange              #D0D5D0        252            lightgray
 Color: diffText                #B0BDB0        250            darkgray
@@ -424,7 +424,7 @@ WarningMsg                     color09        none           bold
 
 Todo                           color06        color15        reverse
 Search                         color00        color11
-IncSearch                      color15        color10
+IncSearch                      color00        color10
 CurSearch                      color15        color10
 WildMenu                       color00        color11        bold
 
