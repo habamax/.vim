@@ -75,5 +75,5 @@ if exists("g:did_coc_loaded")
     # Make <CR> to accept selected completion item or notify coc.nvim to format
     # <C-g>u breaks current undo, please make your own choice.
     inoremap <silent><expr> <tab> coc#pum#visible() ? coc#pum#confirm() :
-          \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+          \ "\<C-g>u\<tab>\<c-r>=coc#on_enter()\<CR>"
 endif
