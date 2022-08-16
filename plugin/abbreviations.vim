@@ -1,5 +1,5 @@
 inorea d.. <C-r>=strftime("%Y-%m-%d")<CR>
-inorea dt.. <C-r>=strftime("%Y-%m-%d %H:%M")<CR>
+inorea dd.. <C-r>=strftime("%Y-%m-%d %H:%M")<CR>
 
 cabbr ц w
 cabbr й q
