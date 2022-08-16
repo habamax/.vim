@@ -9,10 +9,6 @@ endif
 
 g:vim_indent_cont = 6
 
-def Fold()
-    silent! norm! zf/^enddef/e
-enddef
-
 import autoload 'popup.vim'
 def Things()
     var things = []
@@ -37,5 +33,6 @@ def Things()
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
 
-nnoremap <silent><buffer> <F2> :g#^def\s#silent! exe "norm! zd" \| call <sid>Fold()<CR>
 nnoremap <buffer> <F5> :source<CR>
+
+iab <buffer> v9 vim9script
