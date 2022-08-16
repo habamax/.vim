@@ -103,7 +103,7 @@ Color: color07                 #C6C6C6        251            grey
 Color: color15                 #FFFFFF        231            white
 
 Color: colorLine               #262626        235            darkgrey
-Color: colorB                  #1C1C1C        234            black
+Color: colorB                  #1C1C1C        234            darkgrey
 Color: colorNonT               #585858        240            darkgrey
 Color: colorTab                #585858        240            grey
 Color: colorC                  #FFFFFF        231            white
@@ -146,7 +146,11 @@ FoldColumn                     colorNonT      none
 EndOfBuffer                    colorNonT      none
 SpecialKey                     colorNonT      none
 
+variant: gui 256
 Pmenu                          none           colorB
+variant: 16
+Pmenu                          color00        colorB
+variant: gui 256 16
 PmenuThumb                     none           color07
 PmenuSbar                      none           none
 PmenuSel                       color00        color02
@@ -264,7 +268,7 @@ TabLineFill                    none           color07
 TabLineSel                     color07        color00
 
 ToolbarLine                    none           none
-ToolbarButton                  color00        color07        bold
+ToolbarButton                  color07        color00        reverse,bold
 
 QuickFixLine                   color07        color04        bold
 CursorLineNr                   color00        none           bold
@@ -274,8 +278,8 @@ FoldColumn                     color00        none
 EndOfBuffer                    color00        none
 SpecialKey                     color00        none
 
-Pmenu                          color00        color03
-PmenuThumb                     none           color07
+Pmenu                          color00        color07
+PmenuThumb                     none           color02
 PmenuSbar                      none           none
 PmenuSel                       color00        color02
 
@@ -408,10 +412,15 @@ FoldColumn                     colorNonT      none
 EndOfBuffer                    colorNonT      none
 SpecialKey                     colorNonT      none
 
+variant: gui 256
 Pmenu                          none           colorB
-PmenuThumb                     none           color07
-PmenuSbar                      none           none
 PmenuSel                       color15        color02
+variant: 16
+Pmenu                          color00        colorB
+PmenuSel                       color00        color02
+variant: gui 256 16
+PmenuThumb                     none           color08
+PmenuSbar                      none           none
 
 SignColumn                     none           none
 
@@ -537,8 +546,8 @@ FoldColumn                     color00        none
 EndOfBuffer                    color00        none
 SpecialKey                     color00        none
 
-Pmenu                          color00        color03
-PmenuThumb                     none           color00
+Pmenu                          color07        color00
+PmenuThumb                     none           color02
 PmenuSbar                      none           none
 PmenuSel                       color00        color02
 
