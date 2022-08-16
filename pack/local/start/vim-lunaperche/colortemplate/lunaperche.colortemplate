@@ -133,9 +133,13 @@ Statusline                     color00        color07
 StatuslineNC                   color00        color08
 VertSplit                      color08        color08
 
+Variant: gui 256
 TabLine                        color07        colorTab
+Variant: 16
+TabLine                        color00        colorTab
+Variant: gui 256 16
 TabLineFill                    none           color08
-TabLineSel                     color07        color00        bold
+TabLineSel                     color15        color00        bold
 
 ToolbarLine                    none           none
 ToolbarButton                  color00        color15
