@@ -114,7 +114,7 @@ Color: colorPMenuSel           #005F00        22             darkgreen
 Color: colorDim                #878787        102            grey
 
 ; Diff colors
-Color: diffAdd                 #5FAF5F        71             darkgreen
+Color: diffAdd                 #D7AFD7        182            darkmagenta
 Color: diffDelete              #D78787        174            darkred
 Color: diffChange              #D0D0D0        252            lightgray
 Color: diffText                #B0B0B0        145            darkgray
@@ -133,7 +133,7 @@ Statusline                     color00        color07
 StatuslineNC                   color00        color08
 VertSplit                      color08        color08
 
-TabLine                        color00        colorTab
+TabLine                        color07        colorTab
 TabLineFill                    none           color08
 TabLineSel                     color07        color00        bold
 
@@ -357,7 +357,7 @@ Color: color01                 #870000        88             darkred
 Color: color09                 #D70000        160            red
 
 Color: color02                 #008700        28             darkgreen
-Color: color10                 #5FAF5F        71             green
+Color: color10                 #87D787        114            green
 
 Color: color03                 #875F00        94             darkyellow
 Color: color11                 #D7D787        186            yellow
@@ -387,7 +387,7 @@ Color: colorDim                #626262        241            darkgrey
 
 
 ; Diff colors
-Color: diffAdd                 #AFD7AF        151            darkgreen
+Color: diffAdd                 #D7AFD7        182            darkmagenta
 Color: diffDelete              #870000        88             darkred
 Color: diffChange              #D0D0D0        252            lightgray
 Color: diffText                #BCBCBC        250            darkgray
