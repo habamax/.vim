@@ -146,3 +146,9 @@ xmap S <Plug>(sandwich-add)
 
 # ALE
 g:ale_virtualtext_cursor = 1
+
+
+# Coc
+if has("win32")
+    g:coc_start_at_startup = 0
+endif
