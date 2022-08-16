@@ -149,7 +149,7 @@ SpecialKey                     colorNonT      none
 Pmenu                          none           colorB
 PmenuThumb                     none           color07
 PmenuSbar                      none           none
-PmenuSel                       color00        color03
+PmenuSel                       color00        color02
 
 SignColumn                     none           none
 
@@ -277,7 +277,7 @@ SpecialKey                     color00        none
 Pmenu                          color00        color03
 PmenuThumb                     none           color07
 PmenuSbar                      none           none
-PmenuSel                       color00        color01
+PmenuSel                       color00        color02
 
 SignColumn                     none           none
 
@@ -411,7 +411,7 @@ SpecialKey                     colorNonT      none
 Pmenu                          none           colorB
 PmenuThumb                     none           color07
 PmenuSbar                      none           none
-PmenuSel                       color15        color03
+PmenuSel                       color15        color02
 
 SignColumn                     none           none
 
@@ -540,7 +540,7 @@ SpecialKey                     color00        none
 Pmenu                          color00        color03
 PmenuThumb                     none           color00
 PmenuSbar                      none           none
-PmenuSel                       color00        color01
+PmenuSel                       color00        color02
 
 SignColumn                     none           none
 
