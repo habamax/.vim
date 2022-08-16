@@ -425,7 +425,7 @@ WarningMsg                     color09        none           bold
 Todo                           color06        color15        reverse
 Search                         color00        color11
 IncSearch                      color00        color10
-CurSearch                      color15        color10
+CurSearch                      color00        color10
 WildMenu                       color00        color11        bold
 
 debugPC                        color04        none           reverse
