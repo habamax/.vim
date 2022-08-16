@@ -502,7 +502,7 @@ DiffAdd                        fgDiff         diffAdd
 DiffChange                     fgDiff         diffChange
 DiffText                       fgDiff         diffText
 DiffDelete                     diffDelete     none
-diffAdded                      color10        none
+diffAdded                      color02        none
 diffRemoved                    color09        none
 diffSubname                    color05        none
 
