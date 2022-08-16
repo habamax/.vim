@@ -110,10 +110,6 @@ g:vimtex_toc_config = {
 }
 
 
-# vim-minisnip
-g:minisnip_default_maps = 1
-
-
 # vim-rst
 g:rst2html_opts = "--input-encoding=utf8"
                .. " --smart-quotes=yes"
