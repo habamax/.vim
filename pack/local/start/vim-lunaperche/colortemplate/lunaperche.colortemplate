@@ -110,6 +110,7 @@ Color: colorC                  #FFFFFF        231            white
 Color: colorlC                 #FF5FFF        207            magenta
 Color: colorV                  #005F87        24             darkblue
 Color: colorMP                 #C5E7C5        30             darkcyan
+Color: colorCoc                #005F00        22             darkgreen
 
 ; Diff colors
 Color: diffAdd                 #5FAF5F        71             darkgreen
@@ -253,6 +254,8 @@ FilterMenuDirectorySubtle      color08        none
 dirFilterMenuBookmarkPath      color08        none
 dirFilterMenuHistoryPath       color08        none
 FilterMenuLineNr               color08        none
+CocMenuSel                     none           colorCoc
+CocSearch                      color11        none
 
 
 
@@ -521,6 +524,8 @@ dirFilterMenuBookmarkPath      color08        none
 dirFilterMenuHistoryPath       color08        none
 FilterMenuDirectorySubtle      color08        none
 FilterMenuLineNr               color08        none
+CocMenuSel                     none           color10
+CocSearch                      color01        none
 
 
 
