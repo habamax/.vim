@@ -104,13 +104,14 @@ Color: color15                 #FFFFFF        231            white
 
 Color: colorLine               #262626        235            darkgrey
 Color: colorB                  #1C1C1C        234            darkgrey
-Color: colorNonT               #585858        240            darkgrey
+Color: colorNonT               #585858        240            grey
 Color: colorTab                #585858        240            grey
 Color: colorC                  #FFFFFF        231            white
 Color: colorlC                 #FF5FFF        207            magenta
 Color: colorV                  #005F87        24             darkblue
 Color: colorMP                 #C5E7C5        30             darkcyan
 Color: colorPMenuSel           #005F00        22             darkgreen
+Color: colorDim                #878787        102            grey
 
 ; Diff colors
 Color: diffAdd                 #5FAF5F        71             darkgreen
@@ -241,6 +242,7 @@ diffAdded                      color10        none
 diffRemoved                    diffDelete     none
 diffSubname                    color13        none
 
+Variant: gui 256
 ; other ftplugins
 dirType                        color05        none
 dirPermissionUser              color02        none
@@ -251,10 +253,10 @@ dirGroup                       color08        none
 dirTime                        color08        none
 dirSize                        color11        none
 dirSizeMod                     color05        none
-FilterMenuDirectorySubtle      color08        none
-dirFilterMenuBookmarkPath      color08        none
-dirFilterMenuHistoryPath       color08        none
-FilterMenuLineNr               color08        none
+FilterMenuDirectorySubtle      colorDim       none
+dirFilterMenuBookmarkPath      colorDim       none
+dirFilterMenuHistoryPath       colorDim       none
+FilterMenuLineNr               colorDim       none
 CocMenuSel                     none           colorPMenuSel
 CocSearch                      color11        none
 
@@ -374,13 +376,14 @@ Color: color15                 #FFFFFF        231            white
 
 Color: colorLine               #E4E4E4        254            grey
 Color: colorB                  #EEEEEE        255            grey
-Color: colorNonT               #9E9E9E        247            grey
+Color: colorNonT               #9E9E9E        247            darkgrey
 Color: colorTab                #B2B2B2        247            lightgrey
 Color: colorC                  #000000        16             black
 Color: colorlC                 #FF00FF        201            magenta
 Color: colorV                  #5F87AF        67             darkblue
 Color: colorMP                 #C5E7C5        30             darkcyan
 Color: colorPMenuSel           #AFD7AF        151            darkgreen
+Color: colorDim                #626262        241            darkgrey
 
 
 ; Diff colors
@@ -504,7 +507,6 @@ Directory                      color06        none           bold
 Conceal                        none           none
 Ignore                         none           none
 
-Variant: gui 256 16
 DiffAdd                        fgDiff         diffAdd
 DiffChange                     fgDiff         diffChange
 DiffText                       fgDiff         diffText
@@ -513,6 +515,7 @@ diffAdded                      color02        none
 diffRemoved                    color09        none
 diffSubname                    color05        none
 
+Variant: gui 256
 ; other ftplugins
 dirType                        color06        none
 dirPermissionUser              color03        none
@@ -524,10 +527,10 @@ dirTime                        color07        none
 dirSize                        color01        none
 dirSizeMod                     color06        none
 dirLink                        color02        none           bold
-dirFilterMenuBookmarkPath      color08        none
-dirFilterMenuHistoryPath       color08        none
-FilterMenuDirectorySubtle      color08        none
-FilterMenuLineNr               color08        none
+dirFilterMenuBookmarkPath      colorDim       none
+dirFilterMenuHistoryPath       colorDim       none
+FilterMenuDirectorySubtle      colorDim       none
+FilterMenuLineNr               colorDim       none
 CocMenuSel                     none           colorPMenuSel
 CocSearch                      color01        none
 
