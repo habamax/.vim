@@ -1,0 +1,9 @@
+var undo_opts = "setl indentexpr<"
+
+setlocal indentexpr
+
+if exists('b:undo_indent')
+    b:undo_indent ..= "|" .. undo_opts
+else
+    b:undo_indent = undo_opts
+endif

@@ -1,0 +1,3 @@
+augroup group_name | au!
+    au BufEnter * echo "hello world"
+augroup END

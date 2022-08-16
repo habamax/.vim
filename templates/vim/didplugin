@@ -1,0 +1,4 @@
+if exists('g:loaded_PLUGIN')
+    finish
+endif
+g:loaded_PLUGIN = 1

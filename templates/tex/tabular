@@ -1,0 +1,6 @@
+\begin{tabular}{${1:|c|l|}}
+    \hline
+    \strong{header 1} & \strong{header 2} \\ \hline\hline
+    value 1 & value 2 \\ \hline
+\end{tabular}
+
