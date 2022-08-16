@@ -374,10 +374,10 @@ Color: colorV                  #5F87AF        67             darkblue
 Color: colorMP                 #C5E7C5        30             darkcyan
 
 ; Diff colors
-Color: diffAdd                 #C0D5C0        151            darkgreen
+Color: diffAdd                 #AFD7AF        151            darkgreen
 Color: diffDelete              #870000        88             darkred
-Color: diffChange              #D0D5D0        252            lightgray
-Color: diffText                #B0BDB0        250            darkgray
+Color: diffChange              #D0D0D0        252            lightgray
+Color: diffText                #BCBCBC        250            darkgray
 Color: fgDiff                  #000000        16             black
 
 Term colors: color00 color01 color02 color03 color04 color05 color06 color07
