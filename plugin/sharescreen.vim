@@ -16,6 +16,7 @@ vim9script
 import autoload 'os.vim'
 
 def ShareScreen()
+    redraw!
     var url = ""
     if executable("gnome-screenshot")
         var img_file = tempname()
