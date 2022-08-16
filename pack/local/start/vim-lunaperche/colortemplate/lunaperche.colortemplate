@@ -149,12 +149,13 @@ SpecialKey                     colorNonT      none
 
 variant: gui 256
 Pmenu                          none           colorB
+PmenuSel                       none           colorPMenuSel
 variant: 16
 Pmenu                          color00        colorB
+PmenuSel                       color00        colorPMenuSel
 variant: gui 256 16
 PmenuThumb                     none           color07
 PmenuSbar                      none           none
-PmenuSel                       color00        colorPMenuSel
 
 SignColumn                     none           none
 
