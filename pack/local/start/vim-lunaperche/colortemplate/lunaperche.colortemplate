@@ -110,7 +110,7 @@ Color: colorC                  #FFFFFF        231            white
 Color: colorlC                 #FF5FFF        207            magenta
 Color: colorV                  #005F87        24             darkblue
 Color: colorMP                 #C5E7C5        30             darkcyan
-Color: colorPMenuSel           #008700        28             darkgreen
+Color: colorPMenuSel           #005F00        22             darkgreen
 
 ; Diff colors
 Color: diffAdd                 #5FAF5F        71             darkgreen
