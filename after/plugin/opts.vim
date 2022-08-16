@@ -73,4 +73,5 @@ endif
 
 if exists("g:did_coc_loaded")
     inoremap <silent><expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "\<tab>"
+    inoremap <silent><expr> <c-k><c-k> coc#refresh()
 endif
