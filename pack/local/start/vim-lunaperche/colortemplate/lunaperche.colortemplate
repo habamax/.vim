@@ -622,3 +622,8 @@ DiffAdd                        fgDiff         color05
 DiffChange                     fgDiff         color06
 DiffText                       color07        color00
 DiffDelete                     color01        none
+
+
+Background: any
+
+Include: _tcozero
