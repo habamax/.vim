@@ -28,13 +28,13 @@ export def PackUpdate()
             if pinfo =~ '^\s*#' || pinfo =~ '^\s*$'
                 continue
             endif
-            var [name, url] = pinfo->split()
+            var [name, url] = pinfo->split("\t")
             if empty(name) || empty(url)
                 continue
             endif
             var path = $"{cwd}/pack/{name}"
             if isdirectory(path)
-                var job = job_start([&shell, &shellcmdflag, 'git fetch --depth=1 && git reset --hard origin/HEAD && git clean -dfx'],
+                var job = job_start([&shell, &shellcmdflag, 'git fetch --depth=1 && git reset --hard && git clean -dfx'],
                               {"cwd": path, "err_cb": OutCb, "out_cb": OutCb})
                 pack_jobs->add(job)
             else
