@@ -110,7 +110,7 @@ Color: colorC                  #FFFFFF        231            white
 Color: colorlC                 #FF5FFF        207            magenta
 Color: colorV                  #005F87        24             darkblue
 Color: colorMP                 #C5E7C5        30             darkcyan
-Color: colorCoc                #005F00        22             darkgreen
+Color: colorPMenuSel           #005F00        22             darkgreen
 
 ; Diff colors
 Color: diffAdd                 #5FAF5F        71             darkgreen
@@ -154,7 +154,7 @@ Pmenu                          color00        colorB
 variant: gui 256 16
 PmenuThumb                     none           color07
 PmenuSbar                      none           none
-PmenuSel                       color00        color02
+PmenuSel                       none           colorPMenuSel
 
 SignColumn                     none           none
 
@@ -254,7 +254,7 @@ FilterMenuDirectorySubtle      color08        none
 dirFilterMenuBookmarkPath      color08        none
 dirFilterMenuHistoryPath       color08        none
 FilterMenuLineNr               color08        none
-CocMenuSel                     none           colorCoc
+CocMenuSel                     none           colorPMenuSel
 CocSearch                      color11        none
 
 
@@ -284,7 +284,7 @@ SpecialKey                     color00        none
 Pmenu                          color00        color07
 PmenuThumb                     none           color02
 PmenuSbar                      none           none
-PmenuSel                       color00        color02
+PmenuSel                       none           colorPMenuSel
 
 SignColumn                     none           none
 
@@ -379,6 +379,8 @@ Color: colorC                  #000000        16             black
 Color: colorlC                 #FF00FF        201            magenta
 Color: colorV                  #5F87AF        67             darkblue
 Color: colorMP                 #C5E7C5        30             darkcyan
+Color: colorPMenuSel           #AFD7AF        151            green
+
 
 ; Diff colors
 Color: diffAdd                 #AFD7AF        151            darkgreen
@@ -417,10 +419,11 @@ SpecialKey                     colorNonT      none
 
 variant: gui 256
 Pmenu                          none           colorB
-PmenuSel                       color15        color02
+PmenuSel                       none           colorPMenuSel
 variant: 16
 Pmenu                          color00        colorB
-PmenuSel                       color00        color02
+PmenuSel                       none           colorPMenuSel
+
 variant: gui 256 16
 PmenuThumb                     none           color08
 PmenuSbar                      none           none
@@ -524,7 +527,7 @@ dirFilterMenuBookmarkPath      color08        none
 dirFilterMenuHistoryPath       color08        none
 FilterMenuDirectorySubtle      color08        none
 FilterMenuLineNr               color08        none
-CocMenuSel                     none           color10
+CocMenuSel                     none           colorPMenuSel
 CocSearch                      color01        none
 
 
@@ -554,7 +557,7 @@ SpecialKey                     color00        none
 Pmenu                          color07        color00
 PmenuThumb                     none           color02
 PmenuSbar                      none           none
-PmenuSel                       color00        color02
+PmenuSel                       color00        colorPMenuSel
 
 SignColumn                     none           none
 
