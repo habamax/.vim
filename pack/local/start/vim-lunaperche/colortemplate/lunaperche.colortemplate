@@ -402,7 +402,7 @@ TabLineFill                    none           color08
 TabLineSel                     color00        color15        bold
 
 ToolbarLine                    none           none
-ToolbarButton                  color15        color00        bold
+ToolbarButton                  color15        color00
 
 QuickFixLine                   color15        color12
 CursorLineNr                   colorC         none           bold
