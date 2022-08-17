@@ -123,7 +123,7 @@ def ToggleCC(all: bool = false)
         if index(cc, col) == -1
             exe "set cc=" .. cc->add(col)->sort('f')->map((_, v) => printf("%s", v))->join(',')
         else
-            exe "set cc-=" .. col
+            exe $"set cc-={col}"
         endif
     endif
     var cc = split(&cc, ",")->map((_, v) => str2nr(v))
@@ -132,10 +132,10 @@ def ToggleCC(all: bool = false)
         var shift = 1
         for v in cc
             if v == 1 | continue | endif
-            exe "set vsts+=" .. (v - shift)
+            exe $"set vsts+={v - shift}"
             shift = v
         endfor
-        exe "setl vsts+=" .. &sw
+        exe $"setl vsts+={&sw}"
     else
         setl vsts&
     endif
