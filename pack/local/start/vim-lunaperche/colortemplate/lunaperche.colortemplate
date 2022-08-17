@@ -20,7 +20,7 @@ fugitiveUnstagedModifier       -> PreProc
 fugitiveHash                   -> Constant
 diffFile                       -> PreProc
 markdownHeadingDelimiter       -> Special
-rstSectionDelimiter            -> Title
+rstSectionDelimiter            -> PreProc
 rstDirective                   -> Special
 rstHyperlinkReference          -> Special
 rstFieldName                   -> Special
