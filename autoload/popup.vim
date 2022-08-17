@@ -31,7 +31,7 @@ export def ShowAtCursor(text: any): number
                 endif
                 return true
             }
-          })
+    })
     return winnr
 enddef
 
