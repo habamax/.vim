@@ -14,8 +14,8 @@ def Things()
     var things = []
     for nr in range(1, line('$'))
         var line = getline(nr)
-        if line =~ '\<def \k\+('
-        || line =~ '\<fu\%[nction]!\?\s\+\([sgl]:\)\?\k\+('
+        if line =~ '\(^\|\s\)def \k\+('
+        || line =~ '\(^\|\s\)fu\%[nction]!\?\s\+\([sgl]:\)\?\k\+('
         || line =~ '^\s*com\%[mand]!\?\s\+\S\+'
         || line =~ '^\s*aug\%[roup]\s\+\S\+' && line !~ '\c^\s*aug\%[roup] end\s*$'
             things->add({text: $"{line} ({nr})", linenr: nr})
