@@ -31,8 +31,8 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.swp
 set sessionoptions=buffers,curdir,tabpages,winsize
 set history=200
 set path=.,,
-set viminfo='200,<50,s10
 
+set viminfo='200,<50,s10
 if has("win32")
     set viminfofile=~/vimfiles/viminfo
 else
