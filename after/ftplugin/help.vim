@@ -27,7 +27,9 @@ def Toc()
             if !empty(nline)
                 toc->add({text: $'{nline} ({nr})', linenr: nr + 1})
             endif
-        elseif line =~ '^\u[[:space:][:upper:]]\+\s*\*.*\*\s*$' && pline !~ '>\s*$'
+        elseif line =~ '^\u[[:space:][:upper:]]\+\s*\*.*\*\s*$'
+                && pline !~ '>\s*$'
+                && pline !~ '^\([=-]\)\1\+$'
             line = line->substitute('\(\(\s\{10,}\)\|\(\t\+\)\).*$', '', '')
             line = line->substitute('\*\([^*]\+\)\*', '\1', 'g')->trim()
             toc->add({text: $"\t{line} ({nr})", linenr: nr})
