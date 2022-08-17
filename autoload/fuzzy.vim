@@ -264,15 +264,16 @@ export def Highlight()
             return {text: $"xxx {v.name} links to {v.linksto}", name: v.name,
                     value: $"hi link {v.name} {v.linksto}"}
         else
+            var term = v->has_key('term') ? $' term={v.term->keys()->join(",")}' : ''
             var ctermfg = v->has_key('ctermfg') ? $' ctermfg={v.ctermfg}' : ''
             var ctermbg = v->has_key('ctermbg') ? $' ctermbg={v.ctermbg}' : ''
             var cterm = v->has_key('cterm') ? $' cterm={v.cterm->keys()->join(",")}' : ''
             var guifg = v->has_key('guifg') ? $' guifg={v.guifg}' : ''
             var guibg = v->has_key('guibg') ? $' guibg={v.guibg}' : ''
             var gui = v->has_key('gui') ? $' gui={v.gui->keys()->join(",")}' : ''
-            return {text: $"xxx {v.name}{ctermfg}{ctermbg}{cterm}{guifg}{guibg}{gui}",
+            return {text: $"xxx {v.name}{term}{ctermfg}{ctermbg}{cterm}{guifg}{guibg}{gui}",
                     name: v.name,
-                    value: $"hi {v.name}{ctermfg}{ctermbg}{cterm}{guifg}{guibg}{gui}"}
+                    value: $"hi {v.name}{term}{ctermfg}{ctermbg}{cterm}{guifg}{guibg}{gui}"}
         endif
     })
     popup.FilterMenu("Highlight", hl,
