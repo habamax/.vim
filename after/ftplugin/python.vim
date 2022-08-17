@@ -9,8 +9,9 @@ setlocal foldignore=
 
 import autoload 'popup.vim'
 def PopupHelp(symbol: string)
-    var winid = popup.ShowAtCursor(systemlist("python -m pydoc " .. symbol))
-    setbufvar(winbufnr(winid), "&ft", "rst")
+    popup.ShowAtCursor(systemlist("python -m pydoc " .. symbol), (winid) => {
+        setbufvar(winbufnr(winid), "&ft", "rst")
+    })
 enddef
 
 nnoremap <silent><buffer> K <scriptcmd>PopupHelp(expand("<cfile>"))<CR>

@@ -80,8 +80,9 @@ export def ShowCommit(count: number, firstline: number = line("."), lastline: nu
                   shellescape($'{firstline},{lastline}:{resolve(expand("%:p"))}')
               )
 
-    var winnr = popup.ShowAtCursor(git_output)
-    setbufvar(winbufnr(winnr), "&filetype", "git")
+    popup.ShowAtCursor(git_output, (winid) => {
+        setbufvar(winbufnr(winid), "&filetype", "git")
+    })
 enddef
 
 
@@ -100,6 +101,7 @@ export def Blame(firstline: number = line("."), lastline: number = line("."))
                   "git -C " .. shellescape(fnamemodify(resolve(expand('%:p')), ":h")) ..
                   $' blame -L {firstline},{lastline} {expand("%:t")}')
 
-    var winnr = popup.ShowAtCursor(git_output)
-    setbufvar(winbufnr(winnr), "&filetype", "fugitiveblame")
+    popup.ShowAtCursor(git_output, (winid) => {
+        setbufvar(winbufnr(winid), "&filetype", "fugitiveblame")
+    })
 enddef

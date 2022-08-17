@@ -10,8 +10,9 @@ command! -buffer Fmt :up | silent! call system("mix format ", expand("%")) | e
 import autoload 'popup.vim'
 def PopupHelp(symbol: string)
     var cmd = $'elixir -e "require IEx.Helpers; IEx.Helpers.h({symbol})"'
-    var winid = popup.ShowAtCursor(systemlist(cmd))
-    setbufvar(winbufnr(winid), "&ft", "markdown")
+    popup.ShowAtCursor(systemlist(cmd), (winid) => {
+        setbufvar(winbufnr(winid), "&ft", "markdown")
+    })
 enddef
 
 nnoremap <silent><buffer> K <scriptcmd>PopupHelp(expand("<cfile>"))<CR>
