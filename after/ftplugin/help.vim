@@ -15,28 +15,31 @@ nnoremap <buffer> K <cmd>call search('\|[^\|[:space:]]\+\|', 'zb')<cr>
 import autoload 'popup.vim'
 
 def Toc()
+    def Clean(line: string): string
+        var res = line->substitute('\(\(\s\{10,}\)\|\(\t\+\)\).*$', '', '')
+        res = res->substitute('\*\([^*]\+\)\*', '\1', 'g')->trim('~ ')
+        res = res->substitute('\t', '    ', 'g')->trim()
+        return res
+    enddef
     var toc = []
     for nr in range(1, line('$'))
         var line = getline(nr)
         var nline = getline(nr + 1)
         var pline = getline(prevnonblank(nr - 1))
         if line =~ '^\([=-]\)\1\+$' && !empty(nline) && empty(getline(nr - 1)) && nline !~ '^vim:'
-            nline = nline->substitute('\(\(\s\{10,}\)\|\(\t\+\)\).*$', '', '')
-            nline = nline->substitute('\*\([^*]\+\)\*', '\1', 'g')->trim('~ ')
-            nline = nline->substitute('\t', '    ', 'g')->trim()
+            nline = Clean(nline)
             if !empty(nline)
                 toc->add({text: $'{nline} ({nr})', linenr: nr + 1})
             endif
         elseif line =~ '^\u[[:space:][:upper:]]\+\s*\*.*\*\s*$'
                 && pline !~ '>\s*$'
                 && pline !~ '^\([=-]\)\1\+$'
-            line = line->substitute('\(\(\s\{10,}\)\|\(\t\+\)\).*$', '', '')
-            line = line->substitute('\*\([^*]\+\)\*', '\1', 'g')->trim()
+            line = Clean(line)
             toc->add({text: $"\t{line} ({nr})", linenr: nr})
         elseif line =~ '^\S\+.*\~\s*$' && line[0] != '<'
                 && nline !~ '^\([=-]\)\1\+$'
                 && line !~ '\t\t' && line !~ '\s\{8,}'
-                && empty(getline(nr - 1))
+                && empty(Clean(getline(nr - 1)))
             toc->add({text: $"\t\t{line->trim('~ ')} ({nr})", linenr: nr})
         endif
     endfor
