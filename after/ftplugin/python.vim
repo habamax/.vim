@@ -37,4 +37,3 @@ def Things()
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
-
