@@ -12,6 +12,9 @@ setlocal shiftwidth=2
 
 compiler rst2html
 
+inorea <buffer> no.. .. note::
+inorea <buffer> wa.. .. warning::
+
 
 import autoload 'popup.vim'
 def Toc()
