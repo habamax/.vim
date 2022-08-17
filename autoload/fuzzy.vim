@@ -277,7 +277,7 @@ export def Highlight()
     })
     popup.FilterMenu("Highlight", hl,
         (res, key) => {
-            feedkeys($":{res.value}")
+            feedkeys($":{res.value}\<C-f>")
         },
         (winid) => {
             win_execute(winid, $"syn match FilterMenuHiLinksTo '\\(links to\\)\\|\\(cleared\\)'")
