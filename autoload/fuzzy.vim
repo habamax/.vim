@@ -271,9 +271,9 @@ export def Highlight()
             var guifg = v->has_key('guifg') ? $' guifg={v.guifg}' : ''
             var guibg = v->has_key('guibg') ? $' guibg={v.guibg}' : ''
             var gui = v->has_key('gui') ? $' gui={v.gui->keys()->join(",")}' : ''
-            return {text: $"xxx {v.name}{term}{ctermfg}{ctermbg}{cterm}{guifg}{guibg}{gui}",
+            return {text: $"xxx {v.name}{guifg}{guibg}{gui}{ctermfg}{ctermbg}{cterm}{term}",
                     name: v.name,
-                    value: $"hi {v.name}{term}{ctermfg}{ctermbg}{cterm}{guifg}{guibg}{gui}"}
+                    value: $"hi {v.name}{guifg}{guibg}{gui}{ctermfg}{ctermbg}{cterm}{term}"}
         endif
     })
     popup.FilterMenu("Highlight", hl,
