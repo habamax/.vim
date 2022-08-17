@@ -31,7 +31,10 @@ def Toc()
             line = line->substitute('\(\(\s\{10,}\)\|\(\t\+\)\).*$', '', '')
             line = line->substitute('\*\([^*]\+\)\*', '\1', 'g')->trim()
             toc->add({text: $"\t{line} ({nr})", linenr: nr})
-        elseif line =~ '^\S\+.*\~\s*$' && line[0] != '<' && nline !~ '^\([=-]\)\1\+$' && line !~ '\t\t' && empty(getline(nr - 1))
+        elseif line =~ '^\S\+.*\~\s*$' && line[0] != '<'
+                && nline !~ '^\([=-]\)\1\+$'
+                && line !~ '\t\t' && line !~ '\s\{8,}'
+                && empty(getline(nr - 1))
             toc->add({text: $"\t\t{line->trim('~ ')} ({nr})", linenr: nr})
         endif
     endfor
@@ -45,7 +48,6 @@ def Toc()
             win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
             hi def link FilterMenuLineNr Comment
         })
-
 enddef
 
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
