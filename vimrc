@@ -104,12 +104,12 @@ xnoremap <space>/ y/<C-R>"
 xnoremap * y/<C-R>"<CR>
 
 # toggles
-nnoremap <silent> yoh :set hlsearch! hlsearch?<CR>
-nnoremap <silent> yow :set wrap! wrap?<CR>
-nnoremap <silent> yos :set spell! spell?<CR>
-nnoremap <silent> yov :let &ve=(&ve == "block" ? "all" : "block")<CR>:set ve<CR>
-nnoremap <expr>   yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
-nnoremap <silent> yob :let &bg = (&bg == "light" ? "dark" : "light")<CR>
+nnoremap yoh <cmd>set hlsearch! hlsearch?<CR>
+nnoremap yow <cmd>set wrap! wrap?<CR>
+nnoremap yos <cmd>set spell! spell?<CR>
+nnoremap yov <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
+nnoremap yob <scriptcmd>&bg = (&bg == "light" ? "dark" : "light")<CR>
+nnoremap <expr> yod (&diff ? ":diffoff" : ":diffthis") .. "<CR>"
 
 # toggle colorcolumn at cursor position
 # set vartabstop accordingly
