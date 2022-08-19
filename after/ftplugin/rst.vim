@@ -12,8 +12,24 @@ setlocal shiftwidth=2
 
 compiler rst2html
 
+inorea <buffer> k.. :kbd:``<left>
 inorea <buffer> no.. .. note::
 inorea <buffer> wa.. .. warning::
+inorea <buffer> ad.. .. admonition::
+inorea <buffer> at.. .. attention::
+inorea <buffer> ca.. .. caution::
+inorea <buffer> da.. .. DANGER::
+inorea <buffer> er.. .. error::
+inorea <buffer> hi.. .. hint::
+inorea <buffer> im.. .. important::
+inorea <buffer> ti.. .. tip::
+inorea <buffer> si.. .. sidebar::
+inorea <buffer> to.. .. topic::
+inorea <buffer> ep.. .. epigraph::
+inorea <buffer> hl.. .. highlight::
+inorea <buffer> co.. .. code::
+inorea <buffer> fi.. .. figure::
+inorea <buffer> i.. .. image::
 
 
 import autoload 'popup.vim'
