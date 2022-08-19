@@ -48,7 +48,7 @@ def Toc()
                     lvl = lvl_ch->len() - 1
                 endif
                 toc->add({text: $'{repeat("\t", lvl)}{pline->trim()} ({nr - 1})', linenr: nr - 1})
-            elseif pline =~ '^\S'
+            elseif pline =~ '^\S' && pline !~ '^\([-=#*~]\)\1*\s*$'
                 var lvl = lvl_ch->index(line[0])
                 if lvl == -1
                     lvl_ch->add(line[0])
