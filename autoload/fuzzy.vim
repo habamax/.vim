@@ -192,7 +192,10 @@ enddef
 
 export def FileTree(path: string = "")
     var opath = isdirectory(expand(path)) ? path : getcwd()
+
+    # XXX: find a better solution, it surely exists.
     exe $"lcd {opath}"
+
     def Tree(dir: string): list<string>
         var ignore_dirs = [".git", ".hg", ".bundle"]
         var result = readdirex(dir, (v) => v.type =~ 'file\|link$')->mapnew((_, f) => f.name)
