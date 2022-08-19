@@ -1,4 +1,5 @@
 vim9script
+import autoload 'popup.vim'
 
 setlocal ts=4 sw=0
 
@@ -11,9 +12,28 @@ nnoremap <buffer> <F5> :GodotRun<CR>
 nnoremap <buffer> <F6> :GodotRunCurrent<CR>
 nnoremap <buffer> <F7> :GodotRunLast<CR>
 
-nnoremap <buffer> <space><space>r :Select godot<CR>
+def RunScene()
+    var scenes = []
+    if executable('fd')
+        scenes = systemlist('fd --path-separator / --type f --hidden --follow --exclude .git --glob *.tscn')
+    elseif executable('rg')
+        scenes = systemlist('rg --path-separator / --files --hidden --glob !.git --glob *.tscn')
+    else
+        return
+    endif
+    popup.FilterMenu("Run scene", scenes,
+        (res, key) => {
+            exe $"GodotRun {res.text}"
+        },
+        (winid) => {
+            win_execute(winid, 'syn match FilterMenuDirectorySubtle "^.*\(/\|\\\)"')
+            hi def link FilterMenuDirectorySubtle Comment
+        })
+enddef
 
-import autoload 'popup.vim'
+nnoremap <buffer> <space><space>r <scriptcmd>RunScene()<CR>
+
+
 def Things()
     var things = []
     for nr in range(1, line('$'))
