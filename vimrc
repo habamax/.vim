@@ -335,6 +335,7 @@ nnoremap <silent> [W :lfirst<CR>
 
 # manual folds
 nnoremap zf <cmd>set fdm&<CR>zf
+xnoremap zf <cmd>set fdm&<CR>zf
 
 
 ################################################################################
