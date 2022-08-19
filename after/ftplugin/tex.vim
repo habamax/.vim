@@ -91,8 +91,10 @@ def Toc()
             normal! zz
         },
         (winid) => {
-            win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
+            win_execute(winid, 'syn match FilterMenuLineNr "(\d\+)$"')
+            win_execute(winid, 'syn match FilterMenuSecNum "^\(\d\+\.\)*\(\d\+\)"')
             hi def link FilterMenuLineNr Comment
+            hi def link FilterMenuSecNum PreProc
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
