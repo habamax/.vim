@@ -108,7 +108,9 @@ export def Template()
     popup.FilterMenu("Template",
         tmpls,
         (res, key) => {
-            append(line('.'), readfile($"{path}/{res.text}"))
+            append(line('.'), readfile($"{path}/{res.text}")->mapnew((_, v) => {
+                return v->substitute('`\(.\{-}\)`', '\=eval(submatch(1))', 'g')
+            }))
             if getline('.') =~ '^\s*$'
                 del _
             else
