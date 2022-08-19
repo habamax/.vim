@@ -152,3 +152,9 @@ g:ale_virtualtext_cursor = 1
 if has("win32")
     g:coc_start_at_startup = 0
 endif
+
+
+# vim-godot, assuming it is installed as flatpak
+if !executable('godot') && executable('flatpak')
+    g:godot_executable = "flatpak run org.godotengine.Godot"
+endif
