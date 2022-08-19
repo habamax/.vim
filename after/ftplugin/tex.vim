@@ -49,25 +49,36 @@ def Toc()
     var view = winsaveview()
     var save_reg = @0
     var toc = []
+    var toc_num = {section: 0, subsection: 0, subsubsection: 0, paragraph: 0, subparagraph: 0}
     for nr in range(1, line('$'))
         var line = getline(nr)
         if line =~ '\\title\s*{'
             toc->add({text: $"{nr->Extract('title')} ({nr})",
                       linenr: nr})
         elseif line =~ '\\section\s*{'
-            toc->add({text: $"\t{nr->Extract('section')} ({nr})",
+            toc_num.section += 1
+            var prefix = $"{toc_num.section}  "
+            toc->add({text: $"{prefix}{nr->Extract('section')} ({nr})",
                       linenr: nr})
         elseif line =~ '\\subsection\s*{'
-            toc->add({text: $"\t\t{nr->Extract('subsection')} ({nr})",
+            toc_num.subsection += 1
+            var prefix = $"{toc_num.section}.{toc_num.subsection}  "
+            toc->add({text: $"{prefix}{nr->Extract('subsection')} ({nr})",
                      linenr: nr})
         elseif line =~ '\\subsubsection\s*{'
-            toc->add({text: $"\t\t\t{nr->Extract('subsubsection')} ({nr})",
+            toc_num.subsubsection += 1
+            var prefix = $"{toc_num.section}.{toc_num.subsection}.{toc_num.subsubsection}  "
+            toc->add({text: $"{prefix}{nr->Extract('subsubsection')} ({nr})",
                       linenr: nr})
         elseif line =~ '\\paragraph\s*{'
-            toc->add({text: $"\t\t\t\t{nr->Extract('paragraph')} ({nr})",
+            toc_num.paragraph += 1
+            var prefix = $"{toc_num.section}.{toc_num.subsection}.{toc_num.subsubsection}.{toc_num.paragraph}  "
+            toc->add({text: $"{prefix}{nr->Extract('paragraph')} ({nr})",
                       linenr: nr})
         elseif line =~ '\\subparagraph\s*{'
-            toc->add({text: $"\t\t\t\t\t{nr->Extract('subparagraph')} ({nr})",
+            toc_num.subparagraph += 1
+            var prefix = $"{toc_num.section}.{toc_num.subsection}.{toc_num.subsubsection}.{toc_num.paragraph}.{toc_num.subparagraph}  "
+            toc->add({text: $"{prefix}{nr->Extract('subparagraph')} ({nr})",
                       linenr: nr})
         endif
     endfor
@@ -80,7 +91,6 @@ def Toc()
             normal! zz
         },
         (winid) => {
-            win_execute(winid, "setl ts=4 list")
             win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
             hi def link FilterMenuLineNr Comment
         })
