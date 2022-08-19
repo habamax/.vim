@@ -131,8 +131,8 @@ enddef
 
 export def Bookmark()
     popup.FilterMenu("Bookmark",
-        readfile($'{g:vimdata}/bookmarks.json')->join()->json_decode()->mapnew((_, v) => {
-            return {text: $"{v.name} ({v.file})", file: v.file, line: v.line, col: v.col}
+        readfile($'{g:vimdata}/bookmarks.json')->join()->json_decode()->items()->mapnew((_, v) => {
+            return {text: $"{v[0]} ({v[1].file})", file: v[1].file, line: v[1].line, col: v[1].col}
         }),
         (res, key) => {
             if key == "\<C-j>"

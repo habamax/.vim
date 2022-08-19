@@ -414,16 +414,18 @@ def SaveBookmark()
     if empty(name)
         name = expand("%:t")
     endif
-    var bookmarks = []
+    var bookmarks = {}
     var bookmarkFile = $'{g:vimdata}/bookmarks.json'
 
     try
         if !filereadable(bookmarkFile)
             mkdir(fnamemodify(bookmarkFile, ":p:h"), "p")
         else
-            bookmarks = readfile(bookmarkFile)->join()->json_decode()
+            bookmarks = readfile(bookmarkFile)->join()->json_decode()->filter((_, v) => {
+                return filereadable(v.file)
+            })
         endif
-        bookmarks->add({name: name, file: expand("%:p"), line: line('.'), col: col('.')})
+        bookmarks[name] = {file: expand("%:p"), line: line('.'), col: col('.')}
         [bookmarks->json_encode()]->writefile(bookmarkFile)
     catch
         echohl Error
