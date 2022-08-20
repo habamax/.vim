@@ -1,8 +1,8 @@
 /pack/bundle/
-/pack/check/
 /pack/lang/
 /pack/habamax/
 /pack/vim/
+/pack/colors/
 **/tags
 .netrwbook
 *.html
