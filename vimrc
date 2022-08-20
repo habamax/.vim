@@ -465,6 +465,17 @@ augroup xterm256 | au!
 augroup END
 
 
+def StripCursorLineNr()
+    var hl = hlget('LineNr')[0]
+    var ctermbg = 'ctermbg=' .. (hl->has_key('ctermbg') ? hl.ctermbg : 'NONE')
+    var guibg = 'guibg=' .. (hl->has_key('guibg') ? hl.guibg : 'NONE')
+    exe $'hi CursorLineNr {guibg} {ctermbg} gui=bold cterm=bold'
+enddef
+augroup colorschemes | au!
+    au Colorscheme * StripCursorLineNr()
+augroup END
+
+
 ################################################################################
 # Colors
 
