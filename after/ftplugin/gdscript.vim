@@ -31,7 +31,7 @@ def RunScene()
         })
 enddef
 
-nnoremap <buffer> <space><space>r <scriptcmd>RunScene()<CR>
+nnoremap <buffer> <space>r <scriptcmd>RunScene()<CR>
 
 
 def Things()
