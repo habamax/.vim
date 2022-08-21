@@ -21,7 +21,7 @@ def ShareScreen()
     if executable("gnome-screenshot")
         var img_file = tempname()
         system($'gnome-screenshot --window --file={img_file}')
-        url = system($"curl -F file=@{img_file} http://0x0.st")
+        silent! url = systemlist($"curl -F file=@{img_file} http://0x0.st")[-1]
     elseif executable("cmd.exe")
         if exists("$WSLENV") && executable("screenshot0x0.py")
             var exepath = os.WslToWindowsPath(exepath('screenshot0x0.py'))
@@ -34,7 +34,8 @@ def ShareScreen()
         echo "Can't share the screen!"
         return
     endif
-    setreg("+", url)
+    setreg('+', url)
+    setreg('"', url)
     echom url
 enddef
 
