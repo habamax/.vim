@@ -471,8 +471,16 @@ def StripCursorLineNr()
     var guibg = 'guibg=' .. (hl->has_key('guibg') ? hl.guibg : 'NONE')
     exe $'hi CursorLineNr {guibg} {ctermbg} gui=bold cterm=bold'
 enddef
+
+def StripBackground()
+    if &background == 'dark'
+        hi Normal ctermbg=NONE
+    endif
+enddef
+
 augroup colorschemes | au!
     au Colorscheme * StripCursorLineNr()
+    au Colorscheme lunaperche StripBackground()
 augroup END
 
 
