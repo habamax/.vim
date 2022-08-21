@@ -480,6 +480,7 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme * StripCursorLineNr()
+    au Colorscheme quiet hi Pmenu guibg=#262626 guifg=#C6C6C6 ctermbg=235 ctermfg=251
     au Colorscheme lunaperche StripBackground()
 augroup END
 
