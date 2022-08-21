@@ -20,7 +20,7 @@ def ShareScreen()
     var url = ""
     if executable("gnome-screenshot")
         var img_file = tempname()
-        system($'gnome-screenshot --file={img_file}')
+        system($'gnome-screenshot --window --file={img_file}')
         url = system($"curl -F file=@{img_file} http://0x0.st")
     elseif executable("cmd.exe")
         if exists("$WSLENV") && executable("screenshot0x0.py")
