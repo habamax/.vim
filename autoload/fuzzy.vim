@@ -366,3 +366,20 @@ export def DumbJump()
             hi def link FilterMenuLineNr Comment
         })
 enddef
+
+export def Window()
+    var windows = []
+    for nr in range(1, winnr('$'))
+        var w_info = nr->win_getid()->getwininfo()[0]
+        windows->add({text: $"{bufname(w_info.bufnr)} ({nr})", winnr: nr})
+    endfor
+    popup.FilterMenu($'Jump window', windows,
+        (res, key) => {
+            exe $":{res.winnr}wincmd w"
+            normal! zz
+        },
+        (winid) => {
+            win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
+            hi def link FilterMenuLineNr Comment
+        })
+enddef
