@@ -369,14 +369,12 @@ enddef
 
 export def Window()
     var windows = []
-    for nr in range(1, winnr('$'))
-        var w_info = nr->win_getid()->getwininfo()[0]
-        windows->add({text: $"{bufname(w_info.bufnr)} ({nr})", winnr: nr})
+    for w_info in getwininfo()
+        windows->add({text: $"Tab {w_info.tabnr}: {bufname(w_info.bufnr)} ({w_info.winid})", winid: w_info.winid})
     endfor
     popup.FilterMenu($'Jump window', windows,
         (res, key) => {
-            exe $":{res.winnr}wincmd w"
-            normal! zz
+            win_gotoid(res.winid)
         },
         (winid) => {
             win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
