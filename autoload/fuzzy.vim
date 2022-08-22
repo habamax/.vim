@@ -370,7 +370,9 @@ enddef
 export def Window()
     var windows = []
     for w_info in getwininfo()
-        windows->add({text: $"Tab {w_info.tabnr}: {bufname(w_info.bufnr)} ({w_info.winid})", winid: w_info.winid})
+        var tabtext = tabpagenr() > 1 ? $"Tab {w_info.tabnr}: " : ""
+        var wintext = empty(bufname(w_info.bufnr)) ? "[No Name]" : bufname(w_info.bufnr)
+        windows->add({text: $"{tabtext}{wintext} ({w_info.winid})", winid: w_info.winid})
     endfor
     popup.FilterMenu($'Jump window', windows,
         (res, key) => {
