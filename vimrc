@@ -479,10 +479,18 @@ def StripBackground()
     endif
 enddef
 
+def Lunaperche()
+    if &background == 'light'
+        hi Normal ctermbg=254 guibg=#E4E4E4
+        hi CursorLine ctermbg=252 guibg=#d0d0d0
+    endif
+    StripBackground()
+enddef
+
 augroup colorschemes | au!
     au Colorscheme * StripCursorLineNr()
     au Colorscheme quiet hi Pmenu guibg=#262626 guifg=#C6C6C6 ctermbg=235 ctermfg=251
-    au Colorscheme lunaperche StripBackground()
+    au Colorscheme lunaperche Lunaperche()
 augroup END
 
 
