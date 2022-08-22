@@ -30,3 +30,4 @@ lang/start/vim-elixir	git@github.com:elixir-editors/vim-elixir.git
 colors/opt/seoul256	git@github.com:junegunn/seoul256.vim.git
 colors/opt/nord	git@github.com:arcticicestudio/nord-vim.git
 colors/opt/iceberg	git@github.com:cocopon/iceberg.vim.git
+colors/opt/zenburn	git@github.com:jnurmine/Zenburn.git

@@ -476,6 +476,7 @@ enddef
 def StripBackground()
     if &background == 'dark'
         hi Normal ctermbg=NONE
+        hi TablineSel ctermbg=NONE
     endif
 enddef
 
