@@ -374,15 +374,19 @@ export def Window()
         var tabtext = tabpagenr('$') > 1 ? $"Tab {w_info.tabnr}, " : ""
         var wintext = $"Win {w_info.winnr}"
         var name = empty(bufname(w_info.bufnr)) ? "[No Name]" : bufname(w_info.bufnr)
-        windows->add({text: $"({tabtext}{wintext}): {name} ({w_info.winid})", winid: w_info.winid})
+        var current_sign = w_info.winid == win_getid() ? "*" : " "
+        windows->add({text: $"{current_sign}({tabtext}{wintext}): {name} ({w_info.winid})", winid: w_info.winid})
     endfor
     popup.FilterMenu($'Jump window', windows,
         (res, key) => {
             win_gotoid(res.winid)
         },
         (winid) => {
-            win_execute(winid, 'syn match FilterMenuBraces "(\d\+)$"')
-            win_execute(winid, 'syn match FilterMenuBraces "^(.\{-}):"')
+            win_execute(winid, 'syn match FilterMenuRegular "^ (.\{-}):.*(\d\+)$" contains=FilterMenuBraces')
+            win_execute(winid, 'syn match FilterMenuCurrent "^\*(.\{-}):.*(\d\+)$"  contains=FilterMenuBraces')
+            win_execute(winid, 'syn match FilterMenuBraces "(\d\+)$" contained')
+            win_execute(winid, 'syn match FilterMenuBraces "^[* ](.\{-}):" contained')
             hi def link FilterMenuBraces Comment
+            hi def link FilterMenuCurrent Statement
         })
 enddef
