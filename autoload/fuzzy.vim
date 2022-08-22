@@ -371,16 +371,18 @@ enddef
 export def Window()
     var windows = []
     for w_info in getwininfo()
-        var tabtext = tabpagenr() > 1 ? $"Tab {w_info.tabnr}: " : ""
-        var wintext = empty(bufname(w_info.bufnr)) ? "[No Name]" : bufname(w_info.bufnr)
-        windows->add({text: $"{tabtext}{wintext} ({w_info.winid})", winid: w_info.winid})
+        var tabtext = tabpagenr('$') > 1 ? $"Tab {w_info.tabnr}, " : ""
+        var wintext = $"Win {w_info.winnr}"
+        var name = empty(bufname(w_info.bufnr)) ? "[No Name]" : bufname(w_info.bufnr)
+        windows->add({text: $"({tabtext}{wintext}): {name} ({w_info.winid})", winid: w_info.winid})
     endfor
     popup.FilterMenu($'Jump window', windows,
         (res, key) => {
             win_gotoid(res.winid)
         },
         (winid) => {
-            win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
-            hi def link FilterMenuLineNr Comment
+            win_execute(winid, 'syn match FilterMenuBraces "(\d\+)$"')
+            win_execute(winid, 'syn match FilterMenuBraces "^(.\{-}):"')
+            hi def link FilterMenuBraces Comment
         })
 enddef
