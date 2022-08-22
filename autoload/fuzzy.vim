@@ -367,6 +367,7 @@ export def DumbJump()
         })
 enddef
 
+
 export def Window()
     var windows = []
     for w_info in getwininfo()
