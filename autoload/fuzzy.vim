@@ -109,7 +109,7 @@ export def Template()
         tmpls,
         (res, key) => {
             append(line('.'), readfile($"{path}/{res.text}")->mapnew((_, v) => {
-                return v->substitute('`\(.\{-}\)`', '\=eval(submatch(1))', 'g')
+                return v->substitute('!!\(.\{-}\)!!', '\=eval(submatch(1))', 'g')
             }))
             if getline('.') =~ '^\s*$'
                 del _
