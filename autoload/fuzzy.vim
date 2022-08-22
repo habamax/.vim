@@ -23,7 +23,7 @@ export def Buffer()
             endif
         },
         (winid) => {
-            win_execute(winid, 'syn match FilterMenuDirectorySubtle "^.*\(/\|\\\)"')
+            win_execute(winid, "syn match FilterMenuDirectorySubtle '^.*[\/]'")
             hi def link FilterMenuDirectorySubtle Comment
         })
 enddef
@@ -47,7 +47,7 @@ export def MRU()
             endif
         },
         (winid) => {
-            win_execute(winid, 'syn match FilterMenuDirectorySubtle "^.*\(/\|\\\)"')
+            win_execute(winid, "syn match FilterMenuDirectorySubtle '^.*[\/]'")
             hi def link FilterMenuDirectorySubtle Comment
         })
 enddef
@@ -70,7 +70,7 @@ export def GitFile(path: string = "")
             endif
         },
         (winid) => {
-            win_execute(winid, 'syn match FilterMenuDirectorySubtle "^.*\(/\|\\\)"')
+            win_execute(winid, "syn match FilterMenuDirectorySubtle '^.*[\/]'")
             hi def link FilterMenuDirectorySubtle Comment
         })
 enddef
@@ -246,7 +246,7 @@ export def FileTree(path: string = "")
             endtry
         },
         (winid) => {
-            win_execute(winid, 'syn match FilterMenuDirectorySubtle "^.*\(/\|\\\)"')
+            win_execute(winid, "syn match FilterMenuDirectorySubtle '^.*[\/]'")
             hi def link FilterMenuDirectorySubtle Comment
         })
 enddef
@@ -289,10 +289,10 @@ export def Highlight()
             feedkeys($":{res.value}\<C-f>")
         },
         (winid) => {
-            win_execute(winid, $"syn match FilterMenuHiLinksTo '\\(links to\\)\\|\\(cleared\\)'")
+            win_execute(winid, 'syn match FilterMenuHiLinksTo "\(links to\)\|\(cleared\)"')
             hi def link FilterMenuHiLinksTo Comment
             for h in hl
-                win_execute(winid, $"syn match {h.name} '^xxx\\ze {h.name}'")
+                win_execute(winid, $'syn match {h.name} "^xxx\ze {h.name}"')
             endfor
         })
 enddef
@@ -362,7 +362,7 @@ export def DumbJump()
             normal! zz
         },
         (winid) => {
-            win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
+            win_execute(winid, 'syn match FilterMenuLineNr "(\d\+)$"')
             hi def link FilterMenuLineNr Comment
         })
 enddef
