@@ -482,7 +482,7 @@ enddef
 def Lunaperche()
     if &background == 'light'
         hi Normal ctermbg=254 guibg=#E4E4E4
-        hi CursorLine ctermbg=252 guibg=#d0d0d0
+        hi CursorLine ctermbg=253 guibg=#DADADA
     endif
     StripBackground()
 enddef
