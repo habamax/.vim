@@ -19,6 +19,7 @@ set display=lastline
 set completeopt=menu,popup completepopup=highlight:Pmenu
 set number relativenumber cursorline cursorlineopt=number
 set list listchars=tab:›\ ,nbsp:·,trail:·,extends:→,precedes:←
+set fillchars=vert:│
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak
 set formatoptions=qjl
 set foldmethod=indent foldminlines=4 foldnestmax=3 nofoldenable
@@ -486,6 +487,7 @@ def Lunaperche()
         hi CursorLine ctermbg=253 guibg=#DADADA
         hi TablineSel ctermfg=254 guifg=#E4E4E4
     endif
+    hi VertSplit ctermbg=NONE guibg=NONE
     StripBackground()
 enddef
 
