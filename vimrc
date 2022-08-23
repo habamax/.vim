@@ -459,6 +459,8 @@ augroup general | au!
           \ if !isdirectory(expand("%:p:h"))
           |    call mkdir(expand("%:p:h"), "p")
           | endif
+
+    au VimLeavePre * :exe $'mksession! {g:vimdata}/sessions/LAST'
 augroup end
 
 
