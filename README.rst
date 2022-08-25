@@ -75,6 +75,7 @@ Sometimes you might need to edit table like text, ``colorcolumn`` and
 
 __ https://github.com/habamax/.vim/blob/9c134346affce6e5166fcaac39c58ef3960ca563/vimrc#L116-L146
 
+.. image:: https://user-images.githubusercontent.com/234774/186644105-53985289-ccd6-43a0-9813-9dccda3f86eb.gif
 
 
 Colors
