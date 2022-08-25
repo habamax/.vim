@@ -57,7 +57,7 @@ export def GitFile(path: string = "")
     if !empty(path)
         exe $"lcd {path}"
     endif
-    popup.FilterMenu("Git File", systemlist('git ls-files'),
+    popup.FilterMenu("Git File", systemlist('git ls-files --other --full-name --cached --deleted --modified --exclude-standard'),
         (res, key) => {
             if key == "\<c-t>"
                 exe $":tab e {res.text}"
