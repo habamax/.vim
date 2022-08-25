@@ -87,6 +87,7 @@ g:lens_disabled_filetypes = ['fugitiveblame', 'selectprompt', 'selectresults']
 
 
 # vimtex
+g:vimtex_matchparen_enabled = false
 g:vimtex_compiler_latexrun_engines = {'_': 'lualatex'}
 g:vimtex_compiler_latexmk_engines = {'_': '-lualatex'}
 g:vimtex_compiler_latexmk = {
