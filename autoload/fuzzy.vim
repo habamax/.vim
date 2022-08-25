@@ -124,8 +124,13 @@ enddef
 
 
 export def Session()
-    popup.FilterMenu("Session",
-        map(glob($'{g:vimdata}/sessions/*', 1, 1), (_, v) => fnamemodify(v, ":t")),
+    var sessions = glob($'{g:vimdata}/sessions/*', 1, 1)->map((_, v) => fnamemodify(v, ":t"))
+    var idx = sessions->index('LAST')
+    if idx > -1 && idx != 0
+        sessions->remove(idx)
+        sessions = ["LAST"] + sessions
+    endif
+    popup.FilterMenu("Session", sessions,
         (res, key) => {
             exe $':%%bd | source {g:vimdata}/sessions/{res.text}'
         })
