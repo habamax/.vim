@@ -27,6 +27,7 @@ the things I need:
 __ https://github.com/habamax/.vim/blob/9c134346affce6e5166fcaac39c58ef3960ca563/autoload/popup.vim#L49-L192
 __ https://github.com/habamax/.vim/blob/master/autoload/fuzzy.vim
 __ https://github.com/habamax/.vim/blob/9c134346affce6e5166fcaac39c58ef3960ca563/vimrc#L71-L92
+.. _vim-select: https://github.com/habamax/vim-select
 
 Some of the examples:
 
