@@ -9,108 +9,71 @@ Personal vim configuration.
 Vimscript scratches
 ===================
 
+
+Fuzzy Popup Finder
+------------------
+
+Sometimes ago I have created `vim-select`_ plugin to simplify opening
+files/buffers and other things in vim. I was a happy user but then another
+scratch of vimscript and I have way simpler fuzzy popup finder that does most of
+the things I need:
+
+- A `wrapper function`__ to narrow down any list provided as a parameter to
+  something you can select from.
+- `Set of functions`__ that actually generate lists and "do things" over a selected
+  item.
+- `Mappings`__ that call those functions.
+
+__ https://github.com/habamax/.vim/blob/9c134346affce6e5166fcaac39c58ef3960ca563/autoload/popup.vim#L49-L192
+__ https://github.com/habamax/.vim/blob/master/autoload/fuzzy.vim
+__ https://github.com/habamax/.vim/blob/9c134346affce6e5166fcaac39c58ef3960ca563/vimrc#L71-L92
+
+Some of the examples:
+
+Fuzzy file/buffer/MRU
+~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: https://user-images.githubusercontent.com/234774/186641098-d1f0f4ca-3396-4c8f-82ac-8de06f61cf0c.gif
+
+Fuzzy project file finder
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: https://user-images.githubusercontent.com/234774/186641084-9f9b4086-ea7b-4ee5-9ac8-32091e0412d5.gif
+
+Fuzzy help
+~~~~~~~~~~
+
+.. image:: https://user-images.githubusercontent.com/234774/186641608-6cc2f280-deef-48cb-8e72-dc423ca31daa.gif
+
+Fuzzy TOC for TeX/Markdown/ReStructuredText
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: https://user-images.githubusercontent.com/234774/186641087-ba2d0d5e-b057-4e69-a062-acdaa44fc29f.gif
+
+Fuzzy highlight finder
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: https://user-images.githubusercontent.com/234774/186641079-4d4e41b1-ff9e-4a1f-b785-1554801fe244.gif
+
+
+
 Commenting
 ----------
 
-vim-commentary__ alike comment toggling:
+vim-commentary__ alike comment toggling is a very handy and convenient thing, so
+"to make it safe and available" I did implement `my own version`__.
 
 __ https://github.com/tpope/vim-commentary
-
-.. code:: vim
-
-  vim9script
-
-  # Toggle comments
-  # Usage:
-  #   1. Save in ~/.vim/autoload/comment.vim
-  #   2. Add following mappings to vimrc:
-  #      nnoremap <silent> <expr> gc comment#Toggle()
-  #      xnoremap <silent> <expr> gc comment#Toggle()
-  #      nnoremap <silent> <expr> gcc comment#Toggle() .. '_'
-  export def Toggle(...args: list<string>): string
-      if len(args) == 0
-          &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
-          return 'g@'
-      endif
-      if empty(&cms) | return '' | endif
-      var cms = substitute(substitute(&cms, '\S\zs%s\s*', ' %s', ''), '%s\ze\S', '%s ', '')
-      var [lnum1, lnum2] = [line("'["), line("']")]
-      var cms_l = split(escape(cms, '*.'), '\s*%s\s*')
-      if len(cms_l) == 0 | return '' | endif
-      if len(cms_l) == 1 | call add(cms_l, '') | endif
-      var comment = 0
-      var indent_min = indent(lnum1)
-      var indent_start = matchstr(getline(lnum1), '^\s*')
-      for lnum in range(lnum1, lnum2)
-          if getline(lnum) =~ '^\s*$' | continue | endif
-          if indent_min > indent(lnum)
-              indent_min = indent(lnum)
-              indent_start = matchstr(getline(lnum), '^\s*')
-          endif
-          if getline(lnum) !~ '^\s*' .. cms_l[0] .. '.*' .. cms_l[1] .. '$'
-              comment = 1
-          endif
-      endfor
-      var lines = []
-      var line = ''
-      for lnum in range(lnum1, lnum2)
-          if getline(lnum) =~ '^\s*$'
-              line = getline(lnum)
-          elseif comment
-              if exists("g:comment_first_col") || exists("b:comment_first_col")
-                  # handle % with substitute
-                  line = printf(substitute(cms, '%s\@!', '%%', 'g'), getline(lnum))
-              else
-                  # handle % with substitute
-                  line = printf(indent_start .. substitute(cms, '%s\@!', '%%', 'g'),
-                          strpart(getline(lnum), strlen(indent_start)))
-              endif
-          else
-              line = substitute(getline(lnum), '^\s*\zs' .. cms_l[0] .. ' \?\| \?' .. cms_l[1] .. '$', '', 'g')
-          endif
-          add(lines, line)
-      endfor
-      noautocmd keepjumps setline(lnum1, lines)
-      return ''
-  enddef
+__ https://github.com/habamax/.vim/blob/master/autoload/comment.vim
 
 
 Toggle ColorColumn at cursor position
 -------------------------------------
 
-.. code:: vim
+Sometimes you might need to edit table like text, ``colorcolumn`` and
+``vartabstop`` would `be handy here`__
 
-  # toggle colorcolumn at cursor position
-  # set vartabstop accordingly
-  def ToggleCC(all: bool = false)
-      if all
-          b:cc = &cc ?? get(b:, "cc", "80")
-          &cc = empty(&cc) ? b:cc : ""
-      else
-          var col = virtcol('.')
-          var cc = split(&cc, ",")->map((_, v) => str2nr(v))
-          if index(cc, col) == -1
-              exe "set cc=" .. cc->add(col)->sort('f')->map((_, v) => printf("%s", v))->join(',')
-          else
-              exe "set cc-=" .. col
-          endif
-      endif
-      var cc = split(&cc, ",")->map((_, v) => str2nr(v))
-      if len(cc) > 1 || len(cc) == 1 && cc[0] < 60
-          setl vsts&
-          var shift = 1
-          for v in cc
-              if v == 1 | continue | endif
-              exe "set vsts+=" .. (v - shift)
-              shift = v
-          endfor
-          exe "setl vsts+=" .. &sw
-      else
-          setl vsts&
-      endif
-  enddef
-  nnoremap <silent> yoc <ScriptCmd>ToggleCC()<CR>
-  nnoremap <silent> yoC <ScriptCmd>ToggleCC(true)<CR>
+__ https://github.com/habamax/.vim/blob/9c134346affce6e5166fcaac39c58ef3960ca563/vimrc#L116-L146
 
 
 
