@@ -71,8 +71,8 @@ __ https://github.com/habamax/.vim/blob/master/autoload/comment.vim
 Toggle ColorColumn at cursor position
 -------------------------------------
 
-Sometimes you might need to edit table like text, ``colorcolumn`` and
-``vartabstop`` would `be handy here`__
+Sometimes you might need to edit table-like text, ``colorcolumn`` and
+``vartabstop`` `could be helpful`__:
 
 __ https://github.com/habamax/.vim/blob/9c134346affce6e5166fcaac39c58ef3960ca563/vimrc#L116-L146
 
