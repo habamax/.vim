@@ -44,3 +44,16 @@ MAKE AND INSTALL
 >
   ./configure --with-features=huge --enable-gui=gtk3 --enable-python3interp
   sudo make install
+
+
+IOSEVKA                                              *iosevka*
+=======
+
+To build iosevka-habamax version:
+
+- get iosevka source https://github.com/be5invis/Iosevka
+- get private-build-plans.toml from https://github.com/habamax/iosevka-habamax
+- install npm dependencies
+- run `npm run build -- ttf::iosevka-habamax`
+
+Iosevka online customizer: https://typeof.net/Iosevka/customizer
