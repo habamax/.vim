@@ -88,7 +88,7 @@ nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
 nnoremap <space>fR <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
 nnoremap <space>; <scriptcmd>fuzzy.CmdHistory()<CR>
 nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
-nnoremap <space>fj <scriptcmd>fuzzy.DumbJump()<CR>
+nnoremap <space>j <scriptcmd>fuzzy.DumbJump()<CR>
 nnoremap <space>fw <scriptcmd>fuzzy.Window()<CR>
 
 

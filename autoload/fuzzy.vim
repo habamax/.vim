@@ -357,6 +357,7 @@ enddef
 
 export def DumbJump()
     var word = expand("<cword>")
+    if empty(trim(word)) | return | endif
     var lines = []
     for nr in range(1, line('$'))
         var line = getline(nr)
