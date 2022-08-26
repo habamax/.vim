@@ -54,16 +54,16 @@ def SourceVim(...args: list<any>): any
         &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
         return 'g@'
     endif
-    if getline(1) =~ '^vim9script$' || getline("'[") =~ '^\s*vim9script\s*$'
+    if getline(1) =~ '^vim9script$'
         vim9cmd :'[,']source
     else
         :'[,']source
     endif
     return ''
 enddef
-nnoremap <silent> <expr> <space>v <SID>SourceVim()
-xnoremap <silent> <expr> <space>v <SID>SourceVim()
-nnoremap <silent> <expr> <space>vv <SID>SourceVim() .. '_'
+nnoremap <silent> <expr> <space>v SourceVim()
+xnoremap <silent> <expr> <space>v SourceVim()
+nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 
 g:maplocalleader = "\<space>\<space>"
 
