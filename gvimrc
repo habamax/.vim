@@ -3,11 +3,11 @@ vim9script
 set winaltkeys=no
 set guioptions=cM
 
-set linespace=-1
+set linespace=0
 if has("win32")
     set guifont=Iosevka\ Habamax:h15,Consolas:h14
 else
-    set guifont=Monospace\ 16
+    set guifont=Monospace\ 18
 endif
 
 # quick font check:
