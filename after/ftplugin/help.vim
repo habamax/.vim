@@ -9,8 +9,8 @@ b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
 nnoremap <buffer> <cr> <C-]>
 nnoremap <buffer> o <C-]>
 nnoremap <buffer> u <C-t>
-nnoremap <buffer> J <cmd>call search('\|[^\|[:space:]]\+\|', 'z')<cr>
-nnoremap <buffer> K <cmd>call search('\|[^\|[:space:]]\+\|', 'zb')<cr>
+nnoremap <buffer> . <cmd>call search('\|[^\|[:space:]]\+\|', '')<cr>
+nnoremap <buffer> , <cmd>call search('\|[^\|[:space:]]\+\|', 'b')<cr>
 
 import autoload 'popup.vim'
 
