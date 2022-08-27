@@ -3,8 +3,8 @@ vim9script
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <cr>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> o"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> u"'
-b:undo_ftplugin ..= ' | exe "nunmap <buffer> J"'
-b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> ."'
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> ,"'
 
 nnoremap <buffer> <cr> <C-]>
 nnoremap <buffer> o <C-]>
