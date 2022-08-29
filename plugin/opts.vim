@@ -78,10 +78,6 @@ g:colorizer_auto_filetype = 'css,html,colortemplate'
 g:colorizer_disable_bufleave = 1
 
 
-# vim-godot
-g:godot_ext_hl = v:false
-
-
 # lens
 g:lens_disabled_filetypes = ['fugitiveblame', 'selectprompt', 'selectresults']
 
