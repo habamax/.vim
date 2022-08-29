@@ -13,24 +13,23 @@ endif
 var last_scene_run = ''
 
 # Run last scene
-def RunGodotLast()
+def RunLast()
     if last_scene_run == ''
         echom "No scene was run yet!"
         return
     endif
-    RunGodotScene(last_scene_run)
+    RunScene(last_scene_run)
 enddef
 
 
 # Run current scene
-def RunGodotCurrent()
-    RunGodotScene(expand("%:r") .. '.tscn')
+def RunCurrent()
+    RunScene(expand("%:r") .. '.tscn')
 enddef
 
 
-
 # Run arbitrary scene
-def RunGodotScene(scene_name: string)
+def RunScene(scene_name: string)
     if !exists('g:godot_executable')
         if executable('godot')
             g:godot_executable = 'godot'
@@ -49,7 +48,7 @@ def RunGodotScene(scene_name: string)
 enddef
 
 
-def RunScene()
+def RunSelectedScene()
     var scenes = []
     if executable('fd')
         scenes = systemlist('fd --path-separator / --type f --hidden --follow --exclude .git --glob *.tscn')
@@ -60,7 +59,7 @@ def RunScene()
     endif
     popup.FilterMenu("Run scene", scenes,
         (res, key) => {
-            RunGodotScene(res.text)
+            RunScene(res.text)
         },
         (winid) => {
             win_execute(winid, 'syn match FilterMenuDirectorySubtle "^.*\(/\|\\\)"')
@@ -68,10 +67,10 @@ def RunScene()
         })
 enddef
 
-nnoremap <buffer> <space>r <scriptcmd>RunScene()<CR>
-nnoremap <buffer> <F5> <scriptcmd>RunGodotScene("")<CR>
-nnoremap <buffer> <F6> <scriptcmd>RunGodotCurrent()<CR>
-nnoremap <buffer> <F7> <scriptcmd>RunGodotLast()<CR>
+nnoremap <buffer> <space>r <scriptcmd>RunSelectedScene()<CR>
+nnoremap <buffer> <F5> <scriptcmd>RunScene("")<CR>
+nnoremap <buffer> <F6> <scriptcmd>RunCurrent()<CR>
+nnoremap <buffer> <F7> <scriptcmd>RunLast()<CR>
 
 
 def Things()
