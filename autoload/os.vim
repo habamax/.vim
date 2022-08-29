@@ -53,7 +53,6 @@ export def Exe(cmd: string)
     if exists("$WSLENV")
         job_opts.cwd = "/mnt/c"
     endif
-    g:cmd = cmd
     job_start(cmd, job_opts)
 enddef
 

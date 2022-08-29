@@ -43,7 +43,6 @@ def RunScene(scene_name: string)
 
     var godot_command = $'{g:godot_executable} {scene_name}'
     os.Exe(godot_command)
-    echom scene_name
     last_scene_run = scene_name
 enddef
 
