@@ -3,7 +3,8 @@
 # My
 habamax/start/vim-asciidoctor	git@github.com:habamax/vim-asciidoctor.git
 habamax/start/vim-rst	git@github.com:habamax/vim-rst.git
-habamax/start/vim-godot	git@github.com:habamax/vim-godot.git
+# habamax/start/vim-godot	git@github.com:habamax/vim-godot.git
+habamax/start/vim-gdscript	git@github.com:habamax/vim-gdscript.git
 habamax/start/vim-dir	git@github.com:habamax/vim-dir.git
 
 # Very nice to have

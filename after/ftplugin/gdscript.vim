@@ -1,16 +1,53 @@
 vim9script
 import autoload 'popup.vim'
+import autoload 'os.vim'
 
-setlocal ts=4 sw=0
+setlocal noet ts=4 sw=0
 
 
 if exists(":DD") > 0
     setlocal keywordprg=:DD\ godot
 endif
 
-nnoremap <buffer> <F5> :GodotRun<CR>
-nnoremap <buffer> <F6> :GodotRunCurrent<CR>
-nnoremap <buffer> <F7> :GodotRunLast<CR>
+
+var last_scene_run = ''
+
+# Run last scene
+def RunGodotLast()
+    if last_scene_run == ''
+        echom "No scene was run yet!"
+        return
+    endif
+    RunGodotScene(last_scene_run)
+enddef
+
+
+# Run current scene
+def RunGodotCurrent()
+    RunGodotScene(expand("%:r") .. '.tscn')
+enddef
+
+
+
+# Run arbitrary scene
+def RunGodotScene(scene_name: string)
+    if !exists('g:godot_executable')
+        if executable('godot')
+            g:godot_executable = 'godot'
+        elseif executable('godot.exe')
+            g:godot_executable = 'godot.exe'
+        else
+            echomsg 'Unable to find Godot executable, please specify g:godot_executable'
+            return
+        endif
+    endif
+
+    var godot_command = $'{g:godot_executable} {scene_name}'
+    os.Exe(godot_command)
+    echom scene_name
+    last_scene_run = scene_name
+enddef
+
 
 def RunScene()
     var scenes = []
@@ -23,7 +60,7 @@ def RunScene()
     endif
     popup.FilterMenu("Run scene", scenes,
         (res, key) => {
-            exe $"GodotRun {res.text}"
+            RunGodotScene(res.text)
         },
         (winid) => {
             win_execute(winid, 'syn match FilterMenuDirectorySubtle "^.*\(/\|\\\)"')
@@ -32,6 +69,9 @@ def RunScene()
 enddef
 
 nnoremap <buffer> <space>r <scriptcmd>RunScene()<CR>
+nnoremap <buffer> <F5> <scriptcmd>RunGodotScene("")<CR>
+nnoremap <buffer> <F6> <scriptcmd>RunGodotCurrent()<CR>
+nnoremap <buffer> <F7> <scriptcmd>RunGodotLast()<CR>
 
 
 def Things()
