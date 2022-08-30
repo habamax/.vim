@@ -42,7 +42,7 @@ def RunScene(scene_name: string)
     endif
 
     var godot_command = $'{g:godot_executable} {scene_name}'
-    os.Exe(godot_command)
+    os.ExeTerm(godot_command)
     last_scene_run = scene_name
 enddef
 

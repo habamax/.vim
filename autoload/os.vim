@@ -57,6 +57,16 @@ export def Exe(cmd: string)
 enddef
 
 
+# Silently execute OS command
+export def ExeTerm(cmd: string)
+    var job_opts = {term_finish: "close", term_rows: 15}
+    if exists("$WSLENV")
+        job_opts.cwd = "/mnt/c"
+    endif
+    botright term_start(cmd, job_opts)
+enddef
+
+
 # Open filename in an OS
 export def Open(url: string)
     var url_x = url
