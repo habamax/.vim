@@ -88,9 +88,9 @@ Colors
 ======
 
 - lunaperche: dual background, this should be really the last one (100%);
-  Bundled with vim9.
+  *bundled with vim9*
 - habamax_: dark background, this should be really the last one (not really);
-  Bundled with vim9.
+  *bundled with vim9*
 - habaurora_: light background, graish;
 - bronzage_: dark background, was thinking of zenburn while creating it;
 - sugarlily_: white background, blue accents;
