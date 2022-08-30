@@ -15,8 +15,8 @@ Fuzzy Popup Finder
 
 Sometimes ago I have created `vim-select`_ plugin to simplify opening of
 files/buffers and other things in vim. I was a happy user but then another
-scratch of vimscript and I have way simpler fuzzy popup finder that does most of
-the things I need:
+scratch of vimscript and I have a way simpler fuzzy popup finder that does most
+of the things I need:
 
 - A `wrapper function`__ to narrow down any list provided as a parameter to
   something you can select from.
