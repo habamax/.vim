@@ -13,7 +13,7 @@ Vimscript scratches
 Fuzzy Popup Finder
 ------------------
 
-Sometimes ago I have created `vim-select`_ plugin to simplify opening
+Sometimes ago I have created `vim-select`_ plugin to simplify opening of
 files/buffers and other things in vim. I was a happy user but then another
 scratch of vimscript and I have way simpler fuzzy popup finder that does most of
 the things I need:
