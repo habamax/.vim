@@ -18,7 +18,7 @@ set shortmess+=Ic
 set display=lastline
 set completeopt=menu,popup completepopup=highlight:Pmenu
 set number relativenumber cursorline cursorlineopt=number
-set list listchars=tab:🢒\ ,nbsp:·,trail:·,extends:→,precedes:←
+set list listchars=tab:›\ ,nbsp:·,trail:·,extends:→,precedes:←
 set fillchars=vert:│
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak
 set formatoptions=qjl
@@ -30,14 +30,15 @@ set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set wildmenu wildcharm=<C-z> wildoptions=pum,fuzzy pumheight=20
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp
 set sessionoptions=buffers,curdir,tabpages,winsize
-set path=.,,
 set history=200
+set path=.,,
+
 set viminfo='200,<50,s10
-
-g:vimdata = $'{has("win32") ? expand("$APPDATA") : expand("~/.config")}/vim-data'
-if !isdirectory(g:vimdata) | mkdir(g:vimdata, "p") | endif
-
-&viminfofile = $"{g:vimdata}/viminfo"
+if has("win32")
+    set viminfofile=~/vimfiles/viminfo
+else
+    set viminfofile=~/.vim/viminfo
+endif
 
 if executable('rg')
     set grepprg=rg\ -i\ --vimgrep grepformat=%f:%l:%c:%m
@@ -342,6 +343,7 @@ xnoremap zf <cmd>set fdm&<CR>zf
 ################################################################################
 # Swap & Backup & Undo
 
+g:vimdata = $'{has("win32") ? expand("$APPDATA") : expand("~/.config")}/vim-data'
 &directory = expand($'{g:vimdata}/swap/')
 &backupdir = expand($'{g:vimdata}/backup//')
 &undodir = expand($'{g:vimdata}/undo//')
@@ -491,16 +493,9 @@ def Lunaperche()
     StripBackground()
 enddef
 
-def Habamax()
-    # Adjust PmenuSel for CoC completion
-    hi PmenuSel ctermbg=238 ctermfg=NONE guibg=#444444 guifg=NONE
-    hi VertSplit ctermbg=NONE guibg=NONE
-enddef
-
 augroup colorschemes | au!
     au Colorscheme * StripCursorLineNr()
     au Colorscheme lunaperche Lunaperche()
-    au Colorscheme habamax Habamax()
 augroup END
 
 
