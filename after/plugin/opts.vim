@@ -71,7 +71,14 @@ if exists("g:loaded_ale")
 endif
 
 
+
 if exists("g:did_coc_loaded")
-    inoremap <silent><expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "\<tab>"
-    inoremap <silent><expr> <c-k><c-k> coc#refresh()
+    def CocTab(): string
+        if coc#pum#visible() | return coc#pum#insert() | endif
+        if col('.') > 1 && getline('.')[col('.') - 2] !~# '\s'
+            return coc#refresh()
+        endif
+        return "\<tab>"
+    enddef
+    inoremap <silent><expr> <tab> CocTab()
 endif
