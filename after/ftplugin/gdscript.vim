@@ -2,8 +2,14 @@ vim9script
 import autoload 'popup.vim'
 import autoload 'os.vim'
 
-setlocal noet ts=4 sw=0
+b:undo_ftplugin ..= ' | setl et< ts< sw< kp<'
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>r"'
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F6>"'
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F7>"'
 
+setlocal noet ts=4 sw=0
 
 if exists(":DD") > 0
     setlocal keywordprg=:DD\ godot
