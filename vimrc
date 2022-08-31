@@ -30,15 +30,14 @@ set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set wildmenu wildcharm=<C-z> wildoptions=pum,fuzzy pumheight=20
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp
 set sessionoptions=buffers,curdir,tabpages,winsize
-set history=200
 set path=.,,
-
+set history=200
 set viminfo='200,<50,s10
-if has("win32")
-    set viminfofile=~/vimfiles/viminfo
-else
-    set viminfofile=~/.vim/viminfo
-endif
+
+g:vimdata = $'{has("win32") ? expand("$APPDATA") : expand("~/.config")}/vim-data'
+if !isdirectory(g:vimdata) | mkdir(g:vimdata, "p") | endif
+
+&viminfofile = $"{g:vimdata}/viminfo"
 
 if executable('rg')
     set grepprg=rg\ -i\ --vimgrep grepformat=%f:%l:%c:%m
@@ -343,7 +342,6 @@ xnoremap zf <cmd>set fdm&<CR>zf
 ################################################################################
 # Swap & Backup & Undo
 
-g:vimdata = $'{has("win32") ? expand("$APPDATA") : expand("~/.config")}/vim-data'
 &directory = expand($'{g:vimdata}/swap/')
 &backupdir = expand($'{g:vimdata}/backup//')
 &undodir = expand($'{g:vimdata}/undo//')
