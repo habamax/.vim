@@ -71,7 +71,16 @@ if exists("g:loaded_ale")
 endif
 
 
-
+# Coc has a *very* slow startup time in Windows
+if has("win32")
+    g:coc_start_at_startup = 0
+endif
+packadd coc
+if exists(":CocStart") == 2 && !get(g:, "coc_start_at_startup", 1)
+    timer_start(2000, () => {
+        CocStart
+    })
+endif
 if exists("g:did_coc_loaded")
     def CocTab(): string
         if coc#pum#visible() | return coc#pum#insert() | endif
@@ -81,10 +90,4 @@ if exists("g:did_coc_loaded")
         return "\<tab>"
     enddef
     inoremap <silent><expr> <tab> CocTab()
-
-    if exists(":CocStart") == 2 && !get(g:, "coc_start_at_startup", 1)
-        augroup coc_startup | au!
-            au CursorHold * ++once CocStart
-        augroup END
-    endif
 endif
