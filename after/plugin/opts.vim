@@ -81,4 +81,10 @@ if exists("g:did_coc_loaded")
         return "\<tab>"
     enddef
     inoremap <silent><expr> <tab> CocTab()
+
+    if exists(":CocStart") == 2 && !g:coc_start_at_startup
+        augroup coc_startup | au!
+            au CursorHold * ++once CocStart
+        augroup END
+    endif
 endif

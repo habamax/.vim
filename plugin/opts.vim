@@ -141,7 +141,7 @@ nmap css <Plug>(sandwich-replace-auto)
 xmap S <Plug>(sandwich-add)
 
 
-# Coc
+# Coc has a *very* slow startup time in Windows
 if has("win32")
     g:coc_start_at_startup = 0
 endif
