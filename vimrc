@@ -486,6 +486,9 @@ def Lunaperche()
         hi Normal ctermbg=254 guibg=#E4E4E4
         hi CursorLine ctermbg=253 guibg=#DADADA
         hi TablineSel ctermfg=254 guifg=#E4E4E4
+    else
+        hi Normal ctermbg=233 guibg=#121212
+        hi TablineSel ctermbg=233 guibg=#121212
     endif
     hi VertSplit ctermbg=NONE guibg=NONE
     StripBackground()
