@@ -300,7 +300,7 @@ export def Highlight()
             win_execute(winid, 'syn match FilterMenuHiLinksTo "\(links to\)\|\(cleared\)"')
             hi def link FilterMenuHiLinksTo Comment
             for h in hl
-                win_execute(winid, $'syn match {h.name} "^xxx\ze {h.name}"')
+                win_execute(winid, $'syn match {h.name} "^xxx\ze {h.name}\>"')
             endfor
         })
 enddef
