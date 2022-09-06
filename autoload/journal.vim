@@ -26,10 +26,11 @@ enddef
 
 
 def NewEntry(jfilename: string)
-    if bufexists(jfilename)
-        exe "b " .. jfilename
+    var jbuf = getbufinfo(jfilename)
+    if jbuf->empty() || jbuf[0].windows->empty()
+        exe "tabe " .. jfilename
     else
-        exe "e " .. jfilename
+        win_gotoid(jbuf[0].windows[0])
     endif
 
     # search first 10 lines for a journal title
