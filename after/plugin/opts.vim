@@ -77,7 +77,7 @@ if has("win32")
 endif
 packadd coc
 if exists(":CocStart") == 2 && !get(g:, "coc_start_at_startup", 1)
-    timer_start(2000, () => {
+    timer_start(2000, (_) => {
         CocStart
     })
 endif
