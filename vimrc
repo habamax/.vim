@@ -252,11 +252,10 @@ xnoremap <silent> <space>gi <scriptcmd>git.ShowCommit(v:count, line("v"), line("
 nnoremap <silent> <space>gb <scriptcmd>git.Blame()<CR>
 xnoremap <silent> <space>gb <scriptcmd>git.Blame(line("v"), line("."))<CR>
 
+import autoload 'buf.vim'
 nnoremap go <nop>
 # go to journal file
-import autoload 'journal.vim'
-import autoload 'buf.vim'
-nnoremap <silent> goj <scriptcmd>journal.New()<CR>
+nnoremap <silent> goj <scriptcmd>buf.EditInTab(expand($DOCS ?? '~/docs') .. '/journal/2022.txt')<CR>
 # go to todo file
 nnoremap <silent> got <scriptcmd>buf.EditInTab(expand($DOCS ?? '~/docs') .. '/todo.txt')<CR>
 # go to *** file
