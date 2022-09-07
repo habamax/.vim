@@ -1,10 +1,10 @@
 vim9script
 
 export def EditInTab(name: string)
-    var jbuf = getbufinfo(name)
-    if jbuf->empty() || jbuf[0].windows->empty()
+    var bufinfo = getbufinfo(name)
+    if bufinfo->empty() || bufinfo[0].windows->empty()
         exe $"tabe {name}"
     else
-        win_gotoid(jbuf[0].windows[0])
+        win_gotoid(bufinfo[0].windows[0])
     endif
 enddef
