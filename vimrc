@@ -479,7 +479,7 @@ def StripBackground()
     if &background == 'dark'
         hi Normal ctermbg=NONE
         hi TablineSel ctermbg=NONE
-        hi Tabline ctermbg=NONE ctermfg=101 cterm=bold
+        hi Tabline ctermbg=NONE ctermfg=102
         hi TablineFill ctermbg=NONE
     endif
 enddef
