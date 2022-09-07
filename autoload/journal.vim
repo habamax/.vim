@@ -17,6 +17,7 @@ vim9script
 #
 #     CURSOR IS HERE
 
+import autoload 'buf.vim'
 
 export def New()
     var jfilename = strftime("%Y") .. '.txt'
@@ -26,12 +27,7 @@ enddef
 
 
 def NewEntry(jfilename: string)
-    var jbuf = getbufinfo(jfilename)
-    if jbuf->empty() || jbuf[0].windows->empty()
-        exe "tabe " .. jfilename
-    else
-        win_gotoid(jbuf[0].windows[0])
-    endif
+    buf.EditInTab(jfilename)
 
     # search first 10 lines for a journal title
     var journal_heading = [repeat('=', 80), strftime("%Y"), repeat('=', 80), '']

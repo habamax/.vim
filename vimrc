@@ -255,11 +255,12 @@ xnoremap <silent> <space>gb <scriptcmd>git.Blame(line("v"), line("."))<CR>
 nnoremap go <nop>
 # go to journal file
 import autoload 'journal.vim'
+import autoload 'buf.vim'
 nnoremap <silent> goj <scriptcmd>journal.New()<CR>
 # go to todo file
-nnoremap <silent> got :exe printf('tabe %s/todo.txt', expand($DOCS ?? '~/docs'))<CR>
+nnoremap <silent> got <scriptcmd>buf.EditInTab(expand($DOCS ?? '~/docs') .. '/todo.txt')<CR>
 # go to *** file
-nnoremap <silent> gop :exe printf('tabe %s/creds.txt', expand($DOCS ?? '~/docs'))<CR>
+nnoremap <silent> gop <scriptcmd>buf.EditInTab(expand($DOCS ?? '~/docs') .. '/creds.txt')<CR>
 
 import autoload 'os.vim'
 # go to current file in os file manager
