@@ -474,15 +474,6 @@ def StripCursorLineNr()
     exe $'hi CursorLineNr {guibg} {ctermbg} gui=bold cterm=bold'
 enddef
 
-def StripBackground()
-    if &background == 'dark'
-        hi Normal ctermbg=NONE
-        hi TablineSel ctermbg=NONE
-        hi Tabline ctermbg=NONE ctermfg=102
-        hi TablineFill ctermbg=NONE
-    endif
-enddef
-
 def Lunaperche()
     if &background == 'light'
         hi Normal ctermbg=254 guibg=#E4E4E4
@@ -493,7 +484,6 @@ def Lunaperche()
         hi TablineSel ctermbg=233 guibg=#121212
     endif
     hi VertSplit ctermbg=NONE guibg=NONE
-    StripBackground()
 enddef
 
 def Habamax()
