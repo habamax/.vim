@@ -1,7 +1,8 @@
 vim9script
-if executable('yapf')
+if executable('black')
+    &l:formatprg = "black -q - 2>/dev/null"
+elseif executable('yapf')
     # pip install yapf
-    command -buffer Fmt :%!yapf
     &l:formatprg = "yapf"
 endif
 
