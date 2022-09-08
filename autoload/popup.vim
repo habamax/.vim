@@ -137,13 +137,17 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
             elseif ["\<cr>", "\<C-j>", "\<C-v>", "\<C-t>"]->index(key) > -1
                     && filtered_items[0]->len() > 0 && items_count > 0
                 popup_close(id, {idx: getcurpos(id)[1], key: key})
-            elseif key == "\<tab>" || key == "\<C-n>"
+            elseif key == "\<Right>"
+                win_execute(id, 'normal! ' .. "\<C-d>")
+            elseif key == "\<Left>"
+                win_execute(id, 'normal! ' .. "\<C-u>")
+            elseif key == "\<tab>" || key == "\<C-n>" || key == "\<Down>"
                 var ln = getcurpos(id)[1]
                 win_execute(id, "normal! j")
                 if ln == getcurpos(id)[1]
                     win_execute(id, "normal! gg")
                 endif
-            elseif key == "\<S-tab>" || key == "\<C-p>"
+            elseif key == "\<S-tab>" || key == "\<C-p>" || key == "\<Up>"
                 var ln = getcurpos(id)[1]
                 win_execute(id, "normal! k")
                 if ln == getcurpos(id)[1]
