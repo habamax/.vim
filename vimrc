@@ -30,7 +30,6 @@ set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set wildmenu wildcharm=<C-z> wildoptions=pum,fuzzy pumheight=20
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp
 set sessionoptions=buffers,curdir,tabpages,winsize
-set path=.,,
 set history=200
 set viminfo='200,<50,s10
 
