@@ -106,7 +106,7 @@ def YCMPopupDoc()
     popup.ShowAtCursor(response->split('\n'))
 enddef
 
-if exists(":YcmCompleter") == 2
+if exists("g:loaded_youcompleteme")
     nnoremap <silent><buffer> K <scriptcmd>YCMPopupDoc()<CR>
     # nnoremap <silent><buffer> K <plug>(YCMHover)
     nnoremap <silent><buffer> gd <scriptcmd>YcmCompleter GoTo<CR>
