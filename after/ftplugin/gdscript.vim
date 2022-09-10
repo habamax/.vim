@@ -87,7 +87,7 @@ def Things()
             things->add({text: $"{line} ({nr})", linenr: nr})
         endif
     endfor
-    popup.FilterMenu("Py Things", things,
+    popup.FilterMenu("GDScript Things", things,
         (res, key) => {
             exe $":{res.linenr}"
             normal! zz
@@ -104,4 +104,6 @@ nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
 if exists(":CocInfo") == 2
     nnoremap <silent><buffer> K <cmd>call CocActionAsync('definitionHover')<CR>
     nnoremap <silent><buffer> gd <cmd>call CocAction('jumpDefinition')<CR>
+    b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
+    b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
 endif
