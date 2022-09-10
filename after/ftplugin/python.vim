@@ -1,4 +1,5 @@
 vim9script
+
 if executable('black')
     &l:formatprg = "black -q - 2>/dev/null"
 elseif executable('yapf')
@@ -15,8 +16,14 @@ def PopupHelp(symbol: string)
     })
 enddef
 
-nnoremap <silent><buffer> K <scriptcmd>PopupHelp(expand("<cfile>"))<CR>
-xnoremap <silent><buffer> K y<scriptcmd>PopupHelp(getreg('"'))<CR>
+
+if exists(":CocInfo") == 2
+    nnoremap <silent><buffer> K <scriptcmd>call CocActionAsync('definitionHover')<CR>
+    nnoremap <silent><buffer> gd <cmd>call CocAction('jumpDefinition')<CR>
+else
+    nnoremap <silent><buffer> K <scriptcmd>PopupHelp(expand("<cfile>"))<CR>
+    xnoremap <silent><buffer> K y<scriptcmd>PopupHelp(getreg('"'))<CR>
+endif
 
 
 def Things()

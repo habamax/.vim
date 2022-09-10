@@ -1,9 +1,13 @@
 {
-    "languageserver": {
-        "godot": {
-            "host": "127.0.0.1",
-            "filetypes": ["gdscript"],
-            "port": 6008
-        }
+  "hover.floatConfig": {
+    "border": true,
+    "rounded": true
+  },
+  "languageserver": {
+    "godot": {
+      "host": "127.0.0.1",
+      "filetypes": ["gdscript"],
+      "port": 6008
     }
+  }
 }

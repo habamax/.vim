@@ -98,3 +98,10 @@ def Things()
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
+
+
+
+if exists(":CocInfo") == 2
+    nnoremap <silent><buffer> K <cmd>call CocActionAsync('definitionHover')<CR>
+    nnoremap <silent><buffer> gd <cmd>call CocAction('jumpDefinition')<CR>
+endif
