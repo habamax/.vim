@@ -3,11 +3,6 @@ import autoload 'popup.vim'
 import autoload 'os.vim'
 
 b:undo_ftplugin ..= ' | setl et< ts< sw< kp<'
-b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>r"'
-b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
-b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
-b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F6>"'
-b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F7>"'
 
 setlocal noet ts=4 sw=0
 
@@ -76,6 +71,10 @@ nnoremap <buffer> <space>r <scriptcmd>RunSelectedScene()<CR>
 nnoremap <buffer> <F5> <scriptcmd>RunScene("")<CR>
 nnoremap <buffer> <F6> <scriptcmd>RunCurrent()<CR>
 nnoremap <buffer> <F7> <scriptcmd>RunLast()<CR>
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>r"'
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F6>"'
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F7>"'
 
 
 def Things()
@@ -98,6 +97,7 @@ def Things()
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
 
 
 
