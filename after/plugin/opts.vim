@@ -83,7 +83,7 @@ if exists(":CocStart") == 2 && !get(g:, "coc_start_at_startup", 1)
 endif
 if exists("g:did_coc_loaded")
     def CocTab(): string
-        if coc#pum#visible() | return coc#pum#insert() | endif
+        if coc#pum#visible() | return coc#pum#confirm() | endif
         if col('.') > 1 && getline('.')[col('.') - 2] !~# '\s'
             return coc#refresh()
         endif
