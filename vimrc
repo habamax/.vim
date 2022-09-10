@@ -476,25 +476,21 @@ enddef
 def Lunaperche()
     if &background == 'light'
         hi Normal ctermbg=254 guibg=#E4E4E4
-        hi CursorLine ctermbg=253 guibg=#DADADA
         hi TablineSel ctermfg=254 guifg=#E4E4E4
+        hi Pmenu ctermbg=231 guibg=#FFFFFF
+        hi CursorLine ctermbg=253 guibg=#DADADA
     else
         hi Normal ctermbg=233 guibg=#121212
         hi TablineSel ctermbg=233 guibg=#121212
+        hi Pmenu ctermbg=235 guibg=#262626
+        hi CursorLine ctermbg=238 guibg=#444444
     endif
-    hi VertSplit ctermbg=NONE guibg=NONE
-enddef
-
-def Habamax()
-    # Adjust PmenuSel for CoC completion
-    hi PmenuSel ctermbg=238 ctermfg=NONE guibg=#444444 guifg=NONE
     hi VertSplit ctermbg=NONE guibg=NONE
 enddef
 
 augroup colorschemes | au!
     au Colorscheme * StripCursorLineNr()
     au Colorscheme lunaperche Lunaperche()
-    au Colorscheme habamax Habamax()
 augroup END
 
 
