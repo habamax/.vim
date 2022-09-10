@@ -100,10 +100,16 @@ nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
 
 
+def YCMPopupDoc()
+    var response = youcompleteme#GetCommandResponse('GetHover')
+    if response == '' | return | endif
+    popup.ShowAtCursor(response->split('\n'))
+enddef
 
-if exists(":CocInfo") == 2
-    nnoremap <silent><buffer> K <cmd>call CocActionAsync('definitionHover')<CR>
-    nnoremap <silent><buffer> gd <cmd>call CocAction('jumpDefinition')<CR>
+if exists(":YcmCompleter") == 2
+    nnoremap <silent><buffer> K <scriptcmd>YCMPopupDoc()<CR>
+    # nnoremap <silent><buffer> K <plug>(YCMHover)
+    nnoremap <silent><buffer> gd <scriptcmd>YcmCompleter GoTo<CR>
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
 endif

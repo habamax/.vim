@@ -15,11 +15,16 @@ def PopupHelp(symbol: string)
         setbufvar(winbufnr(winid), "&ft", "rst")
     })
 enddef
+def YCMPopupDoc()
+    var response = youcompleteme#GetCommandResponse('GetDoc')
+    if response == '' | return | endif
+    popup.ShowAtCursor(response->split('\n'))
+enddef
 
 
-if exists(":CocInfo") == 2
-    nnoremap <silent><buffer> K <scriptcmd>call CocActionAsync('definitionHover')<CR>
-    nnoremap <silent><buffer> gd <cmd>call CocAction('jumpDefinition')<CR>
+if exists(":YcmCompleter") == 2
+    nnoremap <silent><buffer> K <scriptcmd>YCMPopupDoc()<CR>
+    nnoremap <silent><buffer> gd <scriptcmd>YcmCompleter GoTo<CR>
 else
     nnoremap <silent><buffer> K <scriptcmd>PopupHelp(expand("<cfile>"))<CR>
     xnoremap <silent><buffer> K y<scriptcmd>PopupHelp(getreg('"'))<CR>

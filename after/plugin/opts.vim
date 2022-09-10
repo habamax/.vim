@@ -71,23 +71,23 @@ if exists("g:loaded_ale")
 endif
 
 
-# Coc has a *very* slow startup time in Windows
-if has("win32")
-    g:coc_start_at_startup = 0
-endif
-packadd coc
-if exists(":CocStart") == 2 && !get(g:, "coc_start_at_startup", 1)
-    timer_start(2000, (_) => {
-        CocStart
-    })
-endif
-if exists("g:did_coc_loaded")
-    def CocTab(): string
-        if coc#pum#visible() | return coc#pum#confirm() | endif
-        if col('.') > 1 && getline('.')[col('.') - 2] !~# '\s'
-            return coc#refresh()
-        endif
-        return "\<tab>"
-    enddef
-    inoremap <silent><expr> <tab> CocTab()
+# YCM
+if !has("win32")
+    g:ycm_collect_identifiers_from_comments_and_strings = 1
+    g:ycm_complete_in_comments = 1
+    g:ycm_auto_hover = ''
+
+    if !exists("g:ycm_language_server")
+      g:ycm_language_server = []
+    endif
+
+    g:ycm_language_server += [
+         {
+           'name': 'godot',
+           'filetypes': [ 'gdscript' ],
+           'project_root_files': [ 'project.godot' ],
+           'port': 6008
+         }
+       ]
+   packadd YCM
 endif
