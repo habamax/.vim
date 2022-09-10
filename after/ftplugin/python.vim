@@ -22,7 +22,7 @@ def YCMPopupDoc()
 enddef
 
 
-if exists(":YcmCompleter") == 2
+if exists("g:loaded_youcompleteme")
     nnoremap <silent><buffer> K <scriptcmd>YCMPopupDoc()<CR>
     nnoremap <silent><buffer> gd <scriptcmd>YcmCompleter GoTo<CR>
 else
