@@ -77,7 +77,6 @@ if !has("win32")
     g:ycm_complete_in_comments = 1
     g:ycm_auto_hover = ''
     g:ycm_clangd_uses_ycmd_caching = 0
-    g:ycm_clangd_binary_path = exepath("clangd")
 
     if !exists("g:ycm_language_server")
       g:ycm_language_server = []
