@@ -491,9 +491,34 @@ def Lunaperche()
     hi VertSplit ctermbg=NONE guibg=NONE
 enddef
 
+def Quiet()
+    if &background == 'light'
+        hi Pmenu ctermbg=255 guibg=#EEEEEE
+        hi PmenuSel ctermbg=251 guibg=#C6C6C6
+        hi PmenuSbar ctermbg=253 guibg=#DADADA
+        hi PmenuThumb guifg=#080808 guibg=#626262 ctermfg=232 ctermbg=241
+        hi CursorLine ctermbg=253 guibg=#DADADA
+        hi FilterMenuMatch cterm=bold gui=bold
+        hi Title cterm=bold gui=bold
+    else
+        hi Normal ctermbg=233 guibg=#121212
+        hi Pmenu ctermbg=235 ctermfg=253 guibg=#262626 guifg=#DADADA
+        hi PmenuSel ctermbg=238 ctermfg=253 guibg=#444444 guifg=#DADADA
+        hi PmenuSbar guifg=#080808 guibg=#626262 ctermfg=232 ctermbg=241
+        hi PmenuThumb ctermbg=253 guibg=#DADADA
+        hi CursorLine ctermbg=238 ctermfg=253 guibg=#444444 guifg=#DADADA
+        hi FilterMenuMatch ctermfg=231 cterm=bold gui=bold guifg=#FFFFFF
+        hi Title ctermfg=255 cterm=bold gui=bold guifg=#EEEEEE
+    endif
+    hi link FilterMenuDirectorySubtle Normal
+    hi! link EndOfBuffer Normal
+    hi VertSplit ctermbg=NONE guibg=NONE
+enddef
+
 augroup colorschemes | au!
     au Colorscheme * StripCursorLineNr()
     au Colorscheme lunaperche Lunaperche()
+    au Colorscheme quiet Quiet()
 augroup END
 
 
