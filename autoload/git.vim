@@ -114,11 +114,13 @@ enddef
 #   xnoremap <silent> <space>gh <scriptcmd>git.GithubOpen(line("v"), line("."))<CR>
 export def GithubOpen(firstline: number = line("."), lastline: number = line("."))
     var gitroot = systemlist("git rev-parse --show-toplevel")->join('')
-    var filename = strpart(expand('%:p'), len(gitroot) + 1)
-    var upbranch = systemlist("git for-each-ref --format='%(upstream:short)' \"$(git symbolic-ref -q HEAD)\"")->join('')
-    var remote_name = substitute(upbranch, '\(.\{-}\)\/.*', '\1', '')
-    upbranch = substitute(upbranch, $'{remote_name}/', '', '')
-    var remote_url = systemlist($"git config --get remote.{remote_name}.url")->join('')->substitute('.*@\(.*\):', '\1/', '')->substitute('.git$', '', '')
-    var github_url = $'https://{remote_url}/tree/{upbranch}/{filename}#L{firstline}-L{lastline}'
-    os.Open(escape(github_url, '#%!'))
+    var filename = strpart(expand('%:p'), len(gitroot) + 1)->tr('\', '/')
+    var branch = systemlist("git rev-parse --abbrev-ref HEAD")->join('')
+    var remote_url = systemlist("git remote get-url origin")->join('')
+    if remote_url =~ '^git@github.com'
+        remote_url = remote_url->substitute('^git@github.com:', 'https://github.com/', '')
+    endif
+    remote_url = remote_url->substitute('.git$', '', '')
+    var github_url = $'{remote_url}/blob/{branch}/{filename}#L{firstline}-L{lastline}'
+    os.Open(github_url)
 enddef
