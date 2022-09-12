@@ -499,7 +499,7 @@ def Quiet()
         hi PmenuThumb guifg=#080808 guibg=#626262 ctermfg=232 ctermbg=241
         hi CursorLine ctermbg=253 guibg=#DADADA
         hi FilterMenuMatch cterm=bold gui=bold
-        hi Title cterm=bold gui=bold
+        hi SpecialKey ctermfg=247 guifg=#9E9E9E
     else
         hi Normal ctermbg=233 guibg=#121212
         hi Pmenu ctermbg=235 ctermfg=253 guibg=#262626 guifg=#DADADA
@@ -508,7 +508,7 @@ def Quiet()
         hi PmenuThumb ctermbg=253 guibg=#DADADA
         hi CursorLine ctermbg=238 ctermfg=253 guibg=#444444 guifg=#DADADA
         hi FilterMenuMatch ctermfg=231 cterm=bold gui=bold guifg=#FFFFFF
-        hi Title ctermfg=255 cterm=bold gui=bold guifg=#EEEEEE
+        hi SpecialKey ctermfg=240 guifg=#585858
     endif
     hi link FilterMenuDirectorySubtle Normal
     hi! link EndOfBuffer Normal
