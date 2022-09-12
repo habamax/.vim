@@ -8,11 +8,11 @@ var pack_jobs = []
 # Update or install plugins listed in packs
 export def PackUpdate()
     if !reduce(pack_jobs, (acc, val) => acc && job_status(val) != 'run', true)
-        echo "Previous update is not finished yet!"
+        echow "Previous update is not finished yet!"
         return
     endif
     pack_jobs = []
-    echom "Update plugins..."
+    echow "Update plugins..."
     var cwd = fnamemodify($MYVIMRC, ":p:h")
     var pack_list = $'{cwd}/pack/packs'
     var jobs = []
@@ -20,7 +20,7 @@ export def PackUpdate()
     def OutCb(ch: channel, msg: string)
         if msg !~ '.*up to date.$' && msg !~ '^HEAD' && msg !~ '^Removing .*tags' && msg !~ '^Updating files'
             msg_count += 1
-            echom msg
+            echow msg
         endif
     enddef
     if filereadable(pack_list)
@@ -49,12 +49,11 @@ export def PackUpdate()
         if reduce(pack_jobs, (acc, val) => acc && job_status(val) != 'run', true)
             timer_stop(t)
             if msg_count == 2
-                echom "No updates available."
+                echow "No updates available."
             else
-                echom "Plugins are updated!"
+                echow "Plugins are updated!"
             endif
             helptags ALL
-            feedkeys($":{msg_count} messages\<CR>", 'n')
         endif
     enddef
     timer_start(2000, (t) => TimerHandler(t), {"repeat": 100})
@@ -115,14 +114,11 @@ enddef
 #   xnoremap <silent> <space>gh <scriptcmd>git.GithubOpen(line("v"), line("."))<CR>
 export def GithubOpen(firstline: number = line("."), lastline: number = line("."))
     var gitroot = systemlist("git rev-parse --show-toplevel")->join('')
-    var filename = substitute(expand('%:p'), gitroot .. '\/', '', '')
+    var filename = strpart(expand('%:p'), len(gitroot) + 1)
     var upbranch = systemlist("git for-each-ref --format='%(upstream:short)' \"$(git symbolic-ref -q HEAD)\"")->join('')
     var remote_name = substitute(upbranch, '\(.\{-}\)\/.*', '\1', '')
-    upbranch = substitute(upbranch, remote_name .. '\/', '', '')
-    var remote_url = systemlist("git config --get remote." .. remote_name .. ".url")->join('')->substitute('.*@\(.*\):', '\1/', '')->substitute('.git$', '', '')
-
-    var lines = "#L" .. firstline .. "-L" .. lastline
-    var tree = "/tree/" .. upbranch .. "/" .. filename .. lines
-    var github_url = "https://" .. remote_url .. tree
+    upbranch = substitute(upbranch, $'{remote_name}/', '', '')
+    var remote_url = systemlist($"git config --get remote.{remote_name}.url")->join('')->substitute('.*@\(.*\):', '\1/', '')->substitute('.git$', '', '')
+    var github_url = $'https://{remote_url}/tree/{upbranch}/{filename}#L{firstline}-L{lastline}'
     os.Open(escape(github_url, '#%!'))
 enddef
