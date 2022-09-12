@@ -251,6 +251,8 @@ nnoremap <silent> <space>gi <scriptcmd>git.ShowCommit(v:count)<CR>
 xnoremap <silent> <space>gi <scriptcmd>git.ShowCommit(v:count, line("v"), line("."))<CR>
 nnoremap <silent> <space>gb <scriptcmd>git.Blame()<CR>
 xnoremap <silent> <space>gb <scriptcmd>git.Blame(line("v"), line("."))<CR>
+nnoremap <silent> <space>gh <scriptcmd>git.GithubOpen()<CR>
+xnoremap <silent> <space>gh <scriptcmd>git.GithubOpen(line("v"), line("."))<CR>
 
 import autoload 'buf.vim'
 nnoremap go <nop>

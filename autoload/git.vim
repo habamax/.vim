@@ -1,6 +1,7 @@
 vim9script
 
 import autoload 'popup.vim'
+import autoload 'os.vim'
 
 var pack_jobs = []
 
@@ -104,4 +105,24 @@ export def Blame(firstline: number = line("."), lastline: number = line("."))
     popup.ShowAtCursor(git_output, (winid) => {
         setbufvar(winbufnr(winid), "&filetype", "fugitiveblame")
     })
+enddef
+
+
+# Open current line/selection in Github.
+# Usage:
+#   import autoload 'git.vim'
+#   nnoremap <silent> <space>gh <scriptcmd>git.GithubOpen()<CR>
+#   xnoremap <silent> <space>gh <scriptcmd>git.GithubOpen(line("v"), line("."))<CR>
+export def GithubOpen(firstline: number = line("."), lastline: number = line("."))
+    var gitroot = systemlist("git rev-parse --show-toplevel")->join('')
+    var filename = substitute(expand('%:p'), gitroot .. '\/', '', '')
+    var upbranch = systemlist("git for-each-ref --format='%(upstream:short)' \"$(git symbolic-ref -q HEAD)\"")->join('')
+    var remote_name = substitute(upbranch, '\(.\{-}\)\/.*', '\1', '')
+    upbranch = substitute(upbranch, remote_name .. '\/', '', '')
+    var remote_url = systemlist("git config --get remote." .. remote_name .. ".url")->join('')->substitute('.*@\(.*\):', '\1/', '')->substitute('.git$', '', '')
+
+    var lines = "#L" .. firstline .. "-L" .. lastline
+    var tree = "/tree/" .. upbranch .. "/" .. filename .. lines
+    var github_url = "https://" .. remote_url .. tree
+    os.Open(escape(github_url, '#%!'))
 enddef
