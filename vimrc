@@ -127,6 +127,7 @@ def ToggleCC(all: bool = false)
             exe $"set cc-={col}"
         endif
     endif
+    if !&expandtab | return | endif
     var cc = split(&cc, ",")->map((_, v) => str2nr(v))
     if len(cc) > 1 || len(cc) == 1 && cc[0] < 60
         setl vsts&
