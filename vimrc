@@ -518,8 +518,11 @@ def Quiet()
         hi Comment ctermfg=75 cterm=NONE guifg=#005faf gui=NONE
     endif
     hi link FilterMenuDirectorySubtle Normal
-    hi! link EndOfBuffer Normal
+    hi EndOfBuffer ctermbg=NONE ctermfg=darkgray guibg=NONE guifg=gray
     hi VertSplit ctermbg=NONE guibg=NONE
+    hi Directory cterm=bold gui=bold
+    hi Title cterm=bold gui=bold
+    hi! link DirPermissionUser Normal
 enddef
 
 augroup colorschemes | au!
