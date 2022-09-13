@@ -524,6 +524,7 @@ def Quiet()
     hi Title cterm=bold gui=bold
     hi! link DirPermissionUser Normal
     hi Statement cterm=italic gui=italic
+    hi Error ctermbg=white
 enddef
 
 augroup colorschemes | au!
@@ -541,4 +542,4 @@ if has("win32") && has("gui_running")
 else
     set bg=dark
 endif
-silent! colorscheme lunaperche
+silent! colorscheme quiet
