@@ -233,11 +233,14 @@ inoremap <C-U> <C-G>u<C-U>
 inoremap <C-l> <C-g>u<ESC>[s1z=`]a<C-g>u
 
 nnoremap <silent> <space># <scriptcmd>text.Underline('#')<CR>
+nmap <silent> <space>3 <space>#
 nnoremap <silent> <space>* <scriptcmd>text.Underline('*')<CR>
+nmap <silent> <space>8 <space>*
 nnoremap <silent> <space>= <scriptcmd>text.Underline('=')<CR>
 nnoremap <silent> <space>- <scriptcmd>text.Underline('-')<CR>
 nnoremap <silent> <space>~ <scriptcmd>text.Underline('~')<CR>
 nnoremap <silent> <space>^ <scriptcmd>text.Underline('^')<CR>
+nmap <silent> <space>6 <space>^
 nnoremap <silent> <space>+ <scriptcmd>text.Underline('+')<CR>
 nnoremap <silent> <space>" <scriptcmd>text.Underline('"')<CR>
 nnoremap <silent> <space>` <scriptcmd>text.Underline('`')<CR>
