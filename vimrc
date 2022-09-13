@@ -523,6 +523,7 @@ def Quiet()
     hi Directory cterm=bold gui=bold
     hi Title cterm=bold gui=bold
     hi! link DirPermissionUser Normal
+    hi Statement cterm=italic gui=italic
 enddef
 
 augroup colorschemes | au!
