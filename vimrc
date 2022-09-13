@@ -519,7 +519,7 @@ def Quiet()
         hi Comment ctermfg=75 cterm=NONE guifg=#5fafff gui=NONE
     endif
     hi link FilterMenuDirectorySubtle Normal
-    hi link FilterMenuMatch Comment
+    hi link FilterMenuMatch Constant
     hi EndOfBuffer ctermbg=NONE ctermfg=darkgray guibg=NONE guifg=darkgray
     hi VertSplit ctermbg=NONE guibg=NONE
     hi Directory cterm=bold gui=bold
