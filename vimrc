@@ -499,7 +499,6 @@ def Quiet()
         hi PmenuSbar ctermbg=253 guibg=#DADADA
         hi PmenuThumb ctermbg=241 ctermfg=232 guibg=#626262 guifg=#080808
         hi CursorLine ctermbg=253 guibg=#DADADA
-        hi FilterMenuMatch cterm=bold gui=bold
         hi SpecialKey ctermfg=247 guifg=#9E9E9E
         hi String ctermfg=22 guifg=#005f00
         hi Constant ctermfg=90 guifg=#870087
@@ -511,13 +510,13 @@ def Quiet()
         hi PmenuSbar ctermbg=241 ctermfg=232 guibg=#626262 guifg=#080808
         hi PmenuThumb ctermbg=253 guibg=#DADADA
         hi CursorLine ctermbg=238 ctermfg=253 guibg=#444444 guifg=#DADADA
-        hi FilterMenuMatch ctermfg=231 cterm=bold gui=bold guifg=#FFFFFF
         hi SpecialKey ctermfg=240 guifg=#585858
         hi String ctermfg=41 guifg=#00d75f
         hi Constant ctermfg=213 guifg=#d787d7
         hi Comment ctermfg=75 cterm=NONE guifg=#5fafff gui=NONE
     endif
     hi link FilterMenuDirectorySubtle Normal
+    hi link FilterMenuMatch Comment
     hi EndOfBuffer ctermbg=NONE ctermfg=darkgray guibg=NONE guifg=darkgray
     hi VertSplit ctermbg=NONE guibg=NONE
     hi Directory cterm=bold gui=bold
