@@ -90,5 +90,5 @@ if !has("win32")
            'port': 6008
          }
        ]
-   packadd YCM
+    packadd YCM
 endif
