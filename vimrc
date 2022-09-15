@@ -521,7 +521,6 @@ def Quiet()
     hi Title cterm=bold gui=bold
     hi DirPermissionUser ctermfg=NONE guifg=NONE
     hi Error ctermbg=white guibg=white
-    hi Statement cterm=italic gui=italic
 enddef
 
 augroup colorschemes | au!
@@ -540,4 +539,4 @@ else
     set bg=dark
 endif
 packadd colorschemes
-silent! colorscheme lunaperche
+silent! colorscheme quiet
