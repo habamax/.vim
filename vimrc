@@ -540,4 +540,4 @@ else
     set bg=dark
 endif
 packadd colorschemes
-silent! colorscheme quiet
+silent! colorscheme lunaperche
