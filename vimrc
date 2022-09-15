@@ -473,26 +473,20 @@ augroup xterm256 | au!
 augroup END
 
 
-def StripCursorLineNr()
+def BaseColorschemeSetup()
     var hl = hlget('LineNr')[0]
     var ctermbg = 'ctermbg=' .. (hl->has_key('ctermbg') ? hl.ctermbg : 'NONE')
     var guibg = 'guibg=' .. (hl->has_key('guibg') ? hl.guibg : 'NONE')
     exe $'hi CursorLineNr {guibg} {ctermbg} gui=bold cterm=bold'
+    hi VertSplit ctermbg=NONE guibg=NONE
 enddef
 
 def Lunaperche()
-    if &background == 'light'
-        hi Normal ctermbg=254 guibg=#E4E4E4
-        hi TablineSel ctermfg=254 guifg=#E4E4E4
-        hi Pmenu ctermbg=231 guibg=#FFFFFF
-        hi CursorLine ctermbg=253 guibg=#DADADA
-    else
-        hi Normal ctermbg=233 guibg=#121212
-        hi TablineSel ctermbg=233 guibg=#121212
-        hi Pmenu ctermbg=235 guibg=#262626
-        hi CursorLine ctermbg=238 guibg=#444444
+    if &background == 'dark'
+        hi Normal ctermbg=NONE guibg=#080808
+        hi TablineSel ctermbg=NONE
     endif
-    hi VertSplit ctermbg=NONE guibg=NONE
+    # hi clear Type
 enddef
 
 def Quiet()
@@ -507,7 +501,6 @@ def Quiet()
         hi Constant ctermfg=90 guifg=#870087
         hi Comment ctermfg=25 cterm=NONE guifg=#005faf gui=NONE
     else
-        hi Normal ctermbg=233 guibg=#121212
         hi Pmenu ctermbg=235 ctermfg=253 guibg=#262626 guifg=#DADADA
         hi PmenuSel ctermbg=238 ctermfg=253 guibg=#444444 guifg=#DADADA
         hi PmenuSbar ctermbg=241 ctermfg=232 guibg=#626262 guifg=#080808
@@ -517,19 +510,22 @@ def Quiet()
         hi String ctermfg=41 guifg=#00d75f
         hi Constant ctermfg=213 guifg=#d787d7
         hi Comment ctermfg=75 cterm=NONE guifg=#5fafff gui=NONE
+        hi rstSection ctermfg=white cterm=bold guifg=white gui=bold
     endif
     hi link FilterMenuDirectorySubtle Normal
     hi link FilterMenuMatch Constant
-    hi EndOfBuffer ctermbg=NONE ctermfg=darkgray guibg=NONE guifg=darkgray
+    hi rstDirective cterm=italic gui=italic
+    hi EndOfBuffer ctermbg=NONE ctermfg=243 guibg=NONE guifg=#767676
     hi VertSplit ctermbg=NONE guibg=NONE
     hi Directory cterm=bold gui=bold
     hi Title cterm=bold gui=bold
-    hi! link DirPermissionUser Normal
+    hi DirPermissionUser ctermfg=NONE guifg=NONE
     hi Error ctermbg=white guibg=white
+    hi Statement cterm=italic gui=italic
 enddef
 
 augroup colorschemes | au!
-    au Colorscheme * StripCursorLineNr()
+    au Colorscheme * BaseColorschemeSetup()
     au Colorscheme lunaperche Lunaperche()
     au Colorscheme quiet Quiet()
 augroup END
@@ -543,4 +539,4 @@ if has("win32") && has("gui_running")
 else
     set bg=dark
 endif
-silent! colorscheme quiet
+silent! colorscheme lunaperche
