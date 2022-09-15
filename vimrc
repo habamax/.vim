@@ -495,6 +495,7 @@ def Quiet()
         hi PmenuSel ctermbg=251 guibg=#C6C6C6
         hi PmenuSbar ctermbg=253 guibg=#DADADA
         hi PmenuThumb ctermbg=241 ctermfg=232 guibg=#626262 guifg=#080808
+        hi EndOfBuffer ctermbg=NONE ctermfg=248 guibg=NONE guifg=#A8A8A8
         hi CursorLine ctermbg=253 guibg=#DADADA
         hi SpecialKey ctermfg=247 guifg=#9E9E9E
         hi String ctermfg=22 guifg=#005f00
@@ -505,6 +506,7 @@ def Quiet()
         hi PmenuSel ctermbg=238 ctermfg=253 guibg=#444444 guifg=#DADADA
         hi PmenuSbar ctermbg=241 ctermfg=232 guibg=#626262 guifg=#080808
         hi PmenuThumb ctermbg=253 guibg=#DADADA
+        hi EndOfBuffer ctermbg=NONE ctermfg=238 guibg=NONE guifg=#444444
         hi CursorLine ctermbg=238 ctermfg=253 guibg=#444444 guifg=#DADADA
         hi SpecialKey ctermfg=240 guifg=#585858
         hi String ctermfg=41 guifg=#00d75f
@@ -515,11 +517,10 @@ def Quiet()
     hi link FilterMenuDirectorySubtle Normal
     hi link FilterMenuMatch Constant
     hi rstDirective cterm=italic gui=italic
-    hi EndOfBuffer ctermbg=NONE ctermfg=243 guibg=NONE guifg=#767676
     hi VertSplit ctermbg=NONE guibg=NONE
     hi Directory cterm=bold gui=bold
     hi Title cterm=bold gui=bold
-    hi DirPermissionUser ctermfg=NONE guifg=NONE
+    hi link DirPermissionUser Normal
     hi Error ctermbg=white guibg=white
 enddef
 
