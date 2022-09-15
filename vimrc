@@ -539,4 +539,5 @@ if has("win32") && has("gui_running")
 else
     set bg=dark
 endif
+packadd colorschemes
 silent! colorscheme lunaperche
