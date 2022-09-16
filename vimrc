@@ -495,7 +495,7 @@ def Quiet()
         hi PmenuSel ctermbg=251 guibg=#C6C6C6
         hi PmenuSbar ctermbg=253 guibg=#DADADA
         hi PmenuThumb ctermbg=241 ctermfg=232 guibg=#626262 guifg=#080808
-        hi EndOfBuffer ctermbg=NONE ctermfg=248 guibg=NONE guifg=#A8A8A8
+        hi EndOfBuffer ctermfg=248 guifg=#A8A8A8
         hi CursorLine ctermbg=253 guibg=#DADADA
         hi SpecialKey ctermfg=247 guifg=#9E9E9E
         hi String ctermfg=22 guifg=#005f00
@@ -506,7 +506,7 @@ def Quiet()
         hi PmenuSel ctermbg=238 ctermfg=253 guibg=#444444 guifg=#DADADA
         hi PmenuSbar ctermbg=241 ctermfg=232 guibg=#626262 guifg=#080808
         hi PmenuThumb ctermbg=253 guibg=#DADADA
-        hi EndOfBuffer ctermbg=NONE ctermfg=238 guibg=NONE guifg=#444444
+        hi EndOfBuffer ctermfg=238 guifg=#444444
         hi CursorLine ctermbg=238 ctermfg=253 guibg=#444444 guifg=#DADADA
         hi SpecialKey ctermfg=240 guifg=#585858
         hi String ctermfg=41 guifg=#00d75f
