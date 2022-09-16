@@ -222,9 +222,13 @@ export def FileTree(path: string = "")
     enddef
     var files = []
     if executable('fd')
-        files = systemlist('fd --path-separator / --type f --hidden --follow --exclude .git ' .. opath)
+        exe $"lcd {opath}"
+        files = systemlist('fd --path-separator / --type f --hidden --follow --exclude .git')
+        lcd -
     elseif executable('rg')
-        files = systemlist('rg --path-separator / --files --hidden --glob !.git ' .. opath)
+        exe $"lcd {opath}"
+        files = systemlist('rg --path-separator / --files --hidden --glob !.git')
+        lcd -
     else
         files = Tree(opath)
     endif
