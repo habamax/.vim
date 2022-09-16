@@ -483,10 +483,9 @@ enddef
 
 def Lunaperche()
     if &background == 'dark'
-        hi Normal ctermbg=NONE guibg=#080808
+        hi Normal ctermbg=NONE
         hi TablineSel ctermbg=NONE
     endif
-    # hi clear Type
 enddef
 
 def Quiet()
