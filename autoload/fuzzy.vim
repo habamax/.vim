@@ -202,12 +202,7 @@ enddef
 
 
 export def FileTree(path: string = "")
-    var opath = isdirectory(expand(path)) ? path : ""
-    if empty(opath) && stridx(expand("%:p:h"), getcwd()) != -1
-        opath = getcwd()
-    else
-        opath = expand("%:p:h")
-    endif
+    var opath = isdirectory(expand(path)) ? path : '.'
 
     def Tree(dir: string): list<string>
         var ignore_dirs = [".git", ".hg", ".bundle"]
@@ -221,14 +216,11 @@ export def FileTree(path: string = "")
         return result
     enddef
     var files = []
+
     if executable('fd')
-        exe $"lcd {opath}"
-        files = systemlist('fd --path-separator / --type f --hidden --follow --exclude .git')
-        lcd -
+        files = systemlist('fd --path-separator / --type f --hidden --follow --exclude .git ' .. opath)
     elseif executable('rg')
-        exe $"lcd {opath}"
-        files = systemlist('rg --path-separator / --files --hidden --glob !.git')
-        lcd -
+        files = systemlist('rg --path-separator / --files --hidden --glob !.git ' .. opath)
     else
         files = Tree(opath)
     endif
