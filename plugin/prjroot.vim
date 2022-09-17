@@ -10,7 +10,7 @@ var rootMarkers = {
 
 
 def SetProjectRoot()
-    if &buftype != '' && &buftype != 'nofile'
+    if &buftype != ''
         return
     endif
 
