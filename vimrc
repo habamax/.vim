@@ -327,8 +327,6 @@ xnoremap <silent> gq <ScriptCmd>GqFormat('v')<CR>
 
 tnoremap <C-v> <C-w>""
 
-nnoremap <C-l> <C-l>zz
-
 # QuickFix
 nnoremap <silent> ]q :cnext<CR>
 nnoremap <silent> ]Q :clast<CR>
