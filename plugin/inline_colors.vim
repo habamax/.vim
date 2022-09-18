@@ -128,5 +128,5 @@ augroup InlineColors | au!
     au BufRead * InlineColors()
     au OptionSet background InlineColors()
     au Colorscheme * InlineColors()
-    au InsertLeave * InlineColors()
+    au ModeChanged * InlineColors()
 augroup END
