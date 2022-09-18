@@ -26,7 +26,3 @@ bundle/opt/gv.vim	git@github.com:junegunn/gv.vim.git
 # Filetypes
 lang/start/vimtex	git@github.com:lervag/vimtex.git
 lang/start/vim-elixir	git@github.com:elixir-editors/vim-elixir.git
-
-# Colorschemes
-colors/opt/seoul256	git@github.com:junegunn/seoul256.vim.git
-colors/opt/zenburn	git@github.com:jnurmine/Zenburn.git
