@@ -202,7 +202,7 @@ enddef
 
 
 export def FileTree(path: string = "")
-    var opath = isdirectory(expand(path)) ? path : '.'
+    var opath = isdirectory(expand(path)) ? path : ''
 
     def Tree(dir: string): list<string>
         var ignore_dirs = [".git", ".hg", ".bundle"]
@@ -243,7 +243,7 @@ export def FileTree(path: string = "")
                 else
                     projects = readfile(projects_file)->join()->json_decode()
                 endif
-                projects->add({path: opath})->sort()->uniq()
+                projects->add({path: fnamemodify(opath, ":p")})->sort()->uniq()
                 [projects->json_encode()]->writefile(projects_file)
             catch
                 echohl Error
