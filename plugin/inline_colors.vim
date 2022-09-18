@@ -93,10 +93,10 @@ def InlineColors(): void
     var line_start = view.topline
     var line_end = view.topline + winheight(winnr())
     if !exists('b:inline_color')
-        b:inline_color = []
+        b:inline_color = {}
     endif
     if !empty(b:inline_color)
-        prop_remove({types: b:inline_color, all: true}, line_start, line_end)
+        prop_remove({types: b:inline_color->keys(), all: true}, line_start, line_end)
     endif
 
     for linenr in range(line_start, line_end)
@@ -113,9 +113,9 @@ def InlineColors(): void
                 endif
                 if prop_type_get(col_tag) == {}
                     prop_type_add(col_tag, {highlight: col_tag})
-                    b:inline_color->add(col_tag)
                 endif
                 prop_add(linenr, starts + 1, {text: "\u25CF ", type: col_tag})
+                b:inline_color[col_tag] = 1
             endif
             cnt += 1
             [hex, starts, ends] = matchstrpos(current, '#\x\{6\}', 0, cnt)
