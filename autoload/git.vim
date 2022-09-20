@@ -35,11 +35,11 @@ export def PackUpdate()
             endif
             var path = $"{cwd}/pack/{name}"
             if isdirectory(path)
-                var job = job_start([&shell, &shellcmdflag, 'git fetch --depth=1 && git reset --hard @{u} && git clean -dfx'],
+                var job = job_start([&shell, &shellcmdflag, 'git fetch && git reset --hard @{u} && git clean -dfx'],
                               {"cwd": path, "err_cb": OutCb, "out_cb": OutCb})
                 pack_jobs->add(job)
             else
-                var job = job_start($'git clone --depth=1 {url} {path}',
+                var job = job_start($'git clone {url} {path}',
                               {"cwd": cwd, "err_cb": OutCb, "out_cb": OutCb})
                 pack_jobs->add(job)
             endif
