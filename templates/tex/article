@@ -68,15 +68,15 @@
 % do not report warnings on small hbox overful
 \hfuzz=2pt
 
-\title{Документ}
-\author{Максим Ким}
+\title{Document}
+\author{Maxim Kim}
 
 \begin{document}
 \maketitle
 \linespread{1.2}\selectfont % for \linespread to have effect
 \tableofcontents
 
-\section{Введение}
+\section{Introduction}
 
 
 
