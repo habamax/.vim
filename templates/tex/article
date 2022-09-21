@@ -1,4 +1,4 @@
-\documentclass[english,russian,12pt]{article}
+\documentclass[english,12pt]{article}
 \usepackage[tmargin=20mm,bmargin=20mm,lmargin=25mm,rmargin=20mm]{geometry}
 
 % bottom right page num
@@ -9,9 +9,8 @@
 \fancyfoot{}
 \fancyfoot[R]{\footnotesize\thepage}
 
-% localized date format
+% localized date format, hyphenation etc
 \usepackage{babel}
-\usepackage{isodate}
 
 % fonts
 \usepackage{fontspec}
