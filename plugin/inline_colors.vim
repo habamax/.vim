@@ -88,18 +88,37 @@ var xterm256colors = {
     }
 
 
-def InlineColors(): void
+
+def WindowLines(): list<number>
     var view = winsaveview()
     var line_start = view.topline
     var line_end = view.topline + winheight(winnr())
+    return [line_start, line_end]
+enddef
+
+
+# def InlineColors(line_start: number = line('.'), line_end: number = line('.')): void
+def InlineColors(lines: list<number> = [line('.'), line('.')]): void
+    if exists("b:inline_color_init")
+        unlet b:inline_color_init
+        return
+    endif
+
+    if get(g:, "inline_color_disable", false) && exists('b:inline_color')
+        prop_remove({types: b:inline_color->keys(), all: true})
+        unlet b:inline_color
+        return
+    endif
+
     if !exists('b:inline_color')
         b:inline_color = {}
     endif
     if !empty(b:inline_color)
-        prop_remove({types: b:inline_color->keys(), all: true}, line_start, line_end)
+        prop_remove({types: b:inline_color->keys(), all: true}, lines[0], lines[1])
     endif
 
-    for linenr in range(line_start, line_end)
+
+    for linenr in range(lines[0], lines[1])
         var current = getline(linenr)
         var cnt = 1
         var [hex, starts, ends] = matchstrpos(current, '#\x\{6\}', 0, cnt)
@@ -124,9 +143,10 @@ def InlineColors(): void
 enddef
 
 augroup InlineColors | au!
-    au WinScrolled * InlineColors()
-    au BufRead * InlineColors()
-    au OptionSet background InlineColors()
-    au Colorscheme * InlineColors()
-    au ModeChanged * InlineColors()
+    au WinScrolled * InlineColors(WindowLines())
+    au BufRead * InlineColors(WindowLines()) | b:inline_color_init = 1
+    au OptionSet background InlineColors(WindowLines())
+    au OptionSet termguicolors InlineColors(WindowLines())
+    au Colorscheme * InlineColors(WindowLines())
+    au TextChanged * InlineColors([line("'["), line("']")])
 augroup END
