@@ -142,6 +142,7 @@ def InlineColors(lines: list<number> = [line('.'), line('.')]): void
     endfor
 enddef
 
+
 augroup InlineColors | au!
     au WinScrolled * InlineColors(WindowLines())
     au BufRead * InlineColors(WindowLines()) | b:inline_color_init = 1
