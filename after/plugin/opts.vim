@@ -20,6 +20,13 @@ if exists("g:loaded_swap")
     g:swap#rules = deepcopy(g:swap#default_rules)
     g:swap#rules += [
         {
+            description: 'Reorder the = delimited things.',
+            mode: 'n',
+            body: '\%(\k\+\s*=\s*\)\+\%(\k*\)',
+            delimiter: ['\s*=\s*'],
+            priority: -5
+        },
+        {
             mode: 'n',
             description: 'Reorder the | bar | delimited | things |.',
             body: '|\zs\%([^|]\+|\s*\)\+\%([^|]\+\)',
