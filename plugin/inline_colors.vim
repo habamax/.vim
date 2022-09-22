@@ -97,7 +97,6 @@ def WindowLines(): list<number>
 enddef
 
 
-# def InlineColors(line_start: number = line('.'), line_end: number = line('.')): void
 def InlineColors(lines: list<number> = [line('.'), line('.')]): void
     if exists("b:inline_color_init")
         unlet b:inline_color_init
