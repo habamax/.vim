@@ -466,11 +466,6 @@ augroup general | au!
 augroup end
 
 
-augroup xterm256 | au!
-    au BufEnter *doc/xterm256-colors.txt runtime scripts/colorize_xterm.vim
-augroup END
-
-
 def BaseColorschemeSetup()
     var hl = hlget('LineNr')[0]
     var ctermbg = 'ctermbg=' .. (hl->has_key('ctermbg') ? hl.ctermbg : 'NONE')
