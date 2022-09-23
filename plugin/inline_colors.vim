@@ -1,5 +1,7 @@
 vim9script
 
+var color_char = "■" # "●" "♠"
+
 var xterm256colors = {
     '#000000': '16', '#870000':  '88', '#d70000': '160',
     '#00005f': '17', '#87005f':  '89', '#d7005f': '161',
@@ -116,11 +118,10 @@ def InlineColors(lines: list<number> = [line('.'), line('.')]): void
         prop_remove({types: b:inline_color->keys(), all: true}, lines[0], lines[1])
     endif
 
-
     for linenr in range(lines[0], lines[1])
-        var current = getline(linenr)
+        var line = getline(linenr)
         var cnt = 1
-        var [hex, starts, ends] = matchstrpos(current, '#\x\{6\}', 0, cnt)
+        var [hex, starts, ends] = matchstrpos(line, '#\x\{6}', 0, cnt)
         while starts != -1
             var col_tag = "inline_color_" .. hex[1 : ]
             var ctermfg = get(xterm256colors, hex->tolower(), "")
@@ -132,11 +133,11 @@ def InlineColors(lines: list<number> = [line('.'), line('.')]): void
                 if prop_type_get(col_tag) == {}
                     prop_type_add(col_tag, {highlight: col_tag})
                 endif
-                prop_add(linenr, starts + 1, {text: "\u25CF ", type: col_tag})
+                prop_add(linenr, starts + 1, {text: color_char, type: col_tag})
                 b:inline_color[col_tag] = 1
             endif
             cnt += 1
-            [hex, starts, ends] = matchstrpos(current, '#\x\{6\}', 0, cnt)
+            [hex, starts, ends] = matchstrpos(line, '#\x\{6}', 0, cnt)
         endwhile
     endfor
 enddef
