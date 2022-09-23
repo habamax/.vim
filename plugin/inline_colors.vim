@@ -120,8 +120,7 @@ def InlineColors(lines: list<number> = [line('.'), line('.')]): void
 
     for linenr in range(lines[0], lines[1])
         var line = getline(linenr)
-        var cnt = 1
-        var [hex, starts, ends] = matchstrpos(line, '#\x\{6}', 0, cnt)
+        var [hex, starts, ends] = matchstrpos(line, '#\x\{6}', 0)
         while starts != -1
             var col_tag = "inline_color_" .. hex[1 : ]
             var ctermfg = get(xterm256colors, hex->tolower(), "")
@@ -136,8 +135,7 @@ def InlineColors(lines: list<number> = [line('.'), line('.')]): void
                 prop_add(linenr, starts + 1, {text: color_char, type: col_tag})
                 b:inline_color[col_tag] = 1
             endif
-            cnt += 1
-            [hex, starts, ends] = matchstrpos(line, '#\x\{6}', 0, cnt)
+            [hex, starts, ends] = matchstrpos(line, '#\x\{6}', ends + 1)
         endwhile
     endfor
 enddef
