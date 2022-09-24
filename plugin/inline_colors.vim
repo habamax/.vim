@@ -1,6 +1,6 @@
 vim9script
 
-var color_char = "■" # "●" "♠"
+var color_char = "●" # "■" "♠"
 
 var xterm256colors = {
     '#000000': '16', '#870000':  '88', '#d70000': '160',
