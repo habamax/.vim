@@ -90,7 +90,6 @@ var xterm256colors = {
     }
 
 
-
 def WindowLines(): list<number>
     var view = winsaveview()
     var line_start = view.topline
