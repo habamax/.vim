@@ -448,7 +448,7 @@ augroup general | au!
     au CmdlineEnter /,\? set hlsearch
     au CmdlineLeave /,\? set nohlsearch
 
-    au Filetype * :setl formatoptions-=cro
+    au Filetype * setl formatoptions-=cro
 
     # goto last known position of the buffer
     au BufReadPost *
