@@ -54,6 +54,7 @@ Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #c5e7c5        30             darkcyan
 Color: colorPMenuSel           #444444        238            darkcyan
 Color: colorDim                #878787        102            grey
+Color: color16                 #8700ff        93             darkcyan
 
 
 
@@ -168,7 +169,7 @@ Statement                      color09        none
 Type                           color12        none
 
 PreProc                        color14        none
-Special                        color01        none
+Special                        color16        none
 Underlined                     none           none           underline
 
 Title                          none           none           bold
@@ -273,7 +274,7 @@ Statement                      color01        none           bold
 Type                           color04        none
 
 PreProc                        color06        none
-Special                        color01        none
+Special                        color06        none
 Underlined                     none           none           underline
 
 Title                          none           none           bold
@@ -297,7 +298,7 @@ Color: color00                 #000000        16             black
 Color: color08                 #585858        240            darkgrey
 
 Color: color01                 #af0000        124            darkred
-Color: color09                 #d7005f        161            red
+Color: color09                 #d70000        160            red
 
 Color: color02                 #008700        28             darkgreen
 Color: color10                 #87D787        114            green
@@ -305,16 +306,16 @@ Color: color10                 #87D787        114            green
 Color: color03                 #af5f00        130            darkyellow
 Color: color11                 #d78700        172            yellow
 
-Color: color04                 #005fd7        26             darkblue
+Color: color04                 #005faf        25             darkblue
 Color: color12                 #0087d7        32             blue
 
-Color: color05                 #af00af        127            darkmagenta
-Color: color13                 #ff00ff        133            magenta
+Color: color05                 #870087        90             darkmagenta
+Color: color13                 #af00af        127            magenta
 
-Color: color06                 #005f5f        23             darkcyan
-Color: color14                 #008787        30             cyan
+Color: color06                 #008787        30             darkcyan
+Color: color14                 #00afaf        37             cyan
 
-Color: color07                 #808080        244            grey
+Color: color07                 #d7d7d7        188            grey
 Color: color15                 #ffffff        231            white
 
 Color: colorLine               #E4E4E4        254            grey
@@ -327,6 +328,7 @@ Color: colorV                  #5F87AF        67             darkblue
 Color: colorMP                 #C5E7C5        30             darkcyan
 Color: colorPMenuSel           #C6C6C6        251            darkcyan
 Color: colorDim                #626262        241            darkgrey
+Color: color16                 #8700ff        93             darkcyan
 
 
 ; Diff colors
@@ -343,7 +345,7 @@ Term colors: color08 color09 color10 color11 color12 color13 color14 color15
 ;;; chrome
 Variant: gui 256 16
 
-Normal                         color00        color15
+Normal                         color00        color07
 
 Statusline                     color15        color00
 StatuslineNC                   color15        color08
@@ -440,7 +442,7 @@ Statement                      color01        none
 Type                           color04        none
 
 PreProc                        color06        none
-Special                        color09        none
+Special                        color16        none
 Underlined                     none           none           underline
 
 Title                          none           none           bold
@@ -545,7 +547,7 @@ Statement                      color01        none           bold
 Type                           color04        none
 
 PreProc                        color06        none
-Special                        color01        none
+Special                        color06        none
 Underlined                     none           none           underline
 
 Title                          none           none           bold
