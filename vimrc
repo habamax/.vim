@@ -474,7 +474,7 @@ def BaseColorschemeSetup()
     hi VertSplit ctermbg=NONE guibg=NONE
 enddef
 
-def Lunaperche()
+def NoBg()
     if &background == 'dark'
         hi Normal ctermbg=NONE
         hi TablineSel ctermbg=NONE
@@ -518,7 +518,7 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme * BaseColorschemeSetup()
-    au Colorscheme lunaperche Lunaperche()
+    au Colorscheme lunaperche,pire NoBg()
     au Colorscheme quiet Quiet()
 augroup END
 
