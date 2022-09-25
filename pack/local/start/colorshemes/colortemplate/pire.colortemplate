@@ -86,7 +86,7 @@ TabLineSel                     color15        color00
 ToolbarLine                    none           none
 ToolbarButton                  color00        color15
 
-QuickFixLine                   color00        color12
+QuickFixLine                   color00        color13
 CursorLineNr                   color15        none           bold
 LineNr                         colorNonT      none
 NonText                        colorNonT      none
@@ -114,7 +114,7 @@ Question                       color13        none
 WarningMsg                     color11        none
 
 Todo                           color10        color00        reverse
-Search                         color00        color04
+Search                         color00        color12
 IncSearch                      color00        color11
 CurSearch                      color00        color10
 WildMenu                       color00        color11        bold
@@ -219,7 +219,7 @@ TabLineSel                     color07        color00
 ToolbarLine                    none           none
 ToolbarButton                  color07        color00        reverse,bold
 
-QuickFixLine                   color07        color04        bold
+QuickFixLine                   color00        color05
 CursorLineNr                   color00        none           bold
 LineNr                         color03        none
 NonText                        color00        none
@@ -358,7 +358,7 @@ TabLineSel                     color15        color00        reverse
 ToolbarLine                    none           none
 ToolbarButton                  color15        color00
 
-QuickFixLine                   color15        color12
+QuickFixLine                   color15        color05
 CursorLineNr                   colorC         none           bold
 LineNr                         colorNonT      none
 NonText                        colorNonT      none
@@ -492,7 +492,7 @@ TabLineSel                     color00        color07
 ToolbarLine                    none           none
 ToolbarButton                  color07        color00        bold
 
-QuickFixLine                   color07        color04        bold
+QuickFixLine                   color00        color05
 CursorLineNr                   color00        none           bold
 LineNr                         color03        none
 NonText                        color00        none
