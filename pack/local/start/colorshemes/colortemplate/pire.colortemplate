@@ -465,9 +465,9 @@ dirType                        color05        none
 dirPermissionUser              color02        none
 dirPermissionGroup             color03        none
 dirPermissionOther             color06        none
-dirOwner                       color07        none
-dirGroup                       color07        none
-dirTime                        color07        none
+dirOwner                       color08        none
+dirGroup                       color08        none
+dirTime                        color08        none
 dirSize                        color03        none
 dirSizeMod                     color04        none
 dirLink                        color02        none
