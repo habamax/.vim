@@ -110,7 +110,7 @@ ErrorMsg                       color15        color01
 ModeMsg                        none           none
 MoreMsg                        color10        none
 Question                       color13        none
-WarningMsg                     color09        none
+WarningMsg                     color11        none
 
 Todo                           color10        color00        reverse
 Search                         color00        color04
@@ -238,7 +238,7 @@ ErrorMsg                       color07        color01
 ModeMsg                        none           none
 MoreMsg                        color02        none
 Question                       color05        none
-WarningMsg                     color01        none
+WarningMsg                     color03        none
 
 Todo                           color02        color00        reverse
 Search                         color04        color00        reverse
@@ -380,9 +380,9 @@ SignColumn                     none           none
 Error                          color15        color09
 ErrorMsg                       color15        color09
 ModeMsg                        none           none
-MoreMsg                        color02        none           bold
-Question                       color05        none           bold
-WarningMsg                     color09        none           bold
+MoreMsg                        color02        none
+Question                       color05        none
+WarningMsg                     color11        none
 
 Todo                           color02        color15        reverse
 Search                         color15        color12
@@ -510,7 +510,7 @@ ErrorMsg                       color15        color01
 ModeMsg                        none           none
 MoreMsg                        color02        none
 Question                       color05        none
-WarningMsg                     color01        none
+WarningMsg                     color03        none
 
 Todo                           color02        color00        reverse
 Search                         color00        color04
