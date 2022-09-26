@@ -384,7 +384,7 @@ ErrorMsg                       color15        color09
 ModeMsg                        none           none
 MoreMsg                        color02        none
 Question                       color05        none
-WarningMsg                     color11        none
+WarningMsg                     color03        none
 
 Todo                           color02        color15        reverse
 Search                         color15        color12
