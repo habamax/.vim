@@ -353,7 +353,7 @@ VertSplit                      color08        color08
 
 TabLine                        color00        colorTab
 TabLineFill                    none           color08
-TabLineSel                     color15        color00        reverse
+TabLineSel                     color07        color00        reverse
 
 ToolbarLine                    none           none
 ToolbarButton                  color15        color00
