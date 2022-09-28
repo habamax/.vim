@@ -45,6 +45,8 @@ Color: color14                 #00d7d7        44             cyan
 Color: color07                 #c6c6c6        251            grey
 Color: color15                 #ffffff        231            white
 
+Color: color16                 #875fff        99             darkcyan
+
 Color: colorLine               #262626        235            darkgrey
 Color: colorB                  #1c1c1c        234            darkgrey
 Color: colorNonT               #585858        240            grey
@@ -52,9 +54,7 @@ Color: colorTab                #585858        240            grey
 Color: colorC                  #ffffff        231            white
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #c5e7c5        30             darkcyan
-Color: colorPMenuSel           #444444        238            darkcyan
 Color: colorDim                #878787        102            grey
-Color: color16                 #875fff        99             darkcyan
 
 
 
@@ -78,7 +78,6 @@ Statusline                     color07        color00        reverse
 StatuslineNC                   color08        color00        reverse
 VertSplit                      color08        color08
 
-Variant: gui 256 16
 TabLine                        color00        color07
 TabLineFill                    none           color08
 TabLineSel                     color15        color00
@@ -94,13 +93,8 @@ FoldColumn                     colorNonT      none
 EndOfBuffer                    colorNonT      none
 SpecialKey                     colorNonT      none
 
-Variant: gui 256
-Pmenu                          none           colorB
-PmenuSel                       none           colorPMenuSel
-Variant: 16
-Pmenu                          color00        colorB
-PmenuSel                       color00        colorPMenuSel
-Variant: gui 256 16
+Pmenu                          color07        colorB
+PmenuSel                       color00        color10
 PmenuThumb                     none           color07
 PmenuSbar                      none           none
 
@@ -117,7 +111,7 @@ Todo                           color10        color00        reverse
 Search                         color00        color12
 IncSearch                      color00        color11
 CurSearch                      color00        color10
-WildMenu                       color00        color11        bold
+WildMenu                       color00        color10
 
 debugPC                        color04        none           reverse
 debugBreakpoint                color06        none           reverse
@@ -230,7 +224,7 @@ SpecialKey                     color00        none
 Pmenu                          color00        color07
 PmenuThumb                     none           color02
 PmenuSbar                      none           none
-PmenuSel                       color00        colorPMenuSel
+PmenuSel                       color00        color02
 
 SignColumn                     none           none
 
@@ -245,7 +239,7 @@ Todo                           color02        color00        reverse
 Search                         color04        color00        reverse
 IncSearch                      color03        color00        reverse
 CurSearch                      color02        color00        reverse
-WildMenu                       color00        color03        bold
+WildMenu                       color00        color02
 
 debugPC                        color04        none           reverse
 debugBreakpoint                color06        none           reverse
@@ -318,17 +312,18 @@ Color: color14                 #00afaf        37             cyan
 Color: color07                 #d7d7d7        188            grey
 Color: color15                 #ffffff        231            white
 
+Color: color16                 #8700ff        93             darkcyan
+
 Color: colorLine               #E4E4E4        254            grey
-Color: colorB                  #EEEEEE        255            grey
+Color: colorB                  #EEEEEE        255            white
+
 Color: colorNonT               #9E9E9E        247            darkgrey
 Color: colorTab                #BCBCBC        250            lightgrey
 Color: colorC                  #000000        16             black
 Color: colorlC                 #FF00FF        201            magenta
 Color: colorV                  #5F87AF        67             darkblue
 Color: colorMP                 #C5E7C5        30             darkcyan
-Color: colorPMenuSel           #C6C6C6        251            darkcyan
 Color: colorDim                #626262        241            darkgrey
-Color: color16                 #8700ff        93             darkcyan
 
 
 ; Diff colors
@@ -366,14 +361,8 @@ FoldColumn                     colorNonT      none
 EndOfBuffer                    colorNonT      none
 SpecialKey                     colorNonT      none
 
-Variant: gui 256
-Pmenu                          none           colorB
-PmenuSel                       none           colorPMenuSel
-Variant: 16
 Pmenu                          color00        colorB
-PmenuSel                       color00        colorPMenuSel
-
-Variant: gui 256 16
+PmenuSel                       color00        color10
 PmenuThumb                     none           color08
 PmenuSbar                      none           none
 
@@ -390,7 +379,7 @@ Todo                           color02        color15        reverse
 Search                         color15        color12
 IncSearch                      color15        color11
 CurSearch                      color15        color11
-WildMenu                       color00        color11        bold
+WildMenu                       color00        color10
 
 debugPC                        color04        none           reverse
 debugBreakpoint                color06        none           reverse
@@ -503,7 +492,7 @@ SpecialKey                     color00        none
 Pmenu                          color07        color00
 PmenuThumb                     none           color02
 PmenuSbar                      none           none
-PmenuSel                       none           colorPMenuSel
+PmenuSel                       none           color02
 
 SignColumn                     none           none
 
@@ -518,7 +507,7 @@ Todo                           color02        color00        reverse
 Search                         color00        color04
 IncSearch                      color00        color03
 CurSearch                      color00        color02
-WildMenu                       color00        color03        bold
+WildMenu                       color00        color02
 
 debugPC                        color04        none           reverse
 debugBreakpoint                color06        none           reverse
