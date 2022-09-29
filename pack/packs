@@ -16,7 +16,7 @@ bundle/start/vim-lion	git@github.com:tommcdo/vim-lion.git
 
 # Nice to have
 # bundle/opt/coc	git@github.com:neoclide/coc.nvim.git -b release
-bundle/opt/YCM	git@github.com:ycm-core/YouCompleteMe.git
+# bundle/opt/YCM	git@github.com:ycm-core/YouCompleteMe.git
 bundle/start/vim-closetag	git@github.com:alvan/vim-closetag.git
 bundle/start/vim-devdocs	git@github.com:romainl/vim-devdocs.git
 bundle/start/vim-colortemplate	git@github.com:lifepillar/vim-colortemplate.git
