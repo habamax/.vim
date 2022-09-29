@@ -5,10 +5,6 @@ if $TERM != 'foot'
     finish
 endif
 
-# 24 bit color support
-set t_8f=[38:2::%lu:%lu:%lum
-set t_8b=[48:2::%lu:%lu:%lum
-
 def WLYank(event: dict<any>)
     if event.regname =~ '+' || &clipboard =~ '\<unnamed\(plus\)\?\>'
         system('wl-copy', getreg("@"))
