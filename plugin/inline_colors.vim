@@ -135,6 +135,11 @@ def InlineColors(winid: number, lines: list<number> = [line('.'), line('.')]): v
 enddef
 
 
+def InlineColorsCurrentWindowBuffer()
+    InlineColors(win_getid(), WindowLines(win_getid()))
+enddef
+
+
 def InlineColorsInRelatedWindows()
     var bufnr = bufnr()
     var windows = getwininfo()->filter((_, v) => v.bufnr == bufnr)
@@ -145,11 +150,11 @@ enddef
 
 
 augroup InlineColors | au!
-    au WinScrolled * InlineColors(win_getid(), WindowLines(win_getid()))
+    au WinScrolled * InlineColorsCurrentWindowBuffer()
     au BufRead * InlineColorsInRelatedWindows()
-    au WinEnter * InlineColors(win_getid(), WindowLines(win_getid()))
+    au WinEnter * InlineColorsCurrentWindowBuffer()
     au OptionSet background InlineColorsInRelatedWindows()
     au OptionSet termguicolors InlineColorsInRelatedWindows()
-    au Colorscheme * InlineColors(win_getid(), WindowLines(win_getid()))
+    au Colorscheme * InlineColorsCurrentWindowBuffer()
     au TextChanged * InlineColors(win_getid(), [line("'["), line("']")])
 augroup END
