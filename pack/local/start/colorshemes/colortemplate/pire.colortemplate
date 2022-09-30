@@ -123,18 +123,17 @@ lCursor                        colorlC        color00        reverse
 
 Variant: gui 256 16
 Visual                         color00        color11
+VisualNOS                      color00        color03
 MatchParen                     colorMP        color00        reverse
 
 
 Variant: 16
-VisualNOS                      color00        color06
 CursorLine                     none           none           underline
 CursorColumn                   color00        color11
-Folded                         color00        color03
+Folded                         color00        none           bold
 ColorColumn                    color00        color03
 
 Variant: gui 256
-VisualNOS                      color00        color06
 CursorLine                     none           colorLine
 CursorColumn                   none           colorLine
 Folded                         color08        colorB
@@ -247,10 +246,10 @@ debugBreakpoint                color06        none           reverse
 Visual                         none           none           reverse
 MatchParen                     colorMP        color00        reverse
 
-VisualNOS                      color00        color06
+VisualNOS                      color00        color03
 CursorLine                     none           none           underline
 CursorColumn                   color00        color03
-Folded                         color00        color03
+Folded                         color00        none           bold
 ColorColumn                    color00        color03
 
 SpellBad                       color01        none           reverse
@@ -391,18 +390,17 @@ lCursor                        colorlC        color00        reverse
 
 Variant: gui 256 16
 Visual                         color15        color11
+VisualNOS                      color00        color03
 MatchParen                     colorMP        color15        reverse
 
 
 Variant: 16
-VisualNOS                      color00        color14
 CursorLine                     none           none           underline
 CursorColumn                   color00        color11
-Folded                         color00        color03
+Folded                         color00        none           bold
 ColorColumn                    color00        color03
 
 Variant: gui 256
-VisualNOS                      color15        color14
 CursorLine                     none           colorLine
 CursorColumn                   none           colorLine
 Folded                         color08        colorB
@@ -515,10 +513,10 @@ debugBreakpoint                color06        none           reverse
 Visual                         none           none           reverse
 MatchParen                     colorMP        color07        reverse
 
-VisualNOS                      color00        color06
+VisualNOS                      color00        color03
 CursorLine                     none           none           underline
 CursorColumn                   color00        color03
-Folded                         color00        color03
+Folded                         color00        none           bold
 ColorColumn                    color00        color03
 
 SpellBad                       color01        color00        reverse
