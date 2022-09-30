@@ -131,6 +131,7 @@ def InlineColors(winid: number, lines: list<number> = [line('.'), line('.')]): v
             [hex, starts, ends] = matchstrpos(line, '#\x\{6}', ends + 1)
         endwhile
     endfor
+    setbufvar(bufnr, 'inline_color', inline_color)
 enddef
 
 
