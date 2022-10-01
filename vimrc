@@ -375,7 +375,7 @@ command! WipeHiddenBuffers WipeHiddenBuffers()
 # remove trailing spaces
 command! FixTrailingSpaces :silent! :%s/\v(\s+$)|(\r+$)//g<bar>
       \ :exe 'normal! ``'<bar>
-      \ :echo 'Remove trailing spaces and ^Ms.'
+      \ :echow 'Remove trailing spaces and ^Ms.'
 
 command! -range FixSpaces text.FixSpaces(<line1>, <line2>)
 
