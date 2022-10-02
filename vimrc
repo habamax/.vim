@@ -481,45 +481,9 @@ def NoBg()
     endif
 enddef
 
-def Quiet()
-    if &background == 'light'
-        hi Pmenu ctermbg=255 guibg=#EEEEEE
-        hi PmenuSel ctermbg=251 guibg=#C6C6C6
-        hi PmenuSbar ctermbg=253 guibg=#DADADA
-        hi PmenuThumb ctermbg=241 ctermfg=232 guibg=#626262 guifg=#080808
-        hi EndOfBuffer ctermfg=248 guifg=#A8A8A8
-        hi CursorLine ctermbg=253 guibg=#DADADA
-        hi SpecialKey ctermfg=247 guifg=#9E9E9E
-        hi String ctermfg=22 guifg=#005f00
-        hi Constant ctermfg=90 guifg=#870087
-        hi Comment ctermfg=25 cterm=NONE guifg=#005faf gui=NONE
-    else
-        hi Pmenu ctermbg=235 ctermfg=253 guibg=#262626 guifg=#DADADA
-        hi PmenuSel ctermbg=238 ctermfg=253 guibg=#444444 guifg=#DADADA
-        hi PmenuSbar ctermbg=241 ctermfg=232 guibg=#626262 guifg=#080808
-        hi PmenuThumb ctermbg=253 guibg=#DADADA
-        hi EndOfBuffer ctermfg=238 guifg=#444444
-        hi CursorLine ctermbg=238 ctermfg=253 guibg=#444444 guifg=#DADADA
-        hi SpecialKey ctermfg=240 guifg=#585858
-        hi String ctermfg=41 guifg=#00d75f
-        hi Constant ctermfg=213 guifg=#d787d7
-        hi Comment ctermfg=75 cterm=NONE guifg=#5fafff gui=NONE
-        hi rstSection ctermfg=white cterm=bold guifg=white gui=bold
-    endif
-    hi link FilterMenuDirectorySubtle Normal
-    hi link FilterMenuMatch Constant
-    hi rstDirective cterm=italic gui=italic
-    hi VertSplit ctermbg=NONE guibg=NONE
-    hi Directory cterm=bold gui=bold
-    hi Title cterm=bold gui=bold
-    hi link DirPermissionUser Normal
-    hi Error ctermbg=white guibg=white
-enddef
-
 augroup colorschemes | au!
     au Colorscheme * BaseColorschemeSetup()
     au Colorscheme lunaperche,pire NoBg()
-    au Colorscheme quiet Quiet()
 augroup END
 
 
