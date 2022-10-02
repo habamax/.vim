@@ -98,7 +98,7 @@ if &wildcharm == 26
 endif
 
 # search&replace
-nnoremap <space>% :%s/\<<C-r>=expand("<cword>")<CR>\>/
+nnoremap <space>% :<C-U>%s/\<<C-r>=expand("<cword>")<CR>\>/
 xnoremap <space>% y:%s/<C-r>=escape(@", '^~$\&*.[]')<CR>//g<left><left>
 nnoremap <space>/ /<C-r>=expand("<cword>")<CR>
 xnoremap <space>/ y/<C-R>"
