@@ -442,7 +442,7 @@ command! Bookmark call SaveBookmark()
 
 
 ################################################################################
-# Autocommands
+# General autocommands
 
 augroup general | au!
     au CmdlineEnter /,\? set hlsearch
@@ -466,27 +466,6 @@ augroup general | au!
 augroup end
 
 
-def BaseColorschemeSetup()
-    var hl = hlget('LineNr')[0]
-    var ctermbg = 'ctermbg=' .. (hl->has_key('ctermbg') ? hl.ctermbg : 'NONE')
-    var guibg = 'guibg=' .. (hl->has_key('guibg') ? hl.guibg : 'NONE')
-    exe $'hi CursorLineNr {guibg} {ctermbg} gui=bold cterm=bold'
-    hi VertSplit ctermbg=NONE guibg=NONE
-enddef
-
-def NoBg()
-    if &background == 'dark'
-        hi Normal ctermbg=NONE
-        hi TablineSel ctermbg=NONE
-    endif
-enddef
-
-augroup colorschemes | au!
-    au Colorscheme * BaseColorschemeSetup()
-    au Colorscheme lunaperche,pire NoBg()
-augroup END
-
-
 ################################################################################
 # Colors
 
@@ -495,6 +474,30 @@ if ["st-256color", "tmux-256color", "foot"]->index($TERM) > -1
     &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
+
+
+def BaseColorschemeSetup()
+    var hl = hlget('LineNr')[0]
+    var ctermbg = 'ctermbg=' .. (hl->has_key('ctermbg') ? hl.ctermbg : 'NONE')
+    var guibg = 'guibg=' .. (hl->has_key('guibg') ? hl.guibg : 'NONE')
+    exe $'hi CursorLineNr {guibg} {ctermbg} gui=bold cterm=bold'
+    hi VertSplit ctermbg=NONE guibg=NONE
+enddef
+
+
+def NoBg()
+    if &background == 'dark'
+        hi Normal ctermbg=NONE
+        hi TablineSel ctermbg=NONE
+    endif
+enddef
+
+
+augroup colorschemes | au!
+    au Colorscheme * BaseColorschemeSetup()
+    au Colorscheme lunaperche,pire NoBg()
+augroup END
+
 
 if has("win32") && has("gui_running")
     set bg=light
