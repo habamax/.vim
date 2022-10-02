@@ -403,7 +403,7 @@ if executable('sudo')
 endif
 
 # open terminal with a cwd of a current buffer
-command! Term :bo call term_start(&shell, {"cwd": expand("%:p:h"), "term_finish": "close", "vertical": 1})
+command! Term :bo term_start(&shell, {"cwd": expand("%:p:h"), "term_finish": "close", "vertical": 1})
 if executable("cmd")
     command! Sh silent !start cmd.exe
 endif
