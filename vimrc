@@ -421,7 +421,6 @@ def SaveBookmark()
     endif
     var bookmarks = {}
     var bookmarkFile = $'{g:vimdata}/bookmarks.json'
-
     try
         if !filereadable(bookmarkFile)
             mkdir(fnamemodify(bookmarkFile, ":p:h"), "p")
@@ -438,6 +437,7 @@ def SaveBookmark()
         echohl None
     endtry
 enddef
+
 command! Bookmark call SaveBookmark()
 
 
