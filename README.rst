@@ -87,6 +87,9 @@ __ https://github.com/habamax/.vim/blob/9c134346affce6e5166fcaac39c58ef3960ca563
 Colors
 ======
 
+- pire_: dual background, this should be really (x3) the last one (for the third
+  time);
+  *bundled with vim9*
 - lunaperche: dual background, this should be really the last one (100%);
   *bundled with vim9*
 - habamax_: dark background, this should be really the last one (not really);
@@ -102,6 +105,7 @@ Colors
 - polar_: white background variantion of base16-one-light;
 - habanight_: black background variation of base16-default-dark colorscheme.
 
+.. _pire: https://github.com/habamax/vim-pire
 .. _habamax: https://github.com/habamax/vim-habamax
 .. _habaurora: https://github.com/habamax/vim-habaurora
 .. _bronzage: https://github.com/habamax/vim-bronzage
