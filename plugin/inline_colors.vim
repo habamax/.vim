@@ -98,17 +98,17 @@ enddef
 
 def InlineColors(winid: number, lines: list<number> = [line('.'), line('.')]): void
     var bufnr = winbufnr(winid)
-    var inline_color = getbufvar(bufnr, 'inline_color', {})
-    if get(g:, "inline_color_disable", false) && !empty(inline_color)
-        prop_remove({types: inline_color->keys(), all: true})
-        setbufvar(bufnr, 'inline_color', {})
+    var inline_colors = getbufvar(bufnr, 'inline_colors', {})
+    if get(g:, "inline_color_disable", false) && !empty(inline_colors)
+        prop_remove({types: inline_colors->keys(), all: true})
+        setbufvar(bufnr, 'inline_colors', {})
         return
     elseif get(g:, "inline_color_disable", false)
         return
     endif
 
-    if !empty(inline_color)
-        prop_remove({types: inline_color->keys(), all: true}, lines[0], lines[1])
+    if !empty(inline_colors)
+        prop_remove({types: inline_colors->keys(), all: true}, lines[0], lines[1])
     endif
 
     for linenr in range(lines[0], lines[1])
@@ -126,12 +126,12 @@ def InlineColors(winid: number, lines: list<number> = [line('.'), line('.')]): v
                     prop_type_add(col_tag, {highlight: col_tag})
                 endif
                 prop_add(linenr, starts + 1, {text: color_char, type: col_tag})
-                inline_color[col_tag] = 1
+                inline_colors[col_tag] = 1
             endif
             [hex, starts, ends] = matchstrpos(line, '#\x\{6}', ends + 1)
         endwhile
     endfor
-    setbufvar(bufnr, 'inline_color', inline_color)
+    setbufvar(bufnr, 'inline_colors', inline_colors)
 enddef
 
 
