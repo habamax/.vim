@@ -134,7 +134,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
         filter: (id, key) => {
             if key == "\<esc>"
                 popup_close(id, -1)
-            elseif ["\<cr>", "\<C-j>", "\<C-v>", "\<C-t>"]->index(key) > -1
+            elseif ["\<cr>", "\<C-j>", "\<C-v>", "\<C-t>", "\<C-o>"]->index(key) > -1
                     && filtered_items[0]->len() > 0 && items_count > 0
                 popup_close(id, {idx: getcurpos(id)[1], key: key})
             elseif key == "\<Right>"

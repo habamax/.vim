@@ -1,6 +1,7 @@
 vim9script
 
 import autoload 'popup.vim'
+import autoload 'os.vim'
 
 
 export def Buffer()
@@ -184,6 +185,8 @@ export def File(path: string = "")
     popup.FilterMenu(pathshorten(opath), files, (res, key) => {
         if (key == "\<bs>" || key == "\<c-h>") && isdirectory(fnamemodify(res.path, ':p:h:h'))
             File($"{fnamemodify(res.path, ':p:h:h')}")
+        elseif key == "\<C-o>"
+            os.Open($"{res.path}{sep}{res.name}")
         elseif isdirectory($"{res.path}{sep}{res.name}")
             File($"{res.path}{res.path[-1] == sep ? '' : sep}{res.name}")
         elseif key == "\<C-j>"
