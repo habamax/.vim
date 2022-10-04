@@ -111,11 +111,16 @@ def InlineColors(winid: number, lines: list<number> = [line('.'), line('.')]): v
         prop_remove({types: inline_colors->keys(), all: true}, lines[0], lines[1])
     endif
 
+    var rx_color = '#\%(\x\{3}\|\x\{6}\)\>'
+
     for linenr in range(lines[0], lines[1])
         var line = getline(linenr)
-        var [hex, starts, ends] = matchstrpos(line, '#\x\{6}', 0)
+        var [hex, starts, ends] = matchstrpos(line, rx_color, 0)
         while starts != -1
             var col_tag = "inline_color_" .. hex[1 : ]
+            if len(hex) == 4
+                hex = $"#{hex[1]}{hex[1]}{hex[2]}{hex[2]}{hex[3]}{hex[3]}"
+            endif
             var ctermfg = get(xterm256colors, hex->tolower(), "")
             if has("gui_running") || &termguicolors || !empty(ctermfg)
                 var hl = hlget(col_tag)
@@ -128,7 +133,7 @@ def InlineColors(winid: number, lines: list<number> = [line('.'), line('.')]): v
                 prop_add(linenr, starts + 1, {text: color_char, type: col_tag})
                 inline_colors[col_tag] = 1
             endif
-            [hex, starts, ends] = matchstrpos(line, '#\x\{6}', ends + 1)
+            [hex, starts, ends] = matchstrpos(line, rx_color, ends + 1)
         endwhile
     endfor
     setbufvar(bufnr, 'inline_colors', inline_colors)
