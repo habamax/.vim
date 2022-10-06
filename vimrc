@@ -15,7 +15,7 @@ set belloff=all
 set ruler
 set signcolumn=number
 set shortmess+=Ic
-set display=lastline
+set display=lastline smoothscroll
 set completeopt=menu,popup completepopup=highlight:Pmenu
 set number relativenumber cursorline cursorlineopt=number
 set list listchars=tab:›\ ,nbsp:‿,trail:·,extends:→,precedes:←
