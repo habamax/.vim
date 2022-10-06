@@ -78,8 +78,11 @@
 
 \section{Introduction}
 
-
-
+\notebox{A note}
+\tipbox{A tip}
+\warningbox{A warning}
+\cautionbox{A caution}
+\importantbox{An important thing}
 
 \end{document}
 
