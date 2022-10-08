@@ -16,7 +16,7 @@
 \usepackage{fontspec}
 \setmainfont{Noto Sans}
 \setsansfont{Noto Serif}
-\setmonofont[Scale=MatchLowercase]{Iosevka Fixed SS16}
+\setmonofont[Scale=MatchLowercase]{Fira Mono}
 
 % setup sections
 \usepackage{titlesec}
