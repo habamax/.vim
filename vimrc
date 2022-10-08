@@ -495,7 +495,7 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme * BaseColorschemeSetup()
-    au Colorscheme lunaperche,pire NoBg()
+    au Colorscheme habamax,lunaperche,pire NoBg()
 augroup END
 
 
