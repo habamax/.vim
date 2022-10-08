@@ -7,7 +7,7 @@ set linespace=0
 if has("win32")
     set guifont=JetBrains\ Mono\ NL:h15,Consolas:h14
 else
-    set guifont=Monospace\ 18
+    set guifont=Monospace\ 22
 endif
 
 # quick font check:
