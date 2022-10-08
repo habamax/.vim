@@ -16,7 +16,7 @@
 \usepackage{fontspec}
 \setmainfont{Open Sans}
 \setsansfont{Fira Sans}
-\setmonofont[Scale=MatchLowercase]{JetBrains Mono NL}
+\setmonofont[Scale=MatchLowercase]{Iosevka Fixed SS16}
 
 % setup sections
 \usepackage{titlesec}
