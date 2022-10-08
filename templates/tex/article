@@ -14,8 +14,8 @@
 
 % fonts
 \usepackage{fontspec}
-\setmainfont{Open Sans}
-\setsansfont{Fira Sans}
+\setmainfont{Noto Sans}
+\setsansfont{Noto Serif}
 \setmonofont[Scale=MatchLowercase]{Iosevka Fixed SS16}
 
 % setup sections
