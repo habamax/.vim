@@ -89,7 +89,6 @@ Colors
 
 - pire_: dual background, this should be really (x3) the last one (for the third
   time);
-  *bundled with vim9*
 - lunaperche: dual background, this should be really the last one (100%);
   *bundled with vim9*
 - habamax_: dark background, this should be really the last one (not really);
