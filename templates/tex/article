@@ -16,7 +16,7 @@
 \usepackage{fontspec}
 \setmainfont{Noto Sans}
 \setsansfont{Noto Serif}
-\setmonofont[Scale=MatchLowercase]{Fira Mono}
+\setmonofont[Scale=MatchLowercase]{JetBrains Mono NL}
 
 % setup sections
 \usepackage{titlesec}
