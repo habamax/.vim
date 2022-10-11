@@ -496,10 +496,23 @@ enddef
 def Yellowish()
     if &background == 'dark' | return | endif
     hi Normal ctermbg=230 guibg=#ffffd7
-    hi Pmenu ctermbg=229 guibg=#ffffff
-    hi PmenuSel ctermbg=83 guibg=#ffffff
+    hi Pmenu ctermbg=229 guibg=#ffffaf
+    hi PmenuSel ctermbg=83 guibg=#5fff5f
     hi CursorLine ctermbg=222 guibg=#ffd787
     hi TablineSel ctermfg=230 guifg=#ffffd7
+    hi Tabline ctermfg=238 ctermbg=187 guifg=#444444 guibg=#d7d7af
+    hi StatusLineNC ctermfg=238 ctermbg=187 guifg=#444444 guibg=#d7d7af
+    hi StatusLine ctermbg=59 guibg=#ffffd7
+enddef
+
+
+def Greenish()
+    if &background == 'dark' | return | endif
+    hi Normal ctermbg=194 guibg=#d7ffd7
+    hi Pmenu ctermbg=158 guibg=#afffd7
+    hi PmenuSel ctermbg=222 guibg=#ffd787
+    hi CursorLine ctermbg=121 guibg=#87ffaf
+    hi TablineSel ctermfg=194 guifg=#d7ffd7
 enddef
 
 
@@ -507,6 +520,7 @@ augroup colorschemes | au!
     au Colorscheme * BaseColorschemeSetup()
     au Colorscheme habamax,lunaperche,pire NoBg()
     au Colorscheme lunaperche,pire Yellowish()
+    # au Colorscheme lunaperche,pire Greenish()
 augroup END
 
 
