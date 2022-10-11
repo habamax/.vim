@@ -493,7 +493,7 @@ def NoBg()
 enddef
 
 
-def LunapercheY()
+def Yellowish()
     if &background == 'dark' | return | endif
     hi Normal ctermbg=230 guibg=#ffffd7
     hi Pmenu ctermbg=229 guibg=#ffffff
@@ -506,7 +506,7 @@ enddef
 augroup colorschemes | au!
     au Colorscheme * BaseColorschemeSetup()
     au Colorscheme habamax,lunaperche,pire NoBg()
-    au Colorscheme lunaperche LunapercheY()
+    au Colorscheme lunaperche,pire Yellowish()
 augroup END
 
 
