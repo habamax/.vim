@@ -499,6 +499,7 @@ def LunapercheY()
     hi Pmenu ctermbg=229 guibg=#ffffff
     hi PmenuSel ctermbg=83 guibg=#ffffff
     hi CursorLine ctermbg=222 guibg=#ffd787
+    hi TablineSel ctermfg=230 guifg=#ffffd7
 enddef
 
 
