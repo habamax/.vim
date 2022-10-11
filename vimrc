@@ -503,8 +503,9 @@ def Yellowish()
     hi Tabline ctermfg=238 ctermbg=187 guifg=#444444 guibg=#d7d7af
     hi StatusLineNC ctermfg=238 ctermbg=187 guifg=#444444 guibg=#d7d7af
     hi StatusLine ctermbg=59 guibg=#ffffd7 cterm=none gui=none
+    hi ColorColumn ctermbg=229 guibg=#ffd787
 enddef
-
+return
 
 def Greenish()
     if &background == 'dark' | return | endif
