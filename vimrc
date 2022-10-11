@@ -502,7 +502,7 @@ def Yellowish()
     hi TablineSel ctermfg=230 guifg=#ffffd7
     hi Tabline ctermfg=238 ctermbg=187 guifg=#444444 guibg=#d7d7af
     hi StatusLineNC ctermfg=238 ctermbg=187 guifg=#444444 guibg=#d7d7af
-    hi StatusLine ctermbg=59 guibg=#ffffd7
+    hi StatusLine ctermbg=59 guibg=#ffffd7 cterm=none gui=none
 enddef
 
 
