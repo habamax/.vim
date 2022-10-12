@@ -498,6 +498,7 @@ def Yellowish()
     hi Normal ctermbg=230 guibg=#ffffd7
     hi Pmenu ctermbg=255 guibg=#eeeeee
     hi PmenuSel ctermbg=120 guibg=#87ff87
+    hi PmenuSBar ctermbg=231 guibg=#ffffff
     hi CursorLine ctermbg=222 guibg=#ffd787
     hi TablineSel ctermfg=230 guifg=#ffffd7
     hi Tabline ctermfg=238 ctermbg=187 guifg=#444444 guibg=#d7d7af
