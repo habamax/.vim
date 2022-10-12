@@ -100,7 +100,7 @@ def InlineColors(winid: number, lines: list<number> = [line('.'), line('.')]): v
     var bufnr = winbufnr(winid)
     var inline_colors = getbufvar(bufnr, 'inline_colors', {})
     if get(g:, "inline_color_disable", false) && !empty(inline_colors)
-        prop_remove({types: inline_colors->keys(), all: true})
+        prop_remove({types: inline_colors->keys(), all: true, bufnr: bufnr})
         setbufvar(bufnr, 'inline_colors', {})
         return
     elseif get(g:, "inline_color_disable", false)
@@ -108,13 +108,13 @@ def InlineColors(winid: number, lines: list<number> = [line('.'), line('.')]): v
     endif
 
     if !empty(inline_colors)
-        prop_remove({types: inline_colors->keys(), all: true}, lines[0], lines[1])
+        prop_remove({types: inline_colors->keys(), all: true, bufnr: bufnr}, lines[0], lines[1])
     endif
 
     var rx_color = '#\%(\x\{3}\|\x\{6}\)\>'
 
     for linenr in range(lines[0], lines[1])
-        var line = getline(linenr)
+        var line = getbufline(bufnr, linenr)[0]
         var [hex, starts, ends] = matchstrpos(line, rx_color, 0)
         while starts != -1
             var col_tag = "inline_color_" .. hex[1 : ]
@@ -130,7 +130,7 @@ def InlineColors(winid: number, lines: list<number> = [line('.'), line('.')]): v
                 if prop_type_get(col_tag) == {}
                     prop_type_add(col_tag, {highlight: col_tag})
                 endif
-                prop_add(linenr, starts + 1, {text: color_char, type: col_tag})
+                prop_add(linenr, starts + 1, {text: color_char, type: col_tag, bufnr: bufnr})
                 inline_colors[col_tag] = 1
             endif
             [hex, starts, ends] = matchstrpos(line, rx_color, ends + 1)
@@ -140,14 +140,8 @@ def InlineColors(winid: number, lines: list<number> = [line('.'), line('.')]): v
 enddef
 
 
-def InlineColorsCurrentWindowBuffer()
-    InlineColors(win_getid(), WindowLines(win_getid()))
-enddef
-
-
-def InlineColorsInRelatedWindows()
-    var bufnr = bufnr()
-    var windows = getwininfo()->filter((_, v) => v.bufnr == bufnr)
+def InlineColorsInWindows()
+    var windows = getwininfo()
     for w in windows
         InlineColors(w.winid, WindowLines(w.winid))
     endfor
@@ -155,11 +149,11 @@ enddef
 
 
 augroup InlineColors | au!
-    au WinScrolled * InlineColorsCurrentWindowBuffer()
-    au BufRead * InlineColorsInRelatedWindows()
-    au WinEnter * InlineColorsCurrentWindowBuffer()
-    au OptionSet background InlineColorsInRelatedWindows()
-    au OptionSet termguicolors InlineColorsInRelatedWindows()
-    au Colorscheme * InlineColorsCurrentWindowBuffer()
+    au WinScrolled * InlineColors(win_getid(), WindowLines(win_getid()))
+    au BufRead * InlineColorsInWindows()
+    au WinEnter * InlineColorsInWindows()
+    au OptionSet background InlineColorsInWindows()
+    au OptionSet termguicolors InlineColorsInWindows()
+    au Colorscheme * InlineColorsInWindows()
     au TextChanged * InlineColors(win_getid(), [line("'["), line("']")])
 augroup END
