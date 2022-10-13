@@ -469,7 +469,7 @@ augroup end
 # Colors
 
 # termguicolors support
-if ["st-256color", "tmux-256color", "foot"]->index($TERM) > -1
+if !has('win32') && !has('gui_running') && $TERM !~ 'xterm'
     &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
