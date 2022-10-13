@@ -97,7 +97,8 @@ enddef
 
 
 def InlineColors(winid: number, lines: list<number> = [line('.'), line('.')]): void
-    if lines[0] < 1 | return | endif
+    if lines[0] < 1 | lines[0] = 1 | endif
+    if lines[1] > line('$') | lines[1] = line('$') | endif
     var bufnr = winbufnr(winid)
     var inline_colors = getbufvar(bufnr, 'inline_colors', {})
     if get(g:, "inline_color_disable", false) && !empty(inline_colors)
