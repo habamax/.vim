@@ -510,7 +510,7 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme * BaseColorschemeSetup()
-    au Colorscheme habamax,lunaperche,pire NoBg()
+    # au Colorscheme habamax,lunaperche,pire NoBg()
     # au Colorscheme lunaperche,pire Yellowish()
 augroup END
 
