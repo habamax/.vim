@@ -1,5 +1,13 @@
 vim9script
 
+
+# var borderchars     = ['━', '┃', '━', '┃', '┏', '┓', '┛', '┗']
+# var borderchars     = ['─', '│', '─', '│', '┌', '┐', '┘', '└']
+var borderchars     = ['─', '│', '─', '│', '╭', '╮', '╯', '╰']
+var borderhighlight = []
+var popuphighlight  = ''
+
+
 # Returns winnr of created popup window
 export def ShowAtCursor(text: any, Setup: func(number) = null_function): number
     var new_text = text
@@ -11,7 +19,9 @@ export def ShowAtCursor(text: any, Setup: func(number) = null_function): number
     var winid = popup_atcursor(new_text, {
         padding: [0, 1, 0, 1],
         border: [],
-        borderchars: ['─', '│', '─', '│', '╭', '╮', '╯', '╰'],
+        borderchars: borderchars,
+        borderhighlight: borderhighlight,
+        highlight: popuphighlight,
         pos: "botleft",
         mapping: 0,
         filter: (winid, key) => {
@@ -125,7 +135,9 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
         minheight: height,
         maxheight: height,
         border: [],
-        borderchars: ['─', '│', '─', '│', '╭', '╮', '╯', '╰'],
+        borderchars: borderchars,
+        borderhighlight: borderhighlight,
+        highlight: popuphighlight,
         drag: 0,
         wrap: 1,
         cursorline: false,
