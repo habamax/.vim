@@ -510,14 +510,9 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme * BaseColorschemeSetup()
-    # au Colorscheme lunaperche,pire NoBg()
+    au Colorscheme lunaperche,pire NoBg()
     # au Colorscheme lunaperche,pire Yellowish()
 augroup END
 
 
-if has("win32") && has("gui_running")
-    set bg=light
-else
-    set bg=dark
-endif
 silent! colorscheme pire
