@@ -515,4 +515,5 @@ augroup colorschemes | au!
 augroup END
 
 
+set bg=dark
 silent! colorscheme pire
