@@ -494,12 +494,12 @@ enddef
 
 def Yellowish()
     if &background == 'dark' | return | endif
-    hi Normal ctermbg=230 guibg=#e6e7d3
+    hi Normal ctermbg=230 guibg=#f6f6ef
     hi Pmenu ctermbg=255 guibg=#feffeb
     hi PmenuSel ctermbg=120 guibg=#87ff87
     hi PmenuSBar ctermbg=255 guibg=#feffeb
     hi CursorLine ctermbg=222 guibg=#deddcb
-    hi TablineSel ctermfg=230 guifg=#e6e7d3
+    hi TablineSel ctermfg=230 guifg=#f6f6ef
     hi Tabline ctermfg=238 ctermbg=187 guifg=#444444 guibg=#d7d7af
     hi StatusLineNC ctermfg=238 ctermbg=187 guifg=#444444 guibg=#d7d7af
     hi StatusLine ctermbg=59 guibg=#5f5f5f cterm=none gui=none
