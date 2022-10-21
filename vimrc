@@ -481,7 +481,6 @@ def BaseColorschemeSetup()
     var guibg = 'guibg=' .. (hl->has_key('guibg') ? hl.guibg : 'NONE')
     exe $'hi CursorLineNr {guibg} {ctermbg} gui=bold cterm=bold'
     hi VertSplit ctermbg=NONE guibg=NONE
-    hi Comment cterm=italic gui=italic
 enddef
 
 
