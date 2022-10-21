@@ -75,27 +75,30 @@ endif
 if exists("g:loaded_ale")
     nnoremap ]e :ALENext<CR>
     nnoremap [e :ALEPrevious<CR>
+    g:ale_floating_preview = 1
+    g:ale_floating_preview_popup_opts = 1
+    g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰', '│', '─']
 endif
 
 
 # YCM
-if !has("win32")
-    g:ycm_collect_identifiers_from_comments_and_strings = 1
-    g:ycm_complete_in_comments = 1
-    g:ycm_auto_hover = ''
-    g:ycm_clangd_uses_ycmd_caching = 0
+# if !has("win32")
+#     g:ycm_collect_identifiers_from_comments_and_strings = 1
+#     g:ycm_complete_in_comments = 1
+#     g:ycm_auto_hover = ''
+#     g:ycm_clangd_uses_ycmd_caching = 0
 
-    if !exists("g:ycm_language_server")
-      g:ycm_language_server = []
-    endif
+#     if !exists("g:ycm_language_server")
+#       g:ycm_language_server = []
+#     endif
 
-    g:ycm_language_server += [
-         {
-           'name': 'godot',
-           'filetypes': [ 'gdscript' ],
-           'project_root_files': [ 'project.godot' ],
-           'port': 6008
-         }
-       ]
-    packadd YCM
-endif
+#     g:ycm_language_server += [
+#          {
+#            'name': 'godot',
+#            'filetypes': [ 'gdscript' ],
+#            'project_root_files': [ 'project.godot' ],
+#            'port': 6008
+#          }
+#        ]
+#     packadd YCM
+# endif

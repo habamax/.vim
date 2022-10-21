@@ -32,6 +32,11 @@ if exists("g:loaded_youcompleteme")
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>gr"'
+elseif exists("g:loaded_ale")
+    nnoremap <silent><buffer> K <scriptcmd>ALEHover<CR>
+    nnoremap <silent><buffer> gd <scriptcmd>ALEGoToDefinition<CR>
+    b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
+    b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
 else
     nnoremap <silent><buffer> K <scriptcmd>PopupHelp(expand("<cfile>"))<CR>
     xnoremap <silent><buffer> K y<scriptcmd>PopupHelp(getreg('"'))<CR>
