@@ -75,9 +75,42 @@ endif
 if exists("g:loaded_ale")
     nnoremap ]e :ALENext<CR>
     nnoremap [e :ALEPrevious<CR>
+    imap <C-@> <Plug>(ale_complete)
+    imap <C-Space> <Plug>(ale_complete)
     g:ale_floating_preview = 1
     g:ale_floating_preview_popup_opts = 1
     g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰', '│', '─']
+    g:ale_floating_preview_popup_opts = {
+        filter: (winid, key) => {
+            if key == "\<Space>"
+                win_execute(winid, "normal! \<C-d>\<C-d>")
+                return true
+            elseif key == "j"
+                win_execute(winid, "normal! \<C-d>")
+                return true
+            elseif key == "k"
+                win_execute(winid, "normal! \<C-u>")
+                return true
+            elseif key == "g"
+                win_execute(winid, "normal! gg")
+                return true
+            elseif key == "G"
+                win_execute(winid, "normal! G")
+                return true
+            endif
+            if key == "\<ESC>"
+                popup_close(winid)
+                return true
+            endif
+            return true
+        }
+    }
+    ale#linter#Define('gdscript', {
+        'name': 'godot',
+        'lsp': 'socket',
+        'address': '127.0.0.1:6008',
+        'project_root': 'project.godot',
+    })
 endif
 
 
