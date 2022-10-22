@@ -516,5 +516,6 @@ augroup colorschemes | au!
 augroup END
 
 
+set termguicolors
 set background=dark
 silent! colorscheme pire
