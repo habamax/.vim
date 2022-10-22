@@ -469,8 +469,6 @@ augroup end
 # Colors
 
 # termguicolors support
-set notermguicolors
-
 if !has('win32') && !has('gui_running')
         && $TERM !~ 'xterm'
         && has('termguicolors')
