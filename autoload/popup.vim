@@ -1,9 +1,9 @@
 vim9script
 
 
-# var borderchars     = ['━', '┃', '━', '┃', '┏', '┓', '┛', '┗']
-# var borderchars     = ['─', '│', '─', '│', '┌', '┐', '┘', '└']
-var borderchars     = ['─', '│', '─', '│', '╭', '╮', '╯', '╰']
+# var borderchars     = ['─', '│', '─', '│', '╭', '╮', '╯', '╰']
+var borderchars     = ['─', '│', '─', '│', '┌', '┐', '┘', '└']
+var bordertitle     = ['─┐', '┌']
 var borderhighlight = []
 var popuphighlight  = ''
 
@@ -97,7 +97,6 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
         prop_type_add('FilterMenuMatch', {highlight: "FilterMenuMatch", override: true, priority: 1000, combine: true})
     endif
     var prompt = ""
-    var hint = ">>> type to filter <<<"
     var items_dict: list<dict<any>>
     var items_count = items->len()
     if items_count < 1
@@ -129,7 +128,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
     var minwidth = (&columns * 0.6)->float2nr()
     var pos_top = ((&lines - height) / 2) - 1
     var winid = popup_create(Printify(filtered_items, []), {
-        title: $" ({items_count}/{items_count}) {title}: {hint} ",
+        title: $" ({items_count}/{items_count}) {title} {bordertitle[0]} {bordertitle[1]}",
         line: pos_top,
         minwidth: minwidth,
         maxwidth: (&columns - 5),
@@ -190,7 +189,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
                     prompt ..= key
                     filtered_items = items_dict->matchfuzzypos(prompt, {key: "text"})
                 endif
-                popup_setoptions(id, {title: $" ({items_count > 0 ? filtered_items[0]->len() : 0}/{items_count}) {title}: {prompt ?? hint} " })
+                popup_setoptions(id, {title: $" ({items_count > 0 ? filtered_items[0]->len() : 0}/{items_count}) {title} {bordertitle[0]} {prompt} {bordertitle[1]}" })
                 popup_settext(id, Printify(filtered_items, []))
             endif
             return true
