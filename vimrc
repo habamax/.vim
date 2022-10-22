@@ -472,7 +472,6 @@ augroup end
 if !has('win32') && !has('gui_running')
         && $TERM !~ 'xterm'
         && has('termguicolors')
-        && &termguicolors
     &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
