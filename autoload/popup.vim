@@ -5,7 +5,7 @@ vim9script
 var borderchars     = ['─', '│', '─', '│', '┌', '┐', '┘', '└']
 var bordertitle     = ['─┐', '┌']
 var borderhighlight = []
-var popuphighlight  = ''
+var popuphighlight  = 'None'
 
 
 # Returns winnr of created popup window
