@@ -9,6 +9,9 @@ g:loaded_matchparen = 1
 g:loaded_netrw = 1
 g:loaded_netrwPlugin = 1
 
+# popup highlight
+g:popuphighlight = 'None'
+
 packadd cfilter
 
 # Git
