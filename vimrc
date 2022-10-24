@@ -498,7 +498,7 @@ def Yellowish()
     if &background == 'dark' | return | endif
     hi Normal ctermbg=230 guibg=#f7f7f0
     hi Pmenu ctermbg=255 guibg=#feffeb
-    hi PmenuSBar ctermbg=255 guibg=#feffeb
+    hi PmenuSBar ctermbg=NONE guibg=NONE
     hi CursorLine ctermbg=222 guibg=#deddcb
     hi TablineSel ctermfg=230 guifg=#f7f7f0
     hi Tabline ctermfg=238 ctermbg=187 guifg=#444444 guibg=#d7d7af
