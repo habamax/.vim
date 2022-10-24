@@ -80,6 +80,7 @@ if exists("g:loaded_ale")
     g:ale_floating_preview = 1
     g:ale_floating_preview_popup_opts = 1
     g:ale_floating_window_border = ['│', '─', '┌', '┐', '┘', '└', '│', '─']
+    g:ale_pattern_options = {'\.tex$': {ale_enabled: 0}}
     g:ale_floating_preview_popup_opts = {
         filter: (winid, key) => {
             if key == "\<Space>"
