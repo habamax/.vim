@@ -83,6 +83,7 @@ if exists("g:loaded_ale")
     g:ale_pattern_options = {'\.tex$': {ale_enabled: 0}}
     g:ale_floating_preview_popup_opts = {
         highlight: get(g:, "popuphighlight", ''),
+        close: 'none',
         filter: (winid, key) => {
             if key == "\<Space>"
                 win_execute(winid, "normal! \<C-d>\<C-d>")
