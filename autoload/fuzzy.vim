@@ -35,11 +35,7 @@ enddef
 
 export def MRU()
     popup.FilterMenu("MRU",
-        v:oldfiles->copy()->filter((_, v) => {
-            var mru_name = fnamemodify(v, ":p")
-            return filereadable(mru_name) &&
-                   mru_name->stridx(expand("$VIMRUNTIME")) == -1
-        }),
+        v:oldfiles,
         (res, key) => {
             if key == "\<c-t>"
                 exe $":tab e {res.text}"
