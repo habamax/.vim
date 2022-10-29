@@ -10,6 +10,7 @@ else
     set guifont=Monospace\ 17
 endif
 
-# quick font check: aloha here.
+# quick font check:
 # З3Э -- буква З, цифра 3, буква Э
 # 1lI0OQB8 =-+*:(){}[]
+# I1legal
