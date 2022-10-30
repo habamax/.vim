@@ -519,10 +519,10 @@ augroup colorschemes | au!
     au Colorscheme * BaseColorschemeSetup()
     au Colorscheme lunaperche,pire NoBg()
     # au Colorscheme lunaperche,pire Yellowish()
-    au Colorscheme lunaperche,pire Greenish()
+    # au Colorscheme lunaperche,pire Greenish()
 augroup END
 
 
-set termguicolors
+# set termguicolors
 set background=dark
 silent! colorscheme pire
