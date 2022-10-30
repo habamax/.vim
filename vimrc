@@ -497,16 +497,11 @@ enddef
 
 def Yellowish()
     if &background == 'dark' | return | endif
-    hi Normal ctermbg=230 guibg=#f7f7f0
-    hi Pmenu ctermbg=255 guibg=#feffeb
-    hi PmenuSBar ctermbg=NONE guibg=NONE
-    hi CursorLine ctermbg=222 guibg=#deddcb
-    hi TablineSel ctermfg=230 guifg=#f7f7f0
-    hi Tabline ctermfg=238 ctermbg=187 guifg=#444444 guibg=#d7d7af
-    hi StatusLineNC ctermfg=238 ctermbg=187 guifg=#444444 guibg=#d7d7af
-    hi StatusLine ctermbg=59 guibg=#5f5f5f cterm=none gui=none
-    hi ColorColumn ctermbg=231 guibg=#ffffff
-    hi Folded ctermbg=223 guibg=#e7d7af
+    hi Normal guibg=#f7f7f0
+    hi TablineSel guifg=#f7f7f0
+    hi Tabline guifg=#444444 guibg=#d7d7d0
+    hi StatusLineNC guifg=#444444 guibg=#d7d7d0
+    hi StatusLine guibg=#5f5f5f gui=none
 enddef
 
 
@@ -524,10 +519,10 @@ augroup colorschemes | au!
     au Colorscheme * BaseColorschemeSetup()
     au Colorscheme lunaperche,pire NoBg()
     # au Colorscheme lunaperche,pire Yellowish()
-    # au Colorscheme lunaperche,pire Greenish()
+    au Colorscheme lunaperche,pire Greenish()
 augroup END
 
 
-# set termguicolors
+set termguicolors
 set background=dark
 silent! colorscheme pire
