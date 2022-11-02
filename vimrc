@@ -494,6 +494,7 @@ def RePire()
         hi TablineSel ctermbg=NONE guibg=#1c1c1c
         hi Folded     ctermfg=232  guibg=#080808
         hi Cursorline ctermfg=236  guibg=#303030
+        hi Pmenu      ctermfg=236  guibg=#303030
     else
         hi Normal       guibg=#f7f7f0
         hi TablineSel   guifg=#f7f7f0
