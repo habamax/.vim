@@ -483,15 +483,15 @@ def BaseColorschemeSetup()
     var ctermbg = 'ctermbg=' .. (hl->has_key('ctermbg') ? hl.ctermbg : 'NONE')
     var guibg = 'guibg=' .. (hl->has_key('guibg') ? hl.guibg : 'NONE')
     exe $'hi CursorLineNr {guibg} {ctermbg} gui=bold cterm=bold'
-    hi VertSplit ctermbg=none guibg=none
+    hi VertSplit ctermbg=NONE guibg=NONE
     hi Comment cterm=italic gui=italic
 enddef
 
 
 def RePire()
     if &background == 'dark'
-        hi Normal     ctermbg=none guibg=#1c1c1c
-        hi TablineSel ctermbg=none guibg=#1c1c1c
+        hi Normal     ctermbg=NONE guibg=#1c1c1c
+        hi TablineSel ctermbg=NONE guibg=#1c1c1c
         hi Folded     ctermfg=232  guibg=#080808
         hi Cursorline ctermfg=236  guibg=#303030
         hi Pmenu      ctermfg=236  guibg=#303030
@@ -500,7 +500,7 @@ def RePire()
         hi TablineSel   guifg=#f7f7f0
         hi Tabline      guifg=#444444 guibg=#d7d7d0
         hi StatusLineNC guifg=#444444 guibg=#d7d7d0
-        hi StatusLine   guibg=#5f5f5f gui=none
+        hi StatusLine   guibg=#5f5f5f gui=NONE
         hi Cursorline   guibg=#e7e7e0
         hi Folded       guibg=#fffff9
     endif
