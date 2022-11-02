@@ -506,15 +506,6 @@ def Yellowish()
     hi Folded guibg=#e1e1da
     hi Cursorline guibg=#ffffff
 
-    # hi Normal guibg=#e1e1da
-    # hi TablineSel guifg=#e1e1da
-    # hi Tabline guifg=#444444 guibg=#b7b7b0
-    # hi StatusLineNC guifg=#444444 guibg=#b7b7b0
-    # hi VertSplit guifg=#a7a7a0
-    # hi StatusLine guibg=#5f5f5f gui=none
-    # hi Folded guibg=#d1d1ca
-    # hi Cursorline guibg=#f1f1ea
-
 enddef
 
 
