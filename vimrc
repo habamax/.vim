@@ -507,10 +507,10 @@ enddef
 
 def Greenish()
     if &background == 'dark' | return | endif
-    hi Normal guibg=#f0f7f0
-    hi TablineSel guifg=#f0f7f0
-    hi Tabline guifg=#444444 guibg=#d0d7d0
-    hi StatusLineNC guifg=#444444 guibg=#d0d7d0
+    hi Normal guibg=#f3f7f3
+    hi TablineSel guifg=#f3f7f3
+    hi Tabline guifg=#444444 guibg=#d3d7d3
+    hi StatusLineNC guifg=#444444 guibg=#d3d7d3
     hi StatusLine guibg=#5f5f5f cterm=none gui=none
 enddef
 
