@@ -490,18 +490,18 @@ enddef
 
 def RePire()
     if &background == 'dark'
-        hi Normal ctermbg=NONE guibg=#1c1c1c
+        hi Normal     ctermbg=NONE guibg=#1c1c1c
         hi TablineSel ctermbg=NONE guibg=#1c1c1c
-        hi Folded ctermfg=232 guibg=#080808
-        hi Cursorline ctermfg=236 guibg=#303030
+        hi Folded     ctermfg=232  guibg=#080808
+        hi Cursorline ctermfg=236  guibg=#303030
     else
-        hi Normal guibg=#f7f7f0
-        hi TablineSel guifg=#f7f7f0
-        hi Tabline guifg=#444444 guibg=#d7d7d0
+        hi Normal       guibg=#f7f7f0
+        hi TablineSel   guifg=#f7f7f0
+        hi Tabline      guifg=#444444 guibg=#d7d7d0
         hi StatusLineNC guifg=#444444 guibg=#d7d7d0
-        hi StatusLine guibg=#5f5f5f gui=none
-        hi Cursorline guibg=#e7e7e0
-        hi Folded guibg=#fffff9
+        hi StatusLine   guibg=#5f5f5f gui=none
+        hi Cursorline   guibg=#e7e7e0
+        hi Folded       guibg=#fffff9
     endif
 
 enddef
