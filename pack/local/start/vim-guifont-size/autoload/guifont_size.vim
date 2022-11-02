@@ -20,7 +20,7 @@ export def Change(op: string)
     for font in cur_fonts
         var [fontname, fontsize] = GetFontParams(font)
 
-        if (fontsize < 8 && op == 'dec') || (fontsize > 30 && op == 'inc')
+        if (fontsize < 8 && op == 'dec') || (fontsize > 64 && op == 'inc')
             return
         endif
 
