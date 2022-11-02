@@ -487,10 +487,10 @@ def BaseColorschemeSetup()
 enddef
 
 
-def NoDarkBg()
+def Bg()
     if &background == 'dark'
-        hi Normal ctermbg=NONE
-        hi TablineSel ctermbg=NONE
+        hi Normal ctermbg=NONE guibg=#1c1c1c
+        hi TablineSel ctermbg=NONE guibg=#1c1c1c
     endif
 enddef
 
@@ -520,7 +520,7 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme * BaseColorschemeSetup()
-    au Colorscheme lunaperche,pire NoDarkBg()
+    au Colorscheme lunaperche,pire Bg()
     au Colorscheme lunaperche,pire Yellowish()
 augroup END
 
