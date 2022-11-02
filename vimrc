@@ -504,7 +504,6 @@ def RePire()
         hi Cursorline   guibg=#e7e7e0
         hi Folded       guibg=#fffff9
     endif
-
 enddef
 
 
