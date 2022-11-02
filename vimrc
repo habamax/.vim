@@ -487,7 +487,7 @@ def BaseColorschemeSetup()
 enddef
 
 
-def NoBg()
+def NoDarkBg()
     if &background == 'dark'
         hi Normal ctermbg=NONE
         hi TablineSel ctermbg=NONE
@@ -497,32 +497,30 @@ enddef
 
 def Yellowish()
     if &background == 'dark' | return | endif
-    hi Normal guibg=#f7f7f0
-    hi TablineSel guifg=#f7f7f0
-    hi Tabline guifg=#444444 guibg=#d7d7d0
-    hi StatusLineNC guifg=#444444 guibg=#d7d7d0
+    # hi Normal guibg=#f7f7f0
+    # hi TablineSel guifg=#f7f7f0
+    # hi Tabline guifg=#444444 guibg=#d7d7d0
+    # hi StatusLineNC guifg=#444444 guibg=#d7d7d0
+    # hi StatusLine guibg=#5f5f5f gui=none
+
+    hi Normal guibg=#e1e1da
+    hi TablineSel guifg=#e1e1da
+    hi Tabline guifg=#444444 guibg=#b7b7b0
+    hi StatusLineNC guifg=#444444 guibg=#b7b7b0
+    hi VertSplit guifg=#a7a7a0
     hi StatusLine guibg=#5f5f5f gui=none
-enddef
-
-
-def Greenish()
-    if &background == 'dark' | return | endif
-    hi Normal guibg=#f3f7f3
-    hi TablineSel guifg=#f3f7f3
-    hi Tabline guifg=#444444 guibg=#d3d7d3
-    hi StatusLineNC guifg=#444444 guibg=#d3d7d3
-    hi StatusLine guibg=#5f5f5f cterm=none gui=none
+    hi Folded guibg=#d1d1ca
+    hi Cursorline guibg=#f1f1ea
 enddef
 
 
 augroup colorschemes | au!
     au Colorscheme * BaseColorschemeSetup()
-    au Colorscheme lunaperche,pire NoBg()
+    au Colorscheme lunaperche,pire NoDarkBg()
     au Colorscheme lunaperche,pire Yellowish()
-    # au Colorscheme lunaperche,pire Greenish()
 augroup END
 
 
 set termguicolors
-set background=dark
+set background=light
 silent! colorscheme pire
