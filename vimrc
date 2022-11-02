@@ -491,11 +491,12 @@ enddef
 
 def RePire()
     if &background == 'dark'
-        hi Normal     ctermbg=NONE guibg=#1c1c1c
-        hi TablineSel ctermbg=NONE guibg=#1c1c1c
-        hi Folded     ctermfg=232  guibg=#080808
-        hi Cursorline ctermfg=236  guibg=#303030
-        hi Pmenu      ctermfg=236  guibg=#303030
+        hi Normal      ctermbg=NONE guibg=#1c1c1c
+        hi TablineSel  ctermbg=NONE guibg=#1c1c1c
+        hi Folded      ctermfg=232  guibg=#080808
+        hi Cursorline  ctermfg=236  guibg=#303030
+        hi Pmenu       ctermfg=236  guibg=#303030
+        hi ColorColumn ctermbg=232  guibg=#080808
     else
         hi Normal       guibg=#f7f7f0
         hi TablineSel   guifg=#f7f7f0
@@ -504,6 +505,7 @@ def RePire()
         hi StatusLine   guibg=#5f5f5f gui=NONE
         hi Cursorline   guibg=#e7e7e0
         hi Folded       guibg=#fffff9
+        hi ColorColumn  guibg=#fffff9
     endif
 enddef
 
