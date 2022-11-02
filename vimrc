@@ -497,20 +497,24 @@ enddef
 
 def Yellowish()
     if &background == 'dark' | return | endif
-    # hi Normal guibg=#f7f7f0
-    # hi TablineSel guifg=#f7f7f0
-    # hi Tabline guifg=#444444 guibg=#d7d7d0
-    # hi StatusLineNC guifg=#444444 guibg=#d7d7d0
-    # hi StatusLine guibg=#5f5f5f gui=none
 
-    hi Normal guibg=#e1e1da
-    hi TablineSel guifg=#e1e1da
-    hi Tabline guifg=#444444 guibg=#b7b7b0
-    hi StatusLineNC guifg=#444444 guibg=#b7b7b0
-    hi VertSplit guifg=#a7a7a0
+    hi Normal guibg=#f7f7f0
+    hi TablineSel guifg=#f7f7f0
+    hi Tabline guifg=#444444 guibg=#d7d7d0
+    hi StatusLineNC guifg=#444444 guibg=#d7d7d0
     hi StatusLine guibg=#5f5f5f gui=none
-    hi Folded guibg=#d1d1ca
-    hi Cursorline guibg=#f1f1ea
+    hi Folded guibg=#e1e1da
+    hi Cursorline guibg=#ffffff
+
+    # hi Normal guibg=#e1e1da
+    # hi TablineSel guifg=#e1e1da
+    # hi Tabline guifg=#444444 guibg=#b7b7b0
+    # hi StatusLineNC guifg=#444444 guibg=#b7b7b0
+    # hi VertSplit guifg=#a7a7a0
+    # hi StatusLine guibg=#5f5f5f gui=none
+    # hi Folded guibg=#d1d1ca
+    # hi Cursorline guibg=#f1f1ea
+
 enddef
 
 
@@ -522,5 +526,5 @@ augroup END
 
 
 set termguicolors
-set background=light
+set background=dark
 silent! colorscheme pire
