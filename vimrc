@@ -491,12 +491,12 @@ enddef
 
 
 def RePire()
-    if &background == 'dark'
+    if &background == 'dark' && &t_Co->str2nr() >= 256
         hi Normal      ctermbg=NONE guibg=#1c1c1c
         hi TablineSel  ctermbg=NONE guibg=#1c1c1c
-        hi Folded      ctermfg=233  guibg=#121212
-        hi Cursorline  ctermfg=236  guibg=#303030
-        hi Pmenu       ctermfg=236  guibg=#303030
+        hi Folded      ctermbg=233  guibg=#121212
+        hi Cursorline  ctermbg=236  guibg=#303030
+        hi Pmenu       ctermbg=236  guibg=#303030
         hi ColorColumn ctermbg=233  guibg=#121212
     else
         hi Normal       guibg=#f7f7f0
