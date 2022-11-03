@@ -481,11 +481,12 @@ set termguicolors
 
 def BaseColorschemeSetup()
     var hl = hlget('LineNr')[0]
-    var ctermbg = 'ctermbg=' .. (hl->has_key('ctermbg') ? hl.ctermbg : 'NONE')
-    var guibg = 'guibg=' .. (hl->has_key('guibg') ? hl.guibg : 'NONE')
-    exe $'hi CursorLineNr {guibg} {ctermbg} gui=bold cterm=bold'
-    hi VertSplit ctermbg=NONE guibg=NONE
-    # hi Comment cterm=italic gui=italic
+    hlset([{
+        name: 'CursorLineNr',
+        ctermbg: hl->has_key('ctermbg') ? hl.ctermbg : 'NONE',
+        guibg: hl->has_key('guibg') ? hl.guibg : 'NONE',
+        gui: {bold: true}, cterm: {bold: true}
+    }])
 enddef
 
 
@@ -507,6 +508,7 @@ def RePire()
         hi Folded       guibg=#fffff9
         hi ColorColumn  guibg=#fffff9
     endif
+    hi VertSplit ctermbg=NONE guibg=NONE
 enddef
 
 
