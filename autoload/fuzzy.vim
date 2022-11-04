@@ -234,6 +234,8 @@ export def FileTree(path: string = "")
                 exe $":split {res.text}"
             elseif key == "\<c-v>"
                 exe $":vert split {res.text}"
+            elseif key == "\<C-o>"
+                os.Open($"{res.text}")
             else
                 exe $":e {res.text}"
             endif
