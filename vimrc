@@ -498,7 +498,7 @@ def RePire()
         hi Cursorline  ctermbg=236  guibg=#303030
         hi Pmenu       ctermbg=236  guibg=#303030
         hi ColorColumn ctermbg=233  guibg=#121212
-    else
+    elseif &background == 'light'
         hi Normal       guibg=#f7f7f0
         hi TablineSel   guifg=#f7f7f0
         hi Tabline      guifg=#444444 guibg=#d7d7d0
