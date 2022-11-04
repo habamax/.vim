@@ -3,6 +3,8 @@ vim9script
 import autoload 'popup.vim'
 import autoload 'os.vim'
 
+const MAX_ELEMENTS: number = 20000
+
 
 export def Buffer()
     var buffer_list = getbufinfo({'buflisted': 1})->mapnew((_, v) => {
@@ -208,7 +210,7 @@ export def FileTree(path: string = "")
         var ignore_dirs = [".git", ".hg", ".bundle"]
         var result = readdirex(dir, (v) => v.type =~ 'file\|link$')->mapnew((_, f) => f.name)
         var dirs = readdirex(dir, (v) => v.type =~ 'dir\|linkd\|junction' && ignore_dirs->index(v.name) == -1)->mapnew((_, f) => f.name)
-        while !empty(dirs) && result->len() < 10000 && dirs->len() < 200
+        while !empty(dirs) && result->len() < MAX_ELEMENTS && dirs->len() < 200
             var next_dir = dirs->remove(0)
             result += readdirex(next_dir, (v) => v.type =~ 'file\|link$')->mapnew((_, f) => $"{next_dir}/{f.name}")
             dirs += readdirex(next_dir, (v) => v.type =~ 'dir\|linkd\|junction' && ignore_dirs->index(v.name) == -1)->mapnew((_, f) => $"{next_dir}/{f.name}")
@@ -224,7 +226,7 @@ export def FileTree(path: string = "")
     else
         files = Tree(opath)
     endif
-    popup.FilterMenu("File", files,
+    popup.FilterMenu("File", files[ : MAX_ELEMENTS - 1],
         (res, key) => {
             if key == "\<c-t>"
                 exe $":tab e {res.text}"
