@@ -476,11 +476,7 @@ if !has('win32') && !has('gui_running')
     &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-
-
-# if $TERM !~ "rxvt-unicode"
-#     set termguicolors
-# endif
+set termguicolors
 
 
 def BaseColorschemeSetup()
@@ -495,9 +491,14 @@ enddef
 
 
 def RePire()
-    if &background == 'dark' && &t_Co->str2nr() >= 256
-        hi Normal      ctermbg=NONE guibg=#1c1c1c
-        hi TablineSel  ctermbg=NONE guibg=#1c1c1c
+    if &background == 'dark'
+        if &termguicolors && !has('gui_running')
+            hi Normal      ctermbg=NONE guibg=NONE
+            hi TablineSel  ctermbg=NONE guibg=NONE
+        else
+            hi Normal      ctermbg=NONE guibg=#1c1c1c
+            hi TablineSel  ctermbg=NONE guibg=#1c1c1c
+        endif
         hi Folded      ctermbg=233  guibg=#121212
         hi Cursorline  ctermbg=236  guibg=#303030
         hi Pmenu       ctermbg=236  guibg=#303030
@@ -519,6 +520,7 @@ enddef
 augroup colorschemes | au!
     au Colorscheme * BaseColorschemeSetup()
     au Colorscheme lunaperche,pire RePire()
+    au OptionSet termguicolors RePire()
 augroup END
 
 
