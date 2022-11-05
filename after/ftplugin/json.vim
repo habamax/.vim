@@ -1,5 +1,7 @@
 setlocal expandtab shiftwidth=2
 
+setl formatexpr=json#FormatExpr()
+
 if executable('jq')
     let &l:formatprg = "jq -e"
 elseif executable('js-beautify')
