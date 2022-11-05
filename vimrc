@@ -478,9 +478,9 @@ if !has('win32') && !has('gui_running')
 endif
 
 
-if $TERM !~ "rxvt-unicode"
-    set termguicolors
-endif
+# if $TERM !~ "rxvt-unicode"
+#     set termguicolors
+# endif
 
 
 def BaseColorschemeSetup()
