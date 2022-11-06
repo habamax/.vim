@@ -164,9 +164,9 @@ def ResizeWin(width: number, height: number)
         normal! ze
     endtry
 enddef
-noremap <silent> <C-w>m <ScriptCmd>ResizeWin(v:count * 10 + 90, 30)<CR>
+noremap <silent> <C-w>m <ScriptCmd>ResizeWin(v:count * 10 + 90, 25)<CR>
 map <C-w><C-m> <C-w>m
-tnoremap <silent> <C-w>m <ScriptCmd>ResizeWin(v:count * 10 + 90, 30)<CR>
+tnoremap <silent> <C-w>m <ScriptCmd>ResizeWin(v:count * 10 + 90, 25)<CR>
 tmap <C-w><C-m> <C-w>m
 
 # better PgUp/PgDn
