@@ -297,34 +297,6 @@ enddef
 nmap <silent> gs :set opfunc=<SID>Sort<CR>g@
 xmap <silent> gs :sort <bar> s/[^,]$/&,/e <bar> '>s/,$//e<CR>
 
-# gq wrapper that:
-# - tries its best at keeping the cursor in place
-# - tries to handle formatter errors
-def GqFormat(...args: list<any>): string
-    if len(args) == 0
-        &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
-        return 'g@'
-    endif
-    if args[0] == 'v'
-        normal! gvgq
-    else
-        normal! '[v']gq
-    endif
-    if v:shell_error > get(b:, "formatprg_err", 0)
-        silent undo
-        redraw
-        echomsg 'formatprg "' .. &formatprg .. '" exited with status ' .. v:shell_error
-    endif
-    if exists("w:gqview")
-        winrestview(w:gqview)
-        unlet w:gqview
-    endif
-    return ''
-enddef
-nnoremap <silent> gq :let w:gqview = winsaveview()<CR>:set opfunc=<SID>GqFormat<CR>g@
-nmap <silent> gqq gq_
-xnoremap <silent> gq <ScriptCmd>GqFormat('v')<CR>
-
 tnoremap <C-v> <C-w>""
 
 # QuickFix
