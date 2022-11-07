@@ -64,7 +64,6 @@ vim9script
 # To be able to reformat with `gq` add following to `after/json.vim`:
 #    import autoload 'json.vim'
 #    setl formatexpr=json.FormatExpr()
-#    xnoremap <buffer> gq <scriptcmd>json.FormatRange(line('v'), line('.'))<CR>
 export def FormatExpr(): number
     FormatRange(v:lnum, v:lnum + v:count - 1)
     return 0
