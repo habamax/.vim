@@ -486,6 +486,7 @@ def RePire()
         hi ColorColumn  guibg=#fffff9
     endif
     hi VertSplit ctermbg=NONE guibg=NONE
+    hi! link vimVar Normal
 enddef
 
 
