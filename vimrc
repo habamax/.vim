@@ -504,4 +504,4 @@ augroup END
 
 
 set background=dark
-silent! colorscheme retrobox
+silent! colorscheme pire
