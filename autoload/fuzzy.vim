@@ -36,8 +36,15 @@ enddef
 
 
 export def MRU()
-    popup.FilterMenu("MRU",
-        v:oldfiles,
+    var mru = []
+    if has("win32")
+        # windows is very slow checking if file exists
+        # use non-filtered v:oldfiles
+        mru = v:oldfiles
+    else
+        mru = v:oldfiles->filter((_, v) => filereadable(fnamemodify(v, ":p")))
+    endif
+    popup.FilterMenu("MRU", mru,
         (res, key) => {
             if key == "\<c-t>"
                 exe $":tab e {res.text}"
