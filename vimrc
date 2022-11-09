@@ -450,6 +450,7 @@ if !has('win32') && !has('gui_running')
 endif
 set termguicolors
 
+
 def NoBg()
     if &background == 'light' | return | endif
     if &termguicolors && !has('gui_running')
