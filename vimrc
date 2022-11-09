@@ -450,6 +450,17 @@ if !has('win32') && !has('gui_running')
 endif
 set termguicolors
 
+def NoBg()
+    if &background == 'light' | return | endif
+    if &termguicolors && !has('gui_running')
+        hi Normal      ctermbg=NONE guibg=NONE
+        hi TablineSel  ctermbg=NONE guibg=NONE
+    else
+        hi Normal      ctermbg=NONE guibg=#1c1c1c
+        hi TablineSel  ctermbg=NONE guibg=#1c1c1c
+    endif
+enddef
+
 
 def BaseColorschemeSetup()
     var hl = hlget('LineNr')[0]
@@ -464,13 +475,6 @@ enddef
 
 def RePire()
     if &background == 'dark'
-        if &termguicolors && !has('gui_running')
-            hi Normal      ctermbg=NONE guibg=NONE
-            hi TablineSel  ctermbg=NONE guibg=NONE
-        else
-            hi Normal      ctermbg=NONE guibg=#1c1c1c
-            hi TablineSel  ctermbg=NONE guibg=#1c1c1c
-        endif
         hi Folded      ctermbg=233  guibg=#121212
         hi Cursorline  ctermbg=236  guibg=#303030
         hi Pmenu       ctermbg=236  guibg=#303030
@@ -492,7 +496,8 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme * BaseColorschemeSetup()
-    au Colorscheme lunaperche,pire RePire()
+    au Colorscheme pire,lunaperche,habamax,retrobox NoBg()
+    au Colorscheme pire,lunaperche RePire()
     au OptionSet termguicolors RePire()
 augroup END
 
