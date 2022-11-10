@@ -457,6 +457,12 @@ def BaseColorschemeSetup()
 enddef
 
 
+def Retrobox()
+    hi VertSplit ctermbg=NONE guibg=NONE
+    hi Comment cterm=italic gui=italic
+enddef
+
+
 def RePire()
     if &background == 'dark'
         hi Folded      ctermbg=233  guibg=#121212
@@ -474,6 +480,7 @@ def RePire()
         hi ColorColumn  guibg=#fffff9
     endif
     hi VertSplit ctermbg=NONE guibg=NONE
+    hi Comment cterm=italic gui=italic
     hi! link vimVar Normal
 enddef
 
@@ -482,7 +489,7 @@ augroup colorschemes | au!
     au Colorscheme * BaseColorschemeSetup()
     au Colorscheme pire,lunaperche,habamax,retrobox NoBg()
     au Colorscheme pire,lunaperche RePire()
-    au OptionSet termguicolors RePire()
+    au Colorscheme retrobox Retrobox()
 augroup END
 
 
