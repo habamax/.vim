@@ -13,9 +13,6 @@ if exists("g:loaded_swap")
     xmap io <Plug>(swap-textobject-i)
     omap ao <Plug>(swap-textobject-a)
     xmap ao <Plug>(swap-textobject-a)
-    nmap g< <Plug>(swap-prev)
-    nmap g> <Plug>(swap-next)
-    nmap g. <Plug>(swap-interactive)
 endif
 
 
