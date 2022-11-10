@@ -280,23 +280,6 @@ xnoremap <expr> <space>t term.Send()
 nnoremap <expr> <space>t term.Send()
 nnoremap <expr> <space>tt term.Send() .. '_'
 
-# 'array' sort operator:
-# const whatever = [   ->   const whatever = [
-#     'bar',           ->       'acme',
-#     'baz',           ->       'bar',
-#     'foo',           ->       'baz',
-#     'acme'           ->       'foo'
-# ]                    ->   ]
-def Sort(..._: list<any>)
-    :'[,']sort
-    # add commas to every line
-    :'[,']s/[^,]$/&,/e
-    # remove comma from the last line
-    :']s/,$//e
-enddef
-nmap <silent> gs :set opfunc=<SID>Sort<CR>g@
-xmap <silent> gs :sort <bar> s/[^,]$/&,/e <bar> '>s/,$//e<CR>
-
 tnoremap <C-v> <C-w>""
 
 # QuickFix
