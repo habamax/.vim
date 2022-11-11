@@ -14,7 +14,6 @@ bundle/start/vim-sandwich	git@github.com:machakann/vim-sandwich
 bundle/start/vim-swap	git@github.com:machakann/vim-swap.git
 bundle/start/vim-lion	git@github.com:tommcdo/vim-lion.git
 
-
 # Nice to have
 bundle/start/ale	git@github.com:dense-analysis/ale.git
 bundle/start/vim-closetag	git@github.com:alvan/vim-closetag.git
