@@ -446,7 +446,7 @@ def NoBg()
 enddef
 
 
-def BaseColorschemeSetup()
+def HLBase()
     var hl = hlget('LineNr')[0]
     hlset([{
         name: 'CursorLineNr',
@@ -454,10 +454,6 @@ def BaseColorschemeSetup()
         guibg: hl->has_key('guibg') ? hl.guibg : 'NONE',
         gui: {bold: true}, cterm: {bold: true}
     }])
-enddef
-
-
-def Retrobox()
     hi VertSplit ctermbg=NONE guibg=NONE
     hi Comment cterm=italic gui=italic
 enddef
@@ -479,17 +475,14 @@ def RePire()
         hi Folded       guibg=#fffff9
         hi ColorColumn  guibg=#fffff9
     endif
-    hi VertSplit ctermbg=NONE guibg=NONE
-    hi Comment cterm=italic gui=italic
     hi! link vimVar Normal
 enddef
 
 
 augroup colorschemes | au!
-    au Colorscheme * BaseColorschemeSetup()
+    au Colorscheme * HLBase()
     au Colorscheme pire,lunaperche,habamax,retrobox NoBg()
     au Colorscheme pire,lunaperche RePire()
-    au Colorscheme retrobox Retrobox()
 augroup END
 
 
