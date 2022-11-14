@@ -244,6 +244,7 @@ nmap <silent> <space>6 <space>^
 nnoremap <silent> <space>+ <scriptcmd>text.Underline('+')<CR>
 nnoremap <silent> <space>" <scriptcmd>text.Underline('"')<CR>
 nnoremap <silent> <space>` <scriptcmd>text.Underline('`')<CR>
+nnoremap <silent> <space>. <scriptcmd>text.Underline('.')<CR>
 
 import autoload 'comment.vim'
 nnoremap <silent> <expr> gc comment.Toggle()
