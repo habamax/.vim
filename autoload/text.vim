@@ -45,7 +45,7 @@ export def Underline(char: string)
     var line = matchlist(getline('.'), '^\(\s*\)\(.*\)$')
     if empty(line[2]) | return | endif
     var underline = line[1] .. repeat(char, strchars(line[2]))
-    if getline(nextnr) =~ '^\s*' .. escape(char, '*\~^') .. '\+$'
+    if getline(nextnr) =~ '^\s*' .. escape(char, '*\~^.') .. '\+$'
         setline(nextnr, underline)
     else
         append('.', underline)
