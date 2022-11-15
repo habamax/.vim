@@ -32,7 +32,7 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.swp
 set sessionoptions=buffers,curdir,tabpages,winsize
 set history=200
 set viminfo='200,<50,s10
-set mouse=a
+set mouse=a ttyfast
 
 g:vimdata = $'{has("win32") ? expand("$APPDATA") : expand("~/.config")}/vim-data'
 if !isdirectory(g:vimdata) | mkdir(g:vimdata, "p") | endif
