@@ -97,7 +97,6 @@ enddef
 
 
 def InlineColors(winid: number, lines: list<number> = [line('.'), line('.')]): void
-    if &buftype == 'quickfix' | return | endif
     if lines[0] < 1 | lines[0] = 1 | endif
     if lines[1] > line('$', winid) | lines[1] = line('$', winid) | endif
     var bufnr = winbufnr(winid)
