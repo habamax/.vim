@@ -9,13 +9,3 @@ elseif executable('html-beautify')
     " command! -buffer Fmt :silent %!html-beautify -s 2 -f - --wrap-attributes=force-aligned
     let &l:formatprg = "html-beautify -s 2 -f -"
 endif
-
-if !empty(&l:formatprg)
-    command! -buffer Fmt normal gggqG
-endif
-
-if exists(":Fmt")
-    augroup Curl | au!
-        autocmd User CurlOutput Fmt
-    augroup END
-endif

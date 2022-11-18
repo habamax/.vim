@@ -1,5 +1,7 @@
 vim9script
 
+setlocal commentstring=//%s
+
 if exists("g:loaded_ale")
     nnoremap <silent><buffer> K <scriptcmd>ALEHover<CR>
     nnoremap <silent><buffer> gd <scriptcmd>ALEGoToDefinition<CR>
