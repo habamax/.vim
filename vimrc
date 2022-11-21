@@ -112,6 +112,10 @@ nnoremap yod <cmd>exe (&diff ? ':diffoff' : ':diffthis')<CR>
 nnoremap yov <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
 nnoremap yob <scriptcmd>&bg = (&bg == "light" ? "dark" : "light")<CR>
 
+# move lines
+xnoremap <S-tab> :m '<-2<CR>gv=gv
+xnoremap <tab> :m '>+1<CR>gv=gv
+
 # toggle colorcolumn at cursor position
 # set vartabstop accordingly
 def ToggleCC(all: bool = false)
