@@ -113,8 +113,8 @@ nnoremap yov <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<
 nnoremap yob <scriptcmd>&bg = (&bg == "light" ? "dark" : "light")<CR>
 
 # move lines
-xnoremap <S-tab> :m '<-2<CR>gv=gv
-xnoremap <tab> :m '>+1<CR>gv=gv
+xnoremap <S-tab> :m '<-2<CR>gv
+xnoremap <tab> :m '>+1<CR>gv
 
 # toggle colorcolumn at cursor position
 # set vartabstop accordingly
