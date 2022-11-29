@@ -467,7 +467,7 @@ enddef
 def RePire()
     if &background == 'dark'
         hi Folded      ctermbg=233  guibg=#121212
-        hi Cursorline  ctermbg=236  guibg=#303030
+        hi Cursorline  ctermbg=238  guibg=#444444
         hi Pmenu       ctermbg=236  guibg=#303030
         hi ColorColumn ctermbg=233  guibg=#121212
     elseif &background == 'light'
