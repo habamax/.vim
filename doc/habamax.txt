@@ -1,6 +1,19 @@
 *habamax.txt*         Personal habamax help
 
 
+MINIMAL VIMRC                                        *minimal-vimrc*
+=============
+
+filetype plugin indent on
+syntax on
+
+set hid wmnu nu rnu
+set ic is ai et sw=4 sts=-1
+set ttimeout ttimeoutlen=50
+
+
+
+
 BUILD VIM FROM SOURCE                                *build-vim*
 =====================
 
