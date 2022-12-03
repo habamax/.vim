@@ -460,7 +460,7 @@ def HLBase()
         gui: {bold: true}, cterm: {bold: true}
     }])
     hi VertSplit ctermbg=NONE guibg=NONE
-    # hi Comment cterm=italic gui=italic
+    hi Comment cterm=italic gui=italic
 enddef
 
 
