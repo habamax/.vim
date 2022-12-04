@@ -105,7 +105,6 @@ xnoremap <space>/ y/<C-R>"
 xnoremap * y/<C-R>"<CR>
 
 # toggles
-nnoremap yoh <cmd>set hlsearch! hlsearch?<CR>
 nnoremap yow <cmd>set wrap! wrap?<CR>
 nnoremap yos <cmd>set spell! spell?<CR>
 nnoremap yod <cmd>exe (&diff ? ':diffoff' : ':diffthis')<CR>
