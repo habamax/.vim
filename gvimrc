@@ -1,7 +1,7 @@
 vim9script
 
 set winaltkeys=no
-set guioptions=cM
+set guioptions=cM!
 
 set linespace=0
 if has("win32")
