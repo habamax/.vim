@@ -132,7 +132,6 @@ nmap css <Plug>(sandwich-replace-auto)
 xmap S <Plug>(sandwich-add)
 
 
-
 # vim-godot, assuming it is installed as flatpak
 if !executable('godot') && executable('flatpak')
     g:godot_executable = "flatpak run org.godotengine.Godot"
