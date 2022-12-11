@@ -438,7 +438,7 @@ endif
 set termguicolors
 
 
-def NoBg()
+def ColorschemeNoBg()
     if &background == 'light' | return | endif
     if &termguicolors && !has('gui_running')
         hi Normal      ctermbg=NONE guibg=NONE
@@ -450,7 +450,7 @@ def NoBg()
 enddef
 
 
-def HLBase()
+def ColorschemeBase()
     var hl = hlget('LineNr')[0]
     hlset([{
         name: 'CursorLineNr',
@@ -463,7 +463,7 @@ def HLBase()
 enddef
 
 
-def RePire()
+def ColorschemeRePire()
     if &background == 'dark'
         hi Folded      ctermbg=233  guibg=#121212
         hi Cursorline  ctermbg=238  guibg=#444444
@@ -484,9 +484,9 @@ enddef
 
 
 augroup colorschemes | au!
-    au Colorscheme * HLBase()
-    au Colorscheme pire,lunaperche,habamax,retrobox NoBg()
-    au Colorscheme pire,lunaperche RePire()
+    au Colorscheme * ColorschemeBase()
+    au Colorscheme pire,lunaperche,habamax,retrobox ColorschemeNoBg()
+    au Colorscheme pire,lunaperche ColorschemeRePire()
 augroup END
 
 
