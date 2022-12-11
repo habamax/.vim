@@ -33,31 +33,31 @@ Some of the examples:
 
 
 Fuzzy file/buffer/MRU
-~~~~~~~~~~~~~~~~~~~~~
+.....................
 
 .. image:: https://user-images.githubusercontent.com/234774/186641098-d1f0f4ca-3396-4c8f-82ac-8de06f61cf0c.gif
 
 
 Fuzzy project file finder
-~~~~~~~~~~~~~~~~~~~~~~~~~
+.........................
 
 .. image:: https://user-images.githubusercontent.com/234774/186641084-9f9b4086-ea7b-4ee5-9ac8-32091e0412d5.gif
 
 
 Fuzzy help
-~~~~~~~~~~
+..........
 
 .. image:: https://user-images.githubusercontent.com/234774/186641608-6cc2f280-deef-48cb-8e72-dc423ca31daa.gif
 
 
 Fuzzy TOC for TeX/Markdown/ReStructuredText
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+...........................................
 
 .. image:: https://user-images.githubusercontent.com/234774/186641087-ba2d0d5e-b057-4e69-a062-acdaa44fc29f.gif
 
 
 Fuzzy highlight finder
-~~~~~~~~~~~~~~~~~~~~~~
+......................
 
 .. image:: https://user-images.githubusercontent.com/234774/186641079-4d4e41b1-ff9e-4a1f-b785-1554801fe244.gif
 
