@@ -17,7 +17,6 @@ set signcolumn=number
 set shortmess+=Ic
 set display=lastline smoothscroll
 set completeopt=menu,popup completepopup=highlight:Pmenu
-set number relativenumber cursorline cursorlineopt=number
 set list listchars=tab:›\ ,nbsp:․,trail:·,extends:…,precedes:…
 set fillchars=vert:│
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak
@@ -110,6 +109,7 @@ nnoremap yos <cmd>set spell! spell?<CR>
 nnoremap yod <cmd>exe (&diff ? ':diffoff' : ':diffthis')<CR>
 nnoremap yov <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
 nnoremap yob <scriptcmd>&bg = (&bg == "light" ? "dark" : "light")<CR>
+nnoremap yon <cmd>set nu! cul!<CR>
 
 # move lines
 xnoremap <S-tab> :m '<-2<CR>gv=gv
@@ -466,8 +466,8 @@ enddef
 def ColorschemeRePire()
     if &background == 'dark'
         hi Folded      ctermbg=233  guibg=#121212
-        hi Cursorline  ctermbg=238  guibg=#444444
-        hi Pmenu       ctermbg=236  guibg=#303030
+        hi Cursorline  ctermbg=236  guibg=#303030
+        hi Pmenu       ctermbg=237  guibg=#3a3a3a
         hi ColorColumn ctermbg=233  guibg=#121212
     elseif &background == 'light'
         hi Normal       guibg=#f7f7f0
