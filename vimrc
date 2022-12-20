@@ -474,6 +474,7 @@ def ColorschemeRePire()
         hi Tabline      guifg=#444444 guibg=#d7d7d0
         hi StatusLineNC guifg=#444444 guibg=#d7d7d0
         hi StatusLine   guibg=#5f5f5f gui=NONE
+        hi VertSplit    guibg=#d7d7d0 guifg=#d7d7d0
         hi Cursorline   guibg=#e7e7e0
         hi Folded       guibg=#fffff9
         hi ColorColumn  guibg=#fffff9
