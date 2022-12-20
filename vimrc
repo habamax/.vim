@@ -464,10 +464,11 @@ enddef
 
 def ColorschemeRePire()
     if &background == 'dark'
-        hi Folded      ctermbg=233  guibg=#121212
-        hi Cursorline  ctermbg=236  guibg=#303030
-        hi Pmenu       ctermbg=237  guibg=#3a3a3a
-        hi ColorColumn ctermbg=233  guibg=#121212
+        hi Folded      ctermbg=233 guibg=#121212
+        hi Cursorline  ctermbg=236 guibg=#303030
+        hi Pmenu       ctermbg=237 guibg=#3a3a3a
+        hi PmenuSel    ctermbg=237 guifg=#000000 guibg=#ffaf00
+        hi ColorColumn ctermfg=16  ctermbg=233    guibg=#121212
     elseif &background == 'light'
         hi Normal       guibg=#f7f7f0
         hi TablineSel   guifg=#f7f7f0
@@ -478,6 +479,8 @@ def ColorschemeRePire()
         hi Cursorline   guibg=#e7e7e0
         hi Folded       guibg=#fffff9
         hi ColorColumn  guibg=#fffff9
+        hi PmenuSel     guifg=#ffffff guibg=#d78700
+        hi Pmenu        guibg=#deded8
     endif
     hi! link vimVar Normal
 enddef
