@@ -340,7 +340,11 @@ export def CmdHistory()
     })->filter((_, v) => v.text !~ "^\s*$")->sort((el1, el2) => el1.idx == el2.idx ? 0 : el1.idx > el2.idx ? -1 : 1)
     popup.FilterMenu("Command History", cmd_history,
         (res, key) => {
-            feedkeys($":{res.text}\<C-f>")
+            if key == "\<c-j>"
+                feedkeys($":{res.text}\<C-f>", "n")
+            else
+                feedkeys($":{res.text}\<CR>", "n")
+            endif
         })
 enddef
 
