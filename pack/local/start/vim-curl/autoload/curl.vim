@@ -53,7 +53,7 @@ func! curl#do() range
     endif
 
     call deletebufline(bufnr(), 1, '$')
-    call setline(1, systemlist("curl --config -", input)) 
+    call setline(1, systemlist("curl -s --config -", input)) 
 
     " detect filetype and format accordingly
     if getline(1) =~ '^<...'
