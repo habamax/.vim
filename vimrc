@@ -89,6 +89,15 @@ nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
 nnoremap <space>j <scriptcmd>fuzzy.DumbJump()<CR>
 nnoremap <space>fw <scriptcmd>fuzzy.Window()<CR>
 
+def MyVimEnter()
+    g:vimEnterDir = fnamemodify(getcwd(), ':~')
+    nnoremap <space>fr <scriptcmd>fuzzy.File(g:vimEnterDir)<CR>
+enddef
+
+augroup myVimEnter | au!
+    au VimEnter * MyVimEnter()
+augroup END
+
 
 # enhance search, only if wildcharm is set to <C-z>
 if &wildcharm == 26
