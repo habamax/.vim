@@ -254,7 +254,7 @@ export def FileTree(path: string = "")
                 else
                     projects = readfile(projects_file)->join()->json_decode()
                 endif
-                projects->add({path: fnamemodify(opath, ":p")->trim('\/')})->sort()->uniq()
+                projects->add({path: fnamemodify(opath, ":p")->trim('\/', 2)})->sort()->uniq()
                 [projects->json_encode()]->writefile(projects_file)
             catch
                 echohl Error
