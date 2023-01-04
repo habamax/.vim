@@ -467,7 +467,7 @@ def ColorschemeRePire()
         hi Folded      ctermbg=233 guibg=#121212
         hi Cursorline  ctermbg=236 guibg=#303030
         hi Pmenu       ctermbg=237 guibg=#3a3a3a
-        hi PmenuSel    ctermbg=237 guifg=#000000 guibg=#ffaf00
+        hi PmenuSel    ctermbg=214 guifg=#000000 guibg=#ffaf00
         hi ColorColumn ctermfg=16  ctermbg=233    guibg=#121212
     elseif &background == 'light'
         hi Normal       guibg=#f7f7f0
