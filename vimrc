@@ -489,7 +489,7 @@ enddef
 augroup colorschemes | au!
     au Colorscheme * ColorschemeBase()
     au Colorscheme pire,lunaperche,habamax,retrobox ColorschemeNoBg()
-    au Colorscheme pire,lunaperche ColorschemeRePire()
+    au Colorscheme pire ColorschemeRePire()
 augroup END
 
 
