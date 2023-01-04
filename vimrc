@@ -494,4 +494,4 @@ augroup END
 
 
 set background=dark
-silent! colorscheme pire
+silent! colorscheme habamax
