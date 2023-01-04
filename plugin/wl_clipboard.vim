@@ -1,9 +1,12 @@
 vim9script
 
 
+# Only for foot terminal.
+# Should also work for other wayland terminals, change/remove guard accordingly
 if $TERM != 'foot'
     finish
 endif
+
 
 def WLYank(event: dict<any>)
     if event.regname =~ '+' || &clipboard =~ '\<unnamed\(plus\)\?\>'
