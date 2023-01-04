@@ -26,7 +26,7 @@ inorea <buffer> ti.. .. tip::
 inorea <buffer> si.. .. sidebar::
 inorea <buffer> to.. .. topic::
 inorea <buffer> ep.. .. epigraph::
-inorea <buffer> hl.. .. highlight::
+inorea <buffer> hl.. .. highlights::
 inorea <buffer> co.. .. code::
 inorea <buffer> fi.. .. figure::
 inorea <buffer> i.. .. image::
