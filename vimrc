@@ -438,18 +438,6 @@ endif
 set termguicolors
 
 
-def ColorschemeNoBg()
-    if &background == 'light' | return | endif
-    if &termguicolors && !has('gui_running')
-        hi Normal      ctermbg=NONE guibg=NONE
-        hi TablineSel  ctermbg=NONE guibg=NONE
-    else
-        hi Normal      ctermbg=NONE guibg=#1c1c1c
-        hi TablineSel  ctermbg=NONE guibg=#1c1c1c
-    endif
-enddef
-
-
 def ColorschemeBase()
     var hl = hlget('LineNr')[0]
     hlset([{
@@ -488,7 +476,6 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme * ColorschemeBase()
-    au Colorscheme pire,lunaperche,habamax,retrobox ColorschemeNoBg()
     au Colorscheme pire ColorschemeRePire()
 augroup END
 
