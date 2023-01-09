@@ -460,8 +460,8 @@ def ColorschemeRePire()
         hi PmenuSel    ctermbg=214 guifg=#000000 guibg=#ffaf00
         hi ColorColumn ctermfg=16  ctermbg=233    guibg=#121212
     elseif &background == 'light'
-        hi Normal       guibg=#f5f7f3
-        hi TablineSel   guifg=#f5f7f3
+        hi Normal       guibg=#f7f7f3
+        hi TablineSel   guifg=#f7f7f3
         hi Tabline      guifg=#444444 guibg=#d7d7d0
         hi StatusLineNC guifg=#444444 guibg=#d7d7d0
         hi StatusLine   guibg=#5f5f5f gui=NONE
