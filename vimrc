@@ -265,7 +265,7 @@ xnoremap <silent> <space>gh <scriptcmd>git.GithubOpen(line("v"), line("."))<CR>
 import autoload 'buf.vim'
 nnoremap go <nop>
 # go to journal file
-nnoremap <silent> goj <scriptcmd>buf.EditInTab(expand($DOCS ?? '~/docs') .. '/journal/2022.txt')<CR>
+nnoremap <silent> goj <scriptcmd>buf.EditInTab(expand($DOCS ?? '~/docs') .. '/journal/2023.txt')<CR>
 # go to todo file
 nnoremap <silent> got <scriptcmd>buf.EditInTab(expand($DOCS ?? '~/docs') .. '/todo.txt')<CR>
 # go to *** file
