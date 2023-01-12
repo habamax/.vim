@@ -123,7 +123,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
             })
         endif
     enddef
-    var height = min([&lines - 6, items->len()])
+    var height = min([&lines - 6, max([items->len(), 10])])
     var minwidth = (&columns * 0.6)->float2nr()
     var pos_top = ((&lines - height) / 2) - 1
     var winid = popup_create(Printify(filtered_items, []), {
