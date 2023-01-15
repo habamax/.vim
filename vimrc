@@ -446,7 +446,6 @@ def ColorschemeBase()
         guibg: hl->has_key('guibg') ? hl.guibg : 'NONE',
         gui: {bold: true}, cterm: {bold: true}
     }])
-    hi Comment cterm=italic gui=italic
 enddef
 
 
