@@ -172,27 +172,6 @@ map <C-w><C-m> <C-w>m
 tnoremap <silent> <C-w>m <ScriptCmd>ResizeWin(v:count * 10 + 90, 25)<CR>
 tmap <C-w><C-m> <C-w>m
 
-# better PgUp/PgDn
-def MapL()
-    var line = line('.')
-    normal! L
-    if line == line('$')
-        normal! zb
-    elseif line == line('.')
-        normal! zt
-    endif
-enddef
-def MapH()
-    var line = line('.')
-    normal! H
-    if line == line('.')
-        normal! zb
-    endif
-enddef
-
-noremap L <ScriptCmd>MapL()<CR>
-noremap H <ScriptCmd>MapH()<CR>
-
 
 import autoload 'text.vim'
 
