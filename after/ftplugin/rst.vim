@@ -114,12 +114,12 @@ def HlCheckmark()
     exe 'syn match rstCheckReject /\%(' .. &l:formatlistpat .. '\)\@<=✗/ nextgroup=rstCheckMarkDate skipwhite containedin=rstMaybeSection'
     syn match rstCheckMarkDate /(\d\{4}-\d\d-\d\d)/ contained
     if &background == 'dark'
-        hi rstCheckDone ctermfg=119 guifg=#87FF5F gui=bold cterm=bold
-        hi rstCheckReject ctermfg=203 guifg=#FF5F5F gui=bold cterm=bold
+        hi rstCheckDone ctermfg=41 guifg=#00d75f gui=bold cterm=bold
+        hi rstCheckReject ctermfg=204 guifg=#ff5f87 gui=bold cterm=bold
         hi link rstCheckMarkDate Comment
     else
         hi rstCheckDone ctermfg=28 guifg=#008700 gui=bold cterm=bold
-        hi rstCheckReject ctermfg=196 guifg=#FF0000 gui=bold cterm=bold
+        hi rstCheckReject ctermfg=124 guifg=#af0000 gui=bold cterm=bold
         hi link rstCheckMarkDate Comment
     endif
 enddef
