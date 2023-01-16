@@ -1,37 +1,20 @@
 " Author: Maxim Kim <habamax@gmail.com>
 
-" Unlet if you don't want date to be inserted on marked list item
-let g:checkbox_mark_date = {}
-let g:checkbox_mark_date.rx = '(\d\{4}-\d\d-\d\d)'
-let g:checkbox_mark_date.str = {-> '(' . strftime("%Y-%m-%d") . ') '}
-
 
 """
 """ List item regexes
 """
 func! s:rx_empty_checkbox() abort
-    if get(g:, "checkbox_use_unicode", 1)
-        return '\(\s*\)'
-    else
-        return '\(\s*\[ \?\]\+\s*\)'
-    endif
+    return '\(\s*\)'
 endfunc
 
 func! s:rx_marked_checkbox() abort
-    if get(g:, "checkbox_use_unicode", 1)
-        return '\(\s*✓\s*\%(' . get(g:, "checkbox_mark_date", {"rx": ""}).rx . '\s*\)\?\)'
-    else
-        return '\(\s*\[[Xx]\]\+\s*\%(' . get(g:, "checkbox_mark_date", {"rx": ""}).rx . '\s*\)\?\)'
-    endif
+    return '\(\s*✓\s*\)'
 endfunc
 
 
 func! s:rx_rejected_checkbox() abort
-    if get(g:, "checkbox_use_unicode", 1)
-        return '\(\s*✗\s*\%(' . get(g:, "checkbox_mark_date", {"rx": ""}).rx . '\s*\)\?\)'
-    else
-        return '\(\s*\[-\]\+\s*\%(' . get(g:, "checkbox_mark_date", {"rx": ""}).rx . '\s*\)\?\)'
-    endif
+    return '\(\s*✗\s*\)'
 endfunc
 
 
@@ -41,52 +24,30 @@ endfunc
 fun! s:toggle_checkbox(lnum)
     let line = getline(a:lnum)
     if s:is_checkbox_marked(line)
-        if get(g:, "checkbox_use_unicode", 1)
-            exe a:lnum . 's/\(' . &l:formatlistpat . '\)' . s:rx_marked_checkbox() . '/\1✗ '
-                  \ . get(g:, "checkbox_mark_date", {"str" : {-> ""}}).str() . '/'
-        else
-            exe a:lnum . 's/\(' . &l:formatlistpat . '\)' . s:rx_marked_checkbox() . '/\1[-\] '
-                  \ . get(g:, "checkbox_mark_date", {"str" : {-> ""}}).str() . '/'
-        endif
+        exe a:lnum .. 's/\(' .. &l:formatlistpat .. '\)' .. s:rx_marked_checkbox() .. '/\1✗ /'
     elseif s:is_checkbox_rejected(line)
-        if get(g:, "checkbox_use_unicode", 1)
-            exe a:lnum . 's/\(' . &l:formatlistpat . '\)' . s:rx_rejected_checkbox() . '/\1/'
-        else
-            exe a:lnum . 's/\(' . &l:formatlistpat . '\)' . s:rx_rejected_checkbox() . '/\1[ \] /'
-        endif
-    elseif s:is_checkbox_empty(line)
-        if get(g:, "checkbox_use_unicode", 1)
-            exe a:lnum . 's/\(' . &l:formatlistpat . '\)' . s:rx_empty_checkbox() . '/\1✓ '
-                  \ . get(g:, "checkbox_mark_date", {"str" : {-> ""}}).str() . '/'
-        else
-            exe a:lnum . 's/\(' . &l:formatlistpat . '\)' . s:rx_empty_checkbox() . '/\1\[x\] '
-                  \ . get(g:, "checkbox_mark_date", {"str" : {-> ""}}).str() . '/'
-        endif
+        exe a:lnum .. 's/\(' .. &l:formatlistpat .. '\)' .. s:rx_rejected_checkbox() .. '/\1/'
     elseif s:is_list_item(line)
-        if get(g:, "checkbox_use_unicode", 1)
-            exe a:lnum . 's/' . &l:formatlistpat . '/& /'
-        else
-            exe a:lnum . 's/' . &l:formatlistpat . '/&\[ \] /'
-        endif
+        exe a:lnum .. 's/' .. &l:formatlistpat .. '/&✓ /'
     endif
 endfu
 
+
 func! s:is_list_item(line) abort
-    return a:line =~ &l:formatlistpat &&
-          \a:line !~ &l:formatlistpat.s:rx_empty_checkbox().'\|'.s:rx_marked_checkbox()
+    return a:line =~ &l:formatlistpat
 endfunc
 
-func! s:is_checkbox_empty(line) abort
-    return a:line =~ &l:formatlistpat.s:rx_empty_checkbox()
-endfunc
 
 func! s:is_checkbox_marked(line) abort
-    return a:line =~ &l:formatlistpat.s:rx_marked_checkbox()
+    let @r = '\%(' .. &l:formatlistpat .. '\)' .. s:rx_marked_checkbox()
+    return a:line =~ '\%(' .. &l:formatlistpat .. '\)' .. s:rx_marked_checkbox()
 endfunc
 
+
 func! s:is_checkbox_rejected(line) abort
-    return a:line =~ &l:formatlistpat.s:rx_rejected_checkbox()
+    return a:line =~ '\%(' .. &l:formatlistpat .. '\)' .. s:rx_rejected_checkbox()
 endfunc
+
 
 func! checkbox#toggle(line1, line2) abort
     let save_cursor = getcurpos()
