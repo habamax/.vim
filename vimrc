@@ -461,7 +461,7 @@ def ColorschemeRePire()
         hi Pmenu       ctermbg=237 guibg=#3a3a3a
         hi PmenuSel    ctermbg=214 guifg=#000000 guibg=#ffaf00
         hi ColorColumn ctermfg=16  ctermbg=233    guibg=#121212
-    elseif &background == 'light'
+    else
         hi Normal       guibg=#f7f7f3
         hi TablineSel   guifg=#f7f7f3
         hi Tabline      guifg=#444444 guibg=#d7d7d0
@@ -483,13 +483,15 @@ def ColorschemeReQuiet()
         return
     endif
     if &background == 'dark'
-        hi String ctermfg=41 guifg=#00d75f
-        hi Constant ctermfg=204 guifg=#ff5f87
-        hi Special ctermfg=99 guifg=#875fff
-    elseif &background == 'light'
-        hi String ctermfg=28 guifg=#008700
+        hi Normal      ctermbg=NONE guibg=#1c1c1c
+        hi ColorColumn ctermbg=16   guibg=#000000
+        hi String      ctermfg=41   guifg=#00d75f
+        hi Constant    ctermfg=204  guifg=#ff5f87
+        hi Special     ctermfg=99   guifg=#875fff
+    else
+        hi String   ctermfg=28  guifg=#008700
         hi Constant ctermfg=124 guifg=#af0000
-        hi Special ctermfg=93 guifg=#8700ff
+        hi Special  ctermfg=93  guifg=#8700ff
     endif
     hi Comment ctermfg=243 guifg=#767676 gui=italic cterm=italic
     hi Title gui=bold cterm=bold
