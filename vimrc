@@ -490,7 +490,7 @@ def ColorschemeReQuiet()
     elseif &background == 'light'
         hi String ctermfg=28 guifg=#008700
         hi Constant ctermfg=124 guifg=#af0000
-        hi Comment ctermfg=245 guifg=#8a8a8a gui=italic cterm=italic
+        hi Comment ctermfg=243 guifg=#767676 gui=italic cterm=italic
         hi Special ctermfg=93 guifg=#8700ff
     endif
 enddef
