@@ -496,6 +496,7 @@ def ColorschemeReQuiet()
     hi Comment   ctermfg=243  guifg=#767676 gui=italic cterm=italic
     hi Title     cterm=bold   gui=bold
     hi VertSplit ctermbg=NONE guibg=NONE
+    hi link rstDirective Special
 enddef
 
 
