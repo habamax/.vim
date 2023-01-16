@@ -484,7 +484,6 @@ def ColorschemeReQuiet()
     endif
     if &background == 'dark'
         hi Normal      ctermbg=NONE guibg=#1c1c1c
-        hi VertSplit   ctermbg=NONE guibg=NONE
         hi ColorColumn ctermbg=16   guibg=#000000
         hi String      ctermfg=41   guifg=#00d75f
         hi Constant    ctermfg=204  guifg=#ff5f87
@@ -496,6 +495,7 @@ def ColorschemeReQuiet()
     endif
     hi Comment ctermfg=243 guifg=#767676 gui=italic cterm=italic
     hi Title gui=bold cterm=bold
+    hi VertSplit ctermbg=NONE guibg=NONE
 enddef
 
 
