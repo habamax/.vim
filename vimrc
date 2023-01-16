@@ -493,8 +493,10 @@ def ColorschemeReQuiet()
         hi Constant ctermfg=124 guifg=#af0000
         hi rstDirective ctermfg=93  guifg=#8700ff
     endif
-    hi Comment   ctermfg=243  guifg=#767676 gui=italic cterm=italic
+    hi Comment   ctermfg=243  guifg=#767676 gui=NONE cterm=NONE
     hi Title     cterm=bold   gui=bold
+    hi! link SpecialKey NonText
+    hi! link EndOfBuffer NonText
     hi VertSplit ctermbg=NONE guibg=NONE
     hi rstLiteralBlock ctermfg=NONE guifg=NONE
     hi link rstCodeBlock rstLiteralBlock
