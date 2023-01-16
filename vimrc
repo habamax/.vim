@@ -493,8 +493,8 @@ def ColorschemeReQuiet()
         hi Constant ctermfg=124 guifg=#af0000
         hi Special  ctermfg=93  guifg=#8700ff
     endif
-    hi Comment ctermfg=243 guifg=#767676 gui=italic cterm=italic
-    hi Title gui=bold cterm=bold
+    hi Comment   ctermfg=243  guifg=#767676 gui=italic cterm=italic
+    hi Title     cterm=bold   gui=bold
     hi VertSplit ctermbg=NONE guibg=NONE
 enddef
 
