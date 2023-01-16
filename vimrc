@@ -450,6 +450,9 @@ enddef
 
 
 def ColorschemeRePire()
+    if has("gui_running") == 0 && &t_Co < 256
+        return
+    endif
     if &background == 'dark'
         hi Normal      ctermbg=NONE guibg=#1c1c1c
         hi TablineSel  ctermbg=NONE guibg=#1c1c1c
@@ -475,9 +478,28 @@ def ColorschemeRePire()
 enddef
 
 
+def ColorschemeReQuiet()
+    if has("gui_running") == 0 && &t_Co < 256
+        return
+    endif
+    if &background == 'dark'
+        hi String ctermfg=41 guifg=#00d75f
+        hi Constant ctermfg=204 guifg=#ff5f87
+        hi Comment ctermfg=243 guifg=#767676 gui=italic cterm=italic
+        hi Special ctermfg=99 guifg=#875fff
+    elseif &background == 'light'
+        hi String ctermfg=28 guifg=#008700
+        hi Constant ctermfg=124 guifg=#af0000
+        hi Comment ctermfg=245 guifg=#8a8a8a gui=italic cterm=italic
+        hi Special ctermfg=93 guifg=#8700ff
+    endif
+enddef
+
+
 augroup colorschemes | au!
     au Colorscheme * ColorschemeBase()
     au Colorscheme pire ColorschemeRePire()
+    au Colorscheme quiet ColorschemeReQuiet()
 augroup END
 
 
