@@ -450,7 +450,7 @@ enddef
 
 
 def ColorschemeRePire()
-    if has("gui_running") == 0 && &t_Co < 256
+    if has("gui_running") == 0 && &t_Co->str2nr() < 256
         return
     endif
     if &background == 'dark'
@@ -479,7 +479,7 @@ enddef
 
 
 def ColorschemeReQuiet()
-    if has("gui_running") == 0 && &t_Co < 256
+    if has("gui_running") == 0 && &t_Co->str2nr() < 256
         return
     endif
     if &background == 'dark'
