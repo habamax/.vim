@@ -1,13 +1,6 @@
 " Author: Maxim Kim <habamax@gmail.com>
 
 
-"""
-""" List item regexes
-"""
-func! s:rx_empty_checkbox() abort
-    return '\(\s*\)'
-endfunc
-
 func! s:rx_marked_checkbox() abort
     return '\(\s*✓\s*\)'
 endfunc
@@ -18,9 +11,6 @@ func! s:rx_rejected_checkbox() abort
 endfunc
 
 
-"""
-""" List checkboxes
-"""
 fun! s:toggle_checkbox(lnum)
     let line = getline(a:lnum)
     if s:is_checkbox_marked(line)
