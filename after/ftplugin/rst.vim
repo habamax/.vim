@@ -110,17 +110,14 @@ command -buffer RstViewHtml :call os.Open(expand("%:p:r") .. '.html')
 command -buffer RstViewPdf :call os.Open(expand("%:p:r") .. '.pdf')
 
 def HlCheckmark()
-    exe 'syn match rstCheckDone /\%(' .. &l:formatlistpat .. '\)\@<=✓/ nextgroup=rstCheckMarkDate skipwhite containedin=rstMaybeSection'
-    exe 'syn match rstCheckReject /\%(' .. &l:formatlistpat .. '\)\@<=✗/ nextgroup=rstCheckMarkDate skipwhite containedin=rstMaybeSection'
-    syn match rstCheckMarkDate /(\d\{4}-\d\d-\d\d)/ contained
+    exe 'syn match rstCheckDone /\%(' .. &l:formatlistpat .. '\)\@<=✓/ containedin=TOP'
+    exe 'syn match rstCheckReject /\%(' .. &l:formatlistpat .. '\)\@<=✗/ containedin=TOP'
     if &background == 'dark'
         hi rstCheckDone ctermfg=41 guifg=#00d75f gui=bold cterm=bold
         hi rstCheckReject ctermfg=204 guifg=#ff5f87 gui=bold cterm=bold
-        hi link rstCheckMarkDate Comment
     else
         hi rstCheckDone ctermfg=28 guifg=#008700 gui=bold cterm=bold
         hi rstCheckReject ctermfg=124 guifg=#af0000 gui=bold cterm=bold
-        hi link rstCheckMarkDate Comment
     endif
 enddef
 
