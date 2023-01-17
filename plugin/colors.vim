@@ -79,7 +79,11 @@ augroup colorschemes | au!
 augroup END
 
 
-set background=dark
+if has("gui_running")
+    set background=light
+else
+    set background=dark
+endif
 silent! colorscheme pire
 
 
