@@ -56,8 +56,6 @@ def ColorschemeReQuiet()
         return
     endif
     if &background == 'dark'
-        hi Normal      ctermbg=NONE guibg=#1c1c1c
-        hi ColorColumn ctermbg=16   guibg=#000000
         hi String      ctermfg=41   guifg=#00d75f
         hi Constant    ctermfg=204  guifg=#ff5f87
         hi rstDirective ctermfg=99   guifg=#875fff
@@ -68,6 +66,7 @@ def ColorschemeReQuiet()
     endif
     hi Comment   ctermfg=243  guifg=#767676 gui=NONE cterm=NONE
     hi Title     cterm=bold   gui=bold
+    hi Directory cterm=bold   gui=bold
     hi! link SpecialKey NonText
     hi! link EndOfBuffer NonText
     hi VertSplit ctermbg=NONE guibg=NONE
@@ -79,7 +78,7 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme * ColorschemeBase()
-    au Colorscheme pire ColorschemeRePire()
+    # au Colorscheme pire ColorschemeRePire()
     au Colorscheme quiet ColorschemeReQuiet()
 augroup END
 
