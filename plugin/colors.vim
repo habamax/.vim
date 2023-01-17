@@ -69,10 +69,6 @@ def ColorschemeReQuiet()
     hi Directory cterm=bold   gui=bold
     hi! link SpecialKey NonText
     hi! link EndOfBuffer NonText
-    hi VertSplit ctermbg=NONE guibg=NONE
-    hi rstLiteralBlock ctermfg=NONE guifg=NONE
-    hi link rstCodeBlock rstLiteralBlock
-    hi link rstDelimiter rstDirective
 enddef
 
 
