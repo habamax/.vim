@@ -27,13 +27,13 @@ def ColorschemeRePire()
         return
     endif
     if &background == 'dark'
-        hi Normal      ctermbg=NONE guibg=#1c1c1c
-        hi TablineSel  ctermbg=NONE guibg=#1c1c1c
-        hi Folded      ctermbg=233 guibg=#121212
-        hi Cursorline  ctermbg=236 guibg=#303030
-        hi Pmenu       ctermbg=237 guibg=#3a3a3a
-        hi PmenuSel    ctermbg=214 guifg=#000000 guibg=#ffaf00
-        hi ColorColumn ctermfg=16  ctermbg=233    guibg=#121212
+        # hi Normal      ctermbg=NONE guibg=#1c1c1c
+        # hi TablineSel  ctermbg=NONE guibg=#1c1c1c
+        # hi Folded      ctermbg=233 guibg=#121212
+        # hi Cursorline  ctermbg=236 guibg=#303030
+        # hi Pmenu       ctermbg=237 guibg=#3a3a3a
+        # hi PmenuSel    ctermbg=214 guifg=#000000 guibg=#ffaf00
+        # hi ColorColumn ctermfg=16  ctermbg=233    guibg=#121212
     else
         hi Normal       guibg=#f7f7f3
         hi TablineSel   guifg=#f7f7f3
@@ -74,7 +74,7 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme * ColorschemeBase()
-    # au Colorscheme pire ColorschemeRePire()
+    au Colorscheme pire ColorschemeRePire()
     au Colorscheme quiet ColorschemeReQuiet()
 augroup END
 
