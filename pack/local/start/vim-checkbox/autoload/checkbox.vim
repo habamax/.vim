@@ -1,77 +1,63 @@
-" Author: Maxim Kim <habamax@gmail.com>
+vim9script
 
 
-func! s:rx_marked_checkbox() abort
-    return '\(\s*✓\s*\)'
-endfunc
+var cbDone = '\(\s*✓\s*\)'
+var cbRejected = '\(\s*✗\s*\)'
 
 
-func! s:rx_rejected_checkbox() abort
-    return '\(\s*✗\s*\)'
-endfunc
-
-
-fun! s:toggle_checkbox(lnum)
-    let line = getline(a:lnum)
-    if s:is_checkbox_marked(line)
-        exe a:lnum .. 's/\(' .. &l:formatlistpat .. '\)' .. s:rx_marked_checkbox() .. '/\1✗ /'
-    elseif s:is_checkbox_rejected(line)
-        exe a:lnum .. 's/\(' .. &l:formatlistpat .. '\)' .. s:rx_rejected_checkbox() .. '/\1/'
-    elseif s:is_list_item(line)
-        exe a:lnum .. 's/' .. &l:formatlistpat .. '/&✓ /'
+def ToggleListItem(lnum: number)
+    var line = getline(lnum)
+    if IsDone(line)
+        exe $':{lnum}s/\({&l:formatlistpat}\){cbDone}/\1✗ /'
+    elseif IsRejected(line)
+        exe $':{lnum}s/\({&l:formatlistpat}\){cbRejected}/\1/'
+    elseif IsListItem(line)
+        exe $':{lnum}s/{&l:formatlistpat}/&✓ /'
     endif
-endfu
+enddef
 
 
-func! s:is_list_item(line) abort
-    return a:line =~ &l:formatlistpat
-endfunc
+def IsListItem(line: string): bool
+    return line =~ &l:formatlistpat
+enddef
 
 
-func! s:is_checkbox_marked(line) abort
-    let @r = '\%(' .. &l:formatlistpat .. '\)' .. s:rx_marked_checkbox()
-    return a:line =~ '\%(' .. &l:formatlistpat .. '\)' .. s:rx_marked_checkbox()
-endfunc
+def IsDone(line: string): bool
+    return line =~ $'\%({&l:formatlistpat}\){cbDone}'
+enddef
 
 
-func! s:is_checkbox_rejected(line) abort
-    return a:line =~ '\%(' .. &l:formatlistpat .. '\)' .. s:rx_rejected_checkbox()
-endfunc
+def IsRejected(line: string): bool
+    return line =~ $'\%({&l:formatlistpat}\){cbRejected}'
+enddef
 
 
-func! checkbox#toggle(line1, line2) abort
-    let save_cursor = getcurpos()
+export def Toggle(lnum1: number, lnum2: number)
+    var save_cursor = getcurpos()
     try
-        for lnum in range(a:line2, a:line1, -1)
-            call s:toggle_checkbox(lnum)
+        for lnum in range(lnum2, lnum1, -1)
+            ToggleListItem(lnum)
         endfor
     finally
-        call setpos('.', save_cursor)
+        setpos('.', save_cursor)
     endtry
-endfunc
+enddef
 
 
-" operator pending...
-fu! checkbox#toggle_op(...)
-    if !a:0
-        let &operatorfunc = matchstr(expand('<sfile>'), '[^. ]*$')
+# operator pending...
+export def ToggleOp(...args: list<any>): string
+    if len(args) == 0
+        &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
         return 'g@'
     endif
-    let sel_save = &selection
-    let &selection = "inclusive"
-    let clipboard_save = &clipboard
-    let &clipboard = ""
+    var sel_save = &selection
+    var clipboard_save = &clipboard
+    &selection = "inclusive"
+    &clipboard = ""
 
-    if a:1 == 'char'	" Invoked from Visual mode, use gv command.
-        silent exe "normal! gvy"
-    elseif a:1 == 'line'
-        silent exe "normal! '[V']y"
-    else
-        silent exe "normal! `[v`]y"
-    endif
+    Toggle(line("'["), line("']"))
 
-    call checkbox#toggle(line("'<"), line("'>"))
-
-    let &selection = sel_save
-    let &clipboard = clipboard_save
-endfu
+    &selection = sel_save
+    &clipboard = clipboard_save
+    return ""
+enddef
