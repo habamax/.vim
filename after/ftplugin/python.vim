@@ -18,11 +18,6 @@ def PopupHelp(symbol: string)
         setbufvar(winbufnr(winid), "&ft", "rst")
     })
 enddef
-def YCMPopupDoc()
-    var response = youcompleteme#GetCommandResponse('GetDoc')
-    if response == '' | return | endif
-    popup.ShowAtCursor(response->split('\n'))
-enddef
 
 
 if exists("g:loaded_ale")
