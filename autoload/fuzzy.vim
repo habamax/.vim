@@ -147,9 +147,12 @@ enddef
 export def Bookmark()
     var bookmarks = []
     if filereadable($'{g:vimdata}/bookmarks.json')
-        bookmarks = readfile($'{g:vimdata}/bookmarks.json')->join()->json_decode()->items()->mapnew((_, v) => {
-            return {text: $"{v[0]} ({v[1].file})", file: v[1].file, line: v[1].line, col: v[1].col}
-        })
+        bookmarks = readfile($'{g:vimdata}/bookmarks.json')
+            ->join()
+            ->json_decode()
+            ->items()
+            ->mapnew((_, v) => ({text: $"{v[0]} ({v[1].file})", file: v[1].file, line: v[1].line, col: v[1].col}))
+            ->filter((_, v) => filereadable(v.file))
     endif
     popup.FilterMenu("Bookmark", bookmarks,
         (res, key) => {
@@ -270,9 +273,10 @@ enddef
 
 
 export def Filetype()
-    var ft_list = globpath(&rtp, "ftplugin/*.vim", 0, 1)->mapnew((_, v) => {
-        return {text: fnamemodify(v, ":t:r")}
-    })->sort()->uniq()
+    var ft_list = globpath(&rtp, "ftplugin/*.vim", 0, 1)
+        ->mapnew((_, v) => ({text: fnamemodify(v, ":t:r")}))
+        ->sort()
+        ->uniq()
     popup.FilterMenu("Filetype", ft_list,
             (res, key) => {
                 exe $":set ft={res.text}"
@@ -316,11 +320,9 @@ enddef
 
 
 export def Help()
-    var help_tags = globpath(&rtp, "doc/tags", 0, 1)->mapnew((_, v) => {
-        return readfile(v)->mapnew((_, line) => {
-            return {text: line->split("\t")[0]}
-        })
-    })->flattennew()
+    var help_tags = globpath(&rtp, "doc/tags", 0, 1)
+        ->mapnew((_, v) => readfile(v)->mapnew((_, line) => ({text: line->split("\t")[0]})))
+        ->flattennew()
     popup.FilterMenu("Help", help_tags,
         (res, key) => {
             if key == "\<c-t>"
