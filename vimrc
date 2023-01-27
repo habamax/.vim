@@ -384,9 +384,10 @@ def SaveBookmark()
         if !filereadable(bookmarkFile)
             mkdir(fnamemodify(bookmarkFile, ":p:h"), "p")
         else
-            bookmarks = readfile(bookmarkFile)->join()->json_decode()->filter((_, v) => {
-                return filereadable(v.file)
-            })
+            bookmarks = readfile(bookmarkFile)
+                ->join()
+                ->json_decode()
+                ->filter((_, v) => filereadable(v.file))
         endif
         bookmarks[name] = {file: expand("%:p"), line: line('.'), col: col('.')}
         [bookmarks->json_encode()]->writefile(bookmarkFile)
