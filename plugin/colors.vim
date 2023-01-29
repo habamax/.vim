@@ -70,6 +70,7 @@ def ColorschemeReQuiet()
     hi! link SpecialKey NonText
     hi! link EndOfBuffer NonText
     hi! link gitCommitSummary Title
+    hi! link fugitiveHeading Title
     hi! link fugitiveHeader Title
     hi! link fugitiveUnstagedHeading Title
     hi! link fugitiveUntrackedHeading Title
