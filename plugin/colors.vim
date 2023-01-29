@@ -91,7 +91,7 @@ if has("gui_running")
 else
     set background=dark
 endif
-silent! colorscheme quiet
+silent! colorscheme pire
 
 
 # helper commands and mappings to work with vim/colorschemes
