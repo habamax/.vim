@@ -69,6 +69,7 @@ def ColorschemeReQuiet()
     hi Directory cterm=bold   gui=bold
     hi! link SpecialKey NonText
     hi! link EndOfBuffer NonText
+    hi! link gitCommitSummary Title
     hi! link fugitiveHeader Title
     hi! link fugitiveUnstagedHeading Title
     hi! link fugitiveUntrackedHeading Title
