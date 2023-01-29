@@ -257,7 +257,11 @@ export def FileTree(path: string = "")
                 else
                     projects = readfile(projects_file)->join()->json_decode()
                 endif
-                projects->add({path: fnamemodify(opath, ":p")->trim('\/', 2)})->sort()->uniq()
+                projects->add({path: fnamemodify(opath, ":p")
+                    ->trim('\/', 2)})
+                    ->sort()
+                    ->uniq()
+                    ->filter((_, v) => isdirectory(v.path))
                 [projects->json_encode()]->writefile(projects_file)
             catch
                 echohl Error
@@ -356,9 +360,11 @@ export def Project()
     var projects_file = $'{g:vimdata}/projects.json'
     if filereadable(projects_file)
         try
-            projects = readfile(projects_file)->join()->json_decode()->mapnew((_, v) => {
-                return {text: v.path}
-            })
+            projects = readfile(projects_file)
+                ->join()
+                ->json_decode()
+                ->mapnew((_, v) => ({text: v.path}))
+                ->filter((_, v) => isdirectory(v.text))
         catch
             return
         endtry
