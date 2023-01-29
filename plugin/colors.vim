@@ -56,9 +56,9 @@ def ColorschemeReQuiet()
         return
     endif
     if &background == 'dark'
-        hi String   ctermfg=41   guifg=#00d75f
-        hi Constant ctermfg=204  guifg=#ff5f87
-        hi Special  ctermfg=99   guifg=#875fff
+        hi String   ctermfg=41  guifg=#00d75f
+        hi Constant ctermfg=204 guifg=#ff5f87
+        hi Special  ctermfg=99  guifg=#875fff
     else
         hi String   ctermfg=28  guifg=#008700
         hi Constant ctermfg=124 guifg=#af0000
