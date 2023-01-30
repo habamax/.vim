@@ -9,7 +9,7 @@ syntax on
 set hid wmnu
 set ic is ai et sw=4 sts=-1
 set ttimeout ttimeoutlen=50
-xnoremap <space>y y:call writefile(["\\e]52;c;" .. system("base64", getreg('"')) .. "\\x07"], "/dev/tty")<CR>:redraw!<CR>
+xnoremap <space>y y:call writefile(['\e]52;c;' .. system("base64", getreg('"')) .. '\x07'], "/dev/tty")<CR>:redraw!<CR>
 
 
 
