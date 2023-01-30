@@ -66,6 +66,10 @@ nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 g:maplocalleader = "\<space>\<space>"
 
 
+if !empty($TERM)
+    xnoremap <space>y y:call writefile(["\\e]52;c;" .. system("base64", getreg('"')) .. "\\x07"], "/dev/tty")<CR>:redraw!<CR>
+endif
+
 # fuzzy
 import autoload 'fuzzy.vim'
 nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
@@ -424,3 +428,6 @@ augroup general | au!
 
     au VimLeavePre * :exe $'mksession! {g:vimdata}/sessions/LAST'
 augroup end
+
+
+
