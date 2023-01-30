@@ -430,6 +430,3 @@ augroup general | au!
 
     au VimLeavePre * :exe $'mksession! {g:vimdata}/sessions/LAST'
 augroup end
-
-
-
