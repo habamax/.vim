@@ -10,3 +10,7 @@ if exists("g:loaded_ale")
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>ar"'
 endif
+
+
+nnoremap <silent><buffer> <F5> <cmd>make %<<CR>:redraw!<CR>:!./%<<CR>
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
