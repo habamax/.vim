@@ -126,6 +126,8 @@ augroup checkmark | au!
     au Colorscheme * call HlCheckmark()
 augroup END
 
+command! -buffer TblSep :copy .<bar>:sil keepp s/[^|]/-/g<bar>:sil keepp s/[|]/+/g
+command! -buffer TblHSep :copy .<bar>:sil keepp s/[^|]/=/g<bar>:sil keepp s/[|]/+/g
 
 # command! -buffer -range RstFixTable :call s:fixSimpleTable(<line1>, <line2>)
 
