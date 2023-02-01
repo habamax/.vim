@@ -13,6 +13,8 @@ inorea -ю ->
 inorea =Ю =>
 inorea =ю =>
 
+inorea mxm Maxim Kim
+inorea ata Ataccama
 inorea latex LaTeX
 inorea adn and
 inorea teh the
