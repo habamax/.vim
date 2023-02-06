@@ -27,7 +27,7 @@ set backspace=indent,eol,start
 set nospell spelllang=en,ru
 set nrformats=bin,hex,unsigned
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
-set wildmenu wildcharm=<C-z> wildoptions=pum,fuzzy pumheight=20
+set wildmenu wildcharm=<c-z> wildoptions=pum,fuzzy pumheight=20
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp
 set sessionoptions=buffers,curdir,tabpages,winsize
 set history=200
@@ -97,7 +97,7 @@ nnoremap <space>j <scriptcmd>fuzzy.DumbJump()<CR>
 nnoremap <space>fw <scriptcmd>fuzzy.Window()<CR>
 
 
-# enhance search, only if wildcharm is set to <C-z>
+# enhance search, only if wildcharm is set to <c-z>
 if &wildcharm == 26
     cnoremap <expr> <tab>   get({'/': "\<c-g>", '?': "\<c-t>"}, getcmdtype()) ?? "<c-z>"
     cnoremap <expr> <s-tab> get({'/': "\<c-t>", '?': "\<c-g>"}, getcmdtype()) ?? "<c-z>"
