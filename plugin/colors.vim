@@ -51,6 +51,28 @@ def ColorschemeRePire()
 enddef
 
 
+def ColorschemeRePireQuiet()
+    if &background == 'light'
+        hi Normal       guibg=#f7f7f3
+        hi TablineSel   guifg=#f7f7f3
+        hi Tabline      guifg=#444444 guibg=#d7d7d0
+        hi StatusLineNC guifg=#444444 guibg=#d7d7d0
+        hi StatusLine   guibg=#5f5f5f gui=NONE
+        hi VertSplit    guibg=#d7d7d0 guifg=#d7d7d0
+        hi Cursorline   guibg=#e7e7e0
+        hi Folded       guibg=#fffff9
+        hi ColorColumn  guibg=#fffff9
+        hi PmenuSel     guifg=#ffffff guibg=#d78700
+        hi Pmenu        guibg=#deded8
+    endif
+    hi clear Statement
+    hi clear Identifier
+    hi clear PreProc
+    hi clear Type
+    hi clear Special
+enddef
+
+
 def ColorschemeReQuiet()
     if has("gui_running") == 0 && &t_Co->str2nr() < 256
         return
@@ -79,7 +101,8 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme * ColorschemeBase()
-    au Colorscheme pire ColorschemeRePire()
+    # au Colorscheme pire ColorschemeRePire()
+    au Colorscheme pire ColorschemeRePireQuiet()
     au Colorscheme quiet ColorschemeReQuiet()
 augroup END
 
