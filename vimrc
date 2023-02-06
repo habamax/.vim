@@ -99,8 +99,8 @@ nnoremap <space>fw <scriptcmd>fuzzy.Window()<CR>
 
 # enhance search, only if wildcharm is set to <C-z>
 if &wildcharm == 26
-    cnoremap <expr> <Tab>   getcmdtype() =~ "[/?]" ? "<C-g>" : "<C-z>"
-    cnoremap <expr> <S-Tab> getcmdtype() =~ "[/?]" ? "<C-t>" : "<S-Tab>"
+    cnoremap <expr> <tab>   get({'/': "\<c-g>", '?': "\<c-t>"}, getcmdtype()) ?? "<c-z>"
+    cnoremap <expr> <s-tab> get({'/': "\<c-t>", '?': "\<c-g>"}, getcmdtype()) ?? "<c-z>"
 endif
 
 # search&replace
