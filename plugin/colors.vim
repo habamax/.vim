@@ -37,6 +37,7 @@ def RePire()
         hi Pmenu        guibg=#deded8
     endif
     hi! link vimVar Normal
+    hi VertSplit ctermbg=NONE guibg=NONE
 enddef
 
 
