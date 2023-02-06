@@ -58,15 +58,13 @@ def ColorschemeReQuiet()
     if &background == 'dark'
         hi String   ctermfg=41  guifg=#00d75f
         hi Constant ctermfg=204 guifg=#ff5f87
-        hi Special  ctermfg=99  guifg=#875fff
     else
         hi String   ctermfg=28  guifg=#008700
         hi Constant ctermfg=124 guifg=#af0000
-        hi Special  ctermfg=93  guifg=#8700ff
     endif
-    hi Comment   ctermfg=243  guifg=#767676 gui=NONE cterm=NONE
-    hi Title     cterm=bold   gui=bold
-    hi Directory cterm=bold   gui=bold
+    hi Comment   ctermfg=243 guifg=#767676 gui=NONE cterm=NONE
+    hi Title     cterm=bold gui=bold
+    hi Directory cterm=bold gui=bold
     hi! link SpecialKey NonText
     hi! link EndOfBuffer NonText
     hi! link gitCommitSummary Title
