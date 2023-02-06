@@ -93,7 +93,7 @@ Colors
   *bundled with vim9*
 - habamax_: dark background, this should be really the last one (not really);
   *bundled with vim9*
-- habaurora_: light background, graish;
+- habaurora_: light background, grayish;
 - bronzage_: dark background, was thinking of zenburn while creating it;
 - sugarlily_: white background, blue accents;
 - saturnite_: dark background, variation of the awesome Apprentice_;
@@ -101,7 +101,7 @@ Colors
 - alchemist_: dark background, variation of the awesome Apprentice_;
 - psionic_: light background;
 - gruvbit_: simplified variant of ``gruvbox_hard``;
-- polar_: white background variantion of base16-one-light;
+- polar_: white background variation of base16-one-light;
 - habanight_: black background variation of base16-default-dark colorscheme.
 
 .. _pire: https://github.com/habamax/vim-pire
