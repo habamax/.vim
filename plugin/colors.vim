@@ -11,7 +11,7 @@ endif
 set termguicolors
 
 
-def ColorschemeBase()
+def Base()
     var hl = hlget('LineNr')[0]
     hlset([{
         name: 'CursorLineNr',
@@ -22,19 +22,8 @@ def ColorschemeBase()
 enddef
 
 
-def ColorschemeRePire()
-    if has("gui_running") == 0 && &t_Co->str2nr() < 256
-        return
-    endif
-    if &background == 'dark'
-        # hi Normal      ctermbg=NONE guibg=#1c1c1c
-        # hi TablineSel  ctermbg=NONE guibg=#1c1c1c
-        # hi Folded      ctermbg=233 guibg=#121212
-        # hi Cursorline  ctermbg=236 guibg=#303030
-        # hi Pmenu       ctermbg=237 guibg=#3a3a3a
-        # hi PmenuSel    ctermbg=214 guifg=#000000 guibg=#ffaf00
-        # hi ColorColumn ctermfg=16  ctermbg=233    guibg=#121212
-    else
+def RePire()
+    if &background == 'light'
         hi Normal       guibg=#f7f7f3
         hi TablineSel   guifg=#f7f7f3
         hi Tabline      guifg=#444444 guibg=#d7d7d0
@@ -51,20 +40,7 @@ def ColorschemeRePire()
 enddef
 
 
-def ColorschemeRePireQuiet()
-    if &background == 'light'
-        hi Normal       guibg=#f7f7f3
-        hi TablineSel   guifg=#f7f7f3
-        hi Tabline      guifg=#444444 guibg=#d7d7d0
-        hi StatusLineNC guifg=#444444 guibg=#d7d7d0
-        hi StatusLine   guibg=#5f5f5f gui=NONE
-        hi VertSplit    guibg=#d7d7d0 guifg=#d7d7d0
-        hi Cursorline   guibg=#e7e7e0
-        hi Folded       guibg=#fffff9
-        hi ColorColumn  guibg=#fffff9
-        hi PmenuSel     guifg=#ffffff guibg=#d78700
-        hi Pmenu        guibg=#deded8
-    endif
+def Quiet()
     hi clear Statement
     hi clear Identifier
     hi clear PreProc
@@ -73,37 +49,10 @@ def ColorschemeRePireQuiet()
 enddef
 
 
-def ColorschemeReQuiet()
-    if has("gui_running") == 0 && &t_Co->str2nr() < 256
-        return
-    endif
-    if &background == 'dark'
-        hi String   ctermfg=41  guifg=#00d75f
-        hi Constant ctermfg=204 guifg=#ff5f87
-    else
-        hi String   ctermfg=28  guifg=#008700
-        hi Constant ctermfg=124 guifg=#af0000
-    endif
-    hi Comment   ctermfg=243 guifg=#767676 gui=NONE cterm=NONE
-    hi Title     cterm=bold gui=bold
-    hi Directory cterm=bold gui=bold
-    hi! link SpecialKey NonText
-    hi! link EndOfBuffer NonText
-    hi! link gitCommitSummary Title
-    hi! link fugitiveHeading Title
-    hi! link fugitiveHeader Title
-    hi! link fugitiveUnstagedHeading Title
-    hi! link fugitiveUntrackedHeading Title
-    hi! link fugitiveStagedHeading Title
-    hi! link fugitiveSymbolicRef String
-enddef
-
-
 augroup colorschemes | au!
-    au Colorscheme * ColorschemeBase()
-    # au Colorscheme pire ColorschemeRePire()
-    au Colorscheme pire ColorschemeRePireQuiet()
-    au Colorscheme quiet ColorschemeReQuiet()
+    au Colorscheme * Base()
+    au Colorscheme pire RePire()
+    au Colorscheme pire Quiet()
 augroup END
 
 
