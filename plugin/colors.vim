@@ -53,7 +53,7 @@ enddef
 augroup colorschemes | au!
     au Colorscheme * Base()
     au Colorscheme pire RePire()
-    au Colorscheme pire Quiet()
+    # au Colorscheme pire Quiet()
 augroup END
 
 
