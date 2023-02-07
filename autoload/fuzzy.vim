@@ -413,7 +413,7 @@ export def Window()
         },
         (winid) => {
             win_execute(winid, 'syn match FilterMenuRegular "^ (.\{-}):.*(\d\+)$" contains=FilterMenuBraces')
-            win_execute(winid, 'syn match FilterMenuCurrent "^\*(.\{-}):.*(\d\+)$"  contains=FilterMenuBraces')
+            win_execute(winid, 'syn match FilterMenuCurrent "^\*(.\{-}):.*(\d\+)$" contains=FilterMenuBraces')
             win_execute(winid, 'syn match FilterMenuBraces "(\d\+)$" contained')
             win_execute(winid, 'syn match FilterMenuBraces "^[* ](.\{-}):" contained')
             hi def link FilterMenuBraces Comment
