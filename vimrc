@@ -13,7 +13,6 @@ set virtualedit=block
 set ttimeout ttimeoutlen=50
 set belloff=all
 set ruler
-set splitbelow splitright
 set number relativenumber cursorline
 set signcolumn=number
 set shortmess+=Ic
