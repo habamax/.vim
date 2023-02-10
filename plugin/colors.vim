@@ -19,6 +19,8 @@ def Base()
         guibg: hl->has_key('guibg') ? hl.guibg : 'NONE',
         gui: {bold: true}, cterm: {bold: true}
     }])
+    hi! link CursorLineSign CursorLineNr
+    hi! link CursorLineFold CursorLineNr
 enddef
 
 
