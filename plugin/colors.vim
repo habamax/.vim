@@ -24,7 +24,7 @@ def Base()
 enddef
 
 
-def RePire()
+def ReWildCharm()
     if &background == 'light'
         hi Normal       guibg=#f7f7f3
         hi TablineSel   guifg=#f7f7f3
@@ -54,13 +54,13 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme * Base()
-    au Colorscheme pire RePire()
-    # au Colorscheme pire Quiet()
+    au Colorscheme wildcharm ReWildCharm()
+    # au Colorscheme wildcharm Quiet()
 augroup END
 
 
 set background=dark
-silent! colorscheme pire
+silent! colorscheme wildcharm
 
 
 # helper commands and mappings to work with vim/colorschemes
