@@ -3,7 +3,7 @@ vim9script
 # Plugin settings
 
 # annoing for huge-line json like files, turn it off
-g:loaded_matchparen = 1
+# g:loaded_matchparen = 1
 
 # turn off netrw
 g:loaded_netrw = 1
