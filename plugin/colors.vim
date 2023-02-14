@@ -24,7 +24,7 @@ def Base()
 enddef
 
 
-def ReWildCharm()
+def WildCharm()
     if &background == 'light'
         hi Normal       guibg=#f7f7f3
         hi TablineSel   guifg=#f7f7f3
@@ -49,13 +49,14 @@ def Quiet()
     hi clear PreProc
     hi clear Type
     hi clear Special
+    hi link FilterMenuMatch Search
 enddef
 
 
 augroup colorschemes | au!
     au Colorscheme * Base()
-    au Colorscheme wildcharm ReWildCharm()
-    # au Colorscheme wildcharm Quiet()
+    au Colorscheme wildcharm WildCharm()
+    au Colorscheme quiet Quiet()
 augroup END
 
 
