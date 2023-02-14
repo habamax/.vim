@@ -49,7 +49,12 @@ def Quiet()
     hi clear PreProc
     hi clear Type
     hi clear Special
+    hi Directory gui=bold cterm=bold
+    hi Title gui=bold cterm=bold
     hi link FilterMenuMatch Search
+    hi! link dirTime NONE
+    hi! link dirOwner NONE
+    hi! link dirGroup NONE
 enddef
 
 
