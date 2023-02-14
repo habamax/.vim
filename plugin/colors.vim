@@ -51,7 +51,8 @@ def Quiet()
     hi clear Special
     hi Directory gui=bold cterm=bold
     hi Title gui=bold cterm=bold
-    hi link FilterMenuMatch Search
+    hi link FilterMenuMatch IncSearch
+    hi! link FilterMenuCurrent Search
     hi! link dirTime NONE
     hi! link dirOwner NONE
     hi! link dirGroup NONE

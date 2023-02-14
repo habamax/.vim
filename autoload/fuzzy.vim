@@ -94,8 +94,8 @@ export def Colorscheme()
         },
         (winid) => {
             if exists("g:colors_name")
-                win_execute(winid, $'syn match FilterMenuColorscheme "^{g:colors_name}$"')
-                hi def link FilterMenuColorscheme Statement
+                win_execute(winid, $'syn match FilterMenuCurrent "^{g:colors_name}$"')
+                hi def link FilterMenuCurrent Statement
             endif
         })
 enddef
