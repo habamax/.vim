@@ -33,6 +33,12 @@ set history=200
 set viminfo='200,<50,s10
 set mouse=a ttyfast
 
+if has("win32")
+    set clipboard^=unnamed
+else
+    set clipboard^=unnamedplus
+endif
+
 g:vimdata = $'{has("win32") ? expand("$APPDATA") : expand("~/.config")}/vim-data'
 if !isdirectory(g:vimdata) | mkdir(g:vimdata, "p") | endif
 
