@@ -19,6 +19,18 @@ def Base()
         guibg: hl->has_key('guibg') ? hl.guibg : 'NONE',
         gui: {bold: true}, cterm: {bold: true}
     }])
+
+    hl = hlget('StatusLineNC')[0]
+    hl.name = 'VertSplit'
+    if !hl->has_key('gui') || !hl.gui->has_key('reverse') || !hl.gui.reverse
+        hl.guifg = hl.guibg
+    endif
+    if !hl->has_key('cterm') || !hl.gui->has_key('reverse') || !hl.cterm.reverse
+        hl.ctermfg = hl.ctermbg
+    endif
+    hlset([hl])
+    hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
+
     hi! link CursorLineSign CursorLineNr
     hi! link CursorLineFold CursorLineNr
 enddef
