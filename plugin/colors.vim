@@ -37,6 +37,14 @@ def WildCharm()
         hi ColorColumn  guibg=#fffff9
         hi PmenuSel     guifg=#ffffff guibg=#d78700
         hi Pmenu        guibg=#deded8
+    else
+        hi Normal      guibg=#1c1c1c
+        hi TablineSel  guibg=#1c1c1c
+        hi Folded      guibg=#121212
+        hi Cursorline  guibg=#303030
+        hi Pmenu       guibg=#3a3a3a
+        hi PmenuSel    guibg=#ffaf00 guifg=#000000
+        hi ColorColumn guibg=#121212
     endif
     hi! link vimVar Normal
     hi VertSplit ctermbg=NONE guibg=NONE
@@ -61,7 +69,7 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme * Base()
-    au Colorscheme wildcharm WildCharm()
+    # au Colorscheme wildcharm WildCharm()
     au Colorscheme quiet Quiet()
 augroup END
 
