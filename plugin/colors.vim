@@ -27,7 +27,7 @@ def Base()
             hl.guifg = hl.guibg
         endif
     endif
-    if !hl->has_key('cterm') || !hl.gui->has_key('reverse') || !hl.cterm.reverse
+    if !hl->has_key('cterm') || !hl.cterm->has_key('reverse') || !hl.cterm.reverse
         if hl->has_key('ctermbg')
             hl.ctermfg = hl.ctermbg
         endif
