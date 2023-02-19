@@ -23,10 +23,14 @@ def Base()
     hl = hlget('StatusLineNC')[0]
     hl.name = 'VertSplit'
     if !hl->has_key('gui') || !hl.gui->has_key('reverse') || !hl.gui.reverse
-        hl.guifg = hl.guibg
+        if hl->has_key('guibg')
+            hl.guifg = hl.guibg
+        endif
     endif
     if !hl->has_key('cterm') || !hl.gui->has_key('reverse') || !hl.cterm.reverse
-        hl.ctermfg = hl.ctermbg
+        if hl->has_key('ctermbg')
+            hl.ctermfg = hl.ctermbg
+        endif
     endif
     hlset([hl])
     hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
