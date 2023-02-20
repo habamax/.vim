@@ -72,12 +72,6 @@ nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 g:maplocalleader = "\<space>\<space>"
 
 
-# OSC52 copy
-if !empty($TERM)
-    xnoremap <space>y y:call writefile(['\e]52;c;' .. system("base64", getreg('"')) .. '\x07'], "/dev/tty")<CR>:redraw!<CR>
-endif
-
-
 # fuzzy
 import autoload 'fuzzy.vim'
 nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
