@@ -37,6 +37,8 @@ def Base()
 
     hi! link CursorLineSign CursorLineNr
     hi! link CursorLineFold CursorLineNr
+    hi Title cterm=bold gui=bold
+    hi Directory cterm=bold gui=bold
 enddef
 
 
@@ -63,7 +65,6 @@ def WildCharm()
         hi ColorColumn guibg=#121212
     endif
     hi! link vimVar Normal
-    hi VertSplit ctermbg=NONE guibg=NONE
 enddef
 
 
@@ -85,7 +86,7 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme * Base()
-    # au Colorscheme wildcharm WildCharm()
+    au Colorscheme wildcharm WildCharm()
     au Colorscheme quiet Quiet()
 augroup END
 
