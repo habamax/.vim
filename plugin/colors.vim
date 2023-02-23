@@ -43,6 +43,7 @@ enddef
 
 
 def WildCharm()
+    if !has("gui_running") | return | endif
     if &background == 'light'
         hi Normal       guibg=#f7f7f3
         hi TablineSel   guifg=#f7f7f3
@@ -56,13 +57,21 @@ def WildCharm()
         hi PmenuSel     guifg=#ffffff guibg=#d78700
         hi Pmenu        guibg=#deded8
     else
-        hi Normal      guibg=#1c1c1c
-        hi TablineSel  guibg=#1c1c1c
-        hi Folded      guibg=#121212
-        hi Cursorline  guibg=#303030
-        hi Pmenu       guibg=#3a3a3a
+        # hi Normal      guibg=#1c1c1c
+        # hi TablineSel  guibg=#1c1c1c
+        # hi Folded      guibg=#121212
+        # hi Cursorline  guibg=#303030
+        # hi Pmenu       guibg=#3a3a3a
+        # hi PmenuSel    guibg=#ffaf00 guifg=#000000
+        # hi ColorColumn guibg=#121212
+
+        hi Normal      guibg=#1c1f25
+        hi TablineSel  guibg=#1c1f25
+        hi Folded      guibg=#12151a
+        hi Cursorline  guibg=#303338
+        hi Pmenu       guibg=#3a3d44
         hi PmenuSel    guibg=#ffaf00 guifg=#000000
-        hi ColorColumn guibg=#121212
+        hi ColorColumn guibg=#12151a
     endif
     hi! link vimVar Normal
 enddef
