@@ -77,6 +77,9 @@ enddef
 
 
 def Quiet()
+    if &background == 'dark'
+        hi Normal ctermbg=NONE guibg=#1c1f25
+    endif
     hi clear Statement
     hi clear Identifier
     hi clear PreProc
@@ -94,7 +97,7 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme * Base()
-    au Colorscheme wildcharm,quiet AddCharm()
+    au Colorscheme wildcharm AddCharm()
     au Colorscheme quiet Quiet()
 augroup END
 
