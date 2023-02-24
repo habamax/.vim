@@ -1,14 +1,14 @@
 vim9script
 
 
-# termguicolors support
-if !has('win32') && !has('gui_running')
-        && $TERM !~ 'xterm'
-        && has('termguicolors')
-    &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
-set termguicolors
+# # termguicolors support
+# if !has('win32') && !has('gui_running')
+#         && $TERM !~ 'xterm'
+#         && has('termguicolors')
+#     &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+#     &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+# endif
+# set termguicolors
 
 
 def Base()
@@ -43,7 +43,6 @@ enddef
 
 
 def WildCharm()
-    if !has("gui_running") | return | endif
     if &background == 'light'
         hi Normal       guibg=#f7f7f3
         hi TablineSel   guifg=#f7f7f3
@@ -65,8 +64,8 @@ def WildCharm()
         # hi PmenuSel    guibg=#ffaf00 guifg=#000000
         # hi ColorColumn guibg=#121212
 
-        hi Normal      guibg=#1c1f25
-        hi TablineSel  guibg=#1c1f25
+        hi Normal      ctermbg=NONE guibg=#1c1f25
+        hi TablineSel  ctermbg=NONE guibg=#1c1f25
         hi Folded      guibg=#12151a
         hi Cursorline  guibg=#303338
         hi Pmenu       guibg=#3a3d44
