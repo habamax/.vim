@@ -42,7 +42,7 @@ def Base()
 enddef
 
 
-def WildCharm()
+def AddCharm()
     if &background == 'light'
         hi Normal       guibg=#f7f7f3
         hi TablineSel   guifg=#f7f7f3
@@ -94,7 +94,7 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme * Base()
-    au Colorscheme wildcharm WildCharm()
+    au Colorscheme wildcharm AddCharm()
     au Colorscheme quiet Quiet()
 augroup END
 
