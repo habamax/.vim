@@ -44,17 +44,30 @@ enddef
 
 def AddCharm()
     if &background == 'light'
-        hi Normal       guibg=#f7f7f3
-        hi TablineSel   guifg=#f7f7f3
-        hi Tabline      guifg=#444444 guibg=#d7d7d0
-        hi StatusLineNC guifg=#444444 guibg=#d7d7d0
+        hi Normal       guibg=#e7e7e3
+        hi TablineSel   guifg=#e7e7e3
+        hi Tabline      guifg=#444444 guibg=#c7c7c0
+        hi StatusLineNC guifg=#444444 guibg=#c7c7c0
         hi StatusLine   guibg=#5f5f5f gui=NONE
-        hi VertSplit    guibg=#d7d7d0 guifg=#d7d7d0
-        hi Cursorline   guibg=#e7e7e0
-        hi Folded       guibg=#fffff9
+        hi VertSplit    guibg=#c7c7c0 guifg=#c7c7c0
+        hi Cursorline   guibg=#d7d7d0
+        hi Folded       guibg=#f0f0e9
         hi ColorColumn  guibg=#fffff9
         hi PmenuSel     guifg=#ffffff guibg=#d78700
-        hi Pmenu        guibg=#deded8
+        hi Pmenu        guibg=#cecec8
+
+
+        # hi Normal       guibg=#f7f7f3
+        # hi TablineSel   guifg=#f7f7f3
+        # hi Tabline      guifg=#444444 guibg=#d7d7d0
+        # hi StatusLineNC guifg=#444444 guibg=#d7d7d0
+        # hi StatusLine   guibg=#5f5f5f gui=NONE
+        # hi VertSplit    guibg=#d7d7d0 guifg=#d7d7d0
+        # hi Cursorline   guibg=#e7e7e0
+        # hi Folded       guibg=#fffff9
+        # hi ColorColumn  guibg=#fffff9
+        # hi PmenuSel     guifg=#ffffff guibg=#d78700
+        # hi Pmenu        guibg=#deded8
     else
         # hi Normal      guibg=#1c1c1c
         # hi TablineSel  guibg=#1c1c1c
@@ -70,7 +83,7 @@ def AddCharm()
         hi Cursorline  ctermbg=236 guibg=#303338
         hi Pmenu       guifg=#d0d0d0 guibg=#3a3d44
         hi PmenuSel    guibg=#ffaf00 guifg=#000000
-        hi ColorColumn ctermbg=233 guibg=#12151a
+        hi ColorColumn ctermbg=233 guibg=#000000
     endif
     hi! link vimVar Normal
 enddef
