@@ -64,8 +64,8 @@ def AddCharm()
         # hi PmenuSel    guibg=#ffaf00 guifg=#000000
         # hi ColorColumn guibg=#121212
 
-        hi Normal      ctermbg=NONE guibg=#1c1f25
-        hi TablineSel  ctermbg=NONE guibg=#1c1f25
+        hi Normal      ctermbg=NONE guibg=#1c1f26
+        hi TablineSel  ctermbg=NONE guibg=#1c1f26
         hi Folded      ctermbg=233 guibg=#12151a
         hi Cursorline  ctermbg=236 guibg=#303338
         hi Pmenu       guifg=#d0d0d0 guibg=#3a3d44
@@ -78,7 +78,7 @@ enddef
 
 def Quiet()
     if &background == 'dark'
-        hi Normal ctermbg=NONE guibg=#1c1f25
+        hi Normal ctermbg=NONE guibg=#1c1f26
     endif
     hi clear Statement
     hi clear Identifier
