@@ -11,18 +11,25 @@ xnoremap <buffer><silent> aP <esc><scriptcmd>HeaderTextObj(false)<CR>
 import autoload 'popup.vim'
 def Toc()
     var toc = []
+    var toc_num = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for nr in range(1, line('$'))
         var line = getline(nr)
         if line =~ '^#\+\s\S\+'
             var lvl = line->matchstr('^#\+')->len() - 1
-            toc->add({text: $'{repeat("\t", lvl)}{line->trim(" #")} ({nr})', linenr: nr})
+            toc_num[lvl] += 1
+            var toc_num_str = toc_num->copy()->filter('v:val != 0')->join('.')
+            toc->add({text: $'{repeat("\t", lvl)}{toc_num_str} {line->trim(" #")} ({nr})', linenr: nr})
             continue
         endif
         var pline = getline(nr - 1)
         if line =~ '^=\+$' && pline =~ '^\S\+'
-            toc->add({text: $"{pline} ({nr - 1})", linenr: nr - 1})
+            toc_num[0] += 1
+            var toc_num_str = toc_num->copy()->filter('v:val != 0')->join('.')
+            toc->add({text: $"{toc_num_str} {pline} ({nr - 1})", linenr: nr - 1})
         elseif line =~ '^-\+$' && pline =~ '^\S\+'
-            toc->add({text: $"\t{pline} ({nr - 1})", linenr: nr - 1})
+            toc_num[1] += 1
+            var toc_num_str = toc_num->copy()->filter('v:val != 0')->join('.')
+            toc->add({text: $"\t{toc_num_str} {pline} ({nr - 1})", linenr: nr - 1})
         endif
     endfor
 
@@ -34,7 +41,9 @@ def Toc()
         (winid) => {
             win_execute(winid, "setl ts=4 list")
             win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
+            win_execute(winid, 'syn match FilterMenuSecNum "^\t*\(\d\+\.\)*\(\d\+\)"')
             hi def link FilterMenuLineNr Comment
+            hi def link FilterMenuSecNum PreProc
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
