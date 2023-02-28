@@ -354,7 +354,7 @@ command! CD lcd %:p:h
 command! MD call mkdir(expand("%:p:h"), "p")
 
 # syntax group names under cursor
-command! Sy :echo join(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')))
+command! Inspect :echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 
 # save and load sessions
 if !isdirectory($'{g:vimdata}/sessions') | mkdir($'{g:vimdata}/sessions', "p") | endif
