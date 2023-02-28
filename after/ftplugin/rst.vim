@@ -36,6 +36,7 @@ import autoload 'popup.vim'
 def Toc()
     var toc: list<dict<any>> = []
     var lvl_ch: list<string> = []
+    var toc_num: list<number> = []
     for nr in range(1, line('$'))
         var line = getline(nr)
         var pline = getline(nr - 1)
@@ -45,16 +46,24 @@ def Toc()
                 var lvl = lvl_ch->index(line[0] .. line[0])
                 if lvl == -1
                     lvl_ch->add(line[0] .. line[0])
+                    toc_num->add(1)
                     lvl = lvl_ch->len() - 1
+                else
+                    toc_num[lvl] += 1
                 endif
-                toc->add({text: $'{repeat("\t", lvl)}{pline->trim()} ({nr - 1})', linenr: nr - 1})
+                var toc_num_str = toc_num[: lvl]->join('.')
+                toc->add({text: $'{repeat("\t", lvl)}{toc_num_str} {pline->trim()} ({nr - 1})', linenr: nr - 1})
             elseif pline =~ '^\S' && pline !~ '^\([-=#*~`.]\)\1*\s*$'
                 var lvl = lvl_ch->index(line[0])
                 if lvl == -1
                     lvl_ch->add(line[0])
+                    toc_num->add(1)
                     lvl = lvl_ch->len() - 1
+                else
+                    toc_num[lvl] += 1
                 endif
-                toc->add({text: $'{repeat("\t", lvl)}{pline->trim()} ({nr - 1})', linenr: nr - 1})
+                var toc_num_str = toc_num[: lvl]->join('.')
+                toc->add({text: $'{repeat("\t", lvl)}{toc_num_str} {pline->trim()} ({nr - 1})', linenr: nr - 1})
             endif
         endif
     endfor
@@ -65,9 +74,11 @@ def Toc()
             normal! zz
         },
         (winid) => {
-            win_execute(winid, "setl ts=4 list")
-            win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
+            win_execute(winid, 'setl ts=4 list')
+            win_execute(winid, 'syn match FilterMenuLineNr "(\d\+)$"')
+            win_execute(winid, 'syn match FilterMenuSecNum "^\t*\(\d\+\.\)*\(\d\+\)"')
             hi def link FilterMenuLineNr Comment
+            hi def link FilterMenuSecNum PreProc
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
