@@ -66,7 +66,7 @@ def AddCharm()
         hi VertSplit    guibg=#d7d7d0 guifg=#d7d7d0
         hi Cursorline   guibg=#e7e7e0
         hi Folded       guibg=#fffff9
-        hi ColorColumn  guibg=#fffff9
+        hi ColorColumn  guibg=#ffffff
         hi PmenuSel     guifg=#ffffff guibg=#d78700
         hi Pmenu        guibg=#deded8
 
