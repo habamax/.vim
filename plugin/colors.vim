@@ -1,14 +1,14 @@
 vim9script
 
 
-# # termguicolors support
-# if !has('win32') && !has('gui_running')
-#         && $TERM !~ 'xterm'
-#         && has('termguicolors')
-#     &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-#     &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-# endif
-# set termguicolors
+# termguicolors support
+if !has('win32') && !has('gui_running')
+        && $TERM !~ 'xterm'
+        && has('termguicolors')
+    &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+set termguicolors
 
 
 def Base()
@@ -86,7 +86,7 @@ def AddCharm()
         hi Cursorline  ctermbg=236 guibg=#303338
         hi Pmenu       guifg=#d0d0d0 guibg=#3a3d44
         hi PmenuSel    guibg=#ffaf00 guifg=#000000
-        hi ColorColumn ctermbg=233 guibg=#000000
+        hi ColorColumn ctermbg=233 guibg=#00081c
 
     endif
     hi! link vimVar Normal
