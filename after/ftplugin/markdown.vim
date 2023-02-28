@@ -39,8 +39,8 @@ def Toc()
             normal! zz
         },
         (winid) => {
-            win_execute(winid, "setl ts=4 list")
-            win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
+            win_execute(winid, 'setl ts=4 list')
+            win_execute(winid, 'syn match FilterMenuLineNr "(\d\+)$"')
             win_execute(winid, 'syn match FilterMenuSecNum "^\t*\(\d\+\.\)*\(\d\+\)"')
             hi def link FilterMenuLineNr Comment
             hi def link FilterMenuSecNum PreProc
