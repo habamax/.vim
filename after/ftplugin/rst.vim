@@ -51,8 +51,7 @@ def Toc()
                 else
                     toc_num[lvl] += 1
                 endif
-                var toc_num_str = toc_num[: lvl]->join('.')
-                toc->add({text: $'{repeat("\t", lvl)}{toc_num_str} {pline->trim()} ({nr - 1})', linenr: nr - 1})
+                toc->add({lvl: lvl, toc_num: toc_num[: lvl], text: $'{pline->trim()} ({nr - 1})', linenr: nr - 1})
             elseif pline =~ '^\S' && pline !~ '^\([-=#*~`.]\)\1*\s*$'
                 var lvl = lvl_ch->index(line[0])
                 if lvl == -1
@@ -62,10 +61,17 @@ def Toc()
                 else
                     toc_num[lvl] += 1
                 endif
-                var toc_num_str = toc_num[: lvl]->join('.')
-                toc->add({text: $'{repeat("\t", lvl)}{toc_num_str} {pline->trim()} ({nr - 1})', linenr: nr - 1})
+                toc->add({lvl: lvl, toc_num: toc_num[: lvl], text: $'{pline->trim()} ({nr - 1})', linenr: nr - 1})
             endif
         endif
+    endfor
+
+    var title = toc->reduce((acc, v) => v.lvl == 0 ? acc + 1 : acc, 0) == 1 ? 1 : 0
+    var subtitle = toc->reduce((acc, v) => v.lvl == 1 ? acc + 1 : acc, 0) == 1 ? 1 : 0
+
+    for t in toc
+        var toc_num_str = t.toc_num[title + subtitle : ]->join('.')
+        t.text = repeat("    ", t.lvl - title - subtitle) .. $"{toc_num_str} {t.text}"
     endfor
 
     popup.FilterMenu("TOC", toc,
@@ -76,7 +82,7 @@ def Toc()
         (winid) => {
             win_execute(winid, 'setl ts=4 list')
             win_execute(winid, 'syn match FilterMenuLineNr "(\d\+)$"')
-            win_execute(winid, 'syn match FilterMenuSecNum "^\t*\(\d\+\.\)*\(\d\+\)"')
+            win_execute(winid, 'syn match FilterMenuSecNum "^\s*\(\d\+\.\)*\(\d\+\)"')
             hi def link FilterMenuLineNr Comment
             hi def link FilterMenuSecNum PreProc
         })
