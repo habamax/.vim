@@ -11,24 +11,38 @@ xnoremap <buffer><silent> aP <esc><scriptcmd>HeaderTextObj(false)<CR>
 import autoload 'popup.vim'
 def Toc()
     var toc = []
-    var toc_num = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var toc_num: list<number> = []
     for nr in range(1, line('$'))
         var line = getline(nr)
         if line =~ '^#\+\s\S\+'
             var lvl = line->matchstr('^#\+')->len() - 1
-            toc_num[lvl] += 1
-            var toc_num_str = toc_num->copy()->filter('v:val != 0')->join('.')
+            if lvl >= len(toc_num)
+                for _ in range(lvl - len(toc_num))
+                    toc_num->add(1)
+                endfor
+            else
+                toc_num[lvl] += 1
+            endif
+            var toc_num_str = toc_num[: lvl]->join('.')
             toc->add({text: $'{repeat("\t", lvl)}{toc_num_str} {line->trim(" #")} ({nr})', linenr: nr})
             continue
         endif
         var pline = getline(nr - 1)
         if line =~ '^=\+$' && pline =~ '^\S\+'
-            toc_num[0] += 1
-            var toc_num_str = toc_num->copy()->filter('v:val != 0')->join('.')
+            if len(toc_num) < 1
+                toc_num->add(1)
+            else
+                toc_num[0] += 1
+            endif
+            var toc_num_str = toc_num
             toc->add({text: $"{toc_num_str} {pline} ({nr - 1})", linenr: nr - 1})
         elseif line =~ '^-\+$' && pline =~ '^\S\+'
-            toc_num[1] += 1
-            var toc_num_str = toc_num->copy()->filter('v:val != 0')->join('.')
+            if len(toc_num) < 2
+                toc_num->add(1)
+            else
+                toc_num[1] += 1
+            endif
+            var toc_num_str = toc_num[: 1]->join('.')
             toc->add({text: $"\t{toc_num_str} {pline} ({nr - 1})", linenr: nr - 1})
         endif
     endfor
