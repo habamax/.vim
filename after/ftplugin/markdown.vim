@@ -24,7 +24,7 @@ def Toc()
                 toc_num[lvl] += 1
             endif
             var toc_num_str = toc_num[: lvl]->join('.')
-            toc->add({text: $'{repeat("\t", lvl)}{toc_num_str} {line->trim(" #")} ({nr})', linenr: nr})
+            toc->add({text: $'{repeat("    ", lvl)}{toc_num_str} {line->trim(" #")} ({nr})', linenr: nr})
             continue
         endif
         var pline = getline(nr - 1)
@@ -43,7 +43,7 @@ def Toc()
                 toc_num[1] += 1
             endif
             var toc_num_str = toc_num[: 1]->join('.')
-            toc->add({text: $"\t{toc_num_str} {pline} ({nr - 1})", linenr: nr - 1})
+            toc->add({text: $"    {toc_num_str} {pline} ({nr - 1})", linenr: nr - 1})
         endif
     endfor
 
@@ -55,7 +55,7 @@ def Toc()
         (winid) => {
             win_execute(winid, 'setl ts=4 list')
             win_execute(winid, 'syn match FilterMenuLineNr "(\d\+)$"')
-            win_execute(winid, 'syn match FilterMenuSecNum "^\t*\(\d\+\.\)*\(\d\+\)"')
+            win_execute(winid, 'syn match FilterMenuSecNum "^\s*\(\d\+\.\)*\(\d\+\)"')
             hi def link FilterMenuLineNr Comment
             hi def link FilterMenuSecNum Title
         })
