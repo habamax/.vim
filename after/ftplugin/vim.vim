@@ -18,6 +18,15 @@ def Things()
         || line =~ '\(^\|\s\)fu\%[nction]!\?\s\+\([sgl]:\)\?\k\+('
         || line =~ '^\s*com\%[mand]!\?\s\+\S\+'
         || line =~ '^\s*aug\%[roup]\s\+\S\+' && line !~ '\c^\s*aug\%[roup] end\s*$'
+            if line =~ '^\s*com\%[mand]!\?\s\+\S\+'
+                line = line->substitute(' -range\(=.\)\?', '', '')
+                line = line->substitute(' -count\(=.\)\?', '', '')
+                line = line->substitute(' -nargs\(=.\)\?', '', '')
+                line = line->substitute(' -bang', '', '')
+                line = line->substitute(' -complete=\S\+', '', '')
+                line = line->substitute('^\s*com\%[mand]!\?\s\+\S\+\zs.*', '', '')
+                line = line->substitute('^\s*com\%[mand]!\?\s\+', '', '')
+            endif
             things->add({text: $"{line} ({nr})", linenr: nr})
         endif
     endfor
