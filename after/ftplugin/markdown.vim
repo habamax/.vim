@@ -17,14 +17,15 @@ def Toc()
         if line =~ '^#\+\s\S\+'
             var lvl = line->matchstr('^#\+')->len() - 1
             if lvl >= len(toc_num)
-                for _ in range(lvl - len(toc_num))
+                for _ in range(lvl - len(toc_num) + 1)
                     toc_num->add(1)
                 endfor
             else
                 toc_num[lvl] += 1
             endif
-            var toc_num_str = toc_num[: lvl]->join('.')
-            toc->add({text: $'{repeat("    ", lvl)}{toc_num_str} {line->trim(" #")} ({nr})', linenr: nr})
+            # var toc_num_str = toc_num[: lvl]->join('.')
+# {repeat("  ", lvl)}{toc_num_str} 
+            toc->add({lvl: lvl, toc_num: toc_num[: lvl], text: $'{line->trim(" #")} ({nr})', linenr: nr})
             continue
         endif
         var pline = getline(nr - 1)
@@ -34,8 +35,7 @@ def Toc()
             else
                 toc_num[0] += 1
             endif
-            var toc_num_str = toc_num
-            toc->add({text: $"{toc_num_str} {pline} ({nr - 1})", linenr: nr - 1})
+            toc->add({lvl: 0, toc_num: toc_num[0], text: $'{pline} ({nr - 1})', linenr: nr - 1})
         elseif line =~ '^-\+$' && pline =~ '^\S\+'
             if len(toc_num) < 2
                 toc_num->add(1)
@@ -43,8 +43,15 @@ def Toc()
                 toc_num[1] += 1
             endif
             var toc_num_str = toc_num[: 1]->join('.')
-            toc->add({text: $"    {toc_num_str} {pline} ({nr - 1})", linenr: nr - 1})
+            toc->add({lvl: 1, toc_num: toc_num[: 1], text: $'{pline} ({nr - 1})', linenr: nr - 1})
         endif
+    endfor
+
+    var title = toc->reduce((acc, v) => v.lvl == 0 ? acc + 1 : acc, 0) == 1 ? 1 : 0
+
+    for t in toc
+        var toc_num_str = t.toc_num[title : ]->join('.')
+        t.text = repeat("    ", t.lvl - title) .. $"{toc_num_str} {t.text}"
     endfor
 
     popup.FilterMenu("TOC", toc,
