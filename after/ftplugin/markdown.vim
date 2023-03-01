@@ -14,7 +14,8 @@ def Toc()
     var toc_num: list<number> = []
     for nr in range(1, line('$'))
         var line = getline(nr)
-        if line =~ '^#\+\s\S\+'
+        var mdsyn = synstack(nr, 1)->map('synIDattr(v:val, "name")')
+        if line =~ '^#\+\s\S\+' && mdsyn[0] !~ '^markdown\(CodeBlock\|Highlight\)'
             var lvl = line->matchstr('^#\+')->len() - 1
             if lvl >= len(toc_num)
                 for _ in range(lvl - len(toc_num) + 1)
