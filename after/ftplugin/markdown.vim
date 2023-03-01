@@ -51,7 +51,7 @@ def Toc()
 
     for t in toc
         var toc_num_str = t.toc_num[title : ]->join('.')
-        t.text = repeat("    ", t.lvl - title) .. $"{toc_num_str} {t.text}"
+        t.text = repeat("  ", t.lvl - title) .. $"{toc_num_str} {t.text}"
     endfor
 
     popup.FilterMenu("TOC", toc,
