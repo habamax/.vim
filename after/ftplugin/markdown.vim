@@ -23,8 +23,6 @@ def Toc()
             else
                 toc_num[lvl] += 1
             endif
-            # var toc_num_str = toc_num[: lvl]->join('.')
-# {repeat("  ", lvl)}{toc_num_str} 
             toc->add({lvl: lvl, toc_num: toc_num[: lvl], text: $'{line->trim(" #")} ({nr})', linenr: nr})
             continue
         endif
@@ -35,7 +33,7 @@ def Toc()
             else
                 toc_num[0] += 1
             endif
-            toc->add({lvl: 0, toc_num: toc_num[0], text: $'{pline} ({nr - 1})', linenr: nr - 1})
+            toc->add({lvl: 0, toc_num: toc_num[: 0], text: $'{pline} ({nr - 1})', linenr: nr - 1})
         elseif line =~ '^-\+$' && pline =~ '^\S\+'
             if len(toc_num) < 2
                 toc_num->add(1)
