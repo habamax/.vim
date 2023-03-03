@@ -113,7 +113,7 @@ enddef
 
 
 augroup colorschemes | au!
-    au Colorscheme wildcharm AddCharm()
+    # au Colorscheme wildcharm AddCharm()
     au Colorscheme quiet Quiet()
     au Colorscheme * Base()
 augroup END
