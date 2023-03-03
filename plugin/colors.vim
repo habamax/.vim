@@ -94,9 +94,6 @@ enddef
 
 
 def Quiet()
-    if &background == 'dark'
-        hi Normal ctermbg=NONE guibg=#1c1f26
-    endif
     hi clear Statement
     hi clear Identifier
     hi clear PreProc
