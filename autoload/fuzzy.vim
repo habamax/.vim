@@ -372,6 +372,10 @@ export def Project()
     popup.FilterMenu("Project", projects,
         (res, key) => {
             FileTree(res.text)
+        },
+        (winid) => {
+            win_execute(winid, "syn match FilterMenuDirectorySubtle '^.*[\\/]'")
+            hi def link FilterMenuDirectorySubtle Comment
         })
 enddef
 
