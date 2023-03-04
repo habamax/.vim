@@ -80,13 +80,13 @@ def AddCharm()
         # hi PmenuSel    guibg=#ffaf00 guifg=#000000
         # hi ColorColumn guibg=#121212
 
-        hi Normal      ctermbg=NONE guibg=#1c1f26
-        hi TablineSel  ctermbg=NONE guibg=#1c1f26
-        hi Folded      ctermbg=233 guibg=#12151a
-        hi Cursorline  ctermbg=236 guibg=#303338
-        hi Pmenu       guifg=#d0d0d0 guibg=#3a3d44
+        hi Normal      ctermbg=NONE guibg=#161821
+        hi TablineSel  ctermbg=NONE guibg=#161821
+        hi Folded      ctermbg=233 guibg=#081019
+        hi Cursorline  ctermbg=236 guibg=#30323a
+        hi Pmenu       guifg=#d0d0d0 guibg=#3a3c45
         hi PmenuSel    guibg=#ffaf00 guifg=#000000
-        hi ColorColumn ctermbg=233 guibg=#00081c
+        hi ColorColumn ctermbg=233 guibg=#020413
 
     endif
     hi! link vimVar Normal
