@@ -81,15 +81,18 @@ def AddCharm()
         # hi ColorColumn guibg=#121212
 
         if has("gui_running")
-            hi Normal      guibg=#161821
-            hi TablineSel  guibg=#161821
+            hi Normal      guibg=#1c1f26
+            hi TablineSel  guibg=#1c1f26
         else
             hi Normal      ctermbg=NONE guibg=NONE
             hi TablineSel  ctermbg=NONE guibg=NONE
         endif
-        hi Folded      ctermbg=233 guibg=#081019
-        hi Cursorline  ctermbg=236 guibg=#30323a
-        hi Pmenu       guifg=#d0d0d0 guibg=#3a3c45
+
+        hi Normal      ctermbg=NONE guibg=#1c1f26
+        hi TablineSel  ctermbg=NONE guibg=#1c1f26
+        hi Folded      ctermbg=233 guibg=#12151a
+        hi Cursorline  ctermbg=236 guibg=#303338
+        hi Pmenu       guifg=#d0d0d0 guibg=#3a3d44
         hi PmenuSel    guibg=#ffaf00 guifg=#000000
         hi ColorColumn ctermbg=233 guibg=#020413
 
