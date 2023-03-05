@@ -43,6 +43,7 @@ export def CaptureOutput(command: string)
         err_buf: bufnr,
         err_msg: 0
     })
+    normal! G
 enddef
 
 
