@@ -88,8 +88,6 @@ def AddCharm()
             hi TablineSel  ctermbg=NONE guibg=NONE
         endif
 
-        hi Normal      ctermbg=NONE guibg=#1c1f26
-        hi TablineSel  ctermbg=NONE guibg=#1c1f26
         hi Folded      ctermbg=233 guibg=#12151a
         hi Cursorline  ctermbg=236 guibg=#303338
         hi Pmenu       guifg=#d0d0d0 guibg=#3a3d44
