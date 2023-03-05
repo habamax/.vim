@@ -402,6 +402,8 @@ enddef
 
 command! Bookmark call SaveBookmark()
 
+command! -nargs=1 Rg R rg -nS <args> .
+
 
 ################################################################################
 # General autocommands
