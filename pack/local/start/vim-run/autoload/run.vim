@@ -5,7 +5,7 @@ var shell_job: job
 
 
 def PrepareBuffer(): number
-    var bufnr = bufadd('[Command Output]')
+    var bufnr = bufadd('[Shell Output]')
     var windows = win_findbuf(bufnr)
 
     if windows->len() == 0
