@@ -5,7 +5,8 @@ var shell_job: job
 
 
 def PrepareBuffer(): number
-    var bufnr = bufadd('◆ Command Output ◆')
+    var bufnr = bufadd('[Command Output]')
+    bufload(bufnr)
     var windows = win_findbuf(bufnr)
 
     if windows->len() == 0
@@ -45,10 +46,16 @@ export def CaptureOutput(command: string)
 enddef
 
 
-export def OpenFile()
+export def OpenFile(split: bool = false)
     # get python line nr
     var linenr = matchstr(getline('.'), '\s\+File "\f\+", line \zs\d\+\ze,')
-    exe "normal! \<c-w>F"
+
+    if split
+        exe "normal! \<c-w>F"
+    else
+        normal! gF
+    endif
+
     if !empty(linenr)
         exe $":{linenr}"
     endif
