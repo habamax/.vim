@@ -8,4 +8,6 @@ b:did_ftplugin = 1
 
 b:undo_ftplugin = 'exe "nunmap <buffer> <cr>"'
 
-nnoremap <buffer> <cr> <C-w>F
+import autoload 'run.vim'
+
+nnoremap <buffer> <cr> <scriptcmd>run.OpenFile()<cr>

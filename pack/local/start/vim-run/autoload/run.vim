@@ -43,3 +43,13 @@ export def CaptureOutput(command: string)
         err_msg: 0
     })
 enddef
+
+
+export def OpenFile()
+    # get python line nr
+    var linenr = matchstr(getline('.'), '\s\+File "\f\+", line \zs\d\+\ze,')
+    exe "normal! \<c-w>F"
+    if !empty(linenr)
+        exe $":{linenr}"
+    endif
+enddef
