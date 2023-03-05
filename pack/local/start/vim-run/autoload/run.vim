@@ -50,6 +50,8 @@ enddef
 export def OpenFile(split: bool = false)
     # get python line nr
     var linenr = matchstr(getline('.'), '\s\+File "\f\+", line \zs\d\+\ze,')
+    # capture column number such as 10 in `./filename:20:10: some message`
+    var colnr = matchstr(getline('.'), '^.\{-}:\d\+:\zs\d\+\ze')
 
     if split
         exe "normal! \<c-w>F"
@@ -59,5 +61,9 @@ export def OpenFile(split: bool = false)
 
     if !empty(linenr)
         exe $":{linenr}"
+    endif
+
+    if !empty(colnr)
+        exe $"normal! {colnr}|"
     endif
 enddef

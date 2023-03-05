@@ -12,8 +12,8 @@ syn match runCargoPathNr ":\d\+:\d\+" contained
 syn match runCargoError "^error:"
 
 # XXX: test and fix for windows
-syn match runGrepPath "^[./]\f\+:\(\d\+:\)\?" contains=runGrepPathNr
-syn match runGrepPathNr ":\d\+:" contained
+syn match runGrepPath "^[./]\f\+:\(\d\+:\)\{,2}" contains=runGrepPathNr
+syn match runGrepPathNr ":\(\d\+:\)\{1,2}" contained
 
 syn match runPythonLocation '^\s\+File "\f\+", line \d\+' contains=runPythonPath,runPythonNr
 syn match runPythonPath 'File "\zs\f\+\ze"' contained
