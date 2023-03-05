@@ -369,12 +369,6 @@ if executable('sudo')
     command! W w !sudo tee "%" > /dev/null
 endif
 
-# open terminal with a cwd of a current buffer
-command! Term :bo term_start(&shell, {cwd: expand("%:p:h"), term_finish: "close", "vertical": 1})
-if executable("cmd")
-    command! Sh silent !start cmd.exe
-endif
-
 # base64
 command! Base64 append('.', trim(system("python -m base64", getline('.'))))
 command! Base64Decode append('.', trim(system("python -m base64 -d", getline('.'))))
