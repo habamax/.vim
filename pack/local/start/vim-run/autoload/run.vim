@@ -14,6 +14,7 @@ def PrepareBuffer(): number
         set buftype=nofile
         set buflisted
         set filetype=run
+        set noswapfile
     else
         win_gotoid(windows[0])
     endif
@@ -48,23 +49,50 @@ enddef
 
 
 export def OpenFile(split: bool = false)
-    # get python line nr
-    var linenr = matchstr(getline('.'), '\s\+File "\f\+", line \zs\d\+\ze,')
-    # capture column number such as 10 in `./filename:20:10: some message`
-    var colnr = matchstr(getline('.'), '^.\{-}:\d\+:\zs\d\+\ze')
+    # Windows has : in `isfname` thus for ./filename:20:10: gf can't find filename cause
+    # it sees filename:20:10: instead of just filename
+    # So the "hack" would be:
+    # - take <cWORD> under cursor
+    # - extract file name, line, column
+    # - edit file name
 
+    # python
+    var fname = getline('.')->matchlist('^\s\+File "\(.\{-}\)", line \(\d\+\)')
 
-    if split
-        exe "normal! \<c-w>F"
-    else
-        normal! gF
+    # rust
+    # var fname = getline('.')->matchlist('^\s\+File "\(.\{-}\)", line \(\d\+\)')
+
+    # regular filename:linenr:colnr:
+    if empty(fname)
+        fname = expand("<cWORD>")->matchlist('\(.\{-}\):\(\d\+\):\(\d\+\).*')
     endif
 
-    if !empty(linenr)
-        exe $":{linenr}"
+    # regular filename:linenr:
+    if empty(fname)
+        fname = expand("<cWORD>")->matchlist('\(.\{-}\):\(\d\+\):\?.*')
     endif
 
-    if !empty(colnr)
-        exe $"normal! {colnr}|"
+    # regular filename:
+    if empty(fname)
+        fname = expand("<cWORD>")->matchlist('\(.\{-}\):.*')
+    endif
+
+    if fname->len() > 0 && filereadable(fname[1])
+        try
+            if split
+                exe "split" fname[1]
+            else
+                exe "e" fname[1]
+            endif
+
+            if !empty(fname[2])
+                exe $":{fname[2]}"
+            endif
+
+            if !empty(fname[3])
+                exe $"normal! {fname[3]}|"
+            endif
+        catch
+        endtry
     endif
 enddef
