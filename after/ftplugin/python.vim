@@ -20,6 +20,10 @@ def PopupHelp(symbol: string)
 enddef
 
 
+nnoremap <buffer> <F5> <scriptcmd>R %:p<cr>
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
+
+
 if exists("g:loaded_ale")
     nnoremap <silent><buffer> K <scriptcmd>ALEHover<CR>
     nnoremap <silent><buffer> gd <scriptcmd>ALEGoToDefinition<CR>
