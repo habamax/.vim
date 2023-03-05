@@ -4,23 +4,29 @@ if exists("b:current_syntax")
     finish
 endif
 
-syn match runCargoHintSign "\s\zs\^\+\ze\s"
+syn match runCmd "\%^.*$" contains=runCmdPrompt
+syn match runCmdPrompt "^\$" contained
+
 syn match runCargoPath "-->\s\+\f\+:\d\+:\d\+" contains=runCargoPathNr
 syn match runCargoPathNr ":\d\+:\d\+" contained
 syn match runCargoError "^error:"
-syn match runGrepPath "^\f\+:\(\d\+:\)\?" contains=runGrepPathNr
+
+# XXX: test and fix for windows
+syn match runGrepPath "^[./]\f\+:\(\d\+:\)\?" contains=runGrepPathNr
 syn match runGrepPathNr ":\d\+:" contained
-syn match runGrep "^grep:.*$"
-syn match runCmd "\%^.*$" contains=runCmdPrompt
-syn match runCmdPrompt "^\$" contained
+
+syn match runPythonLocation '^\s\+File "\f\+", line \d\+' contains=runPythonPath,runPythonNr
+syn match runPythonPath 'File "\zs\f\+\ze"' contained
+syn match runPythonNr "line \zs\d\+" contained
 
 hi def link runCargoPath String
 hi def link runCargoPathNr Constant
 hi def link runCmd Statement
 hi def link runCmdPrompt Identifier
-hi def link runCargoHintSign WarningMsg
 hi def link runCargoError Error
-hi def link runGrepPath runCargoPath
-hi def link runGrepPathNr runCargoPathNr
+hi def link runGrepPath String
+hi def link runGrepPathNr Constant
+hi def link runPythonPath String
+hi def link runPythonNr Constant
 
 b:current_syntax = "run"
