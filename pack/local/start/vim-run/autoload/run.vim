@@ -60,7 +60,9 @@ export def OpenFile(split: bool = false)
     var fname = getline('.')->matchlist('^\s\+File "\(.\{-}\)", line \(\d\+\)')
 
     # rust
-    # var fname = getline('.')->matchlist('^\s\+File "\(.\{-}\)", line \(\d\+\)')
+    if empty(fname)
+        fname = getline('.')->matchlist('^\s\+--> \(.\{-}\):\(\d\+\):\(\d\+\)')
+    endif
 
     # regular filename:linenr:colnr:
     if empty(fname)
