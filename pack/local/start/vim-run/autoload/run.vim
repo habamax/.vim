@@ -52,7 +52,7 @@ export def OpenFile(split: bool = false)
     # Windows has : in `isfname` thus for ./filename:20:10: gf can't find filename cause
     # it sees filename:20:10: instead of just filename
     # So the "hack" would be:
-    # - take <cWORD> under cursor
+    # - take <cWORD> or a line under cursor
     # - extract file name, line, column
     # - edit file name
 
