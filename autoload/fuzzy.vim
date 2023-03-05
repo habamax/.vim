@@ -9,7 +9,7 @@ const MAX_ELEMENTS: number = 20000
 export def Buffer()
     var buffer_list = getbufinfo({'buflisted': 1})->mapnew((_, v) => {
         return {bufnr: v.bufnr,
-                text: (v.name ?? $'[{v.bufnr}: No Name]'),
+                text: (bufname(v.bufnr) ?? $'[{v.bufnr}: No Name]'),
                 lastused: v.lastused}
     })->sort((i, j) => i.lastused > j.lastused ? -1 : i.lastused == j.lastused ? 0 : 1)
     # Alternate buffer first, current buffer second
