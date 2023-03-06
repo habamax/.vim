@@ -308,6 +308,11 @@ nnoremap zf <cmd>set fdm&<CR>zf
 xnoremap zf <cmd>set fdm&<CR>zf
 
 
+# Ripgrep word under cursor
+import autoload 'run.vim'
+nnoremap <space>8 <scriptcmd>run.CaptureOutput($"rg -nS --column {expand("<cword>")} .")<cr>
+
+
 ################################################################################
 # Swap & Backup & Undo
 
