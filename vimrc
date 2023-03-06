@@ -309,8 +309,7 @@ xnoremap zf <cmd>set fdm&<CR>zf
 
 
 # Ripgrep word under cursor
-import autoload 'run.vim'
-nnoremap <space>8 <scriptcmd>run.CaptureOutput($"rg -nS --column {expand("<cword>")} .")<cr>
+nnoremap <space>8 <scriptcmd>exe "Rg" expand("<cword>")<cr>
 
 
 ################################################################################
