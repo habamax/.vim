@@ -5,7 +5,7 @@ var shell_job: job
 
 
 def PrepareBuffer(run_cwd: string): number
-    var bufname = "[Shell Command]"
+    var bufname = "[Run output]"
     var buffers = getbufinfo()->filter((_, v) => fnamemodify(v.name, ":t") == bufname)
 
     var bufnr = -1
@@ -13,7 +13,7 @@ def PrepareBuffer(run_cwd: string): number
     if len(buffers) > 0
         bufnr = buffers[0].bufnr
     else
-        bufnr = bufadd('[Shell Command]')
+        bufnr = bufadd(bufname)
     endif
 
     var windows = win_findbuf(bufnr)
