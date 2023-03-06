@@ -404,7 +404,7 @@ enddef
 
 command! Bookmark call SaveBookmark()
 
-command! -nargs=1 Rg R rg -nS --column <args> .
+command! -nargs=1 Rg R rg -nS --column <q-args> .
 
 
 ################################################################################
