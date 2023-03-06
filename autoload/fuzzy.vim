@@ -349,7 +349,7 @@ export def CmdHistory()
             if key == "\<c-j>"
                 feedkeys($":{res.text}\<C-f>", "n")
             else
-                feedkeys($":{res.text}\<CR>", "n")
+                feedkeys($":{res.text}\<CR>", "nt")
             endif
         })
 enddef
