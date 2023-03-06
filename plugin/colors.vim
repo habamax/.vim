@@ -45,41 +45,32 @@ enddef
 def AddCharm()
     if &background == 'light'
 
-        # hi Normal       guibg=#e7e7e3
-        # hi TablineSel   guifg=#e7e7e3
-        # hi Tabline      guifg=#444444 guibg=#c7c7c0
-        # hi StatusLineNC guifg=#444444 guibg=#c7c7c0
-        # hi StatusLine   guibg=#5f5f5f gui=NONE
-        # hi VertSplit    guibg=#c7c7c0 guifg=#c7c7c0
-        # hi Cursorline   guibg=#d7d7d0
-        # hi Folded       guibg=#f0f0e9
-        # hi ColorColumn  guibg=#fffff9
-        # hi PmenuSel     guifg=#ffffff guibg=#d78700
-        # hi Pmenu        guibg=#cecec8
-
-
-        hi Normal       guibg=#f7f7f3
-        hi TablineSel   guifg=#f7f7f3
-        hi Tabline      guifg=#444444 guibg=#d7d7d0
-        hi StatusLineNC guifg=#444444 guibg=#d7d7d0
+        hi Normal       guibg=#e7e7e3
+        hi TablineSel   guifg=#e7e7e3
+        hi Tabline      guifg=#444444 guibg=#c7c7c0
+        hi StatusLineNC guifg=#444444 guibg=#c7c7c0
         hi StatusLine   guibg=#5f5f5f gui=NONE
-        hi VertSplit    guibg=#d7d7d0 guifg=#d7d7d0
-        hi Cursorline   guibg=#e7e7e0
-        hi Folded       guibg=#fffff9
-        hi ColorColumn  guibg=#ffffff
+        hi VertSplit    guibg=#c7c7c0 guifg=#c7c7c0
+        hi Cursorline   guibg=#d7d7d0
+        hi Folded       guibg=#f0f0e9
+        hi ColorColumn  guibg=#fffff9
         hi PmenuSel     guifg=#ffffff guibg=#d78700
-        hi Pmenu        guibg=#deded8
+        hi Pmenu        guibg=#cecec8
+
+
+        # hi Normal       guibg=#f7f7f3
+        # hi TablineSel   guifg=#f7f7f3
+        # hi Tabline      guifg=#444444 guibg=#d7d7d0
+        # hi StatusLineNC guifg=#444444 guibg=#d7d7d0
+        # hi StatusLine   guibg=#5f5f5f gui=NONE
+        # hi VertSplit    guibg=#d7d7d0 guifg=#d7d7d0
+        # hi Cursorline   guibg=#e7e7e0
+        # hi Folded       guibg=#fffff9
+        # hi ColorColumn  guibg=#ffffff
+        # hi PmenuSel     guifg=#ffffff guibg=#d78700
+        # hi Pmenu        guibg=#deded8
 
     else
-
-        # hi Normal      guibg=#1c1c1c
-        # hi TablineSel  guibg=#1c1c1c
-        # hi Folded      guibg=#121212
-        # hi Cursorline  guibg=#303030
-        # hi Pmenu       guibg=#3a3a3a
-        # hi PmenuSel    guibg=#ffaf00 guifg=#000000
-        # hi ColorColumn guibg=#121212
-
         if has("gui_running")
             hi Normal      guibg=#1c1f26
             hi TablineSel  guibg=#1c1f26
