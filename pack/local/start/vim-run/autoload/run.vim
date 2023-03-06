@@ -4,8 +4,18 @@ vim9script
 var shell_job: job
 
 
-def PrepareBuffer(): number
-    var bufnr = bufadd('[Shell Command]')
+def PrepareBuffer(run_cwd: string = getcwd()): number
+    var bufname = "[Shell Command]"
+    var buffers = getbufinfo()->filter((_, v) => fnamemodify(v.name, ":t") == bufname)
+
+    var bufnr = -1
+
+    if len(buffers) > 0
+        bufnr = buffers[0].bufnr
+    else
+        bufnr = bufadd('[Shell Command]')
+    endif
+
     var windows = win_findbuf(bufnr)
 
     if windows->len() == 0
@@ -21,13 +31,14 @@ def PrepareBuffer(): number
 
     silent :%d _
 
-    b:run_pwd = getcwd()
+    b:run_cwd = run_cwd
 
     return bufnr
 enddef
 
 
 export def CaptureOutput(command: string)
+    var cwd = getcwd()
     var bufnr = PrepareBuffer()
 
     setbufline(bufnr, 1, $"$ {command}")
@@ -38,6 +49,7 @@ export def CaptureOutput(command: string)
     endif
 
     shell_job = job_start(command, {
+        cwd: cwd,
         out_io: 'buffer',
         out_buf: bufnr,
         out_msg: 0,
@@ -51,7 +63,7 @@ enddef
 
 
 export def OpenFile(split: bool = false)
-    exe "lcd" b:run_pwd
+    exe "lcd" b:run_cwd
     # Windows has : in `isfname` thus for ./filename:20:10: gf can't find filename cause
     # it sees filename:20:10: instead of just filename
     # So the "hack" would be:
