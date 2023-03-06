@@ -21,6 +21,8 @@ def PrepareBuffer(): number
 
     silent :%d _
 
+    b:run_pwd = getcwd()
+
     return bufnr
 enddef
 
@@ -49,6 +51,7 @@ enddef
 
 
 export def OpenFile(split: bool = false)
+    exe "lcd" b:run_pwd
     # Windows has : in `isfname` thus for ./filename:20:10: gf can't find filename cause
     # it sees filename:20:10: instead of just filename
     # So the "hack" would be:
