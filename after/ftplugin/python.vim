@@ -20,7 +20,7 @@ def PopupHelp(symbol: string)
 enddef
 
 
-nnoremap <buffer> <F5> <scriptcmd>R %:p<cr>
+nnoremap <buffer> <F5> <scriptcmd>R python %:p<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 
 
