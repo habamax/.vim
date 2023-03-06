@@ -25,6 +25,7 @@ def PrepareBuffer(run_cwd: string): number
         set buflisted
         set filetype=run
         set noswapfile
+        set noundofile
     else
         win_gotoid(windows[0])
     endif
