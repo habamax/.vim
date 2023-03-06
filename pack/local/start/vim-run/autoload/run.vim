@@ -4,7 +4,7 @@ vim9script
 var shell_job: job
 
 
-def PrepareBuffer(run_cwd: string = getcwd()): number
+def PrepareBuffer(run_cwd: string): number
     var bufname = "[Shell Command]"
     var buffers = getbufinfo()->filter((_, v) => fnamemodify(v.name, ":t") == bufname)
 
@@ -39,7 +39,7 @@ enddef
 
 export def CaptureOutput(command: string)
     var cwd = getcwd()
-    var bufnr = PrepareBuffer()
+    var bufnr = PrepareBuffer(cwd)
 
     setbufline(bufnr, 1, $"$ {command}")
     setbufline(bufnr, 2, "")
