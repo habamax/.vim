@@ -309,7 +309,8 @@ xnoremap zf <cmd>set fdm&<CR>zf
 
 
 # Ripgrep word under cursor
-nnoremap <space>8 <scriptcmd>exe "Rg" expand("<cword>")<cr>
+nnoremap <space>8 <scriptcmd>exe "RgFixed" expand("<cword>")<cr>
+xnoremap <space>8 y<scriptcmd>exe "RgFixed" getreg("@")<cr>
 
 
 ################################################################################
@@ -405,6 +406,7 @@ enddef
 command! Bookmark call SaveBookmark()
 
 command! -nargs=1 Rg Sh rg -nS --column "<args>" .
+command! -nargs=1 RgFixed Sh rg -nSF --column "<args>" .
 command! -nargs=0 Todo Sh rg -nS --column "\\\\b(TODO|FIXME|XXX):" .
 
 
