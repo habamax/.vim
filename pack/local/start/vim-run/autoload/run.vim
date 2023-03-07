@@ -63,7 +63,7 @@ export def CaptureOutput(command: string)
 enddef
 
 
-export def OpenFile(split: bool = false)
+export def OpenFile(mod: string = "")
     exe "lcd" b:run_cwd
     # Windows has : in `isfname` thus for ./filename:20:10: gf can't find filename cause
     # it sees filename:20:10: instead of just filename
@@ -97,10 +97,13 @@ export def OpenFile(split: bool = false)
 
     if fname->len() > 0 && filereadable(fname[1])
         try
-            if split
-                exe "split" fname[1]
+            # goto opened file if it is visible
+            # split otherwise
+            var buffers = getbufinfo()->filter((_, v) => v.name == fnamemodify(fname[1], ":p"))
+            if len(buffers) > 0 && len(buffers[0].windows) > 0
+                win_gotoid(buffers[0].windows[0])
             else
-                exe "e" fname[1]
+                exe mod "split" fname[1]
             endif
 
             if !empty(fname[2])

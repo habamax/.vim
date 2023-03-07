@@ -12,4 +12,4 @@ b:undo_ftplugin ..= '| exe "nunmap <buffer> <space><cr>"'
 import autoload 'run.vim'
 
 nnoremap <buffer> <cr> <scriptcmd>run.OpenFile()<cr>
-nnoremap <buffer> <space><cr> <scriptcmd>run.OpenFile(true)<cr>
+nnoremap <buffer> <space><cr> <scriptcmd>run.OpenFile("tab")<cr>
