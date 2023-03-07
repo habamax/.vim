@@ -310,7 +310,7 @@ xnoremap zf <cmd>set fdm&<CR>zf
 
 # Ripgrep word under cursor
 nnoremap <space>8 <scriptcmd>exe "RgFixed" expand("<cword>")<cr>
-xnoremap <space>8 y<scriptcmd>exe "RgFixed" getreg("@")<cr>
+xnoremap <space>8 "0y<scriptcmd>exe "RgFixed" getreg("0")<cr>
 
 
 ################################################################################
