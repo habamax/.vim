@@ -5,7 +5,7 @@ var shell_job: job
 
 
 def PrepareBuffer(run_cwd: string): number
-    var bufname = "[Run output]"
+    var bufname = "[Command output]"
     var buffers = getbufinfo()->filter((_, v) => fnamemodify(v.name, ":t") == bufname)
 
     var bufnr = -1
