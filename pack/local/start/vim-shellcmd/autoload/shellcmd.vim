@@ -50,7 +50,7 @@ export def CaptureOutput(command: string)
         shell_job->job_stop()
     endif
 
-    shell_job = job_start(command, {
+    shell_job = job_start([&shell, &shellcmdflag, command], {
         cwd: cwd,
         out_io: 'buffer',
         out_buf: bufnr,
