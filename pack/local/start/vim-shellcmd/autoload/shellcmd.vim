@@ -4,7 +4,7 @@ vim9script
 var shell_job: job
 
 
-def PrepareBuffer(run_cwd: string): number
+def PrepareBuffer(shell_cwd: string): number
     var bufname = "[Command output]"
     var buffers = getbufinfo()->filter((_, v) => fnamemodify(v.name, ":t") == bufname)
 
@@ -19,12 +19,12 @@ def PrepareBuffer(run_cwd: string): number
     var windows = win_findbuf(bufnr)
 
     if windows->len() == 0
-        # g:run_main_win_mode is one of "", "vertical", "topleft", "botright", "botright vertical" etc
-        exe get(g:, "run_main_win_mode", "") "sbuffer" bufnr
+        # g:shellcmd_main_win_mode is one of "", "vertical", "topleft", "botright", "botright vertical" etc
+        exe get(g:, "shellcmd_main_win_mode", "") "sbuffer" bufnr
         set bufhidden=hide
         set buftype=nofile
         set buflisted
-        set filetype=run
+        set filetype=shellcmd
         set noswapfile
         set noundofile
     else
@@ -33,7 +33,7 @@ def PrepareBuffer(run_cwd: string): number
 
     silent :%d _
 
-    b:run_cwd = run_cwd
+    b:shell_cwd = shell_cwd
 
     return bufnr
 enddef
@@ -65,7 +65,7 @@ enddef
 
 
 export def OpenFile(mod: string = "")
-    exe "lcd" b:run_cwd
+    exe "lcd" b:shell_cwd
     # Windows has : in `isfname` thus for ./filename:20:10: gf can't find filename cause
     # it sees filename:20:10: instead of just filename
     # So the "hack" would be:

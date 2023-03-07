@@ -36,4 +36,4 @@ hi def link runTodo Todo
 
 hi def link runSpecialInfo Type
 
-b:current_syntax = "run"
+b:current_syntax = "shellcmd"
