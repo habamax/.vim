@@ -18,6 +18,8 @@ syn match runPythonLocation '^\s\+File "\f\+", line \d\+' contains=runPythonPath
 syn match runPythonPath 'File "\zs\f\+\ze"' contained
 syn match runPythonNr "line \zs\d\+" contained
 
+syn match runTodo "\<\(TODO\|FIXME\|XXX\):"
+
 syn match runSpecialInfo '^\s\+Compiling\|Finished\|Running\s\+'
 
 hi def link runCargoPath String
@@ -29,6 +31,8 @@ hi def link runGrepPath String
 hi def link runGrepPathNr Constant
 hi def link runPythonPath String
 hi def link runPythonNr Constant
+
+hi def link runTodo Todo
 
 hi def link runSpecialInfo Type
 
