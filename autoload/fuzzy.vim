@@ -10,7 +10,8 @@ export def Buffer()
     var buffer_list = getbufinfo({'buflisted': 1})->mapnew((_, v) => {
         return {bufnr: v.bufnr,
                 text: (bufname(v.bufnr) ?? $'[{v.bufnr}: No Name]'),
-                lastused: v.lastused}
+                lastused: v.lastused,
+                winid: len(v.windows) > 0 ? v.windows[0] : -1}
     })->sort((i, j) => i.lastused > j.lastused ? -1 : i.lastused == j.lastused ? 0 : 1)
     # Alternate buffer first, current buffer second
     if buffer_list->len() > 1 && buffer_list[0].bufnr == bufnr()
@@ -25,7 +26,11 @@ export def Buffer()
             elseif key == "\<c-v>"
                 exe $":vert sb {res.bufnr}"
             else
-                exe $":b {res.bufnr}"
+                if res.winid != -1
+                    win_gotoid(res.winid)
+                else
+                    exe $":b {res.bufnr}"
+                endif
             endif
         },
         (winid) => {
