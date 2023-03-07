@@ -7,15 +7,15 @@ endif
 syn match runCmd "\%^.*$" contains=runCmdPrompt
 syn match runCmdPrompt "^\$" contained
 
-syn match runCargoPath "-->\s\+\f\+:\d\+:\d\+" contains=runCargoPathNr
+syn match runCargoPath "-->\s\+.\{-}:\d\+:\d\+" contains=runCargoPathNr
 syn match runCargoPathNr ":\d\+:\d\+" contained
 syn match runCargoError "^error:"
 
-syn match runGrepPath "^[./]\f\+:\(\d\+:\)\{,2}" contains=runGrepPathNr
+syn match runGrepPath "^[./].\{-}:\(\d\+:\)\{,2}" contains=runGrepPathNr
 syn match runGrepPathNr ":\(\d\+:\)\{1,2}" contained
 
-syn match runPythonLocation '^\s\+File "\f\+", line \d\+' contains=runPythonPath,runPythonNr
-syn match runPythonPath 'File "\zs\f\+\ze"' contained
+syn match runPythonLocation '^\s\+File ".\{-}", line \d\+' contains=runPythonPath,runPythonNr
+syn match runPythonPath 'File "\zs.\{-}\ze"' contained
 syn match runPythonNr "line \zs\d\+" contained
 
 syn match runTodo "\<\(TODO\|FIXME\|XXX\):"

@@ -83,17 +83,17 @@ export def OpenFile(mod: string = "")
 
     # regular filename:linenr:colnr:
     if empty(fname)
-        fname = expand("<cWORD>")->matchlist('\(.\{-}\):\(\d\+\):\(\d\+\).*')
+        fname = getline('.')->matchlist('^\(.\{-}\):\(\d\+\):\(\d\+\).*')
     endif
 
     # regular filename:linenr:
     if empty(fname)
-        fname = expand("<cWORD>")->matchlist('\(.\{-}\):\(\d\+\):\?.*')
+        fname = getline('.')->matchlist('^\(.\{-}\):\(\d\+\):\?.*')
     endif
 
     # regular filename:
     if empty(fname)
-        fname = expand("<cWORD>")->matchlist('\(.\{-}\):.*')
+        fname = getline('.')->matchlist('^\(.\{-}\):.*')
     endif
 
     if fname->len() > 0 && filereadable(fname[1])
