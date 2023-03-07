@@ -11,6 +11,6 @@ else
     b:undo_ftplugin = undo_maps
 endif
 
-nnoremap <buffer> <F5> <scriptcmd>R cargo run<cr>
-nnoremap <buffer> <F6> <scriptcmd>R cargo build<cr>
-nnoremap <buffer> <F7> <scriptcmd>R cargo build --release<cr>
+nnoremap <buffer> <F5> <scriptcmd>Sh cargo run<cr>
+nnoremap <buffer> <F6> <scriptcmd>Sh cargo build<cr>
+nnoremap <buffer> <F7> <scriptcmd>Sh cargo build --release<cr>
