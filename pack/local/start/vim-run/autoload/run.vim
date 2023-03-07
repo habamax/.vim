@@ -19,7 +19,8 @@ def PrepareBuffer(run_cwd: string): number
     var windows = win_findbuf(bufnr)
 
     if windows->len() == 0
-        exe "sb" bufnr
+        # g:run_main_win_mode is one of "", "vertical", "topleft", "botright", "botright vertical" etc
+        exe get(g:, "run_main_win_mode", "") "sbuffer" bufnr
         set bufhidden=hide
         set buftype=nofile
         set buflisted
