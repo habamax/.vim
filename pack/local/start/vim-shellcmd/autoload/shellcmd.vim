@@ -50,7 +50,14 @@ export def CaptureOutput(command: string)
         shell_job->job_stop()
     endif
 
-    shell_job = job_start([&shell, &shellcmdflag, command], {
+    var job_command: any
+    if has("win32")
+        job_command = command
+    else
+        job_command = [&shell, &shellcmdflag, command]
+    endif
+
+    shell_job = job_start(job_command, {
         cwd: cwd,
         out_io: 'buffer',
         out_buf: bufnr,
