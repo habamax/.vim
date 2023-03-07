@@ -20,7 +20,7 @@ def PrepareBuffer(shell_cwd: string): number
 
     if windows->len() == 0
         # g:shellcmd_main_win_mode is one of "", "vertical", "topleft", "botright", "botright vertical" etc
-        exe get(g:, "shellcmd_main_win_mode", "") "sbuffer" bufnr
+        exe get(g:, "shellcmd_main_win_mode", "botright vertical") "sbuffer" bufnr
         set bufhidden=hide
         set buftype=nofile
         set buflisted
