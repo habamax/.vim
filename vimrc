@@ -32,7 +32,6 @@ set sessionoptions=buffers,curdir,tabpages,winsize
 set history=200
 set viminfo='200,<50,s10
 set mouse=a ttyfast
-set switchbuf=useopen
 
 if has("win32")
     set clipboard^=unnamed
