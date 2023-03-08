@@ -114,7 +114,7 @@ augroup END
 
 
 set background=dark
-silent! colorscheme lunaperche
+silent! colorscheme wildcharm
 
 
 # helper commands and mappings to work with vim/colorschemes
