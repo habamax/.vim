@@ -405,7 +405,11 @@ enddef
 command! Bookmark call SaveBookmark()
 
 command! -nargs=1 Rg Sh rg -nS --column "<args>" .
-command! -nargs=0 Todo Sh rg -nS --column "\b(TODO|FIXME|XXX):" .
+if has("win32")
+    command! -nargs=0 Todo Sh rg -nS --column "\b(TODO|FIXME|XXX):" .
+else
+    command! -nargs=0 Todo Sh rg -nS --column "\\b(TODO|FIXME|XXX):" .
+endif
 
 
 ################################################################################
