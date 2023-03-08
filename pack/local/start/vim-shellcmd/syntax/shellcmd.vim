@@ -11,7 +11,7 @@ syn match runCargoPath "-->\s\+.\{-}:\d\+:\d\+" contains=runCargoPathNr
 syn match runCargoPathNr ":\d\+:\d\+" contained
 syn match runCargoError "^error:"
 
-syn match runGrepPath "^[./].\{-}:\(\d\+:\)\{,2}" contains=runGrepPathNr
+syn match runGrepPath "^\S.\{-}\S:\(\d\+:\)\{,2}" contains=runGrepPathNr
 syn match runGrepPathNr ":\(\d\+:\)\{1,2}" contained
 
 syn match runPythonLocation '^\s\+File ".\{-}", line \d\+' contains=runPythonPath,runPythonNr
