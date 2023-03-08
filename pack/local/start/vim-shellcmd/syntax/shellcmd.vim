@@ -4,36 +4,36 @@ if exists("b:current_syntax")
     finish
 endif
 
-syn match runCmd "\%^.*$" contains=runCmdPrompt
-syn match runCmdPrompt "^\$" contained
+syn match shellcmdCmd "\%^.*$" contains=shellcmdCmdPrompt
+syn match shellcmdCmdPrompt "^\$" contained
 
-syn match runCargoPath "-->\s\+.\{-}:\d\+:\d\+" contains=runCargoPathNr
-syn match runCargoPathNr ":\d\+:\d\+" contained
-syn match runCargoError "^error:"
+syn match shellcmdCargoPath "-->\s\+.\{-}:\d\+:\d\+" contains=shellcmdCargoPathNr
+syn match shellcmdCargoPathNr ":\d\+:\d\+" contained
+syn match shellcmdCargoError "^error:"
 
-syn match runGrepPath "^\S.\{-}\S:\(\d\+:\)\{1,2}" contains=runGrepPathNr
-syn match runGrepPathNr ":\(\d\+:\)\{1,2}" contained
+syn match shellcmdGrepPath "^\S.\{-}\S:\(\d\+:\)\{1,2}" contains=shellcmdGrepPathNr
+syn match shellcmdGrepPathNr ":\(\d\+:\)\{1,2}" contained
 
-syn match runPythonLocation '^\s\+File ".\{-}", line \d\+' contains=runPythonPath,runPythonNr
-syn match runPythonPath 'File "\zs.\{-}\ze"' contained
-syn match runPythonNr "line \zs\d\+" contained
+syn match shellcmdPythonLocation '^\s\+File ".\{-}", line \d\+' contains=shellcmdPythonPath,shellcmdPythonNr
+syn match shellcmdPythonPath 'File "\zs.\{-}\ze"' contained
+syn match shellcmdPythonNr "line \zs\d\+" contained
 
-syn match runTodo "\<\(TODO\|FIXME\|XXX\):"
+syn match shellcmdTodo "\<\(TODO\|FIXME\|XXX\):"
 
-syn match runSpecialInfo '^\s\+Compiling\|Finished\|Running\s\+'
+syn match shellcmdSpecialInfo '^\s\+Compiling\|Finished\|Running\s\+'
 
-hi def link runCargoPath String
-hi def link runCargoPathNr Constant
-hi def link runCmd Statement
-hi def link runCmdPrompt Special
-hi def link runCargoError Error
-hi def link runGrepPath String
-hi def link runGrepPathNr Constant
-hi def link runPythonPath String
-hi def link runPythonNr Constant
+hi def link shellcmdCargoPath String
+hi def link shellcmdCargoPathNr Constant
+hi def link shellcmdCmd Statement
+hi def link shellcmdCmdPrompt Special
+hi def link shellcmdCargoError Error
+hi def link shellcmdGrepPath String
+hi def link shellcmdGrepPathNr Constant
+hi def link shellcmdPythonPath String
+hi def link shellcmdPythonNr Constant
 
-hi def link runTodo Todo
+hi def link shellcmdTodo Todo
 
-hi def link runSpecialInfo Type
+hi def link shellcmdSpecialInfo Type
 
 b:current_syntax = "shellcmd"
