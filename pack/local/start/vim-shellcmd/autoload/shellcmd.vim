@@ -117,10 +117,11 @@ export def OpenFile(mod: string = "")
 
             if !empty(fname[2])
                 exe $":{fname[2]}"
+                exe "normal! 0"
             endif
 
-            if !empty(fname[3])
-                exe $"normal! {fname[3]}|"
+            if !empty(fname[3]) && fname[3]->str2nr() > 1
+                exe $"normal! {fname[3]->str2nr() - 1}l"
             endif
         catch
         endtry
