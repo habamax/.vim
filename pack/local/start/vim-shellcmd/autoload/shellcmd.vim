@@ -63,7 +63,7 @@ export def CaptureOutput(command: string)
         out_io: 'buffer',
         out_buf: bufnr,
         out_msg: 0,
-        err_io: 'buffer',
+        err_io: 'out',
         err_buf: bufnr,
         err_msg: 0
     })
