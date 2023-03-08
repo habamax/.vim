@@ -405,7 +405,7 @@ enddef
 command! Bookmark call SaveBookmark()
 
 command! -nargs=1 Rg Sh rg -nS --column "<args>" .
-command! -nargs=0 Todo Sh rg -nS --column "\\\\b(TODO|FIXME|XXX):" .
+command! -nargs=0 Todo Sh rg -nS --column "\b(TODO|FIXME|XXX):" .
 
 
 ################################################################################

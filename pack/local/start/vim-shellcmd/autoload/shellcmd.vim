@@ -54,7 +54,7 @@ export def CaptureOutput(command: string)
     if has("win32")
         job_command = command
     else
-        job_command = [&shell, &shellcmdflag, command]
+        job_command = [&shell, &shellcmdflag, escape(command, '\')]
     endif
 
     shell_job = job_start(job_command, {
