@@ -21,12 +21,12 @@ def PrepareBuffer(shell_cwd: string): number
     if windows->len() == 0
         # g:shellcmd_main_win_mode is one of "", "vertical", "topleft", "botright", "botright vertical" etc
         exe get(g:, "shellcmd_main_win_mode", "botright vertical") "sbuffer" bufnr
-        set bufhidden=hide
-        set buftype=nofile
-        set buflisted
-        set filetype=shellcmd
-        set noswapfile
-        set noundofile
+        setl bufhidden=hide
+        setl buftype=nofile
+        setl buflisted
+        setl filetype=shellcmd
+        setl noswapfile
+        setl noundofile
     else
         win_gotoid(windows[0])
     endif
