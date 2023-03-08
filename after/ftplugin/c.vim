@@ -6,7 +6,7 @@ def Make()
     if filereadable("Makefile")
         Sh make
     else
-        Sh make %< && chmod +x %< && %<
+        Sh make %< && chmod +x %< && %:p:r
     endif
 enddef
 
