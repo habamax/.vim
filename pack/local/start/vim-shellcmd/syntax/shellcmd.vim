@@ -25,7 +25,7 @@ syn match runSpecialInfo '^\s\+Compiling\|Finished\|Running\s\+'
 hi def link runCargoPath String
 hi def link runCargoPathNr Constant
 hi def link runCmd Statement
-hi def link runCmdPrompt Identifier
+hi def link runCmdPrompt Special
 hi def link runCargoError Error
 hi def link runGrepPath String
 hi def link runGrepPathNr Constant
