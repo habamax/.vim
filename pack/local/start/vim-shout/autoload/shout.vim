@@ -1,5 +1,8 @@
 vim9script
 
+# g:shout_main_win_mode is "botright vertical" and could be one of:
+# "", "vertical", "topleft", "botright", "botright vertical" etc
+
 
 var shell_job: job
 
@@ -19,7 +22,6 @@ def PrepareBuffer(shell_cwd: string): number
     var windows = win_findbuf(bufnr)
 
     if windows->len() == 0
-        # g:shout_main_win_mode is one of "", "vertical", "topleft", "botright", "botright vertical" etc
         exe get(g:, "shout_main_win_mode", "botright vertical") "sbuffer" bufnr
         setl bufhidden=hide
         setl buftype=nofile
