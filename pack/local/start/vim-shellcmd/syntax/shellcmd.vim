@@ -19,8 +19,8 @@ syn match shellcmdPythonLocation '^\s\+File ".\{-}", line \d\+' contains=shellcm
 syn match shellcmdPythonPath 'File "\zs.\{-}\ze"' contained
 syn match shellcmdPythonNr "line \zs\d\+" contained
 
-syn match shellcmdError "\c^\s*error: " nextgroup=shellcmdMsg
-syn match shellcmdWarning "\c^\s*warning: " nextgroup=shellcmdMsg
+syn match shellcmdError "\c^\s*error:\ze " nextgroup=shellcmdMsg
+syn match shellcmdWarning "\c^\s*warning:\ze " nextgroup=shellcmdMsg
 syn match shellcmdSpecialInfo '^\s\+Compiling\|Finished\|Running\s\+' nextgroup=shellcmdMsg
 syn match shellcmdMsg ".*$" contained
 
@@ -41,7 +41,7 @@ hi def link shellcmdMsg Title
 hi def link shellcmdSpecialInfo PreProc
 
 hi def link shellcmdExitCodeNoErr Comment
-hi def link shellcmdExitCodeErr Error
+hi def link shellcmdExitCodeErr WarningMsg
 
 hi def link shellcmdTodo Todo
 
