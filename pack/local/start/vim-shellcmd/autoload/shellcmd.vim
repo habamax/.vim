@@ -34,7 +34,7 @@ def PrepareBuffer(shell_cwd: string): number
     silent :%d _
 
     b:shellcmd_cwd = shell_cwd
-    exe "lcd" shell_cwd
+    exe "silent lcd" shell_cwd
 
     return bufnr
 enddef
@@ -68,14 +68,12 @@ export def CaptureOutput(command: string)
         err_msg: 0
     })
 
-    exe "lcd" cwd
-
     normal! G
 enddef
 
 
 export def OpenFile(mod: string = "")
-    exe "lcd" b:shellcmd_cwd
+    exe "silent lcd" b:shellcmd_cwd
     # Windows has : in `isfname` thus for ./filename:20:10: gf can't find filename cause
     # it sees filename:20:10: instead of just filename
     # So the "hack" would be:
