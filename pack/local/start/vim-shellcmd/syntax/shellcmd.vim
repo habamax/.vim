@@ -6,8 +6,8 @@ endif
 
 syn match shellcmdCmd "\%^.*$" contains=shellcmdCmdPrompt
 syn match shellcmdCmdPrompt "^\$" contained
-syn match shellcmdExitStatusErr "^Exit status: .*\%$"
-syn match shellcmdExitStatusNoErr "^Exit status: 0\%$"
+syn match shellcmdExitCodeErr "^Exit code: .*\%$"
+syn match shellcmdExitCodeNoErr "^Exit code: 0\%$"
 
 syn match shellcmdCargoPath "-->\s\+.\{-}:\d\+:\d\+" contains=shellcmdCargoPathNr
 syn match shellcmdCargoPathNr ":\d\+:\d\+" contained
@@ -40,8 +40,8 @@ hi def link shellcmdWarning WarningMsg
 hi def link shellcmdMsg Title
 hi def link shellcmdSpecialInfo PreProc
 
-hi def link shellcmdExitStatusNoErr Comment
-hi def link shellcmdExitStatusErr Error
+hi def link shellcmdExitCodeNoErr Comment
+hi def link shellcmdExitCodeErr Error
 
 hi def link shellcmdTodo Todo
 

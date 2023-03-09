@@ -68,7 +68,7 @@ export def CaptureOutput(command: string, follow: bool = true)
         err_msg: 0,
         close_cb: (channel) => {
             var msg = [""]
-            msg += ["Exit status: " .. job_info(shell_job).exitval]
+            msg += ["Exit code: " .. job_info(shell_job).exitval]
             var winid = bufwinid(bufnr)
             # TODO: check if bufnr exists before append
             appendbufline(bufnr, line('$', winid), msg)
