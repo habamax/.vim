@@ -4,7 +4,7 @@ vim9script
 # "", "vertical", "topleft", "botright", "botright vertical" etc
 
 
-var shell_job: job
+var shout_job: job
 
 
 def PrepareBuffer(shell_cwd: string): number
@@ -49,8 +49,8 @@ export def CaptureOutput(command: string, follow: bool = false)
     setbufline(bufnr, 1, $"$ {command}")
     setbufline(bufnr, 2, "")
 
-    if shell_job->job_status() == "run"
-        shell_job->job_stop()
+    if shout_job->job_status() == "run"
+        shout_job->job_stop()
     endif
 
     var job_command: any
@@ -60,7 +60,7 @@ export def CaptureOutput(command: string, follow: bool = false)
         job_command = [&shell, &shellcmdflag, escape(command, '\')]
     endif
 
-    shell_job = job_start(job_command, {
+    shout_job = job_start(job_command, {
         cwd: cwd,
         out_io: 'buffer',
         out_buf: bufnr,
@@ -70,7 +70,7 @@ export def CaptureOutput(command: string, follow: bool = false)
         err_msg: 0,
         close_cb: (channel) => {
             var msg = [""]
-            msg += ["Exit code: " .. job_info(shell_job).exitval]
+            msg += ["Exit code: " .. job_info(shout_job).exitval]
             var winid = bufwinid(bufnr)
             # TODO: check if bufnr exists before append
             appendbufline(bufnr, line('$', winid), msg)
@@ -154,5 +154,12 @@ export def OpenFile(mod: string = "")
             normal! zz
         catch
         endtry
+    endif
+enddef
+
+
+export def Kill()
+    if shout_job != null
+        job_stop(shout_job)
     endif
 enddef
