@@ -6,7 +6,8 @@ def Make()
     if filereadable("Makefile")
         Sh make
     else
-        Sh make %< && chmod +x %< && %:p:r
+        var fname = expand("%:p:r")
+        exe $"Sh make {fname} && chmod +x {fname} && {fname}"
     endif
 enddef
 
