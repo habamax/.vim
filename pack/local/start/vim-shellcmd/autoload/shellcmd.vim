@@ -40,7 +40,7 @@ def PrepareBuffer(shell_cwd: string): number
 enddef
 
 
-export def CaptureOutput(command: string)
+export def CaptureOutput(command: string, follow: bool = true)
     var cwd = getcwd()
     var bufnr = PrepareBuffer(cwd)
 
@@ -68,12 +68,28 @@ export def CaptureOutput(command: string)
         err_msg: 0
     })
 
-    normal! G
+    if follow
+        normal! G
+    endif
 enddef
 
 
 export def OpenFile(mod: string = "")
     exe "silent lcd" b:shellcmd_cwd
+
+
+    # re-run the command if on line 1
+    if line('.') == 1
+        var cmd = getline(".")->matchstr('^\$ \zs.*$')
+        if cmd !~ '^\s*$'
+            var pos = getcurpos()
+            CaptureOutput(cmd, false)
+            setpos('.', pos)
+        endif
+        return
+    endif
+
+
     # Windows has : in `isfname` thus for ./filename:20:10: gf can't find filename cause
     # it sees filename:20:10: instead of just filename
     # So the "hack" would be:
