@@ -38,6 +38,8 @@ def PrepareBuffer(shell_cwd: string): number
     b:shout_cwd = shell_cwd
     exe "silent lcd" shell_cwd
 
+    setl undolevels=-1
+
     return bufnr
 enddef
 
@@ -69,14 +71,17 @@ export def CaptureOutput(command: string, follow: bool = false)
         err_buf: bufnr,
         err_msg: 0,
         close_cb: (channel) => {
+            if !bufexists(bufnr)
+                return
+            endif
             var msg = [""]
             msg += ["Exit code: " .. job_info(shout_job).exitval]
             var winid = bufwinid(bufnr)
-            # TODO: check if bufnr exists before append
             appendbufline(bufnr, line('$', winid), msg)
             if follow
                 win_execute(winid, "normal! G")
             endif
+            win_execute(winid, "setl undolevels&")
         }
     })
 
