@@ -68,6 +68,8 @@ export def CaptureOutput(command: string)
         err_msg: 0
     })
 
+    exe "lcd" cwd
+
     normal! G
 enddef
 
