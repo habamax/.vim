@@ -168,3 +168,14 @@ export def Kill()
         job_stop(shout_job)
     endif
 enddef
+
+
+# TODO: think of a proper command completion
+# shell commands
+# files/directories with shell commands and |, >, && and ||
+export def Complete(ArgLead: string, CmdLine: string, CursorPos: number): string
+    if empty(ArgLead)
+        return ''
+    endif
+    return getcompletion(ArgLead, 'shellcmd')->join("\n")
+enddef
