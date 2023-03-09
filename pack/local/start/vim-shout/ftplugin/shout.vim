@@ -9,7 +9,7 @@ b:did_ftplugin = 1
 b:undo_ftplugin = 'exe "nunmap <buffer> <cr>"'
 b:undo_ftplugin ..= '| exe "nunmap <buffer> <space><cr>"'
 
-import autoload 'shellcmd.vim'
+import autoload 'shout.vim'
 
-nnoremap <buffer> <cr> <scriptcmd>shellcmd.OpenFile()<cr>
-nnoremap <buffer> <space><cr> <scriptcmd>shellcmd.OpenFile("tab")<cr>
+nnoremap <buffer> <cr> <scriptcmd>shout.OpenFile()<cr>
+nnoremap <buffer> <space><cr> <scriptcmd>shout.OpenFile("tab")<cr>

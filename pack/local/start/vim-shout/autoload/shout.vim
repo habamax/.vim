@@ -19,12 +19,12 @@ def PrepareBuffer(shell_cwd: string): number
     var windows = win_findbuf(bufnr)
 
     if windows->len() == 0
-        # g:shellcmd_main_win_mode is one of "", "vertical", "topleft", "botright", "botright vertical" etc
-        exe get(g:, "shellcmd_main_win_mode", "botright vertical") "sbuffer" bufnr
+        # g:shout_main_win_mode is one of "", "vertical", "topleft", "botright", "botright vertical" etc
+        exe get(g:, "shout_main_win_mode", "botright vertical") "sbuffer" bufnr
         setl bufhidden=hide
         setl buftype=nofile
         setl buflisted
-        setl filetype=shellcmd
+        setl filetype=shout
         setl noswapfile
         setl noundofile
     else
@@ -33,7 +33,7 @@ def PrepareBuffer(shell_cwd: string): number
 
     silent :%d _
 
-    b:shellcmd_cwd = shell_cwd
+    b:shout_cwd = shell_cwd
     exe "silent lcd" shell_cwd
 
     return bufnr
@@ -85,7 +85,7 @@ enddef
 
 
 export def OpenFile(mod: string = "")
-    exe "silent lcd" b:shellcmd_cwd
+    exe "silent lcd" b:shout_cwd
 
 
     # re-run the command if on line 1
