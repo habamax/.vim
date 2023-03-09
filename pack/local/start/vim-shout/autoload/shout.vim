@@ -42,7 +42,7 @@ def PrepareBuffer(shell_cwd: string): number
 enddef
 
 
-export def CaptureOutput(command: string, follow: bool = true)
+export def CaptureOutput(command: string, follow: bool = false)
     var cwd = getcwd()
     var bufnr = PrepareBuffer(cwd)
 
