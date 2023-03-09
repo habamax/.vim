@@ -65,7 +65,12 @@ export def CaptureOutput(command: string, follow: bool = true)
         out_msg: 0,
         err_io: 'out',
         err_buf: bufnr,
-        err_msg: 0
+        err_msg: 0,
+        close_cb: (channel) => {
+            var msg = [""]
+            msg += ["Exit status: " .. job_info(shell_job).exitval]
+            appendbufline(bufnr, line('$', bufwinid(bufnr)), msg)
+        }
     })
 
     if follow
