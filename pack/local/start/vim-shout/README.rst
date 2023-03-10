@@ -19,7 +19,8 @@ didn't feel it worked my way.
 
 This works my way though.
 
-<<insert animated gif(s) here>>
+.. image:: https://asciinema.org/a/DaVumBuy1qtyXoIsNveok70dF.svg
+  :target: https://asciinema.org/a/DaVumBuy1qtyXoIsNveok70dF
 
 
 Mappings
