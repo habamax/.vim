@@ -106,8 +106,19 @@ def Quiet()
 enddef
 
 
+def TransparentBg()
+    if &background == "light" || has("gui_running")
+        return
+    endif
+
+    hi Normal      ctermbg=NONE guibg=NONE
+    hi TablineSel  ctermbg=NONE guibg=NONE
+enddef
+
+
 augroup colorschemes | au!
-    au Colorscheme wildcharm,lunaperche AddCharm()
+    # au Colorscheme wildcharm,lunaperche AddCharm()
+    au Colorscheme wildcharm,lunaperche TransparentBg()
     au Colorscheme quiet Quiet()
     au Colorscheme * Base()
 augroup END
