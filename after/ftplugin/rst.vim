@@ -92,6 +92,7 @@ nnoremap <buffer> <space><space>oh :RstViewHtml<CR>
 nnoremap <buffer> <space><space>op :RstViewPdf<CR>
 nnoremap <buffer> <space><space>cp :Rst2Pdf<CR>
 nnoremap <buffer> <space><space>ch :Rst2Html<CR>
+nnoremap <buffer> <F5> <scriptcmd>exe "Sh" &makeprg<cr>
 
 def Rst2Html(locale: string = "")
     if !empty(locale)
@@ -100,7 +101,11 @@ def Rst2Html(locale: string = "")
         b:rst2html_opts = g:rst2html_opts
     endif
     compiler rst2html
-    make
+    if exists(":Sh") == 2
+        exe "Sh" &makeprg
+    else
+        make
+    endif
 enddef
 
 command -buffer -nargs=? -complete=locale Rst2Html Rst2Html(<f-args>)
