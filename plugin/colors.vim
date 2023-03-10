@@ -118,7 +118,7 @@ enddef
 
 augroup colorschemes | au!
     # au Colorscheme wildcharm,lunaperche AddCharm()
-    au Colorscheme wildcharm,lunaperche TransparentBg()
+    au Colorscheme wildcharm,lunaperche,habamax TransparentBg()
     au Colorscheme quiet Quiet()
     au Colorscheme * Base()
 augroup END
