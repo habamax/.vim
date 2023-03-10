@@ -27,10 +27,15 @@ Mappings
 
 In a ``[shout]`` buffer:
 
-``Enter`` or ``<CR>``
-  - While on line 1, re-executes the command.
-  - While on filename, switches to the file, line and column if specified.
+:kbd:`Enter`
+  - While on line 1, re-execute the command.
+  - Switch (open) to the file under cursor.
 
+:kbd:`Space` + :kbd:`Enter`
+  Open file under cursor in a new tabpage.
+
+:kbd:`CTRL-C`
+  Kill the shell command
 
 
 Commands
