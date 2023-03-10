@@ -83,7 +83,7 @@ def AddCharm()
         hi Cursorline  ctermbg=236 guibg=#303338
         hi Pmenu       guifg=#d0d0d0 guibg=#3a3d44
         hi PmenuSel    guibg=#ffaf00 guifg=#000000
-        hi ColorColumn ctermbg=233 guibg=#020413
+        hi ColorColumn ctermbg=233 guibg=#121212
 
     endif
     hi! link vimVar Normal
