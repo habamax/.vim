@@ -127,7 +127,6 @@ augroup END
 set background=dark
 silent! colorscheme wildcharm
 
-
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
 command! ColoMisc  tabnew | ru colors/tools/sample_misc.vim
@@ -140,6 +139,9 @@ command! ColoWin   tabnew | ru colors/tools/sample_windows.vim
 command! ColoPopu  tabnew |
       \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/vim/start/colorschemes" |
       \ ru colors/tools/sample_popupmenu.vim
+command! ColoPopuKind  tabnew |
+      \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/vim/start/colorschemes" |
+      \ ru colors/tools/sample_popupmenu_kind.vim
 command! ColoSpell tabnew |
       \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/vim/start/colorschemes" |
       \ ru colors/tools/sample_spell.vim
