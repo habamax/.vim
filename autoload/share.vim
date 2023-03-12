@@ -13,6 +13,8 @@
 "
 " Share selection
 " :'<,'>Share<CR>
+"
+" TODO: convert to vim9script
 
 
 let s:paste_service = {
