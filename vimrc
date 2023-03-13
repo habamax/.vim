@@ -10,9 +10,9 @@ set autoindent
 set nohlsearch incsearch ignorecase
 set wildmenu wildcharm=<c-z> wildoptions=pum,fuzzy pumheight=20
 set fileformat=unix fileformats=unix,dos
-set nostartofline
 set display=lastline smoothscroll
 set virtualedit=block
+set nostartofline
 set belloff=all
 set ruler
 set signcolumn=number
