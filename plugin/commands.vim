@@ -4,6 +4,7 @@ vim9script
 
 
 # update packages
+import autoload "git.vim"
 command! PackUp git.PackUpdate()
 
 # Wipe all hidden buffers
