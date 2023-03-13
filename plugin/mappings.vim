@@ -1,7 +1,5 @@
 vim9script
 
-# Non Plugin Mappings
-
 
 g:maplocalleader = "\<space>\<space>"
 
