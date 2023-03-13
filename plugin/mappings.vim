@@ -3,6 +3,9 @@ vim9script
 # Non Plugin Mappings
 
 
+g:maplocalleader = "\<space>\<space>"
+
+
 # source vimscript (operator)
 def SourceVim(...args: list<any>): any
     if len(args) == 0
@@ -19,8 +22,6 @@ enddef
 nnoremap <silent> <expr> <space>v SourceVim()
 xnoremap <silent> <expr> <space>v SourceVim()
 nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
-
-g:maplocalleader = "\<space>\<space>"
 
 
 # fuzzy
