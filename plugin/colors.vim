@@ -74,9 +74,6 @@ def AddCharm()
         if has("gui_running")
             hi Normal      guibg=#1c1f26
             hi TablineSel  guibg=#1c1f26
-        else
-            hi Normal      ctermbg=NONE guibg=NONE
-            hi TablineSel  ctermbg=NONE guibg=NONE
         endif
 
         hi Folded      ctermbg=233 guibg=#12151a
@@ -126,6 +123,7 @@ augroup END
 
 set background=dark
 silent! colorscheme wildcharm
+
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
