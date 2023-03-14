@@ -1,7 +1,7 @@
 setlocal expandtab shiftwidth=2
 
 if executable('tidy')
-    let &l:formatprg = "tidy -q -i --show-errors 0"
+    let &l:formatprg = "tidy -q -i --show-errors 0 --show-body-only auto"
     let b:formatprg_err = 1
 elseif executable('html-beautify')
     " html-beautify is in js-beautify node package
