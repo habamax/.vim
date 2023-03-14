@@ -98,3 +98,7 @@ def Toc()
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
+
+
+nnoremap <buffer> <F5> <scriptcmd>exe "Sh latexmk -pvc" expand("%:p")<cr>
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
