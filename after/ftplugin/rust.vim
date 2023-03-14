@@ -14,3 +14,7 @@ endif
 nnoremap <buffer> <F5> <scriptcmd>Sh cargo run<cr>
 nnoremap <buffer> <F6> <scriptcmd>Sh cargo build<cr>
 nnoremap <buffer> <F7> <scriptcmd>Sh cargo build --release<cr>
+
+import autoload 'misc.vim'
+iab <buffer> p! println!()<left><c-r>=misc#Eatchar('\s')<cr>
+iab <buffer> trdd #[derive(Debug)]
