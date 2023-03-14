@@ -32,14 +32,8 @@
 
 \usepackage{xcolor}
 
-% if outputdir is specified, minted output should be adjusted
-\usepackage{ifthen}
-\usepackage{currfile-abspath}
-\getabspath{\jobname.log}
-\ifthenelse{\equal{\theabsdir}{\thepwd}}% using ifthen package
-{}{\PassOptionsToPackage{outputdir=\theabsdir}{minted}}
 % code blocks
-\usepackage{minted}
+\usepackage[cache=false]{minted}
 \usepackage{mdframed}
 \surroundwithmdframed[
         backgroundcolor=gray!5!white,
