@@ -73,31 +73,6 @@ g:colorizer_disable_bufleave = 1
 g:lens_disabled_filetypes = ['fugitiveblame', 'selectprompt', 'selectresults']
 
 
-# vimtex
-g:vimtex_matchparen_enabled = false
-g:vimtex_compiler_latexrun_engines = {'_': 'lualatex'}
-g:vimtex_compiler_latexmk_engines = {'_': '-lualatex'}
-g:vimtex_compiler_latexmk = {
-    build_dir: () => expand("%:t:r"),
-    options: [
-        '-shell-escape',
-        '-verbose',
-        '-file-line-error',
-        '-synctex=1',
-        '-interaction=nonstopmode',
-    ],
-}
-g:vimtex_syntax_packages = {'minted': {'load': 1}}
-g:vimtex_toc_config = {
-    show_help: 0,
-    layer_keys: {content: 'C',
-          label: 'B',
-          todo: 'T',
-          include: 'I'
-    }
-}
-
-
 # vim-rst
 g:rst2html_opts = "--input-encoding=utf8"
                .. " --smart-quotes=yes"
