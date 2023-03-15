@@ -44,10 +44,6 @@ if !isdirectory(g:vimdata) | mkdir(g:vimdata, "p") | endif
 
 &viminfofile = $"{g:vimdata}/viminfo"
 
-if executable('rg')
-    set grepprg=rg\ -i\ --vimgrep grepformat=%f:%l:%c:%m
-endif
-
 &directory = expand($'{g:vimdata}/swap/')
 &backupdir = expand($'{g:vimdata}/backup//')
 &undodir = expand($'{g:vimdata}/undo//')
