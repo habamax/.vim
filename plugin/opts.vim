@@ -87,7 +87,6 @@ g:rst_syntax_code_list = {
     python: ['python'],
     json: ['json'],
     javascript: ['js'],
-    elixir: ['elixir'],
 }
 
 
