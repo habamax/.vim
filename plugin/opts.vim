@@ -109,3 +109,7 @@ xmap S <Plug>(sandwich-add)
 if !executable('godot') && executable('flatpak')
     g:godot_executable = "flatpak run org.godotengine.Godot"
 endif
+
+# tex
+g:tex_no_error = 1
+g:tex_fast = ""
