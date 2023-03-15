@@ -112,4 +112,4 @@ endif
 
 # tex
 g:tex_no_error = 1
-g:tex_fast = ""
+g:tex_fast = "pbv"
