@@ -9,6 +9,8 @@ set ttimeout ttimeoutlen=50
 set autoindent
 set nohlsearch incsearch ignorecase
 set wildmenu wildcharm=<c-z> wildoptions=pum,fuzzy pumheight=20
+set backspace=indent,eol,start
+set nowrap breakindent breakindentopt=sbr,list:-1 linebreak
 set fileformat=unix fileformats=unix,dos
 set display=lastline smoothscroll
 set virtualedit=block
@@ -20,10 +22,8 @@ set shortmess+=Ic
 set completeopt=menu,popup completepopup=highlight:Pmenu
 set list listchars=tab:›\ ,nbsp:․,trail:·,extends:…,precedes:…
 set fillchars=vert:│
-set nowrap breakindent breakindentopt=sbr,list:-1 linebreak
 set formatoptions=qjl
 set foldmethod=indent foldminlines=4 foldnestmax=3 nofoldenable
-set backspace=indent,eol,start
 set nospell spelllang=en,ru
 set nrformats=bin,hex,unsigned
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
