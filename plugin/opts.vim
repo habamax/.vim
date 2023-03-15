@@ -111,5 +111,6 @@ if !executable('godot') && executable('flatpak')
 endif
 
 # tex
+g:tex_flavor = "latex"
 g:tex_no_error = 1
 g:tex_fast = "pbv"
