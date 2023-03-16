@@ -1,9 +1,6 @@
 vim9script
 
 
-g:maplocalleader = "\<space>\<space>"
-
-
 # source vimscript (operator)
 def SourceVim(...args: list<any>): any
     if len(args) == 0
