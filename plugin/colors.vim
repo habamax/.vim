@@ -89,13 +89,13 @@ command! ColoQF    tabnew | ru colors/tools/sample_quickfix.vim
 command! ColoTerm  tabnew | ru colors/tools/sample_terminal.vim
 command! ColoWin   tabnew | ru colors/tools/sample_windows.vim
 command! ColoPopu  tabnew |
-      \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/vim/start/colorschemes" |
+      \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/ext/start/colorschemes" |
       \ ru colors/tools/sample_popupmenu.vim
 command! ColoPopuKind  tabnew |
-      \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/vim/start/colorschemes" |
+      \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/ext/start/colorschemes" |
       \ ru colors/tools/sample_popupmenu_kind.vim
 command! ColoSpell tabnew |
-      \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/vim/start/colorschemes" |
+      \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/ext/start/colorschemes" |
       \ ru colors/tools/sample_spell.vim
 if !has("gui_running")
     command! Tco leg if &t_Co == 16 | set t_Co=256 | else | set t_Co=16 | endif
