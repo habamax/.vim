@@ -10,3 +10,4 @@
 *.pyc
 *.temp
 /tags
+/pack/ext/
