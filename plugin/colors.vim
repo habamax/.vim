@@ -75,7 +75,11 @@ augroup colorschemes | au!
 augroup END
 
 
-set background=dark
+if empty($WSLENV)
+    set background=dark
+else
+    set background=light
+endif
 silent! colorscheme wildcharm
 
 
