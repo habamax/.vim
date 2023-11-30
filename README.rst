@@ -88,7 +88,7 @@ Colors
 ======
 
 - wildcharm: vibrant and playful colorscheme, at least one popular AI thinks it is.
-  *would be bundled with vim9*
+  *bundled with vim9*
 - lunaperche: dual background, this should be really the last one (100%);
   *bundled with vim9*
 - habamax_: dark background, this should be really the last one (not really);
