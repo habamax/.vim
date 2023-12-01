@@ -1,5 +1,5 @@
-inorea d.. <C-r>=strftime("%Y-%m-%d")<CR>
-inorea dd.. <C-r>=strftime("%Y-%m-%d %H:%M")<CR>
+inorea dd <C-r>=strftime("%Y-%m-%d")<CR>
+inorea ddt <C-r>=strftime("%Y-%m-%d %H:%M")<CR>
 inorea d== <C-r>=strftime("%Y-%m-%d")<CR><CR>==========
 inorea dd== <C-r>=strftime("%Y-%m-%d %H:%M")<CR><CR>================
 
