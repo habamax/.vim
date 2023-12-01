@@ -68,9 +68,15 @@ def TransparentBg()
 enddef
 
 
+def Comment()
+    hi Comment ctermfg=101 guifg=#87875f
+enddef
+
+
 augroup colorschemes | au!
     au Colorscheme wildcharm,lunaperche,habamax,retrobox TransparentBg()
     au Colorscheme quiet Quiet()
+    au Colorscheme wildcharm Comment()
     au Colorscheme * Base()
 augroup END
 
