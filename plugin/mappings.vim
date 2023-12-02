@@ -27,11 +27,11 @@ nnoremap <space>ge <scriptcmd>fuzzy.GitFile()<CR>
 nnoremap <space>b <scriptcmd>fuzzy.Buffer()<CR>
 nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
 nnoremap <space>fm <scriptcmd>fuzzy.MRU()<CR>
-nnoremap <space>fv <scriptcmd>fuzzy.GitFile(fnamemodify($MYVIMRC, ":p:h"))<CR>
+nnoremap <space>fi <scriptcmd>fuzzy.GitFile(fnamemodify($MYVIMRC, ":p:h"))<CR>
 nnoremap <space>fd <scriptcmd>fuzzy.GitFile($DOCS ?? '~/docs')<CR>
 nnoremap <space>fD <scriptcmd>fuzzy.File($DOCS ?? '~/docs')<CR>
 nnoremap <space>fc <scriptcmd>fuzzy.Colorscheme()<CR>
-nnoremap <space>fi <scriptcmd>fuzzy.Template()<CR>
+nnoremap <space>fl <scriptcmd>fuzzy.Template()<CR>
 nnoremap <space>fs <scriptcmd>fuzzy.Session()<CR>
 nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
 nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
