@@ -47,6 +47,9 @@ if &wildcharm == 26
     cnoremap <expr> <s-tab> get({'/': "\<c-t>", '?': "\<c-g>"}, getcmdtype()) ?? "<s-tab>"
 endif
 
+# whitespace
+nnoremap <space>T<space> <cmd>FixTrailingSpaces<CR>
+
 # search&replace
 nnoremap <space>% :<C-U>%s/\<<C-r>=expand("<cword>")<CR>\>/
 xnoremap <space>% y:%s/<C-r>=escape(@", '^~$\&*.[]')<CR>//g<left><left>
@@ -227,13 +230,6 @@ import autoload 'os.vim'
 nnoremap <silent> gof <scriptcmd>os.FileManager()<CR>
 # open URLs
 nnoremap <silent> gx <scriptcmd>os.Gx()<CR>
-
-
-# send to single visible :terminal
-import autoload 'term.vim'
-xnoremap <expr> <space>t term.Send()
-nnoremap <expr> <space>t term.Send()
-nnoremap <expr> <space>tt term.Send() .. '_'
 
 tnoremap <C-v> <C-w>""
 
