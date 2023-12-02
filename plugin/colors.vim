@@ -42,40 +42,12 @@ def Base()
 enddef
 
 
-def Quiet()
-    hi clear Statement
-    hi clear Identifier
-    hi clear PreProc
-    hi clear Type
-    hi clear Special
-    hi Directory gui=bold cterm=bold
-    hi Title gui=bold cterm=bold
-    hi link FilterMenuMatch IncSearch
-    hi! link FilterMenuCurrent Search
-    hi! link dirTime NONE
-    hi! link dirOwner NONE
-    hi! link dirGroup NONE
-enddef
-
-
-def TransparentBg()
-    if &background == "light" || has("gui_running")
-        return
-    endif
-
-    hi Normal      ctermbg=NONE guibg=NONE
-    hi TablineSel  ctermbg=NONE guibg=NONE
-enddef
-
-
 def Comment()
     hi Comment ctermfg=101 guifg=#87875f
 enddef
 
 
 augroup colorschemes | au!
-    au Colorscheme wildcharm,lunaperche,habamax,retrobox TransparentBg()
-    au Colorscheme quiet Quiet()
     au Colorscheme wildcharm Comment()
     au Colorscheme * Base()
 augroup END
