@@ -31,10 +31,10 @@ nnoremap <space>fi <scriptcmd>fuzzy.GitFile(fnamemodify($MYVIMRC, ":p:h"))<CR>
 nnoremap <space>fd <scriptcmd>fuzzy.GitFile($DOCS ?? '~/docs')<CR>
 nnoremap <space>fD <scriptcmd>fuzzy.File($DOCS ?? '~/docs')<CR>
 nnoremap <space>fc <scriptcmd>fuzzy.Colorscheme()<CR>
-nnoremap <space>fl <scriptcmd>fuzzy.Template()<CR>
+nnoremap <space>ft <scriptcmd>fuzzy.Template()<CR>
 nnoremap <space>fs <scriptcmd>fuzzy.Session()<CR>
 nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
-nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
+nnoremap <space>fT <scriptcmd>fuzzy.Filetype()<CR>
 nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
 nnoremap <space>fR <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
 nnoremap <space>; <scriptcmd>fuzzy.CmdHistory()<CR>
