@@ -222,6 +222,8 @@ nnoremap go <nop>
 nnoremap <silent> goj <scriptcmd>buf.EditInTab(expand($DOCS ?? '~/docs') .. '/journal/2023.rst')<CR>
 # go to todo file
 nnoremap <silent> got <scriptcmd>buf.EditInTab(expand($DOCS ?? '~/docs') .. '/todo.rst')<CR>
+# go to work todo file
+nnoremap <silent> gow <scriptcmd>buf.EditInTab(expand($DOCS ?? '~/docs') .. '/todo-w.rst')<CR>
 # go to *** file
 nnoremap <silent> gop <scriptcmd>buf.EditInTab(expand($DOCS ?? '~/docs') .. '/habamax.rst')<CR>
 
