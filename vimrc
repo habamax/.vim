@@ -10,7 +10,7 @@ set autoindent
 set nohlsearch incsearch ignorecase
 set wildmenu wildcharm=<c-z> wildoptions=pum,fuzzy pumheight=20
 set backspace=indent,eol,start
-set nowrap breakindent breakindentopt=sbr,list:-1 linebreak
+set nowrap breakindent breakindentopt=sbr,list:-1 linebreak nojoinspaces
 set fileformat=unix fileformats=unix,dos
 set display=lastline smoothscroll
 set virtualedit=block
