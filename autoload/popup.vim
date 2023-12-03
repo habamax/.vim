@@ -110,7 +110,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
 
     var filtered_items: list<any> = [items_dict]
     def Printify(itemsAny: list<any>, props: list<any>): list<any>
-        if itemsAny[0]->len() == 0 | return [{text: ""}] | endif
+        if itemsAny[0]->len() == 0 | return [] | endif
         if itemsAny->len() > 1
             return itemsAny[0]->mapnew((idx, v) => {
                 return {text: v.text, props: itemsAny[1][idx]->mapnew((_, c) => {
