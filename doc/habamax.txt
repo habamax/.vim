@@ -23,35 +23,23 @@ GET VIM SOURCES
   git clone https://github.com/vim/vim.git
 
 
-FEDORA                                               *build-vim-fedora*
-------
-
-INSTALL BUILD TOOLS AND DEV LIBS
->
-  sudo yum builddep vim-X11
-
-
-MAKE AND INSTALL
->
-  ./configure --with-features=huge --enable-gui=gtk3 --enable-python3interp
-  sudo make install
-
-
 DEBIAN                                               *build-vim-debian*
 ------
 
 INSTALL BUILD TOOLS AND DEV LIBS
 >
   sudo apt install build-essential
+
+>
   sudo apt install libncurses5-dev libx11-dev libxpm-dev libxt-dev python-dev
 
-
-REMOVE STOCK VIM
+or
 >
-  sudo apt remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common
+
+  sudo apt build-dep vim-gtk3
 
 
 MAKE AND INSTALL
 >
-  ./configure --with-features=huge --enable-gui=gtk3 --enable-python3interp
-  sudo make install
+  ./configure --prefix=$HOME/.local --with-features=huge --enable-gui=gtk3 --enable-python3interp
+  make install
