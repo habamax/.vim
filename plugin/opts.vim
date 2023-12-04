@@ -83,6 +83,7 @@ g:rst2html_opts = "--input-encoding=utf8"
 
 g:rst_syntax_code_list = {
     vim: ['vim'],
+    sh: ['sh'],
     sql: ['sql'],
     python: ['python'],
     json: ['json'],
