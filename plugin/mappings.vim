@@ -255,3 +255,7 @@ xnoremap zf <cmd>set fdm&<CR>zf
 # Ripgrep word under cursor
 nnoremap <space>8 <scriptcmd>exe "Rg" expand("<cword>")<cr>
 xnoremap <space>8 "0y<scriptcmd>exe "Rg" getreg("0")<cr>
+
+# Alt mappings
+nnoremap <esc>n gt
+nnoremap <esc>p gT
