@@ -39,6 +39,11 @@ else
     set clipboard^=unnamedplus
 endif
 
+if executable('rg')
+    set grepprg=rg\ -H\ --no-heading\ --vimgrep
+    set grepformat=%f:%l:%c:%m
+endif
+
 g:vimdata = $'{has("win32") ? expand("$APPDATA") : expand("~/.config")}/vim-data'
 if !isdirectory(g:vimdata) | mkdir(g:vimdata, "p") | endif
 
