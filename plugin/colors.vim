@@ -58,7 +58,7 @@ if empty($WSLENV)
 else
     set background=light
 endif
-silent! colorscheme wildcharm
+silent! exe "colorscheme" ["wildcharm", "lunaperche"][rand(srand()) % 2]
 
 
 # helper commands and mappings to work with vim/colorschemes
