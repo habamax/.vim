@@ -27,7 +27,7 @@ set foldmethod=indent foldminlines=4 foldnestmax=3 nofoldenable
 set nospell spelllang=en,ru
 set nrformats=bin,hex,unsigned
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
-set wildignore=*.o,*.obj,*.bak,*.exe,*.swp
+set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
 set sessionoptions=buffers,curdir,tabpages,winsize
 set history=200
 set viminfo='200,<50,s10
