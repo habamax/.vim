@@ -329,7 +329,7 @@ enddef
 
 
 export def Help()
-    var help_tags = globpath(&rtp, "doc/tags", 0, 1)
+    var help_tags = globpath(&rtp, "doc/tags", 1, 1)
         ->mapnew((_, v) => readfile(v)->mapnew((_, line) => ({text: line->split("\t")[0]})))
         ->flattennew()
     popup.FilterMenu("Help", help_tags,
