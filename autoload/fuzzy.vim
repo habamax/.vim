@@ -52,7 +52,7 @@ export def MRU()
     popup.FilterMenu("MRU", mru,
         (res, key) => {
             if key == "\<c-t>"
-                exe $":tab e {res.text}"
+                exe $":tabe {res.text}"
             elseif key == "\<c-j>"
                 exe $":split {res.text}"
             elseif key == "\<c-v>"
@@ -75,7 +75,7 @@ export def GitFile(path: string = "")
     popup.FilterMenu("Git File", systemlist('git ls-files --other --full-name --cached --exclude-standard'),
         (res, key) => {
             if key == "\<c-t>"
-                exe $":tab e {res.text}"
+                exe $":tabe {res.text}"
             elseif key == "\<c-j>"
                 exe $":split {res.text}"
             elseif key == "\<c-v>"
@@ -244,7 +244,7 @@ export def FileTree(path: string = "")
     popup.FilterMenu("File", files[ : MAX_ELEMENTS - 1],
         (res, key) => {
             if key == "\<c-t>"
-                exe $":tab e {res.text}"
+                exe $":tabe {res.text}"
             elseif key == "\<c-j>"
                 exe $":split {res.text}"
             elseif key == "\<c-v>"
