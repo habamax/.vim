@@ -8,3 +8,4 @@ syn clear vimVar
 syn clear vimOperParen
 syn clear vimOperError
 syn clear vimUserAttrbError
+syn clear vimFunctionError
