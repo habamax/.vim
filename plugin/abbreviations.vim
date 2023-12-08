@@ -30,6 +30,8 @@ inorea knwo know
 inorea kwno know
 inorea konw know
 inorea clena clean
+inorea maek make
+cnorea maek make
 
 inorea todo: TODO:
 inorea ещвщЖ TODO:
