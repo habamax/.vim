@@ -117,6 +117,9 @@ def InlineColors(winid: number, lines: list<number> = [line('.'), line('.')]): v
     var rx_color = '#\%(\x\{3}\|\x\{6}\)\>'
 
     for linenr in range(lines[0], lines[1])
+        if empty(getbufline(bufnr, linenr))
+            continue
+        endif
         var line = getbufline(bufnr, linenr)[0]
         var [hex, starts, ends] = matchstrpos(line, rx_color, 0)
         while starts != -1
