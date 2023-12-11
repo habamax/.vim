@@ -20,14 +20,14 @@ def SetProjectRoot()
 
     var rootDir = ''
     for dir in rootMarkers.dirs
-        rootDir = finddir(dir, expand("%:h") .. ";")
+        rootDir = finddir(dir, expand("%:p:h") .. ";")
         if !rootDir->empty()
             break
         endif
     endfor
     if rootDir->empty()
         for file in rootMarkers.files
-            rootDir = findfile(file, expand("%:h") .. ";")
+            rootDir = findfile(file, expand("%:p:h") .. ";")
             if !rootDir->empty()
                 break
             endif
