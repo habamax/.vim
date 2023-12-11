@@ -53,7 +53,8 @@ else
     set background=light
 endif
 # silent! exe "colorscheme" ["wildcharm", "lunaperche"][rand(srand()) % 2]
-silent! colorscheme wildcharm
+# silent! colorscheme wildcharm
+silent! colorscheme lunaperche
 
 
 # helper commands and mappings to work with vim/colorschemes
