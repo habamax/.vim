@@ -97,6 +97,9 @@ enddef
 
 
 def InlineColors(winid: number, lines: list<number> = [line('.'), line('.')]): void
+    if lines[0] > lines[1]
+        return
+    endif
     if lines[0] < 1 || lines[1] > line('$', winid)
         return
     endif
@@ -161,5 +164,5 @@ augroup InlineColors | au!
     au OptionSet background InlineColorsInWindows()
     au OptionSet termguicolors InlineColorsInWindows()
     au Colorscheme * InlineColorsInWindows()
-    au TextChanged * InlineColors(win_getid(), [line("'["), line("']")])
+    au TextChanged * InlineColors(win_getid(), [line("'[", win_getid()), line("']", win_getid())])
 augroup END
