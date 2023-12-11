@@ -48,7 +48,7 @@ enddef
 
 
 augroup colorschemes | au!
-    au Colorscheme wildcharm Comment()
+    # au Colorscheme wildcharm Comment()
     au Colorscheme * Base()
 augroup END
 
