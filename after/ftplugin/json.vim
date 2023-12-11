@@ -2,7 +2,7 @@ vim9script
 
 setlocal expandtab shiftwidth=2
 
-import autoload 'json.vim'
+import autoload 'dist/json.vim'
 setl formatexpr=json.FormatExpr()
 
 command -buffer -range=% Fmt json.FormatRange(<line1>, <line2>)
