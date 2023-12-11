@@ -33,7 +33,7 @@ def Base()
         endif
     endif
     hlset([hl])
-    hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
+    # hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 
     hi! link CursorLineSign CursorLineNr
     hi! link CursorLineFold CursorLineNr
@@ -42,13 +42,7 @@ def Base()
 enddef
 
 
-def Comment()
-    hi Comment ctermfg=101 guifg=#87875f
-enddef
-
-
 augroup colorschemes | au!
-    # au Colorscheme wildcharm Comment()
     au Colorscheme * Base()
 augroup END
 
