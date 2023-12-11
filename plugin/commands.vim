@@ -82,3 +82,14 @@ command! Bookmark call SaveBookmark()
 command! -nargs=1 Rg Sh! rg -nS --column "<args>" .
 command! Todo Sh! rg -nS --column "\b(TODO|FIXME|XXX):" .
 command! Task Sh! rg -nS --column "\btask:" .
+
+def Irc()
+    exe "IIJoin irc.libera.chat #vim"
+    wincmd o
+    exe "IIJoin irc.libera.chat #python"
+    wincmd L
+    exe "IIJoin irc.libera.chat #perl"
+    wincmd h
+    exe "IIJoin irc.libera.chat #emacs"
+enddef
+command! Irc Irc()
