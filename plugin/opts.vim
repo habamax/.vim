@@ -114,3 +114,7 @@ endif
 g:tex_flavor = "latex"
 g:tex_no_error = 1
 g:tex_fast = "pbv"
+
+
+# vim-ii
+g:ii_filter_rx = ['-!-.*has joined', '-!-.*has left']
