@@ -21,7 +21,6 @@ set signcolumn=number
 set shortmess+=Ic
 set completeopt=menu,popup completepopup=highlight:Pmenu
 set list listchars=tab:›\ ,nbsp:․,trail:·,extends:…,precedes:…
-set fillchars=vert:│
 set formatoptions=qjl
 set foldmethod=indent foldminlines=4 foldnestmax=3 nofoldenable
 set nospell spelllang=en,ru
