@@ -17,7 +17,10 @@ enddef
 command! WipeHiddenBuffers WipeHiddenBuffers()
 
 # remove trailing spaces
-command! FixTrailingSpaces :silent! :%s/\v(\s+$)|(\r+$)//g<bar>
+command! FixTrailingSpaces
+      \ :exe 'normal! m`'<bar>
+      \ :silent! :keepj %s/\r\+$//g<bar>
+      \ :silent! :keepj %s/\v(\s+$)//g<bar>
       \ :exe 'normal! ``'<bar>
       \ :echom 'Remove trailing spaces and ^Ms.'
 
