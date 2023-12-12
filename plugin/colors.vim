@@ -20,21 +20,6 @@ def Base()
         gui: {bold: true}, cterm: {bold: true}
     }])
 
-    hl = hlget('StatusLineNC')[0]
-    hl.name = 'VertSplit'
-    if !hl->has_key('gui') || !hl.gui->has_key('reverse') || !hl.gui.reverse
-        if hl->has_key('guibg')
-            hl.guifg = hl.guibg
-        endif
-    endif
-    if !hl->has_key('cterm') || !hl.cterm->has_key('reverse') || !hl.cterm.reverse
-        if hl->has_key('ctermbg')
-            hl.ctermfg = hl.ctermbg
-        endif
-    endif
-    hlset([hl])
-    # hi VertSplit ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
-
     hi! link CursorLineSign CursorLineNr
     hi! link CursorLineFold CursorLineNr
     hi Title cterm=bold gui=bold
