@@ -1,6 +1,5 @@
 vim9script
 
-
 if executable('black')
     &l:formatprg = "black -q - 2>/dev/null"
 elseif executable('yapf')
@@ -25,6 +24,11 @@ b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 
 
 if exists("g:loaded_lsp")
+    g:LspAddServer([{
+        name: 'pylsp',
+        filetype: ['python'],
+        path: 'pylsp'
+    }])
     nnoremap <silent><buffer> K <scriptcmd>LspHover<CR>
     nnoremap <silent><buffer> gd <scriptcmd>LspGotoDefinition<CR>
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
