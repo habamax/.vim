@@ -17,12 +17,6 @@ b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 # b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 
 if exists("g:loaded_lsp")
-    g:LspAddServer([{
-        name: 'clangd',
-        filetype: ['c', 'cpp'],
-        path: '/usr/bin/clangd',
-        args: ['--background-index']
-    }])
     nnoremap <silent><buffer> K <scriptcmd>LspHover<CR>
     nnoremap <silent><buffer> gd <scriptcmd>LspGotoDefinition<CR>
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'

@@ -35,3 +35,30 @@ endif
 if exists("g:loaded_dir")
     nnoremap <bs> <scriptcmd>Dir<cr>
 endif
+
+
+if exists("g:loaded_lsp")
+    if executable('clangd')
+        g:LspAddServer([{
+            name: 'clangd',
+            filetype: ['c', 'cpp'],
+            path: 'clangd',
+            args: ['--background-index']
+        }])
+    endif
+    if executable('pylsp')
+        g:LspAddServer([{
+            name: 'pylsp',
+            filetype: ['python'],
+            path: 'pylsp'
+        }])
+    endif
+    if executable('netcat')
+        g:LspAddServer([{
+            name: 'gdscript',
+            filetype: ['gdscript'],
+            path: 'netcat',
+            args: ['127.0.0.1', '6008']
+        }])
+    endif
+endif

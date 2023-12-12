@@ -100,12 +100,6 @@ nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
 
 if exists("g:loaded_lsp")
-    g:LspAddServer([{
-        name: 'gdscript',
-        filetype: ['gdscript'],
-        path: 'netcat',
-        args: ['127.0.0.1', '6008']
-    }])
     nnoremap <silent><buffer> K <scriptcmd>LspHover<CR>
     nnoremap <silent><buffer> gd <scriptcmd>LspGotoDefinition<CR>
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
