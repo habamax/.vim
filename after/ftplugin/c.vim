@@ -16,11 +16,9 @@ b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 # nnoremap <silent><buffer> <F5> <cmd>make %<<CR>:redraw!<CR>:!./%<<CR>
 # b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 
-if exists("g:loaded_ale")
-    nnoremap <silent><buffer> K <scriptcmd>ALEHover<CR>
-    nnoremap <silent><buffer> gd <scriptcmd>ALEGoToDefinition<CR>
-    nnoremap <silent><buffer> <space>ar <scriptcmd>ALEFindReferences<CR>
+if exists("g:loaded_lsp")
+    nnoremap <silent><buffer> K <scriptcmd>LspHover<CR>
+    nnoremap <silent><buffer> gd <scriptcmd>LspGotoDefinition<CR>
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>ar"'
 endif

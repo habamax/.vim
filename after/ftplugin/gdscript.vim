@@ -99,9 +99,9 @@ enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
 
-if exists("g:loaded_ale")
-    nnoremap <silent><buffer> K <scriptcmd>ALEHover<CR>
-    nnoremap <silent><buffer> gd <scriptcmd>ALEGoToDefinition<CR>
+if exists("g:loaded_lsp")
+    nnoremap <silent><buffer> K <scriptcmd>LspHover<CR>
+    nnoremap <silent><buffer> gd <scriptcmd>LspGotoDefinition<CR>
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
 endif
