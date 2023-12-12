@@ -49,8 +49,10 @@ if exists("g:loaded_lsp")
         filetype: ['python'],
         path: 'pylsp'
     }])
-
-    # TODO: should only be enabled for the modes where lsp is up and running
-    nnoremap <space>lh <scriptcmd>LspHover<CR>
-    nnoremap <space>gd <scriptcmd>LspGotoDefinition<CR>
+    g:LspAddServer([{
+        name: 'gdscript',
+        filetype: ['gdscript'],
+        path: 'netcat',
+        args: ['127.0.0.1', '6008']
+    }])
 endif
