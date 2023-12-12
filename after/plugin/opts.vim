@@ -35,3 +35,22 @@ endif
 if exists("g:loaded_dir")
     nnoremap <bs> <scriptcmd>Dir<cr>
 endif
+
+
+if exists("g:loaded_lsp")
+    g:LspAddServer([{
+        name: 'clangd',
+        filetype: ['c', 'cpp'],
+        path: '/usr/bin/clangd',
+        args: ['--background-index']
+    }])
+    g:LspAddServer([{
+        name: 'pylsp',
+        filetype: ['python'],
+        path: 'pylsp'
+    }])
+
+    # TODO: should only be enabled for the modes where lsp is up and running
+    nnoremap <space>lh <scriptcmd>LspHover<CR>
+    nnoremap <space>gd <scriptcmd>LspGotoDefinition<CR>
+endif
