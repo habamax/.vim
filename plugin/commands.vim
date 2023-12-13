@@ -87,11 +87,15 @@ command! Task Sh! rg -nS --column "\btask:" .
 
 def Irc()
     exe "IIJoin irc.libera.chat #vim"
+    normal zb
     wincmd o
     exe "IIJoin irc.libera.chat #python"
     wincmd L
+    normal zb
     exe "IIJoin irc.libera.chat #perl"
+    normal zb
     wincmd h
     exe "IIJoin irc.libera.chat #emacs"
+    normal zb
 enddef
 command! Irc Irc()
