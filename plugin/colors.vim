@@ -11,34 +11,14 @@ endif
 set termguicolors
 
 
-def Base()
-    var hl = hlget('LineNr')[0]
-    hlset([{
-        name: 'CursorLineNr',
-        ctermbg: hl->has_key('ctermbg') ? hl.ctermbg : 'NONE',
-        guibg: hl->has_key('guibg') ? hl.guibg : 'NONE',
-        gui: {bold: true}, cterm: {bold: true}
-    }])
-
-    hi! link CursorLineSign CursorLineNr
-    hi! link CursorLineFold CursorLineNr
-    hi Title cterm=bold gui=bold
-    hi Directory cterm=bold gui=bold
-enddef
-
-
-augroup colorschemes | au!
-    au Colorscheme * Base()
-augroup END
-
-
-if empty($WSLENV)
-    set background=dark
-else
-    set background=light
-endif
-silent! colorscheme wildcharm
-# silent! colorscheme habamax
+# if empty($WSLENV)
+#     set background=dark
+#     silent! colorscheme habamax
+# else
+#     set background=light
+#     silent! colorscheme wildcharm
+# endif
+silent! colorscheme habamax
 
 
 # helper commands and mappings to work with vim/colorschemes
