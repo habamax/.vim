@@ -11,13 +11,14 @@ endif
 set termguicolors
 
 
-# if empty($WSLENV)
-#     set background=dark
-# else
-#     set background=light
-# endif
-# silent! colorscheme wildcharm
-silent! colorscheme habamax
+if empty($WSLENV)
+    set background=dark
+    silent! colorscheme habamax
+else
+    set background=light
+    silent! colorscheme wildcharm
+endif
+
 
 
 # helper commands and mappings to work with vim/colorschemes
