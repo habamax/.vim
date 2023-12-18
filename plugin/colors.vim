@@ -11,13 +11,15 @@ endif
 set termguicolors
 
 
-if empty($WSLENV)
-    set background=dark
-    silent! colorscheme habamax
-else
-    set background=light
-    silent! colorscheme wildcharm
-endif
+# if empty($WSLENV)
+#     set background=dark
+#     silent! colorscheme habamax
+# else
+#     set background=light
+#     silent! colorscheme wildcharm
+# endif
+
+silent! colorscheme habamax
 
 
 
