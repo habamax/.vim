@@ -86,6 +86,19 @@ command! Todo Sh! rg -nS --column "\b(TODO|FIXME|XXX):" .
 command! Task Sh! rg -nS --column "\btask:" .
 
 def Irc()
+    # Segmentation fault: https://github.com/vim/vim/issues/13727
+    # var DelBuf = (bufnr) => {
+    #     exe $"bd {bufnr}"
+    # }
+    # if empty(bufname()) || !empty(&buftype)
+    #     defer DelBuf(bufnr())
+    # endif
+
+    var buf_del = -1
+    if empty(bufname()) || !empty(&buftype)
+        buf_del = bufnr()
+    endif
+
     exe "IIJoin irc.libera.chat #vim"
     normal zb
     wincmd o
@@ -97,5 +110,9 @@ def Irc()
     wincmd h
     exe "IIJoin irc.libera.chat #emacs"
     normal zb
+
+    if buf_del != -1
+        exe $"bd {buf_del}"
+    endif
 enddef
 command! Irc Irc()
