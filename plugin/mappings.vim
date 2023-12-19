@@ -52,7 +52,7 @@ inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
 # whitespace
-nnoremap <space>T<space> <cmd>FixTrailingSpaces<CR>
+nnoremap <space>T<space> <cmd>RemoveTrailingSpaces<CR>
 
 # search&replace
 nnoremap <space>% :<C-U>%s/\<<C-r>=expand("<cword>")<CR>\>/
