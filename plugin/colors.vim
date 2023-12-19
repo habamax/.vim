@@ -11,11 +11,11 @@ endif
 set termguicolors
 
 
-# if empty($WSLENV)
-#     set background=dark
-# else
-#     set background=light
-# endif
+if empty($WSLENV)
+    set background=dark
+else
+    set background=light
+endif
 
 silent! colorscheme wildcharm
 
