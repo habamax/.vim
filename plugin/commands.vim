@@ -90,12 +90,12 @@ def Irc()
     # var DelBuf = (bufnr) => {
     #     exe $"bd {bufnr}"
     # }
-    # if empty(bufname()) || !empty(&buftype)
+    # if (empty(bufname()) || !empty(&buftype)) && !&modified
     #     defer DelBuf(bufnr())
     # endif
 
     var buf_del = -1
-    if empty(bufname()) || !empty(&buftype)
+    if (empty(bufname()) || !empty(&buftype)) && !&modified
         buf_del = bufnr()
     endif
 
