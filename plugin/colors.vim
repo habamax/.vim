@@ -19,7 +19,7 @@ set termguicolors
 #     silent! colorscheme wildcharm
 # endif
 
-silent! colorscheme habamax
+silent! colorscheme wildcharm
 
 
 
