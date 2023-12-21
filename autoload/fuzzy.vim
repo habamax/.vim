@@ -220,6 +220,9 @@ enddef
 
 export def FileTree(path: string = "")
     var opath = isdirectory(expand(path)) ? path : ''
+    if opath == getcwd()
+        opath = ''
+    endif
 
     def Tree(dir: string): list<string>
         var ignore_dirs = [".git", ".hg", ".bundle"]
