@@ -30,9 +30,6 @@ augroup END
 
 silent! colorscheme habamax
 
-
-
-
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
 command! ColoMisc  tabnew | ru colors/tools/sample_misc.vim
