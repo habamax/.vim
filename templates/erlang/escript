@@ -1,8 +1,7 @@
 #!/usr/bin/env escript
 
--module(hello_world).
+-module(hello).
 -mode(compile).
 
 main(_) ->
     io:fwrite("Hello world!\n").
-
