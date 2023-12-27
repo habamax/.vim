@@ -43,7 +43,8 @@ def Curl(url: string, param: string, line1: number, line2: number): string
         echom "curl is not available!"
         return ""
     endif
-    var result = system($'curl -s -F "{param}" "{url}"', getline(line1, line2)->join("\n"))
+    var lines = getline(line1, line2)->join("\n")
+    var result = system($'curl -s -F "{param}" "{url}"', lines)
     return result->trim()
 enddef
 
