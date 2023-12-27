@@ -87,14 +87,6 @@ command! Todo Sh! rg -nS --column "\\b(TODO|FIXME|XXX):" .
 command! Task Sh! rg -nS --column "\\btask:" .
 
 def Irc()
-    # Segmentation fault: https://github.com/vim/vim/issues/13727
-    # var DelBuf = (bufnr) => {
-    #     exe $"bd {bufnr}"
-    # }
-    # if (empty(bufname()) || !empty(&buftype)) && !&modified
-    #     defer DelBuf(bufnr())
-    # endif
-
     var buf_del = -1
     if (empty(bufname()) || !empty(&buftype)) && !&modified
         buf_del = bufnr()
