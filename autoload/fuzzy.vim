@@ -39,7 +39,6 @@ export def Buffer()
         })
 enddef
 
-
 export def MRU()
     var mru = []
     if has("win32")
@@ -67,7 +66,6 @@ export def MRU()
         })
 enddef
 
-
 export def GitFile(path: string = "")
     var path_e = path->empty() ? "" : $"{path}/"
     var git_cmd = 'git ls-files --other --full-name --cached --exclude-standard'
@@ -91,7 +89,6 @@ export def GitFile(path: string = "")
         })
 enddef
 
-
 export def Colorscheme()
     popup.FilterMenu("Colorscheme",
         getcompletion("", "color"),
@@ -105,7 +102,6 @@ export def Colorscheme()
             endif
         })
 enddef
-
 
 export def Template()
     var path = $"{fnamemodify($MYVIMRC, ':p:h')}/templates/"
@@ -135,7 +131,6 @@ export def Template()
         })
 enddef
 
-
 export def Session()
     var sessions = glob($'{g:vimdata}/sessions/*', 1, 1)->map((_, v) => fnamemodify(v, ":t"))
     var idx = sessions->index('LAST')
@@ -148,7 +143,6 @@ export def Session()
             exe $':%%bd | source {g:vimdata}/sessions/{res.text}'
         })
 enddef
-
 
 export def Bookmark()
     var bookmarks = []
@@ -179,7 +173,6 @@ export def Bookmark()
             hi def link FilterMenuDirectorySubtle Comment
         })
 enddef
-
 
 export def File(path: string = "")
     var sep = has("win32") ? '\' : '/'
@@ -217,7 +210,6 @@ export def File(path: string = "")
             hi def link FilterMenuDirectory Directory
         }, true)
 enddef
-
 
 export def FileTree(path: string = "")
     var opath = isdirectory(expand(path)) ? path : ''
@@ -284,7 +276,6 @@ export def FileTree(path: string = "")
         })
 enddef
 
-
 export def Filetype()
     var ft_list = globpath(&rtp, "ftplugin/*.vim", 0, 1)
         ->mapnew((_, v) => ({text: fnamemodify(v, ":t:r")}))
@@ -295,7 +286,6 @@ export def Filetype()
                 exe $":set ft={res.text}"
             })
 enddef
-
 
 export def Highlight()
     var hl = hlget()->mapnew((_, v) => {
@@ -331,7 +321,6 @@ export def Highlight()
         })
 enddef
 
-
 export def Help()
     var help_tags = globpath(&rtp, "doc/tags", 1, 1)
         ->mapnew((_, v) => readfile(v)->mapnew((_, line) => ({text: line->split("\t")[0]})))
@@ -348,7 +337,6 @@ export def Help()
         })
 enddef
 
-
 export def CmdHistory()
     var cmd_history = [{text: histget("cmd")}] + range(1, histnr("cmd"))->mapnew((i, _) => {
         return {text: histget("cmd", i), idx: i}
@@ -362,7 +350,6 @@ export def CmdHistory()
             endif
         })
 enddef
-
 
 export def Project()
     var projects = []
@@ -388,7 +375,6 @@ export def Project()
         })
 enddef
 
-
 export def DumbJump()
     var word = expand("<cword>")
     if empty(trim(word)) | return | endif
@@ -409,7 +395,6 @@ export def DumbJump()
             hi def link FilterMenuLineNr Comment
         })
 enddef
-
 
 export def Window()
     var windows = []
