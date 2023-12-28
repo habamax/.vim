@@ -69,10 +69,10 @@ enddef
 
 
 export def GitFile(path: string = "")
-    if !empty(path)
-        exe $"lcd {path}"
-    endif
-    popup.FilterMenu("Git File", systemlist('git ls-files --other --full-name --cached --exclude-standard'),
+    var git_cmd = 'git ls-files --other --full-name --cached --exclude-standard'
+    var cd_cmd = path->empty() ? "" : $"cd {path} && "
+    var git_files = systemlist($'{cd_cmd}{git_cmd}')
+    popup.FilterMenu("Git File", git_files,
         (res, key) => {
             if key == "\<c-t>"
                 exe $":tabe {res.text}"
