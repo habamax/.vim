@@ -69,19 +69,20 @@ enddef
 
 
 export def GitFile(path: string = "")
+    var path_e = path->empty() ? "" : $"{path}/"
     var git_cmd = 'git ls-files --other --full-name --cached --exclude-standard'
     var cd_cmd = path->empty() ? "" : $"cd {path} && "
     var git_files = systemlist($'{cd_cmd}{git_cmd}')
     popup.FilterMenu("Git File", git_files,
         (res, key) => {
             if key == "\<c-t>"
-                exe $":tabe {res.text}"
+                exe $":tabe {path_e}{res.text}"
             elseif key == "\<c-j>"
-                exe $":split {res.text}"
+                exe $":split {path_e}{res.text}"
             elseif key == "\<c-v>"
-                exe $":vert split {res.text}"
+                exe $":vert split {path_e}{res.text}"
             else
-                exe $":e {res.text}"
+                exe $":e {path_e}{res.text}"
             endif
         },
         (winid) => {
