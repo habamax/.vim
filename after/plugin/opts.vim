@@ -53,13 +53,16 @@ if exists("g:loaded_lsp")
             path: 'pylsp'
         }])
     endif
-    # lsp of godot is VERY slow
-    # if executable('netcat')
-    #     g:LspAddServer([{
-    #         name: 'gdscript',
-    #         filetype: ['gdscript'],
-    #         path: 'netcat',
-    #         args: ['127.0.0.1', '6008']
-    #     }])
-    # endif
+    if executable('netcat')
+        g:LspAddServer([{
+            name: 'gdscript',
+            filetype: ['gdscript'],
+            path: 'netcat',
+            args: ['127.0.0.1', '6008'],
+            features: {
+                completion: false,
+                diagnostics: false,
+            }
+        }])
+    endif
 endif

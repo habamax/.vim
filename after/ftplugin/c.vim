@@ -17,8 +17,8 @@ b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 # b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 
 if exists("g:loaded_lsp")
-    nnoremap <silent><buffer> K <scriptcmd>LspHover<CR>
+    setlocal keywordprg=:LspHover
     nnoremap <silent><buffer> gd <scriptcmd>LspGotoDefinition<CR>
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
+    b:undo_ftplugin ..= ' | setl keywordprg<'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
 endif
