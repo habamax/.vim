@@ -10,7 +10,6 @@ if exists(":DD") > 0
     setlocal keywordprg=:DD\ godot
 endif
 
-
 var last_scene_run = ''
 
 # Run last scene
@@ -22,12 +21,10 @@ def RunLast()
     RunScene(last_scene_run)
 enddef
 
-
 # Run current scene
 def RunCurrent()
     RunScene(expand("%:r") .. '.tscn')
 enddef
-
 
 # Run arbitrary scene
 def RunScene(scene_name: string)
@@ -46,7 +43,6 @@ def RunScene(scene_name: string)
     os.ExeTerm(godot_command)
     last_scene_run = scene_name
 enddef
-
 
 def RunSelectedScene()
     var scenes = []
@@ -75,7 +71,6 @@ b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>r"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F6>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F7>"'
-
 
 def Things()
     var things = []

@@ -18,10 +18,8 @@ def PopupHelp(symbol: string)
     })
 enddef
 
-
 nnoremap <buffer> <F5> <scriptcmd>exe "Sh python" expand("%:p")<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
-
 
 if exists("g:loaded_lsp")
     setlocal keywordprg=:LspHover
@@ -34,7 +32,6 @@ else
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
     b:undo_ftplugin ..= ' | exe "xunmap <buffer> K"'
 endif
-
 
 def Things()
     var things = []

@@ -31,7 +31,6 @@ inorea <buffer> co: .. code::
 inorea <buffer> fi: .. figure::
 inorea <buffer> i: .. image::
 
-
 import autoload 'popup.vim'
 def Toc()
     var toc: list<dict<any>> = []
@@ -180,7 +179,6 @@ command! -buffer TblHSep :copy .<bar>:sil keepp s/[^|]/=/g<bar>:sil keepp s/[|]/
 #     call map(table, {_, v -> trim(join(v, '  '))})
 #     call setline(a:line1, table)
 # endfunc
-
 
 # func! s:section_delimiter_adjust() abort
 #     let section_delim = '^\([=`:."' . "'" . '~^_*+#-]\)\1*$'
