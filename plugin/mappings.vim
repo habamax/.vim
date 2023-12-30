@@ -44,6 +44,8 @@ if &wildcharm == 26
     cnoremap <expr> <s-tab> get({'/': "\<c-t>", '?': "\<c-g>"}, getcmdtype()) ?? "<s-tab>"
 endif
 
+cnoremap <expr> <space> get({'/': '.\{-}', '?': '.\{-}'}, getcmdtype()) ?? "<space>"
+
 # tab/s-tab to navigate completion
 inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
