@@ -140,6 +140,16 @@ export def Gx()
         endtry
     endif
 
+    # URL <http://google.com>
+    if empty(URL)
+        URL = matchstr(expand("<cWORD>"), $'^<\zs{rx_bare}\ze>$')
+    endif
+
+    # URL (http://google.com)
+    if empty(URL)
+        URL = matchstr(expand("<cWORD>"), $'^(\zs{rx_bare}\ze)$')
+    endif
+
     # barebone URL http://google.com
     if empty(URL)
         URL = matchstr(expand("<cWORD>"), rx_bare)
