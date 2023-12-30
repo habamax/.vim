@@ -67,7 +67,6 @@ def Toc()
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
 
-
 # Markdown header text object
 # * inner object is the text between prev section header(excluded) and the next
 #   section of the same level(excluded) or end of file.
