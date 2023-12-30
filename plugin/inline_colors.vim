@@ -89,12 +89,10 @@ var xterm256colors = {
                       '#767676': '243', '#eeeeee': '255'
     }
 
-
 def WindowLines(winid: number): list<number>
     var winfo = getwininfo(winid)[0]
     return [winfo.topline, winfo.botline]
 enddef
-
 
 def InlineColors(winid: number, lines: list<number> = [line('.'), line('.')]): void
     if lines[0] > lines[1]
@@ -148,14 +146,12 @@ def InlineColors(winid: number, lines: list<number> = [line('.'), line('.')]): v
     setbufvar(bufnr, 'inline_colors', inline_colors)
 enddef
 
-
 def InlineColorsInWindows()
     var windows = getwininfo()
     for w in windows
         InlineColors(w.winid, WindowLines(w.winid))
     endfor
 enddef
-
 
 augroup InlineColors | au!
     au WinScrolled * InlineColors(win_getid(), WindowLines(win_getid()))

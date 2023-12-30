@@ -8,7 +8,6 @@ var rootMarkers = {
     files: ['Cargo.toml', 'mix.exs', 'go.mod', 'package.json', 'configure', 'Makefile']
 }
 
-
 def SetProjectRoot()
     if &buftype != ''
         return
@@ -38,7 +37,6 @@ def SetProjectRoot()
         exe "lcd " .. fnamemodify(rootDir, ":h")
     endif
 enddef
-
 
 augroup prjroot | au!
     au BufEnter * SetProjectRoot()

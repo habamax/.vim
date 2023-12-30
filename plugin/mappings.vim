@@ -1,6 +1,5 @@
 vim9script
 
-
 # source vimscript (operator)
 def SourceVim(...args: list<any>): any
     if len(args) == 0
@@ -17,7 +16,6 @@ enddef
 nnoremap <silent> <expr> <space>v SourceVim()
 xnoremap <silent> <expr> <space>v SourceVim()
 nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
-
 
 # fuzzy
 import autoload 'fuzzy.vim'
@@ -39,7 +37,6 @@ nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
 nnoremap <space>fR <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
 nnoremap <space>; <scriptcmd>fuzzy.CmdHistory()<CR>
 nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
-
 
 # enhance search, only if wildcharm is set to <c-z>
 if &wildcharm == 26
@@ -151,7 +148,6 @@ enddef
 noremap L <ScriptCmd>MapL()<CR>
 noremap H <ScriptCmd>MapH()<CR>
 
-
 import autoload 'text.vim'
 
 # simple text objects
@@ -250,11 +246,9 @@ nnoremap <silent> ]W :llast<CR>
 nnoremap <silent> [w :lprevious<CR>
 nnoremap <silent> [W :lfirst<CR>
 
-
 # manual folds
 nnoremap zf <cmd>set fdm&<CR>zf
 xnoremap zf <cmd>set fdm&<CR>zf
-
 
 # Ripgrep word under cursor
 nnoremap <space>8 <scriptcmd>exe "Rg" expand("<cword>")<cr>
