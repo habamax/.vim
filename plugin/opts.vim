@@ -2,7 +2,6 @@ vim9script
 # Check after/plugin/opts.vim for settings that depends on plugin existence
 # Plugin settings
 
-
 # turn off netrw
 g:loaded_netrw = 1
 g:loaded_netrwPlugin = 1
@@ -17,7 +16,6 @@ if executable("git")
     silent! packadd vim-fugitive
     silent! packadd gv.vim
 endif
-
 
 # vim-asciidoctor
 # use ruby bundler:
@@ -48,28 +46,22 @@ g:asciidoctor_syntax_conceal = 0
 # g:asciidoctor_foldtitle_as_h1 = 0
 # g:asciidoctor_fold_options = 1
 
-
 # vim-markdown
 g:markdown_fenced_languages = ['python', 'go']
 
-
 # vim-closetag
 g:closetag_filetypes = 'html,xhtml,xml'
-
 
 # elixir
 g:elixir_mix_test_position = "bottom"
 g:mix_format_on_save = 1
 
-
 # Colorizer
 g:colorizer_auto_filetype = 'css,html,colortemplate'
 g:colorizer_disable_bufleave = 1
 
-
 # lens
 g:lens_disabled_filetypes = ['fugitiveblame', 'selectprompt', 'selectresults']
-
 
 # vim-rst
 g:rst2html_opts = "--input-encoding=utf8"
@@ -91,7 +83,6 @@ g:rst_syntax_code_list = {
     perl: ['perl'],
 }
 
-
 # vim-sandwich, mimic vim-surround mappings
 g:sandwich_no_default_key_mappings = 1
 g:operator_sandwich_no_default_key_mappings = 1
@@ -105,7 +96,6 @@ nmap cs <Plug>(sandwich-replace)
 nmap css <Plug>(sandwich-replace-auto)
 xmap S <Plug>(sandwich-add)
 
-
 # vim-godot, assuming it is installed as flatpak
 if !executable('godot') && executable('flatpak')
     g:godot_executable = "flatpak run org.godotengine.Godot"
@@ -115,7 +105,6 @@ endif
 g:tex_flavor = "latex"
 g:tex_no_error = 1
 g:tex_fast = "pbv"
-
 
 # vim-ii
 g:ii_filter_rx = ['-!-.*has joined', '-!-.*has left']
