@@ -11,6 +11,8 @@ inorea -ю ->
 inorea =Ю =>
 inorea =ю =>
 
+inorea :shrug: ¯\_(ツ)_/¯
+
 inorea mxm Maxim Kim
 inorea ata Ataccama
 inorea latex LaTeX
