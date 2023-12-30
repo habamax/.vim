@@ -58,3 +58,5 @@ if !isdirectory(&directory) | mkdir(&directory, "p") | endif
 
 set backup
 set undofile
+
+set path=.,,
