@@ -32,6 +32,7 @@ set sessionoptions=buffers,curdir,tabpages,winsize
 set history=200
 set viminfo='200,<50,s10
 set mouse=a ttyfast
+set path=.,,
 
 if has("win32")
     set clipboard^=unnamed
@@ -58,5 +59,3 @@ if !isdirectory(&directory) | mkdir(&directory, "p") | endif
 
 set backup
 set undofile
-
-set path=.,,
