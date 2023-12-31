@@ -134,7 +134,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
     # mouse wheel is rolled
     var ignore_input_wtf = [128, 253, 100]
     var winid = popup_create(Printify(filtered_items, []), {
-        title: $" ({items_count}/{items_count}) {title} {bordertitle[0]} {bordertitle[1]}",
+        title: $" ({items_count}/{items_count}) {title} {bordertitle[0]}  {bordertitle[1]}",
         line: pos_top,
         minwidth: minwidth,
         maxwidth: (&columns - 5),
