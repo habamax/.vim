@@ -126,6 +126,17 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
     var height = min([&lines - 6, max([items->len(), 5])])
     var minwidth = (&columns * 0.6)->float2nr()
     var pos_top = ((&lines - height) / 2) - 1
+    var ignore_input = ["\<cursorhold>", "\<ignore>",
+          \ "\<LeftMouse>", "\<LeftRelease>", "\<LeftDrag>", $"\<2-LeftMouse>",
+          \ "\<RightMouse>", "\<RightRelease>", "\<RightDrag>", "\<2-RightMouse>",
+          \ "\<MiddleMouse>", "\<MiddleRelease>", "\<MiddleDrag>", "\<2-MiddleMouse>",
+          \ "\<MiddleMouse>", "\<MiddleRelease>", "\<MiddleDrag>", "\<2-MiddleMouse>",
+          \ "\<X1Mouse>", "\<X1Release>", "\<X1Drag>", "\<X2Mouse>", "\<X2Release>", "\<X2Drag>",
+          \ "\<ScrollWheelLeft", "\<ScrollWheelRight>"
+    ]
+    # this sequence of bytes are generated when left/right mouse is pressed and
+    # mouse wheel is rolled
+    var ignore_input_wtf = [128, 253, 100]
     var winid = popup_create(Printify(filtered_items, []), {
         title: $" ({items_count}/{items_count}) {title} {bordertitle[0]} {bordertitle[1]}",
         line: pos_top,
@@ -157,19 +168,21 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
                 win_execute(id, 'normal! ' .. "\<C-d>")
             elseif key == "\<Left>"
                 win_execute(id, 'normal! ' .. "\<C-u>")
-            elseif key == "\<tab>" || key == "\<C-n>" || key == "\<Down>"
+            elseif key == "\<tab>" || key == "\<C-n>" || key == "\<Down>" || key == "\<ScrollWheelDown>"
                 var ln = getcurpos(id)[1]
                 win_execute(id, "normal! j")
                 if ln == getcurpos(id)[1]
                     win_execute(id, "normal! gg")
                 endif
-            elseif key == "\<S-tab>" || key == "\<C-p>" || key == "\<Up>"
+            elseif key == "\<S-tab>" || key == "\<C-p>" || key == "\<Up>" || key == "\<ScrollWheelUp>"
                 var ln = getcurpos(id)[1]
                 win_execute(id, "normal! k")
                 if ln == getcurpos(id)[1]
                     win_execute(id, "normal! G")
                 endif
-            elseif ["\<cursorhold>", "\<ignore>"]->index(key) == -1
+            # Ignoring fancy events and double clicks, which are 6 char long: `<80><fc> <80><fd>.`
+            elseif ignore_input->index(key) == -1 && strcharlen(key) != 6 && str2list(key) != ignore_input_wtf
+                echom key str2list(key)
                 if key == "\<C-U>" && !empty(prompt)
                     prompt = ""
                     filtered_items = [items_dict]
@@ -184,7 +197,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
                     else
                         filtered_items = items_dict->matchfuzzypos(prompt, {key: "text"})
                     endif
-                elseif key =~ '\p'
+                else
                     prompt ..= key
                     filtered_items = items_dict->matchfuzzypos(prompt, {key: "text"})
                 endif
