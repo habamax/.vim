@@ -178,7 +178,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
                 endif
             # Ignoring fancy events and double clicks, which are 6 char long: `<80><fc> <80><fd>.`
             elseif ignore_input->index(key) == -1 && strcharlen(key) != 6 && str2list(key) != ignore_input_wtf
-                if key == "\<C-U>" && !empty(prompt)
+                if key == "\<C-U>"
                     prompt = ""
                     filtered_items = [items_dict]
                 elseif (key == "\<C-h>" || key == "\<bs>")
