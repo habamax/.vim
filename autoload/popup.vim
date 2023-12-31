@@ -1,11 +1,9 @@
 vim9script
 
-
 var borderchars     = ['─', '│', '─', '│', '┌', '┐', '┘', '└']
 var bordertitle     = ['─┐', '┌']
 var borderhighlight = []
 var popuphighlight  = get(g:, "popuphighlight", '')
-
 
 # Returns winnr of created popup window
 export def ShowAtCursor(text: any, Setup: func(number) = null_function): number
@@ -52,8 +50,6 @@ export def ShowAtCursor(text: any, Setup: func(number) = null_function): number
     endif
     return winid
 enddef
-
-
 
 # Popup menu with fuzzy filtering
 # Example usage 1:
