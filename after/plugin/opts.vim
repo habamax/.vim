@@ -30,6 +30,26 @@ endif
 
 if exists("g:loaded_dir")
     nnoremap <bs> <scriptcmd>Dir<cr>
+    g:dir_actions = [
+        {text: 'Share with 0x0.st', Action: (selection, marks) => {
+            var items = []
+            if marks->len() > 0
+                items = marks
+            else
+                items = selection
+            endif
+            var urls = []
+            for item in items
+                if item.type != 'dir' && filereadable(item.name)
+                    var url = systemlist($'curl -F file=@"{item.name}" http://0x0.st')[-1]
+                    add(urls, url)
+                endif
+            endfor
+            setreg("@", urls->join("\n"))
+            setreg("+", urls->join("\n"))
+            echom urls->join("\n")
+        }}
+    ]
 endif
 
 if exists("g:loaded_lsp")
