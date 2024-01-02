@@ -31,13 +31,7 @@ endif
 if exists("g:loaded_dir")
     nnoremap <bs> <scriptcmd>Dir<cr>
     g:dir_actions = [
-        {text: 'Share with 0x0.st', Action: (selection, marks) => {
-            var items = []
-            if marks->len() > 0
-                items = marks
-            else
-                items = selection
-            endif
+        {text: 'Share with 0x0.st', Action: (items) => {
             var urls = []
             for item in items
                 if item.type != 'dir' && filereadable(item.name)
