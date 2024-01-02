@@ -10,6 +10,7 @@ g:loaded_netrwPlugin = 1
 g:popuphighlight = 'None'
 
 packadd cfilter
+packadd! editorconfig
 
 # Git
 if executable("git")
