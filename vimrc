@@ -31,7 +31,7 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
 set sessionoptions=buffers,curdir,tabpages,winsize
 set history=200
 set viminfo='200,<50,s10
-set mouse=a ttyfast
+set mouse=a
 set path=.,,
 
 if has("win32")
