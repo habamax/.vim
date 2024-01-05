@@ -6,6 +6,7 @@ habamax/start/vim-rst	git@github.com:habamax/vim-rst.git
 habamax/start/vim-gdscript	git@github.com:habamax/vim-gdscript.git
 habamax/start/vim-dir	git@github.com:habamax/vim-dir.git
 habamax/start/vim-shout	git@github.com:habamax/vim-shout.git
+habamax/start/vim-ii	git@github.com:habamax/vim-ii.git
 
 # Very nice to have
 bundle/start/traces.vim	git@github.com:markonm/traces.vim.git
