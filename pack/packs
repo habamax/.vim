@@ -17,7 +17,6 @@ bundle/start/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
 
 # Nice to have
 bundle/start/vim-closetag	git@github.com:alvan/vim-closetag.git
-bundle/start/vim-devdocs	git@github.com:romainl/vim-devdocs.git
 bundle/start/vim-colortemplate	git@github.com:lifepillar/vim-colortemplate.git
 bundle/opt/gv.vim	git@github.com:junegunn/gv.vim.git
 bundle/start/lsp	git@github.com:yegappan/lsp.git
