@@ -122,7 +122,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
     var height = min([&lines - 6, max([items->len(), 5])])
     var minwidth = (&columns * 0.6)->float2nr()
     var pos_top = ((&lines - height) / 2) - 1
-    var ignore_input = ["\<cursorhold>", "\<ignore>",
+    var ignore_input = ["\<cursorhold>", "\<ignore>", "\<Nul>",
           \ "\<LeftMouse>", "\<LeftRelease>", "\<LeftDrag>", $"\<2-LeftMouse>",
           \ "\<RightMouse>", "\<RightRelease>", "\<RightDrag>", "\<2-RightMouse>",
           \ "\<MiddleMouse>", "\<MiddleRelease>", "\<MiddleDrag>", "\<2-MiddleMouse>",
@@ -192,7 +192,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
                     else
                         filtered_items = items_dict->matchfuzzypos(prompt, {key: "text"})
                     endif
-                else
+                elseif key =~ '\p'
                     prompt ..= key
                     filtered_items = items_dict->matchfuzzypos(prompt, {key: "text"})
                 endif
