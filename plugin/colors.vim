@@ -10,14 +10,9 @@ if !has('win32') && !has('gui_running')
 endif
 set termguicolors
 
-if empty($WSLENV)
-    set background=dark
-else
-    set background=light
-endif
-silent! colorscheme wildcharm
-
-# silent! colorscheme habamax
+# set background=dark
+# silent! colorscheme wildcharm
+silent! colorscheme habamax
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
