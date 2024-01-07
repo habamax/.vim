@@ -21,14 +21,14 @@ augroup haba_colors | au!
     au Colorscheme habamax RemoveBg()
 augroup END
 
-# if empty($WSLENV)
-#     set background=dark
-# else
-#     set background=light
-# endif
-# silent! colorscheme wildcharm
+if empty($WSLENV)
+    set background=dark
+else
+    set background=light
+endif
+silent! colorscheme wildcharm
 
-silent! colorscheme habamax
+# silent! colorscheme habamax
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
