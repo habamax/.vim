@@ -10,17 +10,6 @@ if !has('win32') && !has('gui_running')
 endif
 set termguicolors
 
-def RemoveBg()
-    if has("gui_running")
-        return
-    endif
-    hi Normal guibg=NONE ctermbg=NONE
-enddef
-
-augroup haba_colors | au!
-    au Colorscheme habamax RemoveBg()
-augroup END
-
 if empty($WSLENV)
     set background=dark
 else
