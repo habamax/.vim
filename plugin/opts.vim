@@ -109,3 +109,10 @@ g:tex_fast = "pbv"
 
 # vim-ii
 g:ii_filter_rx = ['-!-.*has joined', '-!-.*has left']
+
+# vim-shout
+import autoload "shout.vim"
+nnoremap ]e <scriptcmd>shout.NextErrorJump()<CR>
+nnoremap ]E <scriptcmd>shout.LastErrorJump()<CR>
+nnoremap [e <scriptcmd>shout.PrevErrorJump()<CR>
+nnoremap [E <scriptcmd>shout.FirstErrorJump()<CR>
