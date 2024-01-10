@@ -9,7 +9,7 @@ g:loaded_netrwPlugin = 1
 # popup highlight
 g:popuphighlight = 'None'
 
-packadd cfilter
+packadd! cfilter
 packadd! editorconfig
 
 # Git
