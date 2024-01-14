@@ -82,6 +82,7 @@ g:rst_syntax_code_list = {
     json: ['json'],
     javascript: ['js'],
     perl: ['perl'],
+    odin: ['odin'],
 }
 
 # vim-sandwich, mimic vim-surround mappings
