@@ -12,6 +12,7 @@ inorea =Ю =>
 inorea =ю =>
 
 inorea :shrug: ¯\_(ツ)_/¯
+inorea :cool: ( •_•) ( -_-)~⌐■-■ (⌐■_■)>
 
 inorea mxm Maxim Kim
 inorea ata Ataccama
