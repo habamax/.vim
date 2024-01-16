@@ -2,6 +2,15 @@ vim9script
 
 var orig_guifont: string = &guifont
 
+if empty(orig_guifont)
+    if has("win32")
+        orig_guifont = 'Consolas:h12'
+    else
+        orig_guifont = 'Monospace 12'
+    endif
+    &guifont = orig_guifont
+endif
+
 def GetFontParams(font: string): list<any>
     var params: list<string>
     if has("win32")
