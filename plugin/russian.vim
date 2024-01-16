@@ -19,7 +19,9 @@ if has('osx')
     set langmap+=ЯЧСМИТЬБЮ;ZXCVBNM<>
     set langmap+=№#
 else
-    set keymap=russian-jcukenwin
+    # windows builds lack all vim keymaps
+    # https://github.com/vim/vim-win32-installer/issues/331
+    silent! set keymap=russian-jcukenwin
 
     set langmap=йцукенгшщзхъ;qwertyuiop[]
     set langmap+=фывапролджэё;asdfghjkl\\;'\\\
