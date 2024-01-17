@@ -6,10 +6,6 @@ b:undo_ftplugin ..= ' | setl et< ts< sw< kp<'
 
 setlocal noet ts=4 sw=0
 
-if exists(":DD") > 0
-    setlocal keywordprg=:DD\ godot
-endif
-
 var last_scene_run = ''
 
 # Run last scene
