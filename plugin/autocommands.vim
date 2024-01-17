@@ -7,7 +7,7 @@ augroup general | au!
     au CmdlineEnter /,\? set hlsearch
     au CmdlineLeave /,\? set nohlsearch
 
-    au Filetype * setl formatoptions=qjl
+    au Filetype * setl formatoptions=qjlron
 
     # goto last known position of the buffer
     au BufReadPost *
