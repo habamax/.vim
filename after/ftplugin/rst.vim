@@ -12,23 +12,23 @@ setlocal shiftwidth=2
 
 compiler rst2html
 
-inorea <buffer> k: :kbd:``<left>
-inorea <buffer> no: .. note::
-inorea <buffer> wa: .. warning::
-inorea <buffer> ad: .. admonition::
-inorea <buffer> at: .. attention::
-inorea <buffer> ca: .. caution::
-inorea <buffer> da: .. DANGER::
-inorea <buffer> er: .. error::
-inorea <buffer> hi: .. hint::
-inorea <buffer> im: .. important::
-inorea <buffer> ti: .. tip::
-inorea <buffer> si: .. sidebar::
-inorea <buffer> to: .. topic::
-inorea <buffer> ep: .. epigraph::
-inorea <buffer> hl: .. highlights::
-inorea <buffer> co: .. code::
-inorea <buffer> fi: .. figure::
+inorea <buffer> k: :kbd:``<left><C-R>=misc#Eatchar('\s')<CR>
+inorea <buffer> no: .. note::<C-R>=misc#Eatchar('\s')<CR>
+inorea <buffer> wa: .. warning::<C-R>=misc#Eatchar('\s')<CR>
+inorea <buffer> ad: .. admonition::<C-R>=misc#Eatchar('\s')<CR>
+inorea <buffer> at: .. attention::<C-R>=misc#Eatchar('\s')<CR>
+inorea <buffer> ca: .. caution::<C-R>=misc#Eatchar('\s')<CR>
+inorea <buffer> da: .. DANGER::<C-R>=misc#Eatchar('\s')<CR>
+inorea <buffer> er: .. error::<C-R>=misc#Eatchar('\s')<CR>
+inorea <buffer> hi: .. hint::<C-R>=misc#Eatchar('\s')<CR>
+inorea <buffer> im: .. important::<C-R>=misc#Eatchar('\s')<CR>
+inorea <buffer> ti: .. tip::<C-R>=misc#Eatchar('\s')<CR>
+inorea <buffer> si: .. sidebar::<C-R>=misc#Eatchar('\s')<CR>
+inorea <buffer> to: .. topic::<C-R>=misc#Eatchar('\s')<CR>
+inorea <buffer> ep: .. epigraph::<C-R>=misc#Eatchar('\s')<CR>
+inorea <buffer> hl: .. highlights::<C-R>=misc#Eatchar('\s')<CR>
+inorea <buffer> co: .. code::<C-R>=misc#Eatchar('\s')<CR>
+inorea <buffer> fi: .. figure::<C-R>=misc#Eatchar('\s')<CR>
 inorea <buffer> i: .. image::
 
 import autoload 'popup.vim'

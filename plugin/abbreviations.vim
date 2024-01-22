@@ -1,5 +1,5 @@
-inorea dd <C-r>=strftime("%Y-%m-%d")<CR>
-inorea ddd <C-r>=strftime("%Y-%m-%d %H:%M")<CR>
+inorea dd <C-r>=strftime("%Y-%m-%d")<CR><C-R>=misc#Eatchar('\s')<CR>
+inorea ddd <C-r>=strftime("%Y-%m-%d %H:%M")<CR><C-R>=misc#Eatchar('\s')<CR>
 
 cabbr ц w
 cabbr й q
@@ -11,8 +11,8 @@ inorea -ю ->
 inorea =Ю =>
 inorea =ю =>
 
-inorea :shrug: ¯\_(ツ)_/¯
-inorea :cool: ( •_•) ( -_-)~⌐■-■ (⌐■_■)>
+inorea :shrug: ¯\_(ツ)_/¯<C-R>=misc#Eatchar('\s')<CR>
+inorea :cool: ( •_•) ( -_-)~⌐■-■ (⌐■_■)><C-R>=misc#Eatchar('\s')<CR>
 
 inorea mxm Maxim Kim
 inorea ata Ataccama
