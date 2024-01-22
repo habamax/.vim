@@ -1,4 +1,4 @@
-setlocal expandtab shiftwidth=2
+setlocal expandtab
 
 if executable('tidy')
     let &l:formatprg = "tidy -q -i --show-errors 0 --show-body-only auto"
