@@ -10,9 +10,9 @@ vim9script
 # endif
 # set termguicolors
 
-set background=dark
-silent! colorscheme wildcharm
-# silent! colorscheme habamax
+# set background=dark
+# silent! colorscheme wildcharm
+silent! colorscheme habamax
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
