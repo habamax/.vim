@@ -6,6 +6,6 @@ if executable('tidy')
 elseif executable('html-beautify')
     " html-beautify is in js-beautify node package
     " sudo npm -g install js-beautify
-    " command! -buffer Fmt :silent %!html-beautify -s 2 -f - --wrap-attributes=force-aligned
-    let &l:formatprg = "html-beautify -s 2 -f -"
+    " command! -buffer Fmt :silent %!html-beautify -s 4 -f - --wrap-attributes=force-aligned
+    let &l:formatprg = "html-beautify -s 4 -f -"
 endif
