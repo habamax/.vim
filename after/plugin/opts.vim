@@ -47,6 +47,11 @@ if exists("g:loaded_dir")
 endif
 
 if exists("g:loaded_lsp")
+    g:LspOptionsSet({
+        completionMatcher: 'fuzzy',
+        showInlayHints: true,
+        showDiagWithVirtualText: true,
+    })
     if executable('clangd')
         g:LspAddServer([{
             name: 'clangd',
