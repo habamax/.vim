@@ -36,6 +36,10 @@ command! MD call mkdir(expand("%:p:h"), "p")
 # syntax group names under cursor
 command! Inspect :echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 
+# Echo formatted vim objects, e.g. :Echo getbufinfo()
+import autoload 'dist/json.vim'
+command! -nargs=1 -complete=var Echo redir @"> | echo json.Format(<args>) | redir END
+
 # save and load sessions
 if !isdirectory($'{g:vimdata}/sessions') | mkdir($'{g:vimdata}/sessions', "p") | endif
 command! -nargs=1 -complete=custom,SessionComplete SaveSession :exe $'mksession! {g:vimdata}/sessions/<args>'
