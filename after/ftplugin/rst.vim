@@ -36,6 +36,7 @@ def Toc()
     var toc: list<dict<any>> = []
     var lvl_ch: list<string> = []
     var toc_num: list<number> = []
+    var plvl = 0
     for nr in range(1, line('$'))
         var line = getline(nr)
         var pline = getline(nr - 1)
@@ -48,8 +49,13 @@ def Toc()
                     toc_num->add(1)
                     lvl = lvl_ch->len() - 1
                 else
-                    toc_num[lvl] += 1
+                    if lvl > plvl
+                        toc_num[lvl] = 1
+                    else
+                        toc_num[lvl] += 1
+                    endif
                 endif
+                plvl = lvl
                 toc->add({lvl: lvl, toc_num: toc_num[: lvl], text: $'{pline->trim()} ({nr - 1})', linenr: nr - 1})
             elseif pline =~ '^\S' && pline !~ '^\([-=#*~`.]\)\1*\s*$'
                 var lvl = lvl_ch->index(line[0])
@@ -58,8 +64,13 @@ def Toc()
                     toc_num->add(1)
                     lvl = lvl_ch->len() - 1
                 else
-                    toc_num[lvl] += 1
+                    if lvl > plvl
+                        toc_num[lvl] = 1
+                    else
+                        toc_num[lvl] += 1
+                    endif
                 endif
+                plvl = lvl
                 toc->add({lvl: lvl, toc_num: toc_num[: lvl], text: $'{pline->trim()} ({nr - 1})', linenr: nr - 1})
             endif
         endif
@@ -68,6 +79,7 @@ def Toc()
     var title = toc->reduce((acc, v) => v.lvl == 0 ? acc + 1 : acc, 0) == 1 ? 1 : 0
     var subtitle = toc->reduce((acc, v) => v.lvl == 1 ? acc + 1 : acc, 0) == 1 ? 1 : 0
 
+    g:toc = toc
     for t in toc
         var toc_num_str = t.toc_num[title + subtitle : ]->join('.')
         t.text = repeat("  ", t.lvl - title - subtitle) .. $"{toc_num_str} {t.text}"
