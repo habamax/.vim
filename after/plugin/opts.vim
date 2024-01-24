@@ -51,6 +51,7 @@ if exists("g:loaded_lsp")
         completionMatcher: 'fuzzy',
         showInlayHints: true,
         showDiagWithVirtualText: true,
+        diagVirtualTextAlign: 'after',
     })
     if executable('clangd')
         g:LspAddServer([{
