@@ -10,6 +10,17 @@ vim9script
 # endif
 # set termguicolors
 
+def Lsp()
+    hi lspDiagVirtualTextError ctermfg=131 cterm=NONE
+    hi lspDiagVirtualTextWarning ctermfg=136 cterm=NONE
+    hi lspDiagVirtualTextHint ctermfg=107 cterm=NONE
+    hi lspDiagVirtualTextInfo ctermfg=31 cterm=NONE
+enddef
+
+augroup colorschemes | au!
+    au Colorscheme habamax Lsp()
+augroup END
+
 # set background=dark
 # silent! colorscheme wildcharm
 silent! colorscheme habamax
