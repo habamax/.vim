@@ -28,8 +28,6 @@ command! -range FixSpaces text.FixSpaces(<line1>, <line2>)
 import autoload "share.vim"
 command! -range=% -nargs=? -complete=custom,share.Complete Share share.Paste(<q-args>, <line1>, <line2>)
 
-command! GistSync call gist#sync()
-
 command! CD lcd %:p:h
 command! MD call mkdir(expand("%:p:h"), "p")
 
