@@ -49,6 +49,7 @@ endif
 if exists("g:loaded_lsp")
     g:LspOptionsSet({
         completionMatcher: 'fuzzy',
+        completionTextEdit: false,
         showInlayHints: true,
         showDiagWithVirtualText: true,
         diagVirtualTextAlign: 'after',
@@ -74,10 +75,6 @@ if exists("g:loaded_lsp")
             filetype: ['gdscript'],
             path: 'netcat',
             args: ['127.0.0.1', '6008'],
-            features: {
-                completion: false,
-                diagnostics: false,
-            }
         }])
     endif
 endif
