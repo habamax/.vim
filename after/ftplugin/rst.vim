@@ -37,12 +37,13 @@ def Toc()
     var lvl_ch: list<string> = []
     var toc_num: list<number> = []
     var plvl = 0
+    var pnr = 0
     for nr in range(1, line('$'))
         var line = getline(nr)
         var pline = getline(nr - 1)
         var ppline = getline(nr - 2)
-        if line =~ '^\([-=#*~`.]\)\1*\s*$'
-            if pline =~ '\S' && ppline == line
+        if line =~ '^\([-="#*~`.]\)\1*\s*$'
+            if pline =~ '\S' && ppline == line && nr - 2 != pnr
                 var lvl = lvl_ch->index(line[0] .. line[0])
                 if lvl == -1
                     lvl_ch->add(line[0] .. line[0])
@@ -56,8 +57,9 @@ def Toc()
                     endif
                 endif
                 plvl = lvl
+                pnr = nr
                 toc->add({lvl: lvl, toc_num: toc_num[: lvl], text: $'{pline->trim()} ({nr - 1})', linenr: nr - 1})
-            elseif pline =~ '^\S' && pline !~ '^\([-=#*~`.]\)\1*\s*$'
+            elseif pline =~ '^\S' && pline !~ '^\([-"=#*~`.]\)\1*\s*$'
                 var lvl = lvl_ch->index(line[0])
                 if lvl == -1
                     lvl_ch->add(line[0])
@@ -71,6 +73,7 @@ def Toc()
                     endif
                 endif
                 plvl = lvl
+                pnr = nr
                 toc->add({lvl: lvl, toc_num: toc_num[: lvl], text: $'{pline->trim()} ({nr - 1})', linenr: nr - 1})
             endif
         endif
