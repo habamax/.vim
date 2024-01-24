@@ -11,10 +11,14 @@ vim9script
 # set termguicolors
 
 def Lsp()
-    hi lspDiagVirtualTextError ctermfg=131 cterm=NONE
-    hi lspDiagVirtualTextWarning ctermfg=136 cterm=NONE
-    hi lspDiagVirtualTextHint ctermfg=107 cterm=NONE
-    hi lspDiagVirtualTextInfo ctermfg=31 cterm=NONE
+    hi lspDiagVirtualTextError ctermfg=131 cterm=NONE guifg=#af5f5f gui=NONE
+    hi link lspDiagSignErrorText lspDiagVirtualTextError
+    hi lspDiagVirtualTextWarning ctermfg=136 guifg=#af8700 cterm=NONE gui=NONE
+    hi link lspDiagSignWarningText lspDiagVirtualTextWarning
+    hi lspDiagVirtualTextHint ctermfg=107 guifg=#87af5f cterm=NONE gui=NONE
+    hi link lspDiagSignHintText lspDiagVirtualTextHint
+    hi lspDiagVirtualTextInfo ctermfg=31 guifg=#0087df cterm=NONE gui=NONE
+    hi link lspDiagSignInfoText lspDiagVirtualTextInfo
 enddef
 
 augroup colorschemes | au!
