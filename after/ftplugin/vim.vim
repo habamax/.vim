@@ -47,4 +47,4 @@ nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
 
 nnoremap <buffer> <F5> :source<CR>
 
-iab <buffer> v9 vim9script
+iab <buffer> v9 vim9script<C-R>=misc#Eatchar('\s')<CR>
