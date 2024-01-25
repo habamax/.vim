@@ -9,8 +9,6 @@ endif
 
 g:vim_indent_cont = 6
 
-
-
 import autoload 'popup.vim'
 def Things()
     var things = []
