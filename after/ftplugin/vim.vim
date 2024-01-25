@@ -9,9 +9,12 @@ endif
 
 g:vim_indent_cont = 6
 
+
+
 import autoload 'popup.vim'
 def Things()
     var things = []
+    var commentchars = split(&cms, "%s")[0]
     for nr in range(1, line('$'))
         var line = getline(nr)
         if line =~ '\(^\|\s\)def \k\+('
@@ -26,6 +29,10 @@ def Things()
                 line = line->substitute('^\s*com\%[mand]!\?\s\+', '', '')
             endif
             things->add({text: $"{line} ({nr})", linenr: nr})
+        endif
+        if line =~ '{\{3}\s*$'
+            line = matchstr(line, '^\s*' .. commentchars .. '\s*\zs.\{-}\ze\s*{\{3}\s*$')
+            things->add({text: $'{line} ({nr})', linenr: nr})
         endif
     endfor
     popup.FilterMenu("Vim Things", things,

@@ -4,9 +4,11 @@ import autoload 'popup.vim'
 
 def Things()
     var things = []
+    var commentchars = split(&cms, "%s")[0]
     for nr in range(1, line('$'))
         var line = getline(nr)
-        if line =~ '^Background:'
+        if line =~ '{\{3}\s*$'
+            line = matchstr(line, '^\s*' .. commentchars .. '\s*\zs.\{-}\ze\s*{\{3}\s*$')
             things->add({text: $'{line} ({nr})', linenr: nr})
         endif
     endfor
