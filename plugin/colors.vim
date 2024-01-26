@@ -10,15 +10,21 @@ vim9script
 # endif
 # set termguicolors
 
-def LspHabamax()
-    hi lspDiagVirtualTextError ctermfg=131 cterm=NONE guifg=#af5f5f gui=NONE
-    hi link lspDiagSignErrorText lspDiagVirtualTextError
-    hi lspDiagVirtualTextWarning ctermfg=136 guifg=#af8700 cterm=NONE gui=NONE
-    hi link lspDiagSignWarningText lspDiagVirtualTextWarning
-    hi lspDiagVirtualTextHint ctermfg=107 guifg=#87af5f cterm=NONE gui=NONE
-    hi link lspDiagSignHintText lspDiagVirtualTextHint
-    hi lspDiagVirtualTextInfo ctermfg=31 guifg=#0087df cterm=NONE gui=NONE
-    hi link lspDiagSignInfoText lspDiagVirtualTextInfo
+def Lsp()
+    if &background == "dark"
+        hi lspDiagVirtualTextError ctermfg=131 cterm=NONE guifg=#af5f5f gui=NONE
+        hi link lspDiagSignErrorText lspDiagVirtualTextError
+        hi lspDiagVirtualTextWarning ctermfg=136 guifg=#af8700 cterm=NONE gui=NONE
+        hi link lspDiagSignWarningText lspDiagVirtualTextWarning
+        hi lspDiagVirtualTextHint ctermfg=107 guifg=#87af5f cterm=NONE gui=NONE
+        hi link lspDiagSignHintText lspDiagVirtualTextHint
+        hi lspDiagVirtualTextInfo ctermfg=31 guifg=#0087df cterm=NONE gui=NONE
+        hi link lspDiagSignInfoText lspDiagVirtualTextInfo
+    endif
+enddef
+
+def Misc()
+    hi VertSplit ctermbg=NONE guibg=NONE
 enddef
 
 def DeQuiet()
@@ -42,14 +48,14 @@ def DeQuiet()
 enddef
 
 augroup colorschemes | au!
-    au Colorscheme habamax LspHabamax()
+    au Colorscheme habamax,wildcharm Lsp()
+    au Colorscheme habamax,wildcharm Misc()
     au Colorscheme quiet DeQuiet()
 augroup END
 
 set background=dark
-# colorscheme quiet
 silent! colorscheme wildcharm
-silent! colorscheme habamax
+# silent! colorscheme habamax
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
