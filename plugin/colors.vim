@@ -53,9 +53,9 @@ augroup colorschemes | au!
     au Colorscheme quiet DeQuiet()
 augroup END
 
-set background=dark
-silent! colorscheme wildcharm
-# silent! colorscheme habamax
+# set background=dark
+# silent! colorscheme wildcharm
+silent! colorscheme habamax
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
