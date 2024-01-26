@@ -30,6 +30,8 @@ def DeQuiet()
         hi Statement ctermfg=99 guifg=#875fff
         hi Constant ctermfg=204 guifg=#ff5f87
         hi String ctermfg=35 guifg=#00af5f
+        hi Identifier ctermfg=37 guifg=#00afaf
+        hi Special ctermfg=32 guifg=#0087d7
         hi SpecialKey ctermfg=238 cterm=NONE guifg=#444444 gui=NONE
     else
         hi Statement ctermfg=56 guifg=#5f00d7
@@ -45,9 +47,9 @@ augroup colorschemes | au!
 augroup END
 
 set background=dark
-colorscheme quiet
-# silent! colorscheme wildcharm
-# silent! colorscheme habamax
+# colorscheme quiet
+silent! colorscheme wildcharm
+silent! colorscheme habamax
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
