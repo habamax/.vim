@@ -10,7 +10,7 @@ vim9script
 # endif
 # set termguicolors
 
-def Lsp()
+def LspHabamax()
     hi lspDiagVirtualTextError ctermfg=131 cterm=NONE guifg=#af5f5f gui=NONE
     hi link lspDiagSignErrorText lspDiagVirtualTextError
     hi lspDiagVirtualTextWarning ctermfg=136 guifg=#af8700 cterm=NONE gui=NONE
@@ -21,13 +21,33 @@ def Lsp()
     hi link lspDiagSignInfoText lspDiagVirtualTextInfo
 enddef
 
+def DeQuiet()
+    hi Title cterm=bold gui=bold
+    hi Directory cterm=bold gui=bold
+    hi Comment ctermfg=243 cterm=NONE guifg=#767676 gui=NONE
+    hi CursorLineNr cterm=bold gui=bold
+    if &bg == 'dark'
+        hi Statement ctermfg=99 guifg=#875fff
+        hi Constant ctermfg=204 guifg=#ff5f87
+        hi String ctermfg=35 guifg=#00af5f
+        hi SpecialKey ctermfg=238 cterm=NONE guifg=#444444 gui=NONE
+    else
+        hi Statement ctermfg=56 guifg=#5f00d7
+        hi Constant ctermfg=124 guifg=#af0000
+        hi String ctermfg=28 guifg=#008700
+        hi SpecialKey ctermfg=248 cterm=NONE guifg=#a8a8a8 gui=NONE
+    endif
+enddef
+
 augroup colorschemes | au!
-    au Colorscheme habamax Lsp()
+    au Colorscheme habamax LspHabamax()
+    au Colorscheme quiet DeQuiet()
 augroup END
 
-# set background=dark
+set background=dark
+colorscheme quiet
 # silent! colorscheme wildcharm
-silent! colorscheme habamax
+# silent! colorscheme habamax
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
