@@ -33,17 +33,26 @@ def DeQuiet()
     hi Comment ctermfg=243 cterm=NONE guifg=#767676 gui=NONE
     hi CursorLineNr cterm=bold gui=bold
     if &bg == 'dark'
+        # hi Normal ctermbg=234 guibg=#1c1c1c
         hi Statement ctermfg=99 guifg=#875fff
         hi Constant ctermfg=204 guifg=#ff5f87
         hi String ctermfg=35 guifg=#00af5f
-        hi Identifier ctermfg=37 guifg=#00afaf
-        hi Special ctermfg=32 guifg=#0087d7
+        hi Identifier ctermfg=176 guifg=#d787d7
+        hi PreProc ctermfg=37 guifg=#00afaf
+        hi Type ctermfg=33 guifg=#0087d7
+        hi Special ctermfg=172 guifg=#d78700
         hi SpecialKey ctermfg=238 cterm=NONE guifg=#444444 gui=NONE
+        hi Visual ctermfg=16 ctermbg=99 cterm=NONE guifg=#000000 guibg=#875fff gui=NONE
     else
         hi Statement ctermfg=56 guifg=#5f00d7
         hi Constant ctermfg=124 guifg=#af0000
         hi String ctermfg=28 guifg=#008700
+        hi Identifier ctermfg=90 guifg=#870087
+        hi PreProc ctermfg=30 guifg=#008787
+        hi Type ctermfg=25 guifg=#005faf
+        hi Special ctermfg=130 guifg=#af5f00
         hi SpecialKey ctermfg=248 cterm=NONE guifg=#a8a8a8 gui=NONE
+        hi Visual ctermfg=231 ctermbg=56 cterm=NONE guifg=#ffffff guibg=#5f00d7
     endif
 enddef
 
