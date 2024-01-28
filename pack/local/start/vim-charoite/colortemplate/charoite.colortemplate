@@ -60,13 +60,9 @@ Color: colorMP                 #ff00af        199            magenta
 
 ; Diff colors
 Color: diffAdd                 #5f875f        65             darkgreen
-Color: diffAddFg               #afffaf        157            black
 Color: diffDelete              #875f5f        95             darkred
-Color: diffDeleteFg            #ffafaf        217            black
-Color: diffChange              #5f5f5f        59             lightgray
-Color: diffChangeFg            #d0d0d0        252            black
-Color: diffText                #5f8787        66             cyan
-Color: diffTextFg              #afffff        159            black
+Color: diffChange              #5f87af        67             darkblue
+Color: diffText                #d787d7        176            darkmagenta
 
 Term colors: color00 color01 color02 color03 color04 color05 color06 color07
 Term colors: color08 color09 color10 color11 color12 color13 color14 color15
@@ -131,7 +127,7 @@ MoreMsg                        color10        none
 Question                       color13        none
 WarningMsg                     color11        none
 
-Todo                           color16        color00        reverse
+Todo                           color02        color00        reverse,bold
 Search                         color00        color12
 IncSearch                      color00        color11
 WildMenu                       color00        color11
@@ -146,8 +142,8 @@ lCursor                        color00        colorlC
 
 
 Variant: gui 256 16
-Visual                         color16        color00        reverse
-VisualNOS                      color00        color16
+Visual                         color11        color00        reverse
+VisualNOS                      color00        color14
 
 
 Variant: 16
@@ -195,10 +191,10 @@ Directory                      color15        none           bold
 Conceal                        none           none
 Ignore                         none           none
 
-DiffAdd                        diffAddFg      diffAdd
-DiffChange                     diffChangeFg   diffChange
-DiffText                       diffTextFg     diffText
-DiffDelete                     diffDeleteFg   diffDelete
+DiffAdd                        diffAdd        color00        reverse
+DiffChange                     diffChange     color00        reverse
+DiffText                       diffText       color00        reverse
+DiffDelete                     diffDelete     color00        reverse
 Added                          color10        none
 Changed                        color12        none
 Removed                        color09        none
@@ -244,7 +240,7 @@ MoreMsg                        color02        none
 Question                       color05        none
 WarningMsg                     color03        none
 
-Todo                           color16        color00        reverse
+Todo                           color02        color00        reverse
 Search                         color04        color00        reverse
 IncSearch                      color03        color00        reverse
 WildMenu                       color00        color03
@@ -253,10 +249,10 @@ debugPC                        color04        none           reverse
 debugBreakpoint                color06        none           reverse
 
 
-Visual                         color16        color00        reverse
+Visual                         color03        color00        reverse
 MatchParen                     none           none           bold,underline
 
-VisualNOS                      color00        color16
+VisualNOS                      color00        color06
 CursorLine                     none           none           underline
 CursorColumn                   color00        color03
 Folded                         color07        none           bold
@@ -321,7 +317,6 @@ Color: color07                 #d7d7d7        188            grey
 Color: color15                 #ffffff        231            white
 
 Color: color16                 #5f00d7        56             magenta
-Color: colorCm                 #8a8a8a        245            darkgrey
 
 Color: colorLine               #E4E4E4        254            grey
 Color: colorB                  #EEEEEE        255            grey
@@ -336,14 +331,11 @@ Color: colorMP                 #ff00af        199            magenta
 
 
 ; Diff colors
-Color: diffAdd                 #afd7af        151            darkgreen
-Color: diffAddFg               #005f00        22             black
-Color: diffDelete              #ffd7d7        224            darkred
-Color: diffDeleteFg            #875f5f        95             black
-Color: diffChange              #dadada        253            lightgray
-Color: diffChangeFg            #262626        235            black
-Color: diffText                #afd7d7        152            cyan
-Color: diffTextFg              #005f5f        23             black
+
+Color: diffAdd                 #5f875f        65             darkgreen
+Color: diffDelete              #875f5f        95             darkred
+Color: diffChange              #5f5f87        60             darkblue
+Color: diffText                #875f87        96             darkmagenta
 
 Term colors: color00 color01 color02 color03 color04 color05 color06 color07
 Term colors: color08 color09 color10 color11 color12 color13 color14 color15
@@ -383,7 +375,7 @@ PmenuKindSel                   color01        color11
 PmenuExtra                     color08        colorB
 PmenuExtraSel                  color15        color11
 Variant: 16
-Pmenu                          color00        color07
+Pmenu                          color00        color15
 PmenuThumb                     none           color02
 PmenuSbar                      none           none
 PmenuSel                       color00        color03
@@ -402,7 +394,7 @@ MoreMsg                        color02        none
 Question                       color05        none
 WarningMsg                     color03        none
 
-Todo                           color16        color15        reverse
+Todo                           color10        color15        reverse,bold
 Search                         color15        color04
 IncSearch                      color15        color11
 WildMenu                       color15        color11
@@ -417,8 +409,8 @@ lCursor                        color00        colorlC
 
 
 Variant: gui 256 16
-Visual                         color16        color15        reverse
-VisualNOS                      color15        color16
+Visual                         color11        color15        reverse
+VisualNOS                      color15        color14
 
 
 Variant: 16
@@ -448,7 +440,7 @@ SpellRare                      color13        none           underline
 
 ;;; :h group-names
 Variant: gui 256 16
-Comment                        colorCm        none
+Comment                        color08        none
 Constant                       color01        none
 String                         color02        none
 Identifier                     color05        none
@@ -466,10 +458,10 @@ Directory                      none           none           bold
 Conceal                        none           none
 Ignore                         none           none
 
-DiffAdd                        diffAddFg      diffAdd
-DiffChange                     diffChangeFg   diffChange
-DiffText                       diffTextFg     diffText
-DiffDelete                     diffDeleteFg   diffDelete
+DiffAdd                        diffAdd        color07        reverse
+DiffChange                     diffChange     color07        reverse
+DiffText                       diffText       color07        reverse
+DiffDelete                     diffDelete     color07        reverse
 Added                          color10        none
 Changed                        color12        none
 Removed                        color09        none
@@ -517,7 +509,7 @@ MoreMsg                        color02        none
 Question                       color05        none
 WarningMsg                     color03        none
 
-Todo                           color16        color00        reverse
+Todo                           color02        color00        reverse
 Search                         color04        color00        reverse
 IncSearch                      color03        color00        reverse
 WildMenu                       color00        color03
@@ -526,10 +518,10 @@ debugPC                        color04        none           reverse
 debugBreakpoint                color06        none           reverse
 
 
-Visual                         color16        color07        reverse
+Visual                         color03        color07        reverse
 MatchParen                     none           none           bold,underline
 
-VisualNOS                      color00        color16
+VisualNOS                      color00        color06
 CursorLine                     none           none           underline
 CursorColumn                   color00        color03
 Folded                         color00        none           bold
