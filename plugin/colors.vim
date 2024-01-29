@@ -33,7 +33,7 @@ augroup colorschemes | au!
 augroup END
 
 # set background=dark
-# silent! colorscheme charoite
+# silent! colorscheme wildcharm
 silent! colorscheme habamax
 
 # helper commands and mappings to work with vim/colorschemes
