@@ -5,6 +5,7 @@ if exists("g:loaded_fugitive")
     command! GlogSummary Git log --follow -- %
     command! Gpull Git pull
     command! Gpush Git push
+    command! Glog Git log --oneline --decorate --graph --all
 endif
 
 if exists("g:loaded_swap")
