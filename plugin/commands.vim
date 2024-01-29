@@ -23,6 +23,7 @@ command! RemoveTrailingSpaces :exe 'normal! m`'<bar>
       \ :exe 'normal! ``'<bar>
       \ :echom 'Remove trailing spaces and ^Ms.'
 
+import autoload "text.vim"
 command! -range FixSpaces text.FixSpaces(<line1>, <line2>)
 
 import autoload "share.vim"
