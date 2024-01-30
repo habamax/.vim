@@ -49,7 +49,7 @@ enddef
 
 # write to a privileged file
 if executable('sudo')
-    command! W w !sudo tee "%" > /dev/null
+    command! W w !sudo tee "%" >/dev/null
 endif
 
 # base64
