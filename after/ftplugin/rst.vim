@@ -149,13 +149,8 @@ command -buffer RstViewPdf :call os.Open(expand("%:p:r") .. '.pdf')
 def HlCheckmark()
     exe 'syn match rstCheckDone /\%(' .. &l:formatlistpat .. '\)\@<=✓/ containedin=TOP'
     exe 'syn match rstCheckReject /\%(' .. &l:formatlistpat .. '\)\@<=✗/ containedin=TOP'
-    if &background == 'dark'
-        hi rstCheckDone ctermfg=41 guifg=#00d75f gui=bold cterm=bold
-        hi rstCheckReject ctermfg=204 guifg=#ff5f87 gui=bold cterm=bold
-    else
-        hi rstCheckDone ctermfg=28 guifg=#008700 gui=bold cterm=bold
-        hi rstCheckReject ctermfg=124 guifg=#af0000 gui=bold cterm=bold
-    endif
+    hi link rstCheckDone Added
+    hi link rstCheckReject Removed
 enddef
 
 augroup checkmark | au!
