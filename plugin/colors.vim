@@ -23,13 +23,17 @@ def Lsp()
     endif
 enddef
 
-def Misc()
+def Base()
     hi VertSplit ctermbg=NONE guibg=NONE
+    hi CursorLineNr ctermbg=NONE cterm=bold guibg=NONE gui=bold
+    if &background == "dark" && !has("gui_running")
+        hi Normal ctermbg=NONE guibg=NONE
+    endif
 enddef
 
 augroup colorschemes | au!
+    au Colorscheme * Base()
     au Colorscheme habamax,wildcharm Lsp()
-    au Colorscheme habamax,wildcharm Misc()
 augroup END
 
 # set background=dark
