@@ -32,8 +32,8 @@ Color: color09                 #ff5f87        204            red
 Color: color02                 #00af5f        35             darkgreen
 Color: color10                 #00d75f        41             green
 
-Color: color03                 #d78700        172            darkyellow
-Color: color11                 #ffaf00        214            yellow
+Color: color03                 #d7875f        173            darkyellow
+Color: color11                 #ffaf5f        215            yellow
 
 Color: color04                 #0087d7        32             darkblue
 Color: color12                 #00afff        39             blue
@@ -175,6 +175,7 @@ Variant: gui 256 16
 Comment                        color08        none
 Constant                       color01        none
 String                         color02        none
+Character                      color10        none
 Identifier                     color05        none
 
 Statement                      color16        none
@@ -298,7 +299,7 @@ Color: color01                 #af0000        124            darkred
 Color: color09                 #d70000        160            red
 
 Color: color02                 #008700        28             darkgreen
-Color: color10                 #5faf5f        71             green
+Color: color10                 #00af00        34             green
 
 Color: color03                 #af5f00        130            darkyellow
 Color: color11                 #d78700        172            yellow
@@ -439,6 +440,7 @@ Variant: gui 256 16
 Comment                        color08        none
 Constant                       color01        none
 String                         color02        none
+Character                      color10        none
 Identifier                     color05        none
 
 Statement                      color16        none
