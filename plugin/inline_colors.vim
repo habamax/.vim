@@ -161,4 +161,5 @@ augroup InlineColors | au!
     au OptionSet termguicolors InlineColorsInWindows()
     au Colorscheme * InlineColorsInWindows()
     au TextChanged * InlineColors(win_getid(), [line("'[", win_getid()), line("']", win_getid())])
+    au InsertLeave * InlineColors(win_getid(), [line("'[", win_getid()), line("']", win_getid())])
 augroup END
