@@ -74,7 +74,7 @@ StatuslineNC                   color00        color08
 VertSplit                      color08        none
 
 TabLine                        color00        color08
-TabLineFill                    none           color00
+TabLineFill                    none           none
 TabLineSel                     color00        color07        bold
 
 ToolbarLine                    none           none
