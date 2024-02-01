@@ -178,7 +178,7 @@ Special                        color16        none
 Underlined                     none           none           underline
 
 Title                          none           none           bold
-Directory                      color15        none           bold
+Directory                      none           none           bold
 
 Conceal                        colorNonT      none
 Ignore                         none           none
@@ -267,7 +267,7 @@ Special                        color05        none
 Underlined                     none           none           underline
 
 Title                          none           none           bold
-Directory                      color04        none           bold
+Directory                      none           none           bold
 
 Conceal                        none           none
 Ignore                         none           none
