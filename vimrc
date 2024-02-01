@@ -7,7 +7,7 @@ set hidden confirm
 set shiftwidth=4 softtabstop=-1 expandtab
 set ttimeout ttimeoutlen=50
 set autoindent
-set nohlsearch incsearch ignorecase
+set hlsearch incsearch ignorecase
 set wildmenu wildcharm=<c-z> wildoptions=pum,fuzzy pumheight=20
 set number relativenumber cursorline cursorlineopt=number
 set backspace=indent,eol,start
