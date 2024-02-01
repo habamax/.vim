@@ -35,11 +35,11 @@ Color: color11                 #ffaf5f        215            yellow
 Color: color04                 #0087d7        32             darkblue
 Color: color12                 #00afff        39             blue
 
-Color: color05                 #d787d7        176            darkmagenta
+Color: color05                 #d75fd7        170            darkmagenta
 Color: color13                 #ff87ff        213            magenta
 
-Color: color06                 #5fafaf        73             darkcyan
-Color: color14                 #5fd7d7        80             cyan
+Color: color06                 #00afaf        37             darkcyan
+Color: color14                 #00d7d7        44             cyan
 
 Color: color07                 #d0d0d0        252            grey
 Color: color15                 #ffffff        231            white
