@@ -6,8 +6,8 @@ Author: Maxim Kim <habamax@gmail.com>
 Website: https://github.com/habamax/vim-charoite
 License: Same as Vim
 
-Background: any
 
+Background: dark
 
 ; default links
 Terminal                       -> Normal
@@ -18,9 +18,6 @@ LineNrBelow                    -> LineNr
 MessageWindow                  -> PMenu
 PopupNotification              -> Todo
 CurSearch                      -> IncSearch
-
-
-Background: dark
 
 ;;; Color palette
 Color: color00                 #000000        16             black
@@ -178,11 +175,11 @@ String                         color02        none
 Character                      color10        none
 Identifier                     color05        none
 
-Statement                      color16        none
+Statement                      color03        none
 Type                           color04        none
 
-PreProc                        color03        none
-Special                        color06        none
+PreProc                        color06        none
+Special                        color16        none
 Underlined                     none           none           underline
 
 Title                          none           none           bold
@@ -268,276 +265,9 @@ Constant                       color01        none
 String                         color02        none
 Identifier                     color05        none
 
-Statement                      color04        none
-Type                           color03        none
-
-PreProc                        color06        none
-Special                        color05        none
-Underlined                     none           none           underline
-
-Title                          none           none           bold
-Directory                      color04        none           bold
-
-Conceal                        none           none
-Ignore                         none           none
-
-
-DiffAdd                        color00        color02
-DiffChange                     color00        color04
-DiffText                       color00        color05
-DiffDelete                     color00        color01
-
-
-
-Background: light
-
-;;; Color palette
-Color: color00                 #000000        16             black
-Color: color08                 #6c6c6c        242            darkgrey
-
-Color: color01                 #af0000        124            darkred
-Color: color09                 #d70000        160            red
-
-Color: color02                 #008700        28             darkgreen
-Color: color10                 #00af00        34             green
-
-Color: color03                 #af5f00        130            darkyellow
-Color: color11                 #d78700        172            yellow
-
-Color: color04                 #005faf        25             darkblue
-Color: color12                 #0087d7        32             blue
-
-Color: color05                 #870087        90             darkmagenta
-Color: color13                 #af00af        127            magenta
-
-Color: color06                 #008787        30             darkcyan
-Color: color14                 #00afaf        37             cyan
-
-Color: color07                 #d7d7d7        188            grey
-Color: color15                 #ffffff        231            white
-
-Color: color16                 #5f00d7        56             magenta
-
-Color: colorLine               #E4E4E4        254            grey
-Color: colorB                  #EEEEEE        255            grey
-
-Color: colorNonT               #8a8a8a        245            darkgrey
-Color: colorlC                 #FF00FF        201            magenta
-Color: colorV                  #0087af        31             darkcyan
-Color: colorMP                 #ff00af        199            magenta
-
-
-; Diff colors
-
-Color: diffAdd                 #5f875f        65             darkgreen
-Color: diffDelete              #875f5f        95             darkred
-Color: diffChange              #5f5f87        60             darkblue
-Color: diffText                #875f87        96             darkmagenta
-
-Term colors: color00 color01 color02 color03 color04 color05 color06 color07
-Term colors: color08 color09 color10 color11 color12 color13 color14 color15
-
-
-;;; chrome
-Variant: gui 256 16
-
-Normal                         color00        color07
-
-Statusline                     color07        color00        bold
-StatuslineNC                   color07        color08
-VertSplit                      color08        none
-
-TabLine                        color07        color08
-TabLineFill                    none           none
-TabLineSel                     color07        color00        bold
-
-ToolbarLine                    none           none
-ToolbarButton                  color07        color00
-
-QuickFixLine                   color15        color05
-CursorLineNr                   color00        none           bold
-LineNr                         colorNonT      none
-NonText                        colorNonT      none
-FoldColumn                     colorNonT      none
-EndOfBuffer                    colorNonT      none
-SpecialKey                     colorNonT      none
-
-Variant: gui 256
-Pmenu                          color00        colorB
-PmenuSel                       color15        color11
-PmenuThumb                     none           color08
-PmenuSbar                      none           none
-PmenuKind                      color09        colorB
-PmenuKindSel                   color01        color11
-PmenuExtra                     color08        colorB
-PmenuExtraSel                  color15        color11
-Variant: 16
-Pmenu                          color00        color15
-PmenuThumb                     none           color02
-PmenuSbar                      none           none
-PmenuSel                       color00        color03
-PmenuKind                      color01        color07
-PmenuKindSel                   color01        color03
-PmenuExtra                     color08        color07
-PmenuExtraSel                  color00        color03
-
-Variant: gui 256 16
-SignColumn                     none           none
-
-Error                          color09        color15        reverse
-ErrorMsg                       color09        color15        reverse
-ModeMsg                        none           none           bold
-MoreMsg                        color02        none
-Question                       color05        none
-WarningMsg                     color03        none
-
-Todo                           color10        color15        reverse,bold
-Search                         color15        color04
-IncSearch                      color15        color11
-WildMenu                       color15        color11
-
-debugPC                        color04        none           reverse
-debugBreakpoint                color06        none           reverse
-
-
-Variant: gui
-Cursor                         color15        color00
-lCursor                        color00        colorlC
-
-
-Variant: gui 256 16
-Visual                         colorV         color15        reverse
-VisualNOS                      color15        color14
-
-
-Variant: 16
-CursorLine                     none           none           underline
-CursorColumn                   color00        color11
-Folded                         color00        none           bold
-ColorColumn                    color00        color03
-MatchParen                     none           none           bold,underline
-
-Variant: gui 256
-CursorLine                     none           colorLine
-CursorColumn                   none           colorLine
-Folded                         color08        colorB
-ColorColumn                    none           colorB
-MatchParen                     colorMP        none           bold
-
-Variant: gui
-SpellBad                       none           none           g=undercurl s=color01
-SpellCap                       none           none           g=undercurl s=color06
-SpellLocal                     none           none           g=undercurl s=color02
-SpellRare                      none           none           g=undercurl s=color13
-Variant: 256 16
-SpellBad                       color09        none           underline
-SpellCap                       color06        none           underline
-SpellLocal                     color02        none           underline
-SpellRare                      color13        none           underline
-
-;;; :h group-names
-Variant: gui 256 16
-Comment                        color08        none
-Constant                       color01        none
-String                         color02        none
-Character                      color10        none
-Identifier                     color05        none
-
-Statement                      color16        none
+Statement                      color03        none
 Type                           color04        none
 
-PreProc                        color03        none
-Special                        color06        none
-Underlined                     none           none           underline
-
-Title                          none           none           bold
-Directory                      none           none           bold
-
-Conceal                        none           none
-Ignore                         none           none
-
-DiffAdd                        diffAdd        color07        reverse
-DiffChange                     diffChange     color07        reverse
-DiffText                       diffText       color07        reverse
-DiffDelete                     diffDelete     color07        reverse
-Added                          color10        none
-Changed                        color12        none
-Removed                        color09        none
-
-
-Variant: 8
-Normal                         color00        color07
-
-Statusline                     color07        color00        bold
-StatuslineNC                   color07        color08
-VertSplit                      color00        color00
-
-TabLine                        color00        color07        reverse
-TabLineFill                    none           color08
-TabLineSel                     color00        color07
-
-ToolbarLine                    none           none
-ToolbarButton                  color07        color00        bold
-
-QuickFixLine                   color00        color05
-CursorLineNr                   color00        none           bold
-LineNr                         color03        none
-NonText                        color00        none
-FoldColumn                     color00        none
-EndOfBuffer                    color00        none
-SpecialKey                     color00        none
-
-Pmenu                          color07        color00
-PmenuThumb                     none           color02
-PmenuSbar                      none           none
-PmenuSel                       none           color03
-PmenuKind                      color01        color00
-PmenuKindSel                   color01        color03
-PmenuExtra                     color07        color00
-PmenuExtraSel                  color00        color03
-
-
-
-SignColumn                     none           none
-
-Error                          color07        color01
-ErrorMsg                       color07        color01
-ModeMsg                        none           none           bold
-MoreMsg                        color02        none
-Question                       color05        none
-WarningMsg                     color03        none
-
-Todo                           color02        color00        reverse
-Search                         color04        color00        reverse
-IncSearch                      color03        color00        reverse
-WildMenu                       color00        color03
-
-debugPC                        color04        none           reverse
-debugBreakpoint                color06        none           reverse
-
-
-Visual                         color06        color07        reverse
-MatchParen                     none           none           bold,underline
-
-VisualNOS                      color00        color06
-CursorLine                     none           none           underline
-CursorColumn                   color00        color03
-Folded                         color00        none           bold
-ColorColumn                    color00        color03
-
-SpellBad                       color01        color00        reverse
-SpellCap                       color06        color00        reverse
-SpellLocal                     color02        color00        reverse
-SpellRare                      color05        color00        reverse
-
-Comment                        none           none           bold
-Constant                       color01        none
-String                         color02        none
-Identifier                     color05        none
-
-Statement                      color04        none
-Type                           color03        none
-
 PreProc                        color06        none
 Special                        color05        none
 Underlined                     none           none           underline
@@ -554,7 +284,5 @@ DiffChange                     color00        color04
 DiffText                       color00        color05
 DiffDelete                     color00        color01
 
-
-Background: any
 
 Include: _tcozero
