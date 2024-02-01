@@ -50,7 +50,6 @@ Color: colorLine               #303030        236            darkgrey
 Color: colorPmenu              #3a3a3a        237            darkgrey
 Color: colorB                  #121212        233            darkgrey
 Color: colorNonT               #585858        240            grey
-Color: colorV                  #5fd7ff        81             cyan
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
 Color: colorSt                 #9e9e9e        247            grey
@@ -135,7 +134,7 @@ Cursor                         color00        color15
 lCursor                        color00        colorlC
 
 Variant: gui 256 16
-Visual                         colorV         color00        reverse
+Visual                         color03        color00        reverse
 VisualNOS                      color00        color14
 
 Variant: 16
@@ -241,7 +240,7 @@ WildMenu                       color00        color03
 debugPC                        color04        none           reverse
 debugBreakpoint                color06        none           reverse
 
-Visual                         color06        color00        reverse
+Visual                         color03        color00        reverse
 MatchParen                     none           none           bold,underline
 
 VisualNOS                      color00        color06
