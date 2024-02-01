@@ -6,9 +6,6 @@ Author: Maxim Kim <habamax@gmail.com>
 Website: https://github.com/habamax/.vim/
 License: Same as Vim
 
-
-Background: dark
-
 ; default links
 Terminal                       -> Normal
 StatuslineTerm                 -> Statusline
@@ -18,6 +15,8 @@ LineNrBelow                    -> LineNr
 MessageWindow                  -> PMenu
 PopupNotification              -> Todo
 CurSearch                      -> IncSearch
+
+Background: dark
 
 ;;; Color palette
 Color: color00                 #1c1c1c        234            black
