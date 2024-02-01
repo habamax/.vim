@@ -1,7 +1,7 @@
 ; vim: cc=32,47,62 vsts=31,15,15,4
-Full name: noname
-Short name: noname
-Description: Dark colorscheme.
+Full name: Ruler
+Short name: ruler
+Description: Dark colorscheme. Experimental.
 Author: Maxim Kim <habamax@gmail.com>
 Website: https://github.com/habamax/.vim/
 License: Same as Vim
@@ -20,7 +20,7 @@ PopupNotification              -> Todo
 CurSearch                      -> IncSearch
 
 ;;; Color palette
-Color: color00                 #000000        16             black
+Color: color00                 #1c1c1c        234            black
 Color: color08                 #767676        243            darkgrey
 
 Color: color01                 #d75f5f        167            darkred
@@ -46,13 +46,14 @@ Color: color15                 #ffffff        231            white
 
 Color: color16                 #875fff        99             magenta
 
-Color: colorLine               #262626        235            darkgrey
-Color: colorB                  #303030        236            darkgrey
+Color: colorLine               #303030        236            darkgrey
+Color: colorPmenu              #3a3a3a        237            darkgrey
+Color: colorB                  #121212        233            darkgrey
 Color: colorNonT               #585858        240            grey
 Color: colorV                  #5fd7ff        81             cyan
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
-
+Color: colorSt                 #9e9e9e        247            grey
 
 ; Diff colors
 Color: diffAdd                 #5f875f        65             darkgreen
@@ -69,16 +70,16 @@ Variant: gui 256 16
 
 Normal                         color07        color00
 
-Statusline                     color00        color07        bold
+Statusline                     color00        colorSt        bold
 StatuslineNC                   color00        color08
 VertSplit                      color08        none
 
 TabLine                        color00        color08
 TabLineFill                    none           none
-TabLineSel                     color00        color07        bold
+TabLineSel                     color00        colorSt        bold
 
 ToolbarLine                    none           none
-ToolbarButton                  color00        color07
+ToolbarButton                  color00        colorSt
 
 QuickFixLine                   color00        color13
 CursorLineNr                   color15        none           bold
@@ -92,15 +93,14 @@ EndOfBuffer                    colorNonT      none
 Variant: gui 256 16
 EndOfBuffer                    color08        none
 
-
 Variant: gui 256
-Pmenu                          color07        colorB
+Pmenu                          color07        colorPmenu
 PmenuSel                       color00        color11
 PmenuThumb                     none           color07
 PmenuSbar                      none           none
-PmenuKind                      color09        colorB
+PmenuKind                      color09        colorPmenu
 PmenuKindSel                   color01        color11
-PmenuExtra                     color08        colorB
+PmenuExtra                     color08        colorPmenu
 PmenuExtraSel                  color00        color11
 Variant: 16
 Pmenu                          color00        color07
@@ -111,7 +111,6 @@ PmenuKind                      color01        color07
 PmenuKindSel                   color01        color03
 PmenuExtra                     color08        color07
 PmenuExtraSel                  color00        color03
-
 
 Variant: gui 256 16
 SignColumn                     none           none
@@ -131,16 +130,13 @@ WildMenu                       color00        color11
 debugPC                        color04        none           reverse
 debugBreakpoint                color06        none           reverse
 
-
 Variant: gui
 Cursor                         color00        color15
 lCursor                        color00        colorlC
 
-
 Variant: gui 256 16
 Visual                         colorV         color00        reverse
 VisualNOS                      color00        color14
-
 
 Variant: 16
 CursorLine                     none           none           underline
@@ -202,11 +198,11 @@ Normal                         color07        color00
 
 Statusline                     color07        color00        reverse,bold
 StatuslineNC                   color00        color07
-VertSplit                      color07        color07
+VertSplit                      color07        none
 
-TabLine                        color07        color00        reverse
-TabLineFill                    none           color07
-TabLineSel                     color07        color00
+TabLine                        color07        color00
+TabLineFill                    none           none
+TabLineSel                     color00        color07
 
 ToolbarLine                    none           none
 ToolbarButton                  color07        color00        reverse,bold
@@ -245,7 +241,6 @@ WildMenu                       color00        color03
 debugPC                        color04        none           reverse
 debugBreakpoint                color06        none           reverse
 
-
 Visual                         color06        color00        reverse
 MatchParen                     none           none           bold,underline
 
@@ -278,11 +273,13 @@ Directory                      color04        none           bold
 Conceal                        none           none
 Ignore                         none           none
 
-
 DiffAdd                        color00        color02
 DiffChange                     color00        color04
 DiffText                       color00        color05
 DiffDelete                     color00        color01
 
+Added                          color02        none
+Changed                        color04        none
+Removed                        color01        none
 
 Include: _tcozero

@@ -32,13 +32,14 @@ def Base()
 enddef
 
 augroup colorschemes | au!
-    au Colorscheme * Base()
-    au Colorscheme habamax,wildcharm Lsp()
+    au Colorscheme habamax,wildcharm Base()
+    au Colorscheme habamax,wildcharm,ruler Lsp()
 augroup END
 
 # set background=dark
 # silent! colorscheme wildcharm
-silent! colorscheme habamax
+# silent! colorscheme habamax
+silent! colorscheme ruler
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
