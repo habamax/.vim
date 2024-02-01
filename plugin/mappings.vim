@@ -52,9 +52,6 @@ cnoremap <expr> <space> getcmdtype() =~ '[/?]' ? '.\{-}' : "<space>"
 inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
-# split a line
-nnoremap gs i<CR><ESC>g;A
-
 # whitespace
 nnoremap <space>T<space> <cmd>RemoveTrailingSpaces<CR>
 
