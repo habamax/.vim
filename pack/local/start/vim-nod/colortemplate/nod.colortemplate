@@ -6,7 +6,7 @@ Author: Maxim Kim <habamax@gmail.com>
 Website: https://github.com/habamax/.vim/tree/master/pack/local/start/vim-nod
 License: Same as Vim
 
-; default links
+;; default links
 Terminal                       -> Normal
 StatuslineTerm                 -> Statusline
 StatuslineTermNC               -> StatuslineNC
@@ -15,6 +15,12 @@ LineNrBelow                    -> LineNr
 MessageWindow                  -> PMenu
 PopupNotification              -> Todo
 CurSearch                      -> IncSearch
+
+;; filetype and plugins
+markdownUrl                    -> String
+markdownHeadingDelimiter       -> Statement
+markdownListMarker             -> Constant
+
 
 Background: dark
 
@@ -174,7 +180,7 @@ Type                           color04        none
 
 PreProc                        color05        none
 Special                        color16        none
-Underlined                     none           none           underline
+Underlined                     color12        none           underline
 
 Title                          none           none           bold
 Directory                      none           none           bold
