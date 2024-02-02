@@ -1,9 +1,9 @@
 ; vim: cc=32,47,62 vsts=31,15,15,4
 Full name: nod
 Short name: nod
-Description: Dark colorscheme. Experimental.
+Description: Which colorscheme? Yes!
 Author: Maxim Kim <habamax@gmail.com>
-Website: https://github.com/habamax/.vim/
+Website: https://github.com/habamax/.vim/tree/master/pack/local/start/vim-nod
 License: Same as Vim
 
 ; default links
