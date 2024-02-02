@@ -1,6 +1,5 @@
 vim9script
 
-
 # termguicolors support
 if !has('win32') && !has('gui_running')
         && $TERM !~ 'xterm'
