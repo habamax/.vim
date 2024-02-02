@@ -20,7 +20,16 @@ CurSearch                      -> IncSearch
 markdownUrl                    -> String
 markdownHeadingDelimiter       -> Statement
 markdownListMarker             -> Constant
-
+rstSectionDelimiter            -> Statement
+rstDirective                   -> Special
+lspDiagVirtualTextError        -> Removed
+lspDiagSignErrorText           -> Removed
+lspDiagVirtualTextWarning      -> WarningMsg
+lspDiagSignWarningText         -> WarningMsg
+lspDiagVirtualTextHint         -> Added
+lspDiagSignHintText            -> Added
+lspDiagVirtualTextInfo         -> Changed
+lspDiagSignInfoText            -> Changed
 
 Background: dark
 
