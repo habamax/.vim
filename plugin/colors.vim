@@ -33,7 +33,7 @@ enddef
 
 augroup colorschemes | au!
     au Colorscheme habamax,wildcharm Base()
-    au Colorscheme habamax,wildcharm,nod Lsp()
+    au Colorscheme habamax,wildcharm Lsp()
 augroup END
 
 # set background=dark
