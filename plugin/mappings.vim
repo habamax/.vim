@@ -192,9 +192,6 @@ inoremap <C-U> <C-G>u<C-U>
 # spell correction for the first suggested
 inoremap <C-l> <C-g>u<ESC>[s1z=`]a<C-g>u
 
-# multi-purpose CTRL-L
-nnoremap <C-l> <cmd>diffupdate<CR><cmd>nohlsearch<CR><C-l>
-
 nnoremap <silent> <space># <scriptcmd>text.Underline('#')<CR>
 nnoremap <silent> <space>* <scriptcmd>text.Underline('*')<CR>
 nnoremap <silent> <space>= <scriptcmd>text.Underline('=')<CR>
