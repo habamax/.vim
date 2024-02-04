@@ -8,8 +8,9 @@ augroup general | au!
 
     # auto :nohlsearch
     set updatetime=2000
-    noremap <silent> <Plug>(nohlsearch) :<C-U>nohlsearch<cr>
+    noremap! <expr> <Plug>(nohlsearch) execute('nohlsearch')[-1]
     au CursorHold * call feedkeys("\<Plug>(nohlsearch)", 'm')
+    au InsertEnter * call feedkeys("\<Plug>(nohlsearch)", 'm')
 
     # goto last known position of the buffer
     au BufReadPost *
