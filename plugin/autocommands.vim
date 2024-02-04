@@ -7,7 +7,6 @@ augroup general | au!
     au Filetype * setl formatoptions=qjlron
 
     # auto :nohlsearch
-    set updatetime=2000
     noremap <silent> <Plug>(nohlsearch) :<C-U>nohlsearch<cr>
     au CursorHold * call feedkeys("\<Plug>(nohlsearch)", 'm')
 
