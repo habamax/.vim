@@ -167,12 +167,12 @@ MatchParen                     colorMP        none           bold
 
 Variant: gui
 SpellBad                       none           none           g=undercurl s=color09
-SpellCap                       none           none           g=undercurl s=color06
-SpellLocal                     none           none           g=undercurl s=color02
+SpellCap                       none           none           g=undercurl s=color11
+SpellLocal                     none           none           g=undercurl s=color10
 SpellRare                      none           none           g=undercurl s=color13
 Variant: 256 16
-SpellBad                       color01        none           underline
-SpellCap                       color06        none           underline
+SpellBad                       color09        none           underline
+SpellCap                       color11        none           underline
 SpellLocal                     color10        none           underline
 SpellRare                      color13        none           underline
 
@@ -264,8 +264,8 @@ Folded                         color07        none           bold
 ColorColumn                    color00        color03
 
 SpellBad                       color01        none           reverse
-SpellCap                       color06        none           reverse
-SpellLocal                     color02        color00        reverse
+SpellCap                       color03        none           reverse
+SpellLocal                     color02        none           reverse
 SpellRare                      color05        none           reverse
 
 Comment                        none           none           bold
