@@ -43,8 +43,16 @@ if exists("g:loaded_dir")
             setreg("@", urls->join("\n"))
             setreg("+", urls->join("\n"))
             echom urls->join("\n")
+        }},
+        {text: 'Check vim screen dump', Action: (items) => {
+            if len(items) > 1
+                return
+            endif
+            # TODO: check for path, name and extension: failed/Test_.*\.dump
+            term_dumpdiff(items[0].name, $"../dumps/{items[0].name}")
         }}
     ]
+
 endif
 
 if exists("g:loaded_lsp")
