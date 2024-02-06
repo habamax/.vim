@@ -31,7 +31,7 @@ def Base()
 enddef
 
 augroup colorschemes | au!
-    au Colorscheme habamax,wildcharm Base()
+    au Colorscheme nod,habamax,wildcharm Base()
     au Colorscheme habamax,wildcharm Lsp()
 augroup END
 
