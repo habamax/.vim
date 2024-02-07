@@ -17,6 +17,8 @@ PopupNotification              -> Todo
 CurSearch                      -> IncSearch
 
 ;; filetype and plugins
+sqlKeyword                     -> Statement
+Quote                          -> String
 markdownUrl                    -> String
 markdownHeadingDelimiter       -> Statement
 markdownListMarker             -> Constant
