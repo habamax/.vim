@@ -5,3 +5,5 @@ if executable('sql-formatter')
 endif
 
 let &l:commentstring = "-- %s"
+
+iab ssf select * from
