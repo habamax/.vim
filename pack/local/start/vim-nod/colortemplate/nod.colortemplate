@@ -26,12 +26,12 @@ rstSectionDelimiter            -> Statement
 rstDirective                   -> Special
 lspDiagVirtualTextError        -> Removed
 lspDiagSignErrorText           -> Removed
-lspDiagVirtualTextWarning      -> WarningMsg
-lspDiagSignWarningText         -> WarningMsg
+lspDiagVirtualTextWarning      -> Changed
+lspDiagSignWarningText         -> Changed
 lspDiagVirtualTextHint         -> Added
 lspDiagSignHintText            -> Added
-lspDiagVirtualTextInfo         -> Changed
-lspDiagSignInfoText            -> Changed
+lspDiagVirtualTextInfo         -> Question
+lspDiagSignInfoText            -> Question
 
 Background: dark
 
@@ -204,7 +204,7 @@ DiffChange                     diffChange     color00        reverse
 DiffText                       diffText       color00        reverse
 DiffDelete                     diffDelete     color00        reverse
 Added                          color10        none
-Changed                        color12        none
+Changed                        color11        none
 Removed                        color09        none
 
 
@@ -294,7 +294,7 @@ DiffText                       color00        color05
 DiffDelete                     color00        color01
 
 Added                          color02        none
-Changed                        color04        none
+Changed                        color03        none
 Removed                        color01        none
 
 Include: _tcozero
