@@ -42,6 +42,27 @@ def Apply(layout: list<any>)
     endif
 enddef
 
+def RemoveDupLayouts()
+    var idx = 0
+    while idx < len(layouts) - 1
+        if layouts[idx] == layouts[idx + 1]
+            remove(layouts, idx)
+            remove(resize_cmds, idx)
+            remove(views, idx)
+        else
+            idx += 1
+        endif
+    endwhile
+enddef
+
+def CapMaxLayouts()
+    if len(layouts) > layout_max
+        remove(layouts, 0)
+        remove(resize_cmds, 0)
+        remove(views, 0)
+    endif
+enddef
+
 export def Save(event: string = '')
     if is_restoring_layout
         return
@@ -70,11 +91,9 @@ export def Save(event: string = '')
     add(resize_cmds, restcmd)
     add(views, [winnr(), view])
 
-    if len(layouts) > layout_max
-        remove(layouts, 0)
-        remove(resize_cmds, 0)
-        remove(views, 0)
-    endif
+    RemoveDupLayouts()
+
+    CapMaxLayouts()
 
     layout_index = len(layouts) - 1
 enddef
@@ -89,11 +108,8 @@ export def Restore(direction: number)
         layout_index += direction
         if layout_index < 0
             layout_index = 0
-            return
-        endif
-        if layout_index >= len(layouts)
+        elseif layout_index >= len(layouts)
             layout_index = len(layouts) - 1
-            return
         endif
 
         silent wincmd o
