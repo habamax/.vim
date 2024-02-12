@@ -2,11 +2,6 @@
 " --silent
 " --show-error
 
-" --url https://butr.avast.com/rest/api/2/issue/DOC-1734
-" --user rdm:heslo123
-" --silent
-" --show-error
-
 "--url https://localhost:8889/portal/check_dp
 "--user username:password
 "--silent
@@ -40,14 +35,14 @@ func! curl#do() range
     let input = s:escape_data(input)
 
     if !s:state->has_key("result_buf")
-        vnew
+        rightbelow vnew
         silent file `='[cURL output]'`
         setlocal buftype=nofile noswapfile noundofile
         setlocal nospell
         setlocal nowrap
         let s:state.result_buf = bufnr()
     elseif bufwinnr(s:state.result_buf) == -1
-        exe "vertical sbuffer "..s:state.result_buf
+        exe "rightbelow vertical sbuffer "..s:state.result_buf
     else
         exe bufwinnr(s:state.result_buf).."wincmd w"
     endif
