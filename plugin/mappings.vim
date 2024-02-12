@@ -249,10 +249,6 @@ nnoremap <silent> ]W :llast<CR>
 nnoremap <silent> [w :lprevious<CR>
 nnoremap <silent> [W :lfirst<CR>
 
-# manual folds
-nnoremap zf <cmd>set fdm&<CR>zf
-xnoremap zf <cmd>set fdm&<CR>zf
-
 # Ripgrep word under cursor
 nnoremap <space>8 <scriptcmd>exe "Rg" expand("<cword>")<cr>
 xnoremap <space>8 "0y<scriptcmd>exe "Rg" getreg("0")<cr>
