@@ -55,6 +55,11 @@ if exists("g:loaded_dir")
 
 endif
 
+if exists("g:loaded_layout")
+    nnoremap <M-Left> <scriptcmd>LayoutPrev<CR>
+    nnoremap <M-Right> <scriptcmd>LayoutNext<CR>
+endif
+
 if exists("g:loaded_lsp")
     g:LspOptionsSet({
         completionTextEdit: false,
