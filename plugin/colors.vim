@@ -9,35 +9,16 @@ if !has('win32') && !has('gui_running')
 endif
 set termguicolors
 
-def Lsp()
-    if &background == "dark"
-        hi lspDiagVirtualTextError ctermfg=131 cterm=NONE guifg=#af5f5f gui=NONE
-        hi link lspDiagSignErrorText lspDiagVirtualTextError
-        hi lspDiagVirtualTextWarning ctermfg=136 guifg=#af8700 cterm=NONE gui=NONE
-        hi link lspDiagSignWarningText lspDiagVirtualTextWarning
-        hi lspDiagVirtualTextHint ctermfg=107 guifg=#87af5f cterm=NONE gui=NONE
-        hi link lspDiagSignHintText lspDiagVirtualTextHint
-        hi lspDiagVirtualTextInfo ctermfg=31 guifg=#0087df cterm=NONE gui=NONE
-        hi link lspDiagSignInfoText lspDiagVirtualTextInfo
-    endif
-enddef
-
-def Base()
-    hi VertSplit ctermbg=NONE guibg=NONE
-    hi CursorLineNr ctermbg=NONE cterm=bold guibg=NONE gui=bold
+def Background()
     if &background == "dark" && !has("gui_running")
         hi Normal ctermbg=NONE guibg=NONE
     endif
 enddef
 
 augroup colorschemes | au!
-    au Colorscheme habamax,wildcharm Base()
-    au Colorscheme habamax,wildcharm Lsp()
+    au Colorscheme nod Background()
 augroup END
 
-# set background=dark
-# silent! colorscheme wildcharm
-# silent! colorscheme habamax
 silent! colorscheme nod
 
 # helper commands and mappings to work with vim/colorschemes
