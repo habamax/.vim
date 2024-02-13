@@ -9,14 +9,7 @@ if !has('win32') && !has('gui_running')
 endif
 set termguicolors
 
-def Background()
-    if &background == "dark" && !has("gui_running")
-        hi Normal ctermbg=NONE guibg=NONE
-    endif
-enddef
-
 augroup colorschemes | au!
-    au Colorscheme nod Background()
 augroup END
 
 if exists("$WSLENV")
