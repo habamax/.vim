@@ -87,13 +87,13 @@ EndOfBuffer                    color08        none
 
 Variant: gui 256
 Pmenu                          color00        colorPmenu
-PmenuSel                       color07        color11
+PmenuSel                       color07        color03
 PmenuThumb                     none           color08
 PmenuSbar                      none           none
 PmenuKind                      color09        colorPmenu
-PmenuKindSel                   color01        color11
+PmenuKindSel                   color01        color03
 PmenuExtra                     color08        colorPmenu
-PmenuExtraSel                  color00        color11
+PmenuExtraSel                  color00        color03
 Variant: 16
 Pmenu                          color00        color07
 PmenuThumb                     none           color02
@@ -115,9 +115,9 @@ Question                       color13        none
 WarningMsg                     color11        none
 
 Todo                           color02        color07        reverse,bold
-Search                         color07        color12
-IncSearch                      color07        color11
-WildMenu                       color07        color11
+Search                         color07        color04
+IncSearch                      color07        color03
+WildMenu                       color07        color03
 
 debugPC                        color04        none           reverse
 debugBreakpoint                color06        none           reverse
@@ -127,7 +127,7 @@ Cursor                         color07        color00
 lCursor                        color00        colorlC
 
 Variant: gui 256 16
-Visual                         color03        color07        reverse
+Visual                         color11        color07        reverse
 VisualNOS                      color00        color14
 
 Variant: 16
