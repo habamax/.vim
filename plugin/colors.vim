@@ -9,11 +9,8 @@ if !has('win32') && !has('gui_running')
 endif
 set termguicolors
 
-augroup colorschemes | au!
-augroup END
-
 if exists("$WSLENV")
-    silent! colorscheme don
+    silent! colorscheme nope
 else
     silent! colorscheme nod
 endif
