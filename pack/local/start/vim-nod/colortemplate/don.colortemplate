@@ -9,7 +9,7 @@ License: Same as Vim
 Include: _default_links
 Include: _plugin_links
 
-Background: dark
+Background: light
 
 ;;; Color palette
 Color: color00                 #000000        16             black
