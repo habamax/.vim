@@ -6,32 +6,8 @@ Author: Maxim Kim <habamax@gmail.com>
 Website: https://github.com/habamax/.vim/tree/master/pack/local/start/vim-nod
 License: Same as Vim
 
-;; default links
-Terminal                       -> Normal
-StatuslineTerm                 -> Statusline
-StatuslineTermNC               -> StatuslineNC
-LineNrAbove                    -> LineNr
-LineNrBelow                    -> LineNr
-MessageWindow                  -> PMenu
-PopupNotification              -> Todo
-CurSearch                      -> IncSearch
-
-;; filetype and plugins
-sqlKeyword                     -> Statement
-Quote                          -> String
-markdownUrl                    -> String
-markdownHeadingDelimiter       -> Statement
-markdownListMarker             -> Constant
-rstSectionDelimiter            -> Statement
-rstDirective                   -> Special
-lspDiagVirtualTextError        -> Removed
-lspDiagSignErrorText           -> Removed
-lspDiagVirtualTextWarning      -> Changed
-lspDiagSignWarningText         -> Changed
-lspDiagVirtualTextHint         -> Added
-lspDiagSignHintText            -> Added
-lspDiagVirtualTextInfo         -> Question
-lspDiagSignInfoText            -> Question
+Include: _default_links
+Include: _plugin_links
 
 Background: dark
 

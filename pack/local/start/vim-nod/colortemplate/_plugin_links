@@ -1,0 +1,17 @@
+; vim: ft=colortemplate cc=32,47,62 vsts=31,15,15,4
+;; filetype and plugins
+sqlKeyword                     -> Statement
+Quote                          -> String
+markdownUrl                    -> String
+markdownHeadingDelimiter       -> Statement
+markdownListMarker             -> Constant
+rstSectionDelimiter            -> Statement
+rstDirective                   -> Special
+lspDiagVirtualTextError        -> Removed
+lspDiagSignErrorText           -> Removed
+lspDiagVirtualTextWarning      -> Changed
+lspDiagSignWarningText         -> Changed
+lspDiagVirtualTextHint         -> Added
+lspDiagSignHintText            -> Added
+lspDiagVirtualTextInfo         -> Question
+lspDiagSignInfoText            -> Question
