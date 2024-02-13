@@ -45,7 +45,7 @@ Color: colorNonT               #585858        240            grey
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
 Color: colorSt                 #9e9e9e        247            grey
-Color: colorV                  #5fd7ff        81             darkcyan
+Color: colorV                  #5fd7ff        81             cyan
 
 ; Diff colors
 Color: diffAdd                 #5f875f        65             darkgreen
