@@ -67,7 +67,9 @@ nnoremap <space>tw <cmd>set wrap! wrap?<CR>
 nnoremap <space>ts <cmd>set spell! spell?<CR>
 nnoremap <space>td <cmd>exe (&diff ? ':diffoff' : ':diffthis')<CR>
 nnoremap <space>tv <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
-nnoremap <space>tb <scriptcmd>&bg = (&bg == "light" ? "dark" : "light")<CR>
+# nnoremap <space>tb <scriptcmd>&bg = (&bg == "light" ? "dark" : "light")<CR>
+nnoremap <space>tb <scriptcmd>exe "colorscheme" get(g:, "colors_name") == "nod" ? "don" : "nod"<CR>
+
 
 # move lines
 xnoremap <tab> :sil! m '>+1<CR>gv
