@@ -13,7 +13,7 @@ Background: light
 
 ;;; Color palette
 Color: color00                 #000000        16             black
-Color: color08                 #9e9e9e        247            darkgrey
+Color: color08                 #8a8a8a        245            darkgrey
 
 Color: color01                 #d7005f        161            darkred
 Color: color09                 #ff0087        198            red
