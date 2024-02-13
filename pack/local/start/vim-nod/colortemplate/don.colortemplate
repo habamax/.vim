@@ -24,8 +24,8 @@ Color: color10                 #00af00        34             green
 Color: color03                 #af5f00        130            darkyellow
 Color: color11                 #d7875f        173            yellow
 
-Color: color04                 #005fd7        26             darkblue
-Color: color12                 #0087ff        33             darkblue
+Color: color04                 #005faf        25             darkblue
+Color: color12                 #0087ff        33             blue
 
 Color: color05                 #af00af        127            darkmagenta
 Color: color13                 #d700d7        164            magenta
@@ -87,7 +87,7 @@ EndOfBuffer                    color08        none
 
 Variant: gui 256
 Pmenu                          color00        colorPmenu
-PmenuSel                       color07        color03
+PmenuSel                       color07        color11
 PmenuThumb                     none           color08
 PmenuSbar                      none           none
 PmenuKind                      color09        colorPmenu
@@ -114,10 +114,10 @@ MoreMsg                        color10        none
 Question                       color13        none
 WarningMsg                     color11        none
 
-Todo                           color10        color07        reverse,bold
-Search                         color07        color04
-IncSearch                      color07        color03
-WildMenu                       color07        color03
+Todo                           color02        color07        reverse,bold
+Search                         color07        color12
+IncSearch                      color07        color11
+WildMenu                       color07        color11
 
 debugPC                        color04        none           reverse
 debugBreakpoint                color06        none           reverse
@@ -127,7 +127,7 @@ Cursor                         color07        color00
 lCursor                        color00        colorlC
 
 Variant: gui 256 16
-Visual                         color11        color07        reverse
+Visual                         color03        color07        reverse
 VisualNOS                      color00        color14
 
 Variant: 16
