@@ -12,6 +12,9 @@ Include: _plugin_links
 Background: light
 
 ;;; Color palette
+Color: colorFg                 #000000        16             black
+Color: colorBg                 #ffffff        231            white
+
 Color: color00                 #000000        16             black
 Color: color08                 #8a8a8a        245            darkgrey
 
@@ -19,7 +22,7 @@ Color: color01                 #d7005f        161            darkred
 Color: color09                 #ff0087        198            red
 
 Color: color02                 #008700        28             darkgreen
-Color: color10                 #00af00        34             green
+Color: color10                 #00af5f        35             green
 
 Color: color03                 #af5f00        130            darkyellow
 Color: color11                 #d7875f        173            yellow
@@ -33,14 +36,14 @@ Color: color13                 #d700d7        164            magenta
 Color: color06                 #008787        30             darkcyan
 Color: color14                 #00afaf        37             cyan
 
-Color: color07                 #eeeeee        255            grey
+Color: color07                 #bcbcbc        250            grey
 Color: color15                 #ffffff        231            white
 
 Color: color16                 #8700ff        93             magenta
 
 Color: colorLine               #e4e4e4        254            darkgrey
 Color: colorPmenu              #dadada        253            darkgrey
-Color: colorB                  #ffffff        231            darkgrey
+Color: colorB                  #eeeeee        255            darkgrey
 Color: colorNonT               #a8a8a8        248            grey
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
@@ -61,20 +64,20 @@ Term colors: color08 color09 color10 color11 color12 color13 color14 color15
 ;;; chrome
 Variant: gui 256 16
 
-Normal                         color00        color07
+Normal                         colorFg        colorBg
 
-Statusline                     color00        colorSt        bold
-StatuslineNC                   color00        colorStIn
+Statusline                     colorFg        colorSt        bold
+StatuslineNC                   colorFg        colorStIn
 VertSplit                      colorSt        none
 
-TabLine                        color00        colorStIn
+TabLine                        colorFg        colorStIn
 TabLineFill                    none           none
-TabLineSel                     color00        colorSt        bold
+TabLineSel                     colorFg        colorSt        bold
 
 ToolbarLine                    none           none
-ToolbarButton                  color00        colorStIn
+ToolbarButton                  colorFg        colorStIn
 
-QuickFixLine                   color07        color13
+QuickFixLine                   colorBg        color13
 CursorLineNr                   none           none           bold
 LineNr                         colorNonT      none
 NonText                        colorNonT      none
@@ -87,55 +90,55 @@ Variant: gui 256 16
 EndOfBuffer                    color08        none
 
 Variant: gui 256
-Pmenu                          color00        colorPmenu
-PmenuSel                       color07        color03
+Pmenu                          colorFg        colorPmenu
+PmenuSel                       colorBg        color03
 PmenuThumb                     none           color08
 PmenuSbar                      none           none
 PmenuKind                      color09        colorPmenu
 PmenuKindSel                   color01        color03
 PmenuExtra                     color08        colorPmenu
-PmenuExtraSel                  color00        color03
+PmenuExtraSel                  colorFg        color03
 Variant: 16
-Pmenu                          color00        color07
+Pmenu                          colorFg        colorBg
 PmenuThumb                     none           color02
 PmenuSbar                      none           none
-PmenuSel                       color00        color03
-PmenuKind                      color01        color07
+PmenuSel                       colorFg        color03
+PmenuKind                      color01        colorBg
 PmenuKindSel                   color01        color03
-PmenuExtra                     color08        color07
-PmenuExtraSel                  color00        color03
+PmenuExtra                     color08        colorBg
+PmenuExtraSel                  colorFg        color03
 
 Variant: gui 256 16
 SignColumn                     none           none
 
-Error                          color01        color07        reverse
-ErrorMsg                       color01        color07        reverse
+Error                          color01        colorBg        reverse
+ErrorMsg                       color01        colorBg        reverse
 ModeMsg                        none           none           bold
 MoreMsg                        color10        none
 Question                       color13        none
 WarningMsg                     color11        none
 
-Todo                           color02        color07        reverse,bold
-Search                         color07        color04
-IncSearch                      color07        color03
-WildMenu                       color07        color03
+Todo                           color02        colorBg        reverse,bold
+Search                         colorBg        color04
+IncSearch                      colorBg        color03
+WildMenu                       colorBg        color03
 
 debugPC                        color04        none           reverse
 debugBreakpoint                color06        none           reverse
 
 Variant: gui
-Cursor                         color07        color00
-lCursor                        color00        colorlC
+Cursor                         colorBg        colorFg
+lCursor                        colorFg        colorlC
 
 Variant: gui 256 16
-Visual                         colorV         color07        reverse
-VisualNOS                      color07        color08
+Visual                         colorV         colorBg        reverse
+VisualNOS                      colorBg        color08
 
 Variant: 16
 CursorLine                     none           none           underline
-CursorColumn                   color00        color11
-Folded                         color00        none           bold
-ColorColumn                    color00        color03
+CursorColumn                   colorFg        color11
+Folded                         colorFg        none           bold
+ColorColumn                    colorFg        color03
 MatchParen                     none           none           bold,underline
 
 Variant: gui 256
@@ -177,10 +180,10 @@ Directory                      none           none           bold
 Conceal                        colorNonT      none
 Ignore                         none           none
 
-DiffAdd                        diffAdd        color07        reverse
-DiffChange                     diffChange     color07        reverse
-DiffText                       diffText       color07        reverse
-DiffDelete                     diffDelete     color07        reverse
+DiffAdd                        diffAdd        colorBg        reverse
+DiffChange                     diffChange     colorBg        reverse
+DiffText                       diffText       colorBg        reverse
+DiffDelete                     diffDelete     colorBg        reverse
 Added                          color10        none
 Changed                        color11        none
 Removed                        color09        none
