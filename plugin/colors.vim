@@ -19,7 +19,11 @@ augroup colorschemes | au!
     au Colorscheme nod Background()
 augroup END
 
-silent! colorscheme nod
+if exists("$WSLENV")
+    silent! colorscheme don
+else
+    silent! colorscheme nod
+endif
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
