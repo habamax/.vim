@@ -45,6 +45,7 @@ Color: colorNonT               #585858        240            grey
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
 Color: colorSt                 #9e9e9e        247            grey
+Color: colorV                  #5fd7ff        81             darkcyan
 
 ; Diff colors
 Color: diffAdd                 #5f875f        65             darkgreen
@@ -126,8 +127,8 @@ Cursor                         color00        color15
 lCursor                        color00        colorlC
 
 Variant: gui 256 16
-Visual                         color03        color00        reverse
-VisualNOS                      color00        color14
+Visual                         colorV         color00        reverse
+VisualNOS                      color00        color07
 
 Variant: 16
 CursorLine                     none           none           underline
@@ -235,7 +236,7 @@ debugBreakpoint                color06        none           reverse
 Visual                         color03        color00        reverse
 MatchParen                     none           none           bold,underline
 
-VisualNOS                      color00        color06
+VisualNOS                      color00        color07
 CursorLine                     none           none           underline
 CursorColumn                   color00        color03
 Folded                         color07        none           bold
