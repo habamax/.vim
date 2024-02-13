@@ -1,5 +1,6 @@
 ; vim: ft=colortemplate cc=32,47,62 vsts=31,15,15,4
 ;; filetype and plugins
+vimCommentString               -> Comment
 sqlKeyword                     -> Statement
 Quote                          -> String
 markdownUrl                    -> String
