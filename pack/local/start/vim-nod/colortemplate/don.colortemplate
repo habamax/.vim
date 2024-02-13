@@ -36,7 +36,7 @@ Color: color13                 #d700d7        164            magenta
 Color: color06                 #008787        30             darkcyan
 Color: color14                 #00afaf        37             cyan
 
-Color: color07                 #bcbcbc        250            grey
+Color: color07                 #dadada        253            grey
 Color: color15                 #ffffff        231            white
 
 Color: color16                 #8700ff        93             magenta
@@ -47,8 +47,8 @@ Color: colorB                  #eeeeee        255            darkgrey
 Color: colorNonT               #a8a8a8        248            grey
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
-Color: colorSt                 #bcbcbc        250            grey
-Color: colorStIn               #d0d0d0        252            grey
+Color: colorSt                 #c6c6c6        251            grey
+Color: colorStIn               #dadada        253            grey
 Color: colorV                  #0087af        31             darkcyan
 
 ; Diff colors
