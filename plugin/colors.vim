@@ -9,11 +9,7 @@ if !has('win32') && !has('gui_running')
 endif
 set termguicolors
 
-if exists("$WSLENV")
-    silent! colorscheme nope
-else
-    silent! colorscheme nod
-endif
+silent! colorscheme nod
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
