@@ -37,7 +37,9 @@ def Things()
     # var things = []
     var things = matchbufline(bufnr(),
         '\v(^\s*(def|class)\s+\k+.*$)|(if __name__ \=\= .*)',
-        1, '$')
+        1, '$')->foreach((_, v) => {
+            v.text = $"{v.text} ({v.lnum})"
+        })
     popup.FilterMenu("Py Things", things,
         (res, key) => {
             exe $":{res.lnum}"
@@ -45,7 +47,9 @@ def Things()
         },
         (winid) => {
             win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
+            win_execute(winid, $"syn match FilterMenuFuncName '\\k\\+\\ze('")
             hi def link FilterMenuLineNr Comment
+            hi def link FilterMenuFuncName Function
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
