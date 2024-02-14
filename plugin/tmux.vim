@@ -28,7 +28,7 @@ set <M-h>=h
 set <M-j>=j
 set <M-k>=k
 set <M-l>=l
-nnoremap <M-h> <scriptcmd>TmuxVimNavigate("h")<CR>
-nnoremap <M-j> <scriptcmd>TmuxVimNavigate("j")<CR>
-nnoremap <M-k> <scriptcmd>TmuxVimNavigate("k")<CR>
-nnoremap <M-l> <scriptcmd>TmuxVimNavigate("l")<CR>
+noremap <M-h> <scriptcmd>TmuxVimNavigate("h")<CR>
+noremap <M-j> <scriptcmd>TmuxVimNavigate("j")<CR>
+noremap <M-k> <scriptcmd>TmuxVimNavigate("k")<CR>
+noremap <M-l> <scriptcmd>TmuxVimNavigate("l")<CR>
