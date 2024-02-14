@@ -111,5 +111,9 @@ def Irc()
     if buf_del != -1
         exe $"bd {buf_del}"
     endif
+
+    if !empty($TMUX)
+        system('tmux rename-window "irc"')
+    endif
 enddef
 command! Irc Irc()
