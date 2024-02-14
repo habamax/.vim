@@ -1,6 +1,6 @@
 vim9script
 
-# Add following to your .tmux.conf (uncommented):
+# Add and uncomment following lines to your .tmux.conf:
 # bind -n M-k if "[ $(tmux display -p '#{pane_current_command}') = vim ]" "send-keys M-k" "select-pane -U"
 # bind -n M-j if "[ $(tmux display -p '#{pane_current_command}') = vim ]" "send-keys M-j" "select-pane -D"
 # bind -n M-h if "[ $(tmux display -p '#{pane_current_command}') = vim ]" "send-keys M-h" "select-pane -L"
