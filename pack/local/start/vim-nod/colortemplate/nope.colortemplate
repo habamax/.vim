@@ -47,8 +47,8 @@ Color: colorB                  #e4e4e4        254            grey
 Color: colorNonT               #a8a8a8        248            grey
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
-Color: colorSt                 #767676        243            darkgrey
-Color: colorStIn               #b2b2b2        249            darkgrey
+Color: colorSt                 #626262        241            darkgrey
+Color: colorStIn               #949494        246            darkgrey
 Color: colorV                  #0087af        31             darkcyan
 
 ; Diff colors
