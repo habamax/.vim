@@ -26,9 +26,13 @@ def Things()
         var shift = 0
         while text !~ '{\s*$' && (lnum + shift) < line('$')
             shift += 1
-            text ..= " " .. trim(getline(lnum + shift)->tr("\t", " "))
+            if text !~ '(\s*$'
+                text ..= " "
+            endif
+            text ..= trim(getline(lnum + shift)->substitute('\s\+', ' ', 'g'))
         endwhile
-        add(things, {text: trim(text, " {", 2), lnum: shift < 2 ? lnum : lnum + 1})
+        lnum = shift < 2 ? lnum : lnum + 1
+        add(things, {text: trim(text, " {", 2) .. $" ({lnum})", lnum: lnum})
     endwhile
     popup.FilterMenu("C Things", things,
         (res, key) => {
@@ -37,7 +41,9 @@ def Things()
         },
         (winid) => {
             win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
+            win_execute(winid, $"syn match FilterMenuFuncName '\\k\\+\\ze('")
             hi def link FilterMenuLineNr Comment
+            hi def link FilterMenuFuncName Function
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
