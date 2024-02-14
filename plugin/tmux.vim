@@ -6,7 +6,18 @@ vim9script
 # bind -n M-h if "[ $(tmux display -p '#{pane_current_command}') = vim ]" "send-keys M-h" "select-pane -L"
 # bind -n M-l if "[ $(tmux display -p '#{pane_current_command}') = vim ]" "send-keys M-l" "select-pane -R"
 
+if !has("gui_running")
+    set <M-h>=h
+    set <M-j>=j
+    set <M-k>=k
+    set <M-l>=l
+endif
+
 if empty($TMUX)
+    noremap <M-h> <scriptcmd>wincmd h<CR>
+    noremap <M-j> <scriptcmd>wincmd j<CR>
+    noremap <M-k> <scriptcmd>wincmd k<CR>
+    noremap <M-l> <scriptcmd>wincmd l<CR>
     finish
 endif
 
@@ -24,10 +35,6 @@ def TmuxVimNavigate(direction: string)
     endif
 enddef
 
-set <M-h>=h
-set <M-j>=j
-set <M-k>=k
-set <M-l>=l
 noremap <M-h> <scriptcmd>TmuxVimNavigate("h")<CR>
 noremap <M-j> <scriptcmd>TmuxVimNavigate("j")<CR>
 noremap <M-k> <scriptcmd>TmuxVimNavigate("k")<CR>
