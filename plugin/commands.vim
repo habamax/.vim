@@ -99,14 +99,21 @@ def Irc()
     exe "IIJoin irc.libera.chat #vim"
     normal zb
     wincmd o
-    exe "IIJoin irc.libera.chat #python"
-    wincmd L
-    normal zb
-    exe "IIJoin irc.libera.chat #perl"
-    normal zb
-    wincmd h
     exe "IIJoin irc.libera.chat #emacs"
     normal zb
+    wincmd H
+
+    # exe "IIJoin irc.libera.chat #vim"
+    # normal zb
+    # wincmd o
+    # exe "IIJoin irc.libera.chat #python"
+    # wincmd L
+    # normal zb
+    # exe "IIJoin irc.libera.chat #perl"
+    # normal zb
+    # wincmd h
+    # exe "IIJoin irc.libera.chat #emacs"
+    # normal zb
 
     if buf_del != -1
         exe $"bd {buf_del}"
