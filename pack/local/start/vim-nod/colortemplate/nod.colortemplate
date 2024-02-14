@@ -117,7 +117,7 @@ WarningMsg                     color11        none
 Todo                           color02        color00        reverse,bold
 Search                         color00        color12
 IncSearch                      color00        color11
-WildMenu                       color00        color11
+WildMenu                       color00        color11        bold
 
 debugPC                        color04        none           reverse
 debugBreakpoint                color06        none           reverse
