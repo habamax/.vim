@@ -71,7 +71,9 @@ b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F7>"'
 def Things()
     var things = matchbufline(bufnr(),
         '\v^\s*(func|class|signal)\s+\k+.*$',
-        1, '$')
+        1, '$')->foreach((_, v) => {
+            v.text = $"{v.text} ({v.lnum})"
+        })
     popup.FilterMenu("GDScript Things", things,
         (res, key) => {
             exe $":{res.lnum}"
@@ -79,7 +81,9 @@ def Things()
         },
         (winid) => {
             win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
+            win_execute(winid, $"syn match FilterMenuFuncName '\\k\\+\\ze('")
             hi def link FilterMenuLineNr Comment
+            hi def link FilterMenuFuncName Function
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
