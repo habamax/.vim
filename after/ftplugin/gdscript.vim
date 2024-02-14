@@ -69,17 +69,12 @@ b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F6>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F7>"'
 
 def Things()
-    var things = []
-    for nr in range(1, line('$'))
-        var line = getline(nr)
-        if line =~ '\(^\|\s\)\(func\|class\|signal\) \k\+('
-                || line =~ 'if __name__ == "__main__":'
-            things->add({text: $"{line} ({nr})", linenr: nr})
-        endif
-    endfor
+    var things = matchbufline(bufnr(),
+        '\v^\s*(func|class|signal)\s+\k+.*$',
+        1, '$')
     popup.FilterMenu("GDScript Things", things,
         (res, key) => {
-            exe $":{res.linenr}"
+            exe $":{res.lnum}"
             normal! zz
         },
         (winid) => {

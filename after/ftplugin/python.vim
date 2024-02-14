@@ -34,17 +34,13 @@ else
 endif
 
 def Things()
-    var things = []
-    for nr in range(1, line('$'))
-        var line = getline(nr)
-        if line =~ '\(^\|\s\)\(def\|class\) \k\+('
-                || line =~ 'if __name__ == "__main__":'
-            things->add({text: $"{line} ({nr})", linenr: nr})
-        endif
-    endfor
+    # var things = []
+    var things = matchbufline(bufnr(),
+        '\v(^\s*(def|class)\s+\k+.*$)|(if __name__ \=\= .*)',
+        1, '$')
     popup.FilterMenu("Py Things", things,
         (res, key) => {
-            exe $":{res.linenr}"
+            exe $":{res.lnum}"
             normal! zz
         },
         (winid) => {
