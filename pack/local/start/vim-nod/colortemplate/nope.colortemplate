@@ -41,14 +41,14 @@ Color: color15                 #ffffff        231            white
 
 Color: color16                 #8700ff        93             magenta
 
-Color: colorLine               #e4e4e4        254            darkgrey
-Color: colorPmenu              #dadada        253            darkgrey
-Color: colorB                  #eeeeee        255            darkgrey
+Color: colorLine               #eeeeee        255            grey
+Color: colorPmenu              #e4e4e4        254            grey
+Color: colorB                  #e4e4e4        254            grey
 Color: colorNonT               #a8a8a8        248            grey
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
-Color: colorSt                 #c6c6c6        251            grey
-Color: colorStIn               #dadada        253            grey
+Color: colorSt                 #767676        243            darkgrey
+Color: colorStIn               #b2b2b2        249            darkgrey
 Color: colorV                  #0087af        31             darkcyan
 
 ; Diff colors
@@ -66,16 +66,16 @@ Variant: gui 256 16
 
 Normal                         colorFg        colorBg
 
-Statusline                     colorFg        colorSt        bold
-StatuslineNC                   colorFg        colorStIn
+Statusline                     colorBg        colorSt        bold
+StatuslineNC                   colorBg        colorStIn
 VertSplit                      colorSt        none
 
-TabLine                        colorFg        colorStIn
+TabLine                        colorBg        colorStIn
 TabLineFill                    none           none
-TabLineSel                     colorFg        colorSt        bold
+TabLineSel                     colorBg        colorSt        bold
 
 ToolbarLine                    none           none
-ToolbarButton                  colorFg        colorStIn
+ToolbarButton                  colorBg        colorSt
 
 QuickFixLine                   colorBg        color13
 CursorLineNr                   none           none           bold
