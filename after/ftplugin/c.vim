@@ -16,9 +16,20 @@ b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 
 import autoload 'popup.vim'
 def Things()
-    var things = matchbufline(bufnr(),
-        '\v^\s*(\k+\_s+){1,}\k+\(.{-}\)\_s*\{\s*$',
-        1, '$')
+    var view = winsaveview()
+    defer winrestview(view)
+    var things = []
+    :1
+    while search('\v^\s*(\k+\_s+){1,}\k+\((\_s*[*_,[:alnum:]]{-}){-}\)\_s{-}\{\s*$', 'W') != 0
+        var text = trim(getline('.'))
+        var lnum = line('.')
+        var shift = 0
+        while text !~ '{\s*$' && (lnum + shift) < line('$')
+            shift += 1
+            text ..= " " .. trim(getline(lnum + shift)->tr("\t", " "))
+        endwhile
+        add(things, {text: trim(text, " {", 2), lnum: shift < 2 ? lnum : lnum + 1})
+    endwhile
     popup.FilterMenu("C Things", things,
         (res, key) => {
             exe $":{res.lnum}"
