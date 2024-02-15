@@ -1,6 +1,8 @@
 vim9script
 
 setlocal commentstring=//%s
+setlocal foldignore=#
+b:undo_ftplugin ..= ' | setl commentstring< foldignore<'
 
 def Make()
     if filereadable("Makefile")
