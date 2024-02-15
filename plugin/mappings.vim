@@ -255,5 +255,7 @@ nnoremap <space>8 <scriptcmd>exe "Rg" expand("<cword>")<cr>
 xnoremap <space>8 "0y<scriptcmd>exe "Rg" getreg("0")<cr>
 
 # Alt mappings
-nnoremap <esc>n gt
-nnoremap <esc>p gT
+set <M-n>=n
+set <M-p>=p
+nnoremap <M-n> gt
+nnoremap <M-p> gT
