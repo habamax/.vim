@@ -46,7 +46,8 @@ export def MRU()
         # use non-filtered v:oldfiles
         mru = v:oldfiles
     else
-        mru = v:oldfiles->filter((_, v) => filereadable(fnamemodify(v, ":p")))
+        mru = v:oldfiles->filter((_, v) =>
+            filereadable(fnamemodify(v, ":p")) && v !~ 'share/vim/.*/doc/.*\.txt')
     endif
     popup.FilterMenu("MRU", mru,
         (res, key) => {
