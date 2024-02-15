@@ -20,8 +20,12 @@ def Things()
     defer winrestview(view)
     var things = []
     :1
-    while search('\v^\s*(\k+\_s+){1,}\k+\((\_s*[*_,[:alnum:]]{-}){-}\)\_s{-}\{\s*$', 'W') != 0
-        var text = trim(getline('.'))
+    var rx_func = '\v^\s*(\k+\_s+){1,}\k+'
+    rx_func ..= '\((\_s*[*_,[:alnum:]]{-}(\s*\/\/.*)?){-}\)'
+    rx_func ..= '\s*(\/\/.*)?'
+    rx_func ..= '\_s{-}\{\s*$'
+    while search(rx_func, 'W') != 0
+        var text = trim(getline('.'))->substitute('\s*\/\/.*$', '', '')
         var lnum = line('.')
         var shift = 0
         while text !~ '{\s*$' && (lnum + shift) < line('$')
@@ -30,6 +34,7 @@ def Things()
                 text ..= " "
             endif
             text ..= trim(getline(lnum + shift)->substitute('\s\+', ' ', 'g'))
+            text = text->substitute('\s*\/\/.*$', '', '')
         endwhile
         lnum = shift < 2 ? lnum : lnum + 1
         add(things, {text: trim(text, " {", 2) .. $" ({lnum})", lnum: lnum})
