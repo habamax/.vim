@@ -70,7 +70,6 @@ nnoremap <space>tv <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>s
 # nnoremap <space>tb <scriptcmd>&bg = (&bg == "light" ? "dark" : "light")<CR>
 nnoremap <space>tb <scriptcmd>exe "colorscheme" get(g:, "colors_name", "") == "nod" ? "nope" : "nod"<CR>
 
-
 # move lines
 xnoremap <tab> :sil! m '>+1<CR>gv
 xnoremap <s-tab> :sil! m '<-2<CR>gv
