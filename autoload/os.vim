@@ -106,38 +106,25 @@ export def Gx()
 
     # markdown URL [link text](http://ya.ru 'yandex search')
     var save_view = winsaveview()
-    try
-        if searchpair('\[.\{-}\](', '', ')\zs', 'cbW', '', line('.')) > 0
-            URL = matchstr(getline('.')[col('.') - 1 : ], '\[.\{-}\](\zs' .. rx_embd .. '\ze\(\s\+.\{-}\)\?)')
-        endif
-    finally
-        winrestview(save_view)
-    endtry
+    defer winrestview(save_view)
+    if searchpair('\[.\{-}\](', '', ')\zs', 'cbW', '', line('.')) > 0
+        URL = matchstr(getline('.')[col('.') - 1 : ], '\[.\{-}\](\zs' .. rx_embd .. '\ze\(\s\+.\{-}\)\?)')
+    endif
 
     # asciidoc URL http://yandex.ru[yandex search]
     if empty(URL)
-        save_view = winsaveview()
-        try
-            if searchpair(rx_bare .. '\[', '', '\]\zs', 'cbW', '', line('.')) > 0
-                URL = matchstr(getline('.')[col('.') - 1 : ], '\S\{-}\ze[')
-            endif
-        finally
-            winrestview(save_view)
-        endtry
+        if searchpair(rx_bare .. '\[', '', '\]\zs', 'cbW', '', line('.')) > 0
+            URL = matchstr(getline('.')[col('.') - 1 : ], '\S\{-}\ze[')
+        endif
     endif
 
     # HTML URL <a href='http://www.python.org'>Python is here</a>
     #          <a href="http://www.python.org"/>
     if empty(URL)
-        save_view = winsaveview()
-        try
-            if searchpair('<a\s\+href=', '', '\%(</a>\|/>\)\zs', 'cbW', '', line('.')) > 0
-                URL = matchstr(getline('.')[col('.') - 1 : ],
-                               'href=["' .. "'" .. ']\?\zs\S\{-}\ze["' .. "'" .. ']\?/\?>')
-            endif
-        finally
-            winrestview(save_view)
-        endtry
+        if searchpair('<a\s\+href=', '', '\%(</a>\|/>\)\zs', 'cbW', '', line('.')) > 0
+            URL = matchstr(getline('.')[col('.') - 1 : ],
+                'href=["' .. "'" .. ']\?\zs\S\{-}\ze["' .. "'" .. ']\?/\?>')
+        endif
     endif
 
     # URL <http://google.com>

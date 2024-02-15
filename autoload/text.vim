@@ -15,6 +15,7 @@ vim9script
 # command! -range FixSpaces call text#fix_spaces(<line1>,<line2>)
 export def FixSpaces(line1: number, line2: number)
     var view = winsaveview()
+    defer winrestview(view)
     # replace non-breaking space to space first
     exe printf('silent :%d,%ds/\%%xA0/ /ge', line1, line2)
     # replace multiple spaces to a single space (preserving indent)
@@ -29,7 +30,6 @@ export def FixSpaces(line1: number, line2: number)
     exe printf('silent :%d,%ds/(\s/(/ge', line1, line2)
     # remove space at the end of line
     exe printf('silent :%d,%ds/\s*$//ge', line1, line2)
-    winrestview(view)
 enddef
 
 
@@ -81,6 +81,7 @@ g:months = copy(months)
 # onoremap ad :<C-u>normal vad<CR>
 export def ObjDate(inner: bool)
     var view = winsaveview()
+    defer winrestview(view)
     var cword = expand("<cword>")
     if  cword =~ '\d\{4}'
         # var rx = '^\|'
@@ -112,7 +113,6 @@ export def ObjDate(inner: bool)
         search(rxdate, 'ecW')
         return
     endif
-    winrestview(view)
 enddef
 
 

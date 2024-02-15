@@ -47,6 +47,7 @@ enddef
 
 def Toc()
     var view = winsaveview()
+    winrestview(view)
     var save_reg = @0
     var toc = []
     var toc_num = {section: 0, subsection: 0, subsubsection: 0, paragraph: 0, subparagraph: 0}
@@ -83,7 +84,6 @@ def Toc()
         endif
     endfor
     @0 = save_reg
-    winrestview(view)
 
     popup.FilterMenu("TOC", toc,
         (res, key) => {
