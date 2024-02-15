@@ -54,7 +54,7 @@ Color: colorV                  #0087af        31             darkcyan
 ; Diff colors
 Color: diffAdd                 #5f875f        65             darkgreen
 Color: diffDelete              #875f5f        95             darkred
-Color: diffChange              #5f87af        67             darkblue
+Color: diffChange              #5f87af        67             blue
 Color: diffText                #af5faf        133            darkmagenta
 
 Term colors: color00 color01 color02 color03 color04 color05 color06 color07
@@ -99,14 +99,14 @@ PmenuKindSel                   color01        color11
 PmenuExtra                     color08        colorPmenu
 PmenuExtraSel                  colorFg        color11
 Variant: 16
-Pmenu                          colorFg        colorBg
+Pmenu                          colorBg        color08
 PmenuThumb                     none           color02
 PmenuSbar                      none           none
-PmenuSel                       colorFg        color03
-PmenuKind                      color01        colorBg
+PmenuSel                       colorBg        color03
+PmenuKind                      color01        colorFg
 PmenuKindSel                   color01        color03
-PmenuExtra                     color08        colorBg
-PmenuExtraSel                  colorFg        color03
+PmenuExtra                     color08        colorFg
+PmenuExtraSel                  colorBg        color03
 
 Variant: gui 256 16
 SignColumn                     none           none
@@ -119,8 +119,8 @@ Question                       color13        none
 WarningMsg                     color11        none
 
 Todo                           color02        colorBg        reverse,bold
-Search                         colorBg        color04
-IncSearch                      colorBg        color11
+Search                         color04        colorBg        reverse
+IncSearch                      color11        colorBg        reverse
 WildMenu                       colorBg        color11        bold
 
 debugPC                        color04        none           reverse
@@ -222,16 +222,16 @@ PmenuExtraSel                  color00        color03
 
 SignColumn                     none           none
 
-Error                          color00        color01
-ErrorMsg                       color00        color01
+Error                          color01        color00        reverse
+ErrorMsg                       color01        color00        reverse
 ModeMsg                        none           none           bold
 MoreMsg                        color02        none
 Question                       color05        none
 WarningMsg                     color03        none
 
 Todo                           color02        color00        reverse
-Search                         color04        color00        reverse
-IncSearch                      color03        color00        reverse
+Search                         color00        color04
+IncSearch                      color00        color03
 WildMenu                       color00        color03
 
 debugPC                        color04        none           reverse
@@ -269,10 +269,10 @@ Directory                      none           none           bold
 Conceal                        none           none
 Ignore                         none           none
 
-DiffAdd                        color00        color02
-DiffChange                     color00        color04
-DiffText                       color00        color05
-DiffDelete                     color00        color01
+DiffAdd                        color02        color00        reverse
+DiffChange                     color04        color00        reverse
+DiffText                       color05        color00        reverse
+DiffDelete                     color01        color00        reverse
 
 Added                          color02        none
 Changed                        color03        none

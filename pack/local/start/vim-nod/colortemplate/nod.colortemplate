@@ -115,8 +115,8 @@ Question                       color13        none
 WarningMsg                     color11        none
 
 Todo                           color02        color00        reverse,bold
-Search                         color00        color12
-IncSearch                      color00        color11
+Search                         color12        color00        reverse
+IncSearch                      color11        color00        reverse
 WildMenu                       color00        color11        bold
 
 debugPC                        color04        none           reverse
@@ -218,16 +218,16 @@ PmenuExtraSel                  color00        color03
 
 SignColumn                     none           none
 
-Error                          color00        color01
-ErrorMsg                       color00        color01
+Error                          color01        color00        reverse
+ErrorMsg                       color01        color00        reverse
 ModeMsg                        none           none           bold
 MoreMsg                        color02        none
 Question                       color05        none
 WarningMsg                     color03        none
 
 Todo                           color02        color00        reverse
-Search                         color04        color00        reverse
-IncSearch                      color03        color00        reverse
+Search                         color00        color04
+IncSearch                      color00        color03
 WildMenu                       color00        color03
 
 debugPC                        color04        none           reverse
@@ -265,10 +265,10 @@ Directory                      none           none           bold
 Conceal                        none           none
 Ignore                         none           none
 
-DiffAdd                        color00        color02
-DiffChange                     color00        color04
-DiffText                       color00        color05
-DiffDelete                     color00        color01
+DiffAdd                        color02        color00        reverse
+DiffChange                     color04        color00        reverse
+DiffText                       color05        color00        reverse
+DiffDelete                     color01        color00        reverse
 
 Added                          color02        none
 Changed                        color03        none
