@@ -124,22 +124,25 @@ enddef
 
 command -buffer -nargs=? -complete=locale Rst2Html Rst2Html(<f-args>)
 
-var chrome = ''
-if has("win32")
-    chrome = 'C:/Program Files/Google/Chrome/Application/chrome.exe'
-else
-    chrome = 'chromium'
-endif
-
 import autoload 'os.vim'
-if !chrome->empty()
-    command -buffer Rst2Pdf make | call os.Exe(printf('"%s" %s %s "%s"',
-          \ chrome,
-          \ '--headless --disable-gpu --print-to-pdf-no-header',
-          \ '--print-to-pdf="' .. expand("%:p:r") .. '.pdf"',
-          \ expand("%:p:r") .. '.html'
-          \ ))
-endif
+command -buffer Rst2Pdf make | call os.Exe(printf('rst2pdf "%s" "%s"',
+      \ expand("%:p"),
+      \ expand("%:p:r") .. '.pdf'
+      \ ))
+# var chrome = ''
+# if has("win32")
+#     chrome = 'C:/Program Files/Google/Chrome/Application/chrome.exe'
+# else
+#     chrome = 'chromium'
+# endif
+# if !chrome->empty()
+#     command -buffer Rst2Pdf make | call os.Exe(printf('"%s" %s %s "%s"',
+#           \ chrome,
+#           \ '--headless --disable-gpu --print-to-pdf-no-header',
+#           \ '--print-to-pdf="' .. expand("%:p:r") .. '.pdf"',
+#           \ expand("%:p:r") .. '.html'
+#           \ ))
+# endif
 
 command -buffer RstViewHtml :call os.Open(expand("%:p:r") .. '.html')
 command -buffer RstViewPdf :call os.Open(expand("%:p:r") .. '.pdf')
