@@ -2,6 +2,7 @@
 ;; filetype and plugins
 vimCommentString                       -> Comment
 sqlKeyword                             -> Statement
+sqlSpecial                             -> Constant
 Quote                                  -> String
 markdownUrl                            -> String
 markdownHeadingDelimiter               -> Statement
