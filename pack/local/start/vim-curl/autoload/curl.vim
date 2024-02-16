@@ -12,11 +12,60 @@ vim9script
 # --data
 # {
 #     "email": "general@gmail.com",
-#     "country_code":  "AU",
+#     "country_code": "AU",
 #     "city": "Melbourne"
 # }
 
 var state = {}
+
+# collect all common parameters
+# --$url https://base-url.com/rest/2.0
+# --$header "Authorization: Basic YWRtaW46cGFzc3dvcmQ="
+# --$header "Content-Type: application/json"
+def CommonParams(): list<string>
+    var result = []
+    var nr = 0
+    while nr < 100 && nr < line('$')
+        nr += 1
+        var line = getline(nr)
+        if line =~ '^#.*'
+            continue
+        endif
+        if line =~ '^--\$\S.*'
+            add(result, line->substitute('^--\$', '--', ''))
+        endif
+        if line =~ '^\s*$'
+            break
+        endif
+    endwhile
+    return result
+enddef
+
+def MergeCommonParams(input: list<string>, params: list<string>): list<string>
+    var result = []
+    var url = ''
+    var auth = false
+    for item in params
+        if item =~ '^--url.*$'
+            url = item
+        else
+            if item =~ '^--header\s.*Authorization:.*'
+                auth = true
+            endif
+            add(result, item)
+        endif
+    endfor
+    for item in input
+        if item =~ '^--url\s\+\(http\)\@!.*$' && !empty(url)
+            add(result, url .. item->substitute('^--url\s\+', '', ''))
+        elseif item =~ '^--header\s.*Authorization:.*' && auth
+            continue
+        else
+            add(result, item)
+        endif
+    endfor
+    return result
+enddef
 
 export def Execute(line1: number, line2: number)
     var firstline = line1
@@ -32,6 +81,8 @@ export def Execute(line1: number, line2: number)
         echom 'Nothing to cURL'
         return
     endif
+
+    input = MergeCommonParams(input, CommonParams())
 
     input = EscapeData(input)
 
@@ -49,7 +100,7 @@ export def Execute(line1: number, line2: number)
     endif
 
     deletebufline(bufnr(), 1, '$')
-    setline(1, systemlist("curl -s --config -", input)) 
+    setline(1, systemlist("curl -s --config -", input))
 
     # detect filetype and format accordingly
     if getline(1) =~ '^<...'
