@@ -9,7 +9,7 @@ syn match curlDashedParams "^--.*$" transparent contains=curlDashes,curlParam,cu
 syn match curlDashes "^--" contained
 syn match curlParam "\(^--\)\@<=\S\+" contained
 syn region curlString start='"' end='"' oneline contained contains=curlEscape
-syn match curlURL "\%(file\|http\|ftp\|irc\)s\?://\S\+\%(\[.\{-}\]\)\?" contained
+syn match curlURL "\(url\s\+\)\@<=.*$" contained
 syn match curlEscape +\\['"\\]+ contained
 
 syn region curlJsonData start='\(^--data\_s\+\)\@<={' end='^\s*$' contains=@curlJsonHighlight
