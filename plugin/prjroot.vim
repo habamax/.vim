@@ -5,7 +5,7 @@ vim9script
 
 var rootMarkers = {
     dirs: ['.git', '.hg'],
-    files: ['Cargo.toml', 'mix.exs', 'go.mod', 'package.json', 'configure', 'Makefile']
+    files: ['Cargo.toml', 'mix.exs', 'go.mod', 'package.json', 'configure']
 }
 
 def SetProjectRoot()
