@@ -5,6 +5,7 @@ sqlKeyword                     -> Statement
 Quote                          -> String
 markdownUrl                    -> String
 markdownHeadingDelimiter       -> Statement
+markdownHeadingRule            -> Statement
 markdownListMarker             -> Constant
 rstSectionDelimiter            -> Statement
 rstDirective                   -> Special
