@@ -2,6 +2,8 @@ vim9script
 
 setl commentstring=<!--%s-->
 
+compiler markdown_html
+
 # header textobject
 onoremap <buffer><silent> iP <scriptcmd>HeaderTextObj(true)<CR>
 onoremap <buffer><silent> aP <scriptcmd>HeaderTextObj(false)<CR>
@@ -12,8 +14,10 @@ import autoload 'popup.vim'
 def Toc()
     var toc = []
     var toc_num: list<number> = []
+    var plvl = 0
     for nr in range(1, line('$'))
         var line = getline(nr)
+        var pline = getline(nr - 1)
         var mdsyn = synstack(nr, 1)->map('synIDattr(v:val, "name")')
         if line =~ '^#\+\s\S\+' && mdsyn[0] !~ '^markdown\(CodeBlock\|Highlight\)'
             var lvl = line->matchstr('^#\+')->len() - 1
@@ -22,28 +26,38 @@ def Toc()
                     toc_num->add(1)
                 endfor
             else
-                toc_num[lvl] += 1
+                if lvl > plvl
+                    toc_num[lvl] = 1
+                else
+                    toc_num[lvl] += 1
+                endif
             endif
             toc->add({lvl: lvl, toc_num: toc_num[: lvl], text: $'{line->trim(" #")} ({nr})', linenr: nr})
-            continue
-        endif
-        var pline = getline(nr - 1)
-        if line =~ '^=\+$' && pline =~ '^\S\+'
+        elseif line =~ '^=\+$' && pline =~ '^\S\+'
             if len(toc_num) < 1
                 toc_num->add(1)
             else
-                toc_num[0] += 1
+                if lvl > plvl
+                    toc_num[0] = 1
+                else
+                    toc_num[0] += 1
+                endif
             endif
             toc->add({lvl: 0, toc_num: toc_num[: 0], text: $'{pline} ({nr - 1})', linenr: nr - 1})
         elseif line =~ '^-\+$' && pline =~ '^\S\+'
             if len(toc_num) < 2
                 toc_num->add(1)
             else
-                toc_num[1] += 1
+                if lvl > plvl
+                    toc_num[1] = 1
+                else
+                    toc_num[1] += 1
+                endif
             endif
             var toc_num_str = toc_num[: 1]->join('.')
             toc->add({lvl: 1, toc_num: toc_num[: 1], text: $'{pline} ({nr - 1})', linenr: nr - 1})
         endif
+        plvl = lvl
     endfor
 
     var title = toc->reduce((acc, v) => v.lvl == 0 ? acc + 1 : acc, 0) == 1 ? 1 : 0
