@@ -125,12 +125,10 @@ enddef
 command -buffer -nargs=? -complete=locale Rst2Html Rst2Html(<f-args>)
 
 var chrome = ''
-if executable('google-chrome')
-    chrome = 'google-chrome'
-elseif executable('chromium')
-    chrome = 'chromium'
-elseif executable('C:/Program Files/Google/Chrome/Application/chrome.exe')
+if has("win32")
     chrome = 'C:/Program Files/Google/Chrome/Application/chrome.exe'
+else
+    chrome = 'chromium'
 endif
 
 import autoload 'os.vim'
