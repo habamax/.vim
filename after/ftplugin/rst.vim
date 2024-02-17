@@ -125,7 +125,7 @@ enddef
 command -buffer -nargs=? -complete=locale Rst2Html Rst2Html(<f-args>)
 
 import autoload 'os.vim'
-command -buffer Rst2Pdf make | call os.Exe(printf('rst2pdf "%s" "%s"',
+command -buffer Rst2Pdf make | call os.Exe(printf('rst2pdf "%s" -o "%s"',
       \ expand("%:p"),
       \ expand("%:p:r") .. '.pdf'
       \ ))
