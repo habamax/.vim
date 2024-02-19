@@ -150,12 +150,12 @@ MatchParen                     colorMP        none           bold
 
 Variant: gui
 SpellBad                       none           none           g=undercurl s=color09
-SpellCap                       none           none           g=undercurl s=color11
+SpellCap                       none           none           g=undercurl s=color14
 SpellLocal                     none           none           g=undercurl s=color10
 SpellRare                      none           none           g=undercurl s=color13
 Variant: 256 16
 SpellBad                       color09        none           underline
-SpellCap                       color11        none           underline
+SpellCap                       color14        none           underline
 SpellLocal                     color10        none           underline
 SpellRare                      color13        none           underline
 

@@ -58,7 +58,7 @@ Folded                         color07        none           bold
 ColorColumn                    color00        color03
 
 SpellBad                       color01        none           reverse
-SpellCap                       color03        none           reverse
+SpellCap                       color06        none           reverse
 SpellLocal                     color02        none           reverse
 SpellRare                      color05        none           reverse
 
