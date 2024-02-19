@@ -114,6 +114,11 @@ def Rst2Html(locale: string = "")
     else
         b:rst2html_opts = g:rst2html_opts
     endif
+
+    # workaround: convert all code-block to include + :code:
+    :%s/^\(\s*\)\.\. code-block:: \(\S\+\)\s*\n\(\s*\):include: \(\S\+\)/\1.. include:: \4\r\3:code: \2
+    :update
+
     compiler rst2html
     if exists(":Sh") == 2
         exe "Sh" &l:makeprg
@@ -127,6 +132,11 @@ import autoload 'os.vim'
 def Rst2Pdf()
     # need to be in file's directory otherwise code-block include fails
     lcd %:p:h
+
+    # workaround: convert all include + :code: to code-block
+    :%s/^\(\s*\)\.\. include:: \(\S\+\)\s*\n\(\s*\):code: \(\S\+\)/\1.. code-block:: \4\r\3:include: \2
+    :update
+
     compiler rst2pdf
     if exists(":Sh") == 2
         exe "Sh" &l:makeprg
