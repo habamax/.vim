@@ -47,7 +47,7 @@ enddef
 
 def Toc()
     var view = winsaveview()
-    winrestview(view)
+    defer winrestview(view)
     var save_reg = @0
     var toc = []
     var toc_num = {section: 0, subsection: 0, subsubsection: 0, paragraph: 0, subparagraph: 0}
