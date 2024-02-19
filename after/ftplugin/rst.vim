@@ -125,12 +125,15 @@ command -buffer -nargs=? -complete=locale Rst2Html Rst2Html(<f-args>)
 
 import autoload 'os.vim'
 def Rst2Pdf()
+    # need to be in file's directory otherwise code-block include fails
+    lcd %:p:h
     compiler rst2pdf
     if exists(":Sh") == 2
         exe "Sh" &l:makeprg
     else
         make
     endif
+    lcd -
 enddef
 command -buffer Rst2Pdf Rst2Pdf()
 
