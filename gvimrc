@@ -18,5 +18,7 @@ endif
 # :h w32-experimental-keycode-trans-strategy
 # Should fix CTRL-=
 if has("win32")
-    test_mswin_event('set_keycode_trans_strategy', {'strategy': 'experimental'})
+    augroup mswin_strat | au!
+        au VimEnter * test_mswin_event('set_keycode_trans_strategy', {'strategy': 'experimental'})
+    augroup END
 endif
