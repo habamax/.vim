@@ -15,12 +15,13 @@ def Toc()
     var toc = []
     var toc_num: list<number> = []
     var plvl = 0
+    var lvl = 1
     for nr in range(1, line('$'))
         var line = getline(nr)
         var pline = getline(nr - 1)
         var mdsyn = synstack(nr, 1)->map('synIDattr(v:val, "name")')
         if line =~ '^#\+\s\S\+' && mdsyn[0] !~ '^markdown\(CodeBlock\|Highlight\)'
-            var lvl = line->matchstr('^#\+')->len() - 1
+            lvl = line->matchstr('^#\+')->len() - 1
             if lvl >= len(toc_num)
                 for _ in range(lvl - len(toc_num) + 1)
                     toc_num->add(1)
@@ -34,6 +35,7 @@ def Toc()
             endif
             toc->add({lvl: lvl, toc_num: toc_num[: lvl], text: $'{line->trim(" #")} ({nr})', linenr: nr})
         elseif line =~ '^=\+$' && pline =~ '^\S\+'
+            lvl = 1
             if len(toc_num) < 1
                 toc_num->add(1)
             else
@@ -45,6 +47,7 @@ def Toc()
             endif
             toc->add({lvl: 0, toc_num: toc_num[: 0], text: $'{pline} ({nr - 1})', linenr: nr - 1})
         elseif line =~ '^-\+$' && pline =~ '^\S\+'
+            lvl = 2
             if len(toc_num) < 2
                 toc_num->add(1)
             else
