@@ -34,16 +34,14 @@ def Strip(line: string): string
     return res
 enddef
 
-
 def Extract(nr: number, name: string): string
     exe $":{nr}"
     normal! 0
-    search($'\\{name}\s*{{', 'W', nr)
+    search($'\\{name}\*\?\s*{{', 'W', nr)
     silent normal! %yiB
     var res = @"->substitute("\\s*\n\\s*", " ", "g")
     return Strip(res)
 enddef
-
 
 def Toc()
     var view = winsaveview()
@@ -53,30 +51,41 @@ def Toc()
     var toc_num = {section: 0, subsection: 0, subsubsection: 0, paragraph: 0, subparagraph: 0}
     for nr in range(1, line('$'))
         var line = getline(nr)
-        if line =~ '\\title\s*{'
+        if line =~ '\\title\*\?\s*{'
             toc->add({text: $"{nr->Extract('title')} ({nr})",
                       linenr: nr})
-        elseif line =~ '\\section\s*{'
+        elseif line =~ '\\section\*\?\s*{'
             toc_num.section += 1
+            toc_num.subsection = 0
+            toc_num.subsubsection = 0
+            toc_num.subsubsection = 0
+            toc_num.paragraph = 0
+            toc_num.subparagraph = 0
             var prefix = $"{repeat('  ', 1)}{toc_num.section} "
             toc->add({text: $"{prefix}{nr->Extract('section')} ({nr})",
                       linenr: nr})
-        elseif line =~ '\\subsection\s*{'
+        elseif line =~ '\\subsection\*\?\s*{'
             toc_num.subsection += 1
+            toc_num.subsubsection = 0
+            toc_num.paragraph = 0
+            toc_num.subparagraph = 0
             var prefix = $"{repeat('  ', 2)}{toc_num.section}.{toc_num.subsection} "
             toc->add({text: $"{prefix}{nr->Extract('subsection')} ({nr})",
                      linenr: nr})
-        elseif line =~ '\\subsubsection\s*{'
+        elseif line =~ '\\subsubsection\*\?\s*{'
             toc_num.subsubsection += 1
+            toc_num.paragraph = 0
+            toc_num.subparagraph = 0
             var prefix = $"{repeat('  ', 3)}{toc_num.section}.{toc_num.subsection}.{toc_num.subsubsection} "
             toc->add({text: $"{prefix}{nr->Extract('subsubsection')} ({nr})",
                       linenr: nr})
-        elseif line =~ '\\paragraph\s*{'
+        elseif line =~ '\\paragraph\*\?\s*{'
             toc_num.paragraph += 1
+            toc_num.subparagraph = 0
             var prefix = $"{repeat('  ', 4)}{toc_num.section}.{toc_num.subsection}.{toc_num.subsubsection}.{toc_num.paragraph} "
             toc->add({text: $"{prefix}{nr->Extract('paragraph')} ({nr})",
                       linenr: nr})
-        elseif line =~ '\\subparagraph\s*{'
+        elseif line =~ '\\subparagraph\*\?\s*{'
             toc_num.subparagraph += 1
             var prefix = $"{repeat('  ', 5)}{toc_num.section}.{toc_num.subsection}.{toc_num.subsubsection}.{toc_num.paragraph}.{toc_num.subparagraph} "
             toc->add({text: $"{prefix}{nr->Extract('subparagraph')} ({nr})",
