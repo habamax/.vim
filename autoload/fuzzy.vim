@@ -177,7 +177,7 @@ enddef
 
 export def File(path: string = "")
     var sep = has("win32") ? '\' : '/'
-    var opath = path ?? expand("%:p:h")
+    var opath = expand(path ?? "%:p:h")
     if !isdirectory(opath)
         opath = getcwd()
     endif
