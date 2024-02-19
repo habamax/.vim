@@ -116,7 +116,7 @@ def Rst2Html(locale: string = "")
     endif
 
     # workaround: convert all code-block to include + :code:
-    :%s/^\(\s*\)\.\. code-block:: \(\S\+\)\s*\n\(\s*\):include: \(\S\+\)/\1.. include:: \4\r\3:code: \2
+    :%s/^\(\s*\)\.\. code-block:: \(\S\+\)\s*\n\(\s*\):include: \(\S\+\)/\1.. include:: \4\r\3:code: \2/e
     :update
 
     compiler rst2html
@@ -134,7 +134,7 @@ def Rst2Pdf()
     lcd %:p:h
 
     # workaround: convert all include + :code: to code-block
-    :%s/^\(\s*\)\.\. include:: \(\S\+\)\s*\n\(\s*\):code: \(\S\+\)/\1.. code-block:: \4\r\3:include: \2
+    :%s/^\(\s*\)\.\. include:: \(\S\+\)\s*\n\(\s*\):code: \(\S\+\)/\1.. code-block:: \4\r\3:include: \2/e
     :update
 
     compiler rst2pdf
