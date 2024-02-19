@@ -1,5 +1,9 @@
 ; vim: ft=colortemplate cc=40 vsts=39,4
 ;; filetype and plugins
+helpHeadLine                           -> Title
+helpSectionDelim                       -> Statement
+helpExample                            -> Constant
+helpCommand                            -> Statement
 vimCommentString                       -> Comment
 sqlKeyword                             -> Statement
 sqlSpecial                             -> Constant
