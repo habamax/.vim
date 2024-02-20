@@ -18,10 +18,11 @@ xnoremap <silent> <expr> <space>v SourceVim()
 nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 
 # calc visually selected math expression
-xnoremap <space><space>c s
-      \<C-r>=getreg('"')->trim()->substitute("\n", ' ', 'g')->eval()<CR><ESC>gv
 # xnoremap <space><space>c s
-#       \<C-r>=system('python -c "print(' .. getreg('"')->trim()->substitute("\n", ' ', 'g') .. ')"')<CR><ESC>gv
+#       \<C-r>=getreg()->trim()->substitute("\n", ' ', 'g')->eval()<CR><ESC>gv
+xnoremap <space><space>c s
+      \<C-r>=system($'echo {getreg()->trim()->tr("\n", " ")} <bar> bc -l')
+      \->trim()<CR><ESC>gv
 
 # fuzzy
 import autoload 'fuzzy.vim'
