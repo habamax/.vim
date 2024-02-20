@@ -19,7 +19,7 @@ nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 
 # calc visually selected math expression
 # xnoremap <space><space>c s
-#       \<C-r>=getreg()->trim()->substitute("\n", ' ', 'g')->eval()<CR><ESC>gv
+#       \<C-r>=getreg()->trim()->tr("\n", " ")->eval()<CR><ESC>gv
 xnoremap <space><space>c s
       \<C-r>=system($'echo {getreg()->trim()->tr("\n", " ")} <bar> bc -l')
       \->trim()<CR><ESC>gv
