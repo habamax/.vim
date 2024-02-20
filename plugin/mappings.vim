@@ -17,6 +17,10 @@ nnoremap <silent> <expr> <space>v SourceVim()
 xnoremap <silent> <expr> <space>v SourceVim()
 nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 
+# calc visually selected math expression
+xnoremap <space><space>c s
+      \<C-r>=getreg('"')->trim()->substitute("\n", ' ', 'g')->eval()<CR><ESC>gv
+
 # fuzzy
 import autoload 'fuzzy.vim'
 nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
