@@ -21,8 +21,7 @@ nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 # xnoremap <space><space>c s
 #       \<C-r>=getreg()->trim()->tr("\n", " ")->eval()<CR><ESC>`[v`]
 xnoremap <space><space>c s
-      \<C-r>=system('bc -l <<< "' .. getreg()->trim()->tr("\n", " ") .. '"')
-      \->trim()<CR><ESC>`[v`]
+      \<C-r>=system('perl', $'print {@@->tr("\n", " ")}')<CR><ESC>`[v`]
 
 # fuzzy
 import autoload 'fuzzy.vim'
