@@ -61,7 +61,7 @@ def Toc()
             toc_num.subsubsection = 0
             toc_num.paragraph = 0
             toc_num.subparagraph = 0
-            var prefix = $"{repeat('  ', 1)}{toc_num.section} "
+            var prefix = $"{toc_num.section} "
             toc->add({text: $"{prefix}{nr->Extract('section')} ({nr})",
                       linenr: nr})
         elseif line =~ '\\subsection\*\?\s*{'
@@ -69,25 +69,25 @@ def Toc()
             toc_num.subsubsection = 0
             toc_num.paragraph = 0
             toc_num.subparagraph = 0
-            var prefix = $"{repeat('  ', 2)}{toc_num.section}.{toc_num.subsection} "
+            var prefix = $"{repeat('  ', 1)}{toc_num.section}.{toc_num.subsection} "
             toc->add({text: $"{prefix}{nr->Extract('subsection')} ({nr})",
                      linenr: nr})
         elseif line =~ '\\subsubsection\*\?\s*{'
             toc_num.subsubsection += 1
             toc_num.paragraph = 0
             toc_num.subparagraph = 0
-            var prefix = $"{repeat('  ', 3)}{toc_num.section}.{toc_num.subsection}.{toc_num.subsubsection} "
+            var prefix = $"{repeat('  ', 2)}{toc_num.section}.{toc_num.subsection}.{toc_num.subsubsection} "
             toc->add({text: $"{prefix}{nr->Extract('subsubsection')} ({nr})",
                       linenr: nr})
         elseif line =~ '\\paragraph\*\?\s*{'
             toc_num.paragraph += 1
             toc_num.subparagraph = 0
-            var prefix = $"{repeat('  ', 4)}{toc_num.section}.{toc_num.subsection}.{toc_num.subsubsection}.{toc_num.paragraph} "
+            var prefix = $"{repeat('  ', 3)}{toc_num.section}.{toc_num.subsection}.{toc_num.subsubsection}.{toc_num.paragraph} "
             toc->add({text: $"{prefix}{nr->Extract('paragraph')} ({nr})",
                       linenr: nr})
         elseif line =~ '\\subparagraph\*\?\s*{'
             toc_num.subparagraph += 1
-            var prefix = $"{repeat('  ', 5)}{toc_num.section}.{toc_num.subsection}.{toc_num.subsubsection}.{toc_num.paragraph}.{toc_num.subparagraph} "
+            var prefix = $"{repeat('  ', 4)}{toc_num.section}.{toc_num.subsection}.{toc_num.subsubsection}.{toc_num.paragraph}.{toc_num.subparagraph} "
             toc->add({text: $"{prefix}{nr->Extract('subparagraph')} ({nr})",
                       linenr: nr})
         endif
