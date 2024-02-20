@@ -19,10 +19,10 @@ nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 
 # calc visually selected math expression
 # xnoremap <space><space>c s
-#       \<C-r>=getreg()->trim()->tr("\n", " ")->eval()<CR><ESC>gv
+#       \<C-r>=getreg()->trim()->tr("\n", " ")->eval()<CR><ESC>`[v`]
 xnoremap <space><space>c s
-      \<C-r>=system($'echo {getreg()->trim()->tr("\n", " ")} <bar> bc -l')
-      \->trim()<CR><ESC>gv
+      \<C-r>=system('bc -l <<< "' .. getreg()->trim()->tr("\n", " ") .. '"')
+      \->trim()<CR><ESC>`[v`]
 
 # fuzzy
 import autoload 'fuzzy.vim'
