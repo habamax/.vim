@@ -22,6 +22,10 @@ if empty($TMUX)
     inoremap <M-j> <scriptcmd>wincmd j<CR>
     inoremap <M-k> <scriptcmd>wincmd k<CR>
     inoremap <M-l> <scriptcmd>wincmd l<CR>
+    tnoremap <M-h> <scriptcmd>wincmd h<CR>
+    tnoremap <M-j> <scriptcmd>wincmd j<CR>
+    tnoremap <M-k> <scriptcmd>wincmd k<CR>
+    tnoremap <M-l> <scriptcmd>wincmd l<CR>
     finish
 endif
 
@@ -47,3 +51,7 @@ inoremap <M-h> <scriptcmd>TmuxVimNavigate("h")<CR>
 inoremap <M-j> <scriptcmd>TmuxVimNavigate("j")<CR>
 inoremap <M-k> <scriptcmd>TmuxVimNavigate("k")<CR>
 inoremap <M-l> <scriptcmd>TmuxVimNavigate("l")<CR>
+tnoremap <M-h> <scriptcmd>TmuxVimNavigate("h")<CR>
+tnoremap <M-j> <scriptcmd>TmuxVimNavigate("j")<CR>
+tnoremap <M-k> <scriptcmd>TmuxVimNavigate("k")<CR>
+tnoremap <M-l> <scriptcmd>TmuxVimNavigate("l")<CR>
