@@ -43,7 +43,7 @@ Color: color16                 #5f00d7        56             magenta
 
 Color: colorLine               #eeeeee        255            grey
 Color: colorPmenu              #e4e4e4        254            grey
-Color: colorB                  #e4e4e4        254            grey
+Color: colorB                  #f7f7f7        254            grey
 Color: colorNonT               #a8a8a8        248            grey
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
