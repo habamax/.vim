@@ -9,6 +9,12 @@ if !has('win32') && !has('gui_running')
 endif
 set termguicolors
 
+if !has("gui_running")
+    augroup group_name | au!
+        au Colorscheme nod hi Normal ctermbg=NONE guibg=NONE
+    augroup END
+endif
+
 if has("win32") && has("gui_running")
     silent! colorscheme nope
 else
