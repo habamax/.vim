@@ -78,6 +78,22 @@ nnoremap <space>tb <scriptcmd>exe "colorscheme" get(g:, "colors_name", "") == "n
 xnoremap <tab> :sil! m '>+1<CR>gv
 xnoremap <s-tab> :sil! m '<-2<CR>gv
 
+# In visual block { and } navigate to the first/last line of paragraph,
+# which is useful if followed by I or A.
+def VisualBlockPara(cmd: string)
+    if mode() == "\<C-V>"
+        if cmd == "}"
+            cursor(getpos("'}")[1] - 1, col("."))
+        elseif cmd == "{"
+            cursor(getpos("'{")[1] + 1, col("."))
+        endif
+    else
+        exe $"normal! {cmd}"
+    endif
+enddef
+xnoremap { <scriptcmd>VisualBlockPara("{")<CR>
+xnoremap } <scriptcmd>VisualBlockPara("}")<CR>
+
 # toggle colorcolumn at cursor position
 # set vartabstop accordingly
 def ToggleCC(all: bool = false)
