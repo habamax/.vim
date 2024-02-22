@@ -85,8 +85,12 @@ def VisualBlockPara(cmd: string)
         var target_row = getpos($"'{cmd}")[1]
         if getline(target_row) =~ "^\s*$"
             target_row += (cmd == "{" ? 1 : -1)
+            if target_row == line('.')
+                target_row = (cmd == "{" ? prevnonblank(target_row - 1)
+                                         : nextnonblank(target_row + 1))
+            endif
         endif
-        if target_row > -1
+        if target_row > 0
             var offset = virtcol(".") - strcharlen(getline(target_row)) - 1
             setcursorcharpos(target_row, virtcol("."), offset > 0 ? offset : 0)
         endif
