@@ -82,10 +82,15 @@ xnoremap <s-tab> :sil! m '<-2<CR>gv
 # which is useful if followed by I or A.
 def VisualBlockPara(cmd: string)
     if mode() == "\<C-V>"
+        var target_row = -1
         if cmd == "}"
-            cursor(getpos("'}")[1] - 1, col("."))
+            target_row = getpos("'}")[1] - 1
         elseif cmd == "{"
-            cursor(getpos("'{")[1] + 1, col("."))
+            target_row = getpos("'{")[1] + 1
+        endif
+        if target_row > -1
+            var offset = col(".") - strlen(getline(target_row)) - 1
+            cursor(target_row, col("."), offset > 0 ? offset : 0)
         endif
     else
         exe $"normal! {cmd}"
