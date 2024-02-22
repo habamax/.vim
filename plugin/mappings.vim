@@ -82,11 +82,9 @@ xnoremap <s-tab> :sil! m '<-2<CR>gv
 # which is useful if followed by I or A.
 def VisualBlockPara(cmd: string)
     if mode() == "\<C-V>"
-        var target_row = -1
-        if cmd == "}"
-            target_row = getpos("'}")[1] - 1
-        elseif cmd == "{"
-            target_row = getpos("'{")[1] + 1
+        var target_row = getpos($"'{cmd}")[1]
+        if getline(target_row) =~ "^\s*$"
+            target_row += (cmd == "{" ? 1 : -1)
         endif
         if target_row > -1
             var offset = virtcol(".") - strcharlen(getline(target_row)) - 1
