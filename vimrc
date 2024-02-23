@@ -5,7 +5,7 @@ syntax on
 
 set hidden confirm
 set shiftwidth=4 softtabstop=-1 expandtab
-set ttimeout ttimeoutlen=50
+set ttimeout ttimeoutlen=25
 set autoindent
 set hlsearch incsearch ignorecase
 set wildmenu wildcharm=<c-z> wildoptions=pum,fuzzy pumheight=20
