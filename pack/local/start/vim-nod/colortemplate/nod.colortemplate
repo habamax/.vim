@@ -80,9 +80,9 @@ NonText                        colorNonT      none
 FoldColumn                     colorNonT      none
 SpecialKey                     colorNonT      none
 
-Variant: gui 256
+Variant: gui
 EndOfBuffer                    colorNonT      none
-Variant: gui 256 16
+Variant: 256 16
 EndOfBuffer                    color08        none
 
 Variant: gui 256
