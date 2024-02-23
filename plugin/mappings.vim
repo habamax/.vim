@@ -92,7 +92,7 @@ def VisualBlockPara(cmd: string)
         endif
         if target_row > 0
             var offset = charcol(".") - strcharlen(getline(target_row)) - 1
-            setcursorcharpos(target_row, charcol("."), offset > 0 ? offset : 0)
+            setcursorcharpos(target_row, virtcol("."), offset > 0 ? offset : 0)
         endif
     else
         exe $"normal! {cmd}"
