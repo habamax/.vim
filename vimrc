@@ -23,7 +23,7 @@ set shortmess+=Ic
 set completeopt=menu,popup completepopup=highlight:Pmenu
 set list listchars=tab:›\ ,nbsp:․,trail:·,extends:…,precedes:…
 set fillchars=vert:│
-set foldmethod=indent foldminlines=4 foldnestmax=5 foldlevel=3 foldignore=
+set foldmethod=indent foldminlines=3 foldnestmax=5 foldlevel=3 foldignore=
 set nospell spelllang=en,ru
 set nrformats=bin,hex,unsigned
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
