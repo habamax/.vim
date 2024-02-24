@@ -4,7 +4,7 @@ setl shiftwidth=0
 setl noexpandtab
 setl tabstop=4
 
-nnoremap <buffer> <F5> :Sh odin run .<CR>
+nnoremap <buffer> <F5> <scriptcmd>Sh odin run .<CR><scriptcmd>wincmd p<CR>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 
 import autoload 'popup.vim'
