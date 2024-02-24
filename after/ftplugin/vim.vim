@@ -40,7 +40,9 @@ def Things()
         },
         (winid) => {
             win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
+            win_execute(winid, $"syn match FilterMenuFuncName '\\k\\+\\ze('")
             hi def link FilterMenuLineNr Comment
+            hi def link FilterMenuFuncName Function
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
