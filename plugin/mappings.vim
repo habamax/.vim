@@ -67,12 +67,11 @@ xnoremap <space>/ y/<C-R>"
 xnoremap * y/<C-R>"<CR>
 
 # toggles
-nnoremap <space>tw <cmd>set wrap! wrap?<CR>
-nnoremap <space>ts <cmd>set spell! spell?<CR>
-nnoremap <space>td <cmd>exe (&diff ? ':diffoff' : ':diffthis')<CR>
-nnoremap <space>tv <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
-# nnoremap <space>tb <scriptcmd>&bg = (&bg == "light" ? "dark" : "light")<CR>
-nnoremap <space>tb <scriptcmd>exe "colorscheme" get(g:, "colors_name", "") == "nod" ? "nope" : "nod"<CR>
+nnoremap yow <cmd>set wrap! wrap?<CR>
+nnoremap yos <cmd>set spell! spell?<CR>
+nnoremap yod <cmd>exe (&diff ? ':diffoff' : ':diffthis')<CR>
+nnoremap yov <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
+nnoremap yob <scriptcmd>exe "colorscheme" get(g:, "colors_name", "") == "nod" ? "nope" : "nod"<CR>
 
 # move lines
 xnoremap <tab> :sil! m '>+1<CR>gv
@@ -130,8 +129,8 @@ def ToggleCC(all: bool = false)
         setl vsts&
     endif
 enddef
-nnoremap <silent> <space>tC <ScriptCmd>ToggleCC()<CR>
-nnoremap <silent> <space>tc <ScriptCmd>ToggleCC(true)<CR>
+nnoremap <silent> yoC <ScriptCmd>ToggleCC()<CR>
+nnoremap <silent> yoc <ScriptCmd>ToggleCC(true)<CR>
 
 nnoremap <silent> <space><cr> <scriptcmd>text.Toggle()<CR>
 
