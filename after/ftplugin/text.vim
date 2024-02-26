@@ -33,8 +33,8 @@ import autoload "popup.vim"
 def Toc()
     var toc = matchbufline(bufnr(),
         '\v^\s*(\u+[[:punct:][:digit:][:upper:][:punct:][:blank:]]+)+\s*$',
-        1, '$')->foreach((_, v) => {
-            v.text = $"{v.text} ({v.lnum})"
+        1, '$')->foreach((i, v) => {
+            v.text = $"{i + 1} {v.text} ({v.lnum})"
         })
     popup.FilterMenu("Toc", toc,
         (res, key) => {
@@ -43,7 +43,9 @@ def Toc()
         },
         (winid) => {
             win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
+            win_execute(winid, 'syn match FilterMenuSecNum "^\s*\(\d\+\.\)*\(\d\+\)"')
             hi def link FilterMenuLineNr Comment
+            hi def link FilterMenuSecNum Title
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
