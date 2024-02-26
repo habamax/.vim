@@ -265,6 +265,11 @@ nnoremap <silent> gx <scriptcmd>os.Gx()<CR>
 
 tnoremap <C-v> <C-w>""
 
+import autoload 'term.vim'
+xnoremap <expr> <space>t term.Send()
+nnoremap <expr> <space>t term.Send()
+nnoremap <expr> <space>tt term.Send() .. '_'
+
 # QuickFix
 nnoremap <silent> ]q :cnext<CR>
 nnoremap <silent> ]Q :clast<CR>
