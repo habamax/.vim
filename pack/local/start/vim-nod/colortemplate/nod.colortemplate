@@ -182,7 +182,7 @@ DiffChange                     diffChange     color00        reverse
 DiffText                       diffText       color00        reverse
 DiffDelete                     diffDelete     color00        reverse
 Added                          color10        none
-Changed                        color11        none
+Changed                        color14        none
 Removed                        color09        none
 
 Include: _tco8

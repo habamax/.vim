@@ -86,6 +86,6 @@ DiffText                       color05        color00        reverse
 DiffDelete                     color01        color00        reverse
 
 Added                          color02        none
-Changed                        color03        none
+Changed                        color06        none
 Removed                        color01        none
 
