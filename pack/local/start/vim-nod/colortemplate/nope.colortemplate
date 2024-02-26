@@ -150,14 +150,14 @@ MatchParen                     colorMP        none           bold
 
 Variant: gui
 SpellBad                       none           none           g=undercurl s=color09
-SpellCap                       none           none           g=undercurl s=color14
+SpellCap                       none           none           g=undercurl s=color13
 SpellLocal                     none           none           g=undercurl s=color10
-SpellRare                      none           none           g=undercurl s=color13
+SpellRare                      none           none           g=undercurl s=color14
 Variant: 256 16
 SpellBad                       color09        none           underline
-SpellCap                       color14        none           underline
+SpellCap                       color13        none           underline
 SpellLocal                     color10        none           underline
-SpellRare                      color13        none           underline
+SpellRare                      color14        none           underline
 
 ;;; :h group-names
 Variant: gui 256 16
@@ -185,7 +185,7 @@ DiffChange                     diffChange     colorBg        reverse
 DiffText                       diffText       colorBg        reverse
 DiffDelete                     diffDelete     colorBg        reverse
 Added                          color10        none
-Changed                        color14        none
+Changed                        color13        none
 Removed                        color09        none
 
 Include: _tco8

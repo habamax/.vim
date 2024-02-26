@@ -58,9 +58,9 @@ Folded                         color07        none           bold
 ColorColumn                    color00        color03
 
 SpellBad                       color01        none           reverse
-SpellCap                       color06        none           reverse
+SpellCap                       color05        none           reverse
 SpellLocal                     color02        none           reverse
-SpellRare                      color05        none           reverse
+SpellRare                      color06        none           reverse
 
 Comment                        none           none           bold
 Constant                       color01        none
@@ -86,6 +86,6 @@ DiffText                       color05        color00        reverse
 DiffDelete                     color01        color00        reverse
 
 Added                          color02        none
-Changed                        color06        none
+Changed                        color05        none
 Removed                        color01        none
 
