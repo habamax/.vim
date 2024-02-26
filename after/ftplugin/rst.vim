@@ -102,11 +102,14 @@ def Toc()
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
 
-nnoremap <buffer> <space><space>oh :RstViewHtml<CR>
-nnoremap <buffer> <space><space>op :RstViewPdf<CR>
-nnoremap <buffer> <space><space>cp :Rst2Pdf<CR>
-nnoremap <buffer> <space><space>ch :Rst2Html<CR>
+nnoremap <buffer> <space><space>oh <scriptcmd>RstViewHtml<CR>
+nnoremap <buffer> <space><space>op <scriptcmd>RstViewPdf<CR>
+nnoremap <buffer> <space><space>cp <scriptcmd>Rst2Pdf<CR>
+      \<scriptcmd>wincmd p<cr>
+nnoremap <buffer> <space><space>ch <scriptcmd>Rst2Html<CR>
+      \<scriptcmd>wincmd p<cr>
 nnoremap <buffer> <F5> <scriptcmd>exe "Sh" &makeprg<cr>
+      \<scriptcmd>wincmd p<cr>
 
 def Rst2Html(locale: string = "")
     if !empty(locale)
