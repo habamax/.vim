@@ -1,5 +1,6 @@
 vim9script
 
+# TODO: refactor using new getregion() function
 # import autoload 'term.vim'
 # xnoremap <expr> <space>t term.Send()
 # nnoremap <expr> <space>t term.Send()
