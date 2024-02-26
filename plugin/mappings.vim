@@ -18,7 +18,7 @@ xnoremap <silent> <expr> <space>v SourceVim()
 nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 
 # calc visually selected math expression
-xnoremap <space><space>c s
+xnoremap <space>c s
       \<C-r>=system($'perl -e "print {@@->tr("\n", " ")}"')<CR><ESC>`[v`]
 
 # fuzzy
