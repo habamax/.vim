@@ -185,7 +185,7 @@ DiffChange                     diffChange     colorBg        reverse
 DiffText                       diffText       colorBg        reverse
 DiffDelete                     diffDelete     colorBg        reverse
 Added                          color10        none
-Changed                        color13        none
+Changed                        color11        none
 Removed                        color09        none
 
 Include: _tco8

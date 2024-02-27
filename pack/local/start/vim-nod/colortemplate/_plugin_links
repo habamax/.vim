@@ -29,9 +29,13 @@ asciidoctorOption                      -> Special
 asciidoctorMacro                       -> Special
 lspDiagVirtualTextError                -> Removed
 lspDiagSignErrorText                   -> Removed
+lspDiagInlineError                     -> ColorColumn
 lspDiagVirtualTextWarning              -> Changed
 lspDiagSignWarningText                 -> Changed
+lspDiagInlineWarning                   -> ColorColumn
 lspDiagVirtualTextHint                 -> Added
 lspDiagSignHintText                    -> Added
+lspDiagInlineHint                      -> ColorColumn
 lspDiagVirtualTextInfo                 -> Question
 lspDiagSignInfoText                    -> Question
+lspDiagInlineInfo                      -> ColorColumn
