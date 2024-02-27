@@ -91,22 +91,22 @@ EndOfBuffer                    color08        none
 
 Variant: gui 256
 Pmenu                          colorFg        colorPmenu
-PmenuSel                       colorBg        color11
+PmenuSel                       color15        color11
 PmenuThumb                     none           color08
 PmenuSbar                      none           none
 PmenuKind                      color09        colorPmenu
 PmenuKindSel                   color01        color11
 PmenuExtra                     color08        colorPmenu
-PmenuExtraSel                  colorFg        color11
+PmenuExtraSel                  color15        color11
 Variant: 16
-Pmenu                          colorBg        color08
+Pmenu                          color15        color08
 PmenuThumb                     none           color02
 PmenuSbar                      none           none
-PmenuSel                       colorBg        color03
+PmenuSel                       color15        color03
 PmenuKind                      color01        colorFg
 PmenuKindSel                   color01        color03
 PmenuExtra                     color08        colorFg
-PmenuExtraSel                  colorBg        color03
+PmenuExtraSel                  color15        color03
 
 Variant: gui 256 16
 SignColumn                     none           none
@@ -118,20 +118,20 @@ MoreMsg                        color10        none
 Question                       color13        none
 WarningMsg                     color11        none
 
-Todo                           color02        colorBg        reverse,bold
-Search                         color04        colorBg        reverse
-IncSearch                      color11        colorBg        reverse
-WildMenu                       colorBg        color11        bold
+Todo                           color02        color15        reverse,bold
+Search                         color04        color15        reverse
+IncSearch                      color11        color15        reverse
+WildMenu                       color15        color11        bold
 
 debugPC                        color04        none           reverse
 debugBreakpoint                color06        none           reverse
 
 Variant: gui
-Cursor                         colorBg        colorFg
+Cursor                         color15        colorFg
 lCursor                        colorFg        colorlC
 
 Variant: gui 256 16
-Visual                         colorV         colorBg        reverse
+Visual                         colorV         color15        reverse
 VisualNOS                      colorBg        color08
 
 Variant: 16
