@@ -32,9 +32,9 @@ setlocal textwidth=80
 import autoload "popup.vim"
 def Toc()
     var toc = matchbufline(bufnr(),
-        '\v^\s*(\u+[[:punct:][:digit:][:upper:][:punct:][:blank:]]+)+\s*$',
+        '\v^\s*(\d+.?\s+)?([[:upper:]]+[[:punct:][:digit:][:upper:][:punct:][:blank:]]+)+\s*$',
         1, '$')->foreach((i, v) => {
-            v.text = $"{i + 1} {v.text} ({v.lnum})"
+            v.text = $"{v.text->trim()} ({v.lnum})"
         })
     popup.FilterMenu("Toc", toc,
         (res, key) => {
@@ -43,9 +43,7 @@ def Toc()
         },
         (winid) => {
             win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
-            win_execute(winid, 'syn match FilterMenuSecNum "^\s*\(\d\+\.\)*\(\d\+\)"')
             hi def link FilterMenuLineNr Comment
-            hi def link FilterMenuSecNum Title
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
