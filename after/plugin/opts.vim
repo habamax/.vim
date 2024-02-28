@@ -65,6 +65,7 @@ if exists("g:loaded_lsp")
         completionTextEdit: false,
         showInlayHints: true,
         showDiagWithVirtualText: true,
+        autoPopulateDiags: true,
         diagVirtualTextAlign: 'after',
     })
     if executable('clangd')
