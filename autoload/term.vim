@@ -21,7 +21,7 @@ def PrepareText(text: list<string>): list<string>
         if line_res =~ '^$'
             line_res = ' '
         endif
-        if line_res =~ '^\S'
+        if line_res =~ '^\S' && len(result) > 0
             result->add("")
         endif
         result->add(line_res)
