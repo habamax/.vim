@@ -14,9 +14,9 @@ endif
 def GetFontParams(font: string): list<any>
     var params: list<string>
     if has("win32")
-        params = matchlist(font, '\(.\{-}\):h\(\d\+\)')
+        params = matchlist(font, '\v(.{-}):h(\d(\.\d+)?)')
     else
-        params = matchlist(font, '\(.\{-}\)\ \(\d\+\)$')
+        params = matchlist(font, '\v(.{-}) (\d+(\.\d+)?)$')
     endif
     return [params[1], str2nr(params[2])]
 enddef
