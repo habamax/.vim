@@ -48,7 +48,7 @@ export def Send(...args: list<any>): string
 
     var term_window = terms[0].winnr
 
-    var region_type = {line:  "V", char: "v", block: "\<c-v>"}
+    var region_type = {line: "V", char: "v", block: "\<c-v>"}
     var text = PrepareText(getregion(getpos("'["),
                                      getpos("']"),
                                      {type: get(region_type, args[0])}))
