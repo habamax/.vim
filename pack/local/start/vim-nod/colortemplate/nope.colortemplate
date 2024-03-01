@@ -12,7 +12,7 @@ Include: _plugin_links
 Background: light
 ;;; Color palette
 Color: colorFg                 #000000        16             black
-Color: colorBg                 #e3e3d9        231            white
+Color: colorBg                 #e3e3dc        231            white
 
 Color: color00                 #000000        16             black
 Color: color08                 #8a8a8a        245            darkgrey
@@ -40,9 +40,9 @@ Color: color15                 #ffffff        231            white
 
 Color: color16                 #5f00d7        56             magenta
 
-Color: colorLine               #d9d9d0        255            grey
-Color: colorPmenu              #d0d0c7        254            grey
-Color: colorB                  #edede3        254            grey
+Color: colorLine               #d9d9d2        255            grey
+Color: colorPmenu              #d0d0c9        254            grey
+Color: colorB                  #edede5        254            grey
 Color: colorNonT               #a8a8a3        248            grey
 Color: colorFold               #878782        248            grey
 Color: colorlC                 #ff5fff        207            magenta
