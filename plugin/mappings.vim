@@ -52,10 +52,6 @@ endif
 # to enter literal <space> use <C-v><space>
 cnoremap <expr> <space> getcmdtype() =~ '[/?]' ? '.\{-}' : "<space>"
 
-# tab/s-tab to navigate completion
-inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
-
 # whitespace
 nnoremap <space><space><space> <cmd>FixTrailingSpaces<CR>
 
