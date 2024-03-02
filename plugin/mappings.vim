@@ -58,16 +58,13 @@ nnoremap <space><space><space> <cmd>FixTrailingSpaces<CR>
 # search&replace
 nnoremap <space>% :<C-U>%s/\<<C-r>=expand("<cword>")<CR>\>/
 xnoremap <space>% y:%s/<C-r>=escape(@", '^~$\&*.[]')<CR>//g<left><left>
-nnoremap <space>/ /<C-r>=expand("<cword>")<CR>
-xnoremap <space>/ y/<C-R>"
-xnoremap * y/<C-R>"<CR>
 
 # toggles
 nnoremap yow <cmd>set wrap! wrap?<CR>
 nnoremap yos <cmd>set spell! spell?<CR>
 nnoremap yod <cmd>exe (&diff ? ':diffoff' : ':diffthis')<CR>
-nnoremap yov <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
-nnoremap yob <scriptcmd>exe "colorscheme" get(g:, "colors_name", "") == "nod" ? "nope" : "nod"<CR>
+nnoremap yov <cmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
+nnoremap yob <cmd>exe "colo" get(g:, "colors_name") == "nod" ? "nope" : "nod"<CR>
 
 # move lines
 xnoremap <tab> :sil! m '>+1<CR>gv
