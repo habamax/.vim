@@ -14,7 +14,7 @@ def Things()
         var line = getline(nr)
         if line =~ '\v<\w*>\s*::\s*proc'
             line = substitute(line, '{.*$', '', '')
-            things->add({text: $"{line} ({nr})", linenr: nr})
+            things->add({text: $"{line}({nr})", linenr: nr})
         endif
     endfor
     popup.FilterMenu("Odin Things", things,
@@ -24,7 +24,7 @@ def Things()
         },
         (winid) => {
             win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
-            win_execute(winid, $"syn match Statement '::\\s*\\zsproc'")
+            win_execute(winid, $"syn match Identifier '^\\s*\\k\\+\\ze\\s*::\\s*proc'")
             win_execute(winid, $"setl tabstop=4")
             hi def link FilterMenuLineNr Comment
         })
