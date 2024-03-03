@@ -1,5 +1,6 @@
 ; vim: ft=colortemplate cc=40 vsts=39,4
 ;; filetype and plugins
+gitcommitSummary                       -> Title
 helpHeadLine                           -> Title
 helpSectionDelim                       -> Statement
 helpExample                            -> Constant
