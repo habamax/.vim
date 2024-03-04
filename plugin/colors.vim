@@ -16,7 +16,7 @@ if !has("gui_running")
 endif
 
 if has("win32") && has("gui_running")
-    silent! colorscheme nope
+    silent! colorscheme nopy
 else
     silent! colorscheme nod
 endif
