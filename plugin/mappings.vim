@@ -57,7 +57,7 @@ nnoremap <space><space><space> <cmd>FixTrailingSpaces<CR>
 
 # search&replace
 nnoremap <space>% :<C-U>%s/\<<C-r>=expand("<cword>")<CR>\>/
-xnoremap <space>% y:%s/<C-r>=escape(@", '^~$\&*.[]')<CR>//g<left><left>
+xnoremap <space>% y:%s/<C-r>=escape(@", '^~$\*.[]')<CR>//g<left><left>
 
 # toggles
 nnoremap yow <cmd>set wrap! wrap?<CR>
