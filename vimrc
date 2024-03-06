@@ -22,7 +22,7 @@ set signcolumn=number
 set shortmess+=Ic
 set completeopt=menu,popup completepopup=highlight:Pmenu
 set list listchars=tab:›\ ,nbsp:․,trail:·,extends:…,precedes:…
-set fillchars=vert:│
+set fillchars=vert:┃
 set nospell spelllang=en,ru
 set nrformats=bin,hex,unsigned
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
