@@ -10,6 +10,7 @@ Include: _default_links
 Include: _plugin_links
 
 Background: light
+
 ;;; Color palette
 Color: colorFg                 #000000        16             black
 Color: colorBg                 #ffffff        231            white
