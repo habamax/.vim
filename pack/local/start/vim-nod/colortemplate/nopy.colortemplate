@@ -44,7 +44,7 @@ Color: colorLine               #d9d9d2        255            grey
 Color: colorPmenu              #d0d0c9        254            grey
 Color: colorB                  #edede5        254            grey
 Color: colorNonT               #a8a8a3        248            grey
-Color: colorFold               #878782        248            grey
+Color: colorFold               #878782        102            grey
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
 Color: colorSt                 #626262        241            darkgrey
