@@ -9,7 +9,7 @@ command! PackUp git.PackUpdate()
 
 # Wipe all hidden buffers
 def WipeHiddenBuffers()
-    var buffers = filter(getbufinfo(), (_, v) => v.hidden)
+    var buffers = filter(getbufinfo(), (_, v) => empty(v.windows))
     if !empty(buffers)
         execute 'confirm bwipeout' join(mapnew(buffers, (_, v) => v.bufnr))
     endif
