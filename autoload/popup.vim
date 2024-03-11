@@ -1,7 +1,7 @@
 vim9script
 
 var borderchars     = ['─', '│', '─', '│', '┌', '┐', '┘', '└']
-var bordercharsp    = ['─', '│', '━', '│', '┌', '┐', '┥', '┝']
+var bordercharsp    = ['─', '│', '─', '│', '┌', '┐', '┤', '├']
 var borderhighlight = []
 var popuphighlight  = get(g:, "popuphighlight", '')
 var popupcursor = '█'
