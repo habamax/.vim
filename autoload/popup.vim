@@ -243,16 +243,16 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
         }
     }))
 
+    # TODO: factor out
     win_execute(winid, "setl cursorlineopt=both")
     if filtered_items[0]->empty()
         win_execute(winid, "setl nonu nocursorline")
     else
         win_execute(winid, "setl nu cursorline")
     endif
+    AlignPopups(pwinid, winid)
 
     if Setup != null_function
         Setup(winid)
     endif
-
-    AlignPopups(pwinid, winid)
 enddef
