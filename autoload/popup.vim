@@ -95,9 +95,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
     var prompt = ""
     var items_dict: list<dict<any>>
     var items_count = items->len()
-    if items_count < 1
-        items_dict = [{text: ""}]
-    elseif items[0]->type() != v:t_dict
+    if items_count > 0 && items[0]->type() != v:t_dict
         items_dict = items->mapnew((_, v) => {
             return {text: v}
         })
@@ -182,7 +180,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
                 popup_close(id, -1)
                 popup_close(pwinid, -1)
             elseif ["\<cr>", "\<C-j>", "\<C-v>", "\<C-t>", "\<C-o>"]->index(key) > -1
-                    && filtered_items[0]->len() > 0 && items_count > 0
+                    && !filtered_items[0]->empty() && items_count > 0
                 popup_close(id, {idx: getcurpos(id)[1], key: key})
                 popup_close(pwinid, -1)
             elseif key == "\<Right>"
@@ -245,7 +243,13 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
         }
     }))
 
-    win_execute(winid, "setl nu cursorline cursorlineopt=both")
+    win_execute(winid, "setl cursorlineopt=both")
+    if filtered_items[0]->empty()
+        win_execute(winid, "setl nonu nocursorline")
+    else
+        win_execute(winid, "setl nu cursorline")
+    endif
+
     if Setup != null_function
         Setup(winid)
     endif
