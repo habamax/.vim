@@ -23,7 +23,7 @@ def Things()
     var things = []
     :1
     var rx_func = '\v^\s*(\k+\_s+){1,}\k+'
-    rx_func ..= '\((\_s*[*_,[:alnum:]]{-}(\s*\/\/.*)?){-}\)'
+    rx_func ..= '\s*\((\_s*[*_,[:alnum:]]{-}(\s*\/\/.*)?){-}\)'
     rx_func ..= '\s*(\/\/.*)?'
     rx_func ..= '\_s{-}\{\s*$'
     while search(rx_func, 'W') != 0
@@ -48,7 +48,7 @@ def Things()
         },
         (winid) => {
             win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
-            win_execute(winid, $"syn match FilterMenuFuncName '\\k\\+\\ze('")
+            win_execute(winid, $"syn match FilterMenuFuncName '\\k\\+\\s*\\ze('")
             hi def link FilterMenuLineNr Comment
             hi def link FilterMenuFuncName Function
         })
