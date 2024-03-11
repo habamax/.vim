@@ -121,18 +121,22 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
         endif
     enddef
 
-    def AlignPopups(pwinid: number, winid: number)
-        var pos = popup_getpos(winid)
-        var new_minwidth = pos.core_width
-        if new_minwidth > pos.width
-            popup_move(winid, {minwidth: new_minwidth})
-        endif
-        popup_move(pwinid, {minwidth: new_minwidth + (pos.scrollbar ? 1 : 0)})
-    enddef
-
     var height = min([&lines - 9, max([items->len(), 5])])
     var minwidth = (&columns * 0.6)->float2nr()
     var pos_top = ((&lines - height) / 2) - 1
+
+    def AlignPopups(pwinid: number, winid: number)
+        var pos = popup_getpos(winid)
+        if pos.core_width > minwidth
+            minwidth = pos.core_width
+            popup_move(winid, { minwidth: minwidth })
+        endif
+        popup_move(pwinid, {
+            minwidth: minwidth + (pos.scrollbar ? 1 : 0),
+            maxwidth: minwidth + (pos.scrollbar ? 1 : 0)
+        })
+    enddef
+
     var ignore_input = ["\<cursorhold>", "\<ignore>", "\<Nul>",
           \ "\<LeftMouse>", "\<LeftRelease>", "\<LeftDrag>", $"\<2-LeftMouse>",
           \ "\<RightMouse>", "\<RightRelease>", "\<RightDrag>", "\<2-RightMouse>",
@@ -147,7 +151,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
 
     var winopts = {
         minwidth: minwidth,
-        maxwidth: (&columns - 5),
+        maxwidth: minwidth,
         borderhighlight: borderhighlight,
         highlight: popuphighlight,
         drag: 0,
@@ -221,6 +225,11 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
                 popup_setoptions(pwinid, {title: $" ({items_count > 0 ? filtered_items[0]->len() : 0}/{items_count}) {title} " })
                 popup_settext(pwinid, $"> {prompt}{popupcursor}")
                 popup_settext(id, Printify(filtered_items, []))
+                if filtered_items[0]->empty()
+                    win_execute(id, "setl nonu nocursorline")
+                else
+                    win_execute(id, "setl nu cursorline")
+                endif
                 AlignPopups(pwinid, id)
             endif
             return true
