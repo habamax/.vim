@@ -135,6 +135,17 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
         })
     enddef
 
+    def UpdatePopups(pwinid: number, winid: number)
+        popup_setoptions(pwinid, {title: $" ({items_count > 0 ? filtered_items[0]->len() : 0}/{items_count}) {title} " })
+        popup_settext(pwinid, $"> {prompt}{popupcursor}")
+        popup_settext(winid, Printify(filtered_items, []))
+        if filtered_items[0]->empty()
+            win_execute(winid, "setl nonu nocursorline")
+        else
+            win_execute(winid, "setl nu cursorline")
+        endif
+    enddef
+
     var ignore_input = ["\<cursorhold>", "\<ignore>", "\<Nul>",
           \ "\<LeftMouse>", "\<LeftRelease>", "\<LeftDrag>", $"\<2-LeftMouse>",
           \ "\<RightMouse>", "\<RightRelease>", "\<RightDrag>", "\<2-RightMouse>",
@@ -220,14 +231,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
                     prompt ..= key
                     filtered_items = items_dict->matchfuzzypos(prompt, {key: "text"})
                 endif
-                popup_setoptions(pwinid, {title: $" ({items_count > 0 ? filtered_items[0]->len() : 0}/{items_count}) {title} " })
-                popup_settext(pwinid, $"> {prompt}{popupcursor}")
-                popup_settext(id, Printify(filtered_items, []))
-                if filtered_items[0]->empty()
-                    win_execute(id, "setl nonu nocursorline")
-                else
-                    win_execute(id, "setl nu cursorline")
-                endif
+                UpdatePopups(pwinid, id)
                 AlignPopups(pwinid, id)
             endif
             return true
@@ -243,13 +247,8 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
         }
     }))
 
-    # TODO: factor out
     win_execute(winid, "setl cursorlineopt=both")
-    if filtered_items[0]->empty()
-        win_execute(winid, "setl nonu nocursorline")
-    else
-        win_execute(winid, "setl nu cursorline")
-    endif
+    UpdatePopups(pwinid, winid)
     AlignPopups(pwinid, winid)
 
     if Setup != null_function
