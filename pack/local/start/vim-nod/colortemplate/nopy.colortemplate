@@ -13,7 +13,7 @@ Background: light
 
 ;;; Color palette
 Color: colorFg                 #000000        16             black
-Color: colorBg                 #e4e4e0        231            white
+Color: colorBg                 #e4e4e0        254            white
 
 Color: color00                 #000000        16             black
 Color: color08                 #8a8a8a        245            darkgrey
