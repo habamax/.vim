@@ -52,13 +52,13 @@ export def MRU()
     popup.FilterMenu("MRU", mru,
         (res, key) => {
             if key == "\<c-t>"
-                exe $":tabe {res.text}"
+                exe $":tabe {res.text->substitute('#', '\\&', 'g')}"
             elseif key == "\<c-j>"
-                exe $":split {res.text}"
+                exe $":split {res.text->substitute('#', '\\&', 'g')}"
             elseif key == "\<c-v>"
-                exe $":vert split {res.text}"
+                exe $":vert split {res.text->substitute('#', '\\&', 'g')}"
             else
-                exe $":e {res.text}"
+                exe $":e {res.text->substitute('#', '\\&', 'g')}"
             endif
         },
         (winid) => {
@@ -75,13 +75,13 @@ export def GitFile(path: string = "")
     popup.FilterMenu("Git File", git_files,
         (res, key) => {
             if key == "\<c-t>"
-                exe $":tabe {path_e}{res.text}"
+                exe $":tabe {path_e}{res.text->substitute('#', '\\&', 'g')}"
             elseif key == "\<c-j>"
-                exe $":split {path_e}{res.text}"
+                exe $":split {path_e}{res.text->substitute('#', '\\&', 'g')}"
             elseif key == "\<c-v>"
-                exe $":vert split {path_e}{res.text}"
+                exe $":vert split {path_e}{res.text->substitute('#', '\\&', 'g')}"
             else
-                exe $":e {path_e}{res.text}"
+                exe $":e {path_e}{res.text->substitute('#', '\\&', 'g')}"
             endif
         },
         (winid) => {
@@ -191,6 +191,8 @@ export def File(path: string = "")
     endif
 
     popup.FilterMenu(pathshorten(opath), files, (res, key) => {
+        var escpath = res.path->substitute('#', '\\&', 'g')
+        var escname = res.name->substitute('#', '\\&', 'g')
         if (key == "\<bs>" || key == "\<c-h>") && isdirectory(fnamemodify(res.path, ':p:h:h'))
             File($"{fnamemodify(res.path, ':p:h:h')}")
         elseif key == "\<C-o>"
@@ -198,13 +200,13 @@ export def File(path: string = "")
         elseif isdirectory($"{res.path}{sep}{res.name}")
             File($"{res.path}{res.path[-1] == sep ? '' : sep}{res.name}")
         elseif key == "\<C-j>"
-            exe $"split {res.path}{sep}{res.name}"
+            exe $"split {escpath}{sep}{escname}"
         elseif key == "\<C-v>"
-            exe $"vert split {res.path}{sep}{res.name}"
+            exe $"vert split {escpath}{sep}{escname}"
         elseif key == "\<C-t>"
-            exe $"tabe {res.path}{sep}{res.name}"
+            exe $"tabe {escpath}{sep}{escname}"
         else
-            exe $"confirm e {res.path}{sep}{res.name}"
+            exe $"confirm e {escpath}{sep}{escname}"
         endif
         }, (winid) => {
             win_execute(winid, $"syn match FilterMenuDirectory '^.*{sep->escape('\\')}'")
@@ -241,15 +243,15 @@ export def FileTree(path: string = "")
     popup.FilterMenu("File", files[ : MAX_ELEMENTS - 1],
         (res, key) => {
             if key == "\<c-t>"
-                exe $":tabe {res.text}"
+                exe $":tabe {res.text->substitute('#', '\\&', 'g')}"
             elseif key == "\<c-j>"
-                exe $":split {res.text}"
+                exe $":split {res.text->substitute('#', '\\&', 'g')}"
             elseif key == "\<c-v>"
-                exe $":vert split {res.text}"
+                exe $":vert split {res.text->substitute('#', '\\&', 'g')}"
             elseif key == "\<C-o>"
                 os.Open($"{res.text}")
             else
-                exe $":e {res.text}"
+                exe $":e {res.text->substitute('#', '\\&', 'g')}"
             endif
             var projects_file = $'{g:vimdata}/projects.json'
             var projects = []
