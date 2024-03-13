@@ -12,7 +12,7 @@ Include: _plugin_links
 Background: dark
 
 ;;; Color palette
-Color: color00                 #1c1c26        234            black
+Color: color00                 #1c1c1c        234            black
 Color: color08                 #767676        243            darkgrey
 
 Color: color01                 #d75f87        168            darkred
@@ -38,11 +38,11 @@ Color: color15                 #ffffff        231            white
 
 Color: color16                 #875fff        99             magenta
 
-Color: colorLine               #30303a        236            darkgrey
-Color: colorPmenu              #3a3a44        237            darkgrey
-Color: colorB                  #12121c        233            darkgrey
-Color: colorNonT               #585862        240            grey
-Color: colorFold               #62626c        240            grey
+Color: colorLine               #303030        236            darkgrey
+Color: colorPmenu              #3a3a3a        237            darkgrey
+Color: colorB                  #121212        233            darkgrey
+Color: colorNonT               #585858        240            grey
+Color: colorFold               #626262        241            grey
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
 Color: colorSt                 #9e9e9e        247            grey
