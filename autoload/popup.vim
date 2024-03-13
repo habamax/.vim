@@ -189,11 +189,11 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
         filter: (id, key) => {
             if key == "\<esc>"
                 popup_close(id, -1)
-                popup_close(pwinid, -1)
+                popup_close(pwinid)
             elseif ["\<cr>", "\<C-j>", "\<C-v>", "\<C-t>", "\<C-o>"]->index(key) > -1
                     && !filtered_items[0]->empty() && items_count > 0
                 popup_close(id, {idx: getcurpos(id)[1], key: key})
-                popup_close(pwinid, -1)
+                popup_close(pwinid)
             elseif key == "\<Right>"
                 win_execute(id, 'normal! ' .. "\<C-d>")
             elseif key == "\<Left>"
@@ -218,7 +218,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
                 elseif (key == "\<C-h>" || key == "\<bs>")
                     if empty(prompt) && close_on_bs
                         popup_close(id, {idx: getcurpos(id)[1], key: key})
-                        popup_close(pwinid, -1)
+                        popup_close(pwinid)
                         return true
                     endif
                     prompt = prompt->strcharpart(0, prompt->strchars() - 1)
@@ -244,6 +244,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
             else
                 Callback(filtered_items[0][result.idx - 1], result.key)
             endif
+            popup_close(pwinid)
         }
     }))
 
