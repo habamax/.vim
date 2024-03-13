@@ -158,7 +158,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
     # mouse wheel is rolled
     var ignore_input_wtf = [128, 253, 100]
 
-    var winopts = {
+    var popts = {
         minwidth: minwidth,
         maxwidth: minwidth,
         borderhighlight: borderhighlight,
@@ -171,7 +171,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
         mapping: 0,
     }
     var pwinid = popup_create([$"> {popupcursor}"],
-        winopts->copy()->extend({
+        popts->copy()->extend({
             border: [1, 1, 1, 1],
             borderchars: bordercharsp,
             line: pos_top,
@@ -180,7 +180,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
             title: $" ({items_count}/{items_count}) {title} "
         })
     )
-    var winid = popup_create(Printify(filtered_items, []), winopts->copy()->extend({
+    var winid = popup_create(Printify(filtered_items, []), popts->copy()->extend({
         border: [0, 1, 1, 1],
         borderchars: borderchars,
         line: pos_top + 3,
