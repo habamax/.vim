@@ -131,25 +131,7 @@ nnoremap <silent> <space><cr> <scriptcmd>text.Toggle()<CR>
 # print maybe-function name
 nnoremap [f <cmd>echo getline(search('^[[:alpha:]$_]', 'bcnW'))<CR>
 
-# windows
-def ResizeWin(width: number, height: number)
-    var w = max([width, winwidth(0)])
-    var h = max([height, winheight(0)])
-    execute 'vertical resize' w
-    execute 'resize' h
-    try
-        setlocal winfixwidth winfixheight
-        wincmd =
-    finally
-        setlocal nowinfixwidth nowinfixheight
-        normal! ze
-    endtry
-enddef
-noremap <silent> <C-w>m <ScriptCmd>ResizeWin(v:count * 10 + 90, 25)<CR>
-map <C-w><C-m> <C-w>m
-tnoremap <silent> <C-w>m <ScriptCmd>ResizeWin(v:count * 10 + 90, 25)<CR>
-tmap <C-w><C-m> <C-w>m
-
+# toogle window zoom
 import autoload 'zoom.vim'
 nnoremap <C-w>o <scriptcmd>zoom.Toggle()<CR>
 
