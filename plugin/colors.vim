@@ -39,7 +39,3 @@ command! ColoPopuKind  tabnew |
 command! ColoSpell tabnew |
       \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/ext/start/colorschemes" |
       \ ru colors/tools/sample_spell.vim
-if !has("gui_running")
-    command! Tco leg if &t_Co == 16 | set t_Co=256 | else | set t_Co=16 | endif
-    nnoremap <F9> :set notgc<CR>:Tco<CR>:echo "t_Co =" &t_Co<CR>
-endif
