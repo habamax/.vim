@@ -150,6 +150,9 @@ map <C-w><C-m> <C-w>m
 tnoremap <silent> <C-w>m <ScriptCmd>ResizeWin(v:count * 10 + 90, 25)<CR>
 tmap <C-w><C-m> <C-w>m
 
+import autoload 'zoom.vim'
+nnoremap <C-w>o <scriptcmd>zoom.Toggle()<CR>
+
 # better PgUp/PgDn
 def MapL()
     var line = line('.')
