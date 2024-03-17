@@ -125,13 +125,13 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
 
     def AlignPopups(pwinid: number, winid: number)
         var pos = popup_getpos(winid)
-        if pos.core_width > minwidth
-            minwidth = pos.core_width
-            popup_move(winid, { minwidth: minwidth })
-        endif
+        minwidth = pos.core_width + pos.scrollbar
+        popup_move(winid, { minwidth: minwidth })
+        pos = popup_getpos(winid)
         popup_move(pwinid, {
-            minwidth: minwidth + (pos.scrollbar ? 1 : 0),
-            maxwidth: minwidth + (pos.scrollbar ? 1 : 0)
+            col: pos.col,
+            minwidth: minwidth,
+            maxwidth: minwidth
         })
     enddef
 
