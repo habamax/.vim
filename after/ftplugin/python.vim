@@ -47,8 +47,8 @@ def Things()
             normal! zz
         },
         (winid) => {
-            win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
-            win_execute(winid, $"syn match FilterMenuFuncName '\\k\\+\\ze('")
+            win_execute(winid, "syn match FilterMenuLineNr '(\\d\\+)$'")
+            win_execute(winid, "syn match FilterMenuFuncName '\\k\\+\\ze('")
             hi def link FilterMenuLineNr Comment
             hi def link FilterMenuFuncName Function
         })
