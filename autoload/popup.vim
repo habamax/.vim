@@ -1,10 +1,10 @@
 vim9script
 
 var borderchars     = ['─', '│', '─', '│', '┌', '┐', '┘', '└']
-var bordercharsp    = ['─', '│', '─', '│', '┌', '┐', '┤', '├']
+var borderchars_t   = ['─', '│', '─', '│', '├', '┤', '┘', '└']
 var borderhighlight = []
 var popuphighlight  = get(g:, "popuphighlight", '')
-var popupcursor = '█'
+var popupcursor     = '█'
 
 # Returns winnr of created popup window
 export def ShowAtCursor(text: any, Setup: func(number) = null_function): number
@@ -136,7 +136,12 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
     enddef
 
     def UpdatePopups(pwinid: number, winid: number)
-        popup_setoptions(pwinid, {title: $" ({items_count > 0 ? filtered_items[0]->len() : 0}/{items_count}) {title} " })
+        var count_f = printf("%1$*2$.*3$d",
+            items_count > 0 ? filtered_items[0]->len() : 0,
+            0,
+            items_count->string()->len())
+        var count = $"{count_f}/{items_count}"
+        popup_setoptions(pwinid, {title: $" {title} ({count}) "})
         popup_settext(pwinid, $"> {prompt}{popupcursor}")
         popup_settext(winid, Printify(filtered_items, []))
         if filtered_items[0]->empty()
@@ -172,18 +177,17 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
     }
     var pwinid = popup_create([$"> {popupcursor}"],
         popts->copy()->extend({
-            border: [1, 1, 1, 1],
-            borderchars: bordercharsp,
+            border: [1, 1, 0, 1],
+            borderchars: borderchars,
             line: pos_top,
             maxheight: 1,
             minheight: 1,
-            title: $" ({items_count}/{items_count}) {title} "
         })
     )
     var winid = popup_create(Printify(filtered_items, []), popts->copy()->extend({
-        border: [0, 1, 1, 1],
-        borderchars: borderchars,
-        line: pos_top + 3,
+        border: [1, 1, 1, 1],
+        borderchars: borderchars_t,
+        line: pos_top + 2,
         maxheight: height,
         minheight: height,
         filter: (id, key) => {
