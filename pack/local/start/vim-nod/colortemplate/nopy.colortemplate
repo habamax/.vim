@@ -22,10 +22,10 @@ Color: color01                 #d7005f        161            darkred
 Color: color09                 #ff0087        198            red
 
 Color: color02                 #008700        28             darkgreen
-Color: color10                 #00af00        34             green
+Color: color10                 #2f9700        34             green
 
 Color: color03                 #a54a2a        130            darkyellow
-Color: color11                 #d7875f        173            yellow
+Color: color11                 #c56a4a        173            yellow
 
 Color: color04                 #005faf        25             darkblue
 Color: color12                 #0087d7        32             blue
