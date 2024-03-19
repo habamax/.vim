@@ -9,3 +9,4 @@ syn clear vimOperParen
 syn clear vimOperError
 syn clear vimUserAttrbError
 syn clear vimFunctionError
+syn clear vimMenu
