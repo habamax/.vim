@@ -10,7 +10,6 @@ syn clear vimOperParen
 syn clear vimOperError
 syn clear vimUserAttrbError
 syn clear vimFunctionError
-syn clear vimMenu
 
 syn clear vimCommand
 syn keyword vimCommand contained vim9cmd vim9script import autoload export def enddef call function endfunction defer defcompile delfunction return
