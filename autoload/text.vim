@@ -83,7 +83,6 @@ export def ObjDate(inner: bool)
     var view = winsaveview()
     var cword = expand("<cword>")
     if  cword =~ '\d\{4}'
-        # var rx = '^\|'
         var rx = '\%(\D\d\{1,2}\s\+\%(' .. join(months, '\|') .. '\)\)'
         rx ..= '\|'
         rx ..= '\%(\s*\%(' .. join(months, '\|') .. '\)\s\+\d\{1,2},\)'
