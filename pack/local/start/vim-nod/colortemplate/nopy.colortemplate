@@ -168,8 +168,8 @@ String                         color02        none
 Character                      color10        none
 Identifier                     color06        none
 
-Statement                      color03        none
-Type                           color04        none
+Statement                      color03        none           bold
+Type                           color04        none           bold
 
 PreProc                        color05        none
 Special                        color16        none
