@@ -168,8 +168,8 @@ String                         color02        none
 Character                      color10        none
 Identifier                     color06        none
 
-Statement                      color03        none
-Type                           color04        none
+Statement                      color04        none
+Type                           color03        none
 
 PreProc                        color05        none
 Special                        color16        none
@@ -189,6 +189,6 @@ Added                          color10        none
 Changed                        color11        none
 Removed                        color09        none
 
-Include: _tco8
+Include: _tco8_nope
 
 Include: _tcozero
