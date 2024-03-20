@@ -154,13 +154,22 @@ export def ObjIndent(inner: bool)
     var ln_end: number
     if getline('.') =~ '^\s*$'
         ln_start = prevnonblank('.') ?? 1
-        ln_end = ln_start
     else
         ln_start = line('.')
-        ln_end = ln_start
     endif
 
     var indent = indent(ln_start)
+
+    while indent == 0 && ln_start < line('$')
+        ln_start = nextnonblank(ln_start + 1)
+        indent = indent(ln_start)
+    endwhile
+
+    if indent == 0
+        return
+    endif
+
+    ln_end = ln_start
 
     while ln_start > 0 && indent(ln_start) >= indent
         ln_start = prevnonblank(ln_start - 1)
