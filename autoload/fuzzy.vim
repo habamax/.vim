@@ -381,21 +381,20 @@ enddef
 export def DumbJump()
     var word = expand("<cword>")
     if empty(trim(word)) | return | endif
-    var lines = []
-    for nr in range(1, line('$'))
-        var line = getline(nr)
-        if line->stridx(word) > -1
-            lines->add({text: $"{line} ({nr})", linenr: nr})
-        endif
-    endfor
+    var lines = matchbufline(bufnr(), $'^.*\<{word}\>.*$', 1, '$')
+    lines->foreach((_, v) => {
+        v.text = $"{v.text} ({v.lnum})"
+    })
     popup.FilterMenu($'Jump with "{word}"', lines,
         (res, key) => {
-            exe $":{res.linenr}"
+            exe $":{res.lnum}"
             normal! zz
         },
         (winid) => {
             win_execute(winid, 'syn match FilterMenuLineNr "(\d\+)$"')
+            win_execute(winid, $'syn match FilterMenuWord "\<{word}\>"')
             hi def link FilterMenuLineNr Comment
+            hi def link FilterMenuWord Statement
         })
 enddef
 

@@ -41,6 +41,7 @@ nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
 nnoremap <space>fR <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
 nnoremap <space>; <scriptcmd>fuzzy.CmdHistory()<CR>
 nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
+nnoremap <space>j <scriptcmd>fuzzy.DumbJump()<CR>
 
 # enhance search, only if wildcharm is set to <c-z>
 if &wildcharm == 26
