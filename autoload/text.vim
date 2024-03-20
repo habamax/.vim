@@ -72,8 +72,10 @@ g:months = copy(months)
 # * RU 21 марта 2020
 # * EN 10 December 2012
 # * EN December 10, 2012
+# * EN December 10 2012
 # * EN 10 Dec 2012
 # * EN Dec 10, 2012
+# * EN Dec 10 2012
 # Usage:
 # xnoremap <silent> id :<C-u>call text#ObjDate(1)<CR>
 # onoremap id :<C-u>normal vid<CR>
@@ -85,7 +87,7 @@ export def ObjDate(inner: bool)
     if  cword =~ '\d\{4}'
         var rx = '\%(\D\d\{1,2}\s\+\%(' .. join(months, '\|') .. '\)\)'
         rx ..= '\|'
-        rx ..= '\%(\s*\%(' .. join(months, '\|') .. '\)\s\+\d\{1,2},\)'
+        rx ..= '\%(\s*\%(' .. join(months, '\|') .. '\)\s\+\d\{1,2},\?\)'
         if !search(rx, 'bcW', line('.'))
             search('\s*\D', 'bcW', line('.'))
         endif
@@ -101,7 +103,7 @@ export def ObjDate(inner: bool)
     rxdate ..= '\|'
     rxdate ..= '\%(\d\{1,2}\s\+\%(' .. join(months, '\|') .. '\)\s\+\d\{4}\)'
     rxdate ..= '\|'
-    rxdate ..= '\%(\%(' .. join(months, '\|') .. '\)\s\+\d\{1,2},\s\+\d\{4}\)'
+    rxdate ..= '\%(\%(' .. join(months, '\|') .. '\)\s\+\d\{1,2},\?\s\+\d\{4}\)'
     if !inner
         rxdate = '\s*\%(' .. rxdate .. '\)\s*'
     endif
