@@ -80,6 +80,7 @@ g:months = copy(months)
 # xnoremap <silent> ad :<C-u>call text#ObjDate(0)<CR>
 # onoremap ad :<C-u>normal vad<CR>
 export def ObjDate(inner: bool)
+    var view = winsaveview()
     var cword = expand("<cword>")
     if  cword =~ '\d\{4}'
         # var rx = '^\|'
@@ -107,10 +108,11 @@ export def ObjDate(inner: bool)
     endif
 
     if search(rxdate, 'cW') > 0
-        normal! v
+        normal v
         search(rxdate, 'ecW')
         return
     endif
+    winrestview(view)
 enddef
 
 
