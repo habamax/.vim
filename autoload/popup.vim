@@ -249,6 +249,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
                 else
                     Callback(filtered_items[0][result.idx - 1], result.key)
                 endif
+            catch /E325/
             finally
                 popup_close(pwinid)
             endtry
