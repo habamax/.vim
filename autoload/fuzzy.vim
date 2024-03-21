@@ -393,8 +393,10 @@ export def DumbJump()
         (winid) => {
             win_execute(winid, 'syn match FilterMenuLineNr "(\d\+)$"')
             win_execute(winid, $'syn match FilterMenuWord "\<{word}\>"')
+            win_execute(winid, $'syn match FilterMenuDate "^\u\U\U \d\+ \d\d:\d\d\>"')
             hi def link FilterMenuLineNr Comment
             hi def link FilterMenuWord Statement
+            hi def link FilterMenuDate Comment
         })
 enddef
 
