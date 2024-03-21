@@ -241,18 +241,14 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
             return true
         },
         callback: (id, result) => {
-            try
-                if result->type() == v:t_number
-                    if result > 0
-                        Callback(filtered_items[0][result - 1], "")
-                    endif
-                else
-                    Callback(filtered_items[0][result.idx - 1], result.key)
+            popup_close(pwinid)
+            if result->type() == v:t_number
+                if result > 0
+                    Callback(filtered_items[0][result - 1], "")
                 endif
-            catch /E325/
-            finally
-                popup_close(pwinid)
-            endtry
+            else
+                Callback(filtered_items[0][result.idx - 1], result.key)
+            endif
         }
     }))
 
