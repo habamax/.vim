@@ -49,13 +49,13 @@ def RunSelectedScene()
     else
         return
     endif
-    popup.FilterMenu("Run scene", scenes,
+    popup.Select("Run scene", scenes,
         (res, key) => {
             RunScene(res.text)
         },
         (winid) => {
-            win_execute(winid, 'syn match FilterMenuDirectorySubtle "^.*\(/\|\\\)"')
-            hi def link FilterMenuDirectorySubtle Comment
+            win_execute(winid, 'syn match PopupSelectDirectorySubtle "^.*\(/\|\\\)"')
+            hi def link PopupSelectDirectorySubtle Comment
         })
 enddef
 
@@ -74,16 +74,16 @@ def Things()
         1, '$')->foreach((_, v) => {
             v.text = $"{v.text} ({v.lnum})"
         })
-    popup.FilterMenu("GDScript Things", things,
+    popup.Select("GDScript Things", things,
         (res, key) => {
             exe $":{res.lnum}"
             normal! zz
         },
         (winid) => {
-            win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
-            win_execute(winid, $"syn match FilterMenuFuncName '\\k\\+\\ze('")
-            hi def link FilterMenuLineNr Comment
-            hi def link FilterMenuFuncName Function
+            win_execute(winid, $"syn match PopupSelectLineNr '(\\d\\+)$'")
+            win_execute(winid, $"syn match PopupSelectFuncName '\\k\\+\\ze('")
+            hi def link PopupSelectLineNr Comment
+            hi def link PopupSelectFuncName Function
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>

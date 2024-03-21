@@ -54,7 +54,8 @@ enddef
 
 # Popup menu with fuzzy filtering
 # Example usage 1:
-# FilterMenu("Echo Text",
+# import autoload 'popup.vim'
+# popup.Select("Echo Text",
 #            ["He was aware there were numerous wonders of this world including the",
 #             "unexplained creations of humankind that showed the wonder of our",
 #             "ingenuity. There are huge heads on Easter Island. There are the",
@@ -72,7 +73,7 @@ enddef
 #               echo res
 #            })
 # Example usage 2:
-# FilterMenu("Buffers",
+# popup.Select("Buffers",
 #         getbufinfo({'buflisted': 1})->mapnew((_, v) => {
 #                 return {bufnr: v.bufnr, text: (v.name ?? $'[{v.bufnr}: No Name]')}
 #             }),
@@ -87,10 +88,10 @@ enddef
 #                 exe $":b {res.bufnr}"
 #             endif
 #         })
-export def FilterMenu(title: string, items: list<any>, Callback: func(any, string), Setup: func(number) = null_function, close_on_bs: bool = false)
-    if empty(prop_type_get('FilterMenuMatch'))
-        hi def link FilterMenuMatch Constant
-        prop_type_add('FilterMenuMatch', {highlight: "FilterMenuMatch", override: true, priority: 1000, combine: true})
+export def Select(title: string, items: list<any>, Callback: func(any, string), Setup: func(number) = null_function, close_on_bs: bool = false)
+    if empty(prop_type_get('PopupSelectMatch'))
+        hi def link PopupSelectMatch Constant
+        prop_type_add('PopupSelectMatch', {highlight: "PopupSelectMatch", override: true, priority: 1000, combine: true})
     endif
     var prompt = ""
     var items_dict: list<dict<any>>
@@ -109,7 +110,7 @@ export def FilterMenu(title: string, items: list<any>, Callback: func(any, strin
         if itemsAny->len() > 1
             return itemsAny[0]->mapnew((idx, v) => {
                 return {text: v.text, props: itemsAny[1][idx]->mapnew((_, c) => {
-                    return {col: v.text->byteidx(c) + 1, length: 1, type: 'FilterMenuMatch'}
+                    return {col: v.text->byteidx(c) + 1, length: 1, type: 'PopupSelectMatch'}
                 })}
             })
         else

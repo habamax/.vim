@@ -41,16 +41,16 @@ def Things()
         lnum = shift < 2 ? lnum : lnum + 1
         add(things, {text: trim(text, " {", 2) .. $" ({lnum})", lnum: lnum})
     endwhile
-    popup.FilterMenu("C Things", things,
+    popup.Select("C Things", things,
         (res, key) => {
             exe $":{res.lnum}"
             normal! zz
         },
         (winid) => {
-            win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
-            win_execute(winid, $"syn match FilterMenuFuncName '\\k\\+\\s*\\ze('")
-            hi def link FilterMenuLineNr Comment
-            hi def link FilterMenuFuncName Function
+            win_execute(winid, $"syn match PopupSelectLineNr '(\\d\\+)$'")
+            win_execute(winid, $"syn match PopupSelectFuncName '\\k\\+\\s*\\ze('")
+            hi def link PopupSelectLineNr Comment
+            hi def link PopupSelectFuncName Function
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>

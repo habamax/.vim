@@ -94,16 +94,16 @@ def Toc()
     endfor
     @0 = save_reg
 
-    popup.FilterMenu("TOC", toc,
+    popup.Select("TOC", toc,
         (res, key) => {
             exe $":{res.linenr}"
             normal! zz
         },
         (winid) => {
-            win_execute(winid, 'syn match FilterMenuLineNr "(\d\+)$"')
-            win_execute(winid, 'syn match FilterMenuSecNum "^\s*\(\d\+\.\)*\(\d\+\)"')
-            hi def link FilterMenuLineNr Comment
-            hi def link FilterMenuSecNum Title
+            win_execute(winid, 'syn match PopupSelectMenuLineNr "(\d\+)$"')
+            win_execute(winid, 'syn match PopupSelectMenuSecNum "^\s*\(\d\+\.\)*\(\d\+\)"')
+            hi def link PopupSelectMenuLineNr Comment
+            hi def link PopupSelectMenuSecNum Title
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>

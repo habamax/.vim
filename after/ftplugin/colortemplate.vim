@@ -13,15 +13,15 @@ def Things()
         endif
     endfor
 
-    popup.FilterMenu("Things", things,
+    popup.Select("Things", things,
         (res, key) => {
             exe $":{res.linenr}"
             normal! zz
         },
         (winid) => {
             win_execute(winid, "setl ts=4 list")
-            win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
-            hi def link FilterMenuLineNr Comment
+            win_execute(winid, $"syn match PopupSelectMenuLineNr '(\\d\\+)$'")
+            hi def link PopupSelectMenuLineNr Comment
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>

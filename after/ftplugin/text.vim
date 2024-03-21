@@ -36,14 +36,14 @@ def Toc()
         1, '$')->foreach((i, v) => {
             v.text = $"{v.text->trim()} ({v.lnum})"
         })
-    popup.FilterMenu("Toc", toc,
+    popup.Select("Toc", toc,
         (res, key) => {
             exe $":{res.lnum}"
             normal! zz
         },
         (winid) => {
-            win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
-            hi def link FilterMenuLineNr Comment
+            win_execute(winid, $"syn match PopupSelectLineNr '(\\d\\+)$'")
+            hi def link PopupSelectLineNr Comment
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>

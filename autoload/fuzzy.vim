@@ -17,7 +17,7 @@ export def Buffer()
     if buffer_list->len() > 1 && buffer_list[0].bufnr == bufnr()
         [buffer_list[0], buffer_list[1]] = [buffer_list[1], buffer_list[0]]
     endif
-    popup.FilterMenu("Buffers", buffer_list,
+    popup.Select("Buffers", buffer_list,
         (res, key) => {
             if key == "\<c-t>"
                 exe $":tab sb {res.bufnr}"
@@ -34,8 +34,8 @@ export def Buffer()
             endif
         },
         (winid) => {
-            win_execute(winid, "syn match FilterMenuDirectorySubtle '^.*[\\/]'")
-            hi def link FilterMenuDirectorySubtle Comment
+            win_execute(winid, "syn match PopupSelectDirectorySubtle '^.*[\\/]'")
+            hi def link SelectDirectorySubtle Comment
         })
 enddef
 
@@ -49,7 +49,7 @@ export def MRU()
         mru = v:oldfiles->filter((_, v) =>
             filereadable(fnamemodify(v, ":p")) && v !~ 'share/vim/.*/doc/.*\.txt')
     endif
-    popup.FilterMenu("MRU", mru,
+    popup.Select("MRU", mru,
         (res, key) => {
             if key == "\<c-t>"
                 exe $":tabe {res.text->substitute('#', '\\&', 'g')}"
@@ -62,8 +62,8 @@ export def MRU()
             endif
         },
         (winid) => {
-            win_execute(winid, "syn match FilterMenuDirectorySubtle '^.*[\\/]'")
-            hi def link FilterMenuDirectorySubtle Comment
+            win_execute(winid, "syn match PopupSelectDirectorySubtle '^.*[\\/]'")
+            hi def link SelectDirectorySubtle Comment
         })
 enddef
 
@@ -72,7 +72,7 @@ export def GitFile(path: string = "")
     var git_cmd = 'git ls-files --other --full-name --cached --exclude-standard'
     var cd_cmd = path->empty() ? "" : $"cd {path} && "
     var git_files = systemlist($'{cd_cmd}{git_cmd}')
-    popup.FilterMenu("Git File", git_files,
+    popup.Select("Git File", git_files,
         (res, key) => {
             if key == "\<c-t>"
                 exe $":tabe {path_e}{res.text->substitute('#', '\\&', 'g')}"
@@ -85,21 +85,21 @@ export def GitFile(path: string = "")
             endif
         },
         (winid) => {
-            win_execute(winid, "syn match FilterMenuDirectorySubtle '^.*[\\/]'")
-            hi def link FilterMenuDirectorySubtle Comment
+            win_execute(winid, "syn match PopupSelectDirectorySubtle '^.*[\\/]'")
+            hi def link SelectDirectorySubtle Comment
         })
 enddef
 
 export def Colorscheme()
-    popup.FilterMenu("Colorscheme",
+    popup.Select("Colorscheme",
         getcompletion("", "color"),
         (res, key) => {
             exe $":colorscheme {res.text}"
         },
         (winid) => {
             if exists("g:colors_name")
-                win_execute(winid, $'syn match FilterMenuCurrent "^{g:colors_name}$"')
-                hi def link FilterMenuCurrent Statement
+                win_execute(winid, $'syn match PopupSelectCurrent "^{g:colors_name}$"')
+                hi def link SelectCurrent Statement
             endif
         })
 enddef
@@ -118,7 +118,7 @@ export def Template()
         extend(tmpls, mapnew(readdirex(path, (e) => e.type == 'file'), (_, v) => v.name))
     endif
 
-    popup.FilterMenu("Template",
+    popup.Select("Template",
         tmpls,
         (res, key) => {
             append(line('.'), readfile($"{path}/{res.text}")->mapnew((_, v) => {
@@ -139,7 +139,7 @@ export def Session()
         sessions->remove(idx)
         sessions = ["LAST"] + sessions
     endif
-    popup.FilterMenu("Session", sessions,
+    popup.Select("Session", sessions,
         (res, key) => {
             exe $':%%bd | source {g:vimdata}/sessions/{res.text}'
         })
@@ -155,7 +155,7 @@ export def Bookmark()
             ->mapnew((_, v) => ({text: $"{v[0]} ({v[1].file})", file: v[1].file, line: v[1].line, col: v[1].col}))
             ->filter((_, v) => filereadable(v.file))
     endif
-    popup.FilterMenu("Bookmark", bookmarks,
+    popup.Select("Bookmark", bookmarks,
         (res, key) => {
             if key == "\<C-j>"
                 exe $"split {res.file}"
@@ -170,8 +170,8 @@ export def Bookmark()
             exe $"normal! {res.col}|"
         },
         (winid) => {
-            win_execute(winid, 'syn match FilterMenuDirectorySubtle "(.*)$"')
-            hi def link FilterMenuDirectorySubtle Comment
+            win_execute(winid, 'syn match PopupSelectDirectorySubtle "(.*)$"')
+            hi def link SelectDirectorySubtle Comment
         })
 enddef
 
@@ -190,7 +190,7 @@ export def File(path: string = "")
         files = [{text: "", name: "", path: opath}]
     endif
 
-    popup.FilterMenu(pathshorten(opath), files, (res, key) => {
+    popup.Select(pathshorten(opath), files, (res, key) => {
         var escpath = res.path->substitute('#', '\\&', 'g')
         var escname = res.name->substitute('#', '\\&', 'g')
         if (key == "\<bs>" || key == "\<c-h>") && isdirectory(fnamemodify(res.path, ':p:h:h'))
@@ -209,8 +209,8 @@ export def File(path: string = "")
             exe $"confirm e {escpath}{sep}{escname}"
         endif
         }, (winid) => {
-            win_execute(winid, $"syn match FilterMenuDirectory '^.*{sep->escape('\\')}'")
-            hi def link FilterMenuDirectory Directory
+            win_execute(winid, $"syn match PopupSelectDirectory '^.*{sep->escape('\\')}'")
+            hi def link SelectDirectory Directory
         }, true)
 enddef
 
@@ -240,7 +240,7 @@ export def FileTree(path: string = "")
     else
         files = Tree(opath)
     endif
-    popup.FilterMenu("File", files[ : MAX_ELEMENTS - 1],
+    popup.Select("File", files[ : MAX_ELEMENTS - 1],
         (res, key) => {
             if key == "\<c-t>"
                 exe $":tabe {res.text->substitute('#', '\\&', 'g')}"
@@ -274,8 +274,8 @@ export def FileTree(path: string = "")
             endtry
         },
         (winid) => {
-            win_execute(winid, "syn match FilterMenuDirectorySubtle '^.*[\\/]'")
-            hi def link FilterMenuDirectorySubtle Comment
+            win_execute(winid, "syn match PopupSelectDirectorySubtle '^.*[\\/]'")
+            hi def link SelectDirectorySubtle Comment
         })
 enddef
 
@@ -284,7 +284,7 @@ export def Filetype()
         ->mapnew((_, v) => ({text: fnamemodify(v, ":t:r")}))
         ->sort()
         ->uniq()
-    popup.FilterMenu("Filetype", ft_list,
+    popup.Select("Filetype", ft_list,
             (res, key) => {
                 exe $":set ft={res.text}"
             })
@@ -311,13 +311,13 @@ export def Highlight()
                     value: $"hi {v.name}{guifg}{guibg}{gui}{ctermfg}{ctermbg}{cterm}{term}"}
         endif
     })
-    popup.FilterMenu("Highlight", hl,
+    popup.Select("Highlight", hl,
         (res, key) => {
             feedkeys($":{res.value}\<C-f>")
         },
         (winid) => {
-            win_execute(winid, 'syn match FilterMenuHiLinksTo "\(links to\)\|\(cleared\)"')
-            hi def link FilterMenuHiLinksTo Comment
+            win_execute(winid, 'syn match PopupSelectHiLinksTo "\(links to\)\|\(cleared\)"')
+            hi def link SelectHiLinksTo Comment
             for h in hl
                 win_execute(winid, $'syn match {h.name} "^xxx\ze {h.name}\>"')
             endfor
@@ -328,7 +328,7 @@ export def Help()
     var help_tags = globpath(&rtp, "doc/tags", 1, 1)
         ->mapnew((_, v) => readfile(v)->mapnew((_, line) => ({text: line->split("\t")[0]})))
         ->flattennew()
-    popup.FilterMenu("Help", help_tags,
+    popup.Select("Help", help_tags,
         (res, key) => {
             if key == "\<c-t>"
                 exe $":tab help {res.text}"
@@ -344,7 +344,7 @@ export def CmdHistory()
     var cmd_history = [{text: histget("cmd")}] + range(1, histnr("cmd"))->mapnew((i, _) => {
         return {text: histget("cmd", i), idx: i}
     })->filter((_, v) => v.text !~ "^\s*$")->sort((el1, el2) => el1.idx == el2.idx ? 0 : el1.idx > el2.idx ? -1 : 1)
-    popup.FilterMenu("Command History", cmd_history,
+    popup.Select("Command History", cmd_history,
         (res, key) => {
             if key == "\<c-j>"
                 feedkeys($":{res.text}\<C-f>", "n")
@@ -368,13 +368,13 @@ export def Project()
             return
         endtry
     endif
-    popup.FilterMenu("Project", projects,
+    popup.Select("Project", projects,
         (res, key) => {
             FileTree(res.text)
         },
         (winid) => {
-            win_execute(winid, "syn match FilterMenuDirectorySubtle '^.*[\\/]'")
-            hi def link FilterMenuDirectorySubtle Comment
+            win_execute(winid, "syn match PopupSelectDirectorySubtle '^.*[\\/]'")
+            hi def link SelectDirectorySubtle Comment
         })
 enddef
 
@@ -385,18 +385,18 @@ export def DumbJump()
     lines->foreach((_, v) => {
         v.text = $"{v.text} ({v.lnum})"
     })
-    popup.FilterMenu($'Jump with "{word}"', lines,
+    popup.Select($'Jump with "{word}"', lines,
         (res, key) => {
             exe $":{res.lnum}"
             normal! zz
         },
         (winid) => {
-            win_execute(winid, 'syn match FilterMenuLineNr "(\d\+)$"')
-            win_execute(winid, $'syn match FilterMenuWord "\<{word}\>"')
-            win_execute(winid, $'syn match FilterMenuDate "^\u\U\U \d\+ \d\d:\d\d\>"')
-            hi def link FilterMenuLineNr Comment
-            hi def link FilterMenuWord Statement
-            hi def link FilterMenuDate Comment
+            win_execute(winid, 'syn match PopupSelectLineNr "(\d\+)$"')
+            win_execute(winid, $'syn match PopupSelectWord "\<{word}\>"')
+            win_execute(winid, $'syn match PopupSelectDate "^\u\U\U \d\+ \d\d:\d\d\>"')
+            hi def link SelectLineNr Comment
+            hi def link SelectWord Statement
+            hi def link SelectDate Comment
         })
 enddef
 
@@ -409,16 +409,16 @@ export def Window()
         var current_sign = w_info.winid == win_getid() ? "*" : " "
         windows->add({text: $"{current_sign}({tabtext}{wintext}): {name} ({w_info.winid})", winid: w_info.winid})
     endfor
-    popup.FilterMenu($'Jump window', windows,
+    popup.Select($'Jump window', windows,
         (res, key) => {
             win_gotoid(res.winid)
         },
         (winid) => {
-            win_execute(winid, 'syn match FilterMenuRegular "^ (.\{-}):.*(\d\+)$" contains=FilterMenuBraces')
-            win_execute(winid, 'syn match FilterMenuCurrent "^\*(.\{-}):.*(\d\+)$" contains=FilterMenuBraces')
-            win_execute(winid, 'syn match FilterMenuBraces "(\d\+)$" contained')
-            win_execute(winid, 'syn match FilterMenuBraces "^[* ](.\{-}):" contained')
-            hi def link FilterMenuBraces Comment
-            hi def link FilterMenuCurrent Statement
+            win_execute(winid, 'syn match PopupSelectRegular "^ (.\{-}):.*(\d\+)$" contains=SelectBraces')
+            win_execute(winid, 'syn match PopupSelectCurrent "^\*(.\{-}):.*(\d\+)$" contains=SelectBraces')
+            win_execute(winid, 'syn match PopupSelectBraces "(\d\+)$" contained')
+            win_execute(winid, 'syn match PopupSelectBraces "^[* ](.\{-}):" contained')
+            hi def link SelectBraces Comment
+            hi def link SelectCurrent Statement
         })
 enddef

@@ -33,16 +33,16 @@ def Things()
             things->add({text: $'{line} ({nr})', linenr: nr})
         endif
     endfor
-    popup.FilterMenu("Vim Things", things,
+    popup.Select("Vim Things", things,
         (res, key) => {
             exe $":{res.linenr}"
             normal! zz
         },
         (winid) => {
-            win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
-            win_execute(winid, $"syn match FilterMenuFuncName '\\k\\+\\ze('")
-            hi def link FilterMenuLineNr Comment
-            hi def link FilterMenuFuncName Function
+            win_execute(winid, $"syn match PopupSelectLineNr '(\\d\\+)$'")
+            win_execute(winid, $"syn match PopupSelectFuncName '\\k\\+\\ze('")
+            hi def link PopupSelectLineNr Comment
+            hi def link PopupSelectFuncName Function
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>

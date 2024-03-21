@@ -88,16 +88,16 @@ def Toc()
         t.text = repeat("  ", t.lvl - title - subtitle) .. $"{toc_num_str} {t.text}"
     endfor
 
-    popup.FilterMenu("TOC", toc,
+    popup.Select("TOC", toc,
         (res, key) => {
             exe $":{res.linenr}"
             normal! zz
         },
         (winid) => {
-            win_execute(winid, 'syn match FilterMenuLineNr "(\d\+)$"')
-            win_execute(winid, 'syn match FilterMenuSecNum "^\s*\(\d\+\.\)*\(\d\+\)"')
-            hi def link FilterMenuLineNr Comment
-            hi def link FilterMenuSecNum Title
+            win_execute(winid, 'syn match PopupSelectLineNr "(\d\+)$"')
+            win_execute(winid, 'syn match PopupSelectSecNum "^\s*\(\d\+\.\)*\(\d\+\)"')
+            hi def link PopupSelectLineNr Comment
+            hi def link PopupSelectSecNum Title
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>

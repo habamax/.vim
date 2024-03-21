@@ -17,16 +17,16 @@ def Things()
             things->add({text: $"{line}({nr})", linenr: nr})
         endif
     endfor
-    popup.FilterMenu("Odin Things", things,
+    popup.Select("Odin Things", things,
         (res, key) => {
             exe $":{res.linenr}"
             normal! zz
         },
         (winid) => {
-            win_execute(winid, $"syn match FilterMenuLineNr '(\\d\\+)$'")
+            win_execute(winid, $"syn match PopupSelectLineNr '(\\d\\+)$'")
             win_execute(winid, $"syn match Identifier '^\\s*\\k\\+\\ze\\s*::\\s*proc'")
             win_execute(winid, $"setl tabstop=4")
-            hi def link FilterMenuLineNr Comment
+            hi def link PopupSelectLineNr Comment
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>

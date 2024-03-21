@@ -70,16 +70,16 @@ def Toc()
         t.text = repeat("  ", t.lvl - title) .. $"{toc_num_str} {t.text}"
     endfor
 
-    popup.FilterMenu("TOC", toc,
+    popup.Select("TOC", toc,
         (res, key) => {
             exe $":{res.linenr}"
             normal! zz
         },
         (winid) => {
-            win_execute(winid, 'syn match FilterMenuLineNr "(\d\+)$"')
-            win_execute(winid, 'syn match FilterMenuSecNum "^\s*\(\d\+\.\)*\(\d\+\)"')
-            hi def link FilterMenuLineNr Comment
-            hi def link FilterMenuSecNum Title
+            win_execute(winid, 'syn match PopupSelectLineNr "(\d\+)$"')
+            win_execute(winid, 'syn match PopupSelectSecNum "^\s*\(\d\+\.\)*\(\d\+\)"')
+            hi def link PopupSelectLineNr Comment
+            hi def link PopupSelectSecNum Title
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
@@ -92,7 +92,7 @@ nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
 def HeaderTextObj(inner: bool)
     var lnum_start = search('^#\+\s\+[^[:space:]=]', "ncbW")
     if lnum_start > 0
-        var lvlheader = matchstr(getline(lnum_start), '^#\+')
+        var lvlheader = PopupSelectstr(getline(lnum_start), '^#\+')
         var lnum_end = search('^#\{1,' .. len(lvlheader) .. '}\s', "nW")
         if lnum_end == 0
             lnum_end = search('\%$', 'cnW')
