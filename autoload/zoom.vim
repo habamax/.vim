@@ -33,6 +33,19 @@ def ApplyLayout(layout: list<any>)
       # load buffer for leaf
       if bufexists(layout[1])
           exe $'b {layout[1]}'
+          # help buffer needs special attention
+          # otherwise it will be showing
+          if &ft == 'help'
+              set ft=help
+              setlocal nobuflisted
+              setlocal nomodifiable
+              setlocal nonumber norelativenumber
+              setlocal nofoldenable foldmethod=manual
+              setlocal nolist nodiff nospell
+              setlocal tabstop=8
+              setlocal noarabic norightleft nobinary
+              setlocal nocursorbind noscrollbind
+          endif
       endif
   else
       # split cols or rows, split n-1 times
