@@ -27,6 +27,9 @@ def Things()
     rx_func ..= '\s*(\/\/.*)?'
     rx_func ..= '\_s{-}\{\s*$'
     while search(rx_func, 'W') != 0
+        if getline('.') =~ '^\s*else\s\+if\s*('
+            continue
+        endif
         var text = trim(getline('.'))->substitute('\s*\/\/.*$', '', '')
         var lnum = line('.')
         var shift = 0
