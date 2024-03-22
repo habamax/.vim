@@ -35,7 +35,7 @@ export def Buffer()
         },
         (winid) => {
             win_execute(winid, "syn match PopupSelectDirectorySubtle '^.*[\\/]'")
-            hi def link SelectDirectorySubtle Comment
+            hi def link PopupSelectDirectorySubtle Comment
         })
 enddef
 
@@ -63,7 +63,7 @@ export def MRU()
         },
         (winid) => {
             win_execute(winid, "syn match PopupSelectDirectorySubtle '^.*[\\/]'")
-            hi def link SelectDirectorySubtle Comment
+            hi def link PopupSelectDirectorySubtle Comment
         })
 enddef
 
@@ -86,7 +86,7 @@ export def GitFile(path: string = "")
         },
         (winid) => {
             win_execute(winid, "syn match PopupSelectDirectorySubtle '^.*[\\/]'")
-            hi def link SelectDirectorySubtle Comment
+            hi def link PopupSelectDirectorySubtle Comment
         })
 enddef
 
@@ -99,7 +99,7 @@ export def Colorscheme()
         (winid) => {
             if exists("g:colors_name")
                 win_execute(winid, $'syn match PopupSelectCurrent "^{g:colors_name}$"')
-                hi def link SelectCurrent Statement
+                hi def link PopupSelectCurrent Statement
             endif
         })
 enddef
@@ -171,7 +171,7 @@ export def Bookmark()
         },
         (winid) => {
             win_execute(winid, 'syn match PopupSelectDirectorySubtle "(.*)$"')
-            hi def link SelectDirectorySubtle Comment
+            hi def link PopupSelectDirectorySubtle Comment
         })
 enddef
 
@@ -210,7 +210,7 @@ export def File(path: string = "")
         endif
         }, (winid) => {
             win_execute(winid, $"syn match PopupSelectDirectory '^.*{sep->escape('\\')}'")
-            hi def link SelectDirectory Directory
+            hi def link PopupSelectDirectory Directory
         }, true)
 enddef
 
@@ -275,7 +275,7 @@ export def FileTree(path: string = "")
         },
         (winid) => {
             win_execute(winid, "syn match PopupSelectDirectorySubtle '^.*[\\/]'")
-            hi def link SelectDirectorySubtle Comment
+            hi def link PopupSelectDirectorySubtle Comment
         })
 enddef
 
@@ -317,7 +317,7 @@ export def Highlight()
         },
         (winid) => {
             win_execute(winid, 'syn match PopupSelectHiLinksTo "\(links to\)\|\(cleared\)"')
-            hi def link SelectHiLinksTo Comment
+            hi def link PopupSelectHiLinksTo Comment
             for h in hl
                 win_execute(winid, $'syn match {h.name} "^xxx\ze {h.name}\>"')
             endfor
@@ -374,7 +374,7 @@ export def Project()
         },
         (winid) => {
             win_execute(winid, "syn match PopupSelectDirectorySubtle '^.*[\\/]'")
-            hi def link SelectDirectorySubtle Comment
+            hi def link PopupSelectDirectorySubtle Comment
         })
 enddef
 
@@ -394,9 +394,9 @@ export def DumbJump()
             win_execute(winid, 'syn match PopupSelectLineNr "(\d\+)$"')
             win_execute(winid, $'syn match PopupSelectWord "\<{word}\>"')
             win_execute(winid, $'syn match PopupSelectDate "^\u\U\U \d\+ \d\d:\d\d\>"')
-            hi def link SelectLineNr Comment
-            hi def link SelectWord Statement
-            hi def link SelectDate Comment
+            hi def link PopupSelectLineNr Comment
+            hi def link PopupSelectWord Statement
+            hi def link PopupSelectDate Comment
         })
 enddef
 
@@ -414,11 +414,11 @@ export def Window()
             win_gotoid(res.winid)
         },
         (winid) => {
-            win_execute(winid, 'syn match PopupSelectRegular "^ (.\{-}):.*(\d\+)$" contains=SelectBraces')
-            win_execute(winid, 'syn match PopupSelectCurrent "^\*(.\{-}):.*(\d\+)$" contains=SelectBraces')
+            win_execute(winid, 'syn match PopupSelectRegular "^ (.\{-}):.*(\d\+)$" contains=PopupSelectBraces')
+            win_execute(winid, 'syn match PopupSelectCurrent "^\*(.\{-}):.*(\d\+)$" contains=PopupSelectBraces')
             win_execute(winid, 'syn match PopupSelectBraces "(\d\+)$" contained')
             win_execute(winid, 'syn match PopupSelectBraces "^[* ](.\{-}):" contained')
-            hi def link SelectBraces Comment
-            hi def link SelectCurrent Statement
+            hi def link PopupSelectBraces Comment
+            hi def link PopupSelectCurrent Statement
         })
 enddef
