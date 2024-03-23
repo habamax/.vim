@@ -1,7 +1,7 @@
 ; vim: cc=32,47,62 vsts=31,15,15,4
-Full name: nope
-Short name: nope
-Description: White background.
+Full name: nope-ye
+Short name: nope-ye
+Description: nope with yellowish tint.
 Author: Maxim Kim <habamax@gmail.com>
 Website: https://github.com/habamax/.vim/tree/master/pack/local/start/vim-nod
 License: Same as Vim
@@ -13,7 +13,7 @@ Background: light
 
 ;;; Color palette
 Color: colorFg                 #000000        16             black
-Color: colorBg                 #ffffff        231            white
+Color: colorBg                 #e4e4e0        254            white
 
 Color: color00                 #000000        16             black
 Color: color08                 #8a8a8a        245            darkgrey
@@ -22,10 +22,10 @@ Color: color01                 #d7005f        161            darkred
 Color: color09                 #ff0087        198            red
 
 Color: color02                 #008700        28             darkgreen
-Color: color10                 #00af00        34             green
+Color: color10                 #2f9700        34             green
 
 Color: color03                 #a54a2a        130            darkyellow
-Color: color11                 #d7875f        173            yellow
+Color: color11                 #c56a4a        173            yellow
 
 Color: color04                 #005faf        25             darkblue
 Color: color12                 #0087d7        32             blue
@@ -41,11 +41,11 @@ Color: color15                 #ffffff        231            white
 
 Color: color16                 #5f00d7        56             magenta
 
-Color: colorLine               #eeeeed        255            grey
-Color: colorPmenu              #dfdfdf        253            grey
-Color: colorB                  #f7f7f7        254            grey
-Color: colorNonT               #a8abad        248            grey
-Color: colorFold               #878787        102            grey
+Color: colorLine               #d9d9d2        255            grey
+Color: colorPmenu              #d0d0c9        254            grey
+Color: colorB                  #edede5        254            grey
+Color: colorNonT               #a8a8a3        248            grey
+Color: colorFold               #878782        102            grey
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
 Color: colorSt                 #626262        241            darkgrey

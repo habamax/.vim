@@ -1,6 +1,6 @@
 ; vim: cc=32,47,62 vsts=31,15,15,4
-Full name: nod
-Short name: nod
+Full name: nod-black
+Short name: nod-black
 Description: Which colorscheme? Yes!
 Author: Maxim Kim <habamax@gmail.com>
 Website: https://github.com/habamax/.vim/tree/master/pack/local/start/vim-nod
@@ -12,7 +12,7 @@ Include: _plugin_links
 Background: dark
 
 ;;; Color palette
-Color: color00                 #1c1c1c        234            black
+Color: color00                 #000000        16             black
 Color: color08                 #767676        243            darkgrey
 
 Color: color01                 #d75f87        168            darkred
