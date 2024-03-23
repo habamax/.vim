@@ -10,9 +10,9 @@ endif
 set termguicolors
 
 if has("win32") && has("gui_running")
-    silent! colorscheme nope
+    silent! colorscheme nope-ye
 else
-    silent! colorscheme nod
+    silent! colorscheme nod-blu
 endif
 
 # helper commands and mappings to work with vim/colorschemes
