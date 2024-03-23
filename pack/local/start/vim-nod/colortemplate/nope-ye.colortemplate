@@ -6,8 +6,8 @@ Author: Maxim Kim <habamax@gmail.com>
 Website: https://github.com/habamax/.vim/tree/master/pack/local/start/vim-nod
 License: Same as Vim
 
-Include: _default_links
-Include: _plugin_links
+Include: _link_default
+Include: _link_plugin
 
 Background: light
 
@@ -58,8 +58,6 @@ Color: diffDelete              #875f5f        95             darkred
 Color: diffChange              #5f87af        67             blue
 Color: diffText                #af5faf        133            darkmagenta
 
-Include: _nope_base
-
+Include: _base_nope
 Include: _tco8
-
-Include: _tcozero
+Include: _tco0
