@@ -35,7 +35,6 @@ else
 endif
 
 def Things()
-    # var things = []
     var things = matchbufline(bufnr(),
         '\v(^\s*(def|class)\s+\k+.*$)|(if __name__ \=\= .*)',
         1, '$')->foreach((_, v) => {
