@@ -11,7 +11,7 @@ set termguicolors
 
 if !has("gui_running")
     augroup group_name | au!
-        au Colorscheme nod,nod-blu,nod-da hi Normal ctermbg=NONE guibg=NONE
+        au Colorscheme nod,nod-b,nod-d hi Normal ctermbg=NONE guibg=NONE
     augroup END
 endif
 
