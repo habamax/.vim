@@ -16,9 +16,9 @@ if !has("gui_running")
 endif
 
 if has("win32") && has("gui_running")
-    silent! colorscheme nope-ye
+    silent! colorscheme nope-y
 else
-    silent! colorscheme nod-blu
+    silent! colorscheme nod-b
 endif
 
 # helper commands and mappings to work with vim/colorschemes

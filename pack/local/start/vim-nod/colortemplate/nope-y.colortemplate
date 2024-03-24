@@ -1,6 +1,6 @@
 ; vim: cc=32,47,62 vsts=31,15,15,4
-Full name: nope-ye
-Short name: nope-ye
+Full name: nope-y
+Short name: nope-y
 Description: nope with yellowish tint.
 Author: Maxim Kim <habamax@gmail.com>
 Website: https://github.com/habamax/.vim/tree/master/pack/local/start/vim-nod
