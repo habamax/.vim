@@ -125,10 +125,6 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
     var pos_top = ((&lines - height) / 2) - 1
 
     def AlignPopups(pwinid: number, winid: number)
-        # "refresh" results popup, otherwise there might be
-        # scrollbar visible but pos.scrollbar would report 0
-        popup_move(winid, {})
-
         minwidth = popup_getpos(pwinid).core_width - popup_getpos(winid).scrollbar
         popup_move(winid, {
             minwidth: minwidth,
@@ -142,14 +138,14 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
             0,
             items_count->string()->len())
         var count = $"{count_f}/{items_count}"
-        popup_setoptions(pwinid, {title: $" {title} ({count}) "})
-        popup_settext(pwinid, $"> {prompt}{popup_cursor}")
-        popup_settext(winid, Printify(filtered_items, []))
         if filtered_items[0]->empty()
             win_execute(winid, "setl nonu nocursorline")
         else
             win_execute(winid, "setl nu cursorline")
         endif
+        popup_setoptions(pwinid, {title: $" {title} ({count}) "})
+        popup_settext(pwinid, $"> {prompt}{popup_cursor}")
+        popup_settext(winid, Printify(filtered_items, []))
     enddef
 
     var ignore_input = ["\<cursorhold>", "\<ignore>", "\<Nul>",
