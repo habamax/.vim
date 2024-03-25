@@ -126,11 +126,9 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
 
     def AlignPopups(pwinid: number, winid: number)
         var pos = popup_getpos(winid)
-        minwidth = pos.core_width + pos.scrollbar
-        popup_move(winid, { minwidth: minwidth })
-        pos = popup_getpos(winid)
-        popup_move(pwinid, {
-            col: pos.col,
+        var ppos = popup_getpos(pwinid)
+        minwidth = ppos.core_width - pos.scrollbar
+        popup_move(winid, {
             minwidth: minwidth,
             maxwidth: minwidth
         })
