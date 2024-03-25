@@ -121,7 +121,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
     enddef
 
     var height = min([&lines - 9, max([items->len(), 5])])
-    var minwidth = (&columns * 0.6)->float2nr()
+    var minwidth = max([min([70, &columns - 6]), (&columns * 0.6)->float2nr()])
     var pos_top = ((&lines - height) / 2) - 1
 
     def AlignPopups(pwinid: number, winid: number)
