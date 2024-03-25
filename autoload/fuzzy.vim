@@ -392,7 +392,7 @@ export def DumbJump()
         },
         (winid) => {
             win_execute(winid, 'syn match PopupSelectLineNr "(\d\+)$"')
-            win_execute(winid, $'syn match PopupSelectWord "\<{word}\>"')
+            win_execute(winid, $'syn match PopupSelectWord "\c\<{word}\>"')
             win_execute(winid, $'syn match PopupSelectDate "^\u\U\U \d\+ \d\d:\d\d\>"')
             hi def link PopupSelectLineNr Comment
             hi def link PopupSelectWord Statement
