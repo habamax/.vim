@@ -1,10 +1,10 @@
 vim9script
 
-var borderchars     = ['─', '│', '─', '│', '┌', '┐', '┘', '└']
-var borderchars_t   = ['─', '│', '─', '│', '├', '┤', '┘', '└']
-var borderhighlight = []
-var popuphighlight  = get(g:, "popuphighlight", '')
-var popupcursor     = '█'
+var popup_borderchars     = ['─', '│', '─', '│', '┌', '┐', '┘', '└']
+var popup_borderchars_t   = ['─', '│', '─', '│', '├', '┤', '┘', '└']
+var popup_borderhighlight = get(g:, "popup_borderhighlight", [])
+var popup_highlight       = get(g:, "popup_highlight", '')
+var popup_cursor          = get(g:, "popup_cursor", '█')
 
 # Returns winnr of created popup window
 export def ShowAtCursor(text: any, Setup: func(number) = null_function): number
@@ -17,9 +17,9 @@ export def ShowAtCursor(text: any, Setup: func(number) = null_function): number
     var winid = popup_atcursor(new_text, {
         padding: [0, 1, 0, 1],
         border: [],
-        borderchars: borderchars,
-        borderhighlight: borderhighlight,
-        highlight: popuphighlight,
+        borderchars: popup_borderchars,
+        borderhighlight: popup_borderhighlight,
+        highlight: popup_highlight,
         pos: "botleft",
         mapping: 0,
         filter: (winid, key) => {
@@ -141,7 +141,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
             items_count->string()->len())
         var count = $"{count_f}/{items_count}"
         popup_setoptions(pwinid, {title: $" {title} ({count}) "})
-        popup_settext(pwinid, $"> {prompt}{popupcursor}")
+        popup_settext(pwinid, $"> {prompt}{popup_cursor}")
         popup_settext(winid, Printify(filtered_items, []))
         if filtered_items[0]->empty()
             win_execute(winid, "setl nonu nocursorline")
@@ -165,8 +165,8 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
     var popts = {
         minwidth: minwidth,
         maxwidth: minwidth,
-        borderhighlight: borderhighlight,
-        highlight: popuphighlight,
+        borderhighlight: popup_borderhighlight,
+        highlight: popup_highlight,
         drag: 0,
         wrap: 1,
         scrollbar: true,
@@ -174,10 +174,10 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         padding: [0, 0, 0, 0],
         mapping: 0,
     }
-    var pwinid = popup_create([$"> {popupcursor}"],
+    var pwinid = popup_create([$"> {popup_cursor}"],
         popts->copy()->extend({
             border: [1, 1, 0, 1],
-            borderchars: borderchars,
+            borderchars: popup_borderchars,
             line: pos_top,
             maxheight: 1,
             minheight: 1,
@@ -185,7 +185,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
     )
     var winid = popup_create(Printify(filtered_items, []), popts->copy()->extend({
         border: [1, 1, 1, 1],
-        borderchars: borderchars_t,
+        borderchars: popup_borderchars_t,
         line: pos_top + 2,
         maxheight: height,
         minheight: height,

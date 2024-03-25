@@ -7,7 +7,7 @@ g:loaded_netrw = 1
 g:loaded_netrwPlugin = 1
 
 # popup highlight
-g:popuphighlight = 'None'
+g:popup_highlight = 'None'
 
 packadd! cfilter
 packadd! editorconfig
