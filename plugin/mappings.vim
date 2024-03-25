@@ -25,23 +25,22 @@ xnoremap <space>c s
 import autoload 'fuzzy.vim'
 nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
 nnoremap <space>fe <scriptcmd>fuzzy.FileTree()<CR>
-nnoremap <space>ge <scriptcmd>fuzzy.GitFile()<CR>
+nnoremap <space>fg <scriptcmd>fuzzy.GitFile()<CR>
 nnoremap <space>b <scriptcmd>fuzzy.Buffer()<CR>
 nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
 nnoremap <space>fm <scriptcmd>fuzzy.MRU()<CR>
+nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
 nnoremap <space>fi <scriptcmd>fuzzy.GitFile(fnamemodify($MYVIMRC, ":p:h"))<CR>
 nnoremap <space>fd <scriptcmd>fuzzy.GitFile($DOCS ?? '~/docs')<CR>
-nnoremap <space>fD <scriptcmd>fuzzy.File($DOCS ?? '~/docs')<CR>
 nnoremap <space>fc <scriptcmd>fuzzy.Colorscheme()<CR>
-nnoremap <space>ft <scriptcmd>fuzzy.Template()<CR>
 nnoremap <space>fs <scriptcmd>fuzzy.Session()<CR>
 nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
-nnoremap <space>fT <scriptcmd>fuzzy.Filetype()<CR>
 nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
-nnoremap <space>fR <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
+nnoremap <space>fr <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
+nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
 nnoremap <space>; <scriptcmd>fuzzy.CmdHistory()<CR>
-nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
 nnoremap <space>j <scriptcmd>fuzzy.DumbJump()<CR>
+nnoremap <space>i <scriptcmd>fuzzy.Template()<CR>
 
 # enhance search, only if wildcharm is set to <c-z>
 if &wildcharm == 26
