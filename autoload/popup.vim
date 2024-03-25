@@ -125,9 +125,11 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
     var pos_top = ((&lines - height) / 2) - 1
 
     def AlignPopups(pwinid: number, winid: number)
-        var pos = popup_getpos(winid)
-        var ppos = popup_getpos(pwinid)
-        minwidth = ppos.core_width - pos.scrollbar
+        # "refresh" results popup, otherwise there might be
+        # scrollbar visible but pos.scrollbar would report 0
+        popup_move(winid, {})
+
+        minwidth = popup_getpos(pwinid).core_width - popup_getpos(winid).scrollbar
         popup_move(winid, {
             minwidth: minwidth,
             maxwidth: minwidth
