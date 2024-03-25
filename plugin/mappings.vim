@@ -39,7 +39,7 @@ nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
 nnoremap <space>fr <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
 nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
 nnoremap <space>; <scriptcmd>fuzzy.CmdHistory()<CR>
-nnoremap <space>j <scriptcmd>fuzzy.DumbJump()<CR>
+nnoremap <space>j <scriptcmd>fuzzy.CurrentWord()<CR>
 nnoremap <space>i <scriptcmd>fuzzy.Template()<CR>
 
 # enhance search, only if wildcharm is set to <c-z>

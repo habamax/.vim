@@ -378,14 +378,14 @@ export def Project()
         })
 enddef
 
-export def DumbJump()
+export def CurrentWord()
     var word = expand("<cword>")
     if empty(trim(word)) | return | endif
     var lines = matchbufline(bufnr(), $'^.*\<{word}\>.*$', 1, '$')
     lines->foreach((_, v) => {
         v.text = $"{v.text} ({v.lnum})"
     })
-    popup.Select($'Jump with "{word}"', lines,
+    popup.Select($'Buffer lines with "{word}"', lines,
         (res, key) => {
             exe $":{res.lnum}"
             normal! zz
