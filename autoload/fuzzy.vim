@@ -409,7 +409,7 @@ export def Window()
         var current_sign = w_info.winid == win_getid() ? "*" : " "
         windows->add({text: $"{current_sign}({tabtext}{wintext}): {name} ({w_info.winid})", winid: w_info.winid})
     endfor
-    popup.Select($'Jump window', windows,
+    popup.Select($'Window', windows,
         (res, key) => {
             win_gotoid(res.winid)
         },
