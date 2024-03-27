@@ -139,9 +139,9 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
             items_count->string()->len())
         var count = $"{count_f}/{items_count}"
         if filtered_items[0]->empty()
-            win_execute(winid, "setl nonu nocursorline")
+            win_execute(winid, "if &l:nu | setl nonu nocul | endif")
         else
-            win_execute(winid, "setl nu cursorline")
+            win_execute(winid, "if !&l:nu | setl nu cul | endif")
         endif
         popup_setoptions(pwinid, {title: $" {title} ({count}) "})
         popup_settext(pwinid, $"> {prompt}{popup_cursor}")
