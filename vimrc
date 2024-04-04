@@ -47,8 +47,6 @@ endif
 g:vimdata = $'{$APPDATA ?? expand("~/.config")}/vim-data'
 if !isdirectory(g:vimdata) | mkdir(g:vimdata, "p") | endif
 
-&viminfofile = $"{g:vimdata}/viminfo"
-
 &directory = $'{g:vimdata}/swap/'
 &backupdir = $'{g:vimdata}/backup//'
 &undodir = $'{g:vimdata}/undo//'
