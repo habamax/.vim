@@ -92,7 +92,7 @@ nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
 def HeaderTextObj(inner: bool)
     var lnum_start = search('^#\+\s\+[^[:space:]=]', "ncbW")
     if lnum_start > 0
-        var lvlheader = PopupSelectstr(getline(lnum_start), '^#\+')
+        var lvlheader = matchstr(getline(lnum_start), '^#\+')
         var lnum_end = search('^#\{1,' .. len(lvlheader) .. '}\s', "nW")
         if lnum_end == 0
             lnum_end = search('\%$', 'cnW')
