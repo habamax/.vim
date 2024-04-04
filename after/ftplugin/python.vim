@@ -18,8 +18,12 @@ def PopupHelp(symbol: string)
     })
 enddef
 
-nnoremap <buffer> <F5> <scriptcmd>exe "Sh python" expand("%:p")<cr>
-      \<scriptcmd>wincmd p<cr>
+def RunPython()
+    exe "Sh python" expand("%:p")
+    win_gotoid(b:shout_initial_winid)
+enddef
+
+nnoremap <buffer> <F5> <scriptcmd>RunPython()<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 
 if exists("g:loaded_lsp")

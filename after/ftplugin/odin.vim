@@ -4,7 +4,12 @@ setl shiftwidth=0
 setl noexpandtab
 setl tabstop=4
 
-nnoremap <buffer> <F5> <scriptcmd>Sh odin run .<CR><scriptcmd>wincmd p<CR>
+def RunOdin()
+    Sh odin run .
+    win_gotoid(b:shout_initial_winid)
+enddef
+
+nnoremap <buffer> <F5> <scriptcmd>RunOdin()<CR>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 
 import autoload 'popup.vim'

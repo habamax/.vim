@@ -1,5 +1,9 @@
 vim9script
 
-nnoremap <buffer> <F5> <scriptcmd>exe "Sh perl" expand("%:p")<cr>
-b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
+def RunPerl()
+    exe "Sh perl" expand("%:p")
+    win_gotoid(b:shout_initial_winid)
+enddef
 
+nnoremap <buffer> <F5> <scriptcmd>RunPerl()<cr>
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
