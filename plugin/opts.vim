@@ -6,7 +6,7 @@ vim9script
 g:loaded_netrw = 1
 g:loaded_netrwPlugin = 1
 
-# popup highlight
+# popup
 g:popup_highlight = 'None'
 # g:popup_borderchars = ['═', '║', '═', '║', '╔', '╗', '╝', '╚']
 # g:popup_borderchars_t = ['─', '║', '═', '║', '╟', '╢', '╝', '╚']
