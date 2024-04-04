@@ -8,8 +8,8 @@ g:loaded_netrwPlugin = 1
 
 # popup highlight
 g:popup_highlight = 'None'
-g:popup_borderchars = ['═', '║', '═', '║', '╔', '╗', '╝', '╚']
-g:popup_borderchars_t = ['─', '║', '═', '║', '╟', '╢', '╝', '╚']
+# g:popup_borderchars = ['═', '║', '═', '║', '╔', '╗', '╝', '╚']
+# g:popup_borderchars_t = ['─', '║', '═', '║', '╟', '╢', '╝', '╚']
 
 packadd! cfilter
 packadd! editorconfig
