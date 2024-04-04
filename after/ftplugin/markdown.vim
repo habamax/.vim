@@ -103,7 +103,6 @@ def HeaderTextObj(inner: bool)
             lnum_start += 1
         endif
 
-        echom lnum_start lnum_end
         exe $":{lnum_end}"
         normal! V
         exe $":{lnum_start}"
