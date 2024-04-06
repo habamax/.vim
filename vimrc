@@ -14,6 +14,7 @@ set backspace=indent,eol,start
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak nojoinspaces
 set fileformat=unix fileformats=unix,dos
 set display=lastline smoothscroll
+set sidescroll=1 sidescrolloff=3
 set virtualedit=block
 set nostartofline
 set belloff=all
