@@ -91,8 +91,10 @@ export def GitFile(path: string = "")
 enddef
 
 export def Colorscheme()
+    var colorschemes = getcompletion("", "color")
+        ->sort((i1, i2) => i2 == get(g:, "colors_name", "default") ? 1 : -1)
     popup.Select("Colorscheme",
-        getcompletion("", "color"),
+        colorschemes,
         (res, key) => {
             exe $":colorscheme {res.text}"
         },
