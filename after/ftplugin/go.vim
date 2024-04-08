@@ -13,7 +13,7 @@ else
     command! -buffer Fmt :%!gofmt
 endif
 
-nnoremap <buffer> <F5> :botright term ++rows=10 go run %<CR>
+nnoremap <buffer> <F5> :Sh go run %<CR>
 
 import autoload 'popup.vim'
 def PopupHelp(symbol: string)
