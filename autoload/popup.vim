@@ -160,6 +160,16 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
     # mouse wheel is rolled
     var ignore_input_wtf = [128, 253, 100]
 
+    # hide cursor
+    set t_ve=
+    var gui_cursor = hlget("Cursor")
+    hlset([{name: 'Cursor', guifg: 'NONE', guibg: 'NONE'}])
+
+    def RestoreCursor()
+        set t_ve&
+        hlset(gui_cursor)
+    enddef
+
     var popts = {
         minwidth: minwidth,
         maxwidth: minwidth,
@@ -191,10 +201,12 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
             if key == "\<esc>"
                 popup_close(id, -1)
                 popup_close(pwinid)
+                RestoreCursor()
             elseif ["\<cr>", "\<C-j>", "\<C-v>", "\<C-t>", "\<C-o>"]->index(key) > -1
                     && !filtered_items[0]->empty() && items_count > 0
                 popup_close(id, {idx: getcurpos(id)[1], key: key})
                 popup_close(pwinid)
+                RestoreCursor()
             elseif key == "\<Right>"
                 win_execute(id, 'normal! ' .. "\<C-d>")
             elseif key == "\<Left>"
@@ -220,6 +232,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
                     if empty(prompt) && close_on_bs
                         popup_close(id, {idx: getcurpos(id)[1], key: key})
                         popup_close(pwinid)
+                        RestoreCursor()
                         return true
                     endif
                     prompt = prompt->strcharpart(0, prompt->strchars() - 1)
@@ -239,6 +252,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         },
         callback: (id, result) => {
             popup_close(pwinid)
+            RestoreCursor()
             if result->type() == v:t_number
                 if result > 0
                     Callback(filtered_items[0][result - 1], "")
