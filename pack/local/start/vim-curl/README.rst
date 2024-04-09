@@ -35,6 +35,13 @@ Common parameters for the rest of ``--url``:
   --url /breed/hound/images
 
 
+cURL
+====
+
+There is a single command ``:Curl`` that creates and runs ``curl`` query out of
+text under the cursor, capturing results into ``[cURL output]`` buffer.
+
+
 Additional setup
 ================
 
