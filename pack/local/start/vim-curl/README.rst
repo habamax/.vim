@@ -34,7 +34,31 @@ Common parameters for the rest of ``--url``:
 
   --url /breed/hound/images
 
+
+Additional setup
+================
+
 One can add mappings to ``~/.vim/after/ftplugin/curl.vim``::
 
   nnoremap <buffer> <space><space>r :Curl<CR>
   xnoremap <buffer> <space><space>r :Curl<CR>
+
+To format output I use following in ``~/.vim/after/ftplugin/json.vim``::
+
+  vim9script
+
+  setlocal expandtab shiftwidth=2
+
+  import autoload 'dist/json.vim'
+  setl formatexpr=json.FormatExpr()
+
+  command -buffer -range=% Fmt json.FormatRange(<line1>, <line2>)
+
+  if exists(":Fmt") == 2
+      augroup Curl | au!
+          autocmd User CurlOutput Fmt
+      augroup END
+  endif
+
+User auto command ``CurlOutput`` is called from ``vim-curl`` after json is
+detected in ``[cURL output]`` buffer.
