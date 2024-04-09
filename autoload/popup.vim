@@ -167,7 +167,9 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
 
     def RestoreCursor()
         set t_ve&
-        hlset(gui_cursor)
+        if hlget("Cursor")[0]->get('cleared', false)
+            hlset(gui_cursor)
+        endif
     enddef
 
     var popts = {
