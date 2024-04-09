@@ -163,7 +163,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
     # hide cursor
     set t_ve=
     var gui_cursor = hlget("Cursor")
-    hlset([{name: 'Cursor', guifg: 'NONE', guibg: 'NONE'}])
+    hlset([{name: 'Cursor', cleared: true}])
 
     def RestoreCursor()
         set t_ve&
