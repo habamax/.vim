@@ -148,18 +148,6 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         popup_settext(winid, Printify(filtered_items, []))
     enddef
 
-    var ignore_input = ["\<cursorhold>", "\<ignore>", "\<Nul>",
-          \ "\<LeftMouse>", "\<LeftRelease>", "\<LeftDrag>", $"\<2-LeftMouse>",
-          \ "\<RightMouse>", "\<RightRelease>", "\<RightDrag>", "\<2-RightMouse>",
-          \ "\<MiddleMouse>", "\<MiddleRelease>", "\<MiddleDrag>", "\<2-MiddleMouse>",
-          \ "\<MiddleMouse>", "\<MiddleRelease>", "\<MiddleDrag>", "\<2-MiddleMouse>",
-          \ "\<X1Mouse>", "\<X1Release>", "\<X1Drag>", "\<X2Mouse>", "\<X2Release>", "\<X2Drag>",
-          \ "\<ScrollWheelLeft", "\<ScrollWheelRight>"
-    ]
-    # this sequence of bytes are generated when left/right mouse is pressed and
-    # mouse wheel is rolled
-    var ignore_input_wtf = [128, 253, 100]
-
     # hide cursor
     set t_ve=
     var gui_cursor = hlget("Cursor")
@@ -171,6 +159,18 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
             hlset(gui_cursor)
         endif
     enddef
+
+    var ignore_input = ["\<cursorhold>", "\<ignore>", "\<Nul>",
+          \ "\<LeftMouse>", "\<LeftRelease>", "\<LeftDrag>", $"\<2-LeftMouse>",
+          \ "\<RightMouse>", "\<RightRelease>", "\<RightDrag>", "\<2-RightMouse>",
+          \ "\<MiddleMouse>", "\<MiddleRelease>", "\<MiddleDrag>", "\<2-MiddleMouse>",
+          \ "\<MiddleMouse>", "\<MiddleRelease>", "\<MiddleDrag>", "\<2-MiddleMouse>",
+          \ "\<X1Mouse>", "\<X1Release>", "\<X1Drag>", "\<X2Mouse>", "\<X2Release>", "\<X2Drag>",
+          \ "\<ScrollWheelLeft", "\<ScrollWheelRight>"
+    ]
+    # this sequence of bytes are generated when left/right mouse is pressed and
+    # mouse wheel is rolled
+    var ignore_input_wtf = [128, 253, 100]
 
     var popts = {
         minwidth: minwidth,
