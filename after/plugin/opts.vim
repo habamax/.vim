@@ -55,9 +55,13 @@ if exists("g:loaded_dir")
 
 endif
 
-if exists("g:loaded_layout")
-    nnoremap <M-Left> <scriptcmd>LayoutPrev<CR>
-    nnoremap <M-Right> <scriptcmd>LayoutNext<CR>
+# vim-shout
+if exists("g:loaded_shout")
+    import autoload "shout.vim"
+    nnoremap ]e <scriptcmd>shout.NextErrorJump()<CR>
+    nnoremap ]E <scriptcmd>shout.LastErrorJump()<CR>
+    nnoremap [e <scriptcmd>shout.PrevErrorJump()<CR>
+    nnoremap [E <scriptcmd>shout.FirstErrorJump()<CR>
 endif
 
 if exists("g:loaded_lsp")
