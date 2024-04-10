@@ -15,7 +15,7 @@ bundle/opt/vim-fugitive	git@github.com:tpope/vim-fugitive.git
 bundle/start/vim-sandwich	git@github.com:machakann/vim-sandwich
 bundle/start/vim-swap	git@github.com:machakann/vim-swap.git
 bundle/start/vim-lion	git@github.com:tommcdo/vim-lion.git
-bundle/start/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
+bundle/opt/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
 
 # Nice to have
 bundle/start/vim-closetag	git@github.com:alvan/vim-closetag.git

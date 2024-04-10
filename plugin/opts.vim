@@ -22,6 +22,10 @@ if executable("git")
     silent! packadd gv.vim
 endif
 
+if executable("ctags")
+    silent! packadd vim-gutentags
+endif
+
 # vim-asciidoctor
 # use ruby bundler:
 #     sudo gem install bundler
