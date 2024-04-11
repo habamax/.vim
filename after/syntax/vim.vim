@@ -13,6 +13,7 @@ syn clear vimFunctionError
 syn clear vimMenu
 syn clear vimMethodName
 
+syn region vimPreVim9script start="\%^" end="^\s*vim9s\%[cript]\>" contains=@vimLegacyTop,vimComment,vimLineComment keepend
 syn clear vimCommand
 syn keyword vimCommand contained vim9cmd vim9script import autoload export def enddef call function endfunction defer defcompile delfunction return
 syn keyword vimCommand contained if else elseif endif
