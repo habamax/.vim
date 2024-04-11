@@ -120,15 +120,23 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         endif
     enddef
 
+    var maxwidth = &columns - 10
+    var minwidth = max([min([70, maxwidth]), (&columns * 0.6)->float2nr()])
     var height = min([&lines - 9, max([items->len(), 5])])
-    var minwidth = max([min([70, &columns - 6]), (&columns * 0.6)->float2nr()])
     var pos_top = ((&lines - height) / 2) - 1
+    var scrollbar_before_update = 0
 
     def AlignPopups(pwinid: number, winid: number)
-        minwidth = popup_getpos(pwinid).core_width - popup_getpos(winid).scrollbar
+        var width = popup_getpos(winid).core_width + (scrollbar_before_update - popup_getpos(winid).scrollbar)
         popup_move(winid, {
-            minwidth: minwidth,
-            maxwidth: minwidth
+            minwidth: width,
+            maxwidth: width
+        })
+
+        width = popup_getpos(winid).core_width + popup_getpos(winid).scrollbar
+        popup_move(pwinid, {
+            minwidth: width,
+            maxwidth: width
         })
     enddef
 
@@ -145,6 +153,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         endif
         popup_setoptions(pwinid, {title: $" {title} ({count}) "})
         popup_settext(pwinid, $"> {prompt}{popup_cursor}")
+        scrollbar_before_update = popup_getpos(winid).scrollbar
         popup_settext(winid, Printify(filtered_items, []))
     enddef
 
@@ -174,7 +183,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
 
     var popts = {
         minwidth: minwidth,
-        maxwidth: minwidth,
+        maxwidth: maxwidth,
         borderhighlight: popup_borderhighlight,
         highlight: popup_highlight,
         drag: 0,
