@@ -13,7 +13,12 @@ syn clear vimFunctionError
 syn clear vimMenu
 syn clear vimMethodName
 
-syn region vimPreVim9script start="\%^" end="^\s*vim9s\%[cript]\>" contains=@vimLegacyTop,vimComment,vimLineComment keepend
+let s:vim9script = "\n" .. getline(1, 32)->join("\n") =~# '\n\s*vim9\%[script]\>'
+if s:vim9script
+    syn region vimPreVim9script start="\%^" end="^\s*vim9s\%[cript]\>" contains=@vimLegacyTop,vimComment,vimLineComment keepend
+endif
+unlet s:vim9script
+
 syn clear vimCommand
 syn keyword vimCommand contained vim9cmd vim9script import autoload export def enddef call function endfunction defer defcompile delfunction return
 syn keyword vimCommand contained if else elseif endif
@@ -22,5 +27,4 @@ syn keyword vimCommand contained class endclass interface endinterface enum ende
 syn keyword vimCommand contained throw try endtry catch finally
 syn keyword vimCommand contained silent unsilent
 syn keyword vimCommand contained public static final const var let unlet
-syn keyword vimCommand contained highlight runtime source packadd eval finish verbose command delcommand
-
+syn keyword vimCommand contained highlight runtime source packadd wincmd eval finish verbose command delcommand
