@@ -21,5 +21,5 @@ syn keyword vimCommand contained class endclass interface endinterface enum ende
 syn keyword vimCommand contained throw try endtry catch finally
 syn keyword vimCommand contained silent unsilent
 syn keyword vimCommand contained public static final const var let unlet
-syn keyword vimCommand contained highlight runtime source eval finish verbose command delcommand
+syn keyword vimCommand contained highlight runtime source packadd eval finish verbose command delcommand
 
