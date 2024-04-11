@@ -122,8 +122,9 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
 
     var maxwidth = (&columns * 0.9)->float2nr()
     var minwidth = max([min([70, maxwidth]), (&columns * 0.6)->float2nr()])
-    var height = min([&lines - 9, max([items->len(), 10])])
-    var pos_top = ((&lines - height) / 2) - 1
+    var maxheight = &lines - 9
+    var minheight = min([maxheight, max([items->len(), 10])])
+    var pos_top = ((&lines - minheight) / 2) - 1
     var scrollbar_before_update = 0
 
     def AlignPopups(pwinid: number, winid: number)
@@ -206,8 +207,8 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         border: [1, 1, 1, 1],
         borderchars: popup_borderchars_t,
         line: pos_top + 2,
-        maxheight: height,
-        minheight: height,
+        minheight: minheight,
+        maxheight: maxheight,
         filter: (id, key) => {
             if key == "\<esc>"
                 popup_close(id, -1)
