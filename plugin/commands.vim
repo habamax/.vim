@@ -97,11 +97,14 @@ def Irc()
     endif
 
     exe "IIJoin irc.libera.chat #vim"
-    normal zb
+    normal! zb
     wincmd o
-    exe "IIJoin irc.libera.chat #emacs"
-    normal zb
-    wincmd H
+    exe "IIJoin irc.libera.chat #perl"
+    wincmd L
+    normal! zb
+    exe "IIJoin irc.libera.chat #python"
+    normal! zb
+    wincmd t
 
     # exe "IIJoin irc.libera.chat #vim"
     # normal zb
