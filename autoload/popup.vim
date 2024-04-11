@@ -120,9 +120,9 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         endif
     enddef
 
-    var maxwidth = &columns - 10
+    var maxwidth = (&columns * 0.9)->float2nr()
     var minwidth = max([min([70, maxwidth]), (&columns * 0.6)->float2nr()])
-    var height = min([&lines - 9, max([items->len(), 5])])
+    var height = min([&lines - 9, max([items->len(), 10])])
     var pos_top = ((&lines - height) / 2) - 1
     var scrollbar_before_update = 0
 
