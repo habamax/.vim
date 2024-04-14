@@ -38,6 +38,7 @@ def RunScene(scene_name: string)
     var godot_command = $'{g:godot_executable} {scene_name}'
     if exists(":Sh") == 2
         exe "Sh" godot_command
+        win_gotoid(b:shout_initial_winid)
     else
         os.ExeTerm(godot_command)
     endif
