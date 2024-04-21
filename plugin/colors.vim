@@ -11,14 +11,14 @@ set termguicolors
 
 if !has("gui_running")
     augroup group_name | au!
-        au Colorscheme nod,nod-b,nod-d hi Normal ctermbg=NONE guibg=NONE
+        au Colorscheme nod,nod-b,nod-d,nod-gb hi Normal ctermbg=NONE guibg=NONE
     augroup END
 endif
 
 if has("win32") && has("gui_running")
     silent! colorscheme nope-y
 else
-    silent! colorscheme nod-b
+    silent! colorscheme nod-gb
 endif
 
 # helper commands and mappings to work with vim/colorschemes
