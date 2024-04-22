@@ -14,7 +14,7 @@ Background: dark
 ;;; Color palette
 
 Color: colorFg                 #d0d0d0        252            grey
-Color: colorBg                 #1c2023        234            black
+Color: colorBg                 #1c2021        234            black
 
 Color: color00                 #1c1c1c        234            black
 Color: color08                 #767676        243            darkgrey
