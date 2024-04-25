@@ -30,7 +30,7 @@ if exists("g:loaded_guifont_size")
 endif
 
 if exists("g:loaded_dir")
-    nnoremap <bs> <scriptcmd>Dir<cr>
+    nnoremap - <scriptcmd>Dir<cr>
     g:dir_actions = [
         {text: 'Share with 0x0.st', Action: (items) => {
             var urls = []
