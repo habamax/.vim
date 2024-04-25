@@ -134,7 +134,8 @@ nnoremap [f <cmd>echo getline(search('^[[:alpha:]$_]', 'bcnW'))<CR>
 
 # toogle window zoom
 import autoload 'zoom.vim'
-nnoremap <C-w>o <scriptcmd>zoom.Toggle()<CR>
+nnoremap <C-w><C-o> <scriptcmd>zoom.Toggle()<CR>
+nmap <C-w>o <C-w><C-o>
 
 # better PgUp/PgDn
 def MapL()
