@@ -208,11 +208,6 @@ nmap <silent> <space>2 <space>-
 nmap <silent> <space>3 <space>"
 nmap <silent> <space>4 <space>`
 
-import autoload 'comment.vim'
-nnoremap <silent> <expr> gc comment.Toggle()
-xnoremap <silent> <expr> gc comment.Toggle()
-nnoremap <silent> <expr> gcc comment.Toggle() .. '_'
-
 import autoload 'git.vim'
 nnoremap <silent> <space>gi <scriptcmd>git.ShowCommit(v:count)<CR>
 xnoremap <silent> <space>gi <scriptcmd>git.ShowCommit(v:count, line("v"), line("."))<CR>

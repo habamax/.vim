@@ -13,6 +13,7 @@ g:popup_highlight = 'None'
 g:popup_borderchars = ['─', '│', '─', '│', '╭', '╮', '╯', '╰']
 g:popup_borderchars_t = ['─', '│', '─', '│', '├', '┤', '╯', '╰']
 
+packadd comment
 packadd! cfilter
 packadd! editorconfig
 

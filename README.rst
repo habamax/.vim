@@ -69,10 +69,12 @@ Commenting
 ----------
 
 vim-commentary__ alike comment toggling is a very handy and convenient thing, so
-"to make it safe and available" I did implement `my own version`__.
+"to make it safe and available" I did implement `my own version`__ which became
+a `part of vim`__.
 
 __ https://github.com/tpope/vim-commentary
-__ https://github.com/habamax/.vim/blob/master/autoload/comment.vim
+__ https://github.com/habamax/.vim/blob/3256c3f33dad2be3b479aa198a68cf543dc8315e/autoload/comment.vim
+__ https://github.com/vim/vim/commit/5400a5d4269874fe4f1c35dfdd3c039ea17dfd62
 
 
 Toggle ColorColumn at cursor position
