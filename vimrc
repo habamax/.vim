@@ -8,7 +8,7 @@ set shiftwidth=4 softtabstop=-1 expandtab
 set ttimeout ttimeoutlen=25
 set autoindent
 set hlsearch incsearch ignorecase
-set wildmenu wildcharm=<c-z> wildoptions=pum,fuzzy pumheight=20
+set wildmenu wildoptions=pum,fuzzy pumheight=20
 set number relativenumber cursorline cursorlineopt=number
 set backspace=indent,eol,start
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak nojoinspaces

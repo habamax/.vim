@@ -43,12 +43,6 @@ nnoremap <space>; <scriptcmd>fuzzy.CmdHistory()<CR>
 nnoremap <space>j <scriptcmd>fuzzy.CurrentWord()<CR>
 nnoremap <space>i <scriptcmd>fuzzy.Template()<CR>
 
-# enhance search, only if wildcharm is set to <c-z>
-if &wildcharm == 26
-    cnoremap <expr> <tab>   get({'/': "\<c-g>", '?': "\<c-t>"}, getcmdtype()) ?? "<c-z>"
-    cnoremap <expr> <s-tab> get({'/': "\<c-t>", '?': "\<c-g>"}, getcmdtype()) ?? "<s-tab>"
-endif
-
 # enhance search with <space> as "whatever"
 # to enter literal <space> use <C-v><space>
 cnoremap <expr> <space> getcmdtype() =~ '[/?]' ? '.\{-}' : "<space>"
