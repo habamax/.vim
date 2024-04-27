@@ -59,7 +59,7 @@ xnoremap * y/<C-r>=escape(@", '^~$\*.[]')<CR><CR>
 nnoremap yow <cmd>set wrap! wrap?<CR>
 nnoremap yos <cmd>set spell! spell?<CR>
 nnoremap yod <cmd>exe (&diff ? ':diffoff' : ':diffthis')<CR>
-nnoremap yov <cmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
+nnoremap yov <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
 nnoremap yob <cmd>exe "colo" get(g:, "colors_name") == "nod-b" ? "nope-y" : "nod-b"<CR>
 
 # move lines
