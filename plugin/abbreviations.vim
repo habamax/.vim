@@ -15,7 +15,6 @@ inorea :shrug: ¯\_(ツ)_/¯<C-R>=misc#Eatchar('\s')<CR>
 inorea :cool: ( •_•) ( -_-)~⌐■-■ (⌐■_■)><C-R>=misc#Eatchar('\s')<CR>
 
 inorea mxm Maxim Kim
-inorea ata Ataccama
 inorea latex LaTeX
 inorea adn and
 inorea teh the
@@ -27,8 +26,12 @@ inorea htat that
 inorea waht what
 inorea whta what
 inorea hwat what
+inorea wtih with
+inorea wthi with
+inorea wiht with
 inorea rigth right
 inorea lenght length
+inorea weigth weight
 inorea knwo know
 inorea kwno know
 inorea konw know
