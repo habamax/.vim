@@ -65,13 +65,13 @@ SpellRare        color06     none        reverse
 Comment          none        none        bold
 Constant         color01     none
 String           color02     none
-Identifier       color05     none
+Identifier       color06     none
 
-Statement        color03     none
+Statement        color05     none
 Type             color04     none
 
-PreProc          color06     none
-Special          color05     none
+PreProc          color03     none
+Special          color03     none
 Underlined       none        none        underline
 
 Title            none        none        bold
