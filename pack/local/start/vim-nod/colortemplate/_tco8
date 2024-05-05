@@ -67,11 +67,11 @@ Constant         color01     none
 String           color02     none
 Identifier       color06     none
 
-Statement        color05     none
+Statement        color03     none
 Type             color04     none
 
-PreProc          color03     none
-Special          color03     none
+PreProc          color05     none
+Special          color05     none
 Underlined       none        none        underline
 
 Title            none        none        bold
