@@ -108,13 +108,13 @@ Comment                        color08        none
 Constant                       color01        none
 String                         color02        none
 Character                      color10        none
-Identifier                     color06        none
+Identifier                     color05        none
 
-Statement                      color03        none
+Statement                      color16        none
 Type                           color04        none
 
-PreProc                        color05        none
-Special                        color16        none
+PreProc                        color06        none
+Special                        color03        none
 Underlined                     color12        none           underline
 
 Title                          none           none           bold
