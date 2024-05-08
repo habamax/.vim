@@ -15,11 +15,7 @@ if !has("gui_running")
     augroup END
 endif
 
-if has("win32") && has("gui_running")
-    silent! colorscheme nope-y
-else
-    silent! colorscheme nod-b
-endif
+silent! colorscheme nod-b
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
