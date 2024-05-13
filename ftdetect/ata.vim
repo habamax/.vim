@@ -1,2 +1,1 @@
-autocmd BufNewFile,BufRead *.sch,*.plan,*.comp set ft=xml
-
+autocmd BufNewFile,BufRead *.sch,*.plan,*.comp,*.noth,*.ewf set ft=xml
