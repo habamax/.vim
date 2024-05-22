@@ -30,7 +30,7 @@ set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
 set sessionoptions=buffers,curdir,tabpages,winsize
 set history=200
-set viminfo='200,<50,s10
+set viminfo='200,<500,s32
 set mouse=a
 set path=.,,
 
