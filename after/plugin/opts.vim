@@ -35,8 +35,9 @@ if exists("g:loaded_dir")
         {text: 'Share with 0x0.st', Action: (items) => {
             var urls = []
             for item in items
-                if item.type != 'dir' && filereadable(item.name)
-                    var url = systemlist($'curl -F file=@"{item.name}" http://0x0.st')[-1]
+                var path = $"{b:dir_cwd}/{item.name}"
+                if item.type != 'dir' && filereadable(path)
+                    var url = systemlist($'curl -F file=@"{path}" http://0x0.st')[-1]
                     add(urls, url)
                 endif
             endfor
