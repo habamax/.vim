@@ -32,6 +32,7 @@ export def FileManager()
         path = expand("%:p")
     endif
     path = substitute(path, "^dir://", "", "")
+    var select = isdirectory(path) ? "" : "--select"
 
     if executable("cmd.exe")
         var job_opts = {}
@@ -41,9 +42,9 @@ export def FileManager()
         endif
         job_start('cmd.exe /c start "" explorer.exe /select,' .. path, job_opts)
     elseif executable("dolphin")
-        system($'dolphin {path} --select {expand("%:t")} &')
+        system($'dolphin {select} {path} &')
     elseif executable("nautilus")
-        job_start('nautilus --select ' .. path)
+        job_start($'nautilus {select} {path}')
     else
         echomsg "Not yet implemented!"
     endif
