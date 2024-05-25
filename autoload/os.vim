@@ -31,6 +31,7 @@ export def FileManager()
     else
         path = expand("%:p")
     endif
+    path = substitute(path, "^dir://", "", "")
 
     if executable("cmd.exe")
         var job_opts = {}
@@ -39,6 +40,8 @@ export def FileManager()
             job_opts.cwd = "/mnt/c"
         endif
         job_start('cmd.exe /c start "" explorer.exe /select,' .. path, job_opts)
+    elseif executable("dolphin")
+        system($'dolphin {path} --select {expand("%:t")} &')
     elseif executable("nautilus")
         job_start('nautilus --select ' .. path)
     else
