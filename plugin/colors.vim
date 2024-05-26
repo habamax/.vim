@@ -11,11 +11,11 @@ set termguicolors
 
 if !has("gui_running")
     augroup group_name | au!
-        au Colorscheme nod,nod-b,nod-d,nod-gb hi Normal ctermbg=NONE guibg=NONE
+        au Colorscheme hop,nod,nod-b,nod-d,nod-gb hi Normal ctermbg=NONE guibg=NONE
     augroup END
 endif
 
-silent! colorscheme nod-b
+silent! colorscheme hop
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
