@@ -39,7 +39,7 @@ Color: color14                 #00afaf        37             cyan
 Color: color07                 #dadada        253            grey
 Color: color15                 #ffffff        231            white
 
-Color: color16                 #5f00d7        56             magenta
+Color: color16                 #5f00d7        56             blue
 
 Color: colorLine               #eeeeed        255            grey
 Color: colorPmenu              #dfdfdf        253            grey
