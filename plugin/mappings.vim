@@ -60,7 +60,7 @@ nnoremap yow <cmd>set wrap! wrap?<CR>
 nnoremap yos <cmd>set spell! spell?<CR>
 nnoremap yod <cmd>exe (&diff ? ':diffoff' : ':diffthis')<CR>
 nnoremap yov <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
-nnoremap yob <cmd>exe "colo" get(g:, "colors_name") == "nod-b" ? "nope" : "nod-b"<CR>
+nnoremap yob <cmd>exe "colo" get(g:, "colors_name") == "nod" ? "nope" : "nod"<CR>
 
 # move lines
 xnoremap <tab> :sil! m '>+1<CR>gv
@@ -253,9 +253,3 @@ nnoremap <silent> [W :lfirst<CR>
 # Ripgrep word under cursor
 nnoremap <space>8 <scriptcmd>exe "Rg" expand("<cword>")<cr>
 xnoremap <space>8 "0y<scriptcmd>exe "Rg" getreg("0")<cr>
-
-# Alt mappings
-set <M-n>=n
-set <M-p>=p
-nnoremap <M-n> gt
-nnoremap <M-p> gT
