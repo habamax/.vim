@@ -59,10 +59,10 @@ endif
 # vim-shout
 if exists("g:loaded_shout")
     import autoload "shout.vim"
-    nnoremap ]e <scriptcmd>shout.NextErrorJump()<CR>
-    nnoremap ]E <scriptcmd>shout.LastErrorJump()<CR>
-    nnoremap [e <scriptcmd>shout.PrevErrorJump()<CR>
-    nnoremap [E <scriptcmd>shout.FirstErrorJump()<CR>
+    nnoremap \e <scriptcmd>shout.NextErrorJump()<CR>
+    nnoremap \E <scriptcmd>shout.LastErrorJump()<CR>
+    nnoremap \r <scriptcmd>shout.PrevErrorJump()<CR>
+    nnoremap \R <scriptcmd>shout.FirstErrorJump()<CR>
 endif
 
 if exists("g:loaded_lsp")
