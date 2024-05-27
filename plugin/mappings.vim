@@ -240,16 +240,6 @@ xnoremap <expr> <space>t term.Send()
 nnoremap <expr> <space>t term.Send()
 nnoremap <expr> <space>tt term.Send() .. '_'
 
-# QuickFix
-nnoremap <silent> \q :cnext<CR>
-nnoremap <silent> \Q :clast<CR>
-nnoremap <silent> \q :cprevious<CR>
-nnoremap <silent> \Q :cfirst<CR>
-nnoremap <silent> \w :lnext<CR>
-nnoremap <silent> \W :llast<CR>
-nnoremap <silent> \w :lprevious<CR>
-nnoremap <silent> \W :lfirst<CR>
-
 # Ripgrep word under cursor
 nnoremap <space>8 <scriptcmd>exe "Rg" expand("<cword>")<cr>
 xnoremap <space>8 "0y<scriptcmd>exe "Rg" getreg("0")<cr>
