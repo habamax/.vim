@@ -1,6 +1,7 @@
 # vim: ts=35 sw=0 noet
 
 # My
+habamax/opt/vim-nod	git@github.com:habamax/vim-nod.git
 habamax/start/vim-asciidoctor	git@github.com:habamax/vim-asciidoctor.git
 habamax/start/vim-rst	git@github.com:habamax/vim-rst.git
 habamax/start/vim-gdscript	git@github.com:habamax/vim-gdscript.git
