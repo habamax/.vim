@@ -23,7 +23,7 @@ def RunCurrent()
 enddef
 
 # Run arbitrary scene
-def RunScene(scene_name: string)
+def RunScene(scene_name: string = "")
     if !exists('g:godot_executable')
         if executable('godot')
             g:godot_executable = 'godot'
@@ -45,7 +45,7 @@ def RunScene(scene_name: string)
     last_scene_run = scene_name
 enddef
 
-def RunSelectedScene()
+def RunSceneFile()
     var scenes = []
     if executable('fd')
         scenes = systemlist('fd --path-separator / --type f --hidden --follow --exclude .git --glob *.tscn')
@@ -64,11 +64,15 @@ def RunSelectedScene()
         })
 enddef
 
-nnoremap <buffer> <space>r <scriptcmd>RunSelectedScene()<CR>
-nnoremap <buffer> <F5> <scriptcmd>RunScene("")<CR>
+nnoremap <buffer> <space>rf <scriptcmd>RunSceneFile()<CR>
+nnoremap <buffer> <space>rr <scriptcmd>RunScene()<CR>
+nnoremap <buffer> <space>rc <scriptcmd>RunCurrent()<CR>
+nnoremap <buffer> <F5> <scriptcmd>RunScene()<CR>
 nnoremap <buffer> <F6> <scriptcmd>RunCurrent()<CR>
 nnoremap <buffer> <F7> <scriptcmd>RunLast()<CR>
-b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>r"'
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>rf"'
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>rr"'
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>rc"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F6>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F7>"'
