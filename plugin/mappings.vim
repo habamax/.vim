@@ -60,7 +60,7 @@ nnoremap yow <cmd>set wrap! wrap?<CR>
 nnoremap yos <cmd>set spell! spell?<CR>
 nnoremap yod <cmd>exe (&diff ? ':diffoff' : ':diffthis')<CR>
 nnoremap yov <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
-nnoremap yob <cmd>exe "colo" get(g:, "colors_name") == "nod-b" ? "nope" : "nod-b"<CR>
+nnoremap yob <cmd>exe "colo" get(g:, "colors_name") == "nod" ? "nope" : "nod"<CR>
 
 # move lines
 xnoremap <tab> :sil! m '>+1<CR>gv
