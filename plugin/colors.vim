@@ -15,7 +15,7 @@ if !has("gui_running")
     augroup END
 endif
 
-silent! colorscheme nod
+silent! colorscheme nod-b
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
