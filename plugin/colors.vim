@@ -15,7 +15,7 @@ if !has("gui_running")
     augroup END
 endif
 
-g:colors = ["nod-d", "nope-y"]
+g:colors = ["nod", "nope"]
 exe "silent! colorscheme" g:colors[0]
 
 # helper commands and mappings to work with vim/colorschemes
