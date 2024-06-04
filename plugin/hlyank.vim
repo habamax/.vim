@@ -1,7 +1,7 @@
 vim9script
 
-def HighlightedYank(hlgroup = 'IncSearch', duration = 300)
-    if v:event.operator ==? 'y'
+def HighlightedYank(hlgroup = 'Visual', duration = 200)
+    if v:event.operator ==? 'y' && !v:event.visual
         var [beg, end] = [getpos("'["), getpos("']")]
         var type = v:event.regtype ?? 'v'
         var pos = getregionpos(beg, end, {type: type})
