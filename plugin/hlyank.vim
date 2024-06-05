@@ -15,8 +15,7 @@ def HighlightedYank(hlgroup = 'IncSearch', duration = 200)
         var col_end = v[1][2] + v[1][3] + end_offset
         return [v[0][1], col_beg, col_end - col_beg]
     }))
-    var winid = win_getid()
-    timer_start(duration, (_) => m->matchdelete(winid))
+    timer_start(duration, (_) => m->matchdelete(win_getid()))
 enddef
 
 augroup hlyank | au!
