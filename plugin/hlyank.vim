@@ -6,9 +6,8 @@ def HighlightedYank(hlgroup = 'IncSearch', duration = 200)
     # generates bogus event and this highlights previous yank
     if v:event.regname == "*" && v:event.visual | return | endif
 
-    var [beg, end] = [getpos("'["), getpos("']")]
     var type = v:event.regtype ?? 'v'
-    var pos = getregionpos(beg, end, {type: type})
+    var pos = getregionpos(getpos("'["), getpos("']"), {type: type})
     var end_offset = (type == 'V' || v:event.inclusive) ? 1 : 0
     var m = matchaddpos(hlgroup, pos->mapnew((_, v) => {
         var col_beg = v[0][2] + v[0][3]
