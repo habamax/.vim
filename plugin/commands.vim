@@ -40,11 +40,13 @@ import autoload 'dist/json.vim'
 command! -nargs=1 -complete=var Echo redir @"> | echo json.Format(<args>) | redir END
 
 # save and load sessions
-if !isdirectory($'{g:vimdata}/sessions') | mkdir($'{g:vimdata}/sessions', "p") | endif
-command! -nargs=1 -complete=custom,SessionComplete SaveSession :exe $'mksession! {g:vimdata}/sessions/<args>'
-command! -nargs=1 -complete=custom,SessionComplete LoadSession :%bd <bar> exe $'so {g:vimdata}/sessions/<args>'
+if !isdirectory($'{fnamemodify($MYVIMRC, ":p:h")}/.data/sessions')
+    mkdir($'{fnamemodify($MYVIMRC, ":p:h")}/.data/sessions', "p")
+endif
+command! -nargs=1 -complete=custom,SessionComplete SaveSession :exe $'mksession! {fnamemodify($MYVIMRC, ":p:h")}/.data/sessions/<args>'
+command! -nargs=1 -complete=custom,SessionComplete LoadSession :%bd <bar> exe $'so {fnamemodify($MYVIMRC, ":p:h")}/.data/sessions/<args>'
 def SessionComplete(_, _, _): string
-    return globpath($'{g:vimdata}/sessions/', "*", 0, 1)->mapnew((_, v) => fnamemodify(v, ":t"))->join("\n")
+    return globpath($'{fnamemodify($MYVIMRC, ":p:h")}/.data/sessions/', "*", 0, 1)->mapnew((_, v) => fnamemodify(v, ":t"))->join("\n")
 enddef
 
 # write to a privileged file
@@ -64,7 +66,7 @@ def SaveBookmark()
         name = expand("%:t")
     endif
     var bookmarks = {}
-    var bookmarkFile = $'{g:vimdata}/bookmarks.json'
+    var bookmarkFile = $'{fnamemodify($MYVIMRC, ":p:h")}/.data/bookmarks.json'
     try
         if !filereadable(bookmarkFile)
             mkdir(fnamemodify(bookmarkFile, ":p:h"), "p")

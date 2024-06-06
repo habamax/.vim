@@ -40,12 +40,9 @@ if executable('rg')
     set grepformat=%f:%l:%c:%m
 endif
 
-g:vimdata = $'{$APPDATA ?? expand("~/.config")}/vim-data'
-if !isdirectory(g:vimdata) | mkdir(g:vimdata, "p") | endif
-
-&directory = $'{g:vimdata}/swap/'
-&backupdir = $'{g:vimdata}/backup//'
-&undodir = $'{g:vimdata}/undo//'
+&directory = $'{fnamemodify($MYVIMRC, ":p:h")}/.data/swap/'
+&backupdir = $'{fnamemodify($MYVIMRC, ":p:h")}/.data/backup//'
+&undodir = $'{fnamemodify($MYVIMRC, ":p:h")}/.data/undo//'
 if !isdirectory(&undodir)   | mkdir(&undodir, "p")   | endif
 if !isdirectory(&backupdir) | mkdir(&backupdir, "p") | endif
 if !isdirectory(&directory) | mkdir(&directory, "p") | endif
