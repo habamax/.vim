@@ -33,12 +33,7 @@ set history=200
 set viminfo='200,<500,s32
 set mouse=a
 set path=.,,
-
-if has("win32")
-    set clipboard^=unnamed
-else
-    set clipboard^=unnamedplus
-endif
+set clipboard=unnamedplus
 
 if executable('rg')
     set grepprg=rg\ -H\ --no-heading\ --vimgrep
