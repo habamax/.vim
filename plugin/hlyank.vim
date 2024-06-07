@@ -1,6 +1,6 @@
 vim9script
 
-def HighlightedYank(hlgroup = 'DiffDelete', duration = 200)
+def HighlightedYank(hlgroup = 'IncSearch', duration = 200)
     if v:event.operator !=? 'y' | return | endif
     # if clipboard has autoselect (default on linux) exiting from Visual with ESC
     # generates bogus event and this highlights previous yank
