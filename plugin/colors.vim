@@ -10,10 +10,16 @@ endif
 set termguicolors
 
 if !has("gui_running")
-    augroup group_name | au!
-        au Colorscheme nod,nod-b,nod-d,nod-gb hi Normal ctermbg=NONE guibg=NONE
+    augroup colors_term | au!
+        au Colorscheme habamax,nod,nod-b,nod-d,nod-gb hi Normal ctermbg=NONE guibg=NONE
     augroup END
 endif
+augroup colors | au!
+    au Colorscheme * hi link lspDiagSignErrorText Removed
+    au Colorscheme * hi link lspDiagVirtualTextError Removed
+    au Colorscheme * hi link lspDiagSignWarningText Changed
+    au Colorscheme * hi link lspDiagVirtualTextWarning Changed
+augroup END
 
 g:colors = ["nod", "nope"]
 exe "silent! colorscheme" g:colors[0]
