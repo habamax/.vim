@@ -21,7 +21,7 @@ augroup colors | au!
     au Colorscheme * hi link lspDiagVirtualTextWarning Changed
 augroup END
 
-g:colors = ["nod-d", "nope-y"]
+g:colors = ["nod", "nope"]
 exe "silent! colorscheme" g:colors[0]
 
 # helper commands and mappings to work with vim/colorschemes
