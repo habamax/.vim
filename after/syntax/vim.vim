@@ -12,13 +12,6 @@ syn clear vimUserAttrbError
 syn clear vimFunctionError
 syn clear vimMenu
 syn clear vimMethodName
-
-let s:vim9script = "\n" .. getline(1, 32)->join("\n") =~# '\n\s*vim9\%[script]\>'
-if s:vim9script
-    syn region vimPreVim9script start="\%^" end="^\s*vim9s\%[cript]\>" contains=@vimLegacyTop,vimComment,vimLineComment keepend
-endif
-unlet s:vim9script
-
 syn clear vimCommand
 syn keyword vimCommand contained vim9cmd vim9script import autoload export def enddef call function endfunction defer defcompile delfunction return
 syn keyword vimCommand contained if else elseif endif
