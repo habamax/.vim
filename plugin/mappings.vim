@@ -65,6 +65,10 @@ nnoremap yob <cmd>exe "colo" get(g:, "colors_name") == g:colors[0] ? g:colors[1]
 xnoremap <tab> :sil! m '>+1<CR>gv
 xnoremap <s-tab> :sil! m '<-2<CR>gv
 
+# tab/s-tab to navigate completion
+inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+
 # In visual block { and } navigate to the first/last line of paragraph,
 # which is useful if followed by I or A.
 def VisualBlockPara(cmd: string)
