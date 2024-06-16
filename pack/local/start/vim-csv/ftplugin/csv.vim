@@ -1,10 +1,5 @@
 vim9script
 
-if exists("b:did_ftplugin")
-    finish
-endif
-b:did_ftplugin = 1
-
 # detect delimiter
 var delimiters = ",;\t|"
 
@@ -16,3 +11,8 @@ for d in delimiters
         b:csv_delimiter = d
     endif
 endfor
+
+if exists("b:did_ftplugin")
+    finish
+endif
+b:did_ftplugin = 1
