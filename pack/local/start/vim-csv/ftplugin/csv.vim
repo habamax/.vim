@@ -1,5 +1,5 @@
 vim9script
-hello
+
 if exists("b:did_ftplugin")
     finish
 endif
