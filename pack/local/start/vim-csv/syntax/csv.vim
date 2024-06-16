@@ -21,9 +21,9 @@ hi def link csvCol2 Constant
 hi def link escCsvCol2 csvCol2
 hi def link csvCol3 Type
 hi def link escCsvCol3 csvCol3
-hi def link csvCol4 Identifier
+hi def link csvCol4 PreProc
 hi def link escCsvCol4 csvCol4
-hi def link csvCol5 PreProc
+hi def link csvCol5 Identifier
 hi def link escCsvCol5 csvCol5
 hi def link csvCol6 String
 hi def link escCsvCol6 csvCol6
