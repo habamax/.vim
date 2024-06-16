@@ -1,22 +1,18 @@
 vim9script
-
+hello
 if exists("b:did_ftplugin")
     finish
 endif
 b:did_ftplugin = 1
 
 # detect delimiter
-var delimiters = {',': 0, ';': 0, "\t": 0}
-
-for key in keys(delimiters)
-    delimiters[key] += getline(1)->split(key)->len()
-    delimiters[key] += getline(2)->split(key)->len()
-endfor
+var delimiters = ",;\t"
 
 var max = 0
-for [key, value] in items(delimiters)
-    if value > max
-        b:csv_delimiter = key
-        max = value
+for d in delimiters
+    var count = getline(1)->split(d)->len() + getline(2)->split(d)->len()
+    if count > max
+        max = count
+        b:csv_delimiter = d
     endif
 endfor
