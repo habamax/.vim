@@ -4,6 +4,8 @@ setlocal commentstring=//%s
 setlocal foldignore=#
 b:undo_ftplugin ..= ' | setl commentstring< foldignore<'
 
+g:c_no_curly_error = true
+
 def Make()
     if filereadable("Makefile")
         Sh make
