@@ -6,26 +6,14 @@ endif
 
 unlet! b:current_syntax
 
-# TODO: detect delimiter in filetype
+var delimiter = get(b:, "csv_delimiter", ",")
 
-syntax match csvCol8 /.\{-}\(,\|$\)/ nextgroup=escCsvCol0,csvCol0
-syntax match escCsvCol8 / *"\([^"]*""\)*[^"]*" *\(,\|$\)/ nextgroup=escCsvCol0,csvCol0
-syntax match csvCol7 /.\{-}\(,\|$\)/ nextgroup=escCsvCol8,csvCol8
-syntax match escCsvCol7 / *"\([^"]*""\)*[^"]*" *\(,\|$\)/ nextgroup=escCsvCol8,csvCol8
-syntax match csvCol6 /.\{-}\(,\|$\)/ nextgroup=escCsvCol7,csvCol7
-syntax match escCsvCol6 / *"\([^"]*""\)*[^"]*" *\(,\|$\)/ nextgroup=escCsvCol7,csvCol7
-syntax match csvCol5 /.\{-}\(,\|$\)/ nextgroup=escCsvCol6,csvCol6
-syntax match escCsvCol5 / *"\([^"]*""\)*[^"]*" *\(,\|$\)/ nextgroup=escCsvCol6,csvCol6
-syntax match csvCol4 /.\{-}\(,\|$\)/ nextgroup=escCsvCol5,csvCol5
-syntax match escCsvCol4 / *"\([^"]*""\)*[^"]*" *\(,\|$\)/ nextgroup=escCsvCol5,csvCol5
-syntax match csvCol3 /.\{-}\(,\|$\)/ nextgroup=escCsvCol4,csvCol4
-syntax match escCsvCol3 / *"\([^"]*""\)*[^"]*" *\(,\|$\)/ nextgroup=escCsvCol4,csvCol4
-syntax match csvCol2 /.\{-}\(,\|$\)/ nextgroup=escCsvCol3,csvCol3
-syntax match escCsvCol2 / *"\([^"]*""\)*[^"]*" *\(,\|$\)/ nextgroup=escCsvCol3,csvCol3
-syntax match csvCol1 /.\{-}\(,\|$\)/ nextgroup=escCsvCol2,csvCol2
-syntax match escCsvCol1 / *"\([^"]*""\)*[^"]*" *\(,\|$\)/ nextgroup=escCsvCol2,csvCol2
-syntax match csvCol0 /.\{-}\(,\|$\)/ nextgroup=escCsvCol1,csvCol1
-syntax match escCsvCol0 / *"\([^"]*""\)*[^"]*" *\(,\|$\)/ nextgroup=escCsvCol1,csvCol1
+for col in range(8, 0, -1)
+    var ncol = (col == 8 ? 0 : col + 1)
+    exe $'syntax match csvCol{col}' .. ' /.\{-}\(' .. delimiter .. '\|$\)/ nextgroup=escCsvCol' .. ncol .. ',csvCol' .. ncol
+    exe $'syntax match escCsvCol{col}' .. ' / *"\([^"]*""\)*[^"]*" *\(' .. delimiter .. '\|$\)/ nextgroup=escCsvCol' .. ncol .. ',csvCol' .. ncol
+endfor
+
 
 hi def link csvCol1 Statement
 hi def link escCsvCol1 csvCol1
