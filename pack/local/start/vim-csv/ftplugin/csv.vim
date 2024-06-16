@@ -6,7 +6,7 @@ endif
 b:did_ftplugin = 1
 
 # detect delimiter
-var delimiters = ",;\t"
+var delimiters = ",;\t|"
 
 var max = 0
 for d in delimiters
