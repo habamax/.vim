@@ -8,6 +8,9 @@ unlet! b:current_syntax
 
 var delimiter = get(b:, "csv_delimiter", ",")
 
+# generate bunch of following syntaxes:
+# syntax match csvCol8 /.\{-}\(,\|$\)/ nextgroup=escCsvCol0,csvCol0
+# syntax region escCsvCol8 start=/ *"\([^"]*""\)*[^"]*/ end=/" *\(,\|$\)/ nextgroup=escCsvCol0,csvCol0
 for col in range(8, 0, -1)
     var ncol = (col == 8 ? 0 : col + 1)
     exe $'syntax match csvCol{col}' .. ' /.\{-}\(' .. delimiter .. '\|$\)/ nextgroup=escCsvCol' .. ncol .. ',csvCol' .. ncol
