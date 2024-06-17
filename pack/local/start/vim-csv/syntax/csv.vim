@@ -11,7 +11,7 @@ var delimiter = get(b:, "csv_delimiter", ",")
 for col in range(8, 0, -1)
     var ncol = (col == 8 ? 0 : col + 1)
     exe $'syntax match csvCol{col}' .. ' /.\{-}\(' .. delimiter .. '\|$\)/ nextgroup=escCsvCol' .. ncol .. ',csvCol' .. ncol
-    exe $'syntax match escCsvCol{col}' .. ' / *"\([^"]*""\)*[^"]*" *\(' .. delimiter .. '\|$\)/ nextgroup=escCsvCol' .. ncol .. ',csvCol' .. ncol
+    exe $'syntax region escCsvCol{col}' .. ' start=/ *"\([^"]*""\)*[^"]*/ end=/" *\(' .. delimiter .. '\|$\)/ nextgroup=escCsvCol' .. ncol .. ',csvCol' .. ncol
 endfor
 
 hi def link csvCol1 Statement
