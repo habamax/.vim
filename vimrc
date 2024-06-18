@@ -34,6 +34,7 @@ set viminfo='200,<500,s32
 set mouse=a
 set path=.,,
 set clipboard=unnamed,unnamedplus
+set updatetime=2000
 
 if executable('rg')
     set grepprg=rg\ -H\ --no-heading\ --vimgrep
