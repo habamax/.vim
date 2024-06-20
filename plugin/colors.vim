@@ -24,6 +24,8 @@ augroup END
 g:colors = ["nod", "nope"]
 exe "silent! colorscheme" g:colors[0]
 
+finish
+
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
 command! ColoMisc  tabnew | ru colors/tools/sample_misc.vim
