@@ -22,8 +22,7 @@ export def WslToWindowsPath(path: string): string
 enddef
 
 
-# Open explorer(/finder/thunar...) where current file is located
-# Only for win and wsl for now.
+# Open explorer/nautilus/dolphin with current file selected (if possible).
 export def FileManager()
     var path = ''
     if expand("%:p") == ""
