@@ -46,6 +46,7 @@ inorea ашчьу FIXME:
 inorea xxx: XXX:
 inorea чччЖ XXX:
 inorea task: TASK:
+inorea bug: BUG:
 
 inorea wtf WTF
 inorea smth something
