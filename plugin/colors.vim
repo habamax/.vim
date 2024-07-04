@@ -12,6 +12,7 @@ set termguicolors
 if !has("gui_running")
     augroup colors_term | au!
         au Colorscheme habamax,nod,nod-b,nod-d,nod-gb hi Normal ctermbg=NONE guibg=NONE
+        au Colorscheme wildcharm if &bg == 'dark' | hi Normal ctermbg=NONE guibg=NONE | endif
     augroup END
 endif
 augroup colors | au!
