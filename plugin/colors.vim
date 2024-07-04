@@ -22,7 +22,7 @@ augroup colors | au!
     au Colorscheme * hi link lspDiagVirtualTextWarning Changed
 augroup END
 
-g:colors = ["nod", "nope"]
+g:colors = ["nod-b", "nope"]
 exe "silent! colorscheme" g:colors[0]
 
 finish
