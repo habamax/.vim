@@ -59,6 +59,7 @@ endif
 # vim-shout
 if exists("g:loaded_shout")
     import autoload "shout.vim"
+    nnoremap <F4> <scriptcmd>shout.CloseWindow()<CR>
     nnoremap \e <scriptcmd>shout.NextErrorJump()<CR>
     nnoremap \E <scriptcmd>shout.LastErrorJump()<CR>
     nnoremap \r <scriptcmd>shout.PrevErrorJump()<CR>
