@@ -1,13 +1,12 @@
 vim9script
 
-# termguicolors support
-if !has('win32') && !has('gui_running')
-        && $TERM !~ 'xterm'
-        && has('termguicolors')
-    &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
-set termguicolors
+# if !has('win32') && !has('gui_running')
+#         && $TERM !~ 'xterm'
+#         && has('termguicolors')
+#     &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+#     &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+# endif
+# set termguicolors
 
 if !has("gui_running")
     augroup colors_term | au!
