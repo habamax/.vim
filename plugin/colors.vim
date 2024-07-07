@@ -12,6 +12,8 @@ if !has("gui_running")
     augroup colors_term | au!
         au Colorscheme habamax,nod,nod-b,nod-d,nod-gb hi Normal ctermbg=NONE guibg=NONE
         au Colorscheme wildcharm,retrobox if &bg == 'dark' | hi Normal ctermbg=NONE guibg=NONE | endif
+        au Colorscheme habamax hi link iiAction PreProc
+        au Colorscheme habamax hi link iiNick Type
     augroup END
 endif
 augroup colors | au!
