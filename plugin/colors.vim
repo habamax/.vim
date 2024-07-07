@@ -21,10 +21,10 @@ augroup colors | au!
     au Colorscheme * hi link lspDiagVirtualTextWarning Changed
 augroup END
 
-g:colors = ["nod", "nope"]
+g:colors = ["nod-d", "nope"]
 exe "silent! colorscheme" g:colors[0]
 
-finish
+# finish
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
