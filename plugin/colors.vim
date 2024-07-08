@@ -12,8 +12,6 @@ if !has("gui_running")
     augroup colors_term | au!
         au Colorscheme habamax,nod,nod-b,nod-d,nod-gb hi Normal ctermbg=NONE guibg=NONE
         au Colorscheme wildcharm,retrobox if &bg == 'dark' | hi Normal ctermbg=NONE guibg=NONE | endif
-        au Colorscheme habamax hi link iiAction PreProc
-        au Colorscheme habamax hi link iiNick Type
     augroup END
 endif
 augroup colors | au!
@@ -21,9 +19,12 @@ augroup colors | au!
     au Colorscheme * hi link lspDiagVirtualTextError Removed
     au Colorscheme * hi link lspDiagSignWarningText Changed
     au Colorscheme * hi link lspDiagVirtualTextWarning Changed
+
+    au Colorscheme habamax hi link iiAction PreProc
+    au Colorscheme habamax hi link iiNick Type
 augroup END
 
-g:colors = ["nod", "nope"]
+g:colors = ["habamax", "nope"]
 exe "silent! colorscheme" g:colors[0]
 
 # finish
