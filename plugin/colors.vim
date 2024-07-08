@@ -19,9 +19,6 @@ augroup colors | au!
     au Colorscheme * hi link lspDiagVirtualTextError Removed
     au Colorscheme * hi link lspDiagSignWarningText Changed
     au Colorscheme * hi link lspDiagVirtualTextWarning Changed
-
-    au Colorscheme habamax hi link iiAction PreProc
-    au Colorscheme habamax hi link iiNick Type
 augroup END
 
 g:colors = ["habamax", "nope"]
