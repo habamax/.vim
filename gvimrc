@@ -6,7 +6,7 @@ set guioptions=cM!
 if has("win32")
     set linespace=0
 
-    set guifont=Fira\ Code:h14,:h17
+    set guifont=Cascadia\ Mono\ SemiLight:h14,:h17
 
     # :h w32-experimental-keycode-trans-strategy
     # Should fix CTRL-=
@@ -14,7 +14,7 @@ if has("win32")
         au VimEnter * test_mswin_event('set_keycode_trans_strategy', {'strategy': 'experimental'})
     augroup END
 else
-    set guifont=Monospace\ 19
+    set guifont=Monospace\ 21
 endif
 
 # quick font check:
