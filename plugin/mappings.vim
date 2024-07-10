@@ -46,6 +46,12 @@ nnoremap <space>i <scriptcmd>fuzzy.Template()<CR>
 # to enter literal <space> use <C-v><space>
 cnoremap <expr> <space> getcmdtype() =~ '[/?]' ? '.\{-}' : "<space>"
 
+# copy
+nnoremap <space>y "+y
+xnoremap <space>y "+y
+nnoremap <space>p "+p
+xnoremap <space>p "+p
+
 # whitespace
 nnoremap <space><space><space> <cmd>FixTrailingSpaces<CR>
 
