@@ -6,7 +6,7 @@ set guioptions=cM!
 if has("win32")
     set linespace=0
 
-    set guifont=Cascadia\ Mono\ SemiLight:h14,:h17
+    set guifont=JetBrains\ Mono:h14,:h17
 
     # :h w32-experimental-keycode-trans-strategy
     # Should fix CTRL-=
