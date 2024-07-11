@@ -21,7 +21,7 @@ augroup colors | au!
     au Colorscheme * hi link lspDiagVirtualTextWarning Changed
 augroup END
 
-g:colors = ["habamax", "nope-y"]
+g:colors = ["habamax", "nope"]
 exe "silent! colorscheme" g:colors[0]
 
 # finish
