@@ -130,7 +130,7 @@ enddef
 nnoremap <silent> yoC <ScriptCmd>ToggleCC()<CR>
 nnoremap <silent> yoc <ScriptCmd>ToggleCC(true)<CR>
 
-nnoremap <silent> <space><cr> <scriptcmd>text.Toggle()<CR>
+nnoremap <silent> <space><esc> <scriptcmd>text.Toggle()<CR>
 
 # toogle window zoom
 import autoload 'zoom.vim'
