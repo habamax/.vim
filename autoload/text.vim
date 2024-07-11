@@ -161,7 +161,7 @@ export def ObjIndent(inner: bool)
     var indent = indent(ln_start)
 
     while indent == 0 && ln_start < line('$')
-        ln_start = nextnonblank(ln_start + 1)
+        ln_start = nextnonblank(ln_start + 1) ?? line('$')
         indent = indent(ln_start)
     endwhile
 
