@@ -1,6 +1,6 @@
 vim9script
 
-def HighlightedYank(hlgroup = 'PmenuMatch', duration = 200)
+def HighlightedYank(hlgroup = 'PmenuMatch', duration = 250)
     if v:event.operator !=? 'y' | return | endif
     # if clipboard has autoselect (default on linux) exiting from Visual with ESC
     # generates bogus event and this highlights previous yank
