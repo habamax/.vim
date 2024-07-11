@@ -132,9 +132,6 @@ nnoremap <silent> yoc <ScriptCmd>ToggleCC(true)<CR>
 
 nnoremap <silent> <space><cr> <scriptcmd>text.Toggle()<CR>
 
-# print maybe-function name
-nnoremap [f <cmd>echo getline(search('^[[:alpha:]$_]', 'bcnW'))<CR>
-
 # toogle window zoom
 import autoload 'zoom.vim'
 nnoremap <C-w><C-o> <scriptcmd>zoom.Toggle()<CR>
