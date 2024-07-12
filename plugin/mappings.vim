@@ -241,10 +241,9 @@ nnoremap <silent> gx <scriptcmd>os.Gx()<CR>
 
 tnoremap <C-v> <C-w>""
 
-import autoload 'term.vim'
-xnoremap <expr> <space>t term.Send()
-nnoremap <expr> <space>t term.Send()
-nnoremap <expr> <space>tt term.Send() .. '_'
+# base64
+xnoremap <space>tbe <cmd>let @" = trim(system('python -m base64', getregion(getpos('v'), getpos('.'), #{type: mode()})))<cr><cmd>norm! p<cr>
+xnoremap <space>tbd <cmd>let @" = trim(system('python -m base64 -d', getregion(getpos('v'), getpos('.'), #{type: mode()})))<cr><cmd>norm! p<cr>
 
 # Ripgrep word under cursor
 nnoremap <space>8 <scriptcmd>exe "Rg" expand("<cword>")<cr>
