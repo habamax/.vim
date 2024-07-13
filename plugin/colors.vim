@@ -10,7 +10,7 @@ vim9script
 
 if !has("gui_running")
     augroup colors_term | au!
-        au Colorscheme habamax,nod,nod-b,nod-d,nod-gb hi Normal ctermbg=NONE guibg=NONE
+        au Colorscheme habamax,lunaperche,nod,nod-b,nod-d,nod-gb hi Normal ctermbg=NONE guibg=NONE
         au Colorscheme wildcharm,retrobox if &bg == 'dark' | hi Normal ctermbg=NONE guibg=NONE | endif
     augroup END
 endif
