@@ -68,6 +68,7 @@ endif
 
 if exists("g:loaded_lsp")
     g:LspOptionsSet({
+        autoComplete: false,
         completionTextEdit: false,
         showInlayHints: true,
         showDiagWithVirtualText: true,
