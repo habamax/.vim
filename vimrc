@@ -21,7 +21,7 @@ set belloff=all
 set ruler
 set signcolumn=number
 set shortmess+=Ic
-set completeopt=menuone,popup,fuzzy,noselect completepopup=highlight:Pmenu
+set completeopt=menu,fuzzy completepopup=highlight:Pmenu
 set list listchars=tab:›\ ,nbsp:․,trail:·,extends:…,precedes:…
 set fillchars=vert:│
 set nospell spelllang=en,ru
