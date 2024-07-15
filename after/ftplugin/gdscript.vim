@@ -4,8 +4,6 @@ import autoload 'os.vim'
 
 b:undo_ftplugin ..= ' | setl et< ts< sw< kp<'
 
-setlocal noet ts=4 sw=0
-
 var last_scene_run = ''
 
 # Run last scene
