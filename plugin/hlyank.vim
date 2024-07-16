@@ -9,12 +9,15 @@ def HighlightedYank(hlgroup = 'Pmenu', duration = 250)
     var type = v:event.regtype ?? 'v'
     var pos = getregionpos(getpos("'["), getpos("']"), {type: type})
     var end_offset = (type == 'V' || v:event.inclusive) ? 1 : 0
-    var m = matchaddpos(hlgroup, pos->mapnew((_, v) => {
+    var hlpos = pos->mapnew((_, v) => {
         var col_beg = v[0][2] + v[0][3]
         var col_end = v[1][2] + v[1][3] + end_offset
         return [v[0][1], col_beg, col_end - col_beg]
-    }))
-    timer_start(duration, (_) => m->matchdelete(win_getid()))
+    })->filter((_, v) => v[1] != 0)
+    if hlpos->len() > 0
+        var m = matchaddpos(hlgroup, hlpos)
+        timer_start(duration, (_) => m->matchdelete(win_getid()))
+    endif
 enddef
 
 augroup hlyank | au!
