@@ -46,9 +46,6 @@ nnoremap <space>i <scriptcmd>fuzzy.Template()<CR>
 # to enter literal <space> use <C-v><space>
 cnoremap <expr> <space> getcmdtype() =~ '[/?]' ? '.\{-}' : "<space>"
 
-# omnicomplete
-inoremap <C-x><C-x> <C-x><C-o>
-
 # whitespace
 nnoremap <space><space><space> <cmd>FixTrailingSpaces<CR>
 
