@@ -7,7 +7,8 @@ def HighlightedYank(hlgroup = 'Pmenu', duration = 250)
     if v:event.regname == "*" && v:event.visual | return | endif
 
     var type = v:event.regtype ?? 'v'
-    var pos = getregionpos(getpos("'["), getpos("']"), {type: type})
+    var exclusive = !v:event.inclusive
+    var pos = getregionpos(getpos("'["), getpos("']"), {type: type, exclusive: exclusive})
     var hlpos = pos
         ->filter((_, v) => v[0][2] != 0)
         ->mapnew((_, v) => {
