@@ -49,12 +49,6 @@ cnoremap <expr> <space> getcmdtype() =~ '[/?]' ? '.\{-}' : "<space>"
 # omnicomplete
 inoremap <C-x><C-x> <C-x><C-o>
 
-# copy
-nnoremap <space>y "+y
-xnoremap <space>y "+y
-nnoremap <space>p "+p
-xnoremap <space>p "+p
-
 # whitespace
 nnoremap <space><space><space> <cmd>FixTrailingSpaces<CR>
 
