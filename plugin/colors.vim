@@ -8,16 +8,6 @@ vim9script
 # endif
 # set termguicolors
 
-if !has("gui_running")
-    augroup colors_term | au!
-        au Colorscheme habamax,nod,nod-b,nod-d,nod-gb hi Normal ctermbg=NONE guibg=NONE
-        au Colorscheme lunaperche,wildcharm,retrobox if &bg == 'dark' | hi Normal ctermbg=NONE guibg=NONE | endif
-    augroup END
-else
-    augroup colors_gui | au!
-        au Colorscheme habamax hi Normal guibg=#000000
-    augroup END
-endif
 augroup colors | au!
     au Colorscheme * hi link lspDiagSignErrorText Removed
     au Colorscheme * hi link lspDiagVirtualTextError Removed
