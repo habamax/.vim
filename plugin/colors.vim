@@ -13,6 +13,10 @@ if !has("gui_running")
         au Colorscheme habamax,nod,nod-b,nod-d,nod-gb hi Normal ctermbg=NONE guibg=NONE
         au Colorscheme lunaperche,wildcharm,retrobox if &bg == 'dark' | hi Normal ctermbg=NONE guibg=NONE | endif
     augroup END
+else
+    augroup colors_gui | au!
+        au Colorscheme habamax hi Normal guibg=#000000
+    augroup END
 endif
 augroup colors | au!
     au Colorscheme * hi link lspDiagSignErrorText Removed
