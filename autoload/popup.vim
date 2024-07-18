@@ -6,7 +6,55 @@ var popup_borderhighlight = get(g:, "popup_borderhighlight", [])
 var popup_highlight       = get(g:, "popup_highlight", '')
 var popup_cursor          = get(g:, "popup_cursor", '█')
 
-# Returns winnr of created popup window
+
+# Helper popup to navigate quickfix/location lists.
+# Usage:
+# import autoload 'popup.vim'
+# nnoremap <space>q <scriptcmd>popup.QfNavigate()<CR>
+export def QfNavigate()
+    var commands = [
+        {key: "j", cmd: "cnext"},
+        {key: "k", cmd: "cprev"},
+        {key: "J", cmd: "redraw|clast"},
+        {key: "K", cmd: "redraw|cfirst"},
+        {key: ".", cmd: "lnext"},
+        {key: ",", cmd: "lprev"},
+        {key: ">", cmd: "redraw|llast"},
+        {key: "<", cmd: "redraw|lfirst"},
+    ]->foreach((_, v) => {
+        v.text = $"{v.key} - {v.cmd}"
+    })
+    var winid = popup_create(commands, {
+        pos: 'botright',
+        col: &columns,
+        line: &lines,
+        borderhighlight: popup_borderhighlight,
+        highlight: popup_highlight,
+        scrollbar: false,
+        cursorline: false,
+        padding: [0, 1, 0, 1],
+        mapping: 0,
+        border: [1, 1, 1, 1],
+        borderchars: popup_borderchars,
+        filter: (winid, key) => {
+            if key == "\<cursorhold>"
+                return true
+            endif
+            var cmd_idx = commands->indexof((_, v) => v.key == key)
+            if cmd_idx != -1
+                try
+                    exe commands[cmd_idx].cmd
+                catch
+                endtry
+            else
+                popup_close(winid)
+            endif
+            return true
+        }
+    })
+enddef
+
+# Shows popup window at cursor position
 export def ShowAtCursor(text: any, Setup: func(number) = null_function): number
     var new_text = text
     if text->type() == v:t_string

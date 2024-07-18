@@ -42,6 +42,9 @@ nnoremap <space>fw <scriptcmd>fuzzy.Window()<CR>
 nnoremap <space>j <scriptcmd>fuzzy.CurrentWord()<CR>
 nnoremap <space>i <scriptcmd>fuzzy.Template()<CR>
 
+import autoload 'popup.vim'
+nnoremap <space>q <scriptcmd>popup.QfNavigate()<CR>
+
 # enhance search with <space> as "whatever"
 # to enter literal <space> use <C-v><space>
 cnoremap <expr> <space> getcmdtype() =~ '[/?]' ? '.\{-}' : "<space>"
