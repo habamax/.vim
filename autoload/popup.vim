@@ -36,14 +36,11 @@ export def QfNavigate()
         pos: 'botright',
         col: &columns,
         line: &lines,
-        borderhighlight: popup_borderhighlight,
-        highlight: popup_highlight,
-        scrollbar: false,
-        cursorline: false,
         padding: [0, 1, 0, 1],
-        mapping: 0,
         border: [1, 1, 1, 1],
         borderchars: popup_borderchars,
+        borderhighlight: popup_borderhighlight,
+        highlight: popup_highlight,
         filter: (winid, key) => {
             if key == "\<cursorhold>"
                 return true
