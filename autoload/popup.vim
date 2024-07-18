@@ -13,7 +13,7 @@ var popup_cursor          = get(g:, "popup_cursor", '█')
 # nnoremap <space>q <scriptcmd>popup.QfNavigate()<CR>
 export def QfNavigate()
     if empty(prop_type_get('PopupKey'))
-        hi def link PopupKey Constant
+        hi def link PopupKey String
         prop_type_add('PopupKey', {highlight: "PopupKey", override: true, priority: 1000, combine: true})
     endif
     var commands = [
