@@ -12,6 +12,10 @@ var popup_cursor          = get(g:, "popup_cursor", '█')
 # import autoload 'popup.vim'
 # nnoremap <space>q <scriptcmd>popup.QfNavigate()<CR>
 export def QfNavigate()
+    if empty(prop_type_get('PopupKey'))
+        hi def link PopupKey Constant
+        prop_type_add('PopupKey', {highlight: "PopupKey", override: true, priority: 1000, combine: true})
+    endif
     var commands = [
         {key: "j", cmd: "cnext"},
         {key: "k", cmd: "cprev"},
@@ -25,6 +29,7 @@ export def QfNavigate()
     ]->foreach((_, v) => {
         if !v->has_key("text")
             v.text = $"{v.key} - {v.cmd}"
+            v.props = [{col: 1, length: len(v.key), type: "PopupKey"}]
         endif
     })
     var winid = popup_create(commands, {
