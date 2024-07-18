@@ -7,8 +7,9 @@ set hidden confirm
 set shiftwidth=4 softtabstop=-1 expandtab
 set ttimeout ttimeoutlen=25
 set autoindent
-set hlsearch incsearch ignorecase
+set hlsearch incsearch ignorecase smartcase
 set wildmenu wildoptions=pum,fuzzy pumheight=20
+set completeopt=menu,fuzzy completepopup=highlight:Pmenu
 set number relativenumber cursorline cursorlineopt=number
 set backspace=indent,eol,start
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak nojoinspaces
@@ -21,7 +22,6 @@ set belloff=all
 set ruler
 set signcolumn=number
 set shortmess+=Ic
-set completeopt=menu,fuzzy completepopup=highlight:Pmenu
 set list listchars=tab:›\ ,nbsp:․,trail:·,extends:…,precedes:…
 set fillchars=vert:│
 set nospell spelllang=en,ru
