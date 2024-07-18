@@ -15,12 +15,12 @@ export def QfNavigate()
     var commands = [
         {key: "j", cmd: "cnext"},
         {key: "k", cmd: "cprev"},
-        {key: "J", cmd: "redraw|clast"},
-        {key: "K", cmd: "redraw|cfirst"},
+        {key: "J", cmd: "clast"},
+        {key: "K", cmd: "cfirst"},
         {key: ".", cmd: "lnext"},
         {key: ",", cmd: "lprev"},
-        {key: ">", cmd: "redraw|llast"},
-        {key: "<", cmd: "redraw|lfirst"},
+        {key: ">", cmd: "llast"},
+        {key: "<", cmd: "lfirst"},
     ]->foreach((_, v) => {
         v.text = $"{v.key} - {v.cmd}"
     })
@@ -43,7 +43,7 @@ export def QfNavigate()
             var cmd_idx = commands->indexof((_, v) => v.key == key)
             if cmd_idx != -1
                 try
-                    exe commands[cmd_idx].cmd
+                    exe $"redraw|{commands[cmd_idx].cmd}"
                 catch
                 endtry
             else
