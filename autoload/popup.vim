@@ -17,12 +17,15 @@ export def QfNavigate()
         {key: "k", cmd: "cprev"},
         {key: "J", cmd: "clast"},
         {key: "K", cmd: "cfirst"},
+        {text: "----------"},
         {key: ".", cmd: "lnext"},
         {key: ",", cmd: "lprev"},
         {key: ">", cmd: "llast"},
         {key: "<", cmd: "lfirst"},
     ]->foreach((_, v) => {
-        v.text = $"{v.key} - {v.cmd}"
+        if !v->has_key("text")
+            v.text = $"{v.key} - {v.cmd}"
+        endif
     })
     var winid = popup_create(commands, {
         pos: 'botright',
@@ -40,7 +43,7 @@ export def QfNavigate()
             if key == "\<cursorhold>"
                 return true
             endif
-            var cmd_idx = commands->indexof((_, v) => v.key == key)
+            var cmd_idx = commands->indexof((_, v) => get(v, "key", "") == key)
             if cmd_idx != -1
                 try
                     exe $"redraw|{commands[cmd_idx].cmd}"
