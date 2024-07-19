@@ -26,7 +26,7 @@ export def Commands(commands: list<dict<any>>): number
     endif
 
     if empty(prop_type_get('PopupKey'))
-        hi def link PopupKey String
+        hi def link PopupKey Constant
         prop_type_add('PopupKey', {highlight: "PopupKey", override: true, priority: 1000, combine: true})
     endif
     if empty(prop_type_get('PopupKeyTitle'))
