@@ -44,6 +44,14 @@ nnoremap <space>i <scriptcmd>fuzzy.Template()<CR>
 
 import autoload 'nav.vim'
 nnoremap <space>q <scriptcmd>nav.Qf()<CR>
+nnoremap <C-w>h <scriptcmd>nav.Windows("h")<cr>
+nmap <C-w><C-h> <C-w>h
+nnoremap <C-w>j <scriptcmd>nav.Windows("j")<cr>
+nmap <C-w><C-j> <C-w>j
+nnoremap <C-w>k <scriptcmd>nav.Windows("k")<cr>
+nmap <C-w><C-k> <C-w>k
+nnoremap <C-w>l <scriptcmd>nav.Windows("l")<cr>
+nmap <C-w><C-l> <C-w>l
 
 # enhance search with <space> as "whatever"
 # to enter literal <space> use <C-v><space>
