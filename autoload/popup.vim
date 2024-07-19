@@ -21,6 +21,10 @@ var popup_cursor          = get(g:, "popup_cursor", '█')
 #     popup.Commands(commands)
 # enddef
 export def Commands(commands: list<dict<any>>): number
+    if empty(commands)
+        return -1
+    endif
+
     if empty(prop_type_get('PopupKey'))
         hi def link PopupKey String
         prop_type_add('PopupKey', {highlight: "PopupKey", override: true, priority: 1000, combine: true})
