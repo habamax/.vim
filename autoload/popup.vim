@@ -29,10 +29,16 @@ export def Commands(commands: list<dict<any>>): number
         hi def link PopupKey String
         prop_type_add('PopupKey', {highlight: "PopupKey", override: true, priority: 1000, combine: true})
     endif
+    if empty(prop_type_get('PopupKeyTitle'))
+        hi def link PopupKeyTitle Title
+        prop_type_add('PopupKeyTitle', {highlight: "PopupKeyTitle", override: true, priority: 1000, combine: true})
+    endif
     commands->foreach((_, v) => {
         if !v->has_key("text")
             v.text = $"  {v.key} - {v.cmd}"
             v.props = [{col: 3, length: len(v.key), type: "PopupKey"}]
+        else
+            v.props = [{col: 1, length: len(v.text), type: "PopupKeyTitle"}]
         endif
     })
     var winid = popup_create(commands, {
