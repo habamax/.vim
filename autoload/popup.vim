@@ -7,26 +7,25 @@ var popup_highlight       = get(g:, "popup_highlight", '')
 var popup_cursor          = get(g:, "popup_cursor", '█')
 
 
-# Helper popup to navigate quickfix/location lists.
+# Helper popup to create navigate popups
 # Usage:
 # import autoload 'popup.vim'
-# nnoremap <space>q <scriptcmd>popup.QfNavigate()<CR>
-export def QfNavigate()
+# export def Qf()
+#     var commands = [
+#         {key: "j", cmd: "cnext"},
+#         {key: "k", cmd: "cprev"},
+#         {text: "----------"},
+#         {key: ".", cmd: "lnext"},
+#         {key: ",", cmd: "lprev"},
+#     ]
+#     popup.Commands(commands)
+# enddef
+export def Commands(commands: list<dict<any>>): number
     if empty(prop_type_get('PopupKey'))
         hi def link PopupKey String
         prop_type_add('PopupKey', {highlight: "PopupKey", override: true, priority: 1000, combine: true})
     endif
-    var commands = [
-        {key: "j", cmd: "cnext"},
-        {key: "k", cmd: "cprev"},
-        {key: "J", cmd: "clast"},
-        {key: "K", cmd: "cfirst"},
-        {text: "----------"},
-        {key: ".", cmd: "lnext"},
-        {key: ",", cmd: "lprev"},
-        {key: ">", cmd: "llast"},
-        {key: "<", cmd: "lfirst"},
-    ]->foreach((_, v) => {
+    commands->foreach((_, v) => {
         if !v->has_key("text")
             v.text = $"{v.key} - {v.cmd}"
             v.props = [{col: 1, length: len(v.key), type: "PopupKey"}]
@@ -57,6 +56,7 @@ export def QfNavigate()
             return true
         }
     })
+    return winid
 enddef
 
 # Shows popup window at cursor position
