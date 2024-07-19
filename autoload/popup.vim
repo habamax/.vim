@@ -27,8 +27,8 @@ export def Commands(commands: list<dict<any>>): number
     endif
     commands->foreach((_, v) => {
         if !v->has_key("text")
-            v.text = $"{v.key} - {v.cmd}"
-            v.props = [{col: 1, length: len(v.key), type: "PopupKey"}]
+            v.text = $"  {v.key} - {v.cmd}"
+            v.props = [{col: 3, length: len(v.key), type: "PopupKey"}]
         endif
     })
     var winid = popup_create(commands, {
