@@ -2,6 +2,33 @@ vim9script
 
 import autoload 'popup.vim'
 
+# Example of multi level popup
+# export def QfLoc()
+#     var qf_commands = [
+#             {text: "Quickfix"},
+#             {text: "Next", key: "j", cmd: "cnext"},
+#             {text: "Prev", key: "k", cmd: "cprev"},
+#             {text: "Last", key: "J", cmd: "redraw|clast"},
+#             {text: "First", key: "K", cmd: "redraw|cfirst"},
+#         ]
+#     var loc_commands = [
+#             {text: "Locations"},
+#             {text: "Next", key: ".", cmd: "lnext"},
+#             {text: "Prev", key: ",", cmd: "lprev"},
+#             {text: "Last", key: ">", cmd: "redraw|llast"},
+#             {text: "First", key: "<", cmd: "redraw|lfirst"},
+#         ]
+#     var commands = [
+#         {text: "Quickfix", key: "q", close: true, cmd: () => {
+#             popup.Commands(qf_commands)
+#         }},
+#         {text: "Location", key: "l", close: true, cmd: () => {
+#             popup.Commands(loc_commands)
+#         }},
+#     ]
+#     popup.Commands(commands)
+# enddef
+
 # Navigate quickfix/location lists.
 # Usage:
 # import autoload 'nav.vim'
