@@ -38,8 +38,8 @@ export def Qf()
     if len(getqflist()) > 0
         commands->extend([
             {text: "Quickfix"},
-            {text: "Next", key: "j", cmd: "cnext"},
-            {text: "Prev", key: "k", cmd: "cprev"},
+            {text: "Next", key: "j", cmd: "redraw|cnext"},
+            {text: "Prev", key: "k", cmd: "redraw|cprev"},
             {text: "Last", key: "J", cmd: "redraw|clast"},
             {text: "First", key: "K", cmd: "redraw|cfirst"},
         ])
@@ -47,8 +47,8 @@ export def Qf()
     if len(getloclist(winnr())) > 0
         commands->extend([
             {text: "Locations"},
-            {text: "Next", key: ".", cmd: "lnext"},
-            {text: "Prev", key: ",", cmd: "lprev"},
+            {text: "Next", key: ".", cmd: "redraw|lnext"},
+            {text: "Prev", key: ",", cmd: "redraw|lprev"},
             {text: "Last", key: ">", cmd: "redraw|llast"},
             {text: "First", key: "<", cmd: "redraw|lfirst"},
         ])
