@@ -61,7 +61,7 @@ export def Commands(commands: list<dict<any>>): number
                     if type(commands[cmd_idx].cmd) == v:t_string
                         exe commands[cmd_idx].cmd
                     elseif type(commands[cmd_idx].cmd) == v:t_func
-                        commands[cmd_idx].cmd->call([])
+                        commands[cmd_idx].cmd()
                     endif
                     if get(commands[cmd_idx], "close", false)
                         popup_close(winid)
