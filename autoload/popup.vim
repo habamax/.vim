@@ -34,8 +34,8 @@ export def Commands(commands: list<dict<any>>): number
         prop_type_add('PopupKeyTitle', {highlight: "PopupKeyTitle", override: true, priority: 1000, combine: true})
     endif
     commands->foreach((_, v) => {
-        if !v->has_key("text")
-            v.text = $"  {v.key} - {v.cmd}"
+        if v->has_key("key")
+            v.text = $"  {v.key} - {v.text}"
             v.props = [{col: 3, length: len(v.key), type: "PopupKey"}]
         else
             v.props = [{col: 1, length: len(v.text), type: "PopupKeyTitle"}]
@@ -57,7 +57,7 @@ export def Commands(commands: list<dict<any>>): number
             var cmd_idx = commands->indexof((_, v) => get(v, "key", "") == key)
             if cmd_idx != -1
                 try
-                    exe $"redraw|{commands[cmd_idx].cmd}"
+                    exe commands[cmd_idx].cmd
                 catch
                 endtry
             else

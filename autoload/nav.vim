@@ -11,19 +11,19 @@ export def Qf()
     if len(getqflist()) > 0
         commands->extend([
             {text: "Quickfix"},
-            {key: "j", cmd: "cnext"},
-            {key: "k", cmd: "cprev"},
-            {key: "J", cmd: "clast"},
-            {key: "K", cmd: "cfirst"},
+            {text: "Next", key: "j", cmd: "cnext"},
+            {text: "Prev", key: "k", cmd: "cprev"},
+            {text: "Last", key: "J", cmd: "redraw|clast"},
+            {text: "First", key: "K", cmd: "redraw|cfirst"},
         ])
     endif
     if len(getloclist(winnr())) > 0
         commands->extend([
             {text: "Locations"},
-            {key: ".", cmd: "lnext"},
-            {key: ",", cmd: "lprev"},
-            {key: ">", cmd: "llast"},
-            {key: "<", cmd: "lfirst"},
+            {text: "Next", key: ".", cmd: "lnext"},
+            {text: "Prev", key: ",", cmd: "lprev"},
+            {text: "Last", key: ">", cmd: "redraw|llast"},
+            {text: "First", key: "<", cmd: "redraw|lfirst"},
         ])
     endif
     popup.Commands(commands)
@@ -46,10 +46,10 @@ export def Windows(initial: string)
     if winnr('$') > 1
         commands->extend([
             {text: "Windows"},
-            {key: "h", cmd: "wincmd h"},
-            {key: "j", cmd: "wincmd j"},
-            {key: "k", cmd: "wincmd k"},
-            {key: "l", cmd: "wincmd l"},
+            {text: "Left", key: "h", cmd: "wincmd h"},
+            {text: "Down", key: "j", cmd: "wincmd j"},
+            {text: "Up", key: "k", cmd: "wincmd k"},
+            {text: "Right", key: "l", cmd: "wincmd l"},
         ])
     endif
     popup.Commands(commands)
