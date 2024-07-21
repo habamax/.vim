@@ -26,20 +26,20 @@ export def Commands(commands: list<dict<any>>): number
         return -1
     endif
 
-    if empty(prop_type_get('PopupKey'))
-        hi def link PopupKey Constant
-        prop_type_add('PopupKey', {highlight: "PopupKey", override: true, priority: 1000, combine: true})
+    if empty(prop_type_get('PopupCommandKey'))
+        hi def link PopupCommandKey Constant
+        prop_type_add('PopupCommandKey', {highlight: "PopupCommandKey", override: true, priority: 1000, combine: true})
     endif
-    if empty(prop_type_get('PopupKeyTitle'))
-        hi def link PopupKeyTitle Title
-        prop_type_add('PopupKeyTitle', {highlight: "PopupKeyTitle", override: true, priority: 1000, combine: true})
+    if empty(prop_type_get('PopupCommandKeyTitle'))
+        hi def link PopupCommandKeyTitle Title
+        prop_type_add('PopupCommandKeyTitle', {highlight: "PopupCommandKeyTitle", override: true, priority: 1000, combine: true})
     endif
     commands->foreach((_, v) => {
         if v->has_key("key")
             v.text = $"  {v.key} - {v.text}"
-            v.props = [{col: 3, length: len(v.key), type: "PopupKey"}]
+            v.props = [{col: 3, length: len(v.key), type: "PopupCommandKey"}]
         else
-            v.props = [{col: 1, length: len(v.text), type: "PopupKeyTitle"}]
+            v.props = [{col: 1, length: len(v.text), type: "PopupCommandKeyTitle"}]
         endif
     })
     var winid = popup_create(commands, {
