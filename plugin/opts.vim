@@ -12,7 +12,7 @@ g:popup_borderchars_t = ['─', '│', '─', '│', '├', '┤', '╯', '╰']
 
 packadd comment
 packadd nohlsearch
-packadd! matchit
+packadd matchit
 packadd! cfilter
 packadd! editorconfig
 
