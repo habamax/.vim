@@ -21,7 +21,7 @@ augroup colors | au!
     au Colorscheme * hi link lspDiagVirtualTextWarning Changed
 augroup END
 
-g:colors = ["nod", "nope-y"]
+g:colors = ["nod-b", "nope-y"]
 if has("win32") && has("gui_running")
     exe "silent! colorscheme" g:colors[1]
 else
