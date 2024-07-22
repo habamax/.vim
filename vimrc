@@ -4,28 +4,25 @@ filetype plugin indent on
 syntax on
 
 set hidden confirm
-set shiftwidth=4 softtabstop=-1 expandtab
+set autoindent shiftwidth=4 softtabstop=-1 expandtab
 set ttimeout ttimeoutlen=25
-set autoindent
+set ruler
+set belloff=all shortmess+=Ic
+set display=lastline smoothscroll
 set hlsearch incsearch ignorecase smartcase
 set wildmenu wildoptions=pum,fuzzy pumheight=20
 set completeopt=menuone,popup,noselect,fuzzy completepopup=highlight:Pmenu
-set number relativenumber cursorline cursorlineopt=number
-set backspace=indent,eol,start
+set number relativenumber cursorline cursorlineopt=number signcolumn=number
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak nojoinspaces
-set fileformat=unix fileformats=unix,dos
-set display=lastline smoothscroll
-set sidescroll=1 sidescrolloff=3
-set virtualedit=block
-set nostartofline
-set belloff=all
-set ruler
-set signcolumn=number
-set shortmess+=Ic
 set list listchars=tab:›\ ,nbsp:․,trail:·,extends:…,precedes:…
 set fillchars=vert:│
-set nospell spelllang=en,ru
+set virtualedit=block
+set backspace=indent,eol,start
+set nostartofline
+set fileformat=unix fileformats=unix,dos
+set sidescroll=1 sidescrolloff=3
 set nrformats=bin,hex,unsigned
+set nospell spelllang=en,ru
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
 set sessionoptions=buffers,curdir,tabpages,winsize
