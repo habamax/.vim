@@ -67,7 +67,8 @@ nnoremap yon <cmd>set nu! rnu!<CR>
 nnoremap yos <cmd>set spell! spell?<CR>
 nnoremap yod <cmd>exe (&diff ? ':diffoff' : ':diffthis')<CR>
 nnoremap yov <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
-nnoremap yob <cmd>exe "colo" get(g:, "colors_name") == g:colors[0] ? g:colors[1] : g:colors[0]<CR>
+nnoremap yob <cmd>exe "colo"
+      \ g:colors[(index(g:colors, get(g:, "colors_name")) + 1) % len(g:colors)]<CR>
 
 # move lines
 xnoremap <tab> :sil! m '>+1<CR>gv
