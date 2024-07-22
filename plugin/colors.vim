@@ -22,7 +22,11 @@ augroup colors | au!
 augroup END
 
 g:colors = ["nod", "nope"]
-exe "silent! colorscheme" g:colors[0]
+if has("win32") && has("gui_running")
+    exe "silent! colorscheme" g:colors[1]
+else
+    exe "silent! colorscheme" g:colors[0]
+endif
 
 # finish
 
