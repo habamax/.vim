@@ -44,6 +44,10 @@ nnoremap <space>i <scriptcmd>fuzzy.Template()<CR>
 
 import autoload 'nav.vim'
 nnoremap <space>q <scriptcmd>nav.Qf()<CR>
+nnoremap zl <scriptcmd>nav.HScroll($'normal! {v:count1}zl')<CR>
+nnoremap zh <scriptcmd>nav.HScroll($'normal! {v:count1}zh')<CR>
+nnoremap zs <scriptcmd>nav.HScroll($'normal! zs')<CR>
+nnoremap ze <scriptcmd>nav.HScroll($'normal! ze')<CR>
 
 # enhance search with <space> as "whatever"
 # to enter literal <space> use <C-v><space>
