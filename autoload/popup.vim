@@ -7,7 +7,7 @@ var popup_highlight       = get(g:, "popup_highlight", '')
 var popup_cursor          = get(g:, "popup_cursor", '█')
 
 
-# Helper popup to create navigate popups
+# Helper popup to create command popup windows.
 # Usage:
 # import autoload 'popup.vim'
 # export def Qf()
