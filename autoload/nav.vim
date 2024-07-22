@@ -56,6 +56,25 @@ export def Qf()
     popup.Commands(commands)
 enddef
 
+# horiontal scroll
+# Usage:
+# import autoload 'nav.vim'
+# nnoremap zl <scriptcmd>nav.HScroll($'normal! {v:count1}zl')<CR>
+# nnoremap zh <scriptcmd>nav.HScroll($'normal! {v:count1}zh')<CR>
+# nnoremap zs <scriptcmd>nav.HScroll($'normal! zs')<CR>
+# nnoremap ze <scriptcmd>nav.HScroll($'normal! ze')<CR>
+export def HScroll(initial: string)
+    exe initial
+    var commands = [
+        {text: "Horizontal scroll"},
+        {text: "Left", key: "h", cmd: "normal! zh"},
+        {text: "Right", key: "l", cmd: "normal! zl"},
+        {text: "Start", key: "s", cmd: "normal! zs"},
+        {text: "End", key: "e", cmd: "normal! ze"},
+    ]
+    popup.Commands(commands)
+enddef
+
 # Navigate windows
 # Usage:
 # import autoload 'nav.vim'
