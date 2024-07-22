@@ -63,6 +63,7 @@ xnoremap * y/<C-r>=escape(@", '^~$\*.[]')<CR><CR>
 
 # toggles
 nnoremap yow <cmd>set wrap! wrap?<CR>
+nnoremap yon <cmd>set nu! rnu!<CR>
 nnoremap yos <cmd>set spell! spell?<CR>
 nnoremap yod <cmd>exe (&diff ? ':diffoff' : ':diffthis')<CR>
 nnoremap yov <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
