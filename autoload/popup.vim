@@ -291,17 +291,21 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
                 popup_close(id, {idx: getcurpos(id)[1], key: key})
                 popup_close(pwinid)
                 RestoreCursor()
-            elseif key == "\<Right>"
+            elseif ["\<Right>", "\<PageDown>"]->index(key) > -1
                 win_execute(id, 'normal! ' .. "\<C-d>")
-            elseif key == "\<Left>"
+            elseif ["\<Left>", "\<PageUp>"]->index(key) > -1
                 win_execute(id, 'normal! ' .. "\<C-u>")
-            elseif key == "\<tab>" || key == "\<C-n>" || key == "\<Down>" || key == "\<ScrollWheelDown>"
+            elseif key == "\<Home>"
+                win_execute(id, "normal! gg")
+            elseif key == "\<End>"
+                win_execute(id, "normal! G")
+            elseif ["\<tab>", "\<C-n>", "\<Down>", "\<ScrollWheelDown>"]->index(key) > -1
                 var ln = getcurpos(id)[1]
                 win_execute(id, "normal! j")
                 if ln == getcurpos(id)[1]
                     win_execute(id, "normal! gg")
                 endif
-            elseif key == "\<S-tab>" || key == "\<C-p>" || key == "\<Up>" || key == "\<ScrollWheelUp>"
+            elseif ["\<S-tab>", "\<C-p>", "\<Up>", "\<ScrollWheelUp>"]->index(key) > -1
                 var ln = getcurpos(id)[1]
                 win_execute(id, "normal! k")
                 if ln == getcurpos(id)[1]
