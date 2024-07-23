@@ -64,11 +64,14 @@ enddef
 # nnoremap zs <scriptcmd>nav.HScroll($'normal! zs')<CR>
 # nnoremap ze <scriptcmd>nav.HScroll($'normal! ze')<CR>
 export def HScroll(initial: string)
+    echow initial
     exe initial
     var commands = [
         {text: "Horizontal scroll"},
         {text: "Left", key: "h", cmd: "normal! zh"},
         {text: "Right", key: "l", cmd: "normal! zl"},
+        {text: "10 x Left", key: "H", cmd: "normal! 10zh"},
+        {text: "10 x Right", key: "L", cmd: "normal! 10zl"},
         {text: "Start", key: "s", cmd: "normal! zs"},
         {text: "End", key: "e", cmd: "normal! ze"},
     ]
