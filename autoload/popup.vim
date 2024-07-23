@@ -292,9 +292,9 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
                 popup_close(pwinid)
                 RestoreCursor()
             elseif ["\<Right>", "\<PageDown>"]->index(key) > -1
-                win_execute(id, 'normal! ' .. "\<C-d>")
+                win_execute(id, 'normal! ' .. maxheight .. "\<C-d>")
             elseif ["\<Left>", "\<PageUp>"]->index(key) > -1
-                win_execute(id, 'normal! ' .. "\<C-u>")
+                win_execute(id, 'normal! ' .. maxheight .. "\<C-u>")
             elseif key == "\<Home>"
                 win_execute(id, "normal! gg")
             elseif key == "\<End>"
