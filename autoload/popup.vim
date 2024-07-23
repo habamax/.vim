@@ -48,6 +48,7 @@ export def Commands(commands: list<dict<any>>): number
         line: &lines,
         padding: [0, 1, 0, 1],
         border: [1, 1, 1, 1],
+        mapping: 0,
         borderchars: popup_borderchars,
         borderhighlight: popup_borderhighlight,
         highlight: popup_highlight,
