@@ -108,3 +108,23 @@ def HeaderTextObj(inner: bool)
         exe $":{lnum_start}"
     endif
 enddef
+
+def SectionNav(init_cmd: string)
+    exe init_cmd
+    normal! zz
+    var winid = bufwinid(bufnr())
+    var commands = [
+        {text: "Sections"},
+        {text: "Next", key: "j", cmd: () => {
+            search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', 'sW')
+            normal! zz
+        }},
+        {text: "Prev", key: "k", cmd: () => {
+            search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', 'bsW')
+            normal! zz
+        }},
+    ]
+    popup.Commands(commands)
+enddef
+nnoremap <buffer> <space>j <scriptcmd>SectionNav('normal ]]')<CR>
+nnoremap <buffer> <space>k <scriptcmd>SectionNav('normal [[')<CR>
