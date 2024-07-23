@@ -104,13 +104,16 @@ nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
 
 def SectionNav(dir: number)
     call rst#section(dir, 1)
+    normal! zz
     var commands = [
         {text: "Sections"},
         {text: "Next", key: "j", cmd: () => {
             call rst#section(0, 1)
+            normal! zz
         }},
         {text: "Prev", key: "k", cmd: () => {
             call rst#section(1, 1)
+            normal! zz
         }},
     ]
     popup.Commands(commands)
