@@ -102,6 +102,22 @@ def Toc()
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
 
+def SectionNav(dir: number)
+    call rst#section(dir, 1)
+    var commands = [
+        {text: "Sections"},
+        {text: "Next", key: "j", cmd: () => {
+            call rst#section(0, 1)
+        }},
+        {text: "Prev", key: "k", cmd: () => {
+            call rst#section(1, 1)
+        }},
+    ]
+    popup.Commands(commands)
+enddef
+nnoremap <buffer> <space>j <scriptcmd>SectionNav(0)<CR>
+nnoremap <buffer> <space>k <scriptcmd>SectionNav(1)<CR>
+
 nnoremap <buffer> <space><space>oh <scriptcmd>RstViewHtml<CR>
 nnoremap <buffer> <space><space>op <scriptcmd>RstViewPdf<CR>
 nnoremap <buffer> <space><space>cp <scriptcmd>Rst2Pdf<CR>
