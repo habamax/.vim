@@ -8,12 +8,6 @@ if !has('win32') && !has('gui_running')
 endif
 set termguicolors
 
-if !has("gui_running")
-    augroup colors_term | au!
-        au Colorscheme habamax,nod,nod-b,nod-d,nod-g hi Normal ctermbg=NONE guibg=NONE
-        au Colorscheme lunaperche,wildcharm,retrobox if &bg == 'dark' | hi Normal ctermbg=NONE guibg=NONE | endif
-    augroup END
-endif
 augroup colors | au!
     au Colorscheme * hi link lspDiagSignErrorText Removed
     au Colorscheme * hi link lspDiagVirtualTextError Removed
