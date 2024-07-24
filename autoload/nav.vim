@@ -82,8 +82,6 @@ enddef
 # import autoload 'nav.vim'
 # nnoremap gt <scriptcmd>nav.Windows("gt")<cr>
 # nnoremap gT <scriptcmd>nav.Windows("gT")<cr>
-# nnoremap <C-w>w <scriptcmd>nav.Windows("w")<cr>
-# nmap <C-w><C-w> <C-w>w
 # nnoremap <C-w>h <scriptcmd>nav.Windows("h")<cr>
 # nmap <C-w><C-h> <C-w>h
 # nnoremap <C-w>j <scriptcmd>nav.Windows("j")<cr>
@@ -96,8 +94,6 @@ export def Windows(initial: string)
     exe "wincmd" initial
     var commands = [
             {text: "Windows"},
-            {text: "Next", key: "w", cmd: "wincmd w"},
-            {text: "Prev", key: "W", cmd: "wincmd W"},
             {text: "Left", key: "h", cmd: "wincmd h"},
             {text: "Down", key: "j", cmd: "wincmd j"},
             {text: "Up", key: "k", cmd: "wincmd k"},
