@@ -48,8 +48,6 @@ nnoremap zl <scriptcmd>nav.HScroll($'normal! {v:count1}zl')<CR>
 nnoremap zh <scriptcmd>nav.HScroll($'normal! {v:count1}zh')<CR>
 nnoremap zs <scriptcmd>nav.HScroll('normal! zs')<CR>
 nnoremap ze <scriptcmd>nav.HScroll('normal! ze')<CR>
-nnoremap <C-w>w <scriptcmd>nav.Windows("w")<cr>
-nmap <C-w><C-w> <C-w>w
 nnoremap gt <scriptcmd>nav.Windows("gt")<cr>
 nnoremap gT <scriptcmd>nav.Windows("gT")<cr>
 
