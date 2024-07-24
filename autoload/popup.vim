@@ -86,13 +86,16 @@ export def ShowAtCursor(text: any, Setup: func(number) = null_function): number
     else
         new_text = text->mapnew((_, v) => v->trim("\<CR>"))
     endif
-    var winid = popup_atcursor(new_text, {
+    var winid = popup_create(new_text, {
         padding: [0, 1, 0, 1],
         border: [],
         borderchars: popup_borderchars,
         borderhighlight: popup_borderhighlight,
         highlight: popup_highlight,
-        pos: "botleft",
+        pos: screencol() > &columns / 1.7 ? "botright" : "botleft",
+        line: 'cursor-1',
+        col: 'cursor',
+        moved: 'WORD',
         mapping: 0,
         filter: (winid, key) => {
             if key == "\<Space>"
