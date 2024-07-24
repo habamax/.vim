@@ -1,7 +1,7 @@
 vim9script
 
 # source vimscript (operator)
-def SourceVim(...args: list<any>): any
+def SourceVim(...args: list<any>): string
     if len(args) == 0
         &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
         return 'g@'
