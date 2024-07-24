@@ -31,6 +31,7 @@ endif
 
 if exists("g:loaded_dir")
     nnoremap - <scriptcmd>Dir<cr>
+    g:dir_change_cwd = true
     g:dir_actions = [
         {text: 'Share with 0x0.st', Action: (items) => {
             var urls = []
