@@ -106,18 +106,23 @@ export def Windows(initial: string)
 enddef
 
 # Various text transformations
+# Usage:
+# import autoload 'pcom.vim'
+# xnoremap <space>t <scriptcmd>pcom.TextTr()<cr>
 export def TextTr()
     var base64_commands = [
         {text: "Base64"},
         {text: "Encode", key: "e", close: true, cmd: () => {
-            var result = trim(system('python -m base64', getregion(getpos('v'), getpos('.'), {type: mode()})))
+            var reg = getregion(getpos('v'), getpos('.'), {type: mode()})
+            var result = system('python -m base64', reg)->trim()
             if v:shell_error == 0
                 setreg("", result)
                 normal! p
             endif
         }},
         {text: "Decode", key: "d", close: true, cmd: () => {
-            var result = trim(system('python -m base64 -d', getregion(getpos('v'), getpos('.'), {type: mode()})))
+            var reg = getregion(getpos('v'), getpos('.'), {type: mode()})
+            var result = system('python -m base64 -d', reg)->trim()
             if v:shell_error == 0
                 setreg("", result)
                 normal! p
