@@ -110,12 +110,18 @@ export def TextTr()
     var base64_commands = [
         {text: "Base64"},
         {text: "Encode", key: "e", close: true, cmd: () => {
-            setreg("", trim(system('python -m base64', getregion(getpos('v'), getpos('.'), {type: mode()}))))
-            normal! p
+            var result = trim(system('python -m base64', getregion(getpos('v'), getpos('.'), {type: mode()})))
+            if v:shell_error == 0
+                setreg("", result)
+                normal! p
+            endif
         }},
         {text: "Decode", key: "d", close: true, cmd: () => {
-            setreg("", trim(system('python -m base64 -d', getregion(getpos('v'), getpos('.'), {type: mode()}))))
-            normal! p
+            var result = trim(system('python -m base64 -d', getregion(getpos('v'), getpos('.'), {type: mode()})))
+            if v:shell_error == 0
+                setreg("", result)
+                normal! p
+            endif
         }},
     ]
     var commands = [
@@ -124,8 +130,11 @@ export def TextTr()
         }},
         {text: "Calc", key: "c", close: true, cmd: () => {
             var reg = getregion(getpos('v'), getpos('.'), {type: mode()})->join(" ")
-            setreg("", system($'perl -e "print {reg}"')->trim())
-            normal! p
+            var result = system($'python -c "from math import *; print({reg})"')->trim()
+            if v:shell_error == 0
+                setreg("", result)
+                normal! p
+            endif
         }},
     ]
     popup.Commands(commands)
