@@ -54,10 +54,6 @@ if executable('sudo')
     command! W w !sudo tee "%" >/dev/null
 endif
 
-# base64
-command! Base64 append('.', trim(system("python -m base64", getline('.'))))
-command! Base64Decode append('.', trim(system("python -m base64 -d", getline('.'))))
-
 # bookmarks
 def SaveBookmark()
     if empty(expand("%")) | return | endif
