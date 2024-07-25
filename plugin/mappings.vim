@@ -257,4 +257,4 @@ xnoremap <space>8 "0y<scriptcmd>exe "Rg" getreg("0")<cr>
 if !has("gui_running")
     set <M-u>=u
 endif
-inoremap <M-u> <esc><scriptcmd>search('\w', 'bc', line('.'))<cr>gUiwgi
+inoremap <M-u> <esc><scriptcmd>search('[[:lower:]]', 'bc', line('.'))<cr>gUiwgi
