@@ -20,6 +20,7 @@ nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 # calc visually selected math expression
 # base64 encode/decode
 xnoremap <space>t <scriptcmd>pcom.TextTr()<cr>
+nnoremap <space>t <scriptcmd>pcom.TextTr()<cr>
 
 # fuzzy
 import autoload 'fuzzy.vim'
