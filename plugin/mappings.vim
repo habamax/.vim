@@ -18,8 +18,8 @@ xnoremap <silent> <expr> <space>v SourceVim()
 nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 
 # calc visually selected math expression
-xnoremap <space>tc s
-      \<C-r>=system($'perl -e "print {@@->tr("\n", " ")}"')<CR><ESC>`[v`]
+# base64 encode/decode
+xnoremap <space>t <scriptcmd>pcom.TextTr()<cr>
 
 # fuzzy
 import autoload 'fuzzy.vim'
@@ -42,14 +42,14 @@ nnoremap <space>fw <scriptcmd>fuzzy.Window()<CR>
 nnoremap <space>w <scriptcmd>fuzzy.CurrentWord()<CR>
 nnoremap <space>i <scriptcmd>fuzzy.Template()<CR>
 
-import autoload 'nav.vim'
-nnoremap <space>q <scriptcmd>nav.Qf()<CR>
-nnoremap zl <scriptcmd>nav.HScroll($'normal! {v:count1}zl')<CR>
-nnoremap zh <scriptcmd>nav.HScroll($'normal! {v:count1}zh')<CR>
-nnoremap zs <scriptcmd>nav.HScroll('normal! zs')<CR>
-nnoremap ze <scriptcmd>nav.HScroll('normal! ze')<CR>
-nnoremap gt <scriptcmd>nav.Windows("gt")<cr>
-nnoremap gT <scriptcmd>nav.Windows("gT")<cr>
+import autoload 'pcom.vim'
+nnoremap <space>q <scriptcmd>pcom.Qf()<CR>
+nnoremap zl <scriptcmd>pcom.HScroll($'normal! {v:count1}zl')<CR>
+nnoremap zh <scriptcmd>pcom.HScroll($'normal! {v:count1}zh')<CR>
+nnoremap zs <scriptcmd>pcom.HScroll('normal! zs')<CR>
+nnoremap ze <scriptcmd>pcom.HScroll('normal! ze')<CR>
+nnoremap gt <scriptcmd>pcom.Windows("gt")<cr>
+nnoremap gT <scriptcmd>pcom.Windows("gT")<cr>
 
 # enhance search with <space> as "whatever"
 # to enter literal <space> use <C-v><space>
@@ -245,10 +245,6 @@ nnoremap <silent> gof <scriptcmd>os.FileManager()<CR>
 nnoremap <silent> gx <scriptcmd>os.Gx()<CR>
 
 tnoremap <C-v> <C-w>""
-
-# base64
-xnoremap <space>tbe <cmd>let @" = trim(system('python -m base64', getregion(getpos('v'), getpos('.'), #{type: mode()})))<cr><cmd>norm! p<cr>
-xnoremap <space>tbd <cmd>let @" = trim(system('python -m base64 -d', getregion(getpos('v'), getpos('.'), #{type: mode()})))<cr><cmd>norm! p<cr>
 
 # Ripgrep word under cursor
 nnoremap <space>8 <scriptcmd>exe "Rg" expand("<cword>")<cr>

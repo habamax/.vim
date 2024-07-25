@@ -31,8 +31,8 @@ import autoload 'popup.vim'
 
 # Navigate quickfix/location lists.
 # Usage:
-# import autoload 'nav.vim'
-# nnoremap <space>q <scriptcmd>nav.Qf()<CR>
+# import autoload 'pcom.vim'
+# nnoremap <space>q <scriptcmd>pcom.Qf()<CR>
 export def Qf()
     var commands = []
     if len(getqflist()) > 0
@@ -58,11 +58,11 @@ enddef
 
 # horiontal scroll
 # Usage:
-# import autoload 'nav.vim'
-# nnoremap zl <scriptcmd>nav.HScroll($'normal! {v:count1}zl')<CR>
-# nnoremap zh <scriptcmd>nav.HScroll($'normal! {v:count1}zh')<CR>
-# nnoremap zs <scriptcmd>nav.HScroll($'normal! zs')<CR>
-# nnoremap ze <scriptcmd>nav.HScroll($'normal! ze')<CR>
+# import autoload 'pcom.vim'
+# nnoremap zl <scriptcmd>pcom.HScroll($'normal! {v:count1}zl')<CR>
+# nnoremap zh <scriptcmd>pcom.HScroll($'normal! {v:count1}zh')<CR>
+# nnoremap zs <scriptcmd>pcom.HScroll($'normal! zs')<CR>
+# nnoremap ze <scriptcmd>pcom.HScroll($'normal! ze')<CR>
 export def HScroll(initial: string)
     exe initial
     var commands = [
@@ -79,16 +79,16 @@ enddef
 
 # Navigate windows
 # Usage:
-# import autoload 'nav.vim'
-# nnoremap gt <scriptcmd>nav.Windows("gt")<cr>
-# nnoremap gT <scriptcmd>nav.Windows("gT")<cr>
-# nnoremap <C-w>h <scriptcmd>nav.Windows("h")<cr>
+# import autoload 'pcom.vim'
+# nnoremap gt <scriptcmd>pcom.Windows("gt")<cr>
+# nnoremap gT <scriptcmd>pcom.Windows("gT")<cr>
+# nnoremap <C-w>h <scriptcmd>pcom.Windows("h")<cr>
 # nmap <C-w><C-h> <C-w>h
-# nnoremap <C-w>j <scriptcmd>nav.Windows("j")<cr>
+# nnoremap <C-w>j <scriptcmd>pcom.Windows("j")<cr>
 # nmap <C-w><C-j> <C-w>j
-# nnoremap <C-w>k <scriptcmd>nav.Windows("k")<cr>
+# nnoremap <C-w>k <scriptcmd>pcom.Windows("k")<cr>
 # nmap <C-w><C-k> <C-w>k
-# nnoremap <C-w>l <scriptcmd>nav.Windows("l")<cr>
+# nnoremap <C-w>l <scriptcmd>pcom.Windows("l")<cr>
 # nmap <C-w><C-l> <C-w>l
 export def Windows(initial: string)
     exe "wincmd" initial
@@ -102,5 +102,31 @@ export def Windows(initial: string)
             {text: "Next", key: "t", cmd: "wincmd gt"},
             {text: "Prev", key: "T", cmd: "wincmd gT"},
         ]
+    popup.Commands(commands)
+enddef
+
+# Various text transformations
+export def TextTr()
+    var base64_commands = [
+        {text: "Base64"},
+        {text: "Encode", key: "e", close: true, cmd: () => {
+            setreg("", trim(system('python -m base64', getregion(getpos('v'), getpos('.'), {type: mode()}))))
+            normal! p
+        }},
+        {text: "Decode", key: "d", close: true, cmd: () => {
+            setreg("", trim(system('python -m base64 -d', getregion(getpos('v'), getpos('.'), {type: mode()}))))
+            normal! p
+        }},
+    ]
+    var commands = [
+        {text: "Base64", key: "b", close: true, cmd: () => {
+            popup.Commands(base64_commands)
+        }},
+        {text: "Calc", key: "c", close: true, cmd: () => {
+            var reg = getregion(getpos('v'), getpos('.'), {type: mode()})->join(" ")
+            setreg("", system($'perl -e "print {reg}"')->trim())
+            normal! p
+        }},
+    ]
     popup.Commands(commands)
 enddef
