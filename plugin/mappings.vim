@@ -253,3 +253,9 @@ xnoremap <space>tbd <cmd>let @" = trim(system('python -m base64 -d', getregion(g
 # Ripgrep word under cursor
 nnoremap <space>8 <scriptcmd>exe "Rg" expand("<cword>")<cr>
 xnoremap <space>8 "0y<scriptcmd>exe "Rg" getreg("0")<cr>
+
+if !has("gui_running")
+    set <M-u>=u
+endif
+# inoremap <M-u> <esc>gUiwgi
+inoremap <M-u> <esc><scriptcmd>search('\w', 'bc', line('.'))<cr>gUiwgi
