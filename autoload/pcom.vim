@@ -133,6 +133,7 @@ export def TextTr()
         }},
     ]
     var commands = [
+        {text: "Text transform"},
         {text: "Base64", key: "b", close: true, cmd: () => {
             popup.Commands(base64_commands)
         }},
