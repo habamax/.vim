@@ -47,7 +47,7 @@ Color: colorNonT               #a2a29c        248            grey
 Color: colorFold               #878782        102            grey
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
-Color: colorSt                 #626262        241            darkgrey
+Color: colorSt                 #626262        241            black
 Color: colorStIn               #949494        246            darkgrey
 Color: colorV                  #0087af        31             darkcyan
 
