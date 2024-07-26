@@ -1,26 +1,26 @@
 ; vim: ft=colortemplate cc=18,30,42 vsts=17,12,12,4
 
 Variant: 8
-Normal           color07     none
+Normal           none        none
 
 Statusline       color07     color00     reverse,bold
 StatuslineNC     color00     color07
 VertSplit        color07     none
 
-TabLine          color07     color00
+TabLine          color00     color07
 TabLineFill      none        none
-TabLineSel       color00     color07
+TabLineSel       color00     color07     bold
 
 ToolbarLine      none        none
 ToolbarButton    color07     color00     reverse,bold
 
 QuickFixLine     color00     color05
-CursorLineNr     color00     none        bold
-LineNr           color03     none
-NonText          color00     none
-FoldColumn       color00     none
-EndOfBuffer      color07     none
-SpecialKey       color00     none
+CursorLineNr     color03     none        bold
+LineNr           none        none        bold
+NonText          none        none
+FoldColumn       none        none
+EndOfBuffer      none        none        bold
+SpecialKey       none        none        bold
 
 Pmenu            color00     color07
 PmenuThumb       none        color02
@@ -37,11 +37,11 @@ Error            color01     color00     reverse
 ErrorMsg         color01     color00     reverse
 ModeMsg          none        none        bold
 MoreMsg          color02     none
-Question         color05     none
-WarningMsg       color03     none
+Question         color03     none
+WarningMsg       color01     none
 
-Todo             color02     color00     reverse
-Search           color00     color04
+Todo             color03     color00     reverse
+Search           color00     color02
 IncSearch        color00     color03
 WildMenu         color00     color03
 
@@ -58,20 +58,20 @@ Folded           color07     none        bold
 ColorColumn      color00     color03
 
 SpellBad         color01     none        reverse
-SpellCap         color05     none        reverse
+SpellCap         color03     none        reverse
 SpellLocal       color02     none        reverse
-SpellRare        color06     none        reverse
+SpellRare        color05     none        reverse
 
 Comment          none        none        bold
 Constant         color01     none
 String           color02     none
 Identifier       color06     none
 
-Statement        color04     none
+Statement        color05     none
 Type             color04     none
 
-PreProc          color05     none
-Special          color03     none
+PreProc          color03     none
+Special          color06     none
 Underlined       none        none        underline
 
 Title            none        none        bold
@@ -80,9 +80,9 @@ Directory        none        none        bold
 Conceal          none        none
 Ignore           none        none
 
-DiffAdd          color02     color00     reverse
-DiffChange       color04     color00     reverse
-DiffText         color05     color00     reverse
+DiffAdd          color04     color00     reverse
+DiffChange       color05     color00     reverse
+DiffText         color04     color00     reverse
 DiffDelete       color01     color00     reverse
 
 Added            color02     none
