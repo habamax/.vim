@@ -49,7 +49,7 @@ Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
 Color: colorSt                 #626262        241            black
 Color: colorStIn               #949494        246            darkgrey
-Color: colorV                  #0087af        31             darkcyan
+Color: colorV                  #5f8787        66             darkcyan
 
 ; Diff colors
 Color: diffAdd                 #5f87af        67             darkblue
