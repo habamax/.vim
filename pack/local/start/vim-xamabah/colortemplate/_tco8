@@ -14,7 +14,7 @@ TabLineSel       color00     color07     bold
 ToolbarLine      none        none
 ToolbarButton    color07     color00     reverse,bold
 
-QuickFixLine     color00     color05
+QuickFixLine     color00     color04
 CursorLineNr     color03     none        bold
 LineNr           none        none        bold
 NonText          none        none

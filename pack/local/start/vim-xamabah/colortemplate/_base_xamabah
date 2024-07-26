@@ -20,7 +20,7 @@ TabLineSel                     colorBg        colorSt        bold
 ToolbarLine                    none           none
 ToolbarButton                  colorBg        colorSt        bold
 
-QuickFixLine                   colorBg        color13
+QuickFixLine                   colorBg        color04
 CursorLineNr                   none           none           bold
 LineNr                         colorNonT      none
 NonText                        colorNonT      none
