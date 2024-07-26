@@ -1,11 +1,16 @@
 ; vim: ft=colortemplate cc=40 vsts=39,4
 ;; filetype and plugins
 gitcommitSummary                       -> Title
-helpHeadLine                           -> Title
-helpSectionDelim                       -> Statement
-helpExample                            -> Constant
-helpCommand                            -> Statement
 vimCommentString                       -> Comment
+vimVar                                 -> Normal
+vimOper                                -> Normal
+vimSep                                 -> Normal
+vimParenSep                            -> Normal
+yamlBlockMappingKey                    -> Statement
+rubyMacro                              -> Statement
+rubyDefine                             -> Statement
+javaScriptFunction                     -> Statement
+javaScriptIdentifier                   -> Statement
 sqlKeyword                             -> Statement
 sqlSpecial                             -> Constant
 Quote                                  -> String
