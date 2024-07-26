@@ -59,9 +59,9 @@ SignColumn                     none           none
 Error                          color01        colorBg        reverse
 ErrorMsg                       color01        colorBg        reverse
 ModeMsg                        none           none           bold
-MoreMsg                        color10        none
-Question                       color13        none
-WarningMsg                     color11        none
+MoreMsg                        color02        none
+Question                       color03        none
+WarningMsg                     color09        none
 
 Todo                           color11        color15        reverse
 Search                         color02        color15        reverse
@@ -95,14 +95,14 @@ MatchParen                     colorMP        none           bold
 
 Variant: gui
 SpellBad                       none           none           g=undercurl s=color09
-SpellCap                       none           none           g=undercurl s=color13
+SpellCap                       none           none           g=undercurl s=color11
 SpellLocal                     none           none           g=undercurl s=color10
-SpellRare                      none           none           g=undercurl s=color14
+SpellRare                      none           none           g=undercurl s=color13
 Variant: 256 16
 SpellBad                       color09        none           underline
-SpellCap                       color13        none           underline
+SpellCap                       color11        none           underline
 SpellLocal                     color10        none           underline
-SpellRare                      color14        none           underline
+SpellRare                      color13        none           underline
 
 ;;; :h group-names
 Variant: gui 256 16

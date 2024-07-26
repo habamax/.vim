@@ -16,7 +16,7 @@ Color: colorFg                 #000000        16             black
 Color: colorBg                 #e4e4e0        254            white
 
 Color: color00                 #000000        16             black
-Color: color08                 #8a8a8a        245            darkgrey
+Color: color08                 #767676        243            darkgrey
 
 Color: color01                 #d7005f        161            darkred
 Color: color09                 #ff0087        198            red
@@ -43,7 +43,7 @@ Color: colorLine               #d9d9d2        231            grey
 Color: colorPmenu              #d0d0c9        255            grey
 Color: colorPmenuSel           #b2b2ac        252            grey
 Color: colorB                  #edede5        255            grey
-Color: colorNonT               #b2b2ac        248            grey
+Color: colorNonT               #a2a29c        248            grey
 Color: colorFold               #878782        102            grey
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
