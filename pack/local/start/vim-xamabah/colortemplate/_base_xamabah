@@ -9,7 +9,7 @@ Variant: gui 256 16
 
 Normal                         colorFg        colorBg
 
-Statusline                     colorBg        colorSt        bold
+Statusline                     colorBg        colorSt
 StatuslineNC                   colorBg        colorStIn
 VertSplit                      colorSt        none
 
@@ -18,7 +18,7 @@ TabLineFill                    none           none
 TabLineSel                     colorBg        colorSt        bold
 
 ToolbarLine                    none           none
-ToolbarButton                  colorBg        colorSt
+ToolbarButton                  colorBg        colorSt        bold
 
 QuickFixLine                   colorBg        color13
 CursorLineNr                   none           none           bold
@@ -41,8 +41,8 @@ PmenuKind                      color09        colorPmenu
 PmenuKindSel                   color01        colorPmenuSel
 PmenuExtra                     color08        colorPmenu
 PmenuExtraSel                  color08        colorPmenuSel
-PmenuMatch                     color05        colorPmenu
-PmenuMatchSel                  color05        colorPmenuSel
+PmenuMatch                     color03        colorPmenu
+PmenuMatchSel                  color03        colorPmenuSel
 Variant: 16
 Pmenu                          color15        color08
 PmenuThumb                     none           color02
@@ -64,7 +64,7 @@ Question                       color13        none
 WarningMsg                     color11        none
 
 Todo                           color11        color15        reverse
-Search                         color04        color15        reverse
+Search                         color02        color15        reverse
 IncSearch                      color11        color15        reverse
 WildMenu                       color15        color11        bold
 
@@ -120,7 +120,7 @@ Special                        color06        none
 Underlined                     none           none           underline
 
 Title                          none           none           bold
-Directory                      none           none           bold
+Directory                      color06        none           bold
 
 Conceal                        colorNonT      none
 Ignore                         none           none
