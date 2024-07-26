@@ -36,11 +36,11 @@ command! ColoQF    tabnew | ru colors/tools/sample_quickfix.vim
 command! ColoTerm  tabnew | ru colors/tools/sample_terminal.vim
 command! ColoWin   tabnew | ru colors/tools/sample_windows.vim
 command! ColoPopu  tabnew |
-      \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/ext/start/colorschemes" |
+      \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/bundle/start/colorschemes" |
       \ ru colors/tools/sample_popupmenu.vim
 command! ColoPopuKind  tabnew |
-      \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/ext/start/colorschemes" |
+      \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/bundle/start/colorschemes" |
       \ ru colors/tools/sample_popupmenu_kind.vim
 command! ColoSpell tabnew |
-      \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/ext/start/colorschemes" |
+      \ exe "lcd " .. fnamemodify($MYVIMRC, ":p:h") .. "/pack/bundle/start/colorschemes" |
       \ ru colors/tools/sample_spell.vim
