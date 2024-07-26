@@ -18,8 +18,6 @@ markdownUrl                            -> String
 markdownHeadingDelimiter               -> Statement
 markdownHeadingRule                    -> Statement
 markdownListMarker                     -> Constant
-rstSectionDelimiter                    -> Statement
-rstDirective                           -> Special
 asciidoctorH1Delimiter                 -> Statement
 asciidoctorH2Delimiter                 -> Statement
 asciidoctorH3Delimiter                 -> Statement
