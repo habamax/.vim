@@ -11,7 +11,7 @@ set belloff=all shortmess+=Ic
 set display=lastline smoothscroll
 set hlsearch incsearch ignorecase smartcase
 set wildmenu wildoptions=pum,fuzzy pumheight=20
-set completeopt=menuone,popup,noselect,fuzzy completepopup=highlight:Pmenu
+set completeopt=menu,popup,fuzzy completepopup=highlight:Pmenu
 set number relativenumber cursorline cursorlineopt=number signcolumn=number
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak nojoinspaces
 set list listchars=tab:›\ ,nbsp:․,trail:·,extends:…,precedes:…
