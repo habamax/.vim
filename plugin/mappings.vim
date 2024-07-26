@@ -17,11 +17,6 @@ nnoremap <silent> <expr> <space>v SourceVim()
 xnoremap <silent> <expr> <space>v SourceVim()
 nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 
-# calc visually selected math expression
-# base64 encode/decode
-xnoremap <space>t <scriptcmd>pcom.TextTr()<cr>
-nnoremap <space>t <scriptcmd>pcom.TextTr()<cr>
-
 # fuzzy
 import autoload 'fuzzy.vim'
 nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
@@ -44,13 +39,17 @@ nnoremap <space>w <scriptcmd>fuzzy.CurrentWord()<CR>
 nnoremap <space>i <scriptcmd>fuzzy.Template()<CR>
 
 import autoload 'pcom.vim'
+# calc visually selected math expression
+# base64 encode/decode
+xnoremap <space>t <scriptcmd>pcom.TextTr()<cr>
+nnoremap <space>t <scriptcmd>pcom.TextTr()<cr>
+# quickfix&locations
 nnoremap <space>q <scriptcmd>pcom.Qf()<CR>
+# horizontal scroll
 nnoremap zl <scriptcmd>pcom.HScroll($'normal! {v:count1}zl')<CR>
 nnoremap zh <scriptcmd>pcom.HScroll($'normal! {v:count1}zh')<CR>
 nnoremap zs <scriptcmd>pcom.HScroll('normal! zs')<CR>
 nnoremap ze <scriptcmd>pcom.HScroll('normal! ze')<CR>
-nnoremap gt <scriptcmd>pcom.Windows("gt")<cr>
-nnoremap gT <scriptcmd>pcom.Windows("gT")<cr>
 
 # enhance search with <space> as "whatever"
 # to enter literal <space> use <C-v><space>
