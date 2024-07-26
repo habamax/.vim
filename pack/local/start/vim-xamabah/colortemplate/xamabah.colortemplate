@@ -52,10 +52,10 @@ Color: colorStIn               #949494        246            darkgrey
 Color: colorV                  #0087af        31             darkcyan
 
 ; Diff colors
-Color: diffAdd                 #5f875f        65             darkgreen
-Color: diffDelete              #875f5f        95             darkred
-Color: diffChange              #5f87af        67             blue
-Color: diffText                #af5faf        133            darkmagenta
+Color: diffAdd                 #5f87af        67             darkblue
+Color: diffDelete              #af5f5f        131            darkred
+Color: diffChange              #875f87        96             darkmagenta
+Color: diffText                #5f87af        67             darkblue
 
 Include: _base_xamabah
 Include: _tco8
