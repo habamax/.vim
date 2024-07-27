@@ -1,7 +1,7 @@
 ; vim: cc=32,47,62 vsts=31,15,15,4
 Full name: xamabah
 Short name: xamabah
-Description: anti habamax
+Description: Light background complement to habamax.
 Author: Maxim Kim <habamax@gmail.com>
 Website: https://github.com/habamax/vim-xamabah
 License: Same as Vim
