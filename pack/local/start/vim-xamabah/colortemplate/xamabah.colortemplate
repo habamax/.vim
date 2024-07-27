@@ -18,11 +18,11 @@ Color: colorBg                 #e4e4e4        254            white
 Color: color00                 #000000        16             black
 Color: color08                 #767676        243            darkgrey
 
-Color: color01                 #d7005f        161            darkred
-Color: color09                 #ff0087        198            red
+Color: color01                 #af0000        161            darkred
+Color: color09                 #d70000        198            red
 
-Color: color02                 #208020        28             darkgreen
-Color: color10                 #20a020        34             green
+Color: color02                 #008700        28             darkgreen
+Color: color10                 #00a000        34             green
 
 Color: color03                 #af5f00        130            darkyellow
 Color: color11                 #d38120        172            yellow
