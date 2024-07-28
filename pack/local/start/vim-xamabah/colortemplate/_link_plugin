@@ -15,9 +15,6 @@ sqlKeyword                             -> Statement
 sqlSpecial                             -> Constant
 Quote                                  -> String
 markdownUrl                            -> String
-markdownHeadingDelimiter               -> Statement
-markdownHeadingRule                    -> Statement
-markdownListMarker                     -> Constant
 asciidoctorH1Delimiter                 -> Statement
 asciidoctorH2Delimiter                 -> Statement
 asciidoctorH3Delimiter                 -> Statement
