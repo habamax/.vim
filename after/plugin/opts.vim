@@ -69,11 +69,13 @@ endif
 
 if exists("g:loaded_lsp")
     g:LspOptionsSet({
+        useBufferCompletion: true,
+        completionMatcher: 'fuzzy',
         completionTextEdit: false,
         showInlayHints: true,
-        showDiagWithVirtualText: true,
+        showDiagOnStatusLine: true,
+        showDiagWithVirtualText: false,
         autoPopulateDiags: true,
-        diagVirtualTextAlign: 'after',
     })
     if executable('clangd')
         g:LspAddServer([{
