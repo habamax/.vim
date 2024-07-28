@@ -73,7 +73,7 @@ if exists("g:loaded_lsp")
         completionMatcher: 'fuzzy',
         completionTextEdit: false,
         showInlayHints: true,
-        showDiagOnStatusLine: true,
+        showDiagOnStatusLine: false,
         showDiagWithVirtualText: false,
         autoPopulateDiags: true,
     })
