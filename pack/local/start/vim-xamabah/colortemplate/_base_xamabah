@@ -63,9 +63,9 @@ MoreMsg                        color02        none
 Question                       color03        none
 WarningMsg                     color09        none
 
-Todo                           color03        color15        reverse
-Search                         color02        color15        reverse
-IncSearch                      color11        color15        reverse
+Todo                           color03        colorBg        reverse
+Search                         color02        colorBg        reverse
+IncSearch                      color11        colorBg        reverse
 WildMenu                       color15        color11        bold
 
 debugPC                        color04        none           reverse
