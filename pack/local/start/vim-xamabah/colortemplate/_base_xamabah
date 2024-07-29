@@ -130,6 +130,15 @@ DiffAdd                        none           diffAdd
 DiffChange                     none           diffChange
 DiffText                       none           diffText
 DiffDelete                     none           diffDelete
+verbatim
+if !has("gui_running") && &termguicolors
+    hi DiffAdd cterm=NONE
+    hi DiffChange cterm=NONE
+    hi DiffText cterm=NONE
+    hi DiffDelete cterm=NONE
+endif
+endverbatim
+
 Variant: 256 16
 DiffAdd                        diffAdd        colorBg        reverse
 DiffChange                     diffChange     colorBg        reverse
