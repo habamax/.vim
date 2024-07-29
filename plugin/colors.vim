@@ -22,7 +22,7 @@ augroup colors | au!
 augroup END
 
 g:colors = ["habamax", "xamabah"]
-if has("win32") && has("gui_running")
+if has("win32") && has("gui_running") || exists("$WSLENV")
     exe "silent! colorscheme" g:colors[1]
 else
     exe "silent! colorscheme" g:colors[0]
