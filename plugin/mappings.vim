@@ -250,6 +250,7 @@ tnoremap <C-v> <C-w>""
 nnoremap <space>8 <scriptcmd>exe "Rg" expand("<cword>")<cr>
 xnoremap <space>8 "0y<scriptcmd>exe "Rg" getreg("0")<cr>
 
+# upcase previous non-upcased word
 if !has("gui_running")
     set <M-u>=u
 endif
