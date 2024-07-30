@@ -15,7 +15,7 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
 set completeopt=menu,popup,fuzzy completepopup=highlight:Pmenu
 set number relativenumber cursorline cursorlineopt=number signcolumn=number
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak nojoinspaces
-set list listchars=tab:›\ ,nbsp:․,trail:·,extends:…,precedes:…
+set list listchars=tab:›\ ,nbsp:␣,trail:·,extends:…,precedes:…
 set fillchars=vert:│
 set virtualedit=block
 set backspace=indent,eol,start
