@@ -142,7 +142,7 @@ import autoload 'zoom.vim'
 nnoremap <C-w><C-o> <scriptcmd>zoom.Toggle()<CR>
 nmap <C-w>o <C-w><C-o>
 
-# better PgUp/PgDn
+# better H/L
 def MapL()
     var line = line('.')
     normal! L
