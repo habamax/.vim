@@ -85,8 +85,13 @@ command! Bookmark call SaveBookmark()
 
 command! -nargs=1 Grep Sh! grep -Rn "<args>" .
 command! -nargs=1 Rg Sh! rg -nS --column "<args>" .
-command! Todo Sh! rg -nS --column "\\b(TODO|FIXME|XXX):" .
-command! Task Sh! rg -nS --column "\\btask:" .
+if !has("win32")
+    command! Todo Sh! rg -nS --column "\\b(TODO|FIXME|XXX):" .
+    command! Task Sh! rg -nS --column "\\btask:" .
+else
+    command! Todo Sh! rg -nS --column "\b(TODO|FIXME|XXX):" .
+    command! Task Sh! rg -nS --column "\btask:" .
+endif
 
 def Irc()
     var buf_del = -1
