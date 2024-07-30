@@ -43,7 +43,7 @@ Color: colorLine               #e4e4e4        254            grey
 Color: colorPmenu              #eeeeee        255            grey
 Color: colorPmenuSel           #ffffff        231            grey
 Color: colorB                  #e4e4e4        254            grey
-Color: colorNonT               #9e9e9e        247            grey
+Color: colorNonT               #9e9e9e        247            black
 Color: colorFold               #878787        102            grey
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
@@ -52,10 +52,10 @@ Color: colorStIn               #949494        246            darkgrey
 Color: colorV                  #5f8787        66             darkcyan
 
 ; Diff colors
-Color: diffAdd                 #a7c7d7        67             darkblue
-Color: diffDelete              #d78787        131            darkred
-Color: diffChange              #d7c7d7        96             darkmagenta
-Color: diffText                #a7c7d7        67             darkblue
+Color: diffAdd                 #b7d7b7        65             green
+Color: diffDelete              #d7b7b7        131            red
+Color: diffChange              #b7c7d7        67             blue
+Color: diffText                #d7bfd7        96             magenta
 
 Include: _base_xamabah
 Include: _tco8
