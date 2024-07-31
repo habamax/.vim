@@ -75,4 +75,8 @@ def SentenceBackward()
 enddef
 
 nnoremap <buffer> ) <scriptcmd>SentenceForward()<cr>
+xnoremap <buffer> ) <scriptcmd>SentenceForward()<cr>
+onoremap <buffer> ) v<scriptcmd>SentenceForward()<cr>
 nnoremap <buffer> ( <scriptcmd>SentenceBackward()<cr>
+xnoremap <buffer> ( <scriptcmd>SentenceBackward()<cr>
+onoremap <buffer> ( <scriptcmd>SentenceBackward()<cr>
