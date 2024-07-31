@@ -52,7 +52,7 @@ nnoremap <buffer> <F5> :source<CR>
 iab <buffer> v9 vim9script<C-R>=misc#Eatchar('\s')<CR>
 
 def SentenceForward()
-    search('\v<(end(if|def|for|while|func|try))>', 'e')
+    search('\v<(else|(end(if|def|for|while|func|try)))>', 'e')
 enddef
 
 def SentenceBackward()
