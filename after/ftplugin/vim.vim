@@ -50,3 +50,17 @@ nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
 nnoremap <buffer> <F5> :source<CR>
 
 iab <buffer> v9 vim9script<C-R>=misc#Eatchar('\s')<CR>
+
+def SentenceForward()
+    search('\v<(end(if|def|for|while|func|try))>', 'e')
+enddef
+
+def SentenceBackward()
+    var rxDef = '<((export\s+)?def\s+\k+\s*\()'
+    var rxFunc = '(<(^\s*func\s+\k+\s*\())'
+    var rxRest = '(<(try|finally|catch|if|else|elseif|for|while)>)'
+    search($'\v{rxDef}|{rxFunc}|{rxRest}', 'b')
+enddef
+
+nnoremap <buffer> ) <scriptcmd>SentenceForward()<cr>
+nnoremap <buffer> ( <scriptcmd>SentenceBackward()<cr>
