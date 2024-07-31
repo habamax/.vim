@@ -51,6 +51,7 @@ nnoremap <buffer> <F5> :source<CR>
 
 iab <buffer> v9 vim9script<C-R>=misc#Eatchar('\s')<CR>
 
+# TODO: check if it is in string or comment
 def SentenceForward()
     search('\v<((else(if)?)|(end(if|def|for|while|func|try)))>', 'e')
 enddef
