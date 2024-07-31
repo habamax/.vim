@@ -51,16 +51,27 @@ nnoremap <buffer> <F5> :source<CR>
 
 iab <buffer> v9 vim9script<C-R>=misc#Eatchar('\s')<CR>
 
-# TODO: check if it is in string or comment
 def SentenceForward()
-    search('\v<((else(if)?)|(end(if|def|for|while|func|try)))>', 'e')
+    var rx = '\v<((else(if)?)|(end(if|def|for|while|func|try)))>'
+    var res = search(rx, 'e')
+    var stx = map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+    while res != 0 && (!empty(stx) && stx[-1] =~ 'Comment\|String')
+        res = search(rx, 'e')
+        stx = map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+    endwhile
 enddef
 
 def SentenceBackward()
     var rxDef = '<((export\s+)?def\s+\k+\s*\()'
     var rxFunc = '(<(^\s*func\s+\k+\s*\())'
     var rxRest = '(<(try|finally|catch|if|else|elseif|for|while)>)'
-    search($'\v{rxDef}|{rxFunc}|{rxRest}', 'b')
+    var rx = $'\v{rxDef}|{rxFunc}|{rxRest}'
+    var res = search(rx, 'b')
+    var stx = map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+    while res != 0 && (!empty(stx) && stx[-1] =~ 'Comment\|String')
+        res = search(rx, 'b')
+        stx = map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+    endwhile
 enddef
 
 nnoremap <buffer> ) <scriptcmd>SentenceForward()<cr>
