@@ -33,7 +33,7 @@ export def FixSpaces(line1: number, line2: number)
 enddef
 
 
-# Underline current line with a chars
+# Underline current line.
 # example mappings:
 # nnoremap <silent> <space>= :call text#Underline('=')<CR>
 # nnoremap <silent> <space>- :call text#Underline('-')<CR>
