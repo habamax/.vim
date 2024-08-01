@@ -182,10 +182,10 @@ onoremap <silent>ai <scriptcmd>text.ObjIndent(v:false)<CR>
 xnoremap <silent>ii <esc><scriptcmd>text.ObjIndent(v:true)<CR>
 xnoremap <silent>ai <esc><scriptcmd>text.ObjIndent(v:false)<CR>
 
-# onoremap <silent>ic <scriptcmd>text.ObjComment(v:true)<CR>
-# onoremap <silent>ac <scriptcmd>text.ObjComment(v:false)<CR>
-# xnoremap <silent>ic <esc><scriptcmd>text.ObjComment(v:true)<CR>
-# xnoremap <silent>ac <esc><scriptcmd>text.ObjComment(v:false)<CR>
+onoremap <silent>ic <scriptcmd>text.ObjComment(v:true)<CR>
+onoremap <silent>ac <scriptcmd>text.ObjComment(v:false)<CR>
+xnoremap <silent>ic <esc><scriptcmd>text.ObjComment(v:true)<CR>
+xnoremap <silent>ac <esc><scriptcmd>text.ObjComment(v:false)<CR>
 
 xnoremap <silent> in <esc><scriptcmd>text.ObjNumber()<CR>
 onoremap <silent> in :<C-u>normal vin<CR>

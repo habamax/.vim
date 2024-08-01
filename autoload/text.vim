@@ -205,10 +205,6 @@ enddef
 # xnoremap <silent>ic <esc><scriptcmd>text.ObjComment(v:true)<CR>
 # xnoremap <silent>ac <esc><scriptcmd>text.ObjComment(v:false)<CR>
 export def ObjComment(inner: bool)
-    if empty(&commentstring)
-        return
-    endif
-    var [cm_start, cm_end] = split(&commentstring, '\s*%s\s*', true)
     def IsComment(): bool
         var stx = map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
         if (!empty(stx) && stx[-1] =~ 'Comment')
@@ -218,48 +214,55 @@ export def ObjComment(inner: bool)
         endif
     enddef
 
-    var pos_start = getcurpos()
-    var pos_end = getcurpos()
+    var pos_init = getcurpos()
 
-    # Search for the comment start.
-    # If not in comment currently, search next one,
+    # If not in comment, search next one,
     if !IsComment()
-        var res = search(cm_start, '')
-        echow res
-        while res > 0 && !IsComment()
-            res = search(cm_start, '')
-        endwhile
-        pos_start = getcurpos()
+        if search('.', 'W', 0, 0, () => !IsComment()) == 0
+            return
+        endif
     endif
+
     # Search for the beginning of the comment block
     if IsComment()
-        var nr = line('.')
-        var res = search(cm_start, 'bc', nr)
-        while res > 0 && IsComment()
-            pos_start = getcurpos()
-            # nr = prevnonblank(nr - 1) ?? 1
-            # cursor(nr, col('$')) # XXX: this is wrong
-            res = search(cm_start, 'bc', prevnonblank(nr - 1) ?? 1)
-        endwhile
+        if search('\S', 'b', 0, 0, IsComment) > 0
+            search('\S', '', 0, 0, () => !IsComment())
+        endif
     endif
+
+    var pos_start = getcurpos()
+
+    if !inner
+        search('\s*', 'b', line('.'))
+        pos_start = getcurpos()
+        if strpart(getline('.'), 1, pos_start[2] - 1) =~ '^\s*$'
+            pos_start = [bufnr(), prevnonblank(line('.') - 1) + 1, 1]
+        endif
+    endif
+
+    # Search for the comment end.
+    if pos_init[1] > pos_start[1]
+        cursor(pos_init[1], pos_init[2])
+    endif
+    if search('\S', '', 0, 0, IsComment) > 0
+        search('\S', 'b', 0, 0, () => !IsComment())
+    endif
+
+    var pos_end = getcurpos()
+
+    if !inner
+        search('\s*', 'e', line('.'))
+        pos_end = getcurpos()
+        if strpart(getline('.'), pos_end[2] + 1) =~ '\s*$'
+            var next_nr = nextnonblank(line('.') + 1) - 1
+            pos_end = [bufnr(), next_nr, len(getline(next_nr))]
+        endif
+    endif
+
+
+    cursor(pos_end[1], pos_end[2])
+    normal! v
     cursor(pos_start[1], pos_start[2])
-
-    # # Search for the comment end.
-    # var nr = nextnonblank(line('.') + 1) ?? line('$')
-    # cursor(nr, 1)
-    # var res = search('^\s*\zs' .. cm_start, 'c', nr)
-    # while res > 0 && IsComment() && nr != 0
-    #     pos_end = getcurpos()
-    #     nr = nextnonblank(nr + 1)
-    #     cursor(nr, 1)
-    #     res = search('^\s*\zs' .. cm_start, 'c', nr)
-    # endwhile
-    # cursor(pos_end[1], pos_end[2])
-    # echo pos_end
-
-    # exe ":" ln_end
-    # normal! V
-    # exe ":" ln_start
 enddef
 
 # 26 simple text objects
