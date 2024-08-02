@@ -54,7 +54,6 @@ if exists("g:loaded_dir")
             term_dumpdiff(items[0].name, $"../dumps/{items[0].name}")
         }}
     ]
-
 endif
 
 # vim-shout
