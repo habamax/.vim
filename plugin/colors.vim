@@ -8,13 +8,6 @@ if !has('win32') && !has('gui_running')
 endif
 set termguicolors
 
-if !has("gui_running")
-    augroup colors_term | au!
-        au Colorscheme habamax,nod hi Normal ctermbg=NONE guibg=NONE
-        au Colorscheme lunaperche,wildcharm,retrobox if &bg == 'dark' | hi Normal ctermbg=NONE guibg=NONE | endif
-    augroup END
-endif
-
 def Habamax()
     if has("gui_running") || &termguicolors
         hi DiffAdd guibg=#002f00 guifg=NONE gui=NONE cterm=NONE
