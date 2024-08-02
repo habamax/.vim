@@ -32,7 +32,6 @@ export def FixSpaces(line1: number, line2: number)
     exe printf('silent :%d,%ds/\s*$//ge', line1, line2)
 enddef
 
-
 # Underline current line.
 # example mappings:
 # nnoremap <silent> <space>= :call text#Underline('=')<CR>
@@ -116,12 +115,10 @@ export def ObjDate(inner: bool)
     winrestview(view)
 enddef
 
-
 export def ObjDateRu()
     var [year, month, day] = split(strftime("%Y-%m-%d"), '-')
     return printf("%d %s %s", day, months_ru[month-1], year)
 enddef
-
 
 # number text object
 export def ObjNumber()
@@ -132,7 +129,6 @@ export def ObjNumber()
     endif
 enddef
 
-
 # Line text object
 export def ObjLine(inner: bool)
     if inner
@@ -141,7 +137,6 @@ export def ObjLine(inner: bool)
         normal! $v0
     endif
 enddef
-
 
 # Indent text object
 # Usage:
@@ -292,7 +287,6 @@ export def Obj(char: string, inner: bool)
         return
     endif
 enddef
-
 
 # Toggle current word
 # nnoremap <silent> <BS> <cmd>call text#Toggle()<CR>
