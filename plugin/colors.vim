@@ -19,6 +19,9 @@ augroup colors | au!
     au Colorscheme * hi link lspDiagVirtualTextError Removed
     au Colorscheme * hi link lspDiagSignWarningText Changed
     au Colorscheme * hi link lspDiagVirtualTextWarning Changed
+    au Colorscheme habamax hi DiffAdd guibg=#002f00 guifg=NONE gui=NONE
+    au Colorscheme habamax hi DiffChange guibg=#1f2f3f guifg=NONE gui=NONE
+    au Colorscheme habamax hi DiffDelete guibg=#3f1f00 guifg=#585858 gui=NONE
 augroup END
 
 g:colors = ["habamax", "xamabah"]
