@@ -63,7 +63,7 @@ MoreMsg                        color02        none
 Question                       color03        none
 WarningMsg                     color09        none
 
-Todo                           color13        none           bold
+Todo                           colorFg        none           bold
 Search                         color04        colorBg        reverse
 IncSearch                      color11        colorBg        reverse
 WildMenu                       color15        color11        bold
