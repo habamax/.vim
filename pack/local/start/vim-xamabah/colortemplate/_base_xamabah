@@ -128,7 +128,7 @@ Ignore                         none           none
 Variant: gui
 DiffAdd                        none           diffAdd
 DiffChange                     none           diffChange
-DiffText                       none           diffText
+DiffText                       colorFg        diffText
 DiffDelete                     none           diffDelete
 Variant: 256 16
 DiffAdd                        diffAdd        colorBg        reverse
