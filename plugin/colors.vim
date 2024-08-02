@@ -22,6 +22,11 @@ augroup colors | au!
     au Colorscheme habamax hi DiffAdd guibg=#002f00 guifg=NONE gui=NONE
     au Colorscheme habamax hi DiffChange guibg=#1f2f3f guifg=NONE gui=NONE
     au Colorscheme habamax hi DiffDelete guibg=#3f1f00 guifg=#585858 gui=NONE
+    if has("gui_running") || &termguicolors
+        au Colorscheme habamax hi DiffAdd cterm=NONE
+        au Colorscheme habamax hi DiffChange cterm=NONE
+        au Colorscheme habamax hi DiffDelete cterm=NONE
+    endif
 augroup END
 
 g:colors = ["habamax", "xamabah"]
