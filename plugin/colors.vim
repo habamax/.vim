@@ -14,19 +14,25 @@ if !has("gui_running")
         au Colorscheme lunaperche,wildcharm,retrobox if &bg == 'dark' | hi Normal ctermbg=NONE guibg=NONE | endif
     augroup END
 endif
+
+def Habamax()
+    if has("gui_running") || &termguicolors
+        hi DiffAdd guibg=#002f00 guifg=NONE gui=NONE cterm=NONE
+        hi DiffChange guibg=#1f2f3f guifg=NONE gui=NONE cterm=NONE
+        hi DiffDelete guibg=#3f1f00 guifg=#585858 gui=NONE cterm=NONE
+    else
+        hi DiffAdd cterm=reverse
+        hi DiffChange cterm=reverse
+        hi DiffDelete cterm=reverse
+    endif
+enddef
+
 augroup colors | au!
     au Colorscheme * hi link lspDiagSignErrorText Removed
     au Colorscheme * hi link lspDiagVirtualTextError Removed
     au Colorscheme * hi link lspDiagSignWarningText Changed
     au Colorscheme * hi link lspDiagVirtualTextWarning Changed
-    au Colorscheme habamax hi DiffAdd guibg=#002f00 guifg=NONE gui=NONE
-    au Colorscheme habamax hi DiffChange guibg=#1f2f3f guifg=NONE gui=NONE
-    au Colorscheme habamax hi DiffDelete guibg=#3f1f00 guifg=#585858 gui=NONE
-    if has("gui_running") || &termguicolors
-        au Colorscheme habamax hi DiffAdd cterm=NONE
-        au Colorscheme habamax hi DiffChange cterm=NONE
-        au Colorscheme habamax hi DiffDelete cterm=NONE
-    endif
+    au Colorscheme habamax Habamax()
 augroup END
 
 g:colors = ["habamax", "xamabah"]
