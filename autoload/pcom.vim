@@ -135,6 +135,10 @@ export def TextTr()
     ]
     var commands = [
         {text: "Text transform"},
+        {text: "Fix spaces", key: "s", close: true, cmd: () => {
+            text.FixSpaces(line('v'), line('.'))
+            exe "normal!" mode()
+        }},
         {text: "Base64", key: "b", close: true, cmd: () => {
             popup.Commands(base64_commands)
         }},
@@ -144,10 +148,6 @@ export def TextTr()
                 setreg("", result)
                 normal! p
             endif
-        }},
-        {text: "Fix spaces", key: "s", close: true, cmd: () => {
-            text.FixSpaces(line('v'), line('.'))
-            exe "normal!" mode()
         }},
     ]
     popup.Commands(commands)
