@@ -1,6 +1,7 @@
 vim9script
 
 import autoload 'popup.vim'
+import autoload 'text.vim'
 
 # Example of multi level popup
 # export def QfLoc()
@@ -143,6 +144,10 @@ export def TextTr()
                 setreg("", result)
                 normal! p
             endif
+        }},
+        {text: "Fix spaces", key: "s", close: true, cmd: () => {
+            text.FixSpaces(line('v'), line('.'))
+            exe "normal!" mode()
         }},
     ]
     popup.Commands(commands)
