@@ -201,8 +201,8 @@ enddef
 # xnoremap <silent>ac <esc><scriptcmd>text.ObjComment(v:false)<CR>
 export def ObjComment(inner: bool)
     def IsComment(): bool
-        var stx = map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-        if (!empty(stx) && stx[-1] =~ 'Comment')
+        var stx = map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')->join()
+        if stx =~ 'Comment'
             return true
         else
             return false
