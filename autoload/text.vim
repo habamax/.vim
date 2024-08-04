@@ -256,7 +256,11 @@ export def ObjComment(inner: bool)
     endif
 
     cursor(pos_end[1], pos_end[2])
-    normal! v
+    if pos_end[2] == getline(pos_end[1])->len() && pos_start[2] == 1
+        normal! V
+    else
+        normal! v
+    endif
     cursor(pos_start[1], pos_start[2])
 enddef
 
