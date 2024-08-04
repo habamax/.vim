@@ -220,7 +220,8 @@ export def ObjComment(inner: bool)
 
     # Search for the beginning of the comment block
     if IsComment()
-        if search('\S\+', 'bW', 0, 0, IsComment) > 0
+        if search('\v(\S+)|\%^', 'bW', 0, 0, IsComment) > 0 ||
+                search('\%^', 'bW') > 0
             search('\S\+', 'W', 0, 0, () => !IsComment())
         endif
     endif
