@@ -220,15 +220,15 @@ export def ObjComment(inner: bool)
 
     # Search for the beginning of the comment block
     if IsComment()
-        if search('\S\+', 'b', 0, 0, IsComment) > 0
-            search('\S\+', '', 0, 0, () => !IsComment())
+        if search('\S\+', 'bW', 0, 0, IsComment) > 0
+            search('\S\+', 'W', 0, 0, () => !IsComment())
         endif
     endif
 
     var pos_start = getcurpos()
 
     if !inner
-        search('\s*', 'b', line('.'))
+        search('\s*', 'bW', line('.'))
         pos_start = getcurpos()
         if strpart(getline('.'), 1, pos_start[2] - 1) =~ '^\s*$'
             pos_start = [bufnr(), prevnonblank(line('.') - 1) + 1, 1]
@@ -239,21 +239,21 @@ export def ObjComment(inner: bool)
     if pos_init[1] > pos_start[1]
         cursor(pos_init[1], pos_init[2])
     endif
-    if search('\S\+', '', 0, 0, IsComment) > 0
-        search('\S\+', 'be', 0, 0, () => !IsComment())
+    if search('\S\+', 'W', 0, 0, IsComment) > 0
+        search('\S\+', 'beW', 0, 0, () => !IsComment())
+    else
+        if search('\%$', 'W') > 0
+            search('\ze\S', 'beW', 0, 0, () => !IsComment())
+        endif
     endif
 
     var pos_end = getcurpos()
 
     if !inner
-        search('\s*', 'e', line('.'))
-        pos_end = getcurpos()
-        if strpart(getline('.'), pos_end[2] + 1) =~ '\s*$'
-            var next_nr = nextnonblank(line('.') + 1) - 1
-            pos_end = [bufnr(), next_nr, len(getline(next_nr))]
+        if search('\v\s*\_$(\s*\n)+', 'eW') > 0
+            pos_end = getcurpos()
         endif
     endif
-
 
     cursor(pos_end[1], pos_end[2])
     normal! v
