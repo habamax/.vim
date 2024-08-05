@@ -68,6 +68,7 @@ export def Commands(commands: list<dict<any>>): number
                     if get(commands[cmd_idx], "close", false)
                         popup_close(winid)
                     endif
+                    return true
                 catch
                 endtry
             else
