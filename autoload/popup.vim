@@ -73,7 +73,7 @@ export def Commands(commands: list<dict<any>>): number
             else
                 popup_close(winid)
             endif
-            return true
+            return false
         }
     })
     return winid
