@@ -11,8 +11,6 @@ set termguicolors
 def Habamax()
     if !has("gui_running")
         hi Normal guibg=NONE ctermbg=NONE
-    else
-        hi Normal guibg=#000000
     endif
     if has("gui_running") || &termguicolors
         hi DiffAdd guibg=#002f00 guifg=NONE gui=NONE cterm=NONE
