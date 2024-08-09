@@ -241,7 +241,7 @@ export def ObjComment(inner: bool)
         cursor(pos_init[1], pos_init[2])
     endif
     if search('\S\+', 'W', 0, 0, IsComment) > 0
-        search('\S\+', 'beW', 0, 0, () => !IsComment())
+        search('\S', 'beW', 0, 0, () => !IsComment())
     else
         if search('\%$', 'W') > 0
             search('\ze\S', 'beW', 0, 0, () => !IsComment())
@@ -251,8 +251,12 @@ export def ObjComment(inner: bool)
     var pos_end = getcurpos()
 
     if !inner
-        if search('\v\s*\_$(\s*\n)+', 'eW') > 0
-            pos_end = getcurpos()
+        var spaces = matchstr(getline(pos_end[1]), '\%>.c\s*')
+        pos_end[2] += spaces->len()
+        if getline(pos_end[1])[pos_end[2] : ] =~ '^\s*$'
+            if search('\v\s*\_$(\s*\n)+', 'eW') > 0
+                pos_end = getcurpos()
+            endif
         endif
     endif
 
