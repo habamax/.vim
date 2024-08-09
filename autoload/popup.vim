@@ -321,6 +321,9 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
                 if key == "\<C-U>"
                     prompt = ""
                     filtered_items = [items_dict]
+                elseif key == "\<C-W>"
+                    prompt = matchstr(prompt, '\v^.{-}\ze(([[:punct:][:space:]]+)|([[:lower:][:upper:][:digit:]]+\s*))$')
+                    filtered_items = [items_dict]
                 elseif (key == "\<C-h>" || key == "\<bs>")
                     if empty(prompt) && close_on_bs
                         popup_close(id, {idx: getcurpos(id)[1], key: key})
