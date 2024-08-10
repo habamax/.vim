@@ -323,7 +323,11 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
                     filtered_items = [items_dict]
                 elseif key == "\<C-w>"
                     prompt = matchstr(prompt, '\v^.{-}\ze(([[:punct:][:space:]]+)|([[:lower:][:upper:][:digit:]]+\s*))$')
-                    filtered_items = [items_dict]
+                    if empty(prompt)
+                        filtered_items = [items_dict]
+                    else
+                        filtered_items = items_dict->matchfuzzypos(prompt, {key: "text"})
+                    endif
                 elseif (key == "\<C-h>" || key == "\<BS>")
                     if empty(prompt) && close_on_bs
                         popup_close(id, {idx: getcurpos(id)[1], key: key})
