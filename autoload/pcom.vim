@@ -122,6 +122,7 @@ export def TextTr()
             var result = system('python -m base64', region)->trim()
             if v:shell_error == 0
                 setreg("", result)
+                setreg("+", result)
                 normal! p
             endif
         }},
@@ -129,6 +130,7 @@ export def TextTr()
             var result = system('python -m base64 -d', region)->trim()
             if v:shell_error == 0
                 setreg("", result)
+                setreg("+", result)
                 normal! p
             endif
         }},
@@ -146,6 +148,7 @@ export def TextTr()
             var result = system($'python -c "from math import *; print({region->join(" ")})"')->trim()
             if v:shell_error == 0
                 setreg("", result)
+                setreg("+", result)
                 normal! p
             endif
         }},
