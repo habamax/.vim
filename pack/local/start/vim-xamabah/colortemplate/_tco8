@@ -12,7 +12,7 @@ TabLineFill      color07     color07
 TabLineSel       color00     color07     bold
 
 ToolbarLine      none        none
-ToolbarButton    color07     color00     reverse,bold
+ToolbarButton    color07     color00     reverse
 
 QuickFixLine     color00     color04
 CursorLineNr     color03     none        bold

@@ -307,7 +307,7 @@ if s:t_Co >= 8
   hi TabLineFill ctermfg=grey ctermbg=grey cterm=NONE
   hi TabLineSel ctermfg=black ctermbg=grey cterm=bold
   hi ToolbarLine ctermfg=NONE ctermbg=NONE cterm=NONE
-  hi ToolbarButton ctermfg=grey ctermbg=black cterm=bold,reverse
+  hi ToolbarButton ctermfg=grey ctermbg=black cterm=reverse
   hi QuickFixLine ctermfg=black ctermbg=darkblue cterm=NONE
   hi CursorLineNr ctermfg=darkyellow ctermbg=NONE cterm=bold
   hi LineNr ctermfg=NONE ctermbg=NONE cterm=bold
