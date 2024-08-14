@@ -1,6 +1,5 @@
 ; vim: ft=colortemplate cc=40 vsts=39,4
 ;; filetype and plugins
-gitcommitSummary                       -> Title
 vimCommentString                       -> Comment
 vimVar                                 -> Normal
 vimOper                                -> Normal

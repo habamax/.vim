@@ -5,10 +5,10 @@ Normal           none        none
 
 Statusline       color07     color00     reverse,bold
 StatuslineNC     color00     color07
-VertSplit        color07     none
+VertSplit        color07     color07
 
 TabLine          color00     color07
-TabLineFill      none        none
+TabLineFill      color07     color07
 TabLineSel       color00     color07     bold
 
 ToolbarLine      none        none
