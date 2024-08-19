@@ -1,7 +1,6 @@
 vim9script
 
 setl textwidth=80
-setl keywordprg=:help
 
 if !&readonly
     setlocal ff=unix
