@@ -13,7 +13,7 @@ Background: light
 
 ;;; Color palette
 Color: colorFg                 #000000        16             black
-Color: colorBg                 #d7d7d0        188            gray
+Color: colorBg                 #d7d7d7        188            gray
 
 Color: color00                 #000000        16             black
 Color: color08                 #767676        243            darkgrey
@@ -39,12 +39,12 @@ Color: color14                 #008787        30             cyan
 Color: color07                 #dadada        253            grey
 Color: color15                 #ffffff        231            white
 
-Color: colorLine               #e4e4dd        254            grey
-Color: colorPmenu              #eeeee7        255            grey
-Color: colorPmenuSel           #fffff8        231            grey
-Color: colorB                  #e4e4dd        254            grey
-Color: colorNonT               #9e9e97        247            black
-Color: colorFold               #878780        102            grey
+Color: colorLine               #e4e4e4        254            grey
+Color: colorPmenu              #eeeeee        255            grey
+Color: colorPmenuSel           #ffffff        231            grey
+Color: colorB                  #e4e4e4        254            grey
+Color: colorNonT               #9e9e9e        247            black
+Color: colorFold               #878787        102            grey
 Color: colorlC                 #ff5fff        207            magenta
 Color: colorMP                 #ff00af        199            magenta
 Color: colorSt                 #626262        241            black
