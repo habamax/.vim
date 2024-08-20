@@ -9,6 +9,7 @@ endif
 set termguicolors
 
 def Habamax()
+    hi VertSplit guibg=NONE ctermfg=NONE
     if !has("gui_running")
         hi Normal guibg=NONE ctermbg=NONE
     endif
@@ -23,13 +24,68 @@ def Habamax()
     endif
 enddef
 
+def Xamabah()
+    hi VertSplit guibg=NONE ctermfg=NONE
+    if !(has("gui_running") || &termguicolors)
+        return
+    endif
+    var colors = [
+        {
+            normal: "#d7d0d7",
+            colorLine: "#e4dde4",
+            pmenu: "#eee7ee",
+            pmenusel: "#fff8ff",
+            nontext: "#9e979e",
+        },
+        {
+            normal: "#d7d7d0",
+            colorLine: "#e4e4dd",
+            pmenu: "#eeeee7",
+            pmenusel: "#fffff8",
+            nontext: "#9e9e97",
+        },
+        {
+            normal: "#d0d7d7",
+            colorLine: "#dde4e4",
+            pmenu: "#e7eeee",
+            pmenusel: "#f8ffff",
+            nontext: "#979e9e",
+        },
+        {
+            normal: "#d7d0d0",
+            colorLine: "#e4dddd",
+            pmenu: "#eee7e7",
+            pmenusel: "#fff8f8",
+            nontext: "#9e9797",
+        },
+    ]
+    var c = colors[rand(srand()) % len(colors)]
+    exe "hi Normal guibg=" .. c.normal
+    exe "hi CursorLine guibg=" .. c.colorLine
+    exe "hi CursorColumn guibg=" .. c.colorLine
+    exe "hi Pmenu guibg=" .. c.pmenu
+    exe "hi PmenuSel guibg=" .. c.pmenusel
+    exe "hi PmenuKind guibg=" .. c.pmenu
+    exe "hi PmenuKindSel guibg=" .. c.pmenusel
+    exe "hi PmenuExtra guibg=" .. c.pmenu
+    exe "hi PmenuExtraSel guibg=" .. c.pmenusel
+    exe "hi PmenuMatch guibg=" .. c.pmenu
+    exe "hi PmenuMatchSel guibg=" .. c.pmenusel
+    exe "hi Folded guibg=" .. c.colorLine
+    exe "hi ColorColumn guibg=" .. c.colorLine
+    exe "hi LineNr guifg=" .. c.nontext
+    exe "hi NonText guifg=" .. c.nontext
+    exe "hi FoldColumn guifg=" .. c.nontext
+    exe "hi SpecialKey guifg=" .. c.nontext
+enddef
+
 augroup colors | au!
     au Colorscheme * hi link lspDiagSignErrorText Removed
     au Colorscheme * hi link lspDiagVirtualTextError Removed
     au Colorscheme * hi link lspDiagSignWarningText Changed
     au Colorscheme * hi link lspDiagVirtualTextWarning Changed
     au Colorscheme habamax Habamax()
-    au Colorscheme habamax,xamabah hi VertSplit guibg=NONE ctermfg=NONE
+    au Colorscheme xamabah Xamabah()
 augroup END
 
 g:colors = ["habamax", "xamabah"]
