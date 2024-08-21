@@ -59,13 +59,6 @@ def Xamabah()
             nontext: "#9e9797",
         },
         {
-            normal: "#d0d7d5",
-            colorLine: "#dde4e2",
-            pmenu: "#e7eeec",
-            pmenusel: "#f8fffd",
-            nontext: "#979e9c",
-        },
-        {
             normal: "#d0d5d7",
             colorLine: "#dde2e4",
             pmenu: "#e7ecee",
