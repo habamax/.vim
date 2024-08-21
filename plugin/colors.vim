@@ -58,6 +58,20 @@ def Xamabah()
             pmenusel: "#fff8f8",
             nontext: "#9e9797",
         },
+        {
+            normal: "#d0d7d5",
+            colorLine: "#dde4e2",
+            pmenu: "#e7eeec",
+            pmenusel: "#f8fffd",
+            nontext: "#979e9c",
+        },
+        {
+            normal: "#d0d5d7",
+            colorLine: "#dde2e4",
+            pmenu: "#e7ecee",
+            pmenusel: "#f8fdff",
+            nontext: "#979c9e",
+        },
     ]
     var c = colors[rand(srand()) % len(colors)]
     exe "hi Normal guibg=" .. c.normal
