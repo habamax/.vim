@@ -31,6 +31,13 @@ def Xamabah()
     endif
     var colors = [
         {
+            normal: "#d7d7d7",
+            colorLine: "#e4e4e4",
+            pmenu: "#eeeeee",
+            pmenusel: "#fffdff",
+            nontext: "#9e9e9e",
+        },
+        {
             normal: "#d7d0d7",
             colorLine: "#e4dde4",
             pmenu: "#eee7ee",
@@ -43,13 +50,6 @@ def Xamabah()
             pmenu: "#eeeee7",
             pmenusel: "#fffff8",
             nontext: "#9e9e97",
-        },
-        {
-            normal: "#d0d5d7",
-            colorLine: "#dde2e4",
-            pmenu: "#e7ecee",
-            pmenusel: "#f8fdff",
-            nontext: "#979c9e",
         },
         {
             normal: "#d7d0d0",
