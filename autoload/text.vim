@@ -220,8 +220,8 @@ export def ObjComment(inner: bool)
 
     # Search for the beginning of the comment block
     if IsComment()
-        if search('\v(\S+)', 'bW', 0, 0, IsComment) > 0
-            search('\S\+', 'W', 0, 0, () => !IsComment())
+        if search('\v(\S+)|$', 'bW', 0, 0, IsComment) > 0
+            search('\v(\S+)|$', 'W', 0, 0, () => !IsComment())
         else
             cursor(1, 1)
             search('\S\+', 'cW', 0, 0)
@@ -240,7 +240,7 @@ export def ObjComment(inner: bool)
     if pos_init[1] > pos_start[1]
         cursor(pos_init[1], pos_init[2])
     endif
-    if search('\S\+', 'W', 0, 0, IsComment) > 0
+    if search('\v(\S+)|$', 'W', 0, 0, IsComment) > 0
         search('\S', 'beW', 0, 0, () => !IsComment())
     else
         if search('\%$', 'W') > 0
@@ -254,6 +254,7 @@ export def ObjComment(inner: bool)
         var spaces = matchstr(getline(pos_end[1]), '\%>.c\s*')
         pos_end[2] += spaces->len()
         if getline(pos_end[1])[pos_end[2] : ] =~ '^\s*$'
+            && (pos_start[2] == 1 || getline(pos_start[1])[ : pos_start[2]] =~ '^\s*$')
             if search('\v\s*\_$(\s*\n)+', 'eW') > 0
                 pos_end = getcurpos()
             endif
