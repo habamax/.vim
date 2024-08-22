@@ -9,7 +9,6 @@ endif
 set termguicolors
 
 def Habamax()
-    hi VertSplit guibg=NONE ctermfg=NONE
     if !has("gui_running")
         hi Normal guibg=NONE ctermbg=NONE
     endif
@@ -25,7 +24,6 @@ def Habamax()
 enddef
 
 def Xamabah()
-    hi VertSplit guibg=NONE ctermfg=NONE
     if !(has("gui_running") || &termguicolors)
         return
     endif
@@ -92,7 +90,8 @@ augroup colors | au!
     au Colorscheme * hi link lspDiagSignWarningText Changed
     au Colorscheme * hi link lspDiagVirtualTextWarning Changed
     au Colorscheme habamax Habamax()
-    au Colorscheme xamabah Xamabah()
+    # au Colorscheme xamabah Xamabah()
+    au Colorscheme habamax,xamabah hi VertSplit guibg=NONE ctermfg=NONE
 augroup END
 
 g:colors = ["habamax", "xamabah"]
