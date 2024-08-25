@@ -34,8 +34,8 @@ export def Buffer()
             endif
         },
         (winid) => {
-            win_execute(winid, "syn match PopupSelectDirectorySubtle '^.*[\\/]'")
-            hi def link PopupSelectDirectorySubtle Comment
+            win_execute(winid, "syn match PopupSelectPath '^.*[\\/]'")
+            hi def link PopupSelectPath Comment
         })
 enddef
 
@@ -62,8 +62,8 @@ export def MRU()
             endif
         },
         (winid) => {
-            win_execute(winid, "syn match PopupSelectDirectorySubtle '^.*[\\/]'")
-            hi def link PopupSelectDirectorySubtle Comment
+            win_execute(winid, "syn match PopupSelectPath '^.*[\\/]'")
+            hi def link PopupSelectPath Comment
         })
 enddef
 
@@ -85,8 +85,8 @@ export def GitFile(path: string = "")
             endif
         },
         (winid) => {
-            win_execute(winid, "syn match PopupSelectDirectorySubtle '^.*[\\/]'")
-            hi def link PopupSelectDirectorySubtle Comment
+            win_execute(winid, "syn match PopupSelectPath '^.*[\\/]'")
+            hi def link PopupSelectPath Comment
         })
 enddef
 
@@ -172,8 +172,8 @@ export def Bookmark()
             exe $"normal! {res.col}|"
         },
         (winid) => {
-            win_execute(winid, 'syn match PopupSelectDirectorySubtle "(.*)$"')
-            hi def link PopupSelectDirectorySubtle Comment
+            win_execute(winid, 'syn match PopupSelectPath "(.*)$"')
+            hi def link PopupSelectPath Comment
         })
 enddef
 
@@ -276,8 +276,8 @@ export def FileTree(path: string = "")
             endtry
         },
         (winid) => {
-            win_execute(winid, "syn match PopupSelectDirectorySubtle '^.*[\\/]'")
-            hi def link PopupSelectDirectorySubtle Comment
+            win_execute(winid, "syn match PopupSelectPath '^.*[\\/]'")
+            hi def link PopupSelectPath Comment
         })
 enddef
 
@@ -375,8 +375,8 @@ export def Project()
             FileTree(res.text)
         },
         (winid) => {
-            win_execute(winid, "syn match PopupSelectDirectorySubtle '^.*[\\/]'")
-            hi def link PopupSelectDirectorySubtle Comment
+            win_execute(winid, "syn match PopupSelectPath '^.*[\\/]'")
+            hi def link PopupSelectPath Comment
         })
 enddef
 
