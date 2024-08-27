@@ -25,11 +25,11 @@ def Xamabah()
     endif
     var colors = [
         {
-            normal: "#d7d7d7",
-            colorLine: "#e4e4e4",
-            pmenu: "#eeeeee",
-            pmenusel: "#fffdff",
-            nontext: "#9e9e9e",
+            normal: "#d7d5d0",
+            colorLine: "#e4e2dd",
+            pmenu: "#eeece7",
+            pmenusel: "#fffdf8",
+            nontext: "#9e9c97",
         },
         {
             normal: "#d7d0d7",
@@ -37,13 +37,6 @@ def Xamabah()
             pmenu: "#eee7ee",
             pmenusel: "#fff8ff",
             nontext: "#9e979e",
-        },
-        {
-            normal: "#d7d5d0",
-            colorLine: "#e4e2dd",
-            pmenu: "#eeece7",
-            pmenusel: "#fffdf8",
-            nontext: "#9e9c97",
         },
         {
             normal: "#d7d0d0",
@@ -60,7 +53,11 @@ def Xamabah()
             nontext: "#979c9e",
         },
     ]
-    var c = colors[rand(srand()) % len(colors)]
+    var idx = rand(srand()) % (len(colors) + 1)
+    if idx == len(colors)
+        return
+    endif
+    var c = colors[idx]
     exe "hi Normal guibg=" .. c.normal
     exe "hi CursorLine guibg=" .. c.colorLine
     exe "hi CursorColumn guibg=" .. c.colorLine
@@ -86,7 +83,7 @@ augroup colors | au!
     au Colorscheme * hi link lspDiagSignWarningText Changed
     au Colorscheme * hi link lspDiagVirtualTextWarning Changed
     au Colorscheme habamax Habamax()
-    # au Colorscheme xamabah Xamabah()
+    au Colorscheme xamabah Xamabah()
     au Colorscheme habamax,xamabah hi VertSplit guibg=NONE ctermfg=NONE
 augroup END
 
