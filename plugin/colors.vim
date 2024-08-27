@@ -4,8 +4,6 @@ if !has('gui_running')
     set termguicolors
 endif
 
-g:colors = ["habamax", "xamabah"]
-
 def Habamax()
     if !has("gui_running")
         hi Normal guibg=NONE ctermbg=NONE
@@ -120,13 +118,14 @@ augroup colors | au!
     au Colorscheme habamax Habamax()
     au Colorscheme xamabah Xamabah()
     au Colorscheme habamax,xamabah hi VertSplit guibg=NONE ctermfg=NONE
-    au Colorscheme habamax,xamabah ChangeWindowsTerminalTheme(expand("<amatch>"))
+    # au Colorscheme habamax,xamabah ChangeWindowsTerminalTheme(expand("<amatch>"))
 augroup END
 
+g:colors = ["habamax", "xamabah"]
 if has("win32") && has("gui_running")
     exe "silent! colorscheme" g:colors[1]
-elseif exists("$WSLENV")
-    exe "silent! colorscheme" WindowsTerminalTheme()
+# elseif exists("$WSLENV")
+#     exe "silent! colorscheme" WindowsTerminalTheme()
 else
     exe "silent! colorscheme" g:colors[0]
 endif
