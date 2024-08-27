@@ -39,24 +39,29 @@ def Xamabah()
             nontext: "#9e979e",
         },
         {
-            normal: "#d7d0d0",
-            colorLine: "#e4dddd",
-            pmenu: "#eee7e7",
-            pmenusel: "#fff8f8",
-            nontext: "#9e9797",
-        },
-        {
             normal: "#d0d5d7",
             colorLine: "#dde2e4",
             pmenu: "#e7ecee",
             pmenusel: "#f8fdff",
             nontext: "#979c9e",
         },
+        {
+            normal: "#d7d0d0",
+            colorLine: "#e4dddd",
+            pmenu: "#eee7e7",
+            pmenusel: "#fff8f8",
+            nontext: "#9e9797",
+        },
     ]
-    var idx = rand(srand()) % (len(colors) + 1)
-    if idx == len(colors)
+    var idx = strftime("%w")->str2nr()
+    if idx < 2 || idx > 5
         return
     endif
+    idx -= 2
+    # var idx = rand(srand()) % (len(colors) + 1)
+    # if idx == len(colors)
+    #     return
+    # endif
     var c = colors[idx]
     exe "hi Normal guibg=" .. c.normal
     exe "hi CursorLine guibg=" .. c.colorLine
