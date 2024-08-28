@@ -31,6 +31,11 @@ set viminfo='200,<500,s32
 set mouse=a
 set path=.,,
 
+def FoldText(): string
+    return $"{getline(v:foldstart)} … {v:foldend - v:foldstart + 1}"
+enddef
+set foldtext=FoldText()
+
 if executable('rg')
     set grepprg=rg\ -H\ --no-heading\ --vimgrep
     set grepformat=%f:%l:%c:%m
