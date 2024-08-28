@@ -32,7 +32,7 @@ set mouse=a
 set path=.,,
 
 def FoldText(): string
-    return $"{getline(v:foldstart)} … {v:foldend - v:foldstart + 1}"
+    return $"{getline(v:foldstart)} … ({v:foldend - v:foldstart + 1})"
 enddef
 set foldtext=FoldText()
 
