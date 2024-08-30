@@ -14,4 +14,3 @@ def FoldText(): string
     return $"{line} ({fcount})"
 enddef
 set foldtext=FoldText()
-
