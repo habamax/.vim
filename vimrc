@@ -29,7 +29,6 @@ set sessionoptions=buffers,curdir,tabpages,winsize
 set history=200
 set viminfo='200,<500,s32
 set mouse=a
-set path=.,,
 
 if executable('rg')
     set grepprg=rg\ -H\ --no-heading\ --vimgrep
