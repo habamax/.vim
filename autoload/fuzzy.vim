@@ -44,7 +44,7 @@ export def MRU()
     mru = v:oldfiles->filter((_, v) =>
         filereadable(fnamemodify(v, ":p")) &&
         v !~ '\~\\AppData\\Local\\Temp\\.*\.tmp' &&
-        v !~ escape($VIMRUNTIME, '\')  .. '.*[/\\]doc[/\\].*\.txt'
+        fnamemodify(v, ":p") !~ escape($VIMRUNTIME, '\')  .. '.*[/\\]doc[/\\].*\.txt'
     )
     popup.Select("MRU", mru,
         (res, key) => {
