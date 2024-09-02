@@ -41,14 +41,11 @@ enddef
 
 export def MRU()
     var mru = []
-    if has("win32")
-        # windows is very slow checking if file exists
-        # use non-filtered v:oldfiles
-        mru = v:oldfiles
-    else
-        mru = v:oldfiles->filter((_, v) =>
-            filereadable(fnamemodify(v, ":p")) && v !~ 'share/vim/.*/doc/.*\.txt')
-    endif
+    mru = v:oldfiles->filter((_, v) =>
+        filereadable(fnamemodify(v, ":p")) &&
+        v !~ '\~\\AppData\\Local\\Temp\\.*\.tmp' &&
+        v !~ escape($VIMRUNTIME, '\')  .. '.*[/\\]doc[/\\].*\.txt'
+    )
     popup.Select("MRU", mru,
         (res, key) => {
             if key == "\<c-t>"
