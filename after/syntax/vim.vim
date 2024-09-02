@@ -4,7 +4,6 @@ syn clear vimVar
 syn clear vimOper
 syn clear vimOperParen
 syn clear vimOperError
-syn clear vimUserAttrbError
 syn clear vimFunctionError
 syn clear vimMenu
 syn clear vimMethodName
