@@ -17,5 +17,5 @@ augroup general | au!
           |    call mkdir(expand("%:p:h"), "p")
           | endif
 
-    au VimLeavePre * :exe $'mksession! {fnamemodify($MYVIMRC, ":p:h")}/.data/sessions/LAST'
+    au VimLeavePre * :exe $'mksession! {$MYVIMDIR}/.data/sessions/LAST'
 augroup end

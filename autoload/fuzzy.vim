@@ -105,7 +105,7 @@ export def Colorscheme()
 enddef
 
 export def Template()
-    var path = $"{fnamemodify($MYVIMRC, ':p:h')}/templates/"
+    var path = $"{$MYVIMDIR}/templates/"
     var ft = getbufvar(bufnr(), '&filetype')
     var ft_path = path .. ft
     var tmpls = []
@@ -133,7 +133,7 @@ export def Template()
 enddef
 
 export def Session()
-    var sessions = glob($'{fnamemodify($MYVIMRC, ":p:h")}/.data/sessions/*', 1, 1)->map((_, v) => fnamemodify(v, ":t"))
+    var sessions = glob($'{$MYVIMDIR}/.data/sessions/*', 1, 1)->map((_, v) => fnamemodify(v, ":t"))
     var idx = sessions->index('LAST')
     if idx > -1 && idx != 0
         sessions->remove(idx)
@@ -141,14 +141,14 @@ export def Session()
     endif
     popup.Select("Session", sessions,
         (res, key) => {
-            exe $':%%bd | source {fnamemodify($MYVIMRC, ":p:h")}/.data/sessions/{res.text}'
+            exe $':%%bd | source {$MYVIMDIR}/.data/sessions/{res.text}'
         })
 enddef
 
 export def Bookmark()
     var bookmarks = []
-    if filereadable($'{fnamemodify($MYVIMRC, ":p:h")}/.data/bookmarks.json')
-        bookmarks = readfile($'{fnamemodify($MYVIMRC, ":p:h")}/.data/bookmarks.json')
+    if filereadable($'{$MYVIMDIR}/.data/bookmarks.json')
+        bookmarks = readfile($'{$MYVIMDIR}/.data/bookmarks.json')
             ->join()
             ->json_decode()
             ->items()
@@ -253,7 +253,7 @@ export def FileTree(path: string = "")
             else
                 exe $":e {res.text->substitute('#', '\\&', 'g')}"
             endif
-            var projects_file = $'{fnamemodify($MYVIMRC, ":p:h")}/.data/projects.json'
+            var projects_file = $'{$MYVIMDIR}/.data/projects.json'
             var projects = []
             try
                 if !filereadable(projects_file)
@@ -356,7 +356,7 @@ enddef
 
 export def Project()
     var projects = []
-    var projects_file = $'{fnamemodify($MYVIMRC, ":p:h")}/.data/projects.json'
+    var projects_file = $'{$MYVIMDIR}/.data/projects.json'
     if filereadable(projects_file)
         try
             projects = readfile(projects_file)

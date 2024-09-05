@@ -35,9 +35,9 @@ if executable('rg')
     set grepformat=%f:%l:%c:%m
 endif
 
-&directory = $'{fnamemodify($MYVIMRC, ":p:h")}/.data/swap/'
-&backupdir = $'{fnamemodify($MYVIMRC, ":p:h")}/.data/backup//'
-&undodir = $'{fnamemodify($MYVIMRC, ":p:h")}/.data/undo//'
+&directory = $'{$MYVIMDIR}/.data/swap/'
+&backupdir = $'{$MYVIMDIR}/.data/backup//'
+&undodir = $'{$MYVIMDIR}/.data/undo//'
 if !isdirectory(&undodir)   | mkdir(&undodir, "p")   | endif
 if !isdirectory(&backupdir) | mkdir(&backupdir, "p") | endif
 if !isdirectory(&directory) | mkdir(&directory, "p") | endif

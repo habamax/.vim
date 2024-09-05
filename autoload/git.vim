@@ -13,7 +13,7 @@ export def PackUpdate()
     endif
     pack_jobs = []
     echow "Update plugins..."
-    var cwd = fnamemodify($MYVIMRC, ":p:h")
+    var cwd = $MYVIMDIR
     var pack_list = $'{cwd}/pack/packs'
     var jobs = []
     var msg_count = 2
