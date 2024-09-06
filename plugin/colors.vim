@@ -46,11 +46,6 @@ def Xamabah()
             nontext: "#9e9797",
         },
     ]
-    # var idx = strftime("%w")->str2nr()
-    # if idx < 2 || idx > 5
-    #     return
-    # endif
-    # idx -= 2
     var idx = rand(srand()) % (len(colors) + 1)
     if idx == len(colors)
         return
