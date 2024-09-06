@@ -66,7 +66,7 @@ export def MRU()
 enddef
 
 export def GitFile(path: string = "")
-    var path_e = path->empty() ? "" : $"{path}/"
+    var path_e = path->empty() ? "" : simplify($"{path}/")
     var git_cmd = 'git ls-files --other --full-name --cached --exclude-standard'
     var cd_cmd = path->empty() ? "" : $"cd {path} && "
     var git_files = systemlist($'{cd_cmd}{git_cmd}')
