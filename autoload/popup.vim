@@ -186,13 +186,13 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         if itemsAny[0]->len() == 0 | return [] | endif
         if itemsAny->len() > 1
             return itemsAny[0]->mapnew((idx, v) => {
-                return {text: v.text, props: itemsAny[1][idx]->mapnew((_, c) => {
-                    return {col: v.text->byteidx(c) + 1, length: 1, type: 'PopupSelectMatch'}
+                return {text: get(v, "pretext", "") .. v.text .. get(v, "posttext", ""), props: itemsAny[1][idx]->mapnew((_, c) => {
+                    return {col: len(get(v, "pretext", "")) + v.text->byteidx(c) + 1, length: 1, type: 'PopupSelectMatch'}
                 })}
             })
         else
             return itemsAny[0]->mapnew((_, v) => {
-                return {text: v.text}
+                return {text: get(v, "pretext", "") .. v.text .. get(v, "posttext", "")}
             })
         endif
     enddef

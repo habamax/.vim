@@ -293,10 +293,10 @@ enddef
 export def Highlight()
     var hl = hlget()->mapnew((_, v) => {
         if v->has_key("cleared")
-            return {text: $"xxx {v.name} cleared", name: v.name,
+            return {pretext: "xxx ", text: v.name, posttext: " cleared", name: v.name,
                     value: $"hi {v.name}"}
         elseif v->has_key("linksto")
-            return {text: $"xxx {v.name} links to {v.linksto}", name: v.name,
+            return {pretext: "xxx ", text: v.name, posttext: $" links to {v.linksto}", name: v.name,
                     value: $"hi link {v.name} {v.linksto}"}
         else
             var term = v->has_key('term') ? $' term={v.term->keys()->join(",")}' : ''
@@ -306,7 +306,7 @@ export def Highlight()
             var guifg = v->has_key('guifg') ? $' guifg={v.guifg}' : ''
             var guibg = v->has_key('guibg') ? $' guibg={v.guibg}' : ''
             var gui = v->has_key('gui') ? $' gui={v.gui->keys()->join(",")}' : ''
-            return {text: $"xxx {v.name}{guifg}{guibg}{gui}{ctermfg}{ctermbg}{cterm}{term}",
+            return {pretext: "xxx ", text: v.name, posttext: $"{guifg}{guibg}{gui}{ctermfg}{ctermbg}{cterm}{term}",
                     name: v.name,
                     value: $"hi {v.name}{guifg}{guibg}{gui}{ctermfg}{ctermbg}{cterm}{term}"}
         endif
