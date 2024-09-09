@@ -182,7 +182,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
     endif
 
     var filtered_items: list<any> = [items_dict]
-    def Printify(itemsAny: list<any>, props: list<any>): list<any>
+    def Format(itemsAny: list<any>, props: list<any>): list<any>
         if itemsAny[0]->len() == 0 | return [] | endif
         if itemsAny->len() > 1
             return itemsAny[0]->mapnew((idx, v) => {
@@ -232,7 +232,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         popup_setoptions(pwinid, {title: $" {title} ({count}) "})
         popup_settext(pwinid, $"> {prompt}{popup_cursor}")
         scrollbar_before_update = popup_getpos(winid).scrollbar
-        popup_settext(winid, Printify(filtered_items, []))
+        popup_settext(winid, Format(filtered_items, []))
     enddef
 
     # hide cursor
@@ -280,7 +280,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
             minheight: 1,
         })
     )
-    var winid = popup_create(Printify(filtered_items, []), popts->copy()->extend({
+    var winid = popup_create(Format(filtered_items, []), popts->copy()->extend({
         border: [1, 1, 1, 1],
         borderchars: popup_borderchars_t,
         line: pos_top + 2,
