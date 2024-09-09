@@ -8,6 +8,7 @@ syn clear vimFunctionError
 syn clear vimMenu
 syn clear vimMethodName
 syn clear vimCommand
+syn clear vimUserCmdAttrError
 syn keyword vimCommand contained vim9cmd vim9script import autoload export def enddef call function endfunction defer defcompile delfunction return
 syn keyword vimCommand contained if else elseif endif
 syn keyword vimCommand contained for endfor while endwhile continue break
