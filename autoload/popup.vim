@@ -215,10 +215,12 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
                     text ..= repeat(" ", max_visible_pretext_len - len(pretext))
                 endif
                 text ..= v.text
-                if len(v.text) < max_visible_text_len
-                    text ..= repeat(" ", max_visible_text_len - len(v.text))
+                if !empty(posttext)
+                    if len(v.text) < max_visible_text_len
+                        text ..= repeat(" ", max_visible_text_len - len(v.text))
+                    endif
+                    text ..= posttext
                 endif
-                text ..= posttext
                 return {text: text, props: itemsAny[1][idx]->mapnew((_, c) => {
                     return {col: len(pretext) + v.text->byteidx(c) + 1, length: 1, type: 'PopupSelectMatch'}
                 })}
@@ -232,10 +234,12 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
                     text ..= repeat(" ", max_visible_pretext_len - len(pretext))
                 endif
                 text ..= v.text
-                if len(v.text) < max_visible_text_len
-                    text ..= repeat(" ", max_visible_text_len - len(v.text))
+                if !empty(posttext)
+                    if len(v.text) < max_visible_text_len
+                        text ..= repeat(" ", max_visible_text_len - len(v.text))
+                    endif
+                    text ..= posttext
                 endif
-                text ..= posttext
 
                 return {text: text}
             })
