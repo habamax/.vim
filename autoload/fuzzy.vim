@@ -316,8 +316,8 @@ export def Highlight()
             feedkeys($":{res.value}\<C-f>")
         },
         (winid) => {
-            win_execute(winid, 'syn match PopupSelectHiLinksTo "\(links to\)\|\(cleared\)"')
-            hi def link PopupSelectHiLinksTo Comment
+            win_execute(winid, 'syn match PopupSelectHiRest "\(^xxx\+\s\+\S\+\s\)\@<=.*"')
+            hi def link PopupSelectHiRest Comment
             for h in hl
                 win_execute(winid, $'syn match {h.name} "^xxx\+\ze {h.name}\>"')
             endfor
