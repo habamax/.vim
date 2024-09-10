@@ -44,7 +44,7 @@ def Things()
             text = text->substitute('\s*\/\/.*$', '', '')
         endwhile
         lnum = shift < 2 ? lnum : lnum + 1
-        add(things, {text: trim(text, " {", 2) .. $" ({lnum})", lnum: lnum})
+        add(things, {text: trim(text, " {", 2), posttext: $" ({lnum})", lnum: lnum})
     endwhile
     popup.Select("C Things", things,
         (res, key) => {

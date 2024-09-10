@@ -58,7 +58,7 @@ def Toc()
                 endif
                 plvl = lvl
                 pnr = nr
-                toc->add({lvl: lvl, toc_num: toc_num[: lvl], text: $'{pline->trim()} ({nr - 1})', linenr: nr - 1})
+                toc->add({lvl: lvl, toc_num: toc_num[: lvl], text: pline->trim(), posttext: $' ({nr - 1})', linenr: nr - 1})
             elseif pline =~ '^\S' && pline !~ '^\([-"=#*~`.]\)\1*\s*$'
                 var lvl = lvl_ch->index(line[0])
                 if lvl == -1
@@ -74,7 +74,7 @@ def Toc()
                 endif
                 plvl = lvl
                 pnr = nr
-                toc->add({lvl: lvl, toc_num: toc_num[: lvl], text: $'{pline->trim()} ({nr - 1})', linenr: nr - 1})
+                toc->add({lvl: lvl, toc_num: toc_num[: lvl], text: pline->trim(), posttext: $' ({nr - 1})',  linenr: nr - 1})
             endif
         endif
     endfor

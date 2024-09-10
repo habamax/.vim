@@ -25,11 +25,11 @@ def Things()
                 line = line->substitute('^\s*com\%[mand]!\?\s\+\S\+\zs.*', '', '')
                 line = line->substitute('^\s*com\%[mand]!\?\s\+', '', '')
             endif
-            things->add({text: $"{line} ({nr})", linenr: nr})
+            things->add({text: line, posttext: $' ({nr})', linenr: nr})
         endif
         if line =~ '{\{3}\s*$'
             line = matchstr(line, '^\s*' .. commentchars .. '\s*\zs.\{-}\ze\s*{\{3}\s*$')
-            things->add({text: $'{line} ({nr})', linenr: nr})
+            things->add({text: line, posttext: $' ({nr})', linenr: nr})
         endif
     endfor
     popup.Select("Vim Things", things,
