@@ -255,9 +255,10 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         })
 
         width = popup_getpos(winid).core_width + popup_getpos(winid).scrollbar
+        var padding = (popup_number ? 0 : 1)
         popup_move(pwinid, {
-            minwidth: width,
-            maxwidth: width
+            minwidth: width + padding,
+            maxwidth: width + padding
         })
     enddef
 
@@ -327,6 +328,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         border: [1, 1, 1, 1],
         borderchars: popup_borderchars_t,
         line: pos_top + 2,
+        padding: [0, 0, 0, (popup_number ? 0 : 1)],
         minheight: minheight,
         maxheight: maxheight,
         filter: (id, key) => {
