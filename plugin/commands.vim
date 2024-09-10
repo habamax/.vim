@@ -2,7 +2,6 @@ vim9script
 
 # Commands
 
-
 # update packages
 import autoload "git.vim"
 command! PackUp git.PackUpdate()
