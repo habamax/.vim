@@ -5,6 +5,7 @@ var popup_borderchars_t   = get(g:, "popup_borderchars_t", ['─', '│', '─',
 var popup_borderhighlight = get(g:, "popup_borderhighlight", ['Normal'])
 var popup_highlight       = get(g:, "popup_highlight", 'Normal')
 var popup_cursor          = get(g:, "popup_cursor", '█')
+var popup_number          = get(g:, "popup_number", true)
 
 
 # Helper popup to create command popup windows.
@@ -267,9 +268,9 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
             items_count->string()->len())
         var count = $"{count_f}/{items_count}"
         if filtered_items[0]->empty()
-            win_execute(winid, "if &l:nu | setl nonu nocul | endif")
+            win_execute(winid, $"if &l:cul | setl {popup_number ? "nonu" : ""} nocul | endif")
         else
-            win_execute(winid, "if !&l:nu | setl nu cul | endif")
+            win_execute(winid, $"if !&l:cul | setl {popup_number ? "nu" : ""} cul | endif")
         endif
         popup_setoptions(pwinid, {title: $" {title} ({count}) "})
         popup_settext(pwinid, $"> {prompt}{popup_cursor}")
