@@ -194,6 +194,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         if itemsAny[0]->len() == 0 | return [] | endif
 
         var max_visible_pretext_len = 0
+        var max_visible_posttext_len = 0
         var max_visible_text_len = 0
         var i = 0
         while i < maxheight && i < itemsAny[0]->len()
@@ -204,8 +205,15 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
             if max_visible_pretext_len < len(pretext)
                 max_visible_pretext_len = len(pretext)
             endif
+            var posttext = get(itemsAny[0][i], "posttext", "")
+            if max_visible_posttext_len < len(posttext)
+                max_visible_posttext_len = len(posttext)
+            endif
             i += 1
         endwhile
+        if max_visible_text_len + max_visible_pretext_len + max_visible_posttext_len >= maxwidth
+            max_visible_text_len = maxwidth - max_visible_pretext_len - max_visible_posttext_len
+        endif
 
         if itemsAny->len() > 1
             return itemsAny[0]->mapnew((idx, v) => {
