@@ -9,7 +9,7 @@ g:loaded_netrwPlugin = 1
 # popup
 g:popup_borderchars = ['─', '│', '─', '│', '╭', '╮', '╯', '╰']
 g:popup_borderchars_t = ['─', '│', '─', '│', '├', '┤', '╯', '╰']
-g:popup_cursor = '▏'
+# g:popup_cursor = '█'
 # g:popup_cursor = '▎'
 
 packadd comment
