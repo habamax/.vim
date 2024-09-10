@@ -79,7 +79,8 @@ def Things()
     var things = matchbufline(bufnr(),
         '\v^\s*(func|class|signal)\s+\k+.*$',
         1, '$')->foreach((_, v) => {
-            v.text = $"{v.text} ({v.lnum})"
+            v.text = v.text
+            v.posttext = $" ({v.lnum})"
         })
     popup.Select("GDScript Things", things,
         (res, key) => {
