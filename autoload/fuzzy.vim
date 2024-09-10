@@ -152,7 +152,7 @@ export def Bookmark()
             ->join()
             ->json_decode()
             ->items()
-            ->mapnew((_, v) => ({text: $"{v[0]} ({v[1].file})", file: v[1].file, line: v[1].line, col: v[1].col}))
+            ->mapnew((_, v) => ({text: v[0], posttext: $" ({v[1].file})", file: v[1].file, line: v[1].line, col: v[1].col}))
             ->filter((_, v) => filereadable(v.file))
     endif
     popup.Select("Bookmark", bookmarks,
@@ -319,7 +319,7 @@ export def Highlight()
             win_execute(winid, 'syn match PopupSelectHiLinksTo "\(links to\)\|\(cleared\)"')
             hi def link PopupSelectHiLinksTo Comment
             for h in hl
-                win_execute(winid, $'syn match {h.name} "^xxx\ze {h.name}\>"')
+                win_execute(winid, $'syn match {h.name} "^xxx\+\ze {h.name}\>"')
             endfor
         })
 enddef
