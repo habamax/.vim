@@ -46,7 +46,7 @@ def Toc()
                 endif
             endif
             toc->add({lvl: 0, toc_num: toc_num[: 0], text: pline, posttext: $' ({nr - 1})', linenr: nr - 1})
-        elseif line =~ '^-\+$' && pline =~ '^\S\+'
+        elseif line =~ '^-\+$' && pline =~ '^\S\+' && mdsyn[0] !~ 'yaml.*'
             lvl = 2
             if len(toc_num) < 2
                 toc_num->add(1)
