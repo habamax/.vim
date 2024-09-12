@@ -438,8 +438,8 @@ export def Window()
         })
 enddef
 
-export def Unicode()
-    var chars = unicode.Chars()->mapnew((_, v) => ({
+export def Unicode(all: number = 0)
+    var chars = (all > 0 ? unicode.All() : unicode.Subset())->mapnew((_, v) => ({
         value: v.value,
         text: v.name,
         pretext: printf("%5s%5S    ", printf("%04X", v.value), (nr2char(v.value, true) =~ '\p' ? nr2char(v.value, true) : " ") ?? "")
