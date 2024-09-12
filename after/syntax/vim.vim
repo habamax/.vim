@@ -2,7 +2,6 @@
 syn clear vimFuncName
 syn clear vimVar
 syn clear vimOper
-syn clear vimOperParen
 syn clear vimOperError
 syn clear vimFunctionError
 syn clear vimMenu
