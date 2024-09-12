@@ -9,7 +9,7 @@ const MAX_ELEMENTS: number = 20000
 export def Buffer()
     var buffer_list = getbufinfo({'buflisted': 1})->mapnew((_, v) => {
         return {bufnr: v.bufnr,
-                pretext: $'{v.bufnr} ',
+                pretext: $'{v.bufnr}{v.changed ? "+" : ""} ',
                 text: (bufname(v.bufnr) ?? $'[No Name]'),
                 lastused: v.lastused,
                 winid: len(v.windows) > 0 ? v.windows[0] : -1}
@@ -36,8 +36,10 @@ export def Buffer()
         },
         (winid) => {
             win_execute(winid, "syn match PopupSelectBufnr '^\\d\\+'")
-            win_execute(winid, "syn match PopupSelectPath '\\(^\\d\\+\\s*\\)\\@<=.*[\\/]'")
+            win_execute(winid, "syn match PopupSelectBufChanged '\\(^\\d\\+\\)\\@<=+'")
+            win_execute(winid, "syn match PopupSelectPath '\\(^\\d\\++\\?\\s\\+\\)\\@<=.*[\\/]'")
             hi def link PopupSelectBufnr Identifier
+            hi def link PopupSelectBufChanged Special
             hi def link PopupSelectPath Comment
         })
 enddef
