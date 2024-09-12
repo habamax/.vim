@@ -392,7 +392,8 @@ export def CurrentWord()
     if empty(trim(word)) | return | endif
     var lines = matchbufline(bufnr(), $'^.*\<{word}\>.*$', 1, '$')
     lines->foreach((_, v) => {
-        v.text = $"{v.text} ({v.lnum})"
+        v.text = v.text
+        v.posttext = $" ({v.lnum})"
     })
     popup.Select($'Buffer lines with "{word}"', lines,
         (res, key) => {
