@@ -446,7 +446,8 @@ export def Unicode()
     }))
     popup.Select($'Unicode char', chars,
         (res, key) => {
-            feedkeys($'"="{nr2char(res.value, true)}"p')
+            # feedkeys($'"="{nr2char(res.value, true)}"p')
+            setreg('', nr2char(res.value, true))
         },
         (winid) => {
             win_execute(winid, 'syn match PopupSelectHex "^\s*\x\+"')
