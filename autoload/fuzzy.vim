@@ -414,19 +414,23 @@ export def Window()
     for w_info in getwininfo()
         var tabtext = tabpagenr('$') > 1 ? $"Tab {w_info.tabnr}, " : ""
         var wintext = $"Win {w_info.winnr}"
-        var name = empty(bufname(w_info.bufnr)) ? "[No Name]" : bufname(w_info.bufnr)
+        var name = empty(bufname(w_info.bufnr)) ? $"[{w_info.bufnr}: No Name]" : bufname(w_info.bufnr)
         var current_sign = w_info.winid == win_getid() ? "*" : " "
-        windows->add({text: $"{current_sign}({tabtext}{wintext}): {name} ({w_info.winid})", winid: w_info.winid})
+        windows->add({pretext: $"{current_sign} {tabtext}{wintext}: ",
+            text: name,
+            posttext: $" ({w_info.winid})",
+            winid: w_info.winid
+        })
     endfor
     popup.Select($'Window', windows,
         (res, key) => {
             win_gotoid(res.winid)
         },
         (winid) => {
-            win_execute(winid, 'syn match PopupSelectRegular "^ (.\{-}):.*(\d\+)$" contains=PopupSelectBraces')
-            win_execute(winid, 'syn match PopupSelectCurrent "^\*(.\{-}):.*(\d\+)$" contains=PopupSelectBraces')
+            win_execute(winid, 'syn match PopupSelectRegular "^ .\{-}:.*(\d\+)$" contains=PopupSelectBraces')
+            win_execute(winid, 'syn match PopupSelectCurrent "^\* .\{-}:.*(\d\+)$" contains=PopupSelectBraces')
             win_execute(winid, 'syn match PopupSelectBraces "(\d\+)$" contained')
-            win_execute(winid, 'syn match PopupSelectBraces "^[* ](.\{-}):" contained')
+            win_execute(winid, 'syn match PopupSelectBraces "^[* ] .\{-}:" contained')
             hi def link PopupSelectBraces Comment
             hi def link PopupSelectCurrent Statement
         })
