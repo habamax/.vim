@@ -22,7 +22,7 @@ import autoload 'fuzzy.vim'
 nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
 nnoremap <space>fe <scriptcmd>fuzzy.FileTree()<CR>
 nnoremap <space>fg <scriptcmd>fuzzy.GitFile()<CR>
-nnoremap <space>b <scriptcmd>fuzzy.Buffer()<CR>
+nnoremap <space>b <scriptcmd>fuzzy.Buffer(true)<CR>
 nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
 nnoremap <space>fm <scriptcmd>fuzzy.MRU()<CR>
 nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>

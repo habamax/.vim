@@ -6,11 +6,11 @@ import autoload 'os.vim'
 const MAX_ELEMENTS: number = 20000
 
 
-export def Buffer()
+export def Buffer(ext: bool = false)
     var buffer_list = getbufinfo({'buflisted': 1})->mapnew((_, v) => {
         return {bufnr: v.bufnr,
-                pretext: $'{v.bufnr}{v.changed ? "+" : ""} ',
-                text: (bufname(v.bufnr) ?? $'[No Name]'),
+                pretext: (!ext ? "" : $'{v.bufnr}{v.changed ? "+" : ""} '),
+                text: (bufname(v.bufnr) ?? (ext ? '[No Name]' : $'[{v.bufnr}: No Name]')),
                 lastused: v.lastused,
                 winid: len(v.windows) > 0 ? v.windows[0] : -1}
     })->sort((i, j) => i.lastused > j.lastused ? -1 : i.lastused == j.lastused ? 0 : 1)
@@ -35,11 +35,15 @@ export def Buffer()
             endif
         },
         (winid) => {
-            win_execute(winid, "syn match PopupSelectBufnr '^\\d\\+'")
-            win_execute(winid, "syn match PopupSelectBufChanged '\\(^\\d\\+\\)\\@<=+'")
-            win_execute(winid, "syn match PopupSelectPath '\\(^\\d\\++\\?\\s\\+\\)\\@<=.*[\\/]'")
-            hi def link PopupSelectBufnr Identifier
-            hi def link PopupSelectBufChanged Special
+            if ext
+                win_execute(winid, "syn match PopupSelectBufnr '^\\d\\+'")
+                win_execute(winid, "syn match PopupSelectBufChanged '\\(^\\d\\+\\)\\@<=+'")
+                win_execute(winid, "syn match PopupSelectPath '\\(^\\d\\++\\?\\s\\+\\)\\@<=.*[\\/]'")
+                hi def link PopupSelectBufnr Identifier
+                hi def link PopupSelectBufChanged Special
+            else
+                win_execute(winid, "syn match PopupSelectPath '.*[\\/]'")
+            endif
             hi def link PopupSelectPath Comment
         })
 enddef
