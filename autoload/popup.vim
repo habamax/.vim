@@ -202,12 +202,12 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
                 max_visible_text_len = len(itemsAny[0][i].text)
             endif
             var pretext = get(itemsAny[0][i], "pretext", "")
-            if max_visible_pretext_len < len(pretext)
-                max_visible_pretext_len = len(pretext)
+            if max_visible_pretext_len < strwidth(pretext)
+                max_visible_pretext_len = strwidth(pretext)
             endif
             var posttext = get(itemsAny[0][i], "posttext", "")
-            if max_visible_posttext_len < len(posttext)
-                max_visible_posttext_len = len(posttext)
+            if max_visible_posttext_len < strwidth(posttext)
+                max_visible_posttext_len = strwidth(posttext)
             endif
             i += 1
         endwhile
@@ -220,18 +220,18 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
                 var pretext = get(v, "pretext", "")
                 var posttext = get(v, "posttext", "")
                 var text = pretext
-                if len(pretext) < max_visible_pretext_len
-                    text ..= repeat(" ", max_visible_pretext_len - len(pretext))
+                if strwidth(pretext) < max_visible_pretext_len
+                    text ..= repeat(" ", max_visible_pretext_len - strwidth(pretext))
                 endif
                 text ..= v.text
                 if !empty(posttext)
-                    if len(v.text) < max_visible_text_len
-                        text ..= repeat(" ", max_visible_text_len - len(v.text))
+                    if strwidth(v.text) < max_visible_text_len
+                        text ..= repeat(" ", max_visible_text_len - strwidth(v.text))
                     endif
                     text ..= posttext
                 endif
                 return {text: text, props: itemsAny[1][idx]->mapnew((_, c) => {
-                    return {col: len(pretext) + v.text->byteidx(c) + 1, length: 1, type: 'PopupSelectMatch'}
+                    return {col: strlen(pretext) + v.text->byteidx(c) + 1, length: 1, type: 'PopupSelectMatch'}
                 })}
             })
         else
@@ -239,13 +239,13 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
                 var pretext = get(v, "pretext", "")
                 var posttext = get(v, "posttext", "")
                 var text = pretext
-                if len(pretext) < max_visible_pretext_len
-                    text ..= repeat(" ", max_visible_pretext_len - len(pretext))
+                if strwidth(pretext) < max_visible_pretext_len
+                    text ..= repeat(" ", max_visible_pretext_len - strwidth(pretext))
                 endif
                 text ..= v.text
                 if !empty(posttext)
-                    if len(v.text) < max_visible_text_len
-                        text ..= repeat(" ", max_visible_text_len - len(v.text))
+                    if strwidth(v.text) < max_visible_text_len
+                        text ..= repeat(" ", max_visible_text_len - strwidth(v.text))
                     endif
                     text ..= posttext
                 endif
