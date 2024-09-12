@@ -9,7 +9,8 @@ const MAX_ELEMENTS: number = 20000
 export def Buffer()
     var buffer_list = getbufinfo({'buflisted': 1})->mapnew((_, v) => {
         return {bufnr: v.bufnr,
-                text: (bufname(v.bufnr) ?? $'[{v.bufnr}: No Name]'),
+                pretext: $'{v.bufnr} ',
+                text: (bufname(v.bufnr) ?? $'[No Name]'),
                 lastused: v.lastused,
                 winid: len(v.windows) > 0 ? v.windows[0] : -1}
     })->sort((i, j) => i.lastused > j.lastused ? -1 : i.lastused == j.lastused ? 0 : 1)
@@ -34,7 +35,9 @@ export def Buffer()
             endif
         },
         (winid) => {
-            win_execute(winid, "syn match PopupSelectPath '^.*[\\/]'")
+            win_execute(winid, "syn match PopupSelectBufnr '^\\d\\+'")
+            win_execute(winid, "syn match PopupSelectPath '\\(^\\d\\+\\s*\\)\\@<=.*[\\/]'")
+            hi def link PopupSelectBufnr Identifier
             hi def link PopupSelectPath Comment
         })
 enddef
