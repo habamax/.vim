@@ -5,6 +5,7 @@ var popup_borderchars_t   = get(g:, "popup_borderchars_t", ['─', '│', '─',
 var popup_borderhighlight = get(g:, "popup_borderhighlight", ['Normal'])
 var popup_highlight       = get(g:, "popup_highlight", 'Normal')
 var popup_cursor          = get(g:, "popup_cursor", '▏')
+var popup_prompt          = get(g:, "popup_prompt", '> ')
 var popup_number          = get(g:, "popup_number", false)
 
 
@@ -171,7 +172,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         hi def link PopupSelectMatch Constant
         prop_type_add('PopupSelectMatch', {highlight: "PopupSelectMatch", override: true, priority: 1000, combine: true})
     endif
-    var prompt = ""
+    var prompt_text = ""
     var items_dict: list<dict<any>>
     var items_count = items->len()
     if items_count > 0 && items[0]->type() != v:t_dict
@@ -282,7 +283,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
             win_execute(winid, $"if !&l:cul | setl {popup_number ? "nu" : ""} cul | endif")
         endif
         popup_setoptions(pwinid, {title: $" {title} ({count}) "})
-        popup_settext(pwinid, $"> {prompt}{popup_cursor}")
+        popup_settext(pwinid, $"{popup_prompt}{prompt_text}{popup_cursor}")
         scrollbar_before_update = popup_getpos(winid).scrollbar
         popup_settext(winid, Format(filtered_items, []))
     enddef
@@ -372,31 +373,31 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
             # Ignoring fancy events and double clicks, which are 6 char long: `<80><fc> <80><fd>.`
             elseif ignore_input->index(key) == -1 && strcharlen(key) != 6 && str2list(key) != ignore_input_wtf
                 if key == "\<C-u>"
-                    prompt = ""
+                    prompt_text = ""
                     filtered_items = [items_dict]
                 elseif key == "\<C-w>"
-                    prompt = matchstr(prompt, '\v^.{-}\ze(([[:punct:][:space:]]+)|([[:lower:][:upper:][:digit:]]+\s*))$')
-                    if empty(prompt)
+                    prompt_text = matchstr(prompt_text, '\v^.{-}\ze(([[:punct:][:space:]]+)|([[:lower:][:upper:][:digit:]]+\s*))$')
+                    if empty(prompt_text)
                         filtered_items = [items_dict]
                     else
-                        filtered_items = items_dict->matchfuzzypos(prompt, {key: "text"})
+                        filtered_items = items_dict->matchfuzzypos(prompt_text, {key: "text"})
                     endif
                 elseif (key == "\<C-h>" || key == "\<BS>")
-                    if empty(prompt) && close_on_bs
+                    if empty(prompt_text) && close_on_bs
                         popup_close(id, {idx: getcurpos(id)[1], key: key})
                         popup_close(pwinid)
                         RestoreCursor()
                         return true
                     endif
-                    prompt = prompt->strcharpart(0, prompt->strchars() - 1)
-                    if empty(prompt)
+                    prompt_text = prompt_text->strcharpart(0, prompt_text->strchars() - 1)
+                    if empty(prompt_text)
                         filtered_items = [items_dict]
                     else
-                        filtered_items = items_dict->matchfuzzypos(prompt, {key: "text"})
+                        filtered_items = items_dict->matchfuzzypos(prompt_text, {key: "text"})
                     endif
                 elseif key =~ '\p'
-                    prompt ..= key
-                    filtered_items = items_dict->matchfuzzypos(prompt, {key: "text"})
+                    prompt_text ..= key
+                    filtered_items = items_dict->matchfuzzypos(prompt_text, {key: "text"})
                 endif
                 UpdatePopups(pwinid, id)
                 AlignPopups(pwinid, id)
