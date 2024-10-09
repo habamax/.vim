@@ -278,23 +278,23 @@ enddef
 # a_ a. a: a, a; a| a/ a\ a* a+ a- a# a<tab>
 # Usage:
 # for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#', '<tab>' ]
-#     execute 'xnoremap <silent> i' .. char .. ' :<C-u>call text#Obj("' .. char .. '", 1)<CR>'
-#     execute 'xnoremap <silent> a' .. char .. ' :<C-u>call text#Obj("' .. char .. '", 0)<CR>'
-#     execute 'onoremap <silent> i' .. char .. ' :normal vi' .. char .. '<CR>'
-#     execute 'onoremap <silent> a' .. char .. ' :normal va' .. char .. '<CR>'
+#     execute $"xnoremap <silent> i{char} <esc><scriptcmd>text.Obj('{char}', 1)<CR>"
+#     execute $"xnoremap <silent> a{char} <esc><scriptcmd>text.Obj('{char}', 0)<CR>"
+#     execute $"onoremap <silent> i{char} :normal vi{char}<CR>"
+#     execute $"onoremap <silent> a{char} :normal va{char}<CR>"
 # endfor
 export def Obj(char: string, inner: bool)
     var lnum = line('.')
-    var echar = escape(char, '.*')
+    var echar = escape(char, '.*\')
     if (search('^\|' .. echar, 'cnbW', lnum) > 0 && search(echar, 'W', lnum) > 0)
         || (search(echar, 'nbW', lnum) > 0 && search(echar .. '\|$', 'cW', lnum) > 0)
         if inner
-            search('[^' .. char .. ']', 'cbW', lnum)
+            search('[^' .. escape(char, '\') .. ']', 'cbW', lnum)
         endif
         normal! v
         search('^\|' .. echar, 'bW', lnum)
         if inner
-            search('[^' .. char .. ']', 'cW', lnum)
+            search('[^' .. escape(char, '\') .. ']', 'cW', lnum)
         endif
         return
     endif

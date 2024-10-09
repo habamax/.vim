@@ -173,10 +173,10 @@ import autoload 'text.vim'
 # i_ i. i: i, i; i| i/ i\ i* i+ i- i# i<tab>
 # a_ a. a: a, a; a| a/ a\ a* a+ a- a# a<tab>
 for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#', '<tab>' ]
-    execute 'xnoremap <silent> i' .. char .. ' <esc><scriptcmd>text.Obj("' .. char .. '", 1)<CR>'
-    execute 'xnoremap <silent> a' .. char .. ' <esc><scriptcmd>text.Obj("' .. char .. '", 0)<CR>'
-    execute 'onoremap <silent> i' .. char .. ' :normal vi' .. char .. '<CR>'
-    execute 'onoremap <silent> a' .. char .. ' :normal va' .. char .. '<CR>'
+    execute $"xnoremap <silent> i{char} <esc><scriptcmd>text.Obj('{char}', 1)<CR>"
+    execute $"xnoremap <silent> a{char} <esc><scriptcmd>text.Obj('{char}', 0)<CR>"
+    execute $"onoremap <silent> i{char} :normal vi{char}<CR>"
+    execute $"onoremap <silent> a{char} :normal va{char}<CR>"
 endfor
 
 # indent text object
