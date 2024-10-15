@@ -70,34 +70,6 @@ def Xamabah()
     exe "hi SpecialKey guifg=" .. c.nontext
 enddef
 
-def WindowsTerminalTheme(): string
-    var settings_file = "/mnt/c/Users/maxim.kim/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
-    var theme = system($"jq '.profiles.defaults.colorScheme' {settings_file}")
-    return theme->trim()->trim('"')
-enddef
-
-def ChangeWindowsTerminalTheme(colorscheme: string)
-    if !(colorscheme == "habamax" || colorscheme == "xamabah")
-        echoerr "Only works for habamax and xamabah"
-        return
-    endif
-    if !exists("$WSLENV")
-        return
-    endif
-    var settings_file = "/mnt/c/Users/maxim.kim/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
-    var tmp_settings = tempname()
-    var jq = "jq '"
-    jq ..= $'.profiles.defaults.colorScheme="{colorscheme}"'
-    if colorscheme == 'xamabah'
-        var bg = hlget("normal")[0].guibg
-        jq ..= " | "
-        jq ..= $'(.schemes[] | select(.name=="xamabah") | .background)="{bg}"'
-    endif
-    jq ..= "'"
-    system($'{jq} "{settings_file}" > "{tmp_settings}"')
-    system($'mv "{tmp_settings}" "{settings_file}"')
-enddef
-
 augroup colors | au!
     au Colorscheme * hi link lspDiagSignErrorText Removed
     au Colorscheme * hi link lspDiagVirtualTextError Removed
@@ -106,14 +78,11 @@ augroup colors | au!
     au Colorscheme habamax Habamax()
     au Colorscheme xamabah Xamabah()
     au Colorscheme habamax,xamabah hi VertSplit guibg=NONE ctermfg=NONE
-    # au Colorscheme habamax,xamabah ChangeWindowsTerminalTheme(expand("<amatch>"))
 augroup END
 
 g:colors = ["habamax", "xamabah"]
 if has("win32") && has("gui_running")
     exe "silent! colorscheme" g:colors[1]
-# elseif exists("$WSLENV")
-#     exe "silent! colorscheme" WindowsTerminalTheme()
 else
     exe "silent! colorscheme" g:colors[0]
 endif
