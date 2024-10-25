@@ -33,6 +33,12 @@ set mouse=a
 if executable('rg')
     set grepprg=rg\ -H\ --no-heading\ --vimgrep
     set grepformat=%f:%l:%c:%m
+
+    def FindRipGrep(): list<string>
+        return systemlist($'rg --files | rg {v:fname}')
+    enddef
+
+    set findexpr=FindRipGrep()
 endif
 
 &directory = $'{$MYVIMDIR}/.data/swap/'
