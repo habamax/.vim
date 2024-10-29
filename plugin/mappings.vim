@@ -43,6 +43,7 @@ nnoremap <space>y "+y
 xnoremap <space>y "+y
 nnoremap <space>p "+p
 nnoremap <space>P "+P
+xnoremap <space>p "+p
 xnoremap <space>P "+P
 
 import autoload 'pcom.vim'
