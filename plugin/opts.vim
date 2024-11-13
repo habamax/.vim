@@ -21,7 +21,6 @@ packadd! editorconfig
 # Git
 if executable("git")
     silent! packadd vim-fugitive
-    silent! packadd gv.vim
 endif
 
 if executable("ctags")
