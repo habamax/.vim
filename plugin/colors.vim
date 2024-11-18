@@ -80,7 +80,8 @@ augroup colors | au!
     au Colorscheme habamax,xamabah hi VertSplit guibg=NONE ctermfg=NONE
 augroup END
 
-g:colors = ["habamax", "xamabah"]
+# g:colors = ["habamax", "xamabah"]
+g:colors = ["nod-b", "nope"]
 if has("win32") && has("gui_running")
     exe "silent! colorscheme" g:colors[1]
 else
