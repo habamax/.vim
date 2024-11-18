@@ -81,7 +81,7 @@ augroup colors | au!
 augroup END
 
 # g:colors = ["habamax", "xamabah"]
-g:colors = ["nod-b", "nope"]
+g:colors = ["nod", "nope"]
 if has("win32") && has("gui_running")
     exe "silent! colorscheme" g:colors[1]
 else
