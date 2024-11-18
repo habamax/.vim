@@ -14,7 +14,7 @@ if has("win32")
         au VimEnter * test_mswin_event('set_keycode_trans_strategy', {'strategy': 'experimental'})
     augroup END
 else
-    set guifont=Monospace\ 18
+    set guifont=Monospace\ 19
 endif
 
 # quick font check:
