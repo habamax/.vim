@@ -6,7 +6,8 @@ set guioptions=cM!
 if has("win32")
     set linespace=0
 
-    set guifont=Iosevka\ Fixed\ SS04:h18,:h18
+    set guifont=Iosevka_Fixed_SS17:h18,:h18
+    # set guifont=Iosevka_Fixed:h18,:h18
 
     # :h w32-experimental-keycode-trans-strategy
     # Should fix CTRL-=
@@ -21,3 +22,4 @@ endif
 # З3Э -- cyrillic letter З, digit 3, cyrillic letter Э
 # 1lI0OQB8 =-+*:(){}[]
 # I1legal
+# love is all around us
