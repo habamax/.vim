@@ -80,11 +80,18 @@ augroup colors | au!
     au Colorscheme habamax,xamabah hi VertSplit guibg=NONE ctermfg=NONE
 augroup END
 
-g:colors = ["habamax", "xamabah"]
+# g:colors = {
+#     dark: "sil! colo habamax",
+#     light: "sil! colo xamabah"
+# }
+g:colors = {
+    dark: "set bg=dark | sil! colo wildcharm",
+    light: "set bg=light | sil! colo wildcharm",
+}
 if has("win32") && has("gui_running")
-    exe "silent! colorscheme" g:colors[1]
+    exe g:colors.light
 else
-    exe "silent! colorscheme" g:colors[0]
+    exe g:colors.dark
 endif
 
 # finish
