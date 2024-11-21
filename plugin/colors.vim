@@ -80,14 +80,14 @@ augroup colors | au!
     au Colorscheme habamax,xamabah hi VertSplit guibg=NONE ctermfg=NONE
 augroup END
 
-# g:colors = {
-#     dark: "sil! colo habamax",
-#     light: "sil! colo xamabah"
-# }
 g:colors = {
-    dark: "set bg=dark | sil! colo wildcharm",
-    light: "set bg=light | sil! colo wildcharm",
+    dark: "sil! colo habamax",
+    light: "sil! colo xamabah"
 }
+# g:colors = {
+#     dark: "set bg=dark | sil! colo wildcharm",
+#     light: "set bg=light | sil! colo wildcharm",
+# }
 # g:colors = {
 #     dark: "set bg=dark | sil! colo lunaperche",
 #     light: "set bg=light | sil! colo lunaperche",
