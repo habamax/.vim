@@ -76,7 +76,7 @@ augroup colors | au!
     au Colorscheme * hi link lspDiagSignWarningText Changed
     au Colorscheme * hi link lspDiagVirtualTextWarning Changed
     au Colorscheme habamax Habamax()
-    au Colorscheme xamabah Xamabah()
+    # au Colorscheme xamabah Xamabah()
     au Colorscheme habamax,xamabah hi VertSplit guibg=NONE ctermfg=NONE
 augroup END
 
