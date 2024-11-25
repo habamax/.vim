@@ -19,6 +19,7 @@ nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 
 # split keyboard has no Space on left part, use Enter
 map <CR> <space>
+map <CR><CR> <space><space>
 
 # fuzzy
 import autoload 'fuzzy.vim'
