@@ -7,7 +7,7 @@ if has("win32")
     set linespace=0
 
     set guifont=Iosevka_Habamax:h18,:h18
-    # set guifont=Iosevka_Habamax_Extended:h18
+    # set guifont=Iosevka_Habamax_Condensed:h18
 
     # :h w32-experimental-keycode-trans-strategy
     # Should fix CTRL-=
