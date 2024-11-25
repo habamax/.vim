@@ -18,6 +18,6 @@ else
 endif
 
 # quick font check:
-# З3Э -- cyrillic letter З, digit 3, cyrillic letter Э
+# З3Э -- cyrillic ze, three, cyrillic e
 # 1lI0OQB8 =-+*:(){}[]
 # I1legal
