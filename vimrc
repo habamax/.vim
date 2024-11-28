@@ -26,7 +26,6 @@ set nrformats=bin,hex,unsigned
 set nospell spelllang=en,ru
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set sessionoptions=buffers,curdir,tabpages,winsize
-set history=200
 set viminfo='200,<500,s32
 set mouse=a
 
