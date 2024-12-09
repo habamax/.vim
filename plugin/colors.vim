@@ -19,7 +19,7 @@ def Habamax()
     endif
 enddef
 
-def Xamabah()
+def Xamabah(variant: number = -1)
     if !(has("gui_running") || &termguicolors)
         return
     endif
@@ -46,7 +46,12 @@ def Xamabah()
             nontext: "#9e9797",
         },
     ]
-    var idx = rand(srand()) % (len(colors) + 1)
+    var idx: number = 0
+    if variant > -1 && variant < len(colors)
+        idx = variant
+    else
+        idx = rand(srand()) % (len(colors) + 1)
+    endif
     if idx == len(colors)
         return
     endif
@@ -76,7 +81,7 @@ augroup colors | au!
     au Colorscheme * hi link lspDiagSignWarningText Changed
     au Colorscheme * hi link lspDiagVirtualTextWarning Changed
     au Colorscheme habamax Habamax()
-    # au Colorscheme xamabah Xamabah()
+    # au Colorscheme xamabah Xamabah(0)
     au Colorscheme habamax,xamabah hi VertSplit guibg=NONE ctermfg=NONE
 augroup END
 
