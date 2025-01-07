@@ -8,3 +8,4 @@ LineNrBelow                            -> LineNr
 MessageWindow                          -> PMenu
 PopupNotification                      -> Todo
 CurSearch                              -> IncSearch
+PopupSelected                          -> PmenuSel
