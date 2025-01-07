@@ -43,13 +43,6 @@ nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 nnoremap <space>w <scriptcmd>fuzzy.CurrentWord()<CR>
 nnoremap <space>i <scriptcmd>fuzzy.Template()<CR>
 
-nnoremap <space>y "+y
-xnoremap <space>y "+y
-nnoremap <space>p "+p
-nnoremap <space>P "+P
-xnoremap <space>p "+p
-xnoremap <space>P "+P
-
 import autoload 'pcom.vim'
 # calc visually selected math expression
 # base64 encode/decode
