@@ -14,8 +14,8 @@ if $XDG_SESSION_TYPE != 'wayland'
 endif
 
 def WLYank(event: dict<any>)
-    if event.regname =~ '[+*]'
-        system('wl-copy', getreg("+"))
+    if event.regname == '+'
+        system('wl-copy', getreg(event.regname))
     endif
 enddef
 
