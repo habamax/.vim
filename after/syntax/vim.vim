@@ -1,7 +1,6 @@
 " clear excessive syntax highlighting
 syn clear vimFuncName
 syn clear vimVar
-syn clear vimOper
 syn clear vimOperError
 syn clear vimFunctionError
 syn clear vimMenu
