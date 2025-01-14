@@ -125,20 +125,20 @@ export def TextTr()
             setreg("", blob2str(base64_decode(region->join("\n"))))
             normal! ""p
         }},
-        # {text: "Encode", key: "e", close: true, cmd: () => {
-        #     var result = system('python -m base64', region)->trim()
-        #     if v:shell_error == 0
-        #         setreg("", result)
-        #         normal! ""p
-        #     endif
-        # }},
-        # {text: "Decode", key: "d", close: true, cmd: () => {
-        #     var result = system('python -m base64 -d', region)->trim()
-        #     if v:shell_error == 0
-        #         setreg("", result)
-        #         normal! ""p
-        #     endif
-        # }},
+        {text: "Encode with Python", key: "E", close: true, cmd: () => {
+            var result = system('python -m base64', region)->trim()
+            if v:shell_error == 0
+                setreg("", result)
+                normal! ""p
+            endif
+        }},
+        {text: "Decode with Python", key: "D", close: true, cmd: () => {
+            var result = system('python -m base64 -d', region)->trim()
+            if v:shell_error == 0
+                setreg("", result)
+                normal! ""p
+            endif
+        }},
     ]
     var commands = [
         {text: "Text transform"},
