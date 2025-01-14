@@ -17,10 +17,6 @@ nnoremap <silent> <expr> <space>v SourceVim()
 xnoremap <silent> <expr> <space>v SourceVim()
 nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 
-# split keyboard has no Space on left part, use Enter
-map <CR> <space>
-map <CR><CR> <space><space>
-
 # fuzzy
 import autoload 'fuzzy.vim'
 nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
