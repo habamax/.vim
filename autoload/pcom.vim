@@ -117,6 +117,7 @@ export def TextTr()
     endif
     var region = getregion(getpos('v'), getpos('.'), {type: mode()})
     var base64_commands = [
+        {text: "Base64"},
         {text: "Encode", key: "e", close: true, cmd: () => {
             setreg("", base64_encode(str2blob(region->join("\n"))))
             normal! ""p
@@ -124,21 +125,7 @@ export def TextTr()
         {text: "Decode", key: "d", close: true, cmd: () => {
             setreg("", blob2str(base64_decode(region->join("\n"))))
             normal! ""p
-        }},
-        {text: "Encode with Python", key: "E", close: true, cmd: () => {
-            var result = system('python -m base64', region)->trim()
-            if v:shell_error == 0
-                setreg("", result)
-                normal! ""p
-            endif
-        }},
-        {text: "Decode with Python", key: "D", close: true, cmd: () => {
-            var result = system('python -m base64 -d', region)->trim()
-            if v:shell_error == 0
-                setreg("", result)
-                normal! ""p
-            endif
-        }},
+        }}
     ]
     var commands = [
         {text: "Text transform"},
