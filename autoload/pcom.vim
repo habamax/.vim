@@ -119,11 +119,13 @@ export def TextTr()
     var base64_commands = [
         {text: "Base64"},
         {text: "Encode", key: "e", close: true, cmd: () => {
-            setreg("", base64_encode(str2blob(region->join("\n"))))
+            setreg("", region->str2blob()->base64_encode())
             normal! ""p
         }},
         {text: "Decode", key: "d", close: true, cmd: () => {
-            setreg("", blob2str(base64_decode(region->join("\n"))))
+            # setreg("", blob2str(base64_decode(region->join('')))->join("\n"))
+            # setreg("", region->join('')->base64_decode()->blob2str()->join("\n"))
+            setreg("", region->join('')->base64_decode()->blob2str())
             normal! ""p
         }}
     ]
