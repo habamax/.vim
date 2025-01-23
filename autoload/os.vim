@@ -93,7 +93,7 @@ export def Open(url: string)
             url_x = WslToWindowsPath(url)->escape('\\')
         endif
     endif
-    if $DESKTOP_SESSION == "plasma"
+    if $DESKTOP_SESSION =~ 'plasma\(wayland\)\?'
         system(printf('%s "%s" &', cmd, url_x))
     else
         job_start(printf('%s "%s"', cmd, url_x), job_opts)
