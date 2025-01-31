@@ -82,7 +82,7 @@ augroup colors | au!
     au Colorscheme * hi link lspDiagVirtualTextWarning Changed
     au Colorscheme habamax Habamax()
     # au Colorscheme xamabah Xamabah(0)
-    au Colorscheme habamax,xamabah hi VertSplit guibg=NONE ctermfg=NONE
+    au Colorscheme habamax,xamabah,wildcharm,lunaperche hi VertSplit guibg=NONE ctermfg=NONE
 augroup END
 
 g:colors = {
