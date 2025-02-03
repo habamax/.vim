@@ -4,75 +4,25 @@ if !has('gui_running')
     set termguicolors
 endif
 
-def Habamax()
-    if !has("gui_running")
-        hi Normal guibg=NONE ctermbg=NONE
-    endif
-    if has("gui_running") || &termguicolors
-        hi DiffAdd guibg=#002f00 guifg=NONE gui=NONE cterm=NONE
-        hi DiffChange guibg=#1f2f3f guifg=NONE gui=NONE cterm=NONE
-        hi DiffDelete guibg=#3f1f00 guifg=#585858 gui=NONE cterm=NONE
-    else
-        hi DiffAdd cterm=reverse
-        hi DiffChange cterm=reverse
-        hi DiffDelete cterm=reverse
+def Diff()
+    if &background == "dark"
+        if has("gui_running") || &termguicolors
+            hi DiffAdd guibg=#002f00 guifg=NONE gui=NONE cterm=NONE
+            hi DiffChange guibg=#1f2f3f guifg=NONE gui=NONE cterm=NONE
+            hi DiffDelete guibg=#3f1f00 guifg=#585858 gui=NONE cterm=NONE
+        else
+            hi DiffAdd cterm=reverse
+            hi DiffChange cterm=reverse
+            hi DiffDelete cterm=reverse
+        endif
     endif
 enddef
 
-def Xamabah(variant: number = -1)
-    if !(has("gui_running") || &termguicolors)
+def NoBg()
+    if has("gui_running") || &background == "light"
         return
     endif
-    var colors = [
-        {
-            normal: "#d7d5d0",
-            colorLine: "#e4e2dd",
-            pmenu: "#eeece7",
-            pmenusel: "#fffdf8",
-            nontext: "#9e9c97",
-        },
-        {
-            normal: "#d7d0d7",
-            colorLine: "#e4dde4",
-            pmenu: "#eee7ee",
-            pmenusel: "#fff8ff",
-            nontext: "#9e979e",
-        },
-        {
-            normal: "#d7d0d0",
-            colorLine: "#e4dddd",
-            pmenu: "#eee7e7",
-            pmenusel: "#fff8f8",
-            nontext: "#9e9797",
-        },
-    ]
-    var idx: number = 0
-    if variant > -1 && variant < len(colors)
-        idx = variant
-    else
-        idx = rand(srand()) % (len(colors) + 1)
-    endif
-    if idx == len(colors)
-        return
-    endif
-    var c = colors[idx]
-    exe "hi Normal guibg=" .. c.normal
-    exe "hi CursorLine guibg=" .. c.colorLine
-    exe "hi CursorColumn guibg=" .. c.colorLine
-    exe "hi Pmenu guibg=" .. c.pmenu
-    exe "hi PmenuSel guibg=" .. c.pmenusel
-    exe "hi PmenuKind guibg=" .. c.pmenu
-    exe "hi PmenuKindSel guibg=" .. c.pmenusel
-    exe "hi PmenuExtra guibg=" .. c.pmenu
-    exe "hi PmenuExtraSel guibg=" .. c.pmenusel
-    exe "hi PmenuMatch guibg=" .. c.pmenu
-    exe "hi PmenuMatchSel guibg=" .. c.pmenusel
-    exe "hi Folded guibg=" .. c.colorLine
-    exe "hi ColorColumn guibg=" .. c.colorLine
-    exe "hi LineNr guifg=" .. c.nontext
-    exe "hi NonText guifg=" .. c.nontext
-    exe "hi FoldColumn guifg=" .. c.nontext
-    exe "hi SpecialKey guifg=" .. c.nontext
+    hi Normal guibg=NONE ctermbg=NONE
 enddef
 
 augroup colors | au!
@@ -80,19 +30,19 @@ augroup colors | au!
     au Colorscheme * hi link lspDiagVirtualTextError Removed
     au Colorscheme * hi link lspDiagSignWarningText Changed
     au Colorscheme * hi link lspDiagVirtualTextWarning Changed
-    au Colorscheme habamax Habamax()
-    # au Colorscheme xamabah Xamabah(0)
+    au Colorscheme habamax,wildcharm,lunaperche NoBg()
+    au Colorscheme habamax,wildcharm Diff()
     au Colorscheme habamax,xamabah,wildcharm,lunaperche hi VertSplit guibg=NONE ctermfg=NONE
 augroup END
 
-g:colors = {
-    dark: "sil! colo habamax",
-    light: "sil! colo xamabah"
-}
 # g:colors = {
-#     dark: "set bg=dark | sil! colo wildcharm",
-#     light: "set bg=light | sil! colo wildcharm",
+#     dark: "sil! colo habamax",
+#     light: "sil! colo xamabah"
 # }
+g:colors = {
+    dark: "set bg=dark | sil! colo wildcharm",
+    light: "set bg=light | sil! colo wildcharm",
+}
 # g:colors = {
 #     dark: "set bg=dark | sil! colo lunaperche",
 #     light: "set bg=light | sil! colo lunaperche",
