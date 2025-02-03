@@ -1,5 +1,7 @@
 vim9script
 
+import autoload "dist/vim9.vim"
+
 
 # Return true if vim is in WSL environment
 export def IsWsl(): bool
@@ -39,14 +41,14 @@ export def FileManager()
         if IsWsl()
             path = escape(WslToWindowsPath(path), '\')
         endif
-        fm_cmd = $"Launch explorer.exe /select, {path}"
+        fm_cmd = $"explorer.exe /select, {path}"
     elseif executable("dolphin")
-        fm_cmd = $'Launch dolphin {select} {path} &'
+        fm_cmd = $'dolphin {select} {path} &'
     elseif executable("nautilus")
-        fm_cmd = $'Launch nautilus {select} {path}'
+        fm_cmd = $'nautilus {select} {path}'
     endif
     if !empty(fm_cmd)
-        exe fm_cmd
+        vim9.Launch(fm_cmd)
     endif
 enddef
 
@@ -61,35 +63,14 @@ export def ExeTerm(cmd: string)
 enddef
 
 
-# # Open filename in an OS
-# export def Open(url: string)
-#     var url_x = url
-#     var cmd = ''
-#     if executable('cmd.exe')
-#         cmd = 'cmd.exe /C start ""'
-#     elseif executable('xdg-open')
-#         cmd = "xdg-open"
-#     elseif executable('open')
-#         cmd = "open"
-#     else
-#         echohl Error
-#         echomsg "Can't find proper opener for an URL!"
-#         echohl None
-#         return
-#     endif
-#     var job_opts = {}
-#     if exists("$WSLENV")
-#         job_opts.cwd = "/mnt/c"
-#         if filereadable(url)
-#             url_x = WslToWindowsPath(url)->escape('\\')
-#         endif
-#     endif
-#     if $DESKTOP_SESSION =~ 'plasma\(wayland\)\?'
-#         system(printf('%s "%s" &', cmd, url_x))
-#     else
-#         job_start(printf('%s "%s"', cmd, url_x), job_opts)
-#     endif
-# enddef
+# Open filename in an OS
+export def Open(url: string)
+    var url_x = url
+    if exists("$WSLENV") && filereadable(url)
+        url_x = WslToWindowsPath(url)
+    endif
+    vim9.Open(url_x)
+enddef
 
 
 # Better gx to open URLs. https://ya.ru
