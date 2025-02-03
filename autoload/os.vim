@@ -33,30 +33,21 @@ export def FileManager()
     path = substitute(path, "^dir://", "", "")
     var select = isdirectory(path) ? "" : "--select"
 
+    var fm_cmd = ""
+
     if executable("cmd.exe")
-        var job_opts = {}
         if IsWsl()
             path = escape(WslToWindowsPath(path), '\')
-            job_opts.cwd = "/mnt/c"
         endif
-        job_start('cmd.exe /c start "" explorer.exe /select,' .. path, job_opts)
+        fm_cmd = $"Launch explorer.exe /select, {path}"
     elseif executable("dolphin")
-        system($'dolphin {select} {path} &')
+        fm_cmd = $'Launch dolphin {select} {path} &'
     elseif executable("nautilus")
-        job_start($'nautilus {select} {path}')
-    else
-        echomsg "Not yet implemented!"
+        fm_cmd = $'Launch nautilus {select} {path}'
     endif
-enddef
-
-
-# Silently execute OS command
-export def Exe(cmd: string)
-    var job_opts = {}
-    if exists("$WSLENV")
-        job_opts.cwd = "/mnt/c"
+    if !empty(fm_cmd)
+        exe fm_cmd
     endif
-    job_start(cmd, job_opts)
 enddef
 
 
@@ -70,35 +61,35 @@ export def ExeTerm(cmd: string)
 enddef
 
 
-# Open filename in an OS
-export def Open(url: string)
-    var url_x = url
-    var cmd = ''
-    if executable('cmd.exe')
-        cmd = 'cmd.exe /C start ""'
-    elseif executable('xdg-open')
-        cmd = "xdg-open"
-    elseif executable('open')
-        cmd = "open"
-    else
-        echohl Error
-        echomsg "Can't find proper opener for an URL!"
-        echohl None
-        return
-    endif
-    var job_opts = {}
-    if exists("$WSLENV")
-        job_opts.cwd = "/mnt/c"
-        if filereadable(url)
-            url_x = WslToWindowsPath(url)->escape('\\')
-        endif
-    endif
-    if $DESKTOP_SESSION =~ 'plasma\(wayland\)\?'
-        system(printf('%s "%s" &', cmd, url_x))
-    else
-        job_start(printf('%s "%s"', cmd, url_x), job_opts)
-    endif
-enddef
+# # Open filename in an OS
+# export def Open(url: string)
+#     var url_x = url
+#     var cmd = ''
+#     if executable('cmd.exe')
+#         cmd = 'cmd.exe /C start ""'
+#     elseif executable('xdg-open')
+#         cmd = "xdg-open"
+#     elseif executable('open')
+#         cmd = "open"
+#     else
+#         echohl Error
+#         echomsg "Can't find proper opener for an URL!"
+#         echohl None
+#         return
+#     endif
+#     var job_opts = {}
+#     if exists("$WSLENV")
+#         job_opts.cwd = "/mnt/c"
+#         if filereadable(url)
+#             url_x = WslToWindowsPath(url)->escape('\\')
+#         endif
+#     endif
+#     if $DESKTOP_SESSION =~ 'plasma\(wayland\)\?'
+#         system(printf('%s "%s" &', cmd, url_x))
+#     else
+#         job_start(printf('%s "%s"', cmd, url_x), job_opts)
+#     endif
+# enddef
 
 
 # Better gx to open URLs. https://ya.ru
@@ -153,5 +144,5 @@ export def Gx()
         return
     endif
 
-    Open(escape(URL, '#%!'))
+    exe $"Open {escape(URL, '#%!')}"
 enddef

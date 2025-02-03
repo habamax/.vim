@@ -122,5 +122,5 @@ export def GithubOpen(firstline: number = line("."), lastline: number = line("."
     endif
     remote_url = remote_url->substitute('.git$', '', '')
     var github_url = $'{remote_url}/blob/{branch}/{filename}#L{firstline}-L{lastline}'
-    os.Open(github_url)
+    exe $"Open {github_url}"
 enddef

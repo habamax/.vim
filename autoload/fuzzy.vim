@@ -206,7 +206,7 @@ export def File(path: string = "")
         if (key == "\<bs>" || key == "\<c-h>") && isdirectory(fnamemodify(res.path, ':p:h:h'))
             File($"{fnamemodify(res.path, ':p:h:h')}")
         elseif key == "\<C-o>"
-            os.Open($"{res.path}{sep}{res.name}")
+            exe $"Open {res.path}{sep}{res.name}"
         elseif isdirectory($"{res.path}{sep}{res.name}")
             File($"{res.path}{res.path[-1] == sep ? '' : sep}{res.name}")
         elseif key == "\<C-j>"
@@ -259,7 +259,7 @@ export def FileTree(path: string = "")
             elseif key == "\<c-v>"
                 exe $":vert split {res.text->substitute('#', '\\&', 'g')}"
             elseif key == "\<C-o>"
-                os.Open($"{res.text}")
+                exe $"Open {res.text}"
             else
                 exe $":e {res.text->substitute('#', '\\&', 'g')}"
             endif

@@ -169,8 +169,8 @@ def Rst2Pdf()
 enddef
 command -buffer Rst2Pdf Rst2Pdf()
 
-command -buffer RstViewHtml :call os.Open(expand("%:p:r") .. '.html')
-command -buffer RstViewPdf :call os.Open(expand("%:p:r") .. '.pdf')
+command -buffer RstViewHtml :exe $'Open {expand("%:p:r")}.html'
+command -buffer RstViewPdf :exe $'Open {expand("%:p:r")}.pdf'
 
 def HlCheckmark()
     exe 'syn match rstCheckDone /\%(' .. &l:formatlistpat .. '\)\@<=✓/ containedin=TOP'
