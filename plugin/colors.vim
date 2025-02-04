@@ -25,24 +25,36 @@ def NoBg()
     hi Normal guibg=NONE ctermbg=NONE
 enddef
 
+def LspDiag()
+    hi link lspDiagSignErrorText Removed
+    hi link lspDiagVirtualTextError Removed
+    hi link lspDiagSignWarningText Changed
+    hi link lspDiagVirtualTextWarning Changed
+enddef
+
+def Vsplit()
+    hi VertSplit guibg=NONE ctermfg=NONE
+enddef
+
 augroup colors | au!
-    au Colorscheme * hi link lspDiagSignErrorText Removed
-    au Colorscheme * hi link lspDiagVirtualTextError Removed
-    au Colorscheme * hi link lspDiagSignWarningText Changed
-    au Colorscheme * hi link lspDiagVirtualTextWarning Changed
-    au Colorscheme habamax,wildcharm,lunaperche NoBg()
+    au Colorscheme * LspDiag()
+    au Colorscheme habamax,wildcharm,lunaperche,nod* NoBg()
     au Colorscheme habamax,wildcharm Diff()
-    au Colorscheme habamax,xamabah,wildcharm,lunaperche hi VertSplit guibg=NONE ctermfg=NONE
+    au Colorscheme habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
 augroup END
 
+g:colors = {
+    dark: "sil! colo nod-d",
+    light: "sil! colo nope-y"
+}
 # g:colors = {
 #     dark: "sil! colo habamax",
 #     light: "sil! colo xamabah"
 # }
-g:colors = {
-    dark: "set bg=dark | sil! colo wildcharm",
-    light: "set bg=light | sil! colo wildcharm",
-}
+# g:colors = {
+#     dark: "set bg=dark | sil! colo wildcharm",
+#     light: "set bg=light | sil! colo wildcharm",
+# }
 # g:colors = {
 #     dark: "set bg=dark | sil! colo lunaperche",
 #     light: "set bg=light | sil! colo lunaperche",
