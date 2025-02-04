@@ -47,18 +47,22 @@ g:colors = {
     dark: "sil! colo nod-d",
     light: "sil! colo nope-y"
 }
+
 # g:colors = {
 #     dark: "sil! colo habamax",
 #     light: "sil! colo xamabah"
 # }
+
 # g:colors = {
 #     dark: "set bg=dark | sil! colo wildcharm",
 #     light: "set bg=light | sil! colo wildcharm",
 # }
+
 # g:colors = {
 #     dark: "set bg=dark | sil! colo lunaperche",
 #     light: "set bg=light | sil! colo lunaperche",
 # }
+
 if has("win32") && has("gui_running")
     exe g:colors.light
 else
