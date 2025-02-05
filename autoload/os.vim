@@ -73,7 +73,7 @@ export def Open(url: string)
 enddef
 
 
-# Better gx to open URLs. https://ya.ru
+# Better gx to open URLs.
 # nnoremap <silent> gx :call os#Gx()<CR>
 export def Gx()
     # URL regexes
