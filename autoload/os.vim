@@ -125,5 +125,5 @@ export def Gx()
         return
     endif
 
-    exe $"Open {escape(URL, '#%!')}"
+    vim9.Open(URL)
 enddef
