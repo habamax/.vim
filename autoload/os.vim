@@ -83,9 +83,10 @@ export def Gx()
 
     var URL = ""
 
-    # markdown URL [link text](http://ya.ru 'yandex search')
     var save_view = winsaveview()
     defer winrestview(save_view)
+
+    # markdown URL [link text](http://ya.ru 'yandex search')
     if searchpair('\[.\{-}\](', '', ')\zs', 'cbW', '', line('.')) > 0
         URL = matchstr(getline('.')[col('.') - 1 : ], '\[.\{-}\](\zs' .. rx_embd .. '\ze\(\s\+.\{-}\)\?)')
     endif
