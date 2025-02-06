@@ -44,7 +44,7 @@ augroup colors | au!
 augroup END
 
 g:colors = {
-    dark: "sil! colo nod-d",
+    dark: "sil! colo nod-b",
     light: "sil! colo nope"
 }
 
