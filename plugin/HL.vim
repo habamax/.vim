@@ -1,7 +1,8 @@
 vim9script
 
 # better H/L
-def MapL()
+
+def L()
     var line = line('.')
     normal! L
     if line == line('$')
@@ -10,7 +11,8 @@ def MapL()
         normal! zt
     endif
 enddef
-def MapH()
+
+def H()
     var line = line('.')
     normal! H
     if line == line('.')
@@ -18,5 +20,5 @@ def MapH()
     endif
 enddef
 
-noremap L <ScriptCmd>MapL()<CR>
-noremap H <ScriptCmd>MapH()<CR>
+noremap L <ScriptCmd>L()<CR>
+noremap H <ScriptCmd>H()<CR>
