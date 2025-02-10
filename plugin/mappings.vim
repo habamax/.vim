@@ -144,27 +144,6 @@ import autoload 'zoom.vim'
 nnoremap <C-w><C-o> <scriptcmd>zoom.Toggle()<CR>
 nmap <C-w>o <C-w><C-o>
 
-# better H/L
-def MapL()
-    var line = line('.')
-    normal! L
-    if line == line('$')
-        normal! zb
-    elseif line == line('.')
-        normal! zt
-    endif
-enddef
-def MapH()
-    var line = line('.')
-    normal! H
-    if line == line('.')
-        normal! zb
-    endif
-enddef
-
-noremap L <ScriptCmd>MapL()<CR>
-noremap H <ScriptCmd>MapH()<CR>
-
 import autoload 'text.vim'
 
 # simple text objects
