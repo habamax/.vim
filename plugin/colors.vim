@@ -39,7 +39,7 @@ enddef
 augroup colors | au!
     au Colorscheme * LspDiag()
     au Colorscheme habamax,wildcharm,lunaperche,nod* NoBg()
-    au Colorscheme habamax,wildcharm Diff()
+    au Colorscheme wildcharm Diff()
     au Colorscheme habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
 augroup END
 
