@@ -91,32 +91,11 @@ __ https://github.com/habamax/.vim/blob/9c134346affce6e5166fcaac39c58ef3960ca563
 Colors
 ======
 
-- wildcharm: vibrant and playful colorscheme, at least one popular AI thinks it is.
-  *bundled with vim9*
-- lunaperche: dual background, this should be really the last one (100%);
-  *bundled with vim9*
-- habamax_: dark background, this should be really the last one (not really);
-  *bundled with vim9*
-- habaurora_: light background, grayish;
-- bronzage_: dark background, was thinking of zenburn while creating it;
-- sugarlily_: white background, blue accents;
-- saturnite_: dark background, variation of the awesome Apprentice_;
-- freyeday_: light background, to complement ``saturnite``;
-- alchemist_: dark background, variation of the awesome Apprentice_;
-- psionic_: light background;
-- gruvbit_: simplified variant of ``gruvbox_hard``;
-- polar_: white background variation of base16-one-light;
-- habanight_: black background variation of base16-default-dark colorscheme.
+- habamax_: dark colorscheme, *bundled with vim9*;
+- wildcharm: dark/light colorscheme, quite colorful and contrast, *bundled with vim9*;
+- lunaperche: dark/light colorscheme, bluish comments, bold statements, *bundled with vim9*;
+- ... many more ...
+- nod_: dark/light colorscheme, this should be the last one.
 
 .. _habamax: https://github.com/habamax/vim-habamax
-.. _habaurora: https://github.com/habamax/vim-habaurora
-.. _bronzage: https://github.com/habamax/vim-bronzage
-.. _sugarlily: https://github.com/habamax/vim-sugarlily
-.. _saturnite: https://github.com/habamax/vim-saturnite
-.. _freyeday: https://github.com/habamax/vim-freyeday
-.. _alchemist: https://github.com/habamax/vim-alchemist
-.. _psionic: https://github.com/habamax/vim-psionic
-.. _gruvbit: https://github.com/habamax/vim-gruvbit
-.. _polar: https://github.com/habamax/vim-polar
-.. _habanight: https://github.com/habamax/vim-habanight
-.. _Apprentice: https://github.com/romainl/Apprentice
+.. _nod: https://github.com/habamax/vim-nod
