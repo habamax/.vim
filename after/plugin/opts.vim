@@ -46,13 +46,31 @@ if exists("g:loaded_dir")
             setreg("+", urls->join("\n"))
             echom urls->join("\n")
         }},
-        {text: 'Check vim screen dump', Action: (items) => {
+        {text: 'Optimize PDF', Action: (items) => {
             if len(items) > 1
                 return
             endif
-            # TODO: check for path, name and extension: failed/Test_.*\.dump
-            term_dumpdiff(items[0].name, $"../dumps/{items[0].name}")
-        }}
+            var input = items[0].name
+            if fnamemodify(input, ":e") != "pdf"
+                echom "Should only work for PDF file!"
+                return
+            endif
+            var output = fnamemodify(input, ":r") .. "_opt.pdf"
+            var gs_cmd = 'gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile="%s" "%s"'
+            system(printf(gs_cmd, output, input))
+            if v:shell_error
+                echom $"Couldn't optimize {input}"
+            else
+                :Dir
+            endif
+        }},
+        # {text: 'Check vim screen dump', Action: (items) => {
+        #     if len(items) > 1
+        #         return
+        #     endif
+        #     # TODO: check for path, name and extension: failed/Test_.*\.dump
+        #     term_dumpdiff(items[0].name, $"../dumps/{items[0].name}")
+        # }},
     ]
 endif
 
