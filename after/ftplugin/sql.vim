@@ -4,6 +4,4 @@ if executable('sql-formatter')
     command -buffer Fmt :%!sql-formatter
 endif
 
-let &l:commentstring = "-- %s"
-
 iab ssf select * from
