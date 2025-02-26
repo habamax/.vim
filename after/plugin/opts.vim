@@ -46,6 +46,24 @@ if exists("g:loaded_dir")
             setreg("+", urls->join("\n"))
             echom urls->join("\n")
         }},
+        {text: 'Convert to gif', Action: (items) => {
+            if len(items) > 1
+                return
+            endif
+            var input = items[0].name
+            if fnamemodify(input, ":e") != "mkv"
+                echom "Should only work for MKV file!"
+                return
+            endif
+            var output = fnamemodify(input, ":r") .. ".gif"
+            var gs_cmd = 'ffmpeg -i "%s" -vf "split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" "%s"'
+            term_start(printf(gs_cmd, input, output), {term_finish: "close"})
+            # if v:shell_error
+            #     echom $"Couldn't convert {input}"
+            # else
+            #     :Dir
+            # endif
+        }},
         {text: 'Optimize PDF', Action: (items) => {
             if len(items) > 1
                 return
