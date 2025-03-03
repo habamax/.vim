@@ -37,31 +37,31 @@ Some of the examples:
 Fuzzy file/buffer/MRU
 """""""""""""""""""""
 
-.. image:: https://user-images.githubusercontent.com/234774/186641098-d1f0f4ca-3396-4c8f-82ac-8de06f61cf0c.gif
+.. image:: https://github.com/user-attachments/assets/9dc3d15a-4097-42c7-824a-e3b37dbdc1c6
 
 
 Fuzzy project file finder
 """""""""""""""""""""""""
 
-.. image:: https://user-images.githubusercontent.com/234774/186641084-9f9b4086-ea7b-4ee5-9ac8-32091e0412d5.gif
+.. image:: https://github.com/user-attachments/assets/470d741c-3ee4-4daf-a007-de9bb8c55c64
 
 
 Fuzzy help
 """"""""""
 
-.. image:: https://user-images.githubusercontent.com/234774/186641608-6cc2f280-deef-48cb-8e72-dc423ca31daa.gif
+.. image:: https://github.com/user-attachments/assets/9e0b718c-4645-4877-8ae8-c5e883b94e1c
 
 
 Fuzzy TOC for TeX/Markdown/ReStructuredText
 """""""""""""""""""""""""""""""""""""""""""
 
-.. image:: https://user-images.githubusercontent.com/234774/186641087-ba2d0d5e-b057-4e69-a062-acdaa44fc29f.gif
+.. image:: https://github.com/user-attachments/assets/36339dc3-efcc-4597-a46e-e8499163a6d3
 
 
 Fuzzy highlight finder
 """"""""""""""""""""""
 
-.. image:: https://user-images.githubusercontent.com/234774/186641079-4d4e41b1-ff9e-4a1f-b785-1554801fe244.gif
+.. image:: https://github.com/user-attachments/assets/2b3daece-9016-430f-b033-08d8c5751cc2
 
 
 
