@@ -14,7 +14,7 @@ augroup general | au!
     # create non-existent directory before buffer save
     au BufWritePre *
           \ if !isdirectory(expand("%:p:h"))
-          |    call mkdir(expand("%:p:h"), "p")
+          |    mkdir(expand("%:p:h"), "p")
           | endif
 
     # save last session on exit if there is a buffer with name
