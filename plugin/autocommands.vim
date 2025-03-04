@@ -17,5 +17,8 @@ augroup general | au!
           |    call mkdir(expand("%:p:h"), "p")
           | endif
 
-    au VimLeavePre * :exe $'mksession! {$MYVIMDIR}/.data/sessions/LAST'
+    au VimLeavePre *
+          \ if reduce(getbufinfo({'buflisted': 1}), (a, v) => a || !empty(v.name), false)
+          |    :exe $'mksession! {$MYVIMDIR}/.data/sessions/LAST'
+          | endif
 augroup end
