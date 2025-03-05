@@ -136,3 +136,13 @@ if exists("g:loaded_lsp")
         }])
     endif
 endif
+
+if exists("g:loaded_vimcomplete")
+    g:VimCompleteInfoWindowOptionsSet({
+        drag: false,
+        close: 'none',
+        resize: false,
+        border: [1, 1, 1, 1],
+        borderchars: g:popup_borderchars,
+    })
+endif
