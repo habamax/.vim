@@ -23,3 +23,4 @@ bundle/opt/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
 bundle/start/vim-closetag	git@github.com:alvan/vim-closetag.git
 bundle/start/vim-colortemplate	git@github.com:lifepillar/vim-colortemplate.git
 bundle/start/lsp	git@github.com:yegappan/lsp.git
+bundle/start/vimcomplete	git@github.com:girishji/vimcomplete.git
