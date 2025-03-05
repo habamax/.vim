@@ -14,9 +14,9 @@
 
 % fonts
 \usepackage{fontspec}
-\setmainfont{Fira Sans}
+\setmainfont{Noto Sans}
 \setsansfont{Noto Serif}
-\setmonofont[Scale=MatchLowercase]{Fira Mono}
+\setmonofont[Scale=MatchLowercase]{Iosevka Habamax}
 
 % setup sections
 \usepackage{titlesec}
@@ -79,4 +79,3 @@
 \importantbox{An important thing}
 
 \end{document}
-
