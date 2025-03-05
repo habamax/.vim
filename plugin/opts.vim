@@ -15,8 +15,7 @@ g:popup_prompt = '🔍 '
 packadd comment
 packadd nohlsearch
 packadd matchit
-packadd! cfilter
-packadd! editorconfig
+packadd editorconfig
 
 # Git
 if executable("git")
