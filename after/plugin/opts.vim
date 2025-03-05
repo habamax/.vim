@@ -142,7 +142,6 @@ if exists("g:loaded_vimcomplete")
         drag: false,
         close: 'none',
         resize: false,
-        border: [1, 1, 1, 1],
         borderchars: g:popup_borderchars,
     })
 endif
