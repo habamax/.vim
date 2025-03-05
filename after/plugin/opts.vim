@@ -161,3 +161,7 @@ if exists("g:loaded_sandwich")
     xmap S <Plug>(sandwich-add)
 endif
 
+if exists("g:loaded_vim_ii")
+    # vim-ii
+    g:ii_filter_rx = ['-!-.*has joined', '-!-.*has left']
+endif
