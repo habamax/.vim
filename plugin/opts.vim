@@ -1,5 +1,5 @@
 vim9script
-# Check after/plugin/opts.vim for settings that depends on plugin existence
+# Check after/plugin/ifloaded.vim for settings that depends on plugin existence
 # Plugin settings
 
 # turn off netrw
