@@ -102,3 +102,8 @@ endif
 g:tex_flavor = "latex"
 g:tex_no_error = 1
 g:tex_fast = "pbv"
+
+# vim-sandwich, no default mappings
+g:sandwich_no_default_key_mappings = 1
+g:operator_sandwich_no_default_key_mappings = 1
+g:textobj_sandwich_no_default_key_mappings = 1
