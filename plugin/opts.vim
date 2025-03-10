@@ -9,8 +9,8 @@ g:loaded_netrwPlugin = 1
 # popup
 g:popup_borderchars = ['─', '│', '─', '│', '╭', '╮', '╯', '╰']
 g:popup_borderchars_t = ['─', '│', '─', '│', '├', '┤', '╯', '╰']
-g:popup_prompt = '🔍 '
-# g:popup_prompt = '🔎 '
+# g:popup_prompt = '🔍 '
+g:popup_prompt = '🔎 '
 
 packadd comment
 packadd nohlsearch
