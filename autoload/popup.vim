@@ -23,7 +23,7 @@ var popup_number          = get(g:, "popup_number", false)
 #     ]
 #     popup.Commands(commands)
 # enddef
-export def Commands(commands: list<dict<any>>): number
+export def Commands(commands: list<dict<any>>, pos_botright: bool = true): number
     if empty(commands)
         return -1
     endif
@@ -46,8 +46,8 @@ export def Commands(commands: list<dict<any>>): number
     })
     var winid = popup_create(commands, {
         pos: 'botright',
-        col: &columns,
-        line: &lines,
+        col: pos_botright ? &columns : 'cursor',
+        line: pos_botright ? &lines : 'cursor-1',
         padding: [0, 1, 0, 1],
         border: [1, 1, 1, 1],
         mapping: 0,

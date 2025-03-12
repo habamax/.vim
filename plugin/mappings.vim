@@ -39,18 +39,18 @@ nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 nnoremap <space>w <scriptcmd>fuzzy.CurrentWord()<CR>
 nnoremap <space>i <scriptcmd>fuzzy.Template()<CR>
 
-import autoload 'pcom.vim'
+import autoload 'popcom.vim'
 # calc visually selected math expression
 # base64 encode/decode
-xnoremap <space>t <scriptcmd>pcom.TextTr()<cr>
-nnoremap <space>t <scriptcmd>pcom.TextTr()<cr>
+xnoremap <space>t <scriptcmd>popcom.TextTr()<cr>
+nnoremap <space>t <scriptcmd>popcom.TextTr()<cr>
 # quickfix&locations
-nnoremap <space>q <scriptcmd>pcom.Qf()<CR>
+nnoremap <space>q <scriptcmd>popcom.Qf()<CR>
 # horizontal scroll
-nnoremap zl <scriptcmd>pcom.HScroll($'normal! {v:count1}zl')<CR>
-nnoremap zh <scriptcmd>pcom.HScroll($'normal! {v:count1}zh')<CR>
-nnoremap zs <scriptcmd>pcom.HScroll('normal! zs')<CR>
-nnoremap ze <scriptcmd>pcom.HScroll('normal! ze')<CR>
+nnoremap zl <scriptcmd>popcom.HScroll($'normal! {v:count1}zl')<CR>
+nnoremap zh <scriptcmd>popcom.HScroll($'normal! {v:count1}zh')<CR>
+nnoremap zs <scriptcmd>popcom.HScroll('normal! zs')<CR>
+nnoremap ze <scriptcmd>popcom.HScroll('normal! ze')<CR>
 
 # enhance search with <space> as "whatever"
 # to enter literal <space> use <C-v><space>

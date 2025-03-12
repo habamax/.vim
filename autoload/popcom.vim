@@ -32,8 +32,8 @@ import autoload 'text.vim'
 
 # Navigate quickfix/location lists.
 # Usage:
-# import autoload 'pcom.vim'
-# nnoremap <space>q <scriptcmd>pcom.Qf()<CR>
+# import autoload 'popcom.vim'
+# nnoremap <space>q <scriptcmd>popcom.Qf()<CR>
 export def Qf()
     var commands = []
     if len(getqflist()) > 0
@@ -59,11 +59,11 @@ enddef
 
 # horiontal scroll
 # Usage:
-# import autoload 'pcom.vim'
-# nnoremap zl <scriptcmd>pcom.HScroll($'normal! {v:count1}zl')<CR>
-# nnoremap zh <scriptcmd>pcom.HScroll($'normal! {v:count1}zh')<CR>
-# nnoremap zs <scriptcmd>pcom.HScroll($'normal! zs')<CR>
-# nnoremap ze <scriptcmd>pcom.HScroll($'normal! ze')<CR>
+# import autoload 'popcom.vim'
+# nnoremap zl <scriptcmd>popcom.HScroll($'normal! {v:count1}zl')<CR>
+# nnoremap zh <scriptcmd>popcom.HScroll($'normal! {v:count1}zh')<CR>
+# nnoremap zs <scriptcmd>popcom.HScroll($'normal! zs')<CR>
+# nnoremap ze <scriptcmd>popcom.HScroll($'normal! ze')<CR>
 export def HScroll(initial: string)
     exe initial
     var commands = [
@@ -80,16 +80,16 @@ enddef
 
 # Navigate windows
 # Usage:
-# import autoload 'pcom.vim'
-# nnoremap gt <scriptcmd>pcom.Windows("gt")<cr>
-# nnoremap gT <scriptcmd>pcom.Windows("gT")<cr>
-# nnoremap <C-w>h <scriptcmd>pcom.Windows("h")<cr>
+# import autoload 'popcom.vim'
+# nnoremap gt <scriptcmd>popcom.Windows("gt")<cr>
+# nnoremap gT <scriptcmd>popcom.Windows("gT")<cr>
+# nnoremap <C-w>h <scriptcmd>popcom.Windows("h")<cr>
 # nmap <C-w><C-h> <C-w>h
-# nnoremap <C-w>j <scriptcmd>pcom.Windows("j")<cr>
+# nnoremap <C-w>j <scriptcmd>popcom.Windows("j")<cr>
 # nmap <C-w><C-j> <C-w>j
-# nnoremap <C-w>k <scriptcmd>pcom.Windows("k")<cr>
+# nnoremap <C-w>k <scriptcmd>popcom.Windows("k")<cr>
 # nmap <C-w><C-k> <C-w>k
-# nnoremap <C-w>l <scriptcmd>pcom.Windows("l")<cr>
+# nnoremap <C-w>l <scriptcmd>popcom.Windows("l")<cr>
 # nmap <C-w><C-l> <C-w>l
 export def Windows(initial: string)
     exe "wincmd" initial
@@ -108,9 +108,9 @@ enddef
 
 # Various text transformations
 # Usage:
-# import autoload 'pcom.vim'
-# xnoremap <space>t <scriptcmd>pcom.TextTr()<cr>
-# nnoremap <space>t <scriptcmd>pcom.TextTr()<cr>
+# import autoload 'popcom.vim'
+# xnoremap <space>t <scriptcmd>popcom.TextTr()<cr>
+# nnoremap <space>t <scriptcmd>popcom.TextTr()<cr>
 export def TextTr()
     if mode() == 'n'
         normal! g_v^
@@ -135,7 +135,7 @@ export def TextTr()
             exe "normal!" mode()
         }},
         {text: "Base64", key: "b", close: true, cmd: () => {
-            popup.Commands(base64_commands)
+            popup.Commands(base64_commands, false)
         }},
         {text: "Calc", key: "c", close: true, cmd: () => {
             var result = system($'python -c "from math import *; print({region->join(" ")})"')->trim()
@@ -145,5 +145,5 @@ export def TextTr()
             endif
         }},
     ]
-    popup.Commands(commands)
+    popup.Commands(commands, false)
 enddef
