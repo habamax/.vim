@@ -3,7 +3,6 @@ vim9script
 import autoload 'popup.vim'
 import autoload 'os.vim'
 import autoload 'unicode.vim'
-import '../plugin/mru.vim'
 
 const MAX_ELEMENTS: number = 40000
 
@@ -77,7 +76,13 @@ export def Oldfiles()
 enddef
 
 export def MRU()
-    popup.Select("MRU", mru.MRU(),
+    var mru = []
+
+    if filereadable($'{$MYVIMDIR}/.data/mru')
+        mru = readfile($'{$MYVIMDIR}/.data/mru')
+            ->filter((_, v) => filereadable(v))
+    endif
+    popup.Select("MRU", mru,
         (res, key) => {
             if key == "\<c-t>"
                 exe $":tabe {res.text->substitute('#', '\\&', 'g')}"
