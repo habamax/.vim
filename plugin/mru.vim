@@ -1,9 +1,10 @@
 vim9script
 
 const mru_file = $'{$MYVIMDIR}/.data/mru'
+const mru_max_count = 300
 
 def Add()
-    if !empty(&buftype) || ['gitcommit']->index(&filetype) > -1
+    if !empty(&buftype) || empty(bufname()) || ['gitcommit']->index(&filetype) > -1
         return
     endif
 
@@ -27,7 +28,7 @@ def Add()
         mru->remove(idx)
     endif
     mru->insert(buf, 0)
-    writefile(mru[ : 300], mru_file)
+    writefile(mru[ : mru_max_count], mru_file)
 enddef
 
 augroup MRU
