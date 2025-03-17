@@ -2,9 +2,14 @@ vim9script
 
 const mru_file = $'{$MYVIMDIR}/.data/mru'
 const mru_max_count = 300
+const mru_ft_avoid = ['gitcommit']
 
 def Add()
-    if !empty(&buftype) || empty(bufname()) || ['gitcommit']->index(&filetype) > -1
+    if !empty(&buftype) || empty(bufname())
+        return
+    endif
+
+    if mru_ft_avoid->index(&filetype) > -1
         return
     endif
 
