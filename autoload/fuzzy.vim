@@ -3,6 +3,7 @@ vim9script
 import autoload 'popup.vim'
 import autoload 'os.vim'
 import autoload 'unicode.vim'
+import '../plugin/mru.vim'
 
 const MAX_ELEMENTS: number = 40000
 
@@ -49,15 +50,34 @@ export def Buffer(ext: bool = false)
         })
 enddef
 
-export def MRU()
-    var mru = []
-    mru = v:oldfiles->filter((_, v) =>
+export def Oldfiles()
+    var oldfiles = []
+    oldfiles = v:oldfiles->filter((_, v) =>
         filereadable(fnamemodify(v, ":p")) &&
         v !~ '\~\\AppData\\Local\\Temp\\.*\.tmp' &&
         v !~ '.*\.\?\(vim\|vimfiles\)[/\\]pack[/\\].*doc[/\\].*\.txt' &&
         fnamemodify(v, ":p") !~ escape($VIMRUNTIME, '\')  .. '.*[/\\]doc[/\\].*\.txt'
     )
-    popup.Select("MRU", mru,
+    popup.Select("Old files", oldfiles,
+        (res, key) => {
+            if key == "\<c-t>"
+                exe $":tabe {res.text->substitute('#', '\\&', 'g')}"
+            elseif key == "\<c-j>"
+                exe $":split {res.text->substitute('#', '\\&', 'g')}"
+            elseif key == "\<c-v>"
+                exe $":vert split {res.text->substitute('#', '\\&', 'g')}"
+            else
+                exe $":e {res.text->substitute('#', '\\&', 'g')}"
+            endif
+        },
+        (winid) => {
+            win_execute(winid, "syn match PopupSelectPath '^.*[\\/]'")
+            hi def link PopupSelectPath Comment
+        })
+enddef
+
+export def MRU()
+    popup.Select("MRU", mru.MRU(),
         (res, key) => {
             if key == "\<c-t>"
                 exe $":tabe {res.text->substitute('#', '\\&', 'g')}"
