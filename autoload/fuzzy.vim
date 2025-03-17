@@ -82,6 +82,9 @@ export def MRU()
         mru = readfile($'{$MYVIMDIR}/.data/mru')
             ->filter((_, v) => filereadable(expand(v)))
     endif
+    if mru->len() > 0 && expand(mru[0]) == expand("%:p")
+        mru = mru[1 : ]
+    endif
     popup.Select("MRU", mru,
         (res, key) => {
             if key == "\<c-t>"
