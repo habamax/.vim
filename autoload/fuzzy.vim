@@ -80,7 +80,7 @@ export def MRU()
 
     if filereadable($'{$MYVIMDIR}/.data/mru')
         mru = readfile($'{$MYVIMDIR}/.data/mru')
-            ->filter((_, v) => filereadable(v))
+            ->filter((_, v) => filereadable(expand(v)))
     endif
     popup.Select("MRU", mru,
         (res, key) => {
