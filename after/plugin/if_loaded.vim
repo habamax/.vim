@@ -142,6 +142,7 @@ if exists("g:loaded_vimcomplete")
         buffer: { enable: true, priority: 10, urlComplete: false, envComplete: true },
         abbrev: { enable: true, priority: 10 },
         vimscript: { enable: true, priority: 11 },
+        tag: { enable: true, priority: 11 },
     })
     g:VimCompleteInfoWindowOptionsSet({
         drag: false,
