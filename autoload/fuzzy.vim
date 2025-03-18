@@ -220,7 +220,7 @@ export def File(path: string = "")
         opath = getcwd()
     endif
     var files = readdirex(opath, (d) => d.type =~ '\%(dir\|linkd\)$')->map((_, v) => {
-                return {text: $"{v.name}{sep}", name: v.name, path: opath}
+                return {text: $"{sep}{v.name}", name: v.name, path: opath}
             }) + readdirex(opath, (d) => d.type =~ '\%(file\|link\)$')->map((_, v) => {
                 return {text: v.name, name: v.name, path: opath}
             })
@@ -247,7 +247,7 @@ export def File(path: string = "")
             exe $"confirm e {escpath}{sep}{escname}"
         endif
         }, (winid) => {
-            win_execute(winid, $"syn match PopupSelectDirectory '^.*{sep->escape('\\')}'")
+            win_execute(winid, $"syn match PopupSelectDirectory '^{sep->escape('\\')}.*'")
             hi def link PopupSelectDirectory Directory
         }, true)
 enddef
