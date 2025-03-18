@@ -9,6 +9,8 @@ def RunOdin()
     win_gotoid(b:shout_initial_winid)
 enddef
 
+nnoremap <buffer> <F4> <scriptcmd>Shut<CR>
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F4>"'
 nnoremap <buffer> <F5> <scriptcmd>RunOdin()<CR>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 

@@ -15,6 +15,8 @@ def Make()
     endif
 enddef
 
+nnoremap <buffer> <F4> <scriptcmd>Shut<CR>
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F4>"'
 nnoremap <buffer><F5> <scriptcmd>Make()<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 

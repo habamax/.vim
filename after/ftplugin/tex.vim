@@ -109,6 +109,8 @@ enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
 
 
+nnoremap <buffer> <F4> <scriptcmd>Shut<CR>
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F4>"'
 nnoremap <buffer> <F5> <scriptcmd>exe "Sh latexmk -pvc" expand("%:p")<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 nnoremap <buffer> <F6> <scriptcmd>exe "Sh latexmk " expand("%:p")<cr>

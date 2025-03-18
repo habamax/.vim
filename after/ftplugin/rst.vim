@@ -130,6 +130,8 @@ nnoremap <buffer> <space><space>ch <scriptcmd>Rst2Html<CR>
 nnoremap <buffer> <F5> <scriptcmd>exe "Sh" &makeprg<cr>
       \<scriptcmd>wincmd p<cr>
 
+nnoremap <buffer> <F4> <scriptcmd>Shut<CR>
+
 def Rst2Html(locale: string = "")
     if !empty(locale)
         b:rst2html_opts = g:rst2html_opts .. " --language=" .. locale

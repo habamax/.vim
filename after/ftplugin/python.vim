@@ -23,6 +23,8 @@ def RunPython()
     win_gotoid(b:shout_initial_winid)
 enddef
 
+nnoremap <buffer> <F4> <scriptcmd>Shut<CR>
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F4>"'
 nnoremap <buffer> <F5> <scriptcmd>RunPython()<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 

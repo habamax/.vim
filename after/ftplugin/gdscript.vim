@@ -65,12 +65,14 @@ enddef
 nnoremap <buffer> <space><space>f <scriptcmd>RunSceneFile()<CR>
 nnoremap <buffer> <space><space>r <scriptcmd>RunScene()<CR>
 nnoremap <buffer> <space><space>c <scriptcmd>RunCurrent()<CR>
+nnoremap <buffer> <F4> <scriptcmd>Shut<CR>
 nnoremap <buffer> <F5> <scriptcmd>RunScene()<CR>
 nnoremap <buffer> <F6> <scriptcmd>RunCurrent()<CR>
 nnoremap <buffer> <F7> <scriptcmd>RunLast()<CR>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space><space>f"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space><space>r"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space><space>c"'
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F4>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F6>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F7>"'
