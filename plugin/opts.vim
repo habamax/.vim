@@ -12,8 +12,12 @@ g:popup_borderchars_t = ['─', '│', '─', '│', '├', '┤', '╯', '╰']
 # g:popup_prompt = '🔍 '
 # g:popup_prompt = '🔎 '
 
+g:hlyank_hlgroup = "Pmenu"
+g:hlyank_duration = 250
+
 packadd comment
 packadd nohlsearch
+packadd hlyank
 packadd matchit
 packadd editorconfig
 
