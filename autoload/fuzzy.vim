@@ -78,8 +78,8 @@ enddef
 export def MRU()
     var mru = []
 
-    if filereadable($'{$MYVIMDIR}/.data/mru')
-        mru = readfile($'{$MYVIMDIR}/.data/mru')
+    if filereadable($'{$MYVIMDIR}.data/mru')
+        mru = readfile($'{$MYVIMDIR}.data/mru')
             ->filter((_, v) => filereadable(expand(v)))
     endif
     if mru->len() > 0 && expand(mru[0]) == expand("%:p")
@@ -143,7 +143,7 @@ export def Colorscheme()
 enddef
 
 export def Template()
-    var path = $"{$MYVIMDIR}/templates/"
+    var path = $"{$MYVIMDIR}templates/"
     var ft = getbufvar(bufnr(), '&filetype')
     var ft_path = path .. ft
     var tmpls = []
@@ -171,7 +171,7 @@ export def Template()
 enddef
 
 export def Session()
-    var sessions = glob($'{$MYVIMDIR}/.data/sessions/*', 1, 1)->map((_, v) => fnamemodify(v, ":t"))
+    var sessions = glob($'{$MYVIMDIR}.data/sessions/*', 1, 1)->map((_, v) => fnamemodify(v, ":t"))
     var idx = sessions->index('LAST')
     if idx > -1 && idx != 0
         sessions->remove(idx)
@@ -179,14 +179,14 @@ export def Session()
     endif
     popup.Select("Session", sessions,
         (res, key) => {
-            exe $':%%bd | source {$MYVIMDIR}/.data/sessions/{res.text}'
+            exe $':%%bd | source {$MYVIMDIR}.data/sessions/{res.text}'
         })
 enddef
 
 export def Bookmark()
     var bookmarks = []
-    if filereadable($'{$MYVIMDIR}/.data/bookmarks.json')
-        bookmarks = readfile($'{$MYVIMDIR}/.data/bookmarks.json')
+    if filereadable($'{$MYVIMDIR}.data/bookmarks.json')
+        bookmarks = readfile($'{$MYVIMDIR}.data/bookmarks.json')
             ->join()
             ->json_decode()
             ->items()
@@ -295,7 +295,7 @@ export def FileTree(path: string = "")
             else
                 exe $":e {res.text->substitute('#', '\\&', 'g')}"
             endif
-            var projects_file = $'{$MYVIMDIR}/.data/projects.json'
+            var projects_file = $'{$MYVIMDIR}.data/projects.json'
             var projects = []
             try
                 if !filereadable(projects_file)
@@ -398,7 +398,7 @@ enddef
 
 export def Project()
     var projects = []
-    var projects_file = $'{$MYVIMDIR}/.data/projects.json'
+    var projects_file = $'{$MYVIMDIR}.data/projects.json'
     if filereadable(projects_file)
         try
             projects = readfile(projects_file)

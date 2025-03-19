@@ -81,11 +81,11 @@ command! ColoQF    tabnew | ru colors/tools/sample_quickfix.vim
 command! ColoTerm  tabnew | ru colors/tools/sample_terminal.vim
 command! ColoWin   tabnew | ru colors/tools/sample_windows.vim
 command! ColoPopu  tabnew |
-      \ exe "lcd " .. $MYVIMDIR .. "/pack/bundle/start/colorschemes" |
+      \ exe "lcd " .. $MYVIMDIR .. "pack/bundle/start/colorschemes" |
       \ ru colors/tools/sample_popupmenu.vim
 command! ColoPopuKind  tabnew |
-      \ exe "lcd " .. $MYVIMDIR .. "/pack/bundle/start/colorschemes" |
+      \ exe "lcd " .. $MYVIMDIR .. "pack/bundle/start/colorschemes" |
       \ ru colors/tools/sample_popupmenu_kind.vim
 command! ColoSpell tabnew |
-      \ exe "lcd " .. $MYVIMDIR .. "/pack/bundle/start/colorschemes" |
+      \ exe "lcd " .. $MYVIMDIR .. "pack/bundle/start/colorschemes" |
       \ ru colors/tools/sample_spell.vim

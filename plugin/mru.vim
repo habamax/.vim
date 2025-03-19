@@ -1,6 +1,6 @@
 vim9script
 
-const mru_file = $'{$MYVIMDIR}/.data/mru'
+const mru_file = $'{$MYVIMDIR}.data/mru'
 const mru_max_count = 300
 const mru_ft_avoid = ['gitcommit']
 

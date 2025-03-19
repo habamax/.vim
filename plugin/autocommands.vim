@@ -20,6 +20,6 @@ augroup general | au!
     # save last session on exit if there is a buffer with name
     au VimLeavePre *
           \ if reduce(getbufinfo({'buflisted': 1}), (a, v) => a || !empty(v.name), false)
-          |    :exe $'mksession! {$MYVIMDIR}/.data/sessions/LAST'
+          |    :exe $'mksession! {$MYVIMDIR}.data/sessions/LAST'
           | endif
 augroup end

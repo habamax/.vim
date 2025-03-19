@@ -14,7 +14,7 @@ export def PackUpdate()
     pack_jobs = []
     echow "Update plugins..."
     var cwd = $MYVIMDIR
-    var pack_list = $'{cwd}/pack/packs'
+    var pack_list = $'{cwd}pack/packs'
     var jobs = []
     var msg_count = 2
     def OutCb(ch: channel, msg: string)
