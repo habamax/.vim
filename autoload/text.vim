@@ -202,45 +202,53 @@ enddef
 export def ObjComment(inner: bool)
     def IsComment(): bool
         var stx = map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')->join()
-        if stx =~ 'Comment'
+        if stx =~? 'Comment'
             return true
         else
             return false
         endif
     enddef
 
+    # requires syntax support
+    if !exists("g:syntax_on")
+      return
+    endif
+
     var pos_init = getcurpos()
 
     # If not in comment, search next one,
     if !IsComment()
-        if search('\S\+', 'W', line(".") + 100, 100, () => !IsComment()) <= 0
+        if search('\v\S+', 'W', line(".") + 100, 100, () => !IsComment()) <= 0
             return
         endif
     endif
 
     # Search for the beginning of the comment block
     if IsComment()
-        if search('\v(\S+)|$', 'bW', 0, 200, IsComment) > 0
-            search('\v(\S+)|$', 'W', 0, 200, () => !IsComment())
+        if search('\v%(\S+)|^', 'bW', 0, 200, IsComment) > 0
+            search('\v%(\S)|$', 'W', 0, 200, () => !IsComment())
         else
             cursor(1, 1)
-            search('\S\+', 'cW', 0, 200)
+            search('\v\S+', 'cW', 0, 200)
         endif
     endif
 
     var pos_start = getcurpos()
 
     if !inner
-        if search('\s*', 'bW', line('.'), 200) > 0
-            pos_start = getcurpos()
-        endif
+        var col = pos_start[2]
+        var prefix = getline(pos_start[1])[ : col - 2]
+        while col > 0 && prefix[col - 2] =~ '\s'
+            col -= 1
+        endwhile
+        pos_start[2] = col
     endif
 
     # Search for the comment end.
     if pos_init[1] > pos_start[1]
         cursor(pos_init[1], pos_init[2])
     endif
-    if search('\v(\S+)|$', 'W', 0, 200, IsComment) > 0
+    if search('\v%(\S+)|$', 'W', 0, 200, IsComment) > 0
         search('\S', 'beW', 0, 200, () => !IsComment())
     else
         if search('\%$', 'W', 0, 200) > 0
