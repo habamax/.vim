@@ -27,6 +27,7 @@ set nospell spelllang=en,ru
 set diffopt+=vertical,algorithm:histogram,indent-heuristic,linematch:50
 set sessionoptions=buffers,curdir,tabpages,winsize
 set viminfo='200,<500,s32
+set mouse=a
 
 if executable('rg')
     set grepprg=rg\ -H\ --no-heading\ --vimgrep
