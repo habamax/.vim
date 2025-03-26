@@ -24,7 +24,7 @@ set fileformat=unix fileformats=unix,dos
 set sidescroll=1 sidescrolloff=3
 set nrformats=bin,hex,unsigned
 set nospell spelllang=en,ru
-set diffopt+=vertical,algorithm:histogram,indent-heuristic,linematch:50
+set diffopt+=algorithm:histogram,indent-heuristic,inline:char,linematch:50
 set sessionoptions=buffers,curdir,tabpages,winsize
 set viminfo='200,<500,s32
 set mouse=a
