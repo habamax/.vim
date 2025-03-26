@@ -4,10 +4,11 @@ var popup_borderchars     = get(g:, "popup_borderchars", ['─', '│', '─', '
 var popup_borderchars_t   = get(g:, "popup_borderchars_t", ['─', '│', '─', '│', '├', '┤', '┘', '└'])
 var popup_borderhighlight = get(g:, "popup_borderhighlight", ['Normal'])
 var popup_highlight       = get(g:, "popup_highlight", 'Normal')
+var popup_match_highlight = get(g:, "popup_match_highlight", "Constant")
+var popup_key_highlight   = get(g:, "popup_key_highlight", "Constant")
 var popup_cursor          = get(g:, "popup_cursor", '▏')
 var popup_prompt          = get(g:, "popup_prompt", '> ')
 var popup_number          = get(g:, "popup_number", false)
-
 
 # Helper popup to create command popup windows.
 # Usage:
@@ -29,7 +30,7 @@ export def Commands(commands: list<dict<any>>, pos_botright: bool = true): numbe
     endif
 
     if empty(prop_type_get('PopupCommandKey'))
-        hi def link PopupCommandKey Constant
+        exe $"hi def link PopupCommandKey {popup_key_highlight}"
         prop_type_add('PopupCommandKey', {highlight: "PopupCommandKey", override: true, priority: 1000, combine: true})
     endif
     if empty(prop_type_get('PopupCommandKeyTitle'))
@@ -169,7 +170,7 @@ enddef
 #         })
 export def Select(title: string, items: list<any>, Callback: func(any, string), Setup: func(number) = null_function, close_on_bs: bool = false)
     if empty(prop_type_get('PopupSelectMatch'))
-        hi def link PopupSelectMatch Constant
+        exe $"hi def link PopupSelectMatch {popup_match_highlight}"
         prop_type_add('PopupSelectMatch', {highlight: "PopupSelectMatch", override: true, priority: 1000, combine: true})
     endif
     var prompt_text = ""
