@@ -272,9 +272,9 @@ export def FileTree(path: string = "")
     var files = []
 
     if executable('fd')
-        files = systemlist('fd --path-separator / --type f --hidden --follow --exclude .git ' .. opath)
+        files = systemlist('fd . --path-separator / --type f --hidden --follow --exclude .git ' .. opath)
     elseif executable('fdfind')
-        files = systemlist('fdfind --path-separator / --type f --hidden --follow --exclude .git ' .. opath)
+        files = systemlist('fdfind . --path-separator / --type f --hidden --follow --exclude .git ' .. opath)
     elseif executable('ugrep')
         files = systemlist('ugrep "" -Rl -I --ignore-files ' .. opath)
     elseif executable('rg')
