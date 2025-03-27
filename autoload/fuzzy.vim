@@ -279,6 +279,8 @@ export def FileTree(path: string = "")
         files = systemlist('ugrep "" -Rl -I --ignore-files ' .. opath)
     elseif executable('rg')
         files = systemlist('rg --path-separator / --files --hidden --glob !.git ' .. opath)
+    elseif executable('find')
+        files = systemlist('find ' .. opath .. ' -type f -not -iwholename "*.git*" -printf "%P\n"')
     else
         files = Tree(opath)
     endif
