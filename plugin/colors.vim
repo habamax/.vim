@@ -18,13 +18,6 @@ def Diff()
     endif
 enddef
 
-def NoBg()
-    if has("gui_running") || &background == "light"
-        return
-    endif
-    hi Normal guibg=NONE ctermbg=NONE
-enddef
-
 def LspDiag()
     hi link lspDiagSignErrorText Removed
     hi link lspDiagVirtualTextError Removed
@@ -38,7 +31,6 @@ enddef
 
 augroup colors | au!
     au Colorscheme * LspDiag()
-    au Colorscheme habamax,wildcharm,lunaperche,nod* NoBg()
     au Colorscheme wildcharm Diff()
     au Colorscheme habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
 augroup END
