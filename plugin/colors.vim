@@ -5,16 +5,20 @@ if !has('gui_running')
 endif
 
 def Diff()
-    if &background == "dark"
-        if has("gui_running") || &termguicolors
+    if has("gui_running") || &termguicolors
+        if &background == "dark"
             hi DiffAdd guibg=#002f00 guifg=NONE gui=NONE cterm=NONE
             hi DiffChange guibg=#1f2f3f guifg=NONE gui=NONE cterm=NONE
             hi DiffDelete guibg=#3f1f00 guifg=#585858 gui=NONE cterm=NONE
         else
-            hi DiffAdd cterm=reverse
-            hi DiffChange cterm=reverse
-            hi DiffDelete cterm=reverse
+            hi DiffAdd guibg=#dafada guifg=NONE cterm=NONE
+            hi DiffChange guibg=#daeafa guifg=NONE cterm=NONE
+            hi DiffDelete guibg=#fadada guifg=NONE cterm=NONE
         endif
+    else
+        hi DiffAdd cterm=reverse
+        hi DiffChange cterm=reverse
+        hi DiffDelete cterm=reverse
     endif
 enddef
 
