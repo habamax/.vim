@@ -6,7 +6,7 @@ def SourceVim(...args: list<any>): string
         &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
         return 'g@'
     endif
-    if getline(1) =~ '^vim9script$'
+    if getline(nextnonblank(1) ?? 1) =~ '^\s*vim9script\s*$'
         vim9cmd :'[,']source
     else
         :'[,']source
