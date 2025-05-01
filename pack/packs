@@ -15,12 +15,12 @@ habamax/start/vim-ii	git@github.com:habamax/vim-ii.git
 bundle/start/traces.vim	git@github.com:markonm/traces.vim.git
 bundle/opt/vim-fugitive	git@github.com:tpope/vim-fugitive.git
 bundle/start/vim-sandwich	git@github.com:machakann/vim-sandwich
-bundle/start/vim-swap	git@github.com:machakann/vim-swap.git
-bundle/start/vim-lion	git@github.com:tommcdo/vim-lion.git
 bundle/opt/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
 
 # Nice to have
+bundle/start/vim-swap	git@github.com:machakann/vim-swap.git
+bundle/start/vim-lion	git@github.com:tommcdo/vim-lion.git
 bundle/start/vim-closetag	git@github.com:alvan/vim-closetag.git
-bundle/start/vim-colortemplate	git@github.com:lifepillar/vim-colortemplate.git
 bundle/start/lsp	git@github.com:yegappan/lsp.git
 bundle/start/vimcomplete	git@github.com:girishji/vimcomplete.git
+bundle/start/vim-colortemplate	git@github.com:lifepillar/vim-colortemplate.git
