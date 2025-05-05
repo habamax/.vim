@@ -2,11 +2,10 @@ filetype plugin indent on
 syntax on
 
 set hidden confirm
-set autoindent shiftwidth=4 softtabstop=-1 expandtab
 set ttimeout ttimeoutlen=25
-set ruler
+set autoindent shiftwidth=4 softtabstop=-1 expandtab
 set belloff=all shortmess+=Ic
-set display=lastline smoothscroll
+set ruler display=lastline smoothscroll
 set hlsearch incsearch ignorecase smartcase
 set wildmenu wildoptions=pum,fuzzy pumheight=20
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
