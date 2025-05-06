@@ -199,7 +199,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         var max_visible_posttext_len = 0
         var max_visible_text_len = 0
         var i = 0
-        while i < maxheight && i < itemsAny[0]->len()
+        while i < maxheight * 3 && i < itemsAny[0]->len()
             if max_visible_text_len < len(itemsAny[0][i].text)
                 max_visible_text_len = len(itemsAny[0][i].text)
             endif
@@ -213,6 +213,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
             endif
             i += 1
         endwhile
+
         if max_visible_text_len + max_visible_pretext_len + max_visible_posttext_len >= maxwidth
             max_visible_text_len = maxwidth - max_visible_pretext_len - max_visible_posttext_len
         endif
@@ -260,18 +261,14 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
     def AlignPopups(pwinid: number, winid: number)
         var width = popup_getpos(winid).core_width + (scrollbar_before_update - popup_getpos(winid).scrollbar)
         popup_move(winid, {
-            minwidth: width,
-            maxwidth: width
+            minwidth: width
         })
 
         width = popup_getpos(winid).core_width + popup_getpos(winid).scrollbar
         var padding = (popup_number ? 0 : 1)
         popup_move(pwinid, {
-            minwidth: width + padding,
-            maxwidth: width + padding
+            minwidth: width + padding
         })
-
-        maxwidth = width - padding
     enddef
 
     def UpdatePopups(pwinid: number, winid: number)
