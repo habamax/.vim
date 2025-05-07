@@ -7,7 +7,6 @@ xnoremap <space>y "+y
 
 if $XDG_SESSION_TYPE == 'wayland' || (!empty($GVIM_ENABLE_WAYLAND) && has("gui_running"))
     def WLYank(event: dict<any>)
-        echom "here"
         if event.regname == '+'
             system('wl-copy', getreg(event.regname))
         endif
