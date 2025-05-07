@@ -267,7 +267,8 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         width = popup_getpos(winid).core_width + popup_getpos(winid).scrollbar
         var padding = (popup_number ? 0 : 1)
         popup_move(pwinid, {
-            minwidth: width + padding
+            minwidth: width + padding,
+            maxwidth: width + padding
         })
     enddef
 
