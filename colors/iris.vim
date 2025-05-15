@@ -1,7 +1,7 @@
 " Name: iris colorscheme
 " Description:
-" Wouldn't it be fun to have beautiful blue colorscheme with default dark syntax
-" highlighting? Handcrafted for now to test the idea.
+" Wouldn't it be fun to have beautiful blue colorscheme with almost default dark
+" syntax highlighting? Handcrafted for now to test the idea.
 "
 " - Bluish (#02468a) background for GUI and termguicolors.
 " - Bluish chrome
@@ -47,6 +47,7 @@ hi PmenuThumb guifg=NONE guibg=#87d7ff gui=NONE cterm=NONE
 hi SpecialKey guifg=#87afd7 gui=NONE cterm=NONE
 hi Directory gui=bold cterm=bold
 hi Title guifg=NONE ctermfg=NONE gui=bold cterm=bold
+hi Comment guifg=#62a6ca
 hi Identifier gui=NONE cterm=NONE
 hi Underlined guifg=NONE ctermfg=NONE
 hi Statement gui=NONE
