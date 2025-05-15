@@ -22,7 +22,9 @@ hi StatusLine guifg=#000087 guibg=#afd7ff gui=NONE cterm=NONE
 hi StatusLineNC guifg=#000087 guibg=#5f87af gui=NONE cterm=NONE
 hi Folded guifg=#5f87af guibg=#02367a gui=NONE cterm=NONE
 
+hi ErrorMsg guifg=#ffffff guibg=#d75faf gui=NONE cterm=NONE
 hi WarningMsg guifg=#d787d7 guibg=NONE gui=NONE cterm=NONE
+hi MoreMsg guifg=#87d787 guibg=NONE gui=NONE cterm=NONE
 
 hi ColorColumn guibg=#013579
 hi Conceal guifg=#5f87af guibg=#013579
