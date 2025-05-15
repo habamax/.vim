@@ -50,6 +50,8 @@ hi Underlined guifg=NONE ctermfg=NONE
 hi Statement gui=NONE
 hi Type gui=NONE
 
+hi Removed guifg=#ff5f87
+
 hi! link NonText LineNr
 hi! link SignColumn LineNr
 hi! link FoldColumn LineNr
