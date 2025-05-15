@@ -5,20 +5,27 @@ let g:colors_name = 'iris'
 
 hi Normal guifg=#ffffff guibg=#02468a gui=NONE cterm=NONE
 hi CursorLine guifg=NONE guibg=#005faf gui=NONE cterm=NONE
-hi LineNr guifg=#909090 guibg=NONE gui=NONE cterm=NONE
+hi LineNr guifg=#5f87af guibg=NONE gui=NONE cterm=NONE
 hi CursorLineNr guifg=#ffffff guibg=NONE gui=bold cterm=bold
-hi NonText guifg=#585858 guibg=NONE gui=NONE cterm=NONE
-hi EndOfBuffer guifg=#585858 guibg=NONE gui=NONE cterm=NONE
-hi Visual guifg=#ffffff guibg=#008787 gui=NONE cterm=NONE
-hi VertSplit guifg=#ffffff guibg=NONE gui=NONE cterm=NONE
+hi Visual guifg=#02367a guibg=#2087d7 gui=NONE cterm=NONE
+hi VertSplit guifg=#5f87af guibg=NONE gui=NONE cterm=NONE
 hi StatusLine guifg=#000087 guibg=#afd7ff gui=NONE cterm=NONE
 hi StatusLineNC guifg=#000087 guibg=#5f87af gui=NONE cterm=NONE
+hi Folded guifg=#5f87af guibg=#02367a gui=NONE cterm=NONE
 
-hi Pmenu guifg=#ffffff guibg=#008787 gui=NONE cterm=NONE
-hi PmenuSel guifg=#008787 guibg=#ffffff gui=NONE cterm=NONE
-hi PmenuMatch guifg=#ffd700 guibg=#008787 gui=NONE cterm=NONE
-hi PmenuMatchSel guifg=#ff7f50 guibg=#ffffff gui=NONE cterm=NONE
+hi WarningMsg guifg=#d787d7 guibg=NONE gui=NONE cterm=NONE
 
+hi ColorColumn guibg=#013579
+hi Conceal guifg=#5f87af guibg=#013579
+hi EndOfBuffer guifg=#5f87af ctermfg=NONE
+
+hi Pmenu guifg=#ffffff guibg=#2266aa gui=NONE cterm=NONE
+hi PmenuSel guifg=NONE guibg=#3296da gui=NONE cterm=NONE
+hi PmenuSbar guifg=NONE guibg=#5f87af gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
+hi PmenuThumb guifg=NONE guibg=#87d7ff gui=NONE cterm=NONE
+
+" hi PmenuMatch guifg=#ffd700 guibg=#008787 gui=NONE cterm=NONE
+" hi PmenuMatchSel guifg=#ff7f50 guibg=#ffffff gui=NONE cterm=NONE
 " hi PmenuKind guifg=#5f8787 guibg=#008787 gui=NONE cterm=NONE
 " hi PmenuKindSel guifg=#5f8787 guibg=#ffffff gui=NONE cterm=NONE
 " hi PmenuExtra guifg=#767676 guibg=#008787 gui=NONE cterm=NONE
@@ -26,15 +33,18 @@ hi PmenuMatchSel guifg=#ff7f50 guibg=#ffffff gui=NONE cterm=NONE
 " hi PmenuMatch guifg=#ffaf5f guibg=#008787 gui=NONE cterm=NONE
 " hi PmenuMatchSel guifg=#ffaf5f guibg=#ffffff gui=NONE cterm=NONE
 
-hi WarningMsg guifg=#d787d7 guibg=NONE gui=NONE cterm=NONE
-
+hi SpecialKey guifg=#87afd7 gui=NONE cterm=NONE
 hi Directory gui=bold cterm=bold
 hi Title guifg=NONE ctermfg=NONE gui=bold cterm=bold
 hi Identifier gui=NONE cterm=NONE
 hi Underlined guifg=NONE ctermfg=NONE
+hi Statement gui=NONE
+hi Type gui=NONE
 
-hi EndOfBuffer guifg=#5f87af ctermfg=NONE
-
+hi! link NonText LineNr
+hi! link SignColumn LineNr
+hi! link FoldColumn LineNr
+hi! link CursorColumn CursorLine
 hi! link Terminal Normal
 hi! link TabLine StatusLineNC
 hi! link TabLineFill StatusLineNC
