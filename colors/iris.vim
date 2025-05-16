@@ -20,6 +20,8 @@ hi Visual guifg=#02367a guibg=#2087d7 gui=NONE cterm=NONE
 hi VertSplit guifg=#5f87af guibg=NONE gui=NONE cterm=NONE
 hi StatusLine guifg=#000087 guibg=#afd7ff gui=NONE cterm=NONE
 hi StatusLineNC guifg=#000087 guibg=#5f87af gui=NONE cterm=NONE
+hi ToolbarButton guifg=#ffffff guibg=#0087af gui=NONE cterm=NONE
+hi ToolbarLine guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi Folded guifg=#5f87af guibg=#02367a gui=NONE cterm=NONE
 
 hi ErrorMsg guifg=#ffffff guibg=#d75faf gui=NONE cterm=NONE
