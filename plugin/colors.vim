@@ -68,12 +68,13 @@ g:colors = {
 # }
 
 if has("win32") && has("gui_running")
-    exe g:colors.light
+    # exe g:colors.light
+    colorscheme iris
 else
     exe g:colors.dark
 endif
 
-# finish
+finish
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoCheck ru colors/tools/check_colors.vim
