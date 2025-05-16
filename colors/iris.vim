@@ -30,7 +30,7 @@ hi ColorColumn guibg=#013579
 hi Conceal guifg=#5f87af guibg=#013579
 hi EndOfBuffer guifg=#5f87af ctermfg=NONE
 
-hi Pmenu guifg=#ffffff guibg=#2266aa gui=NONE cterm=NONE
+hi Pmenu guifg=NONE guibg=#2266aa gui=NONE cterm=NONE
 hi PmenuSel guifg=NONE guibg=#3296da gui=NONE cterm=NONE
 hi PmenuSbar guifg=NONE guibg=#5f87af gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi PmenuThumb guifg=NONE guibg=#87d7ff gui=NONE cterm=NONE
