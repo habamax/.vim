@@ -24,6 +24,8 @@ hi ToolbarButton guifg=#ffffff guibg=#0087af gui=NONE cterm=NONE
 hi ToolbarLine guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi Folded guifg=#5f87af guibg=#02367a gui=NONE cterm=NONE
 
+hi Todo guifg=NONE guibg=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold
+
 hi ErrorMsg guifg=#ffffff guibg=#d75faf gui=NONE cterm=NONE
 hi WarningMsg guifg=#d787d7 guibg=NONE gui=NONE cterm=NONE
 hi MoreMsg guifg=#87d787 guibg=NONE gui=NONE cterm=NONE
