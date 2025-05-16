@@ -1,5 +1,5 @@
-" Name: iris colorscheme
-" Description:
+" nostalgie colorscheme
+"
 " Wouldn't it be fun to have beautiful blue colorscheme with almost default dark
 " syntax highlighting? Handcrafted for now to test the idea.
 "
@@ -10,7 +10,7 @@
 set background=dark
 
 hi clear
-let g:colors_name = 'iris'
+let g:colors_name = 'nostalgie'
 
 hi Normal guifg=#ffffff guibg=#02468a gui=NONE cterm=NONE
 hi CursorLine guifg=NONE guibg=#005faf gui=NONE cterm=NONE

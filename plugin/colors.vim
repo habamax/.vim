@@ -69,7 +69,7 @@ g:colors = {
 
 if has("win32") && has("gui_running")
     # exe g:colors.light
-    colorscheme iris
+    colorscheme nostalgie
 else
     exe g:colors.dark
 endif
