@@ -12,7 +12,6 @@ set background=dark
 hi clear
 let g:colors_name = 'nostalgie'
 
-" hi Normal guifg=#ffffff guibg=#02468a gui=NONE cterm=NONE
 hi Normal guifg=#eeeeee guibg=#02468a gui=NONE cterm=NONE
 hi CursorLine guifg=NONE guibg=#005faf gui=NONE cterm=NONE
 hi LineNr guifg=#5f87af guibg=NONE gui=NONE cterm=NONE
