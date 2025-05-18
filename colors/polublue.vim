@@ -1,4 +1,4 @@
-" nostalgie colorscheme
+" polublue colorscheme
 "
 " Wouldn't it be fun to have beautiful blue colorscheme with almost default dark
 " syntax highlighting? Handcrafted for now to test the idea.
@@ -6,11 +6,16 @@
 " - Bluish (#02468a) background for GUI and termguicolors.
 " - Bluish chrome
 " - Default dark vim syntax without bold for Statement and Type.
+"
+" TODO:
+" - Diff
+" - Spell
+" - PmenuMatch/Kind/Extra
 
 set background=dark
 
 hi clear
-let g:colors_name = 'nostalgie'
+let g:colors_name = 'polublue'
 
 hi Normal guifg=#eeeeee guibg=#02468a gui=NONE cterm=NONE
 hi CursorLine guifg=NONE guibg=#005faf gui=NONE cterm=NONE
