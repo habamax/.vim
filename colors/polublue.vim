@@ -21,7 +21,7 @@ hi Normal guifg=#eeeeee guibg=#02468a gui=NONE cterm=NONE
 hi CursorLine guifg=NONE guibg=#005faf gui=NONE cterm=NONE
 hi LineNr guifg=#5f87af guibg=NONE gui=NONE cterm=NONE
 hi CursorLineNr guifg=#ffffff guibg=NONE gui=bold cterm=bold
-hi Visual guifg=#02367a guibg=#2087d7 gui=NONE cterm=NONE
+hi Visual guifg=#02367a guibg=#5fafd7 gui=NONE cterm=NONE
 hi VertSplit guifg=#5f87af guibg=NONE gui=NONE cterm=NONE
 hi StatusLine guifg=#000087 guibg=#afd7ff gui=NONE cterm=NONE
 hi StatusLineNC guifg=#000087 guibg=#5f87af gui=NONE cterm=NONE
