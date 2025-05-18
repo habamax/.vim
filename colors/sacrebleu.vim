@@ -11,6 +11,7 @@
 " - Diff
 " - Spell
 " - PmenuMatch/Kind/Extra
+" - use colortemplate
 
 set background=dark
 
