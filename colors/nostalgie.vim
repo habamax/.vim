@@ -48,7 +48,7 @@ hi PmenuThumb guifg=NONE guibg=#87d7ff gui=NONE cterm=NONE
 " hi PmenuMatch guifg=#ffaf5f guibg=#008787 gui=NONE cterm=NONE
 " hi PmenuMatchSel guifg=#ffaf5f guibg=#ffffff gui=NONE cterm=NONE
 
-hi SpecialKey guifg=#87afd7 gui=NONE cterm=NONE
+hi SpecialKey guifg=#5f87af gui=NONE cterm=NONE
 hi Directory gui=bold cterm=bold
 hi Title guifg=NONE ctermfg=NONE gui=bold cterm=bold
 hi Comment guifg=#62a6ca
