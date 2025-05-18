@@ -1,4 +1,4 @@
-" polublue colorscheme
+" bonsoir colorscheme
 "
 " Wouldn't it be fun to have beautiful blue colorscheme with almost default dark
 " syntax highlighting? Handcrafted for now to test the idea.
@@ -15,7 +15,7 @@
 set background=dark
 
 hi clear
-let g:colors_name = 'polublue'
+let g:colors_name = 'bonsoir'
 
 hi Normal guifg=#eeeeee guibg=#02468a gui=NONE cterm=NONE
 hi CursorLine guifg=NONE guibg=#005faf gui=NONE cterm=NONE
