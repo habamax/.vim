@@ -15,7 +15,7 @@ set completeopt=menu,popup,fuzzy completepopup=highlight:Pmenu
 set number relativenumber cursorline cursorlineopt=number signcolumn=number
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak nojoinspaces
 set list listchars=tab:›\ ,nbsp:␣,trail:·,extends:…,precedes:… showbreak=↪
-set fillchars=fold:\ ,vert:│
+set fillchars=fold:\ ,vert:│,tpl_vert:│
 set virtualedit=block
 set backspace=indent,eol,start
 set nostartofline
