@@ -1,3 +1,5 @@
+vim9script
+
 filetype plugin indent on
 syntax on
 
@@ -26,12 +28,12 @@ set sessionoptions=buffers,curdir,tabpages,winsize
 set viminfo='200,<500,s32
 set mouse=a
 
-let &directory = $'{$MYVIMDIR}.data/swap/'
-let &backupdir = $'{$MYVIMDIR}.data/backup//'
-let &undodir = $'{$MYVIMDIR}.data/undo//'
-if !isdirectory(&undodir)   | call mkdir(&undodir, "p")   | endif
-if !isdirectory(&backupdir) | call mkdir(&backupdir, "p") | endif
-if !isdirectory(&directory) | call mkdir(&directory, "p") | endif
+&directory = $'{$MYVIMDIR}.data/swap/'
+&backupdir = $'{$MYVIMDIR}.data/backup//'
+&undodir = $'{$MYVIMDIR}.data/undo//'
+if !isdirectory(&undodir)   | mkdir(&undodir, "p")   | endif
+if !isdirectory(&backupdir) | mkdir(&backupdir, "p") | endif
+if !isdirectory(&directory) | mkdir(&directory, "p") | endif
 
 set backup
 set undofile
