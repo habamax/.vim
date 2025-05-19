@@ -1,11 +1,12 @@
 " sacrebleu colorscheme
 "
 " Wouldn't it be fun to have beautiful blue colorscheme with almost default dark
-" syntax highlighting? Handcrafted for now to test the idea.
+" syntax highlighting? It would, sort of.
 "
-" - Bluish (#02468a) background for GUI and termguicolors.
-" - Bluish chrome
-" - Default dark vim syntax without bold for Statement and Type.
+" Handcrafted for now to test the idea.
+"
+" - Bluish (#02468a) background and chrome UI for GUI and termguicolors.
+" - Vim's default dark-background syntax without sans bold for Statement and Type.
 "
 " TODO:
 " - Diff
