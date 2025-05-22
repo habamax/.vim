@@ -1,6 +1,6 @@
 vim9script
 
-set completepopup=highlight:Pmenu
+set completepopup=highlight:Normal
 set completeopt=menuone,popup,noselect,fuzzy,nearest
 set infercase
 set complete=.,w^10,b^10,u^10,t^10
