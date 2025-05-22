@@ -12,6 +12,7 @@
 " - Diff
 " - Spell
 " - use colortemplate
+" - fallback to "better default" with non-gui
 
 set background=dark
 
