@@ -1,6 +1,7 @@
 vim9script
 
-set completeopt=menuone,popup,noselect,fuzzy completepopup=highlight:Pmenu
+set completepopup=highlight:Pmenu
+set completeopt=menuone,popup,noselect,fuzzy,nearest
 set infercase
 
 set complete+=fAbbrevCompletor
@@ -14,7 +15,14 @@ def LspSetup()
         if findstart == 1
             return g:LspOmniFunc(findstart, base)
         endif
-        return {words: g:LspOmniFunc(findstart, base)->slice(0, maxitems), refresh: 'always'}
+
+        var data = g:LspOmniFunc(findstart, base)
+        var words = []
+        if type(data) == v:t_list
+             words = data->slice(0, maxitems)
+        endif
+
+        return {words: words, refresh: 'always'}
     enddef
 
     set complete+=ffunction("g:LspCompletor"\\,[10])

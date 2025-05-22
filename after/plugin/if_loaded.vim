@@ -102,15 +102,16 @@ if exists("g:loaded_shout")
 endif
 
 if exists("g:loaded_lsp")
-    # g:LspOptionsSet({
-    #     useBufferCompletion: true,
-    #     completionMatcher: 'fuzzy',
-    #     completionTextEdit: false,
-    #     showInlayHints: true,
-    #     showDiagOnStatusLine: false,
-    #     showDiagWithVirtualText: false,
-    #     autoPopulateDiags: true,
-    # })
+    g:LspOptionsSet({
+        useBufferCompletion: true,
+        completionMatcher: 'fuzzy',
+        completionTextEdit: false,
+        showInlayHints: true,
+        showDiagOnStatusLine: false,
+        showDiagWithVirtualText: false,
+        autoPopulateDiags: true,
+        popupBorder: true,
+    })
     if executable('clangd')
         g:LspAddServer([{
             name: 'clangd',
