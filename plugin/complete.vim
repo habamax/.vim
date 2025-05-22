@@ -3,7 +3,7 @@ vim9script
 set completepopup=highlight:Pmenu
 set completeopt=menuone,popup,noselect,fuzzy,nearest
 set infercase
-
+set complete=.,w^10,b^10,u^10,t^10
 set complete+=fAbbrevCompletor
 
 def LspSetup()
@@ -15,14 +15,8 @@ def LspSetup()
         if findstart == 1
             return g:LspOmniFunc(findstart, base)
         endif
-
         var data = g:LspOmniFunc(findstart, base)
-        var words = []
-        if type(data) == v:t_list
-             words = data->slice(0, maxitems)
-        endif
-
-        return {words: words, refresh: 'always'}
+        return data->empty() ? v:none : {words: data->slice(0, maxitems), refresh: 'always'}
     enddef
 
     set complete+=ffunction("g:LspCompletor"\\,[10])
@@ -45,7 +39,7 @@ def! g:AbbrevCompletor(findstart: number, base: string): any
     for line in lines->split("\n")
         var m = line->matchlist('\v^i\s+\zs(\S+)\s+(.*)$')
         if m->len() > 2 && m[1]->stridx(base) == 0
-            items->add({ word: m[1], info: m[2], dup: 1 })
+            items->add({ word: m[1], kind: "abbr", info: m[2], dup: 1 })
         endif
     endfor
     return items->empty() ? v:none :
@@ -54,12 +48,12 @@ enddef
 
 def InsComplete()
     if getcharstr(1) == '' && getline('.')->strpart(0, col('.') - 1) =~ '\k$'
-        SkipTextChangedIEvent()
+        SkipTextChangedI()
         feedkeys("\<c-n>", "n")
     endif
 enddef
 
-def SkipTextChangedIEvent(): string
+def SkipTextChangedI(): string
     # Suppress next event caused by <c-e> (or <c-n> when no matches found)
     set eventignore+=TextChangedI
     timer_start(1, (_) => {
@@ -74,6 +68,7 @@ augroup autocomplete
     autocmd TextChangedI * InsComplete()
 augroup END
 
-inoremap <silent> <c-e> <c-r>=<SID>SkipTextChangedIEvent()<cr><c-e>
+inoremap <silent> <c-e> <c-r>=<SID>SkipTextChangedI()<cr><c-e>
+inoremap <silent> <c-y> <c-r>=<SID>SkipTextChangedI()<cr><c-y>
 inoremap <silent><expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <silent><expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
