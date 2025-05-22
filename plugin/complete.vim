@@ -21,8 +21,6 @@ if exists("g:loaded_lsp")
         endif
         items = items->slice(0, maxitems)
         return items
-        # var data = g:LspOmniFunc(findstart, base)
-        # return data->empty() ? v:none : {words: data->slice(0, maxitems), refresh: 'always'}
     enddef
 
     set complete+=ffunction("g:LspCompletor"\\,[10])
