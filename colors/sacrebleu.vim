@@ -41,15 +41,15 @@ hi Conceal guifg=#5f87af guibg=#013579
 hi EndOfBuffer guifg=#5f87af ctermfg=NONE
 
 hi Pmenu guifg=NONE guibg=#2266aa gui=NONE cterm=NONE
-hi PmenuSel guifg=NONE guibg=#3276ba gui=NONE cterm=NONE
+hi PmenuSel guifg=NONE guibg=#3478bc gui=NONE cterm=NONE
 hi PmenuSbar guifg=NONE guibg=#5f87af gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi PmenuThumb guifg=NONE guibg=#87d7ff gui=NONE cterm=NONE
-hi PmenuMatch guifg=#ffd75f guibg=#2266aa gui=NONE cterm=NONE
-hi PmenuMatchSel guifg=#ffd700 guibg=#3276ba gui=NONE cterm=NONE
+hi PmenuMatch guifg=#ffafaf guibg=#2266aa gui=NONE cterm=NONE
+hi PmenuMatchSel guifg=#ffafaf guibg=#3478bc gui=NONE cterm=NONE
 hi PmenuKind guifg=#5fd75f guibg=#2266aa gui=NONE cterm=NONE
-hi PmenuKindSel guifg=#5fff5f guibg=#3276ba gui=NONE cterm=NONE
+hi PmenuKindSel guifg=#5fd75f guibg=#3478bc gui=NONE cterm=NONE
 hi PmenuExtra guifg=#62a6ca guibg=#2266aa gui=NONE cterm=NONE
-hi PmenuExtraSel guifg=#92d6fa guibg=#3276ba gui=NONE cterm=NONE
+hi PmenuExtraSel guifg=#72b6da guibg=#3478bc gui=NONE cterm=NONE
 
 hi SpecialKey guifg=#5f87af gui=NONE cterm=NONE
 hi Directory gui=bold cterm=bold
