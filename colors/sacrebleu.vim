@@ -30,6 +30,9 @@ hi StatusLineNC guifg=#000087 guibg=#5f87af gui=NONE cterm=NONE
 hi ToolbarButton guifg=#ffffff guibg=#0087af gui=NONE cterm=NONE
 hi ToolbarLine guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi Folded guifg=#5f87af guibg=#02367a gui=NONE cterm=NONE
+hi Search guifg=#000000 guibg=#d7d75f gui=NONE cterm=NONE
+hi IncSearch guifg=#000000 guibg=#ffff00 gui=NONE cterm=NONE
+hi QuickFixLine guifg=#000000 guibg=#d787d7 gui=NONE cterm=NONE
 
 hi Todo guifg=NONE guibg=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold
 
