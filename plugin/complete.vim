@@ -6,22 +6,28 @@ set infercase
 set complete=.,w^10,b^10,u^10,t^10
 set complete+=fAbbrevCompletor
 
-def LspSetup()
-    if !exists("g:loaded_lsp")
-        return
-    endif
-
+if exists("g:loaded_lsp")
     def g:LspCompletor(maxitems: number, findstart: number, base: string): any
         if findstart == 1
-            return g:LspOmniFunc(findstart, base)
+            var startcol = g:LspOmniFunc(findstart, base)
+            return startcol < 0 ? startcol : startcol + 1
+        elseif findstart == 2
+            return g:LspOmniCompletePending() ? 0 : 1
         endif
-        var data = g:LspOmniFunc(findstart, base)
-        return data->empty() ? v:none : {words: data->slice(0, maxitems), refresh: 'always'}
+
+        var items = g:LspOmniFunc(findstart, base)
+        if items->empty()
+            return v:none
+        endif
+        items = items->slice(0, maxitems)
+        return items
+        # var data = g:LspOmniFunc(findstart, base)
+        # return data->empty() ? v:none : {words: data->slice(0, maxitems), refresh: 'always'}
     enddef
 
     set complete+=ffunction("g:LspCompletor"\\,[10])
     g:LspOptionsSet({ autoComplete: false, omniComplete: true })
-enddef
+endif
 
 def! g:AbbrevCompletor(findstart: number, base: string): any
     if findstart > 0
@@ -64,7 +70,6 @@ enddef
 
 augroup autocomplete
     au!
-    autocmd VimEnter * LspSetup()
     autocmd TextChangedI * InsComplete()
 augroup END
 
