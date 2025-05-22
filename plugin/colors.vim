@@ -29,11 +29,13 @@ def NoBg()
     hi Normal guibg=NONE ctermbg=NONE
 enddef
 
-def LspDiag()
+def Lsp()
     hi link lspDiagSignErrorText Removed
     hi link lspDiagVirtualTextError Removed
     hi link lspDiagSignWarningText Changed
     hi link lspDiagVirtualTextWarning Changed
+    hi link lspPopup Normal
+    hi link lspPopupBorder Normal
 enddef
 
 def Vsplit()
@@ -41,7 +43,7 @@ def Vsplit()
 enddef
 
 augroup colors | au!
-    au Colorscheme * LspDiag()
+    au Colorscheme * Lsp()
     au Colorscheme habamax,wildcharm,lunaperche NoBg()
     au Colorscheme wildcharm Diff()
     au Colorscheme habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
