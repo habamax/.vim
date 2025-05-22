@@ -102,15 +102,15 @@ if exists("g:loaded_shout")
 endif
 
 if exists("g:loaded_lsp")
-    g:LspOptionsSet({
-        useBufferCompletion: true,
-        completionMatcher: 'fuzzy',
-        completionTextEdit: false,
-        showInlayHints: true,
-        showDiagOnStatusLine: false,
-        showDiagWithVirtualText: false,
-        autoPopulateDiags: true,
-    })
+    # g:LspOptionsSet({
+    #     useBufferCompletion: true,
+    #     completionMatcher: 'fuzzy',
+    #     completionTextEdit: false,
+    #     showInlayHints: true,
+    #     showDiagOnStatusLine: false,
+    #     showDiagWithVirtualText: false,
+    #     autoPopulateDiags: true,
+    # })
     if executable('clangd')
         g:LspAddServer([{
             name: 'clangd',
@@ -136,20 +136,20 @@ if exists("g:loaded_lsp")
     endif
 endif
 
-if exists("g:loaded_vimcomplete")
-    g:VimCompleteOptionsSet({
-        buffer: { enable: true, priority: 10, urlComplete: false, envComplete: true },
-        abbrev: { enable: true, priority: 10 },
-        vimscript: { enable: true, priority: 11 },
-        tag: { enable: true, priority: 11 },
-    })
-    g:VimCompleteInfoWindowOptionsSet({
-        drag: false,
-        close: 'none',
-        resize: false,
-        borderchars: g:popup_borderchars,
-    })
-endif
+# if exists("g:loaded_vimcomplete")
+#     g:VimCompleteOptionsSet({
+#         buffer: { enable: true, priority: 10, urlComplete: false, envComplete: true },
+#         abbrev: { enable: true, priority: 10 },
+#         vimscript: { enable: true, priority: 11 },
+#         tag: { enable: true, priority: 11 },
+#     })
+#     g:VimCompleteInfoWindowOptionsSet({
+#         drag: false,
+#         close: 'none',
+#         resize: false,
+#         borderchars: g:popup_borderchars,
+#     })
+# endif
 
 if exists("g:loaded_sandwich")
     # vim-sandwich, mimic vim-surround mappings

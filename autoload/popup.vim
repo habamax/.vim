@@ -10,6 +10,7 @@ var popup_cursor          = get(g:, "popup_cursor", '▏')
 var popup_prompt          = get(g:, "popup_prompt", '> ')
 var popup_number          = get(g:, "popup_number", false)
 
+
 # Helper popup to create command popup windows.
 # Usage:
 # import autoload 'popup.vim'
