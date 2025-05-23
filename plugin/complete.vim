@@ -12,16 +12,6 @@ if exists("g:loaded_lsp")
             return g:LspOmniFunc(findstart, base)
         endif
 
-        # # Wait for the list of matches from the LSP server
-        # var count: number = 0
-        # while g:LspOmniCompletePending() && count < 200
-        #     if complete_check()
-        #         return v:none
-        #     endif
-        #     sleep 2m
-        #     count += 1
-        # endwhile
-
         if g:LspOmniCompletePending()
             return v:none
         endif
