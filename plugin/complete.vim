@@ -1,29 +1,34 @@
 vim9script
 
-set completepopup=highlight:Normal
+set completepopup=highlight:Pmenu
 set completeopt=menuone,popup,noselect,fuzzy,nearest
 set infercase
 set complete=.,w^10,b^10,u^10,t^10
 set complete+=fAbbrevCompletor
 
 if exists("g:loaded_lsp")
-    def g:LspCompletor(maxitems: number, findstart: number, base: string): any
+    def! g:LspCompletor(findstart: number, base: string): any
         if findstart == 1
-            var startcol = g:LspOmniFunc(findstart, base)
-            return startcol < 0 ? startcol : startcol + 1
-        elseif findstart == 2
-            return g:LspOmniCompletePending() ? 0 : 1
+            return g:LspOmniFunc(findstart, base)
         endif
 
-        var items = g:LspOmniFunc(findstart, base)
-        if items->empty()
+        # # Wait for the list of matches from the LSP server
+        # var count: number = 0
+        # while g:LspOmniCompletePending() && count < 200
+        #     if complete_check()
+        #         return v:none
+        #     endif
+        #     sleep 2m
+        #     count += 1
+        # endwhile
+
+        if g:LspOmniCompletePending()
             return v:none
         endif
-        items = items->slice(0, maxitems)
-        return items
+        return {words: g:LspOmniFunc(findstart, base), refresh: 'always'}
     enddef
 
-    set complete+=ffunction("g:LspCompletor"\\,[10])
+    set complete+=fLspCompletor^10
     g:LspOptionsSet({ autoComplete: false, omniComplete: true })
 endif
 

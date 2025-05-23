@@ -34,8 +34,6 @@ def Lsp()
     hi link lspDiagVirtualTextError Removed
     hi link lspDiagSignWarningText Changed
     hi link lspDiagVirtualTextWarning Changed
-    hi link lspPopup Normal
-    hi link lspPopupBorder Normal
 enddef
 
 def Vsplit()
