@@ -3,10 +3,10 @@ vim9script
 set completepopup=highlight:Pmenu
 set completeopt=menuone,popup,noselect,fuzzy,nearest
 set infercase
-set complete=.,w^10,b^10,u^10,t^10
-set complete+=fAbbrevCompletor
+set complete=.^10,w^5,b^5,u^5,t^5
+set complete+=ffunction('AbbrevCompletor'\\,[3])
 
-def! g:AbbrevCompletor(findstart: number, base: string): any
+def g:AbbrevCompletor(maxitems: number, findstart: number, base: string): any
     if findstart > 0
         var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\S\+$')
         if prefix->empty()
@@ -26,24 +26,28 @@ def! g:AbbrevCompletor(findstart: number, base: string): any
         endif
     endfor
     return items->empty() ? v:none :
-        items->sort((v1, v2) => v1.word < v2.word ? -1 : v1.word ==# v2.word ? 0 : 1)
+        items
+        ->sort((v1, v2) => v1.word < v2.word ? -1 : v1.word ==# v2.word ? 0 : 1)
+        ->slice(0, maxitems)
 enddef
 
-if exists("g:loaded_lsp")
-    def! g:LspCompletor(findstart: number, base: string): any
-        if findstart == 1
-            return g:LspOmniFunc(findstart, base)
-        endif
+def g:LspCompletor(maxitems: number, findstart: number, base: string): any
+    if findstart == 1
+        return g:LspOmniFunc(findstart, base)
+    endif
+    return {words: g:LspOmniFunc(findstart, base)->slice(0, maxitems), refresh: 'always'}
+enddef
 
-        if g:LspOmniCompletePending()
-            return v:none
-        endif
-        return {words: g:LspOmniFunc(findstart, base), refresh: 'always'}
-    enddef
-
-    set complete+=fLspCompletor^10
-    g:LspOptionsSet({ autoComplete: false, omniComplete: true })
-endif
+def LspCompletorSetup()
+    if exists('*g:LspOptionsSet')
+        set complete+=ffunction('LspCompletor'\\,[10])
+        g:LspOptionsSet({
+            autoComplete: false,
+            omniComplete: true,
+            useBufferCompletion: false
+        })
+    endif
+enddef
 
 def InsComplete()
     if getcharstr(1) == '' && getline('.')->strpart(0, col('.') - 1) =~ '\k$'
@@ -64,6 +68,7 @@ enddef
 augroup autocomplete
     au!
     autocmd TextChangedI * InsComplete()
+    autocmd VimEnter * LspCompletorSetup()
 augroup END
 
 inoremap <silent> <c-e> <c-r>=<SID>SkipTextChangedI()<cr><c-e>
