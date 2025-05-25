@@ -22,7 +22,7 @@ def! g:AbbrevCompletor(findstart: number, base: string): any
     for line in lines->split("\n")
         var m = line->matchlist('\v^i\s+\zs(\S+)\s+(.*)$')
         if m->len() > 2 && m[1]->stridx(base) == 0
-            items->add({ word: m[1], kind: "abbr", info: m[2], dup: 1 })
+            items->add({ word: m[1], kind: "ab", info: m[2], dup: 1 })
         endif
     endfor
     return items->empty() ? v:none :
