@@ -3,10 +3,10 @@ vim9script
 set completepopup=highlight:Pmenu
 set completeopt=menuone,popup,noselect,fuzzy,nearest
 set infercase
-set complete+=ffunction('AbbrevCompletor'\\,[3])
 set complete=o^10,.^10,w^5,b^5,u^5,t^5
+set complete+=fAbbrevCompletor^3
 
-def g:AbbrevCompletor(maxitems: number, findstart: number, base: string): any
+def g:AbbrevCompletor(findstart: number, base: string): any
     if findstart > 0
         var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\S\+$')
         if prefix->empty()
@@ -28,9 +28,6 @@ def g:AbbrevCompletor(maxitems: number, findstart: number, base: string): any
     return items->empty() ? v:none :
         items
         ->sort((v1, v2) => v1.word < v2.word ? -1 : v1.word ==# v2.word ? 0 : 1)
-        ->slice(0, maxitems)
-enddef
-
 enddef
 
 def InsComplete()
