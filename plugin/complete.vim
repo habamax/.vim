@@ -32,7 +32,7 @@ def g:AbbrevCompletor(findstart: number, base: string): any
 enddef
 
 def InsComplete()
-    if getcharstr(1) == '' && getline('.')->strpart(0, col('.') - 1) =~ '\k$'
+    if getcharstr(1) == '' && getline('.')->strpart(0, col('.') - 1) =~ '\v%(\k|\k\.|\k-\>)$'
         SkipTextChangedI()
         feedkeys("\<c-n>", "n")
     endif
