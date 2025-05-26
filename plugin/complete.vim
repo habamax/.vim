@@ -3,8 +3,8 @@ vim9script
 set completepopup=highlight:Pmenu
 set completeopt=menuone,popup,noselect,fuzzy,nearest
 set infercase
-set complete=.^10,w^5,b^5,u^5,t^5
 set complete+=ffunction('AbbrevCompletor'\\,[3])
+set complete=o^10,.^10,w^5,b^5,u^5,t^5
 
 def g:AbbrevCompletor(maxitems: number, findstart: number, base: string): any
     if findstart > 0
@@ -31,22 +31,6 @@ def g:AbbrevCompletor(maxitems: number, findstart: number, base: string): any
         ->slice(0, maxitems)
 enddef
 
-def g:LspCompletor(maxitems: number, findstart: number, base: string): any
-    if findstart == 1
-        return g:LspOmniFunc(findstart, base)
-    endif
-    return {words: g:LspOmniFunc(findstart, base)->slice(0, maxitems), refresh: 'always'}
-enddef
-
-def LspCompletorSetup()
-    if exists('*g:LspOptionsSet')
-        set complete+=ffunction('LspCompletor'\\,[10])
-        g:LspOptionsSet({
-            autoComplete: false,
-            omniComplete: true,
-            useBufferCompletion: false
-        })
-    endif
 enddef
 
 def InsComplete()
@@ -68,7 +52,6 @@ enddef
 augroup autocomplete
     au!
     autocmd TextChangedI * InsComplete()
-    autocmd VimEnter * LspCompletorSetup()
 augroup END
 
 inoremap <silent> <c-e> <c-r>=<SID>SkipTextChangedI()<cr><c-e>
