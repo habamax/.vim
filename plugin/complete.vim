@@ -5,7 +5,7 @@ set completepopup=highlight:Pmenu
 set completeopt=menuone,popup,noselect,nearest
 set infercase
 set complete=o^10,.^10,w^5,b^5,u^5,t^5
-set complete+=fAbbrevCompletor^3
+set complete+=FAbbrevCompletor^3
 
 def g:AbbrevCompletor(findstart: number, base: string): any
     if findstart > 0
