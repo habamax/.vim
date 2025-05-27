@@ -1,5 +1,6 @@
 vim9script
 
+# insert mode completion
 set completepopup=highlight:Pmenu
 set completeopt=menuone,popup,noselect,fuzzy
 # set completeopt=menuone,popup,noselect,nearest
@@ -47,12 +48,52 @@ def SkipTextChangedI(): string
     return ''
 enddef
 
-augroup autocomplete
-    au!
-    autocmd TextChangedI * InsComplete()
-augroup END
-
 inoremap <silent> <c-e> <c-r>=<SID>SkipTextChangedI()<cr><c-e>
 inoremap <silent> <c-y> <c-r>=<SID>SkipTextChangedI()<cr><c-y>
 inoremap <silent><expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <silent><expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+
+augroup inscomplete
+    au!
+    autocmd TextChangedI * InsComplete()
+augroup END
+
+# command line completion
+# have a close look at this:
+# https://github.com/vim/vim/pull/16759
+
+set wildmode=noselect:lastused,full
+set wildmenu wildoptions=pum,fuzzy pumheight=20
+set wildcharm=<C-@>
+set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
+
+def CmdComplete(cur_cmdline: string, timer: number)
+    var [cmdline, curpos] = [getcmdline(), getcmdpos()]
+    if cur_cmdline ==# cmdline # Avoid completing each char of keymaps and pasted text
+      && !pumvisible() && curpos == cmdline->len() + 1
+      && cmdline =~ '\%(\w\|[*/:.-]\)$' && cmdline !~ '^\d\+$'  # Reduce noise
+        feedkeys("\<C-@>", "ti")
+        set eventignore+=CmdlineChanged  # Suppress redundant completion attempts
+        timer_start(0, (_) => {
+            getcmdline()->substitute('\%x00', '', 'g')->setcmdline()  # Remove <C-@> if no completion items exist
+            set eventignore-=CmdlineChanged
+        })
+    endif
+enddef
+
+def MuteEventAndSend(key: string): string
+    set ei+=CmdlineChanged
+    timer_start(0, (_) => execute('set ei-=CmdlineChanged'))
+    return (pumvisible() ? "\<c-e>" : "") .. key
+enddef
+
+cnoremap <expr> <up> MuteEventAndSend("\<up>")
+cnoremap <expr> <down> MuteEventAndSend("\<down>")
+
+
+augroup cmdcomplete
+    au!
+    autocmd CmdlineChanged : timer_start(0, function(CmdComplete, [getcmdline()]))
+    autocmd CmdlineEnter : set bo+=error
+    autocmd CmdlineLeave : set bo-=error
+augroup END

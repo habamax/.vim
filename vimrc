@@ -9,8 +9,6 @@ set belloff=all shortmess+=Ic
 set autoindent shiftwidth=4 softtabstop=-1 expandtab
 set ruler display=lastline smoothscroll
 set hlsearch incsearch ignorecase smartcase
-set wildmenu wildoptions=pum,fuzzy pumheight=20
-set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
 set number relativenumber cursorline cursorlineopt=number signcolumn=number
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak nojoinspaces
 set list listchars=tab:›\ ,nbsp:␣,trail:·,extends:…,precedes:… showbreak=↪
