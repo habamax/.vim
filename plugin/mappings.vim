@@ -40,10 +40,9 @@ nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 nnoremap <space>w <scriptcmd>fuzzy.CurrentWord()<CR>
 nnoremap <space>i <scriptcmd>fuzzy.Template()<CR>
 
-
-nnoremap <space><space> :<c-r>=execute('let fzfind_root="."')\|''<cr>Find<space><c-@>
-nnoremap <space>fv :<c-r>=execute('let fzfind_root="$MYVIMDIR"')\|''<cr>Find<space><c-@>
-nnoremap <space>fV :<c-r>=execute('let fzfind_root="$VIMRUNTIME"')\|''<cr>Find<space><c-@>
+nnoremap <space>ff <scriptcmd>g:fzfind_root = "."<cr>:Find<space><c-@>
+nnoremap <space>fv <scriptcmd>g:fzfind_root = $MYVIMDIR<cr>:Find<space><c-@>
+nnoremap <space>fV <scriptcmd>g:fzfind_root = $VIMRUNTIME<cr>:Find<space><c-@>
 nnoremap <space>gg :Rg<space>
 nnoremap <space>gw :Rg <c-r>=expand("<cword>")<cr>
 
