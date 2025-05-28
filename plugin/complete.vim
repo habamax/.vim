@@ -32,8 +32,17 @@ def g:AbbrevCompletor(findstart: number, base: string): any
         ->sort((v1, v2) => v1.word < v2.word ? -1 : v1.word ==# v2.word ? 0 : 1)
 enddef
 
+var instrigger = {
+    vim: '\v%(\k|\k-\>)$',
+    c: '\v%(\k|\k\.|\k-\>)$',
+    python: '\v%(\k|\k\.)$',
+    gdscript: '\v%(\k|\k\.)$',
+    ruby: '\v%(\k|\k\.)$',
+    javascript: '\v%(\k|\k\.)$',
+}
 def InsComplete()
-    if getcharstr(1) == '' && getline('.')->strpart(0, col('.') - 1) =~ '\v%(\k|\k\.|\k-\>)$'
+    var trigger = get(instrigger, &ft, '\k$')
+    if getcharstr(1) == '' && getline('.')->strpart(0, col('.') - 1) =~ trigger
         SkipTextChangedI()
         feedkeys("\<c-n>", "n")
     endif
