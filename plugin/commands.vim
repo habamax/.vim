@@ -133,7 +133,7 @@ enddef
 # --------------------------
 command! -nargs=* -complete=custom,FindFile Find execute(selected_match != '' ? $'edit {selected_match}' : '')
 def FindFile(arglead: string, _: string, _: number): string
-    var path = get(g:, "fzfind_root", ".")
+    var path = get(g:, "find_root", ".")
     if path->stridx(' ') >= 0
         path = $'"{path}"'
     endif
