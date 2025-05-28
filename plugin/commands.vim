@@ -1,5 +1,27 @@
 vim9script
 
+augroup general | au!
+    au Filetype * setl formatoptions=qjlron
+
+    # goto last known position of the buffer
+    au BufReadPost *
+          \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+          |    exe 'normal! g`"'
+          | endif
+
+    # create non-existent directory before buffer save
+    au BufWritePre *
+          \ if !isdirectory(expand("%:p:h"))
+          |    mkdir(expand("%:p:h"), "p")
+          | endif
+
+    # save last session on exit if there is a buffer with name
+    au VimLeavePre *
+          \ if reduce(getbufinfo({'buflisted': 1}), (a, v) => a || !empty(v.name), false)
+          |    :exe $'mksession! {$MYVIMDIR}.data/sessions/LAST'
+          | endif
+augroup end
+
 # Commands
 
 # update packages
@@ -85,16 +107,75 @@ enddef
 
 command! Bookmark call SaveBookmark()
 
-command! -nargs=1 Grep Sh! grep -Rn "<args>" .
-command! -nargs=1 Rg Sh! rg -nS --column "<args>" .
-if !has("win32")
-    command! Todo Sh! rg -nS --column "\\b(TODO|FIXME|XXX):" .
-    command! Task Sh! rg -nS --column "\\btask:" .
-else
-    command! Todo Sh! rg -nS --column "\b(TODO|FIXME|XXX):" .
-    command! Task Sh! rg -nS --column "\btask:" .
-endif
 
+var selected_match = null_string
+var allfiles = null_string
+
+augroup livecommands
+    au!
+    autocmd CmdlineEnter : allfiles = null_string
+    autocmd CmdlineLeavePre : SelectItem()
+augroup END
+
+def SelectItem()
+    selected_match = ''
+    if getcmdline() =~ '\v^\s*%(Grep|Rg|Find)\s'
+        var info = cmdcomplete_info()
+        if info != {} && info.pum_visible && !info.matches->empty()
+            selected_match = info.selected != -1 ? info.matches[info.selected] : info.matches[0]
+            setcmdline(info.cmdline_orig) # Preserve search pattern in history
+        endif
+    endif
+enddef
+
+# --------------------------
+# Find file
+# --------------------------
+command! -nargs=* -complete=custom,FindFile Find execute(selected_match != '' ? $'edit {selected_match}' : '')
+def FindFile(arglead: string, _: string, _: number): string
+    var path = get(g:, "fzfind_root", ".")
+    if allfiles == null_string
+        if executable('fd')
+            allfiles = system('fd . --path-separator / --type f --hidden --follow --exclude .git ' .. path)
+        elseif executable('fdfind')
+            allfiles = system('fdfind . --path-separator / --type f --hidden --follow --exclude .git ' .. path)
+        elseif executable('ugrep')
+            allfiles = system('ugrep "" -Rl -I --ignore-files ' .. path)
+        elseif executable('rg')
+            allfiles = system('rg --path-separator / --files --hidden --glob !.git ' .. path)
+        elseif executable('find')
+            allfiles = system($'find {path} \! \( -path "*/.git" -prune -o -name "*.swp" \) -type f -follow')
+        endif
+    endif
+    return allfiles
+enddef
+
+# --------------------------
+# Live grep
+# --------------------------
+command! -nargs=+ -complete=customlist,GrepComplete Grep GrepVisitFile()
+def GrepComplete(arglead: string, cmdline: string, cursorpos: number): list<any>
+    return arglead->len() > 1 ? systemlist($'grep -REIHns "{arglead}"' ..
+       ' --exclude-dir=.git --exclude=".*" --exclude="tags" --exclude="*.swp"') : []
+enddef
+
+def GrepVisitFile()
+    if (selected_match != null_string)
+        var qfitem = getqflist({lines: [selected_match]}).items[0]
+        if qfitem->has_key('bufnr') && qfitem.lnum > 0
+            var pos = qfitem.vcol > 0 ? 'setcharpos' : 'setpos'
+            exec $':b +call\ {pos}(".",\ [0,\ {qfitem.lnum},\ {qfitem.col},\ 0]) {qfitem.bufnr}'
+            setbufvar(qfitem.bufnr, '&buflisted', 1)
+        endif
+    endif
+enddef
+
+command! -nargs=+ -complete=customlist,RgComplete Rg GrepVisitFile()
+def RgComplete(arglead: string, cmdline: string, cursorpos: number): list<any>
+    return arglead->len() > 1 ? systemlist($'rg -nS --column "{arglead}"') : []
+enddef
+
+# IRC
 def Irc()
     var buf_del = -1
     if (empty(bufname()) || !empty(&buftype)) && !&modified
