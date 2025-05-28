@@ -3,7 +3,6 @@ vim9script
 # insert mode completion
 set completepopup=highlight:Pmenu
 set completeopt=menuone,popup,noselect,fuzzy
-# set completeopt=menuone,popup,noselect,nearest
 set infercase
 set complete=o^10,.^10,w^5,b^5,u^5,t^5
 set complete+=FAbbrevCompletor^3
