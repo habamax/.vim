@@ -163,6 +163,12 @@ def GrepComplete(arglead: string, cmdline: string, cursorpos: number): list<any>
         ' --exclude-dir=.git --exclude=".*" --exclude="tags" --exclude="*.swp"') : []
 enddef
 
+command! -nargs=+ -complete=customlist,RgComplete Rg GrepVisitFile()
+def RgComplete(arglead: string, cmdline: string, cursorpos: number): list<any>
+    return arglead->len() > 1 ? systemlist($'rg -nS --column "{arglead}"') : []
+enddef
+
+
 def GrepVisitFile()
     if (selected_match != null_string)
         var qfitem = getqflist({lines: [selected_match]}).items[0]
@@ -172,11 +178,6 @@ def GrepVisitFile()
             setbufvar(qfitem.bufnr, '&buflisted', 1)
         endif
     endif
-enddef
-
-command! -nargs=+ -complete=customlist,RgComplete Rg GrepVisitFile()
-def RgComplete(arglead: string, cmdline: string, cursorpos: number): list<any>
-    return arglead->len() > 1 ? systemlist($'rg -nS --column "{arglead}"') : []
 enddef
 
 # IRC
