@@ -75,7 +75,7 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
 
 def CmdComplete()
     var [cmdline, curpos] = [getcmdline(), getcmdpos()]
-    var trigger = '\v%(\w|[*/:.-]|\s)$'
+    var trigger = '\v%(\w|[*/:.-=]|\s)$'
     var exclude = '^\d\+$'
     if getchar(1, {number: true}) == 0  # Typehead is empty (no more pasted input)
             && !wildmenumode() && curpos == cmdline->len() + 1
