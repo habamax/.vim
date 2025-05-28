@@ -33,10 +33,11 @@ nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 nnoremap <space>w <scriptcmd>fuzzy.CurrentWord()<CR>
 nnoremap <space>fi <scriptcmd>fuzzy.Template()<CR>
 
+# Alternate way to have fuzzy file find
 nnoremap <space>ff :<C-u>Find<space><c-@>
-nnoremap <space>fv <scriptcmd>lcd $MYVIMDIR<cr>:<C-u>Find<space><c-@>
-nnoremap <space>fd <scriptcmd>exe "lcd " .. ($DOCS ?? '~/docs')<cr>:<C-u>Find<space><c-@>
-nnoremap <space>fV <scriptcmd>lcd $VIMRUNTIME<cr>:<C-u>Find<space><c-@>
+# nnoremap <space>fv <scriptcmd>lcd $MYVIMDIR<cr>:<C-u>Find<space><c-@>
+# nnoremap <space>fd <scriptcmd>exe "lcd " .. ($DOCS ?? '~/docs')<cr>:<C-u>Find<space><c-@>
+# nnoremap <space>fV <scriptcmd>lcd $VIMRUNTIME<cr>:<C-u>Find<space><c-@>
 nnoremap <space>gg :<C-u>Rg<space>
 nnoremap <space>gw :<C-u>Rg <c-r>=expand("<cword>")<cr>
 
