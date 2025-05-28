@@ -172,7 +172,7 @@ def FindFile(arglead: string, _: string, _: number): string
         elseif executable('rg')
             cmdline_find_files = system('rg --path-separator / --files --hidden --glob !.git')
         elseif executable('find')
-            cmdline_find_files = system('find "." \! \( -path "*/.git" -prune -o -name "*.swp" \) -type f -follow')
+            cmdline_find_files = system('find . \! \( -path "*/.git" -prune -o -name "*.swp" \) -type f -follow')
         endif
     endif
     return cmdline_find_files
