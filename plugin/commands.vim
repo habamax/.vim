@@ -133,10 +133,11 @@ enddef
 # --------------------------
 command! -nargs=* -complete=custom,FindFile Find execute(selected_match != '' ? $'edit {selected_match}' : '')
 def FindFile(arglead: string, _: string, _: number): string
-    var path = get(g:, "fzfind_root", "")
+    var path = get(g:, "fzfind_root", ".")
     if path->stridx(' ') >= 0
         path = $'"{path}"'
     endif
+    path = path == "." ? "" : path
     if allfiles == null_string
         if executable('fd')
             allfiles = system($'fd . --path-separator / --type f --hidden --follow --exclude .git {path}')
@@ -147,7 +148,7 @@ def FindFile(arglead: string, _: string, _: number): string
         elseif executable('rg')
             allfiles = system($'rg --path-separator / --files --hidden --glob !.git {path}')
         elseif executable('find')
-            allfiles = system($'find {path} \! \( -path "*/.git" -prune -o -name "*.swp" \) -type f -follow')
+            allfiles = system($'find {empty(path) ? "." : path} \! \( -path "*/.git" -prune -o -name "*.swp" \) -type f -follow')
         endif
     endif
     return allfiles
