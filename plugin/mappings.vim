@@ -19,32 +19,26 @@ nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 
 # fuzzy
 import autoload 'fuzzy.vim'
-nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
-nnoremap <space>fe <scriptcmd>fuzzy.FileTree()<CR>
-nnoremap <space>fg <scriptcmd>fuzzy.GitFile()<CR>
+nnoremap <space>e <scriptcmd>fuzzy.FileTree()<CR>
 nnoremap <space>b <scriptcmd>fuzzy.Buffer(true)<CR>
 nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
-nnoremap <space>fo <scriptcmd>fuzzy.Oldfiles()<CR>
 nnoremap <space>fm <scriptcmd>fuzzy.MRU()<CR>
 nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
-nnoremap <space>fi <scriptcmd>fuzzy.GitFile($MYVIMDIR)<CR>
-nnoremap <space>fd <scriptcmd>fuzzy.GitFile($DOCS ?? '~/docs')<CR>
 nnoremap <space>fc <scriptcmd>fuzzy.Colorscheme()<CR>
 nnoremap <space>fs <scriptcmd>fuzzy.Session()<CR>
 nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
 nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
-nnoremap <space>fr <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
 nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
-nnoremap <space>fw <scriptcmd>fuzzy.Window()<CR>
 nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 nnoremap <space>w <scriptcmd>fuzzy.CurrentWord()<CR>
 nnoremap <space>i <scriptcmd>fuzzy.Template()<CR>
 
-nnoremap <space>ff <scriptcmd>g:find_root = "."<cr>:Find<space><c-@>
-nnoremap <space>fv <scriptcmd>g:find_root = $MYVIMDIR<cr>:Find<space><c-@>
-nnoremap <space>fV <scriptcmd>g:find_root = $VIMRUNTIME<cr>:Find<space><c-@>
-nnoremap <space>gg :Rg<space>
-nnoremap <space>gw :Rg <c-r>=expand("<cword>")<cr>
+nnoremap <space>ff :<C-u>Find<space><c-@>
+nnoremap <space>fv <scriptcmd>lcd $MYVIMDIR<cr>:<C-u>Find<space><c-@>
+nnoremap <space>fd <scriptcmd>exe "lcd " .. ($DOCS ?? '~/docs')<cr>:<C-u>Find<space><c-@>
+nnoremap <space>fV <scriptcmd>lcd $VIMRUNTIME<cr>:<C-u>Find<space><c-@>
+nnoremap <space>gg :<C-u>Rg<space>
+nnoremap <space>gw :<C-u>Rg <c-r>=expand("<cword>")<cr>
 
 
 import autoload 'popcom.vim'
