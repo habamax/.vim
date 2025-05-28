@@ -58,42 +58,39 @@ augroup inscomplete
     autocmd TextChangedI * InsComplete()
 augroup END
 
-# command line completion
-# have a close look at this:
-# https://github.com/vim/vim/pull/16759
 
+# command line completion
 set wildmode=noselect:lastused,full
 set wildmenu wildoptions=pum,fuzzy pumheight=20
 set wildcharm=<C-@>
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
 
-def CmdComplete(cur_cmdline: string, timer: number)
+def CmdComplete()
     var [cmdline, curpos] = [getcmdline(), getcmdpos()]
-    if cur_cmdline ==# cmdline # Avoid completing each char of keymaps and pasted text
-      && !pumvisible() && curpos == cmdline->len() + 1
-      && cmdline =~ '\%(\w\|[*/:.-]\)$' && cmdline !~ '^\d\+$'  # Reduce noise
+    var trigger = '\v%(\w|[*/:.-]|\s)$'
+    var exclude = '^\d\+$'
+    if getchar(1, {number: true}) == 0  # Typehead is empty (no more pasted input)
+            && !wildmenumode() && curpos == cmdline->len() + 1
+            && cmdline =~ trigger && cmdline !~ exclude # Reduce noise
         feedkeys("\<C-@>", "ti")
-        set eventignore+=CmdlineChanged  # Suppress redundant completion attempts
-        timer_start(0, (_) => {
-            getcmdline()->substitute('\%x00', '', 'g')->setcmdline()  # Remove <C-@> if no completion items exist
-            set eventignore-=CmdlineChanged
-        })
+        SkipCmdlineChanged()  # Suppress redundant completion attempts
+        # Remove <C-@> that get inserted when no items are available
+        timer_start(0, (_) => getcmdline()->substitute('\%x00', '', 'g')->setcmdline())
     endif
 enddef
 
-def MuteEventAndSend(key: string): string
-    set ei+=CmdlineChanged
-    timer_start(0, (_) => execute('set ei-=CmdlineChanged'))
-    return (pumvisible() ? "\<c-e>" : "") .. key
+def SkipCmdlineChanged(key = ''): string
+    set eventignore+=CmdlineChanged
+    timer_start(0, (_) => execute('set eventignore-=CmdlineChanged'))
+    return key != '' ? ((pumvisible() ? "\<c-e>" : '') .. key) : ''
 enddef
 
-cnoremap <expr> <up> MuteEventAndSend("\<up>")
-cnoremap <expr> <down> MuteEventAndSend("\<down>")
-
+cnoremap <expr> <up> SkipCmdlineChanged("\<up>")
+cnoremap <expr> <down> SkipCmdlineChanged("\<down>")
 
 augroup cmdcomplete
     au!
-    autocmd CmdlineChanged : timer_start(0, function(CmdComplete, [getcmdline()]))
-    autocmd CmdlineEnter : set bo+=error
-    autocmd CmdlineLeave : set bo-=error
+    autocmd CmdlineChanged : CmdComplete()
+    autocmd CmdlineEnter : set belloff+=error
+    autocmd CmdlineLeave : set belloff-=error
 augroup END
