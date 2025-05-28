@@ -254,7 +254,7 @@ enddef
 
 export def FileTree(path: string = "")
     var opath = isdirectory(expand(path)) ? path : ''
-    if opath == getcwd()
+    if trim(opath, '/\', 2) == getcwd()
         opath = ''
     endif
 
