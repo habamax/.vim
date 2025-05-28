@@ -31,7 +31,7 @@ nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
 nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
 nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 nnoremap <space>w <scriptcmd>fuzzy.CurrentWord()<CR>
-nnoremap <space>i <scriptcmd>fuzzy.Template()<CR>
+nnoremap <space>fi <scriptcmd>fuzzy.Template()<CR>
 
 nnoremap <space>ff :<C-u>Find<space><c-@>
 nnoremap <space>fv <scriptcmd>lcd $MYVIMDIR<cr>:<C-u>Find<space><c-@>

@@ -108,56 +108,80 @@ enddef
 command! Bookmark call SaveBookmark()
 
 
-var selected_match = null_string
-var allfiles = null_string
+var cmdline_selected_match = null_string
+var cmdline_find_files = null_string
+var cmdline_mru_files = null_string
+
+def CmdlineEnterSetup()
+    cmdline_find_files = null_string
+enddef
 
 augroup livecommands
     au!
-    autocmd CmdlineEnter : allfiles = null_string
-    autocmd CmdlineLeavePre : SelectItem()
+    autocmd CmdlineEnter : CmdlineEnterSetup()
+    autocmd CmdlineLeavePre : CmdlineSelectItem()
 augroup END
 
-def SelectItem()
-    selected_match = ''
-    if getcmdline() =~ '\v^\s*%(Grep|Rg|Find)\s'
+def CmdlineSelectItem()
+    cmdline_selected_match = ''
+    if getcmdline() =~ '\v^\s*%(Grep|Rg|Find|MRU)\s'
         var info = cmdcomplete_info()
         if info != {} && info.pum_visible && !info.matches->empty()
-            selected_match = info.selected != -1 ? info.matches[info.selected] : info.matches[0]
+            cmdline_selected_match = info.selected != -1 ? info.matches[info.selected] : info.matches[0]
             setcmdline(info.cmdline_orig) # Preserve search pattern in history
         endif
     endif
 enddef
 
+def CmdDoEdit()
+    execute(cmdline_selected_match != '' ? $'edit {cmdline_selected_match}' : '')
+enddef
+
+# --------------------------
+# MRU
+# --------------------------
+command! -nargs=* -complete=custom,FindMRU MRU CmdDoEdit()
+def FindMRU(arglead: string, _: string, _: number): string
+    if cmdline_mru_files == null_string
+        var mru = []
+
+        if filereadable($'{$MYVIMDIR}.data/mru')
+            mru = readfile($'{$MYVIMDIR}.data/mru')
+                ->filter((_, v) => filereadable(expand(v)))
+        endif
+        if mru->len() > 0 && expand(mru[0]) == expand("%:p")
+            mru = mru[1 : ]
+        endif
+        cmdline_mru_files = mru->join("\n")
+    endif
+    return cmdline_mru_files
+enddef
+
 # --------------------------
 # Find file
 # --------------------------
-command! -nargs=* -complete=custom,FindFile Find execute(selected_match != '' ? $'edit {selected_match}' : '')
+command! -nargs=* -complete=custom,FindFile Find CmdDoEdit()
 def FindFile(arglead: string, _: string, _: number): string
-    # var path = get(g:, "find_root", ".")
-    # if path->stridx(' ') >= 0
-    #     path = $'"{path}"'
-    # endif
-    # path = path == "." ? "" : path
-    if allfiles == null_string
+    if cmdline_find_files == null_string
         if executable('fd')
-            allfiles = system('fd . --path-separator / --type f --hidden --follow --exclude .git')
+            cmdline_find_files = system('fd . --path-separator / --type f --hidden --follow --exclude .git')
         elseif executable('fdfind')
-            allfiles = system('fdfind . --path-separator / --type f --hidden --follow --exclude .git')
+            cmdline_find_files = system('fdfind . --path-separator / --type f --hidden --follow --exclude .git')
         elseif executable('ugrep')
-            allfiles = system('ugrep "" -Rl -I --ignore-files')
+            cmdline_find_files = system('ugrep "" -Rl -I --ignore-files')
         elseif executable('rg')
-            allfiles = system('rg --path-separator / --files --hidden --glob !.git')
+            cmdline_find_files = system('rg --path-separator / --files --hidden --glob !.git')
         elseif executable('find')
-            allfiles = system('find "." \! \( -path "*/.git" -prune -o -name "*.swp" \) -type f -follow')
+            cmdline_find_files = system('find "." \! \( -path "*/.git" -prune -o -name "*.swp" \) -type f -follow')
         endif
     endif
-    return allfiles
+    return cmdline_find_files
 enddef
 
 # --------------------------
 # Live grep
 # --------------------------
-command! -nargs=+ -complete=customlist,GrepComplete Grep GrepVisitFile()
+command! -nargs=+ -complete=customlist,GrepComplete Grep CmdGrepVisitFile()
 def GrepComplete(arglead: string, cmdline: string, cursorpos: number): list<any>
     return arglead->len() > 1 ? systemlist($'grep -REIHns "{arglead}"' ..
         ' --exclude-dir=.git --exclude=".*" --exclude="tags" --exclude="*.swp"') : []
@@ -168,10 +192,9 @@ def RgComplete(arglead: string, cmdline: string, cursorpos: number): list<any>
     return arglead->len() > 1 ? systemlist($'rg -nS --column "{arglead}"') : []
 enddef
 
-
-def GrepVisitFile()
-    if (selected_match != null_string)
-        var qfitem = getqflist({lines: [selected_match]}).items[0]
+def CmdGrepVisitFile()
+    if (cmdline_selected_match != null_string)
+        var qfitem = getqflist({lines: [cmdline_selected_match]}).items[0]
         if qfitem->has_key('bufnr') && qfitem.lnum > 0
             var pos = qfitem.vcol > 0 ? 'setcharpos' : 'setpos'
             exec $':b +call\ {pos}(".",\ [0,\ {qfitem.lnum},\ {qfitem.col},\ 0]) {qfitem.bufnr}'
