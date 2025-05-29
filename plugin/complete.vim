@@ -32,7 +32,7 @@ def g:AbbrevCompletor(findstart: number, base: string): any
 enddef
 
 var instrigger = {
-    vim: '\v%(\k|\k-\>)$',
+    vim: '\v%(\k|\k-\>|[gvbl]:)$',
     c: '\v%(\k|\k\.|\k-\>)$',
     python: '\v%(\k|\k\.)$',
     gdscript: '\v%(\k|\k\.)$',
