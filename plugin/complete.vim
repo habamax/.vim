@@ -5,8 +5,8 @@ set completepopup=highlight:Pmenu
 set completeopt=menuone,popup,noselect,fuzzy
 set infercase
 set complete=o^10,.^10,w^5,b^5,u^5,t^5
-set complete+=FAbbrevCompletor^3
 
+set complete+=FAbbrevCompletor^3
 def g:AbbrevCompletor(findstart: number, base: string): any
     if findstart > 0
         var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\S\+$')
@@ -29,6 +29,32 @@ def g:AbbrevCompletor(findstart: number, base: string): any
     return items->empty() ? v:none :
         items
         ->sort((v1, v2) => v1.word < v2.word ? -1 : v1.word ==# v2.word ? 0 : 1)
+enddef
+
+set complete+=FRegisterComplete^5
+def g:RegisterComplete(findstart: number, base: string): any
+    if findstart > 0
+        var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\S\+$')
+        if prefix->empty()
+            return -2
+        endif
+        return col('.') - prefix->len() - 1
+    endif
+
+    var items = []
+
+    for r in '*+"/=#:%-0123456789abcdefghijklmnopqrstuvwxyz'
+        var regtext = trim(getreg(r))
+        if !empty(regtext)
+            items->add({
+                abbr: regtext->slice(0, 30),
+                word: regtext,
+                kind: '"' .. r,
+                info: regtext, dup: 0 })
+        endif
+    endfor
+
+    return items->empty() ? v:none : items
 enddef
 
 var instrigger = {
