@@ -16,7 +16,7 @@ hi Normal guifg=#eeeeee guibg=#000000 gui=NONE ctermbg=NONE ctermfg=NONE cterm=N
 hi CursorLine guifg=NONE guibg=#444444 gui=NONE cterm=NONE ctermfg=NONE
 hi LineNr guifg=#5f5f5f guibg=NONE gui=NONE cterm=NONE ctermfg=59 ctermbg=NONE cterm=NONE
 hi CursorLineNr guifg=#ffffff guibg=NONE gui=bold cterm=bold
-hi Visual guifg=#02367a guibg=#5fafd7 gui=NONE cterm=NONE
+hi Visual guifg=#000000 guibg=#5fafd7 gui=NONE cterm=NONE
 hi VertSplit guifg=#878787 guibg=NONE gui=NONE ctermfg=NONE ctermbg=102 cterm=NONE
 hi StatusLine guifg=#000000 guibg=#afafaf gui=NONE ctermfg=NONE ctermbg=145 cterm=NONE
 hi StatusLineNC guifg=#000000 guibg=#878787 gui=NONE ctermfg=NONE ctermbg=102 cterm=NONE
