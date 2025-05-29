@@ -22,22 +22,20 @@ import autoload 'fuzzy.vim'
 nnoremap <space>e <scriptcmd>fuzzy.FileTree()<CR>
 nnoremap <space>b <scriptcmd>fuzzy.Buffer(true)<CR>
 nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
+nnoremap <space>fi <scriptcmd>fuzzy.FileTree($MYVIMDIR)<CR>
+nnoremap <space>fR <scriptcmd>fuzzy.FileTree($VIMRUNTIME)<CR>
 nnoremap <space>fm <scriptcmd>fuzzy.MRU()<CR>
 nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
 nnoremap <space>fc <scriptcmd>fuzzy.Colorscheme()<CR>
 nnoremap <space>fs <scriptcmd>fuzzy.Session()<CR>
 nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
 nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
-nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
 nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 nnoremap <space>w <scriptcmd>fuzzy.CurrentWord()<CR>
-nnoremap <space>fi <scriptcmd>fuzzy.Template()<CR>
+nnoremap <space>it <scriptcmd>fuzzy.Template()<CR>
 
 # Alternate way to have fuzzy file find
 nnoremap <space>ff :<C-u>Find<space><c-@>
-# nnoremap <space>fv <scriptcmd>lcd $MYVIMDIR<cr>:<C-u>Find<space><c-@>
-# nnoremap <space>fd <scriptcmd>exe "lcd " .. ($DOCS ?? '~/docs')<cr>:<C-u>Find<space><c-@>
-# nnoremap <space>fV <scriptcmd>lcd $VIMRUNTIME<cr>:<C-u>Find<space><c-@>
 nnoremap <space>gg :<C-u>Rg<space>
 nnoremap <space>gw :<C-u>Rg <c-r>=expand("<cword>")<cr>
 
