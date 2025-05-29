@@ -19,11 +19,11 @@ nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 
 # fuzzy
 import autoload 'fuzzy.vim'
-nnoremap <space>e <scriptcmd>fuzzy.FileTree()<CR>
+nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
 nnoremap <space>b <scriptcmd>fuzzy.Buffer(true)<CR>
 nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
-nnoremap <space>fi <scriptcmd>fuzzy.FileTree($MYVIMDIR)<CR>
-nnoremap <space>fR <scriptcmd>fuzzy.FileTree($VIMRUNTIME)<CR>
+nnoremap <space>fi <scriptcmd>fuzzy.File($MYVIMDIR)<CR>
+nnoremap <space>fR <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
 nnoremap <space>fm <scriptcmd>fuzzy.MRU()<CR>
 nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
 nnoremap <space>fc <scriptcmd>fuzzy.Colorscheme()<CR>

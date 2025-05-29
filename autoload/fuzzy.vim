@@ -213,7 +213,7 @@ export def Bookmark()
         })
 enddef
 
-export def File(path: string = "")
+export def DirFile(path: string = "")
     var sep = has("win32") ? '\' : '/'
     var opath = expand(path ?? "%:p:h")
     if !isdirectory(opath)
@@ -232,11 +232,11 @@ export def File(path: string = "")
         var escpath = res.path->substitute('#', '\\&', 'g')
         var escname = res.name->substitute('#', '\\&', 'g')
         if (key == "\<bs>" || key == "\<c-h>") && isdirectory(fnamemodify(res.path, ':p:h:h'))
-            File($"{fnamemodify(res.path, ':p:h:h')}")
+            DirFile($"{fnamemodify(res.path, ':p:h:h')}")
         elseif key == "\<C-o>"
             exe $"Open {res.path}{sep}{res.name}"
         elseif isdirectory($"{res.path}{sep}{res.name}")
-            File($"{res.path}{res.path[-1] == sep ? '' : sep}{res.name}")
+            DirFile($"{res.path}{res.path[-1] == sep ? '' : sep}{res.name}")
         elseif key == "\<C-j>"
             exe $"split {escpath}{sep}{escname}"
         elseif key == "\<C-v>"
@@ -252,7 +252,7 @@ export def File(path: string = "")
         }, true)
 enddef
 
-export def FileTree(path: string = "")
+export def File(path: string = "")
     var opath = isdirectory(expand(path)) ? path : ''
     if trim(opath, '/\', 2) == getcwd()
         opath = ''
@@ -414,7 +414,7 @@ export def Project()
     endif
     popup.Select("Project", projects,
         (res, key) => {
-            FileTree(res.text)
+            FindFile(res.text)
         },
         (winid) => {
             win_execute(winid, "syn match PopupSelectPath '^.*[\\/]'")
