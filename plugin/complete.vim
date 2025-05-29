@@ -8,8 +8,12 @@ set complete=o^7,.^7,w^3,b^3,u^3,t^2
 
 set complete+=FAbbrevCompletor^3
 def g:AbbrevCompletor(findstart: number, base: string): any
-    if findstart == 1
-        return col('.') - 1
+    if findstart > 0
+        var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\S\+$')
+        if prefix->empty()
+            return -2
+        endif
+        return col('.') - prefix->len() - 1
     endif
     var lines = execute('ia', 'silent!')
     if lines =~? gettext('No abbreviation found')
@@ -27,8 +31,12 @@ enddef
 
 set complete+=FRegisterComplete^5
 def g:RegisterComplete(findstart: number, base: string): any
-    if findstart == 1
-        return col('.') - 1
+    if findstart > 0
+        var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\S\+$')
+        if prefix->empty()
+            return -2
+        endif
+        return col('.') - prefix->len() - 1
     endif
 
     var items = []
