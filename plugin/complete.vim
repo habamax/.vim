@@ -123,6 +123,6 @@ cnoremap <expr> <down> SkipCmdlineChanged("\<down>")
 augroup cmdcomplete
     au!
     autocmd CmdlineChanged : CmdComplete()
-    autocmd CmdlineEnter : set belloff+=error
-    autocmd CmdlineLeave : set belloff-=error
+    # autocmd CmdlineEnter : set belloff+=error
+    # autocmd CmdlineLeave : set belloff-=error
 augroup END
