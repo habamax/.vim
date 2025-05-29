@@ -26,9 +26,7 @@ def g:AbbrevCompletor(findstart: number, base: string): any
             items->add({ word: m[1], kind: "ab", info: m[2], dup: 1 })
         endif
     endfor
-    return items->empty() ? v:none :
-        items
-        ->sort((v1, v2) => v1.word < v2.word ? -1 : v1.word ==# v2.word ? 0 : 1)
+    return items->empty() ? v:none : items
 enddef
 
 set complete+=FRegisterComplete^5
