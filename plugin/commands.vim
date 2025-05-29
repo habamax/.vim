@@ -187,7 +187,7 @@ def GrepComplete(arglead: string, cmdline: string, cursorpos: number): list<any>
         ' --exclude-dir=.git --exclude=".*" --exclude="tags" --exclude="*.swp"') : []
 enddef
 
-command! -nargs=+ -complete=customlist,RgComplete Rg GrepVisitFile()
+command! -nargs=+ -complete=customlist,RgComplete Rg CmdGrepVisitFile()
 def RgComplete(arglead: string, cmdline: string, cursorpos: number): list<any>
     return arglead->len() > 1 ? systemlist($'rg -nS --column "{arglead}"') : []
 enddef
