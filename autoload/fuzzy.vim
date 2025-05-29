@@ -414,7 +414,7 @@ export def Project()
     endif
     popup.Select("Project", projects,
         (res, key) => {
-            FindFile(res.text)
+            File(res.text)
         },
         (winid) => {
             win_execute(winid, "syn match PopupSelectPath '^.*[\\/]'")
