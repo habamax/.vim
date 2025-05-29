@@ -22,6 +22,7 @@ import autoload 'fuzzy.vim'
 nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
 nnoremap <space>b <scriptcmd>fuzzy.Buffer(true)<CR>
 nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
+nnoremap <space>fe <scriptcmd>fuzzy.DirFile()<CR>
 nnoremap <space>fi <scriptcmd>fuzzy.File($MYVIMDIR)<CR>
 nnoremap <space>fd <scriptcmd>fuzzy.File($DOCS ?? "~/docs")<CR>
 nnoremap <space>fr <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
