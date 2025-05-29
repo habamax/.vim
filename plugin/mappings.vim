@@ -23,7 +23,8 @@ nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
 nnoremap <space>b <scriptcmd>fuzzy.Buffer(true)<CR>
 nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
 nnoremap <space>fi <scriptcmd>fuzzy.File($MYVIMDIR)<CR>
-nnoremap <space>fR <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
+nnoremap <space>fd <scriptcmd>fuzzy.File($DOCS ?? "~/docs")<CR>
+nnoremap <space>fr <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
 nnoremap <space>fm <scriptcmd>fuzzy.MRU()<CR>
 nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
 nnoremap <space>fc <scriptcmd>fuzzy.Colorscheme()<CR>
