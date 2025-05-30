@@ -47,7 +47,9 @@ def g:RegisterComplete(findstart: number, base: string): any
                 abbr: regtext->slice(0, 40)->substitute('\n', '⏎', 'g'),
                 word: regtext,
                 kind: '"' .. r,
-                info: regtext, dup: 0 })
+                info: regtext,
+                dup: 0
+            })
         endif
     endfor
 
