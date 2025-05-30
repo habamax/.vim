@@ -41,13 +41,14 @@ def g:RegisterComplete(findstart: number, base: string): any
     var items = []
 
     for r in '*+"/=#:%-0123456789abcdefghijklmnopqrstuvwxyz'
-        var regtext = trim(getreg(r))
-        if !empty(regtext)
+        var text = trim(getreg(r))
+        var abbr = text->slice(0, 40)->substitute('\n', '⏎', 'g')
+        abbr ..= (text->len() > 40 ? "…" : "")
+        if !empty(text)
             items->add({
-                abbr: regtext->slice(0, 40)->substitute('\n', '⏎', 'g'),
-                word: regtext,
+                abbr: abbr,
+                word: text,
                 kind: '"' .. r,
-                info: regtext,
                 dup: 0
             })
         endif
