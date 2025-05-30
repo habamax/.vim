@@ -76,7 +76,7 @@ enddef
 def SkipTextChangedI(): string
     # Suppress next event caused by <c-e> (or <c-n> when no matches found)
     set eventignore+=TextChangedI
-    timer_start(1, (_) => {
+    timer_start(0, (_) => {
         set eventignore-=TextChangedI
     })
     return ''
