@@ -24,6 +24,7 @@ def g:AbbrevCompletor(findstart: number, base: string): any
         var m = line->matchlist('\v^i\s+\zs(\S+)\s+(.*)$')
         items->add({ word: m[1], kind: "ab", info: m[2], dup: 1 })
     endfor
+    items = items->matchfuzzy(base, {key: "word"})
     return items->empty() ? v:none : items
 enddef
 
@@ -50,11 +51,12 @@ def g:RegisterComplete(findstart: number, base: string): any
         endif
     endfor
 
+    items = items->matchfuzzy(base, {key: "word"})
     return items->empty() ? v:none : items
 enddef
 
 var instrigger = {
-    vim: '\v%(\k|\k-\>|[gvbl]:)$',
+    vim: '\v%(\k|\k-\>|[gvbls]:)$',
     c: '\v%(\k|\k\.|\k-\>)$',
     python: '\v%(\k|\k\.)$',
     gdscript: '\v%(\k|\k\.)$',
