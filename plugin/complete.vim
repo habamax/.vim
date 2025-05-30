@@ -22,10 +22,9 @@ def g:AbbrevCompletor(findstart: number, base: string): any
     var items = []
     for line in lines->split("\n")
         var m = line->matchlist('\v^i\s+\zs(\S+)\s+(.*)$')
-        if m->len() > 2 && m[1]->stridx(base) == 0
-            items->add({ word: m[1], kind: "ab", info: m[2], dup: 1 })
-        endif
+        items->add({ word: m[1], kind: "ab", info: m[2], dup: 1 })
     endfor
+    items = items->matchfuzzy(base, {key: "word"})
     return items->empty() ? v:none : items
 enddef
 
@@ -45,7 +44,7 @@ def g:RegisterComplete(findstart: number, base: string): any
         var text = trim(getreg(r))
         var abbr = text->slice(0, 40)->substitute('\n', '⏎', 'g')
         abbr ..= (text->len() > 40 ? "…" : "")
-        if !empty(text) && text->stridx(base) == 0
+        if !empty(text)
             items->add({
                 abbr: abbr,
                 word: text,
@@ -56,6 +55,7 @@ def g:RegisterComplete(findstart: number, base: string): any
         endif
     endfor
 
+    items = items->matchfuzzy(base, {key: "word"})
     return items->empty() ? v:none : items
 enddef
 
