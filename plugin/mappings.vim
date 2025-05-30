@@ -32,6 +32,7 @@ nnoremap <space>fc <scriptcmd>fuzzy.Colorscheme()<CR>
 nnoremap <space>fs <scriptcmd>fuzzy.Session()<CR>
 nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
 nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
+nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
 nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 nnoremap <space>w <scriptcmd>fuzzy.CurrentWord()<CR>
 nnoremap <space>it <scriptcmd>fuzzy.Template()<CR>
