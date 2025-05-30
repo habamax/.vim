@@ -44,7 +44,7 @@ def g:RegisterComplete(findstart: number, base: string): any
         var regtext = trim(getreg(r))
         if !empty(regtext)
             items->add({
-                abbr: regtext->slice(0, 30),
+                abbr: regtext->slice(0, 40)->substitute('\n', '⏎', 'g'),
                 word: regtext,
                 kind: '"' .. r,
                 info: regtext, dup: 0 })
