@@ -12,3 +12,4 @@
 *.temp
 /tags
 /pack/ext/
+/pack/devel/
