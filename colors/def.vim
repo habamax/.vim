@@ -9,7 +9,7 @@
 
 
 hi clear
-let g:colors_name = 'default'
+let g:colors_name = 'def'
 
 if &background == "dark"
     if has('gui_running')
