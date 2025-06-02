@@ -77,21 +77,21 @@ lspDiagSignInfoText                    -> Question
 
 Normal                  none           none
 
-StatusLine              Black             LightGray
-StatusLineNC            Black        DarkGray
-VertSplit               DarkGray        DarkGray
+StatusLine              Black          LightGray
+StatusLineNC            Black          DarkGray
+VertSplit               DarkGray       DarkGray
 
-ToolbarButton           DarkGray        Black        reverse,bold
+ToolbarButton           DarkGray       Black          reverse,bold
 QuickFixLine            Black          Magenta
 
 LineNr                  colorNonT      none
 EndOfBuffer             colorNonT      none
 SpecialKey              colorNonT      none
 
-Visual                  LightBlue        Black        reverse
+Visual                  LightBlue      Black          reverse
 VisualNOS               -> omit
 
-Pmenu                   none           colorB
+PMenu                   none           colorB
 PmenuThumb              none           DarkGray
 PmenuSbar               none           none
 PmenuSel                none           colorNonT
