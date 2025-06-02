@@ -12,7 +12,9 @@ hi clear
 let g:colors_name = 'def'
 
 if &background == "dark"
-    hi Normal guifg=#eeeeee guibg=#000000 gui=NONE ctermbg=NONE ctermfg=NONE cterm=NONE
+    if has('gui_running')
+        hi Normal guifg=#eeeeee guibg=#000000 gui=NONE ctermbg=NONE ctermfg=NONE cterm=NONE
+    endif
     hi CursorLine guifg=NONE guibg=#444444 gui=NONE cterm=NONE ctermfg=NONE
     hi LineNr guifg=#5f5f5f guibg=NONE gui=NONE cterm=NONE ctermfg=59 ctermbg=NONE cterm=NONE
     hi Visual guifg=#000000 guibg=#5fafd7 gui=NONE cterm=NONE
