@@ -94,7 +94,7 @@ hi Underlined guifg=NONE ctermfg=NONE
 hi Statement gui=NONE
 hi Type gui=NONE
 
-hi CursorLineNr guifg=NONE guibg=NONE gui=bold cterm=bold
+hi CursorLineNr guifg=NONE guibg=NONE gui=bold cterm=bold ctermfg=NONE ctermbg=NONE
 hi ToolbarLine guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 
 hi! link NonText LineNr
