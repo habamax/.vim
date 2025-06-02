@@ -62,7 +62,7 @@ StatusLineTerm                         -> Statusline
 StatusLineTermNC                       -> StatuslineNC
 LineNrAbove                            -> LineNr
 LineNrBelow                            -> LineNr
-MessageWindow                          -> PMenu
+MessageWindow                          -> Pmenu
 PopupNotification                      -> Todo
 CurSearch                              -> IncSearch
 PopupSelected                          -> PmenuSel
@@ -91,7 +91,7 @@ SpecialKey              colorNonT      none
 Visual                  LightBlue      Black          reverse
 VisualNOS               -> omit
 
-PMenu                   none           colorB
+Pmenu                   none           colorB
 PmenuThumb              none           DarkGray
 PmenuSbar               none           none
 PmenuSel                none           colorNonT
@@ -137,7 +137,7 @@ SpellRare               Magenta        none           s=none    underline
 
 Comment                 -> omit
 Constant                -> omit
-Identifier              -> omit
+Identifier              omit           omit
 Statement               omit           omit
 PreProc                 -> omit
 Type                    omit           omit
