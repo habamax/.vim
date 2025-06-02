@@ -1,4 +1,4 @@
-" def colorscheme
+" default colorscheme
 "
 " Vim's default dark-background syntax without sans bold for Statement and Type.
 "
@@ -9,7 +9,7 @@
 
 
 hi clear
-let g:colors_name = 'def'
+let g:colors_name = 'default'
 
 if &background == "dark"
     if has('gui_running')
