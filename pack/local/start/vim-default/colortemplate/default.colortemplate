@@ -9,46 +9,8 @@ Options:     backend=vim9
 
 Environments: gui 256 16 8 0
 
-Background: dark
+Background: any
 
-;;; Color palette
-Color: Black            #000000        16             black
-Color: White            #eeeeee        255            white
-Color: Blue             #5fafd7        74             blue
-Color: Yellow           #ffff00        226            yellow
-Color: Red              #d75f87        168            red
-Color: Magenta          #d787d7        176            magenta
-Color: DarkGreen        #5faf5f        71             darkgreen
-Color: DarkCyan         #5f8787        66             darkcyan
-Color: DarkYellow       #d7d75f        185            darkyellow
-Color: DarkRed          #af5f5f        131            darkred
-Color: Green            #5fd75f        77             green
-
-; Color: DarkBlue         #5f87af        67             darkblue
-
-Color: DarkGray1        #262626        235            darkgray
-Color: DarkGray2        #303030        236            darkgray
-Color: DarkGray3        #3a3a3a        237            darkgray
-Color: DarkGray4        #444444        238            darkgray
-Color: DarkGray5        #4e4e4e        239            darkgray
-Color: DarkGray6        #5f5f5f        59             darkgray
-Color: Gray1            #767676        243            gray
-Color: Gray2            #808080        244            gray
-Color: Gray3            #878787        102            gray
-Color: Gray4            #9e9e9e        247            gray
-Color: Gray5            #afafaf        145            gray
-
-Color: diffAdd          #5faf5f        71             darkgreen
-Color: diffDelete       #af5f5f        131            darkred
-Color: diffChange       #5f87af        67             darkblue
-Color: diffText         #af87af        139            darkmagenta
-
-Color: Added            #5fd75f        77             darkgreen
-Color: Changed          #ffaf5f        215            darkyellow
-Color: Removed          #d75f5f        167            darkred
-
-
-;;; links
 CursorLineFold                         -> omit
 CursorLineSign                         -> omit
 
@@ -79,8 +41,43 @@ lspDiagSignHintText                    -> Added
 lspDiagVirtualTextInfo                 -> Question
 lspDiagSignInfoText                    -> Question
 
+Background: dark
+
+;;; Color palette
+Color: Black            #000000        16             black
+Color: White            #eeeeee        255            white
+Color: Blue             #5fafd7        74             blue
+Color: Yellow           #ffff00        226            yellow
+Color: Red              #d75f87        168            red
+Color: Magenta          #d787d7        176            magenta
+Color: DarkGreen        #5faf5f        71             darkgreen
+Color: DarkCyan         #5f8787        66             darkcyan
+Color: DarkYellow       #d7d75f        185            darkyellow
+Color: DarkRed          #af5f5f        131            darkred
+Color: Green            #5fd75f        77             green
+
+Color: DarkGray1        #262626        235            darkgray
+Color: DarkGray2        #303030        236            darkgray
+Color: DarkGray3        #3a3a3a        237            darkgray
+Color: DarkGray4        #444444        238            darkgray
+Color: DarkGray5        #4e4e4e        239            darkgray
+Color: DarkGray6        #5f5f5f        59             darkgray
+Color: Gray1            #767676        243            gray
+Color: Gray2            #808080        244            gray
+Color: Gray3            #878787        102            gray
+Color: Gray4            #9e9e9e        247            gray
+Color: Gray5            #afafaf        145            gray
+
+Color: diffAdd          #5faf5f        71             darkgreen
+Color: diffDelete       #af5f5f        131            darkred
+Color: diffChange       #5f87af        67             darkblue
+Color: diffText         #af87af        139            darkmagenta
+
+Color: Added            #5fd75f        77             darkgreen
+Color: Changed          #ffaf5f        215            darkyellow
+Color: Removed          #d75f5f        167            darkred
+
 #const gui_running = has('gui_running')
-Normal                  none           none
 Normal/gui +gui_running 1    White     Black
 
 StatusLine              Black          Gray4
@@ -88,17 +85,13 @@ StatusLineNC            Black          Gray1
 VertSplit               Gray1          Gray1
 
 ToolbarButton           White          Black          reverse,bold
-ToolbarLine             none           none
 QuickFixLine            Black          Magenta
 
 LineNr                  DarkGray6      none
 EndOfBuffer             DarkGray6      none
 SpecialKey              DarkGray6      none
-CursorLineNr            none           none           bold
-
 
 Visual                  Blue           Black          reverse
-VisualNOS               -> omit
 
 Pmenu                   none           DarkGray2
 PmenuThumb              none           Gray1
@@ -113,33 +106,117 @@ PmenuMatchSel           Magenta        DarkGray5
 
 Error                   DarkRed        Black          reverse
 ErrorMsg                DarkRed        Black          reverse
-ModeMsg                 none           none           bold
 MoreMsg                 DarkGreen      none
-Question                -> omit
 WarningMsg              Red            none
 
-; Variant: gui 256 16
-MatchParen              -> omit
 Search                  Black          DarkYellow
 IncSearch               Black          Yellow
-WildMenu                -> omit
-
-debugPC                 -> omit
-debugBreakpoint         -> omit
-
-Cursor                  -> omit
-lCursor                 -> omit
-CursorIM                -> omit
-
 CursorLine              none           DarkGray4
 Folded                  Gray4          DarkGray3
 ColorColumn             none           DarkGray1
+
+Background: light
+
+;;; Color palette
+Color: Black            #000000        16             black
+Color: White            #ffffff        231            white
+Color: Blue             #5fafd7        74             blue
+Color: Yellow           #ffff00        226            yellow
+Color: Red              #d75f87        168            red
+Color: Magenta          #d787d7        176            magenta
+Color: DarkGreen        #5faf5f        71             darkgreen
+Color: DarkCyan         #5f8787        66             darkcyan
+Color: DarkYellow       #d7d75f        185            darkyellow
+Color: DarkRed          #af5f5f        131            darkred
+Color: Green            #5fd75f        77             green
+
+Color: DarkGray1        #262626        235            darkgray
+Color: DarkGray2        #303030        236            darkgray
+Color: DarkGray3        #3a3a3a        237            darkgray
+Color: DarkGray4        #444444        238            darkgray
+Color: DarkGray5        #4e4e4e        239            darkgray
+Color: DarkGray6        #5f5f5f        59             darkgray
+Color: Gray1            #767676        243            gray
+Color: Gray2            #808080        244            gray
+Color: Gray3            #878787        102            gray
+Color: Gray4            #9e9e9e        247            gray
+Color: Gray5            #afafaf        145            gray
+
+Color: LightGray1        #eeeeee        255           gray
+Color: LightGray2        #e4e4e4        254           gray
+Color: LightGray3        #3a3a3a        237           gray
+Color: LightGray4        #444444        238            darkgray
+Color: LightGray5        #b2b2b2        249           gray
+Color: LightGray6        #5f5f5f        59            darkgray
+
+Color: diffAdd          #5faf5f        71             darkgreen
+Color: diffDelete       #af5f5f        131            darkred
+Color: diffChange       #5f87af        67             darkblue
+Color: diffText         #af87af        139            darkmagenta
+
+Color: Added            #5fd75f        77             darkgreen
+Color: Changed          #ffaf5f        215            darkyellow
+Color: Removed          #d75f5f        167            darkred
+
+#const gui_running = has('gui_running')
+Normal/gui +gui_running 1    Black     White
+
+StatusLine              Black          Gray4
+StatusLineNC            Black          Gray1
+VertSplit               Gray1          Gray1
+
+ToolbarButton           White          Black          reverse,bold
+QuickFixLine            Black          Magenta
+
+LineNr                  DarkGray6      none
+EndOfBuffer             DarkGray6      none
+SpecialKey              DarkGray6      none
+
+Visual                  Blue           Black          reverse
+
+Pmenu                   none           LightGray2
+PmenuThumb              none           Gray1
+PmenuSbar               none           none
+PmenuSel                none           LightGray5
+PmenuKind               Green          LightGray2
+PmenuKindSel            Green          LightGray5
+PmenuExtra              Gray1          LightGray2
+PmenuExtraSel           Gray3          LightGray5
+PmenuMatch              Magenta        LightGray2
+PmenuMatchSel           Magenta        LightGray5
+
+Error                   DarkRed        Black          reverse
+ErrorMsg                DarkRed        Black          reverse
+MoreMsg                 DarkGreen      none
+WarningMsg              Red            none
+
+Search                  Black          DarkYellow
+IncSearch               Black          Yellow
+CursorLine              none           DarkGray4
+Folded                  Gray4          DarkGray3
+ColorColumn             none           DarkGray1
+
+Background: any
+
+Normal                  none           none
+
+WildMenu                -> omit
+debugPC                 -> omit
+debugBreakpoint         -> omit
+Question                -> omit
+ModeMsg                 none           none           bold
+VisualNOS               -> omit
+CursorLineNr            none           none           bold
+ToolbarLine             none           none
+Cursor                  -> omit
+lCursor                 -> omit
+CursorIM                -> omit
+MatchParen              -> omit
 
 SpellBad                Removed        none           s=none    underline
 SpellCap                Changed        none           s=none    underline
 SpellLocal              Added          none           s=none    underline
 SpellRare               Magenta        none           s=none    underline
-
 
 Comment                 -> omit
 Constant                -> omit
