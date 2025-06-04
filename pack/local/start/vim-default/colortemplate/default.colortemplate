@@ -145,7 +145,7 @@ Color: Gray5            #afafaf        145            gray
 Color: LightGray1        #eeeeee        255           gray
 Color: LightGray2        #e4e4e4        254           gray
 Color: LightGray3        #3a3a3a        237           gray
-Color: LightGray4        #444444        238            darkgray
+Color: LightGray4        #444444        238           darkgray
 Color: LightGray5        #b2b2b2        249           gray
 Color: LightGray6        #5f5f5f        59            darkgray
 
