@@ -43,13 +43,17 @@ def g:RegisterComplete(findstart: number, base: string): any
     for r in '*+"/=#:%-0123456789abcdefghijklmnopqrstuvwxyz'
         var text = trim(getreg(r))
         var abbr = text->slice(0, 40)->substitute('\n', '⏎', 'g')
-        abbr ..= (text->len() > 40 ? "…" : "")
+        var info = ""
+        if text->len() > 40
+            abbr ..= "…"
+            info = text
+        endif
         if !empty(text)
             items->add({
                 abbr: abbr,
                 word: text,
                 kind: '"' .. r,
-                info: text,
+                info: info,
                 dup: 0
             })
         endif
