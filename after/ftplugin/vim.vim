@@ -14,7 +14,7 @@ def Things()
     var commentchars = split(&cms, "%s")[0]
     for nr in range(1, line('$'))
         var line = getline(nr)
-        if line =~ '\(^\|\s\)def \k\+('
+        if line =~ '\(^\|\s\)def \([g]:\)\?\k\+('
         || line =~ '\(^\|\s\)fu\%[nction]!\?\s\+\([sgl]:\)\?\k\+('
         || line =~ '^\s*com\%[mand]!\?\s\+\S\+'
         || line =~ '^\s*aug\%[roup]\s\+\S\+' && line !~ '\c^\s*aug\%[roup] end\s*$'
