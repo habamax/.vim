@@ -4,7 +4,7 @@ vim9script
 set completepopup=highlight:Pmenu
 set completeopt=menuone,popup,noselect,fuzzy
 set infercase
-set complete=o^7,.^7,w^3,b^3,u^3,t^2
+set complete=o^7,.^7,w^3,b^3,u^3
 
 set complete+=FAbbrevCompletor^3
 def g:AbbrevCompletor(findstart: number, base: string): any
