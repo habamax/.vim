@@ -107,101 +107,8 @@ enddef
 
 command! Bookmark call SaveBookmark()
 
-
-var cmdline_selected_match = null_string
-var cmdline_find_files = null_string
-var cmdline_mru_files = null_string
-
-def CmdlineEnterSetup()
-    cmdline_find_files = null_string
-enddef
-
-augroup livecommands
-    au!
-    autocmd CmdlineEnter : CmdlineEnterSetup()
-    autocmd CmdlineLeavePre : CmdlineSelectItem()
-augroup END
-
-def CmdlineSelectItem()
-    cmdline_selected_match = ''
-    if getcmdline() =~ '\v^\s*%(Grep|Rg|Find|MRU)\s'
-        var info = cmdcomplete_info()
-        if info != {} && info.pum_visible && !info.matches->empty()
-            cmdline_selected_match = info.selected != -1 ? info.matches[info.selected] : info.matches[0]
-            setcmdline(info.cmdline_orig) # Preserve search pattern in history
-        endif
-    endif
-enddef
-
-def CmdDoEdit()
-    execute(cmdline_selected_match != '' ? $'edit {cmdline_selected_match}' : '')
-enddef
-
-# --------------------------
-# MRU
-# --------------------------
-command! -nargs=* -complete=custom,FindMRU MRU CmdDoEdit()
-def FindMRU(arglead: string, _: string, _: number): string
-    if cmdline_mru_files == null_string
-        var mru = []
-
-        if filereadable($'{$MYVIMDIR}.data/mru')
-            mru = readfile($'{$MYVIMDIR}.data/mru')
-                ->filter((_, v) => filereadable(expand(v)))
-        endif
-        if mru->len() > 0 && expand(mru[0]) == expand("%:p")
-            mru = mru[1 : ]
-        endif
-        cmdline_mru_files = mru->join("\n")
-    endif
-    return cmdline_mru_files
-enddef
-
-# --------------------------
-# Find file
-# --------------------------
-command! -nargs=* -complete=custom,FindFile Find CmdDoEdit()
-def FindFile(arglead: string, _: string, _: number): string
-    if cmdline_find_files == null_string
-        if executable('fd')
-            cmdline_find_files = system('fd . --path-separator / --type f --hidden --follow --exclude .git')
-        elseif executable('fdfind')
-            cmdline_find_files = system('fdfind . --path-separator / --type f --hidden --follow --exclude .git')
-        elseif executable('ugrep')
-            cmdline_find_files = system('ugrep "" -Rl -I --ignore-files')
-        elseif executable('rg')
-            cmdline_find_files = system('rg --path-separator / --files --hidden --glob !.git')
-        elseif executable('find')
-            cmdline_find_files = system('find . \! \( -path "*/.git" -prune -o -name "*.swp" \) -type f -follow')
-        endif
-    endif
-    return cmdline_find_files
-enddef
-
-# --------------------------
-# Live grep
-# --------------------------
-command! -nargs=+ -complete=customlist,GrepComplete Grep CmdGrepVisitFile()
-def GrepComplete(arglead: string, cmdline: string, cursorpos: number): list<any>
-    return arglead->len() > 1 ? systemlist($'grep -REIHns "{arglead}"' ..
-        ' --exclude-dir=.git --exclude=".*" --exclude="tags" --exclude="*.swp"') : []
-enddef
-
-command! -nargs=+ -complete=customlist,RgComplete Rg CmdGrepVisitFile()
-def RgComplete(arglead: string, cmdline: string, cursorpos: number): list<any>
-    return arglead->len() > 1 ? systemlist($'rg -nS --column "{arglead}"') : []
-enddef
-
-def CmdGrepVisitFile()
-    if (cmdline_selected_match != null_string)
-        var qfitem = getqflist({lines: [cmdline_selected_match]}).items[0]
-        if qfitem->has_key('bufnr') && qfitem.lnum > 0
-            var pos = qfitem.vcol > 0 ? 'setcharpos' : 'setpos'
-            exec $':b +call\ {pos}(".",\ [0,\ {qfitem.lnum},\ {qfitem.col},\ 0]) {qfitem.bufnr}'
-            setbufvar(qfitem.bufnr, '&buflisted', 1)
-        endif
-    endif
-enddef
+command! -nargs=1 Grep Sh! grep -Rn "<args>" .
+command! -nargs=1 Rg Sh! rg -nS --column "<args>" .
 
 # IRC
 def Irc()
@@ -219,18 +126,6 @@ def Irc()
     exe "IIJoin irc.libera.chat #python"
     normal! zb
     wincmd t
-
-    # exe "IIJoin irc.libera.chat #vim"
-    # normal zb
-    # wincmd o
-    # exe "IIJoin irc.libera.chat #python"
-    # wincmd L
-    # normal zb
-    # exe "IIJoin irc.libera.chat #perl"
-    # normal zb
-    # wincmd h
-    # exe "IIJoin irc.libera.chat #emacs"
-    # normal zb
 
     if buf_del != -1
         exe $"bd {buf_del}"
