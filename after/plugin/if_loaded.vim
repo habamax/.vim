@@ -146,6 +146,10 @@ if exists("g:loaded_lsp")
             path: '/home/habamax/prj/java-language-server/dist/lang_server_linux.sh',
         }])
     endif
+    augroup lspomni
+        au!
+        au User LspAttached setl complete^=o^7
+    augroup END
 endif
 
 if exists("g:loaded_sandwich")
