@@ -21,7 +21,6 @@ vim9script
 var paste_service = {
     '0x0': ['https://0x0.st/', 'file=@-'],
     'envs': ['https://envs.sh/', 'file=@-;'],
-    'clbin': ['https://clbin.com/', 'clbin=<-'],
     'dpaste': ['http://dpaste.com/api/v2/', 'content=<-'],
     'ix': ['http://ix.io/', 'f:1=<-'],
     'vpaste': ['http://vpaste.net/', 'text=<-']
