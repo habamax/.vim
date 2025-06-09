@@ -44,7 +44,7 @@ augroup colors | au!
     au Colorscheme * Lsp()
     au Colorscheme habamax,wildcharm,lunaperche NoBg()
     au Colorscheme wildcharm Diff()
-    au Colorscheme default,habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
+    au Colorscheme hdefault,habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
 augroup END
 
 g:colors = {
