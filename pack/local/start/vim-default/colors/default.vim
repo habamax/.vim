@@ -70,8 +70,8 @@ if &background == 'dark'
   hi PmenuExtraSel guifg=#878787 guibg=#4e4e4e guisp=NONE gui=NONE ctermfg=102 ctermbg=239 cterm=NONE term=NONE
   hi PmenuKind guifg=#5fd75f guibg=#303030 guisp=NONE gui=NONE ctermfg=77 ctermbg=236 cterm=NONE term=NONE
   hi PmenuKindSel guifg=#5fd75f guibg=#4e4e4e guisp=NONE gui=NONE ctermfg=77 ctermbg=239 cterm=NONE term=NONE
-  hi PmenuMatch guifg=#d787d7 guibg=#303030 guisp=NONE gui=NONE ctermfg=176 ctermbg=236 cterm=NONE term=NONE
-  hi PmenuMatchSel guifg=#d787d7 guibg=#4e4e4e guisp=NONE gui=NONE ctermfg=176 ctermbg=239 cterm=NONE term=NONE
+  hi PmenuMatch guifg=#ffa0a0 guibg=#303030 guisp=NONE gui=NONE ctermfg=217 ctermbg=236 cterm=NONE term=NONE
+  hi PmenuMatchSel guifg=#ffa0a0 guibg=#4e4e4e guisp=NONE gui=NONE ctermfg=217 ctermbg=239 cterm=NONE term=NONE
   hi PmenuSbar guifg=NONE guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE term=reverse
   hi PmenuSel guifg=NONE guibg=#4e4e4e guisp=NONE gui=NONE ctermfg=NONE ctermbg=239 cterm=NONE term=bold
   hi PmenuThumb guifg=NONE guibg=#767676 guisp=NONE gui=NONE ctermfg=NONE ctermbg=243 cterm=NONE term=NONE
@@ -133,8 +133,8 @@ if &background == 'dark'
     hi PmenuExtraSel ctermfg=gray ctermbg=darkgray cterm=NONE
     hi PmenuKind ctermfg=green ctermbg=darkgray cterm=NONE
     hi PmenuKindSel ctermfg=green ctermbg=darkgray cterm=NONE
-    hi PmenuMatch ctermfg=magenta ctermbg=darkgray cterm=NONE
-    hi PmenuMatchSel ctermfg=magenta ctermbg=darkgray cterm=NONE
+    hi PmenuMatch ctermfg=red ctermbg=darkgray cterm=NONE
+    hi PmenuMatchSel ctermfg=red ctermbg=darkgray cterm=NONE
     hi PmenuSbar ctermfg=NONE ctermbg=NONE cterm=NONE
     hi PmenuSel ctermfg=NONE ctermbg=darkgray cterm=NONE
     hi PmenuThumb ctermfg=NONE ctermbg=gray cterm=NONE
@@ -188,8 +188,8 @@ if &background == 'dark'
     hi PmenuExtraSel ctermfg=gray ctermbg=darkgray cterm=NONE
     hi PmenuKind ctermfg=green ctermbg=darkgray cterm=NONE
     hi PmenuKindSel ctermfg=green ctermbg=darkgray cterm=NONE
-    hi PmenuMatch ctermfg=magenta ctermbg=darkgray cterm=NONE
-    hi PmenuMatchSel ctermfg=magenta ctermbg=darkgray cterm=NONE
+    hi PmenuMatch ctermfg=red ctermbg=darkgray cterm=NONE
+    hi PmenuMatchSel ctermfg=red ctermbg=darkgray cterm=NONE
     hi PmenuSbar ctermfg=NONE ctermbg=NONE cterm=NONE
     hi PmenuSel ctermfg=NONE ctermbg=darkgray cterm=NONE
     hi PmenuThumb ctermfg=NONE ctermbg=gray cterm=NONE
@@ -274,8 +274,8 @@ if &background == 'light'
   hi PmenuExtraSel guifg=#767676 guibg=#c6c6c6 guisp=NONE gui=NONE ctermfg=243 ctermbg=251 cterm=NONE term=NONE
   hi PmenuKind guifg=#008700 guibg=#e4e4e4 guisp=NONE gui=NONE ctermfg=28 ctermbg=254 cterm=NONE term=NONE
   hi PmenuKindSel guifg=#008700 guibg=#c6c6c6 guisp=NONE gui=NONE ctermfg=28 ctermbg=251 cterm=NONE term=NONE
-  hi PmenuMatch guifg=#af00af guibg=#e4e4e4 guisp=NONE gui=NONE ctermfg=127 ctermbg=254 cterm=NONE term=NONE
-  hi PmenuMatchSel guifg=#af00af guibg=#c6c6c6 guisp=NONE gui=NONE ctermfg=127 ctermbg=251 cterm=NONE term=NONE
+  hi PmenuMatch guifg=#ff00ff guibg=#e4e4e4 guisp=NONE gui=NONE ctermfg=201 ctermbg=254 cterm=NONE term=NONE
+  hi PmenuMatchSel guifg=#ff00ff guibg=#c6c6c6 guisp=NONE gui=NONE ctermfg=201 ctermbg=251 cterm=NONE term=NONE
   hi PmenuSbar guifg=NONE guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE term=reverse
   hi PmenuSel guifg=NONE guibg=#c6c6c6 guisp=NONE gui=NONE ctermfg=NONE ctermbg=251 cterm=NONE term=bold
   hi PmenuThumb guifg=NONE guibg=#767676 guisp=NONE gui=NONE ctermfg=NONE ctermbg=243 cterm=NONE term=NONE

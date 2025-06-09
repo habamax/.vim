@@ -51,6 +51,7 @@ Color: White            #eeeeee        255            white
 Color: Blue             #5fd7ff        81             blue
 Color: Yellow           #ffff00        226            yellow
 Color: Red              #d75f87        168            red
+Color: Red1             #ffa0a0        217            red
 Color: Magenta          #d787d7        176            magenta
 Color: DarkGreen        #5faf5f        71             darkgreen
 Color: DarkCyan         #5f8787        66             darkcyan
@@ -103,8 +104,8 @@ PmenuKind               Green          DarkGray2
 PmenuKindSel            Green          DarkGray5
 PmenuExtra              Gray1          DarkGray2
 PmenuExtraSel           Gray3          DarkGray5
-PmenuMatch              Magenta        DarkGray2
-PmenuMatchSel           Magenta        DarkGray5
+PmenuMatch              Red1           DarkGray2
+PmenuMatchSel           Red1           DarkGray5
 
 Error                   DarkRed        Black          reverse
 ErrorMsg                DarkRed        Black          reverse
@@ -126,11 +127,12 @@ Color: Blue             #0087d7        32             blue
 Color: Yellow           #ffff00        226            yellow
 Color: Red              #ff0000        196            red
 Color: Magenta          #af00af        127            magenta
+Color: Magenta1         #ff00ff        201            magenta
+Color: Green            #008700        28             green
 Color: DarkGreen        #005f00        22             darkgreen
 Color: DarkCyan         #5f8787        66             darkcyan
 Color: DarkYellow       #d7d75f        185            darkyellow
 Color: DarkRed          #af0000        124            darkred
-Color: Green            #008700        28             green
 
 Color: Gray1            #767676        243            gray
 Color: Gray2            #808080        244            gray
@@ -178,8 +180,8 @@ PmenuKind               Green          LightGray2
 PmenuKindSel            Green          LightGray5
 PmenuExtra              Gray3          LightGray2
 PmenuExtraSel           Gray1          LightGray5
-PmenuMatch              Magenta        LightGray2
-PmenuMatchSel           Magenta        LightGray5
+PmenuMatch              Magenta1       LightGray2
+PmenuMatchSel           Magenta1       LightGray5
 
 Error                   DarkRed        White          reverse
 ErrorMsg                DarkRed        White          reverse
