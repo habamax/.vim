@@ -1,6 +1,6 @@
 ; vim: cc=25,40,55 vsts=24,15,15,4
-Full name:   default
-Short name:  default
+Full name:   hdefault
+Short name:  hdefault
 Description: Default vim colorscheme with better chrome
 Author:      Maxim Kim <habamax@gmail.com>
 URL:         https://github.com/habamax/.vim
@@ -91,9 +91,9 @@ VertSplit               Gray1          Gray1
 ToolbarButton           White          Black          reverse,bold
 QuickFixLine            Black          Magenta
 
-LineNr                  DarkGray6     none
-EndOfBuffer             DarkGray6     none
-SpecialKey              DarkGray6     none
+LineNr                  DarkGray6      none
+EndOfBuffer             DarkGray6      none
+SpecialKey              DarkGray6      none
 
 Visual                  Blue           Black          reverse
 
@@ -168,9 +168,9 @@ VertSplit               Gray4          Gray4
 ToolbarButton           Black          White          reverse,bold
 QuickFixLine            Black          Magenta
 
-LineNr                  LightGray6      none
-EndOfBuffer             LightGray6      none
-SpecialKey              LightGray6      none
+LineNr                  LightGray6     none
+EndOfBuffer             LightGray6     none
+SpecialKey              LightGray6     none
 
 Visual                  DarkBlue       White          reverse
 

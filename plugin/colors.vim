@@ -48,8 +48,8 @@ augroup colors | au!
 augroup END
 
 g:colors = {
-    dark: "set bg=dark | sil! colo default",
-    light: "set bg=light | sil! colo default",
+    dark: "set bg=dark | sil! colo hdefault",
+    light: "set bg=light | sil! colo hdefault",
 }
 # g:colors = {
 #     dark: "sil! colo nod-b",
