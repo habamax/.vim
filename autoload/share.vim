@@ -33,6 +33,7 @@ export def Paste(service: string, line1: number, line2: number)
     var [paste_url, paste_param] = paste_service->get(service, paste_service["0x0"])
     var url = Curl(paste_url, paste_param, line1, line2)
     @+ = url
+    @* = url
     @@ = url
     echom $"Shared as {url}"
 enddef
