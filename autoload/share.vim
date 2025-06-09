@@ -11,8 +11,8 @@ vim9script
 # Share whole buffer with default 0x0.st
 # :Share<CR>
 #
-# Share whole buffer with clbin.com
-# :Share clbin<CR>
+# Share whole buffer with ix.io
+# :Share ix<CR>
 #
 # Share selection
 # :'<,'>Share<CR>
