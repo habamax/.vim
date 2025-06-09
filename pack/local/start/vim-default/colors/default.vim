@@ -292,7 +292,7 @@ if &background == 'light'
   hi StatusLineNC guifg=#ffffff guibg=#9e9e9e guisp=NONE gui=NONE ctermfg=231 ctermbg=247 cterm=NONE term=bold,underline
   hi Title guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=NONE
   hi Todo guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=bold,reverse
-  hi ToolbarButton guifg=#ffffff guibg=#000000 guisp=NONE gui=bold,reverse ctermfg=231 ctermbg=16 cterm=bold,reverse term=bold,reverse
+  hi ToolbarButton guifg=#000000 guibg=#ffffff guisp=NONE gui=bold,reverse ctermfg=16 ctermbg=231 cterm=bold,reverse term=bold,reverse
   hi ToolbarLine guifg=NONE guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE term=reverse
   hi Type guisp=NONE gui=NONE cterm=NONE term=NONE
   hi Underlined guifg=NONE guibg=NONE guisp=NONE gui=underline ctermfg=NONE ctermbg=NONE cterm=underline term=underline
@@ -355,7 +355,7 @@ if &background == 'light'
     hi StatusLineNC ctermfg=white ctermbg=gray cterm=NONE
     hi Title ctermfg=NONE ctermbg=NONE cterm=bold
     hi Todo ctermfg=NONE ctermbg=NONE cterm=bold
-    hi ToolbarButton ctermfg=white ctermbg=black cterm=bold,reverse
+    hi ToolbarButton ctermfg=black ctermbg=white cterm=bold,reverse
     hi ToolbarLine ctermfg=NONE ctermbg=NONE cterm=NONE
     hi Type cterm=NONE
     hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline
@@ -410,7 +410,7 @@ if &background == 'light'
     hi StatusLineNC ctermfg=white ctermbg=gray cterm=NONE
     hi Title ctermfg=NONE ctermbg=NONE cterm=bold
     hi Todo ctermfg=NONE ctermbg=NONE cterm=bold
-    hi ToolbarButton ctermfg=white ctermbg=black cterm=bold,reverse
+    hi ToolbarButton ctermfg=black ctermbg=white cterm=bold,reverse
     hi ToolbarLine ctermfg=NONE ctermbg=NONE cterm=NONE
     hi Type cterm=NONE
     hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline

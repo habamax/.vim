@@ -165,7 +165,7 @@ StatusLine              White          Gray1
 StatusLineNC            White          Gray4
 VertSplit               Gray4          Gray4
 
-ToolbarButton           White          Black          reverse,bold
+ToolbarButton           Black          White          reverse,bold
 QuickFixLine            Black          Magenta
 
 LineNr                  LightGray6      none
