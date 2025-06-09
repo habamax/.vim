@@ -53,7 +53,8 @@ def g:RegisterComplete(findstart: number, base: string): any
             items->add({
                 abbr: abbr,
                 word: text,
-                kind: '"' .. r,
+                kind: 'R',
+                menu: '"' .. r,
                 info: info,
                 dup: 0
             })
