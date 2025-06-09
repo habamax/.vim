@@ -118,6 +118,7 @@ IncSearch               Black          DarkYellow
 CursorLine              none           DarkGray4
 Folded                  Gray4          DarkGray3
 ColorColumn             none           DarkGray1
+Conceal                 DarkGray5      none
 
 Background: light
 
@@ -195,6 +196,7 @@ IncSearch               Black          Yellow
 CursorLine              none           LightGray4
 Folded                  Gray4          LightGray3
 ColorColumn             none           LightGray1
+Conceal                 LightGray5     none
 
 Background: any
 
@@ -234,8 +236,6 @@ Underlined              none           none           underline
 Ignore                  none           none
 
 Todo                    none           none           bold
-
-Conceal                 -> omit
 
 Title                   none           none           bold
 Directory               omit           omit           bold

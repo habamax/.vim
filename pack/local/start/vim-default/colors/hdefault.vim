@@ -48,6 +48,7 @@ if &background == 'dark'
   hi Added guifg=#5fd75f guibg=NONE guisp=NONE gui=NONE ctermfg=77 ctermbg=NONE cterm=NONE term=NONE
   hi Changed guifg=#ffaf5f guibg=NONE guisp=NONE gui=NONE ctermfg=215 ctermbg=NONE cterm=NONE term=NONE
   hi ColorColumn guifg=NONE guibg=#262626 guisp=NONE gui=NONE ctermfg=NONE ctermbg=235 cterm=NONE term=reverse
+  hi Conceal guifg=#4e4e4e guibg=NONE guisp=NONE gui=NONE ctermfg=239 ctermbg=NONE cterm=NONE term=NONE
   hi CursorLine guifg=NONE guibg=#444444 guisp=NONE gui=NONE ctermfg=NONE ctermbg=238 cterm=NONE term=underline
   hi CursorLineNr guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=bold
   hi DiffAdd guifg=#5faf5f guibg=NONE guisp=NONE gui=reverse ctermfg=71 ctermbg=NONE cterm=reverse term=reverse
@@ -111,6 +112,7 @@ if &background == 'dark'
     hi Added ctermfg=darkgreen ctermbg=NONE cterm=NONE
     hi Changed ctermfg=darkyellow ctermbg=NONE cterm=NONE
     hi ColorColumn ctermfg=NONE ctermbg=darkgray cterm=NONE
+    hi Conceal ctermfg=darkgray ctermbg=NONE cterm=NONE
     hi CursorLine ctermfg=NONE ctermbg=darkgray cterm=NONE
     hi CursorLineNr ctermfg=NONE ctermbg=NONE cterm=bold
     hi DiffAdd ctermfg=darkgreen ctermbg=NONE cterm=reverse
@@ -166,6 +168,7 @@ if &background == 'dark'
     hi Added ctermfg=darkgreen ctermbg=NONE cterm=NONE
     hi Changed ctermfg=darkyellow ctermbg=NONE cterm=NONE
     hi ColorColumn ctermfg=NONE ctermbg=darkgray cterm=NONE
+    hi Conceal ctermfg=darkgray ctermbg=NONE cterm=NONE
     hi CursorLine ctermfg=NONE ctermbg=darkgray cterm=NONE
     hi CursorLineNr ctermfg=NONE ctermbg=NONE cterm=bold
     hi DiffAdd ctermfg=darkgreen ctermbg=NONE cterm=reverse
@@ -218,7 +221,6 @@ if &background == 'dark'
 
   if t_Co >= 0
     hi Comment term=bold
-    hi Conceal term=NONE
     hi Constant term=NONE
     hi CurSearch term=reverse
     hi Cursor term=reverse
@@ -252,6 +254,7 @@ if &background == 'light'
   hi Added guifg=#008700 guibg=NONE guisp=NONE gui=NONE ctermfg=28 ctermbg=NONE cterm=NONE term=NONE
   hi Changed guifg=#af5f00 guibg=NONE guisp=NONE gui=NONE ctermfg=130 ctermbg=NONE cterm=NONE term=NONE
   hi ColorColumn guifg=NONE guibg=#eeeeee guisp=NONE gui=NONE ctermfg=NONE ctermbg=255 cterm=NONE term=reverse
+  hi Conceal guifg=#c6c6c6 guibg=NONE guisp=NONE gui=NONE ctermfg=251 ctermbg=NONE cterm=NONE term=NONE
   hi CursorLine guifg=NONE guibg=#d0d0d0 guisp=NONE gui=NONE ctermfg=NONE ctermbg=252 cterm=NONE term=underline
   hi CursorLineNr guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=bold
   hi DiffAdd guifg=#5faf5f guibg=NONE guisp=NONE gui=reverse ctermfg=71 ctermbg=NONE cterm=reverse term=reverse
@@ -315,6 +318,7 @@ if &background == 'light'
     hi Added ctermfg=darkgreen ctermbg=NONE cterm=NONE
     hi Changed ctermfg=darkyellow ctermbg=NONE cterm=NONE
     hi ColorColumn ctermfg=NONE ctermbg=gray cterm=NONE
+    hi Conceal ctermfg=gray ctermbg=NONE cterm=NONE
     hi CursorLine ctermfg=NONE ctermbg=gray cterm=NONE
     hi CursorLineNr ctermfg=NONE ctermbg=NONE cterm=bold
     hi DiffAdd ctermfg=darkgreen ctermbg=NONE cterm=reverse
@@ -370,6 +374,7 @@ if &background == 'light'
     hi Added ctermfg=darkgreen ctermbg=NONE cterm=NONE
     hi Changed ctermfg=darkyellow ctermbg=NONE cterm=NONE
     hi ColorColumn ctermfg=NONE ctermbg=gray cterm=NONE
+    hi Conceal ctermfg=gray ctermbg=NONE cterm=NONE
     hi CursorLine ctermfg=NONE ctermbg=gray cterm=NONE
     hi CursorLineNr ctermfg=NONE ctermbg=NONE cterm=bold
     hi DiffAdd ctermfg=darkgreen ctermbg=NONE cterm=reverse
@@ -422,7 +427,6 @@ if &background == 'light'
 
   if t_Co >= 0
     hi Comment term=bold
-    hi Conceal term=NONE
     hi Constant term=NONE
     hi CurSearch term=reverse
     hi Cursor term=reverse
