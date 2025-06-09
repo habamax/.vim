@@ -28,6 +28,7 @@ def g:AbbrevCompletor(findstart: number, base: string): any
     return items->empty() ? v:none : items
 enddef
 
+const MAX_REG_LENGTH = 50
 set complete+=FRegisterComplete^5
 def g:RegisterComplete(findstart: number, base: string): any
     if findstart > 0
@@ -42,9 +43,9 @@ def g:RegisterComplete(findstart: number, base: string): any
 
     for r in '*+"/=#:%-0123456789abcdefghijklmnopqrstuvwxyz'
         var text = trim(getreg(r))
-        var abbr = text->slice(0, 40)->substitute('\n', '⏎', 'g')
+        var abbr = text->slice(0, MAX_REG_LENGTH)->substitute('\n', '⏎', 'g')
         var info = ""
-        if text->len() > 40
+        if text->len() > MAX_REG_LENGTH
             abbr ..= "…"
             info = text
         endif
