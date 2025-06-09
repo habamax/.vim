@@ -52,12 +52,13 @@ Color: Blue             #5fd7ff        81             blue
 Color: Yellow           #ffff00        226            yellow
 Color: Red              #d75f87        168            red
 Color: Red1             #ffa0a0        217            red
+Color: Green            #5fd75f        77             green
 Color: Magenta          #d787d7        176            magenta
 Color: DarkGreen        #5faf5f        71             darkgreen
 Color: DarkCyan         #5f8787        66             darkcyan
 Color: DarkYellow       #d7d75f        185            darkyellow
 Color: DarkRed          #af5f5f        131            darkred
-Color: Green            #5fd75f        77             green
+Color: DarkBlue         #0087af        31             darkblue
 
 Color: DarkGray1        #262626        235            darkgray
 Color: DarkGray2        #303030        236            darkgray
@@ -112,8 +113,8 @@ ErrorMsg                DarkRed        Black          reverse
 MoreMsg                 DarkGreen      none
 WarningMsg              Red            none
 
-Search                  Black          DarkYellow
-IncSearch               Black          Yellow
+Search                  Black          DarkBlue
+IncSearch               Black          DarkYellow
 CursorLine              none           DarkGray4
 Folded                  Gray4          DarkGray3
 ColorColumn             none           DarkGray1
@@ -123,7 +124,7 @@ Background: light
 ;;; Color palette
 Color: Black            #000000        16             black
 Color: White            #ffffff        231            white
-Color: Blue             #0087d7        32             blue
+Color: Blue             #87d7ff        75             blue
 Color: Yellow           #ffff00        226            yellow
 Color: Red              #ff0000        196            red
 Color: Magenta          #af00af        127            magenta
@@ -133,6 +134,7 @@ Color: DarkGreen        #005f00        22             darkgreen
 Color: DarkCyan         #5f8787        66             darkcyan
 Color: DarkYellow       #d7d75f        185            darkyellow
 Color: DarkRed          #af0000        124            darkred
+Color: DarkBlue         #0087d7        32             darkblue
 
 Color: Gray1            #767676        243            gray
 Color: Gray2            #808080        244            gray
@@ -170,7 +172,7 @@ LineNr                  LightGray6      none
 EndOfBuffer             LightGray6      none
 SpecialKey              LightGray6      none
 
-Visual                  Blue           White          reverse
+Visual                  DarkBlue       White          reverse
 
 Pmenu                   none           LightGray2
 PmenuThumb              none           Gray1
@@ -188,7 +190,7 @@ ErrorMsg                DarkRed        White          reverse
 MoreMsg                 DarkGreen      none
 WarningMsg              Red            none
 
-Search                  Black          DarkYellow
+Search                  Black          Blue
 IncSearch               Black          Yellow
 CursorLine              none           LightGray4
 Folded                  Gray4          LightGray3
