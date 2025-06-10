@@ -49,11 +49,15 @@ Background: dark
 Color: Black            #000000        16             black
 Color: White            #eeeeee        255            white
 Color: Blue             #5fd7ff        81             blue
+Color: Blue1            #80a0ff        111             blue
 Color: Yellow           #ffff00        226            yellow
 Color: Red              #d75f87        168            red
-Color: Red1             #ffa0a0        217            red
+Color: Red1             #ffa0a0        217            darkyellow
+Color: Orange           #ffa000        214            red
 Color: Green            #5fd75f        77             green
+Color: Green1           #60ff50        83             green
 Color: Magenta          #d787d7        176            magenta
+Color: Magenta1         #ff80ff        213            magenta
 Color: DarkGreen        #5faf5f        71             darkgreen
 Color: DarkCyan         #5f8787        66             darkcyan
 Color: DarkYellow       #d7d75f        185            darkyellow
@@ -120,6 +124,14 @@ Folded                  Gray4          DarkGray3
 ColorColumn             none           DarkGray1
 Conceal                 DarkGray5      none
 
+Comment                 Blue1          none
+Constant                Red1           none
+Identifier              omit           omit
+Statement               omit           omit
+PreProc                 Magenta1       none
+Type                    Green1         none
+Special                 Orange         none
+
 Background: light
 
 ;;; Color palette
@@ -128,6 +140,7 @@ Color: White            #ffffff        231            white
 Color: Blue             #87d7ff        75             blue
 Color: Yellow           #ffff00        226            yellow
 Color: Red              #ff0000        196            red
+Color: Red1             #ffa0a0        217            red
 Color: Magenta          #af00af        127            magenta
 Color: Magenta1         #ff00ff        201            magenta
 Color: Green            #008700        28             green
@@ -198,6 +211,15 @@ Folded                  Gray4          LightGray3
 ColorColumn             none           LightGray1
 Conceal                 LightGray5     none
 
+Comment                 -> omit
+Constant                Red1           none
+Identifier              omit           omit
+Statement               omit           omit
+PreProc                 -> omit
+Type                    -> omit
+Special                 -> omit
+
+
 Background: any
 
 Normal                  none           none
@@ -223,14 +245,6 @@ SpellLocal              Added          none           s=none    underline
  /gui                   none           none           s=Added   undercurl
 SpellRare               Magenta        none           s=none    underline
  /gui                   none           none           s=Magenta undercurl
-
-Comment                 -> omit
-Constant                -> omit
-Identifier              omit           omit
-Statement               omit           omit
-PreProc                 -> omit
-Type                    omit           omit
-Special                 -> omit
 
 Underlined              none           none           underline
 Ignore                  none           none
