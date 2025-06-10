@@ -23,3 +23,6 @@ bundle/start/vim-lion	git@github.com:tommcdo/vim-lion.git
 bundle/start/vim-closetag	git@github.com:alvan/vim-closetag.git
 bundle/start/lsp	git@github.com:yegappan/lsp.git
 devel	git@github.com:lifepillar/vim-devel.git
+
+# try?
+bundle/start/copilot	git@github.com:github/copilot.vim.git
