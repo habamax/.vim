@@ -44,12 +44,12 @@ augroup colors | au!
     au Colorscheme * Lsp()
     au Colorscheme habamax,wildcharm,lunaperche NoBg()
     au Colorscheme wildcharm Diff()
-    au Colorscheme hdefault,habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
+    au Colorscheme gvim,habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
 augroup END
 
 g:colors = {
-    dark: "set bg=dark | sil! colo hdefault",
-    light: "set bg=light | sil! colo hdefault",
+    dark: "set bg=dark | sil! colo gvim",
+    light: "set bg=light | sil! colo gvim",
 }
 # g:colors = {
 #     dark: "sil! colo nod-b",
