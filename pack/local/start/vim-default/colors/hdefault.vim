@@ -178,7 +178,7 @@ if &background == 'dark'
     hi ColorColumn ctermfg=NONE ctermbg=darkgray cterm=NONE
     hi Comment ctermfg=blue ctermbg=NONE cterm=NONE
     hi Conceal ctermfg=darkgray ctermbg=NONE cterm=NONE
-    hi Constant ctermfg=darkyellow ctermbg=NONE cterm=NONE
+    hi Constant ctermfg=red ctermbg=NONE cterm=NONE
     hi CursorLine ctermfg=NONE ctermbg=darkgray cterm=NONE
     hi CursorLineNr ctermfg=NONE ctermbg=NONE cterm=bold
     hi DiffAdd ctermfg=darkgreen ctermbg=NONE cterm=reverse
@@ -210,7 +210,7 @@ if &background == 'dark'
     hi QuickFixLine ctermfg=black ctermbg=magenta cterm=NONE
     hi Removed ctermfg=darkred ctermbg=NONE cterm=NONE
     hi Search ctermfg=black ctermbg=darkblue cterm=NONE
-    hi Special ctermfg=red ctermbg=NONE cterm=NONE
+    hi Special ctermfg=magenta ctermbg=NONE cterm=NONE
     hi SpecialKey ctermfg=darkgray ctermbg=NONE cterm=NONE
     hi SpellBad ctermfg=darkred ctermbg=NONE cterm=underline
     hi SpellCap ctermfg=darkyellow ctermbg=NONE cterm=underline

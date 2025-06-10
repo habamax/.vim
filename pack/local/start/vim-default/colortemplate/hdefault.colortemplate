@@ -126,11 +126,13 @@ Conceal                 DarkGray5      none
 
 Comment                 Blue1          none
 Constant                Red1           none
+ /8                     Red            none
 Identifier              omit           omit
 Statement               omit           omit
 PreProc                 Magenta1       none
 Type                    Green1         none
 Special                 Orange         none
+ /8                     Magenta1       none
 
 Background: light
 
