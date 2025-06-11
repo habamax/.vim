@@ -214,7 +214,7 @@ ColorColumn             none           LightGray1
 Conceal                 LightGray5     none
 
 Comment                 -> omit
-Constant                Red1           none
+Constant                Magenta1       none
 Identifier              omit           omit
 Statement               omit           omit
 PreProc                 -> omit
