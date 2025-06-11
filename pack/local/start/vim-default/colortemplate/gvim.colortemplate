@@ -47,9 +47,9 @@ Background: dark
 
 ;;; Color palette
 Color: Black            #000000        16             black
-Color: White            #eeeeee        255            white
+Color: White            #dadada        253            white
 Color: Blue             #5fd7ff        81             blue
-Color: Blue1            #80a0ff        111             blue
+Color: Blue1            #80a0ff        111            blue
 Color: Yellow           #ffff00        226            yellow
 Color: Red              #d75f87        168            red
 Color: Red1             #ffa0a0        217            darkyellow

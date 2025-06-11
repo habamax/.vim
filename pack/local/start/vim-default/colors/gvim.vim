@@ -93,7 +93,7 @@ if &background == 'dark'
   hi StatusLineNC guifg=#000000 guibg=#767676 guisp=NONE gui=NONE ctermfg=16 ctermbg=243 cterm=NONE term=bold,underline
   hi Title guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=NONE
   hi Todo guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=bold,reverse
-  hi ToolbarButton guifg=#eeeeee guibg=#000000 guisp=NONE gui=bold,reverse ctermfg=255 ctermbg=16 cterm=bold,reverse term=bold,reverse
+  hi ToolbarButton guifg=#dadada guibg=#000000 guisp=NONE gui=bold,reverse ctermfg=253 ctermbg=16 cterm=bold,reverse term=bold,reverse
   hi ToolbarLine guifg=NONE guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE term=reverse
   hi Type guifg=#60ff50 guibg=NONE guisp=NONE gui=NONE ctermfg=83 ctermbg=NONE cterm=NONE term=NONE
   hi Underlined guifg=NONE guibg=NONE guisp=NONE gui=underline ctermfg=NONE ctermbg=NONE cterm=underline term=underline
@@ -103,7 +103,7 @@ if &background == 'dark'
 
   if has('gui_running') || (has('termguicolors') && &termguicolors)
     if gui_running == 1
-      hi Normal guifg=#eeeeee guibg=#000000 guisp=NONE gui=NONE cterm=NONE
+      hi Normal guifg=#dadada guibg=#000000 guisp=NONE gui=NONE cterm=NONE
     endif
   endif
 
