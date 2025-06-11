@@ -218,7 +218,7 @@ Constant                Magenta1       none
 Identifier              omit           omit
 Statement               omit           omit
 PreProc                 -> omit
-Type                    -> omit
+Type                    omit           omit
 Special                 -> omit
 
 

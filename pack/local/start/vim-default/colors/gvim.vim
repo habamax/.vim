@@ -306,6 +306,7 @@ if &background == 'light'
   hi Todo guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=bold,reverse
   hi ToolbarButton guifg=#000000 guibg=#ffffff guisp=NONE gui=bold,reverse ctermfg=16 ctermbg=231 cterm=bold,reverse term=bold,reverse
   hi ToolbarLine guifg=NONE guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE term=reverse
+  hi Type guisp=NONE gui=NONE cterm=NONE term=NONE
   hi Underlined guifg=NONE guibg=NONE guisp=NONE gui=underline ctermfg=NONE ctermbg=NONE cterm=underline term=underline
   hi VertSplit guifg=#9e9e9e guibg=#9e9e9e guisp=NONE gui=NONE ctermfg=247 ctermbg=247 cterm=NONE term=NONE
   hi Visual guifg=#0087d7 guibg=#ffffff guisp=NONE gui=reverse ctermfg=32 ctermbg=231 cterm=reverse term=reverse
@@ -370,6 +371,7 @@ if &background == 'light'
     hi Todo ctermfg=NONE ctermbg=NONE cterm=bold
     hi ToolbarButton ctermfg=black ctermbg=white cterm=bold,reverse
     hi ToolbarLine ctermfg=NONE ctermbg=NONE cterm=NONE
+    hi Type cterm=NONE
     hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline
     hi VertSplit ctermfg=gray ctermbg=gray cterm=NONE
     hi Visual ctermfg=darkblue ctermbg=white cterm=reverse
@@ -426,6 +428,7 @@ if &background == 'light'
     hi Todo ctermfg=NONE ctermbg=NONE cterm=bold
     hi ToolbarButton ctermfg=black ctermbg=white cterm=bold,reverse
     hi ToolbarLine ctermfg=NONE ctermbg=NONE cterm=NONE
+    hi Type cterm=NONE
     hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline
     hi VertSplit ctermfg=gray ctermbg=gray cterm=NONE
     hi Visual ctermfg=darkblue ctermbg=white cterm=reverse
@@ -452,7 +455,6 @@ if &background == 'light'
     hi TabLineFill term=NONE
     hi TabLineSel term=bold,reverse
     hi Terminal term=NONE
-    hi Type term=NONE
     hi VisualNOS term=NONE
     hi WildMenu term=bold
     finish
