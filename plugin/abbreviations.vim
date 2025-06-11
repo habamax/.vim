@@ -1,6 +1,9 @@
 inorea ddd <C-r>=strftime("%Y-%m-%d")<CR><C-R>=misc#Eatchar('\s')<CR>
 inorea ddt <C-r>=strftime("%Y-%m-%d %H:%M")<CR><C-R>=misc#Eatchar('\s')<CR>
 
+inorea ssf select * from
+inorea whe where 1 = 1
+
 cabbr ц w
 cabbr й q
 cabbr цй wq
