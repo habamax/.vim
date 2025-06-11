@@ -78,23 +78,13 @@ else
     exe g:colors.dark
 endif
 
-finish
-
 # helper commands and mappings to work with vim/colorschemes
-command! ColoCheck ru colors/tools/check_colors.vim
-command! ColoMisc  tabnew | ru colors/tools/sample_misc.vim
-command! ColoMess  ru colors/tools/sample_messages.vim
-command! -nargs=1 -complete=color Colo exe "ru legacy_colors/" .. <q-args> .. ".vim"
-command! ColoDiff  tabnew | ru colors/tools/sample_diff.vim
-command! ColoQF    tabnew | ru colors/tools/sample_quickfix.vim
-command! ColoTerm  tabnew | ru colors/tools/sample_terminal.vim
-command! ColoWin   tabnew | ru colors/tools/sample_windows.vim
-command! ColoPopu  tabnew |
-      \ exe "lcd " .. $MYVIMDIR .. "pack/bundle/start/colorschemes" |
-      \ ru colors/tools/sample_popupmenu.vim
-command! ColoPopuKind  tabnew |
-      \ exe "lcd " .. $MYVIMDIR .. "pack/bundle/start/colorschemes" |
-      \ ru colors/tools/sample_popupmenu_kind.vim
-command! ColoSpell tabnew |
-      \ exe "lcd " .. $MYVIMDIR .. "pack/bundle/start/colorschemes" |
-      \ ru colors/tools/sample_spell.vim
+command! ColoMisc  ru colors/tools/misc.vim
+command! ColoMess  ru colors/tools/messages.vim
+command! ColoDiff  ru colors/tools/diff.vim
+command! ColoQF    ru colors/tools/quickfix.vim
+command! ColoTerm  ru colors/tools/terminal.vim
+command! ColoWin   ru colors/tools/windows.vim
+command! ColoPopu  ru colors/tools/popupmenu.vim
+command! ColoPopuKind ru colors/tools/popupmenu_kind.vim
+command! ColoSpell ru colors/tools/spell.vim

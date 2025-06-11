@@ -1,0 +1,11 @@
+echohl ErrorMsg
+echo 'ErrorMsg'
+echohl ModeMsg
+echo 'ModeMsg'
+echohl MoreMsg
+echo 'MoreMsg'
+echohl Question
+echo 'Question'
+echohl WarningMsg
+echo 'WarningMsg'
+echohl None
