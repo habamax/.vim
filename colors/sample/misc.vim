@@ -1,6 +1,6 @@
 tabnew
-set cursorcolumn
-set colorcolumn=72
+setlocal cursorcolumn
+setlocal colorcolumn=72
 silent vertical help group-name
 /Constant
 sign define piet text=>> texthl=Search
