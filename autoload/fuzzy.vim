@@ -253,7 +253,7 @@ export def DirFile(path: string = "")
 enddef
 
 export def File(path: string = "")
-    var opath = isdirectory(expand(path)) ? path : ''
+    var opath = isdirectory(expand(path)) ? expand(path) : ''
     if trim(opath, '/\', 2) == getcwd()
         opath = ''
     endif
@@ -276,7 +276,7 @@ export def File(path: string = "")
     elseif executable('fdfind')
         files = systemlist($'fdfind . --path-separator / --type f --hidden --follow --exclude .git "{opath}"')
     elseif executable('ugrep')
-        files = systemlist($'ugrep "" -Rl -I --ignore-files ' .. opath)
+        files = systemlist($'ugrep "" -Rl -I --ignore-files {opath}')
     elseif executable('rg')
         files = systemlist($'rg --path-separator / --files --hidden --glob !.git "{opath}"')
     elseif executable('find')
