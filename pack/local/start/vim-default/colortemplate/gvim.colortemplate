@@ -46,7 +46,7 @@ lspDiagSignInfoText                    -> Question
 Background: dark
 
 ;;; Color palette
-Color: Black            #000000        16             black
+Color: Black            #1c1c1c        234             black
 Color: White            #dadada        253            white
 Color: Blue             #5fd7ff        81             blue
 Color: Blue1            #80a0ff        111            blue
