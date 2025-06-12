@@ -256,6 +256,8 @@ export def File(path: string = "")
     var opath = isdirectory(expand(path)) ? expand(path) : ''
     if trim(opath, '/\', 2) == getcwd()
         opath = ''
+    elseif !empty(opath)
+        opath = $'"{opath}"'
     endif
 
     def Tree(dir: string): list<string>
@@ -272,15 +274,15 @@ export def File(path: string = "")
     var files = []
 
     if executable('fd')
-        files = systemlist($'fd . --path-separator / --type f --hidden --follow --exclude .git "{opath}"')
+        files = systemlist($'fd . --path-separator / --type f --hidden --follow --exclude .git {opath}')
     elseif executable('fdfind')
-        files = systemlist($'fdfind . --path-separator / --type f --hidden --follow --exclude .git "{opath}"')
+        files = systemlist($'fdfind . --path-separator / --type f --hidden --follow --exclude .git {opath}')
     elseif executable('ugrep')
         files = systemlist($'ugrep "" -Rl -I --ignore-files {opath}')
     elseif executable('rg')
-        files = systemlist($'rg --path-separator / --files --hidden --glob !.git "{opath}"')
+        files = systemlist($'rg --path-separator / --files --hidden --glob !.git {opath}')
     elseif executable('find')
-        files = systemlist($'find "{opath}" \! \( -path "*/.git" -prune -o -name "*.swp" \) -type f -follow')
+        files = systemlist($'find {opath} \! \( -path "*/.git" -prune -o -name "*.swp" \) -type f -follow')
     else
         files = Tree(opath)
     endif
