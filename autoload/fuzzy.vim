@@ -257,7 +257,7 @@ export def File(path: string = "")
     if trim(opath, '/\', 2) == getcwd()
         opath = ''
     elseif !empty(opath)
-        opath = $'"{opath}"'
+        opath = $'"{opath->trim('\/', 2)}"'
     endif
 
     def Tree(dir: string): list<string>
