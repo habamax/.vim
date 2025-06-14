@@ -22,7 +22,6 @@ set nrformats=bin,hex,unsigned
 set nospell spelllang=en,ru
 set diffopt+=algorithm:histogram,indent-heuristic,inline:char,linematch:50
 set sessionoptions=buffers,curdir,tabpages,winsize
-set viminfo='200,<500,s32
 set path=.,,
 set mouse=a
 
