@@ -88,5 +88,7 @@ command! ColoPmenu ru colors/sample/popupmenu.vim
 command! ColoPmenuKind ru colors/sample/popupmenu_kind.vim
 command! ColoSpell ru colors/sample/spell.vim
 
-import autoload 'popcom.vim'
-nnoremap <space>gt <scriptcmd>popcom.ColorSupport()<CR>
+if !has("gui_running")
+    import autoload 'popcom.vim'
+    nnoremap <space>gt <scriptcmd>popcom.ColorSupport()<CR>
+endif
