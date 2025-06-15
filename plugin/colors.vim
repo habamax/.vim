@@ -79,10 +79,10 @@ else
 endif
 
 # helper commands and mappings to work with vim/colorschemes
-command! ColoMisc  ru colors/sample/misc.vim
-command! ColoMess  ru colors/sample/messages.vim
-command! ColoDiff  ru colors/sample/diff.vim
-command! ColoQF    ru colors/sample/quickfix.vim
-command! ColoPmenu  ru colors/sample/popupmenu.vim
+command! ColoMisc ru colors/sample/misc.vim
+command! ColoMess ru colors/sample/messages.vim
+command! ColoDiff ru colors/sample/diff.vim
+command! ColoQF ru colors/sample/quickfix.vim
+command! ColoPmenu ru colors/sample/popupmenu.vim
 command! ColoPmenuKind ru colors/sample/popupmenu_kind.vim
 command! ColoSpell ru colors/sample/spell.vim
