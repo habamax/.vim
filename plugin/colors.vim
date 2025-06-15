@@ -51,6 +51,7 @@ g:colors = {
     dark: "set bg=dark | sil! colo gvim",
     light: "set bg=light | sil! colo gvim",
 }
+
 # g:colors = {
 #     dark: "sil! colo nod-b",
 #     light: "sil! colo nope"
