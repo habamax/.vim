@@ -147,3 +147,40 @@ export def TextTr()
     ]
     popup.Commands(commands, false)
 enddef
+
+
+# Colorscheme design support: change tgc/256/16/8/0
+# Usage:
+# import autoload 'popcom.vim'
+# nnoremap <space>x <scriptcmd>popcom.ColorSupport()<CR>
+export def ColorSupport()
+    var commands = []
+    commands->extend([
+        {text: "Color support"},
+        {text: "tgc/256", key: "g", cmd: () => {
+            if &tgc
+                set t_Co=256
+                set notgc
+                popup_notification("Switching to 256 colors", {})
+            else
+                set t_Co=256
+                set tgc
+                popup_notification("Switching to GUI colors", {})
+            endif
+        }},
+        {text: "16/8/0", key: "t", cmd: () => {
+            set notgc
+            if str2nr(&t_Co) == 16
+                set t_Co=8
+                popup_notification("Switching to 8 colors", {})
+            elseif str2nr(&t_Co) == 8
+                set t_Co=0
+                popup_notification("Switching to 0 colors", {})
+            else
+                set t_Co=16
+                popup_notification("Switching to 16 colors", {})
+            endif
+        }},
+    ])
+    popup.Commands(commands)
+enddef
