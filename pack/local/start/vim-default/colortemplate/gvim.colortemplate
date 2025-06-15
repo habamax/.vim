@@ -145,8 +145,10 @@ Color: Red              #ff0000        196            red
 Color: Red1             #ffa0a0        217            red
 Color: Magenta          #af00af        127            magenta
 Color: Magenta1         #ff00ff        201            magenta
+Color: Brown            #a52a2a        124            red
 Color: Green            #008700        28             green
 Color: DarkGreen        #005f00        22             darkgreen
+Color: SeaGreen         #2e8b57        29             darkgreen
 Color: DarkCyan         #5f8787        66             darkcyan
 Color: DarkYellow       #d7d75f        185            darkyellow
 Color: DarkRed          #af0000        124            darkred
@@ -216,9 +218,9 @@ Conceal                 LightGray5     none
 Comment                 -> omit
 Constant                Magenta1       none
 Identifier              omit           omit
-Statement               omit           omit
+Statement               Brown          omit           bold
 PreProc                 -> omit
-Type                    omit           omit
+Type                    SeaGreen       omit           bold
 Special                 -> omit
 
 
