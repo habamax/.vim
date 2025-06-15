@@ -168,3 +168,8 @@ if exists("g:loaded_vim_ii")
     # vim-ii
     g:ii_filter_rx = ['-!-.*has joined', '-!-.*has left']
 endif
+
+if exists("g:loaded_copilot")
+    # vim-copilot
+    imap <C-g> <Plug>(copilot-next)
+endif
