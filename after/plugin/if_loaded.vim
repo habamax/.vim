@@ -171,5 +171,6 @@ endif
 
 if exists("g:loaded_copilot")
     # vim-copilot
-    imap <C-g> <Plug>(copilot-next)
+    import autoload "popcom.vim"
+    imap <C-g> <scriptcmd>popcom.Copilot()<CR>
 endif
