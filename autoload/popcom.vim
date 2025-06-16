@@ -168,18 +168,20 @@ export def ColorSupport()
                 popup_notification("Switching to GUI colors", {})
             endif
         }},
-        {text: "16/8/0", key: "t", cmd: () => {
+        {text: "16/8", key: "t", cmd: () => {
             set notgc
             if str2nr(&t_Co) == 16
                 set t_Co=8
                 popup_notification("Switching to 8 colors", {})
-            elseif str2nr(&t_Co) == 8
-                set t_Co=0
-                popup_notification("Switching to 0 colors", {})
             else
                 set t_Co=16
                 popup_notification("Switching to 16 colors", {})
             endif
+        }},
+        {text: "0", key: "T", cmd: () => {
+            set notgc
+            set t_Co=0
+            popup_notification("Switching to 0 colors", {})
         }},
     ])
     popup.Commands(commands)
