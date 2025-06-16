@@ -96,21 +96,37 @@ ToolbarButton           White          Black          reverse,bold
 QuickFixLine            Black          Magenta
 
 LineNr                  DarkGray6      none
+ /8                     none           none
 EndOfBuffer             DarkGray6      none
+ /8                     none           none
 SpecialKey              DarkGray6      none
+ /8                     none           none
 
 Visual                  Blue           Black          reverse
 
 Pmenu                   none           DarkGray2
+ /8                     none           Gray1
 PmenuThumb              none           Gray1
 PmenuSbar               none           none
 PmenuSel                none           DarkGray5
+ /16                    none           Gray1
+ /8                     none           none           reverse
 PmenuKind               Green          DarkGray2
+ /8                     none           Gray1
 PmenuKindSel            Green          DarkGray5
+ /16                    none           Gray1
+ /8                     none           none           reverse
 PmenuExtra              Gray1          DarkGray2
+ /8                     none           Gray1
 PmenuExtraSel           Gray3          DarkGray5
+ /16                    none           Gray1
+ /8                     none           none           reverse
 PmenuMatch              Red1           DarkGray2
+ /16                    none           Gray1
+ /8                     none           none           reverse
 PmenuMatchSel           Red1           DarkGray5
+ /16                    none           Gray1          reverse
+ /8                     none           none           bold,reverse
 
 Error                   DarkRed        Black          reverse
 ErrorMsg                DarkRed        Black          reverse
@@ -120,9 +136,13 @@ WarningMsg              Red            none
 Search                  Black          DarkBlue
 IncSearch               Black          DarkYellow
 CursorLine              none           DarkGray4
+ /16/8                  none           none           underline
 Folded                  Gray4          DarkGray3
+ /16/8                  Gray1          none           underline
 ColorColumn             none           DarkGray1
+ /16/8                  DarkRed        none           reverse
 Conceal                 DarkGray5      none
+ /8                     none           none
 
 Comment                 Blue1          none
 Constant                Red1           none
