@@ -6,7 +6,6 @@ import autoload 'unicode.vim'
 
 const MAX_ELEMENTS: number = 40000
 
-
 export def Buffer(ext: bool = false)
     var buffer_list = getbufinfo({'buflisted': 1})->mapnew((_, v) => {
         return {bufnr: v.bufnr,
