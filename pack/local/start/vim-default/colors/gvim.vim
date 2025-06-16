@@ -274,7 +274,7 @@ if &background == 'light'
   hi EndOfBuffer guifg=#b2b2b2 guibg=NONE guisp=NONE gui=NONE ctermfg=249 ctermbg=NONE cterm=NONE term=NONE
   hi Error guifg=#af0000 guibg=#ffffff guisp=NONE gui=reverse ctermfg=124 ctermbg=231 cterm=reverse term=bold,reverse
   hi ErrorMsg guifg=#af0000 guibg=#ffffff guisp=NONE gui=reverse ctermfg=124 ctermbg=231 cterm=reverse term=bold,reverse
-  hi Folded guifg=#9e9e9e guibg=#dadada guisp=NONE gui=NONE ctermfg=247 ctermbg=253 cterm=NONE term=NONE
+  hi Folded guifg=#767676 guibg=#dadada guisp=NONE gui=NONE ctermfg=243 ctermbg=253 cterm=NONE term=NONE
   hi Identifier guisp=NONE gui=NONE cterm=NONE term=NONE
   hi Ignore guifg=NONE guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE term=NONE
   hi IncSearch guifg=#000000 guibg=#ffff00 guisp=NONE gui=NONE ctermfg=16 ctermbg=226 cterm=NONE term=bold,reverse,underline

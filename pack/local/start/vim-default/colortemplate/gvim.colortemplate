@@ -231,7 +231,7 @@ WarningMsg              Red            none
 Search                  Black          Blue
 IncSearch               Black          Yellow
 CursorLine              none           LightGray4
-Folded                  Gray4          LightGray3
+Folded                  Gray1          LightGray3
 ColorColumn             none           LightGray1
 Conceal                 LightGray5     none
 
