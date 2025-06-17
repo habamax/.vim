@@ -38,7 +38,7 @@ if exists("g:loaded_dir")
             for item in items
                 var path = $"{b:dir_cwd}/{item.name}"
                 if item.type != 'dir' && filereadable(path)
-                    var url = systemlist($'curl -F file=@"{path}" http://0x0.st')[-1]
+                    var url = systemlist($'curl -A "Vim Paste" -F file=@"{path}" http://0x0.st')[-1]
                     add(urls, url)
                 endif
             endfor
