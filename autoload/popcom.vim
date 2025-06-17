@@ -242,6 +242,9 @@ enddef
 # import autoload 'popcom.vim'
 # nnoremap <space>gd <scriptcmd>popcom.Diff()<CR>
 export def Diff()
+    if !&diff
+        return
+    endif
     var commands = []
     commands->extend([
         {text: "Diff"},
@@ -251,10 +254,10 @@ export def Diff()
         {text: "Previous Change", key: "k", cmd: () => {
             diff.PrevChange()
         }},
-        {text: "Next Diff Chunk", key: "J", cmd: "normal! ]c"},
-        {text: "Previous Diff Chunk", key: "K", cmd: "normal! [c"},
-        {text: "Diff Put", key: "p", cmd: "normal! dp"},
-        {text: "Diff Obtain", key: "o", cmd: "normal! do"},
+        {text: "Next Chunk", key: "J", cmd: "normal! ]c"},
+        {text: "Previous Chunk", key: "K", cmd: "normal! [c"},
+        {text: "Put", key: "p", cmd: "normal! dp"},
+        {text: "Obtain", key: "o", cmd: "normal! do"},
     ])
     popup.Commands(commands)
 enddef
