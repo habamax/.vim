@@ -232,3 +232,6 @@ if !has("gui_running")
     set <M-u>=u
 endif
 inoremap <M-u> <C-G>u<esc><scriptcmd>search('[[:lower:]]', 'bc', line('.'))<cr>gUiwgi
+
+# diff navigation
+nnoremap <silent> <space>gd <scriptcmd>popcom.Diff()<CR>

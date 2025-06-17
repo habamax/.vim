@@ -234,3 +234,24 @@ export def Copilot()
     ])
     popup.Commands(commands)
 enddef
+
+
+# Diff shortcuts
+# Usage:
+# import autoload 'popcom.vim'
+# nnoremap <space>gd <scriptcmd>popcom.Diff()<CR>
+export def Diff()
+    var commands = []
+    commands->extend([
+        {text: "Diff"},
+        {text: "Next Change", key: "n", cmd: () => {
+            diff#NextChange()
+        }},
+        {text: "Previous Change", key: "p", cmd: () => {
+            diff#PrevChange()
+        }},
+        {text: "Next Diff", key: "j", cmd: "normal! ]c"},
+        {text: "Previous Diff", key: "k", cmd: "normal! [c"},
+    ])
+    popup.Commands(commands)
+enddef
