@@ -11,21 +11,21 @@ export def NextChange()
     endif
     var line = line('.')
     var col = col('.')
-    while diff_hlID(line, col) >= 31 && line <= line('$')
+    while synIDattr(diff_hlID(line, col), "name") =~ 'DiffText.*' && line <= line('$')
         col += 1
         if col > len(getline(line))
             line += 1
             col = 1
         endif
     endwhile
-    while diff_hlID(line, col) < 31 && line <= line('$')
+    while synIDattr(diff_hlID(line, col), "name") !~ 'DiffText.*' && line <= line('$')
         col += 1
         if col > len(getline(line))
             line += 1
             col = 1
         endif
     endwhile
-    if diff_hlID(line, col) >= 31
+    if synIDattr(diff_hlID(line, col), "name") =~ 'DiffText.*'
         cursor(line, col)
     endif
 enddef
@@ -33,21 +33,21 @@ enddef
 export def PrevChange()
     var line = line('.')
     var col = col('.')
-    while diff_hlID(line, col) >= 31 && line >= 1
+    while synIDattr(diff_hlID(line, col), "name") =~ 'DiffText.*' && line >= 1
         col -= 1
         if col < 1
             line -= 1
             col = len(getline(line))
         endif
     endwhile
-    while diff_hlID(line, col) < 31 && line >= 1
+    while synIDattr(diff_hlID(line, col), "name") !~ 'DiffText.*' && line >= 1
         col -= 1
         if col < 1
             line -= 1
             col = len(getline(line))
         endif
     endwhile
-    if diff_hlID(line, col) >= 31
+    if synIDattr(diff_hlID(line, col), "name") =~ 'DiffText.*'
         cursor(line, col)
     endif
 enddef
