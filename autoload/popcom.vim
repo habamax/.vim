@@ -2,6 +2,7 @@ vim9script
 
 import autoload 'popup.vim'
 import autoload 'text.vim'
+import autoload 'diff.vim'
 
 # Example of multi level popup
 # export def QfLoc()
@@ -244,14 +245,16 @@ export def Diff()
     var commands = []
     commands->extend([
         {text: "Diff"},
-        {text: "Next Change", key: "n", cmd: () => {
-            diff#NextChange()
+        {text: "Next Change", key: "j", cmd: () => {
+            diff.NextChange()
         }},
-        {text: "Previous Change", key: "p", cmd: () => {
-            diff#PrevChange()
+        {text: "Previous Change", key: "k", cmd: () => {
+            diff.PrevChange()
         }},
-        {text: "Next Diff", key: "j", cmd: "normal! ]c"},
-        {text: "Previous Diff", key: "k", cmd: "normal! [c"},
+        {text: "Next Diff Chunk", key: "J", cmd: "normal! ]c"},
+        {text: "Previous Diff Chunk", key: "K", cmd: "normal! [c"},
+        {text: "Diff Put", key: "p", cmd: "normal! dp"},
+        {text: "Diff Obtain", key: "o", cmd: "normal! do"},
     ])
     popup.Commands(commands)
 enddef
