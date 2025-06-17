@@ -243,6 +243,7 @@ enddef
 # nnoremap <space>gd <scriptcmd>popcom.Diff()<CR>
 export def Diff()
     if !&diff
+        echo "Diff mode is not enabled!"
         return
     endif
     var commands = []
