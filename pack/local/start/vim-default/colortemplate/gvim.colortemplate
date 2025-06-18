@@ -89,18 +89,24 @@ Normal
  /gui +gui_running 1    White          Black
 
 StatusLine              Black          Gray4
+ /16                    Black          Gray1
+ /8                     Black          Gray1          bold
 StatusLineNC            Black          Gray1
+ /16                    Black          DarkGray1
+ /8                     Black          Gray1
 VertSplit               Gray1          Gray1
+ /16                    DarkGray1      DarkGray1
+ /8                     Gray1          Gray1
 
 ToolbarButton           White          Black          reverse,bold
 QuickFixLine            Black          Magenta
 
 LineNr                  DarkGray6      none
- /8                     none           none
+ /16/8                  none           none
 EndOfBuffer             DarkGray6      none
- /8                     none           none
+ /16/8                  none           none
 SpecialKey              DarkGray6      none
- /8                     none           none
+ /16/8                  none           none
 
 Visual                  Blue           Black          reverse
 
@@ -174,6 +180,7 @@ Color: DarkYellow       #d7d75f        185            darkyellow
 Color: DarkRed          #af0000        124            darkred
 Color: DarkBlue         #0087d7        32             darkblue
 
+Color: DarkGray1        #767676        243            darkgray
 Color: Gray1            #767676        243            gray
 Color: Gray2            #808080        244            gray
 Color: Gray3            #878787        102            gray
@@ -200,15 +207,22 @@ Normal
  /gui +gui_running 1    Black          White
 
 StatusLine              White          Gray1
+ /16/8                  Black          Gray1          bold
 StatusLineNC            White          Gray4
+ /16/8                  Black          Gray1
 VertSplit               Gray4          Gray4
+ /16                    LightGray1     LightGray1
+ /8                     Gray1          Gray1
 
 ToolbarButton           Black          White          reverse,bold
 QuickFixLine            Black          Magenta
 
 LineNr                  LightGray6     none
+ /16/8                  none           none
 EndOfBuffer             LightGray6     none
+ /16/8                  none           none
 SpecialKey              LightGray6     none
+ /16/8                  none           none
 
 Visual                  DarkBlue       White          reverse
 
