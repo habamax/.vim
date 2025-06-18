@@ -47,7 +47,7 @@ augroup colors | au!
     au Colorscheme gvim,habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
     au Colorscheme gvim
           \ if !has("gui_running") && &background == "light"
-          |     hi Normal guibg=#ffffff guifg=#000000 ctermbg=15 ctermfg=0
+          |     hi Normal guibg=#ffffff guifg=#000000 ctermbg=231 ctermfg=16
           | endif
 augroup END
 
