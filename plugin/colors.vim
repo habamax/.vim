@@ -37,7 +37,7 @@ def Lsp()
 enddef
 
 def Vsplit()
-    hi VertSplit guibg=NONE ctermfg=NONE
+    hi VertSplit guibg=NONE ctermbg=NONE
 enddef
 
 augroup colors | au!
