@@ -3,6 +3,7 @@ vim9script
 # insert mode completion
 set completepopup=highlight:Pmenu
 set completeopt=menuone,popup,noselect,fuzzy
+set completefuzzycollect=keyword
 set complete=.^7,w^5,b^5,u^3
 
 set complete+=FAbbrevCompletor^3
