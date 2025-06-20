@@ -302,7 +302,7 @@ DiffText                diffText       none           reverse
  /gui                   none           diffText
  /256+tgc true          omit           omit
 DiffDelete              diffDelete     none           reverse
- /gui                   Gray1           diffDelete
+ /gui                   Gray1          diffDelete
  /256+tgc true          omit           omit
 
 Added                   Added          none
