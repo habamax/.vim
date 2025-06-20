@@ -250,8 +250,8 @@ ColorColumn             none           LightGray1
 Conceal                 LightGray5     none
 
 Comment                 -> omit
-Constant                Magenta1       none
-Identifier              omit           omit
+Constant                -> omit
+Identifier              -> omit
 Statement               Brown          omit           bold
 PreProc                 -> omit
 Type                    SeaGreen       omit           bold
