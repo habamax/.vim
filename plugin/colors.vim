@@ -43,7 +43,7 @@ enddef
 augroup colors | au!
     au Colorscheme * Lsp()
     au Colorscheme habamax,wildcharm,lunaperche NoBg()
-    au Colorscheme wildcharm,gvim Diff()
+    au Colorscheme wildcharm Diff()
     au Colorscheme gvim,habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
     au Colorscheme gvim
           \ if !has("gui_running") && &background == "light"

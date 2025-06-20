@@ -54,9 +54,9 @@ if &background == 'dark'
   hi Constant guifg=#ffa0a0 guibg=NONE guisp=NONE gui=NONE ctermfg=217 ctermbg=NONE cterm=NONE term=NONE
   hi CursorLine guifg=NONE guibg=#444444 guisp=NONE gui=NONE ctermfg=NONE ctermbg=238 cterm=NONE term=underline
   hi CursorLineNr guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=bold
-  hi DiffAdd guifg=#5faf5f guibg=NONE guisp=NONE gui=reverse ctermfg=71 ctermbg=NONE cterm=reverse term=reverse
-  hi DiffChange guifg=#5f87af guibg=NONE guisp=NONE gui=reverse ctermfg=67 ctermbg=NONE cterm=reverse term=NONE
-  hi DiffDelete guifg=#af5f5f guibg=NONE guisp=NONE gui=reverse ctermfg=131 ctermbg=NONE cterm=reverse term=reverse
+  hi DiffAdd guifg=NONE guibg=#002f00 guisp=NONE gui=NONE ctermfg=71 ctermbg=NONE cterm=reverse term=reverse
+  hi DiffChange guifg=NONE guibg=#1f2f3f guisp=NONE gui=NONE ctermfg=67 ctermbg=NONE cterm=reverse term=NONE
+  hi DiffDelete guifg=NONE guibg=#3f1f00 guisp=NONE gui=NONE ctermfg=131 ctermbg=NONE cterm=reverse term=reverse
   hi DiffText guifg=#af87af guibg=NONE guisp=NONE gui=reverse ctermfg=139 ctermbg=NONE cterm=reverse term=reverse
   hi Directory guisp=NONE gui=bold cterm=bold term=NONE
   hi EndOfBuffer guifg=#5f5f5f guibg=NONE guisp=NONE gui=NONE ctermfg=59 ctermbg=NONE cterm=NONE term=NONE
@@ -109,6 +109,11 @@ if &background == 'dark'
   endif
 
   if tgc || t_Co >= 256
+    if tgc
+      hi DiffAdd cterm=NONE
+      hi DiffChange cterm=NONE
+      hi DiffDelete cterm=NONE
+    endif
     finish
   endif
 
@@ -266,9 +271,9 @@ if &background == 'light'
   hi Conceal guifg=#c6c6c6 guibg=NONE guisp=NONE gui=NONE ctermfg=251 ctermbg=NONE cterm=NONE term=NONE
   hi CursorLine guifg=NONE guibg=#d0d0d0 guisp=NONE gui=NONE ctermfg=NONE ctermbg=252 cterm=NONE term=underline
   hi CursorLineNr guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=bold
-  hi DiffAdd guifg=#5faf5f guibg=NONE guisp=NONE gui=reverse ctermfg=71 ctermbg=NONE cterm=reverse term=reverse
-  hi DiffChange guifg=#5f87af guibg=NONE guisp=NONE gui=reverse ctermfg=67 ctermbg=NONE cterm=reverse term=NONE
-  hi DiffDelete guifg=#af5f5f guibg=NONE guisp=NONE gui=reverse ctermfg=131 ctermbg=NONE cterm=reverse term=reverse
+  hi DiffAdd guifg=NONE guibg=#dafada guisp=NONE gui=NONE ctermfg=71 ctermbg=NONE cterm=reverse term=reverse
+  hi DiffChange guifg=NONE guibg=#daeafa guisp=NONE gui=NONE ctermfg=67 ctermbg=NONE cterm=reverse term=NONE
+  hi DiffDelete guifg=NONE guibg=#fadada guisp=NONE gui=NONE ctermfg=131 ctermbg=NONE cterm=reverse term=reverse
   hi DiffText guifg=#af87af guibg=NONE guisp=NONE gui=reverse ctermfg=139 ctermbg=NONE cterm=reverse term=reverse
   hi Directory guisp=NONE gui=bold cterm=bold term=NONE
   hi EndOfBuffer guifg=#b2b2b2 guibg=NONE guisp=NONE gui=NONE ctermfg=249 ctermbg=NONE cterm=NONE term=NONE
@@ -318,6 +323,11 @@ if &background == 'light'
   endif
 
   if tgc || t_Co >= 256
+    if tgc
+      hi DiffAdd cterm=NONE
+      hi DiffChange cterm=NONE
+      hi DiffDelete cterm=NONE
+    endif
     finish
   endif
 
