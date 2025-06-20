@@ -11,9 +11,9 @@ def Diff()
             hi DiffChange guibg=#1f2f3f guifg=NONE gui=NONE cterm=NONE
             hi DiffDelete guibg=#3f1f00 guifg=#585858 gui=NONE cterm=NONE
         else
-            hi DiffAdd guibg=#dafada guifg=NONE cterm=NONE
-            hi DiffChange guibg=#daeafa guifg=NONE cterm=NONE
-            hi DiffDelete guibg=#fadada guifg=NONE cterm=NONE
+            hi DiffAdd guibg=#dafada guifg=NONE cterm=NONE gui=NONE
+            hi DiffChange guibg=#daeafa guifg=NONE cterm=NONE gui=NONE
+            hi DiffDelete guibg=#fadada guifg=NONE cterm=NONE gui=NONE
         endif
     else
         hi DiffAdd cterm=reverse
@@ -43,7 +43,7 @@ enddef
 augroup colors | au!
     au Colorscheme * Lsp()
     au Colorscheme habamax,wildcharm,lunaperche NoBg()
-    au Colorscheme wildcharm Diff()
+    au Colorscheme wildcharm,gvim Diff()
     au Colorscheme gvim,habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
     au Colorscheme gvim
           \ if !has("gui_running") && &background == "light"
