@@ -79,7 +79,7 @@ Color: Gray5            #afafaf        145            gray
 Color: diffAdd          #002f00        71             darkgreen
 Color: diffDelete       #3f1f00        131            darkred
 Color: diffChange       #1f2f3f        67             darkblue
-Color: diffText         #af87af        139            darkmagenta
+Color: diffText         #5f2f5f        139            darkmagenta
 
 Color: Added            #5fd75f        77             darkgreen
 Color: Changed          #ffaf5f        215            darkyellow
@@ -197,7 +197,7 @@ Color: LightGray6       #b2b2b2        249            gray
 Color: diffAdd          #dafada        71             darkgreen
 Color: diffDelete       #fadada        131            darkred
 Color: diffChange       #daeafa        67             darkblue
-Color: diffText         #af87af        139            darkmagenta
+Color: diffText         #f7e7f7        139            darkmagenta
 
 Color: Added            #008700        28             darkgreen
 Color: Changed          #af5f00        130            darkyellow
@@ -299,6 +299,8 @@ DiffChange              diffChange     none           reverse
  /gui                   none           diffChange
  /256+tgc true          omit           omit
 DiffText                diffText       none           reverse
+ /gui                   none           diffText
+ /256+tgc true          omit           omit
 DiffDelete              diffDelete     none           reverse
  /gui                   none           diffDelete
  /256+tgc true          omit           omit
