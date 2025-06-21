@@ -20,7 +20,7 @@ let errors = [
 			\ ]
 cexpr errors
 cwindow
-setlocal cursorline cursolineopt=both hlsearch
+setlocal cursorline cursorlineopt=both hlsearch
 call setreg('/', 'ligh')
 cnext
 cnext
