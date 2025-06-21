@@ -65,7 +65,7 @@ if &background == 'dark'
   hi Folded guifg=#9e9e9e guibg=#3a3a3a guisp=NONE gui=NONE ctermfg=247 ctermbg=237 cterm=NONE term=NONE
   hi Identifier guisp=NONE gui=NONE cterm=NONE term=NONE
   hi Ignore guifg=NONE guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE term=NONE
-  hi IncSearch guifg=#1c1c1c guibg=#d7d75f guisp=NONE gui=NONE ctermfg=234 ctermbg=185 cterm=NONE term=bold,reverse,underline
+  hi IncSearch guifg=#d7d75f guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=185 ctermbg=234 cterm=reverse term=bold,reverse,underline
   hi LineNr guifg=#5f5f5f guibg=NONE guisp=NONE gui=NONE ctermfg=59 ctermbg=NONE cterm=NONE term=NONE
   hi ModeMsg guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=bold
   hi MoreMsg guifg=#5faf5f guibg=NONE guisp=NONE gui=NONE ctermfg=71 ctermbg=NONE cterm=NONE term=NONE
@@ -82,7 +82,7 @@ if &background == 'dark'
   hi PreProc guifg=#ff80ff guibg=NONE guisp=NONE gui=NONE ctermfg=213 ctermbg=NONE cterm=NONE term=NONE
   hi QuickFixLine guifg=#1c1c1c guibg=#d787d7 guisp=NONE gui=NONE ctermfg=234 ctermbg=176 cterm=NONE term=NONE
   hi Removed guifg=#d75f5f guibg=NONE guisp=NONE gui=NONE ctermfg=167 ctermbg=NONE cterm=NONE term=NONE
-  hi Search guifg=#1c1c1c guibg=#0087af guisp=NONE gui=NONE ctermfg=234 ctermbg=31 cterm=NONE term=reverse
+  hi Search guifg=#0087af guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=31 ctermbg=234 cterm=reverse term=reverse
   hi Special guifg=#ffa000 guibg=NONE guisp=NONE gui=NONE ctermfg=214 ctermbg=NONE cterm=NONE term=NONE
   hi SpecialKey guifg=#5f5f5f guibg=NONE guisp=NONE gui=NONE ctermfg=59 ctermbg=NONE cterm=NONE term=bold
   hi SpellBad guifg=NONE guibg=NONE guisp=#d75f5f gui=undercurl ctermfg=167 ctermbg=NONE cterm=underline term=underline
@@ -140,7 +140,7 @@ if &background == 'dark'
     hi Folded ctermfg=gray ctermbg=NONE cterm=underline
     hi Identifier cterm=NONE
     hi Ignore ctermfg=NONE ctermbg=NONE cterm=NONE
-    hi IncSearch ctermfg=black ctermbg=darkyellow cterm=NONE
+    hi IncSearch ctermfg=darkyellow ctermbg=black cterm=reverse
     hi LineNr ctermfg=NONE ctermbg=NONE cterm=NONE
     hi ModeMsg ctermfg=NONE ctermbg=NONE cterm=bold
     hi MoreMsg ctermfg=darkgreen ctermbg=NONE cterm=NONE
@@ -157,7 +157,7 @@ if &background == 'dark'
     hi PreProc ctermfg=magenta ctermbg=NONE cterm=NONE
     hi QuickFixLine ctermfg=black ctermbg=magenta cterm=NONE
     hi Removed ctermfg=darkred ctermbg=NONE cterm=NONE
-    hi Search ctermfg=black ctermbg=darkblue cterm=NONE
+    hi Search ctermfg=darkblue ctermbg=black cterm=reverse
     hi Special ctermfg=red ctermbg=NONE cterm=NONE
     hi SpecialKey ctermfg=NONE ctermbg=NONE cterm=NONE
     hi SpellBad ctermfg=darkred ctermbg=NONE cterm=underline
@@ -200,7 +200,7 @@ if &background == 'dark'
     hi Folded ctermfg=gray ctermbg=NONE cterm=underline
     hi Identifier cterm=NONE
     hi Ignore ctermfg=NONE ctermbg=NONE cterm=NONE
-    hi IncSearch ctermfg=black ctermbg=darkyellow cterm=NONE
+    hi IncSearch ctermfg=darkyellow ctermbg=black cterm=reverse
     hi LineNr ctermfg=NONE ctermbg=NONE cterm=NONE
     hi ModeMsg ctermfg=NONE ctermbg=NONE cterm=bold
     hi MoreMsg ctermfg=darkgreen ctermbg=NONE cterm=NONE
@@ -217,7 +217,7 @@ if &background == 'dark'
     hi PreProc ctermfg=magenta ctermbg=NONE cterm=NONE
     hi QuickFixLine ctermfg=black ctermbg=magenta cterm=NONE
     hi Removed ctermfg=darkred ctermbg=NONE cterm=NONE
-    hi Search ctermfg=black ctermbg=darkblue cterm=NONE
+    hi Search ctermfg=darkblue ctermbg=black cterm=reverse
     hi Special ctermfg=magenta ctermbg=NONE cterm=NONE
     hi SpecialKey ctermfg=NONE ctermbg=NONE cterm=NONE
     hi SpellBad ctermfg=darkred ctermbg=NONE cterm=underline
@@ -283,7 +283,7 @@ if &background == 'light'
   hi ErrorMsg guifg=#af0000 guibg=#ffffff guisp=NONE gui=reverse ctermfg=124 ctermbg=231 cterm=reverse term=bold,reverse
   hi Folded guifg=#767676 guibg=#dadada guisp=NONE gui=NONE ctermfg=243 ctermbg=253 cterm=NONE term=NONE
   hi Ignore guifg=NONE guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE term=NONE
-  hi IncSearch guifg=#000000 guibg=#ffff00 guisp=NONE gui=NONE ctermfg=16 ctermbg=226 cterm=NONE term=bold,reverse,underline
+  hi IncSearch guifg=#af875f guibg=#ffffff guisp=NONE gui=reverse ctermfg=137 ctermbg=231 cterm=reverse term=bold,reverse,underline
   hi LineNr guifg=#b2b2b2 guibg=NONE guisp=NONE gui=NONE ctermfg=249 ctermbg=NONE cterm=NONE term=NONE
   hi ModeMsg guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=bold
   hi MoreMsg guifg=#005f00 guibg=NONE guisp=NONE gui=NONE ctermfg=22 ctermbg=NONE cterm=NONE term=NONE
@@ -299,7 +299,7 @@ if &background == 'light'
   hi PmenuThumb guifg=NONE guibg=#767676 guisp=NONE gui=NONE ctermfg=NONE ctermbg=243 cterm=NONE term=NONE
   hi QuickFixLine guifg=#000000 guibg=#af00af guisp=NONE gui=NONE ctermfg=16 ctermbg=127 cterm=NONE term=NONE
   hi Removed guifg=#d7005f guibg=NONE guisp=NONE gui=NONE ctermfg=161 ctermbg=NONE cterm=NONE term=NONE
-  hi Search guifg=#000000 guibg=#87d7ff guisp=NONE gui=NONE ctermfg=16 ctermbg=75 cterm=NONE term=reverse
+  hi Search guifg=#5f87af guibg=#ffffff guisp=NONE gui=reverse ctermfg=67 ctermbg=231 cterm=reverse term=reverse
   hi SpecialKey guifg=#b2b2b2 guibg=NONE guisp=NONE gui=NONE ctermfg=249 ctermbg=NONE cterm=NONE term=bold
   hi SpellBad guifg=NONE guibg=NONE guisp=#d7005f gui=undercurl ctermfg=161 ctermbg=NONE cterm=underline term=underline
   hi SpellCap guifg=NONE guibg=NONE guisp=#af5f00 gui=undercurl ctermfg=130 ctermbg=NONE cterm=underline term=underline
@@ -353,7 +353,7 @@ if &background == 'light'
     hi ErrorMsg ctermfg=darkred ctermbg=white cterm=reverse
     hi Folded ctermfg=gray ctermbg=gray cterm=NONE
     hi Ignore ctermfg=NONE ctermbg=NONE cterm=NONE
-    hi IncSearch ctermfg=black ctermbg=yellow cterm=NONE
+    hi IncSearch ctermfg=yellow ctermbg=white cterm=reverse
     hi LineNr ctermfg=NONE ctermbg=NONE cterm=NONE
     hi ModeMsg ctermfg=NONE ctermbg=NONE cterm=bold
     hi MoreMsg ctermfg=darkgreen ctermbg=NONE cterm=NONE
@@ -369,7 +369,7 @@ if &background == 'light'
     hi PmenuThumb ctermfg=NONE ctermbg=gray cterm=NONE
     hi QuickFixLine ctermfg=black ctermbg=magenta cterm=NONE
     hi Removed ctermfg=darkred ctermbg=NONE cterm=NONE
-    hi Search ctermfg=black ctermbg=blue cterm=NONE
+    hi Search ctermfg=blue ctermbg=white cterm=reverse
     hi SpecialKey ctermfg=NONE ctermbg=NONE cterm=NONE
     hi SpellBad ctermfg=darkred ctermbg=NONE cterm=underline
     hi SpellCap ctermfg=darkyellow ctermbg=NONE cterm=underline
@@ -408,7 +408,7 @@ if &background == 'light'
     hi ErrorMsg ctermfg=darkred ctermbg=white cterm=reverse
     hi Folded ctermfg=gray ctermbg=gray cterm=NONE
     hi Ignore ctermfg=NONE ctermbg=NONE cterm=NONE
-    hi IncSearch ctermfg=black ctermbg=yellow cterm=NONE
+    hi IncSearch ctermfg=yellow ctermbg=white cterm=reverse
     hi LineNr ctermfg=NONE ctermbg=NONE cterm=NONE
     hi ModeMsg ctermfg=NONE ctermbg=NONE cterm=bold
     hi MoreMsg ctermfg=darkgreen ctermbg=NONE cterm=NONE
@@ -424,7 +424,7 @@ if &background == 'light'
     hi PmenuThumb ctermfg=NONE ctermbg=gray cterm=NONE
     hi QuickFixLine ctermfg=black ctermbg=magenta cterm=NONE
     hi Removed ctermfg=darkred ctermbg=NONE cterm=NONE
-    hi Search ctermfg=black ctermbg=blue cterm=NONE
+    hi Search ctermfg=blue ctermbg=white cterm=reverse
     hi SpecialKey ctermfg=NONE ctermbg=NONE cterm=NONE
     hi SpellBad ctermfg=darkred ctermbg=NONE cterm=underline
     hi SpellCap ctermfg=darkyellow ctermbg=NONE cterm=underline

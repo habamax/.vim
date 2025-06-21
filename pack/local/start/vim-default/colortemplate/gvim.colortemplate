@@ -142,8 +142,8 @@ ErrorMsg                DarkRed        Black          reverse
 MoreMsg                 DarkGreen      none
 WarningMsg              Red            none
 
-Search                  Black          DarkBlue
-IncSearch               Black          DarkYellow
+Search                  DarkBlue       Black          reverse
+IncSearch               DarkYellow     Black          reverse
 CursorLine              none           DarkGray4
  /16/8                  none           none           underline
 Folded                  Gray4          DarkGray3
@@ -168,9 +168,9 @@ Background: light
 ;;; Color palette
 Color: Black            #000000        16             black
 Color: White            #ffffff        231            white
-Color: Blue             #87d7ff        75             blue
+Color: Blue             #5f87af        67             blue
 Color: Blue2            #afcffa        153            blue
-Color: Yellow           #ffff00        226            yellow
+Color: Yellow           #af875f        137            yellow
 Color: Red              #ff0000        196            red
 Color: Red1             #ffa0a0        217            red
 Color: Magenta          #af00af        127            magenta
@@ -248,8 +248,8 @@ ErrorMsg                DarkRed        White          reverse
 MoreMsg                 DarkGreen      none
 WarningMsg              Red            none
 
-Search                  Black          Blue
-IncSearch               Black          Yellow
+Search                  Blue           White          reverse
+IncSearch               Yellow         White          reverse
 CursorLine              none           LightGray4
 Folded                  Gray1          LightGray3
 ColorColumn             none           LightGray1
