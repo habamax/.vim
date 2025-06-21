@@ -50,6 +50,7 @@ Color: Black            #1c1c1c        234             black
 Color: White            #dadada        253            white
 Color: Blue             #5fd7ff        81             blue
 Color: Blue1            #80a0ff        111            blue
+Color: Blue2            #02468a        25            blue
 Color: Yellow           #ffff00        226            yellow
 Color: Red              #d75f87        168            red
 Color: Red1             #ffa0a0        217            darkyellow
@@ -109,6 +110,8 @@ SpecialKey              DarkGray6      none
  /16/8                  none           none
 
 Visual                  Blue           Black          reverse
+ /gui                   none           Blue2
+ /256+tgc true          omit           omit
 
 Pmenu                   none           DarkGray2
  /8                     none           Gray1
@@ -166,6 +169,7 @@ Background: light
 Color: Black            #000000        16             black
 Color: White            #ffffff        231            white
 Color: Blue             #87d7ff        75             blue
+Color: Blue2            #afcffa        153            blue
 Color: Yellow           #ffff00        226            yellow
 Color: Red              #ff0000        196            red
 Color: Red1             #ffa0a0        217            red
@@ -225,6 +229,8 @@ SpecialKey              LightGray6     none
  /16/8                  none           none
 
 Visual                  DarkBlue       White          reverse
+ /gui                   none           Blue2
+ /256+tgc true          omit           omit
 
 Pmenu                   none           LightGray2
 PmenuThumb              none           Gray1
