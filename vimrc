@@ -1,5 +1,3 @@
-vim9script
-
 filetype plugin indent on
 syntax on
 
@@ -24,13 +22,3 @@ set diffopt+=algorithm:histogram,indent-heuristic,inline:char,linematch:50
 set sessionoptions=buffers,curdir,tabpages,winsize
 set path=.,,
 set mouse=a
-
-&directory = $'{$MYVIMDIR}.data/swap/'
-&backupdir = $'{$MYVIMDIR}.data/backup//'
-&undodir = $'{$MYVIMDIR}.data/undo//'
-if !isdirectory(&undodir)   | mkdir(&undodir, "p")   | endif
-if !isdirectory(&backupdir) | mkdir(&backupdir, "p") | endif
-if !isdirectory(&directory) | mkdir(&directory, "p") | endif
-
-set backup
-set undofile
