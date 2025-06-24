@@ -37,9 +37,9 @@ nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 nnoremap <space>w <scriptcmd>fuzzy.CurrentWord()<CR>
 nnoremap <space>it <scriptcmd>fuzzy.Template()<CR>
 
-nnoremap <space>gg :<C-u>Rg<space>
+# Ripgrep word under cursor
 nnoremap <space>gw <scriptcmd>exe 'Rg' expand("<cword>")<cr>
-
+xnoremap <space>gw "0y<scriptcmd>exe "Rg" getreg("0")<cr>
 
 import autoload 'popcom.vim'
 # calc visually selected math expression
@@ -222,10 +222,6 @@ import autoload 'os.vim'
 nnoremap <silent> gof <scriptcmd>os.FileManager()<CR>
 # open URLs
 nnoremap <silent> gx <scriptcmd>os.Gx()<CR>
-
-# Ripgrep word under cursor
-nnoremap <space>8 <scriptcmd>exe "Rg" expand("<cword>")<cr>
-xnoremap <space>8 "0y<scriptcmd>exe "Rg" getreg("0")<cr>
 
 # upcase previous non-upcased word
 if !has("gui_running")
