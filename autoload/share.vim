@@ -26,7 +26,7 @@ var paste_service = {
     'vpaste': ['http://vpaste.net/', 'text=<-']
 }
 
-# Paste lines from current buffer to one of the s:paste_service
+# Paste lines from current buffer to one of the `paste_service`
 # Save URL in clipboard.
 export def Paste(service: string, line1: number, line2: number)
     var [paste_url, paste_param] = paste_service->get(service, paste_service["0x0"])
