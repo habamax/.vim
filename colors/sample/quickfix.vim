@@ -18,7 +18,7 @@ let errors = [
 			\ "colors/tools/check_colors.vim:156: if search('syn\%[tax]\s\+on', 'cnW') != 0",
 			\ "colors/tools/check_colors.vim:163: search(pat, 'cW') # Look for the first hi def, skipping `hi link` and `hi clear`",
 			\ ]
-normal! mP
+tabnew
 cexpr errors
 cwindow
 setlocal cursorline cursorlineopt=both hlsearch
@@ -27,6 +27,5 @@ cnext
 cnext
 cnext
 cnext
-normal! `P
 wincmd w
 call feedkeys('k')
