@@ -102,7 +102,7 @@ VertSplit               Gray1          Gray1
 ToolbarButton           White          Black          reverse,bold
 QuickFixLine            Black          Magenta
 
-LineNr                  DarkGray6      none
+LineNr                  Gray1          none
  /16/8                  none           none
 EndOfBuffer             DarkGray6      none
  /16/8                  none           none
@@ -221,11 +221,11 @@ VertSplit               Gray4          Gray4
 ToolbarButton           Black          White          reverse,bold
 QuickFixLine            Black          Magenta
 
-LineNr                  LightGray6     none
+LineNr                  Gray4          none
  /16/8                  none           none
-EndOfBuffer             LightGray6     none
+EndOfBuffer             Gray4          none
  /16/8                  none           none
-SpecialKey              LightGray6     none
+SpecialKey              Gray4          none
  /16/8                  none           none
 
 Visual                  DarkBlue       White          reverse
@@ -250,8 +250,8 @@ WarningMsg              Red            none
 
 Search                  Blue           White          reverse
 IncSearch               Yellow         White          reverse
-CursorLine              none           LightGray4
-Folded                  Gray1          LightGray3
+CursorLine              none           LightGray3
+Folded                  Gray1          LightGray4
 ColorColumn             none           LightGray1
 Conceal                 LightGray5     none
 

@@ -4,6 +4,8 @@ import autoload 'popup.vim'
 import autoload 'os.vim'
 import autoload 'unicode.vim'
 
+var popup_dim_highlight = get(g:, "popup_dim_highlight", "NonText")
+
 const MAX_ELEMENTS: number = 40000
 
 export def Buffer(ext: bool = false)
@@ -44,7 +46,7 @@ export def Buffer(ext: bool = false)
             else
                 win_execute(winid, "syn match PopupSelectPath '.*[\\/]'")
             endif
-            hi def link PopupSelectPath Comment
+            exe $"hi def link PopupSelectPath {popup_dim_highlight}"
         })
 enddef
 
@@ -70,7 +72,7 @@ export def Oldfiles()
         },
         (winid) => {
             win_execute(winid, "syn match PopupSelectPath '^.*[\\/]'")
-            hi def link PopupSelectPath Comment
+            exe $"hi def link PopupSelectPath {popup_dim_highlight}"
         })
 enddef
 
@@ -98,7 +100,7 @@ export def MRU()
         },
         (winid) => {
             win_execute(winid, "syn match PopupSelectPath '^.*[\\/]'")
-            hi def link PopupSelectPath Comment
+            exe $"hi def link PopupSelectPath {popup_dim_highlight}"
         })
 enddef
 
@@ -121,7 +123,7 @@ export def GitFile(path: string = "")
         },
         (winid) => {
             win_execute(winid, "syn match PopupSelectPath '^.*[\\/]'")
-            hi def link PopupSelectPath Comment
+            exe $"hi def link PopupSelectPath {popup_dim_highlight}"
         })
 enddef
 
@@ -208,7 +210,7 @@ export def Bookmark()
         },
         (winid) => {
             win_execute(winid, 'syn match PopupSelectPath "(.*)$"')
-            hi def link PopupSelectPath Comment
+            exe $"hi def link PopupSelectPath {popup_dim_highlight}"
         })
 enddef
 
@@ -320,7 +322,7 @@ export def File(path: string = "")
         },
         (winid) => {
             win_execute(winid, "syn match PopupSelectPath '^.*[\\/]'")
-            hi def link PopupSelectPath Comment
+            exe $"hi def link PopupSelectPath {popup_dim_highlight}"
         })
 enddef
 
@@ -362,7 +364,7 @@ export def Highlight()
         },
         (winid) => {
             win_execute(winid, 'syn match PopupSelectHiRest "\(^xxx\+\s\+\S\+\s\)\@<=.*"')
-            hi def link PopupSelectHiRest Comment
+            exe $"hi def link PopupSelectPath {popup_dim_highlight}"
             for h in hl
                 win_execute(winid, $'syn match {h.name} "^xxx\+\ze {h.name}\>"')
             endfor
@@ -419,7 +421,7 @@ export def Project()
         },
         (winid) => {
             win_execute(winid, "syn match PopupSelectPath '^.*[\\/]'")
-            hi def link PopupSelectPath Comment
+            exe $"hi def link PopupSelectPath {popup_dim_highlight}"
         })
 enddef
 
@@ -440,9 +442,9 @@ export def CurrentWord()
             win_execute(winid, 'syn match PopupSelectLineNr "(\d\+)$"')
             win_execute(winid, $'syn match PopupSelectWord "\c\<{word}\>"')
             win_execute(winid, $'syn match PopupSelectDate "^\u\U\U \d\+ \d\d:\d\d\>"')
-            hi def link PopupSelectLineNr Comment
+            exe $"hi def link PopupSelectLineNr {popup_dim_highlight}"
             hi def link PopupSelectWord Statement
-            hi def link PopupSelectDate Comment
+            exe $"hi def link PopupSelectDate {popup_dim_highlight}"
         })
 enddef
 
@@ -468,7 +470,7 @@ export def Window()
             win_execute(winid, 'syn match PopupSelectCurrent "^\* .\{-}:.*(\d\+)$" contains=PopupSelectBraces')
             win_execute(winid, 'syn match PopupSelectBraces "(\d\+)$" contained')
             win_execute(winid, 'syn match PopupSelectBraces "^[* ] .\{-}:" contained')
-            hi def link PopupSelectBraces Comment
+            exe $"hi def link PopupSelectBraces {popup_dim_highlight}"
             hi def link PopupSelectCurrent Statement
         })
 enddef
