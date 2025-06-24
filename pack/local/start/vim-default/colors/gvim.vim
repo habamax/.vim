@@ -56,7 +56,7 @@ if &background == 'dark'
   hi DiffChange guifg=NONE guibg=#1f2f3f guisp=NONE gui=NONE ctermfg=67 ctermbg=NONE cterm=reverse term=NONE
   hi DiffDelete guifg=#767676 guibg=#3f1f00 guisp=NONE gui=NONE ctermfg=131 ctermbg=NONE cterm=reverse term=reverse
   hi DiffText guifg=NONE guibg=#5f2f5f guisp=NONE gui=NONE ctermfg=139 ctermbg=NONE cterm=reverse term=reverse
-  hi Directory guisp=NONE gui=bold cterm=bold term=NONE
+  hi Directory guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=NONE
   hi EndOfBuffer guifg=#5f5f5f guibg=NONE guisp=NONE gui=NONE ctermfg=59 ctermbg=NONE cterm=NONE term=NONE
   hi Error guifg=#af5f5f guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=131 ctermbg=234 cterm=reverse term=bold,reverse
   hi ErrorMsg guifg=#af5f5f guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=131 ctermbg=234 cterm=reverse term=bold,reverse
@@ -125,7 +125,7 @@ if &background == 'dark'
     hi DiffChange ctermfg=darkblue ctermbg=NONE cterm=reverse
     hi DiffDelete ctermfg=darkred ctermbg=NONE cterm=reverse
     hi DiffText ctermfg=darkmagenta ctermbg=NONE cterm=reverse
-    hi Directory cterm=bold
+    hi Directory ctermfg=NONE ctermbg=NONE cterm=bold
     hi EndOfBuffer ctermfg=NONE ctermbg=NONE cterm=NONE
     hi Error ctermfg=darkred ctermbg=black cterm=reverse
     hi ErrorMsg ctermfg=darkred ctermbg=black cterm=reverse
@@ -185,7 +185,7 @@ if &background == 'dark'
     hi DiffChange ctermfg=darkblue ctermbg=NONE cterm=reverse
     hi DiffDelete ctermfg=darkred ctermbg=NONE cterm=reverse
     hi DiffText ctermfg=darkmagenta ctermbg=NONE cterm=reverse
-    hi Directory cterm=bold
+    hi Directory ctermfg=NONE ctermbg=NONE cterm=bold
     hi EndOfBuffer ctermfg=NONE ctermbg=NONE cterm=NONE
     hi Error ctermfg=darkred ctermbg=black cterm=reverse
     hi ErrorMsg ctermfg=darkred ctermbg=black cterm=reverse
@@ -267,7 +267,7 @@ if &background == 'light'
   hi DiffChange guifg=NONE guibg=#daeafa guisp=NONE gui=NONE ctermfg=67 ctermbg=NONE cterm=reverse term=NONE
   hi DiffDelete guifg=#767676 guibg=#fadada guisp=NONE gui=NONE ctermfg=131 ctermbg=NONE cterm=reverse term=reverse
   hi DiffText guifg=NONE guibg=#f7e7f7 guisp=NONE gui=NONE ctermfg=139 ctermbg=NONE cterm=reverse term=reverse
-  hi Directory guisp=NONE gui=bold cterm=bold term=NONE
+  hi Directory guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=NONE
   hi EndOfBuffer guifg=#9e9e9e guibg=NONE guisp=NONE gui=NONE ctermfg=247 ctermbg=NONE cterm=NONE term=NONE
   hi Error guifg=#af0000 guibg=#ffffff guisp=NONE gui=reverse ctermfg=124 ctermbg=231 cterm=reverse term=bold,reverse
   hi ErrorMsg guifg=#af0000 guibg=#ffffff guisp=NONE gui=reverse ctermfg=124 ctermbg=231 cterm=reverse term=bold,reverse
@@ -331,7 +331,7 @@ if &background == 'light'
     hi DiffChange ctermfg=darkblue ctermbg=NONE cterm=reverse
     hi DiffDelete ctermfg=darkred ctermbg=NONE cterm=reverse
     hi DiffText ctermfg=darkmagenta ctermbg=NONE cterm=reverse
-    hi Directory cterm=bold
+    hi Directory ctermfg=NONE ctermbg=NONE cterm=bold
     hi EndOfBuffer ctermfg=NONE ctermbg=NONE cterm=NONE
     hi Error ctermfg=darkred ctermbg=white cterm=reverse
     hi ErrorMsg ctermfg=darkred ctermbg=white cterm=reverse
@@ -386,7 +386,7 @@ if &background == 'light'
     hi DiffChange ctermfg=darkblue ctermbg=NONE cterm=reverse
     hi DiffDelete ctermfg=darkred ctermbg=NONE cterm=reverse
     hi DiffText ctermfg=darkmagenta ctermbg=NONE cterm=reverse
-    hi Directory cterm=bold
+    hi Directory ctermfg=NONE ctermbg=NONE cterm=bold
     hi EndOfBuffer ctermfg=NONE ctermbg=NONE cterm=NONE
     hi Error ctermfg=darkred ctermbg=white cterm=reverse
     hi ErrorMsg ctermfg=darkred ctermbg=white cterm=reverse

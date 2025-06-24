@@ -292,7 +292,7 @@ Ignore                  none           none
 Todo                    none           none           bold
 
 Title                   none           none           bold
-Directory               omit           omit           bold
+Directory               none           none           bold
 
 DiffAdd                 diffAdd        none           reverse
  /gui                   none           diffAdd
