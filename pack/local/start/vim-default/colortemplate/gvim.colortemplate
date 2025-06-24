@@ -44,11 +44,12 @@ lspDiagSignInfoText                    -> Question
 Background: dark
 
 ;;; Color palette
-Color: Black            #1c1c1c        234             black
+Color: Black            #1c1c1c        234            black
 Color: White            #dadada        253            white
 Color: Blue             #5fd7ff        81             blue
 Color: Blue1            #80a0ff        111            blue
-Color: Blue2            #02468a        25            blue
+Color: Blue2            #02468a        25             blue
+Color: Blue3            #87afd7        110            blue
 Color: Yellow           #ffff00        226            yellow
 Color: Red              #d75f87        168            red
 Color: Red1             #ffa0a0        217            darkyellow
@@ -58,7 +59,6 @@ Color: Green1           #60ff50        83             green
 Color: Magenta          #d787d7        176            magenta
 Color: Magenta1         #ff80ff        213            magenta
 Color: DarkGreen        #5faf5f        71             darkgreen
-Color: DarkCyan         #5f8787        66             darkcyan
 Color: DarkYellow       #d7d75f        185            darkyellow
 Color: DarkRed          #af5f5f        131            darkred
 Color: DarkBlue         #0087af        31             darkblue
@@ -161,6 +161,9 @@ Type                    Green1         none
 Special                 Orange         none
  /8                     Magenta1       none
 
+Directory               Blue3          none           bold
+ /8                     none           none           bold
+
 Background: light
 
 ;;; Color palette
@@ -177,10 +180,10 @@ Color: Brown            #a52a2a        124            red
 Color: Green            #008700        28             green
 Color: DarkGreen        #005f00        22             darkgreen
 Color: SeaGreen         #2e8b57        29             darkgreen
-Color: DarkCyan         #5f8787        66             darkcyan
 Color: DarkYellow       #d7d75f        185            darkyellow
 Color: DarkRed          #af0000        124            darkred
 Color: DarkBlue         #0087d7        32             darkblue
+Color: DarkBlue2        #005f87        32             darkblue
 
 Color: DarkGray1        #767676        243            darkgray
 Color: Gray1            #767676        243            gray
@@ -261,6 +264,9 @@ PreProc                 -> omit
 Type                    SeaGreen       omit           bold
 Special                 -> omit
 
+Directory               DarkBlue2      none           bold
+ /8                     none           none           bold
+
 
 Background: any
 
@@ -276,6 +282,8 @@ Cursor                  -> omit
 lCursor                 -> omit
 CursorIM                -> omit
 MatchParen              -> omit
+dirTime                 -> NonText
+dirGroup                -> NonText
 
 SpellBad                Removed        none           s=none    underline
  /gui                   none           none           s=Removed undercurl
@@ -292,7 +300,6 @@ Ignore                  none           none
 Todo                    none           none           bold
 
 Title                   none           none           bold
-Directory               none           none           bold
 
 DiffAdd                 diffAdd        none           reverse
  /gui                   none           diffAdd
