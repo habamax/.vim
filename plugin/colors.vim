@@ -4,24 +4,6 @@ if !has('gui_running')
     set termguicolors
 endif
 
-def Diff()
-    if has("gui_running") || &termguicolors
-        if &background == "dark"
-            hi DiffAdd guibg=#002f00 guifg=NONE gui=NONE cterm=NONE
-            hi DiffChange guibg=#1f2f3f guifg=NONE gui=NONE cterm=NONE
-            hi DiffDelete guibg=#3f1f00 guifg=#585858 gui=NONE cterm=NONE
-        else
-            hi DiffAdd guibg=#dafada guifg=NONE cterm=NONE gui=NONE
-            hi DiffChange guibg=#daeafa guifg=NONE cterm=NONE gui=NONE
-            hi DiffDelete guibg=#fadada guifg=NONE cterm=NONE gui=NONE
-        endif
-    else
-        hi DiffAdd cterm=reverse
-        hi DiffChange cterm=reverse
-        hi DiffDelete cterm=reverse
-    endif
-enddef
-
 def NoBg()
     if has("gui_running") || &background == "light"
         return
@@ -43,7 +25,6 @@ enddef
 augroup colors | au!
     au Colorscheme * Lsp()
     au Colorscheme habamax,wildcharm,lunaperche NoBg()
-    au Colorscheme wildcharm Diff()
     au Colorscheme gvim,habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
     au Colorscheme gvim
           \ if !has("gui_running") && &background == "light"
@@ -51,20 +32,20 @@ augroup colors | au!
           | endif
 augroup END
 
-# g:colors = {
-#     dark: "set bg=dark | sil! colo gvim",
-#     light: "set bg=light | sil! colo gvim",
-# }
+g:colors = {
+    dark: "set bg=dark | sil! colo gvim",
+    light: "set bg=light | sil! colo gvim",
+}
 
 # g:colors = {
 #     dark: "sil! colo nod-b",
 #     light: "sil! colo nope"
 # }
 
-g:colors = {
-    dark: "sil! colo habamax",
-    light: "sil! colo xamabah"
-}
+# g:colors = {
+#     dark: "sil! colo habamax",
+#     light: "sil! colo xamabah"
+# }
 
 # g:colors = {
 #     dark: "set bg=dark | sil! colo wildcharm",
