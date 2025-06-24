@@ -49,7 +49,6 @@ Color: White            #dadada        253            white
 Color: Blue             #5fd7ff        81             blue
 Color: Blue1            #80a0ff        111            blue
 Color: Blue2            #02468a        25             blue
-Color: Blue3            #87afd7        110            blue
 Color: Yellow           #ffff00        226            yellow
 Color: Red              #d75f87        168            red
 Color: Red1             #ffa0a0        217            darkyellow
@@ -161,9 +160,6 @@ Type                    Green1         none
 Special                 Orange         none
  /8                     Magenta1       none
 
-Directory               Blue3          none           bold
- /8                     none           none           bold
-
 Background: light
 
 ;;; Color palette
@@ -183,7 +179,6 @@ Color: SeaGreen         #2e8b57        29             darkgreen
 Color: DarkYellow       #d7d75f        185            darkyellow
 Color: DarkRed          #af0000        124            darkred
 Color: DarkBlue         #0087d7        32             darkblue
-Color: DarkBlue2        #005f87        32             darkblue
 
 Color: DarkGray1        #767676        243            darkgray
 Color: Gray1            #767676        243            gray
@@ -264,9 +259,6 @@ PreProc                 -> omit
 Type                    SeaGreen       omit           bold
 Special                 -> omit
 
-Directory               DarkBlue2      none           bold
- /8                     none           none           bold
-
 
 Background: any
 
@@ -293,6 +285,8 @@ SpellLocal              Added          none           s=none    underline
  /gui                   none           none           s=Added   undercurl
 SpellRare               Magenta        none           s=none    underline
  /gui                   none           none           s=Magenta undercurl
+
+Directory               none           none           bold
 
 Underlined              none           none           underline
 Ignore                  none           none
