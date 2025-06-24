@@ -219,7 +219,7 @@ VertSplit               Gray4          Gray4
  /8                     Gray1          Gray1
 
 ToolbarButton           Black          White          reverse,bold
-QuickFixLine            Black          Magenta
+QuickFixLine            White          Magenta
 
 LineNr                  Gray4          none
  /16/8                  none           none

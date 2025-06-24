@@ -297,7 +297,7 @@ if &background == 'light'
   hi PmenuSbar guifg=NONE guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE term=reverse
   hi PmenuSel guifg=NONE guibg=#c6c6c6 guisp=NONE gui=NONE ctermfg=NONE ctermbg=251 cterm=NONE term=bold
   hi PmenuThumb guifg=NONE guibg=#767676 guisp=NONE gui=NONE ctermfg=NONE ctermbg=243 cterm=NONE term=NONE
-  hi QuickFixLine guifg=#000000 guibg=#af00af guisp=NONE gui=NONE ctermfg=16 ctermbg=127 cterm=NONE term=NONE
+  hi QuickFixLine guifg=#ffffff guibg=#af00af guisp=NONE gui=NONE ctermfg=231 ctermbg=127 cterm=NONE term=NONE
   hi Removed guifg=#d7005f guibg=NONE guisp=NONE gui=NONE ctermfg=161 ctermbg=NONE cterm=NONE term=NONE
   hi Search guifg=#5f87af guibg=#ffffff guisp=NONE gui=reverse ctermfg=67 ctermbg=231 cterm=reverse term=reverse
   hi SpecialKey guifg=#9e9e9e guibg=NONE guisp=NONE gui=NONE ctermfg=247 ctermbg=NONE cterm=NONE term=bold
@@ -367,7 +367,7 @@ if &background == 'light'
     hi PmenuSbar ctermfg=NONE ctermbg=NONE cterm=NONE
     hi PmenuSel ctermfg=NONE ctermbg=gray cterm=NONE
     hi PmenuThumb ctermfg=NONE ctermbg=gray cterm=NONE
-    hi QuickFixLine ctermfg=black ctermbg=magenta cterm=NONE
+    hi QuickFixLine ctermfg=white ctermbg=magenta cterm=NONE
     hi Removed ctermfg=darkred ctermbg=NONE cterm=NONE
     hi Search ctermfg=blue ctermbg=white cterm=reverse
     hi SpecialKey ctermfg=NONE ctermbg=NONE cterm=NONE
@@ -422,7 +422,7 @@ if &background == 'light'
     hi PmenuSbar ctermfg=NONE ctermbg=NONE cterm=NONE
     hi PmenuSel ctermfg=NONE ctermbg=gray cterm=NONE
     hi PmenuThumb ctermfg=NONE ctermbg=gray cterm=NONE
-    hi QuickFixLine ctermfg=black ctermbg=magenta cterm=NONE
+    hi QuickFixLine ctermfg=white ctermbg=magenta cterm=NONE
     hi Removed ctermfg=darkred ctermbg=NONE cterm=NONE
     hi Search ctermfg=blue ctermbg=white cterm=reverse
     hi SpecialKey ctermfg=NONE ctermbg=NONE cterm=NONE
