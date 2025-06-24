@@ -364,7 +364,7 @@ export def Highlight()
         },
         (winid) => {
             win_execute(winid, 'syn match PopupSelectHiRest "\(^xxx\+\s\+\S\+\s\)\@<=.*"')
-            exe $"hi def link PopupSelectPath {popup_dim_highlight}"
+            exe $"hi def link PopupSelectHiRest {popup_dim_highlight}"
             for h in hl
                 win_execute(winid, $'syn match {h.name} "^xxx\+\ze {h.name}\>"')
             endfor
