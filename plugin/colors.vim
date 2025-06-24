@@ -24,7 +24,7 @@ enddef
 
 augroup colors | au!
     au Colorscheme * Lsp()
-    au Colorscheme habamax,wildcharm,lunaperche NoBg()
+    au Colorscheme gvim,habamax,wildcharm,lunaperche NoBg()
     au Colorscheme gvim,habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
 augroup END
 
