@@ -43,9 +43,7 @@ hi! link lspDiagVirtualTextInfo Question
 hi! link lspDiagVirtualTextWarning Changed
 
 if &background == 'dark'
-  const gui_running = has('gui_running')
-
-  hi Normal guifg=NONE guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE term=NONE
+  hi Normal guifg=#dadada guibg=#1c1c1c guisp=NONE gui=NONE ctermfg=253 ctermbg=234 cterm=NONE term=NONE
   hi Added guifg=#5fd75f guibg=NONE guisp=NONE gui=NONE ctermfg=77 ctermbg=NONE cterm=NONE term=NONE
   hi Changed guifg=#ffaf5f guibg=NONE guisp=NONE gui=NONE ctermfg=215 ctermbg=NONE cterm=NONE term=NONE
   hi ColorColumn guifg=NONE guibg=#262626 guisp=NONE gui=NONE ctermfg=NONE ctermbg=235 cterm=NONE term=reverse
@@ -102,12 +100,6 @@ if &background == 'dark'
   hi Visual guifg=NONE guibg=#02468a guisp=NONE gui=NONE ctermfg=81 ctermbg=234 cterm=reverse term=reverse
   hi WarningMsg guifg=#d75f87 guibg=NONE guisp=NONE gui=NONE ctermfg=168 ctermbg=NONE cterm=NONE term=standout
 
-  if has('gui_running') || tgc
-    if gui_running == 1
-      hi Normal guifg=#dadada guibg=#1c1c1c guisp=NONE gui=NONE cterm=NONE
-    endif
-  endif
-
   if tgc || t_Co >= 256
     if tgc
       hi DiffAdd cterm=NONE
@@ -120,7 +112,7 @@ if &background == 'dark'
   endif
 
   if t_Co >= 16
-    hi Normal ctermfg=NONE ctermbg=NONE cterm=NONE
+    hi Normal ctermfg=white ctermbg=black cterm=NONE
     hi Added ctermfg=darkgreen ctermbg=NONE cterm=NONE
     hi Changed ctermfg=darkyellow ctermbg=NONE cterm=NONE
     hi ColorColumn ctermfg=darkred ctermbg=NONE cterm=reverse
@@ -264,9 +256,7 @@ if &background == 'dark'
 endif
 
 if &background == 'light'
-  const gui_running = has('gui_running')
-
-  hi Normal guifg=NONE guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE term=NONE
+  hi Normal guifg=#000000 guibg=#ffffff guisp=NONE gui=NONE ctermfg=16 ctermbg=231 cterm=NONE term=NONE
   hi Added guifg=#008700 guibg=NONE guisp=NONE gui=NONE ctermfg=28 ctermbg=NONE cterm=NONE term=NONE
   hi Changed guifg=#af5f00 guibg=NONE guisp=NONE gui=NONE ctermfg=130 ctermbg=NONE cterm=NONE term=NONE
   hi ColorColumn guifg=NONE guibg=#eeeeee guisp=NONE gui=NONE ctermfg=NONE ctermbg=255 cterm=NONE term=reverse
@@ -318,12 +308,6 @@ if &background == 'light'
   hi Visual guifg=NONE guibg=#afcffa guisp=NONE gui=NONE ctermfg=32 ctermbg=231 cterm=reverse term=reverse
   hi WarningMsg guifg=#ff0000 guibg=NONE guisp=NONE gui=NONE ctermfg=196 ctermbg=NONE cterm=NONE term=standout
 
-  if has('gui_running') || tgc
-    if gui_running == 1
-      hi Normal guifg=#000000 guibg=#ffffff guisp=NONE gui=NONE cterm=NONE
-    endif
-  endif
-
   if tgc || t_Co >= 256
     if tgc
       hi DiffAdd cterm=NONE
@@ -336,7 +320,7 @@ if &background == 'light'
   endif
 
   if t_Co >= 16
-    hi Normal ctermfg=NONE ctermbg=NONE cterm=NONE
+    hi Normal ctermfg=black ctermbg=white cterm=NONE
     hi Added ctermfg=darkgreen ctermbg=NONE cterm=NONE
     hi Changed ctermfg=darkyellow ctermbg=NONE cterm=NONE
     hi ColorColumn ctermfg=NONE ctermbg=gray cterm=NONE

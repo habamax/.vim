@@ -11,8 +11,6 @@ Environments: gui 256 16 8 0
 
 Background: any
 
-#const gui_running = has('gui_running')
-
 CursorLineFold                         -> omit
 CursorLineSign                         -> omit
 
@@ -86,8 +84,8 @@ Color: Added            #5fd75f        77             darkgreen
 Color: Changed          #ffaf5f        215            darkyellow
 Color: Removed          #d75f5f        167            darkred
 
-Normal
- /gui +gui_running 1    White          Black
+Normal                  White          Black
+ /8                     none           none
 
 StatusLine              Black          Gray4
  /16                    Black          Gray1
@@ -207,8 +205,8 @@ Color: Added            #008700        28             darkgreen
 Color: Changed          #af5f00        130            darkyellow
 Color: Removed          #d7005f        161            darkred
 
-Normal
- /gui +gui_running 1    Black          White
+Normal                  Black          White
+ /8                     none           none
 
 StatusLine              White          Gray1
  /16/8                  Black          Gray1          bold
@@ -265,8 +263,6 @@ Special                 -> omit
 
 
 Background: any
-
-Normal                  none           none
 
 WildMenu                -> omit
 debugPC                 -> omit
