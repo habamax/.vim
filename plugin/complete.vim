@@ -82,7 +82,7 @@ def InsComplete()
 enddef
 
 def SkipTextChangedI(): string
-    # Suppress next event caused by <c-e> (or <c-n> when no matches found)
+    # Suppress next event caused by <c-e>/<c-y> (or <c-n> when no matches found)
     set eventignore+=TextChangedI
     timer_start(1, (_) => {
         set eventignore-=TextChangedI
