@@ -257,19 +257,18 @@ export def Diff()
         echo "Diff mode is not enabled!"
         return
     endif
-    var commands = []
-    commands->extend([
+    var commands = [
         {text: "Diff"},
-        {text: "Next Change", key: "j", cmd: () => {
+        {text: "Next Chunk", key: "j", cmd: "normal! ]c"},
+        {text: "Previous Chunk", key: "k", cmd: "normal! [c"},
+        {text: "Next Change", key: "J", cmd: () => {
             diff.NextChange()
         }},
-        {text: "Previous Change", key: "k", cmd: () => {
+        {text: "Previous Change", key: "K", cmd: () => {
             diff.PrevChange()
         }},
-        {text: "Next Chunk", key: "J", cmd: "normal! ]c"},
-        {text: "Previous Chunk", key: "K", cmd: "normal! [c"},
         {text: "Put", key: "p", cmd: "normal! dp"},
         {text: "Obtain", key: "o", cmd: "normal! do"},
-    ])
+    ]
     popup.Commands(commands)
 enddef
