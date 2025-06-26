@@ -104,9 +104,6 @@ endif
 if exists("g:loaded_lsp")
     g:LspOptionsSet({
         autoComplete: false,
-        omniComplete: true,
-        useBufferCompletion: false,
-        completionTextEdit: false,
         showInlayHints: true,
         showDiagOnStatusLine: false,
         showDiagWithVirtualText: false,
