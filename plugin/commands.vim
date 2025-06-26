@@ -136,3 +136,9 @@ def Irc()
     endif
 enddef
 command! Irc Irc()
+
+def MakeCompletion(_, _, _): string
+    return system("make -npq : 2> /dev/null | awk -v RS= -F: '$1 ~ /^[^#%.]+$/ { print $1 }' | sort -u")
+enddef
+
+command! -nargs=* -complete=custom,MakeCompletion Make Sh make <args>
