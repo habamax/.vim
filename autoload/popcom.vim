@@ -236,6 +236,13 @@ export def Copilot()
                 popup_notification("Copilot is not installed", {})
             endif
         }},
+        {text: "Dismiss", key: "g", cmd: () => {
+            if exists('*copilot#Dismiss')
+                feedkeys(copilot#Dismiss())
+            else
+                popup_notification("Copilot is not installed", {})
+            endif
+        }},
     ])
     popup.Commands(commands)
 enddef
