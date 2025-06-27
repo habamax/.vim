@@ -38,7 +38,7 @@ enddef
 command! WipeHiddenBuffers WipeHiddenBuffers()
 
 # literal search
-command! -nargs=1 Search @/ = $'\V{escape(<q-args>, '\\')}' | normal! n
+command! -nargs=1 Search @/ = $'\V{escape(<q-args>, '\')}' | normal! n
 
 # fix trailing spaces
 command! FixTrailingSpaces :exe 'normal! m`'<bar>
