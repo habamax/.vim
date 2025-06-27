@@ -1,15 +1,11 @@
 vim9script
 
-# work in progress
-# - combine multiple marks in a single row
-# - different highlight for local and global marks
-
 for r in 'abcdefghijklmnopqrstuvwxyz'
-    sign_define($"mark_{r}", {text: r, culhl: "CursorLineNr", texthl: "LineNr"})
+    sign_define($"mark_'{r}", {text: $"'{r}", culhl: "CursorLineNr", texthl: "LineNr"})
     exe $"nnoremap m{r} m{r}<scriptcmd>UpdateMarks()<CR>"
 endfor
 for r in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    sign_define($"mark_{r}", {text: r, culhl: "CursorLineNr", texthl: "LineNr"})
+    sign_define($"mark_'{r}", {text: $"'{r}", culhl: "CursorLineNr", texthl: "LineNr"})
     exe $"nnoremap m{r} m{r}<scriptcmd>UpdateVisibleBuffersMarks()<CR>"
 endfor
 
@@ -18,7 +14,7 @@ def UpdateMarks(buffer: number = bufnr())
     var local_marks = getmarklist(buffer)->filter((_, v) => v.mark =~ '[[:alpha:]]')
     var global_marks = getmarklist()->filter((_, v) => v.mark =~ '[[:alpha:]]' && v.pos[0] == buffer)
     local_marks->extendnew(global_marks)->foreach((_, v) => {
-        sign_place(1, "marks", $"mark_{v.mark[1]}", v.pos[0], {lnum: v.pos[1]})
+        sign_place(0, "marks", $"mark_{v.mark}", v.pos[0], {lnum: v.pos[1]})
     })
 enddef
 
@@ -33,5 +29,5 @@ enddef
 
 augroup mark_signs
     au!
-    au BufEnter,CursorHold * UpdateMarks()
+    au BufEnter * UpdateMarks()
 augroup END
