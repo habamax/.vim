@@ -64,7 +64,7 @@ nnoremap <space><space><space> <cmd>FixTrailingSpaces<CR>
 # search&replace
 nnoremap <space>% :<C-U>%s/\<<C-r>=expand("<cword>")<CR>\>/
 xnoremap <space>% y:%s/<C-r>=$'\V{escape(getreg(), '/\\')}'->split("\n")->join('\n')<CR>//g<left><left>
-xnoremap * y:let @/=$"\\V{escape(@@, '\')}"<CR>n
+xnoremap * y:@/ = $"\\V{escape(@@, '\')}"<CR>n
 # literal search
 nnoremap <space>/ <scriptcmd>exe $"Search {input("Search: ")}"<cr>
 
