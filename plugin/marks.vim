@@ -9,11 +9,11 @@ for r in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     exe $"nnoremap m{r} m{r}<scriptcmd>UpdateVisibleBuffersMarks()<CR>"
 endfor
 
-def UpdateMarks(buffer: number = bufnr())
-    sign_unplace("marks", {buffer: buffer})
-    var local_marks = getmarklist(buffer)->filter((_, v) => v.mark =~ '[[:alpha:]]')
-    var global_marks = getmarklist()->filter((_, v) => v.mark =~ '[[:alpha:]]' && v.pos[0] == buffer)
-    local_marks->extendnew(global_marks)->foreach((_, v) => {
+def UpdateMarks(bufnr: number = bufnr())
+    sign_unplace("marks", {buffer: bufnr})
+    var local_marks = getmarklist(bufnr)->filter((_, v) => v.mark =~ '[[:alpha:]]')
+    var global_marks = getmarklist()->filter((_, v) => v.mark =~ '[[:alpha:]]' && v.pos[0] == bufnr)
+    local_marks->extend(global_marks)->foreach((_, v) => {
         sign_place(0, "marks", $"mark_{v.mark}", v.pos[0], {lnum: v.pos[1]})
     })
 enddef
