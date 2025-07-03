@@ -108,23 +108,22 @@ set wildcharm=<C-@>
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
 
 def CmdComplete()
-    var [cmdline, curpos] = [getcmdline(), getcmdpos()]
-    var trigger = '\v%(\w|[*/:.-=]|\s)$'
-    var exclude = '\v^(\d+|.*s[/,#].*)$'
-    if getchar(1, {number: true}) == 0  # Typehead is empty (no more pasted input)
+    var [cmdline, curpos, cmdmode] = [getcmdline(), getcmdpos(), expand('<afile>') == ':']
+    var trigger_char = '\%(\w\|[*/:.-]\)$'
+    var not_trigger_char = '^\%(\d\|,\|+\|-\)\+$'  # Exclude numeric range
+    if getchar(1, {number: true}) == 0  # Typehead is empty, no more pasted input
             && !wildmenumode() && curpos == cmdline->len() + 1
-            && cmdline =~ trigger && cmdline !~ exclude # Reduce noise
-        feedkeys("\<C-@>", "ti")
-        SkipCmdlineChanged()  # Suppress redundant completion attempts
-        # Remove <C-@> that get inserted when no items are available
-        timer_start(0, (_) => getcmdline()->substitute('\%x00', '', 'g')->setcmdline())
+            && (!cmdmode || (cmdline =~ trigger_char && cmdline !~ not_trigger_char))
+        SkipCmdlineChanged()
+        feedkeys("\<C-@>", "t")
+        timer_start(0, (_) => getcmdline()->substitute('\%x00', '', 'ge')->setcmdline())  # Remove <C-@>
     endif
 enddef
 
 def SkipCmdlineChanged(key = ''): string
     set eventignore+=CmdlineChanged
     timer_start(0, (_) => execute('set eventignore-=CmdlineChanged'))
-    return key != '' ? ((pumvisible() ? "\<c-e>" : '') .. key) : ''
+    return key == '' ? '' : ((wildmenumode() ? "\<C-E>" : '') .. key)
 enddef
 
 cnoremap <expr> <up> SkipCmdlineChanged("\<up>")
@@ -132,7 +131,7 @@ cnoremap <expr> <down> SkipCmdlineChanged("\<down>")
 
 augroup cmdcomplete
     au!
-    autocmd CmdlineChanged : CmdComplete()
+    autocmd CmdlineChanged [:/?] CmdComplete()
     # autocmd CmdlineEnter : set belloff+=error
     # autocmd CmdlineLeave : set belloff-=error
 augroup END
