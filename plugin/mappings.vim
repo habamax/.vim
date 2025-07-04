@@ -17,6 +17,14 @@ nnoremap <silent> <expr> <space>v SourceVim()
 xnoremap <silent> <expr> <space>v SourceVim()
 nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 
+# clipboard copy/paste
+nnoremap <space>y "+y
+xnoremap <space>y "+y
+nnoremap <space>p "+p
+nnoremap <space>P "+P
+xnoremap <space>p "+p
+xnoremap <space>P "+P
+
 # fuzzy
 import autoload 'fuzzy.vim'
 nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
