@@ -109,13 +109,15 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
 
 def CmdComplete()
     var [cmdline, curpos, cmdmode] = [getcmdline(), getcmdpos(), expand('<afile>') == ':']
-    var trigger_char = '\%(\w\|[*/:.-]\)$'
-    var not_trigger_char = '^\%(\d\|,\|+\|-\)\+$'  # Exclude numeric range
-    if getchar(1, {number: true}) == 0  # Typehead is empty, no more pasted input
+    var trigger_char = '\v%(\w|[*/:.-])$'
+    # Exclude numeric range and substitute
+    var not_trigger_char = '\v^(%(\d|,|\+|-)+$)|%(s[[:punct:]])'
+    # Typehead is empty, no more pasted input
+    if getchar(1, {number: true}) == 0
             && !wildmenumode() && curpos == cmdline->len() + 1
             && (!cmdmode || (cmdline =~ trigger_char && cmdline !~ not_trigger_char))
         SkipCmdlineChanged()
-        feedkeys("\<C-@>", "t")
+        feedkeys("\<C-@>", "n")
         timer_start(0, (_) => getcmdline()->substitute('\%x00', '', 'ge')->setcmdline())  # Remove <C-@>
     endif
 enddef
