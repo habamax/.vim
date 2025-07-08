@@ -113,7 +113,7 @@ enddef
 # xnoremap <space>t <scriptcmd>popcom.TextTr()<cr>
 # nnoremap <space>t <scriptcmd>popcom.TextTr()<cr>
 export def TextTr()
-    if &readonly || &modifiable
+    if &readonly || !&modifiable
         echo "Cannot modify text in readonly buffer"
         return
     endif
