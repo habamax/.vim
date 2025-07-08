@@ -280,12 +280,15 @@ export def Marks()
         ->filter((_, v) => v.mark =~ "'\\(\\a\\|['\\[\\]]\\)")
         ->mapnew((_, v) => ({
             key: $"{v.mark[1]}",
-            text: get(v, 'file', bufname()) ..  $" (#{v.pos[1]})",
+            text: get(v, 'file', bufname()) ..  $" ({v.pos[1]})",
             close: true,
             cmd: () => {
                 exe $"normal! {v.mark}"
             }
         }))->sort((a, b) => a.text == b.text ? 0 : a.text > b.text ? 1 : -1)
 
-    popup.Commands(commands)
+    var winid = popup.Commands(commands)
+    win_execute(winid, 'syn match PopComMarkLineNr "(\d\+)$"')
+    hi def link PopComMarkLineNr NonText
+
 enddef
