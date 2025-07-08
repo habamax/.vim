@@ -277,7 +277,7 @@ export def Marks()
     var commands: list<dict<any>> = [{text: "Marks"}]
     commands += getmarklist()
         ->extend(getmarklist(bufnr()))
-        ->filter((_, v) => v.mark =~ "'\\(\\a\\|'\\)")
+        ->filter((_, v) => v.mark =~ "'\\(\\a\\|['\\[\\]]\\)")
         ->mapnew((_, v) => ({
             key: $"{v.mark[1]}",
             text: get(v, 'file', bufname()) ..  $" (#{v.pos[1]})",
