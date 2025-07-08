@@ -272,3 +272,25 @@ export def Diff()
     ]
     popup.Commands(commands)
 enddef
+
+export def Marks()
+    var commands = [{
+        key: "'",
+        text: bufname(),
+        close: true,
+        cmd: "normal! ''"
+    }]
+    commands += getmarklist()
+        ->extend(getmarklist(bufnr()))
+        ->filter((_, v) => v.mark =~ "'\\a")
+        ->mapnew((_, v) => ({
+            key: $"{v.mark[1]}",
+            text: get(v, 'file', bufname()),
+            close: true,
+            cmd: () => {
+                exe $"normal! {v.mark}"
+            }
+        }))->sort((a, b) => a.text == b.text ? 0 : a.text > b.text ? 1 : -1)
+
+    popup.Commands(commands)
+enddef

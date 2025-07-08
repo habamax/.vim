@@ -44,7 +44,6 @@ nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
 nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 nnoremap <space>w <scriptcmd>fuzzy.CurrentWord()<CR>
 nnoremap <space>it <scriptcmd>fuzzy.Template()<CR>
-nnoremap <space>' <scriptcmd>fuzzy.Marks()<CR>
 
 # Ripgrep word under cursor
 nnoremap <space>gw <scriptcmd>exe 'Rg' expand("<cword>")<cr>
@@ -62,6 +61,9 @@ nnoremap zl <scriptcmd>popcom.HScroll($'normal! {v:count1}zl')<CR>
 nnoremap zh <scriptcmd>popcom.HScroll($'normal! {v:count1}zh')<CR>
 nnoremap zs <scriptcmd>popcom.HScroll('normal! zs')<CR>
 nnoremap ze <scriptcmd>popcom.HScroll('normal! ze')<CR>
+
+# marks
+nnoremap ' <scriptcmd>popcom.Marks()<CR>
 
 # enhance search with <space> as "whatever"
 # to enter literal <space> use <C-v><space>

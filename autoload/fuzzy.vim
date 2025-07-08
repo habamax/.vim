@@ -492,22 +492,22 @@ export def Unicode(all: number = 0)
         })
 enddef
 
-export def Marks()
-    var marks = getmarklist()
-        ->extend(getmarklist(bufnr()))
-        ->filter((_, v) => v.mark =~ "'\\a")
-        ->mapnew((_, v) => ({
-            value: v.mark,
-            pretext: $"{v.mark} ",
-            text: get(v, 'file', bufname()),
-        }))->sort((a, b) => a.text == b.text ? 0 : a.text > b.text ? 1 : -1)
+# export def Marks()
+#     var marks = getmarklist()
+#         ->extend(getmarklist(bufnr()))
+#         ->filter((_, v) => v.mark =~ "'\\a")
+#         ->mapnew((_, v) => ({
+#             value: v.mark,
+#             pretext: $"{v.mark} ",
+#             text: get(v, 'file', bufname()),
+#         }))->sort((a, b) => a.text == b.text ? 0 : a.text > b.text ? 1 : -1)
 
-    popup.Select($'Marks', marks,
-        (res, key) => {
-            exe $"normal! {res.value}"
-        },
-        (winid) => {
-            win_execute(winid, "syn match PopupMark /^'\\a/")
-            hi def link PopupMark Identifier
-        })
-enddef
+#     popup.Select($'Marks', marks,
+#         (res, key) => {
+#             exe $"normal! {res.value}"
+#         },
+#         (winid) => {
+#             win_execute(winid, "syn match PopupMark /^'\\a/")
+#             hi def link PopupMark Identifier
+#         })
+# enddef
