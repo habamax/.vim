@@ -44,6 +44,7 @@ nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
 nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 nnoremap <space>w <scriptcmd>fuzzy.CurrentWord()<CR>
 nnoremap <space>it <scriptcmd>fuzzy.Template()<CR>
+nnoremap <space>' <scriptcmd>fuzzy.Marks()<CR>
 
 # Ripgrep word under cursor
 nnoremap <space>gw <scriptcmd>exe 'Rg' expand("<cword>")<cr>
