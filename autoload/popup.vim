@@ -78,7 +78,7 @@ export def Commands(commands: list<dict<any>>, pos_botright: bool = true): numbe
             else
                 popup_close(winid)
             endif
-            return false
+            return true
         }
     })
     return winid
