@@ -274,18 +274,12 @@ export def Diff()
 enddef
 
 export def Marks()
-    var commands = [{
-        key: "'",
-        text: bufname(),
-        close: true,
-        cmd: "normal! ''"
-    }]
-    commands += getmarklist()
+    var commands = getmarklist()
         ->extend(getmarklist(bufnr()))
-        ->filter((_, v) => v.mark =~ "'\\a")
+        ->filter((_, v) => v.mark =~ "'\\(\\a\\|'\\)")
         ->mapnew((_, v) => ({
             key: $"{v.mark[1]}",
-            text: get(v, 'file', bufname()),
+            text: get(v, 'file', bufname()) ..  $" (#{v.pos[1]})",
             close: true,
             cmd: () => {
                 exe $"normal! {v.mark}"
