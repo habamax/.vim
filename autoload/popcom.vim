@@ -281,14 +281,30 @@ export def Marks()
         ->mapnew((_, v) => ({
             key: $"{v.mark[1]}",
             text: get(v, 'file', bufname()) ..  $" ({v.pos[1]})",
+            linenr: v.pos[1],
+            buffer: get(v, 'file', bufname()),
             close: true,
             cmd: () => {
                 exe $"normal! {v.mark}"
             }
-        }))->sort((a, b) => a.text == b.text ? 0 : a.text > b.text ? 1 : -1)
+        }))
+        ->sort((a, b) => {
+            if a.buffer == b.buffer
+                if a.linenr == b.linenr
+                    return 0
+                elseif a.linenr > b.linenr
+                    return 1
+                else
+                    return -1
+                endif
+            elseif a.buffer > b.buffer
+                return 1
+            else
+                return -1
+            endif
+        })
 
     var winid = popup.Commands(commands)
     win_execute(winid, 'syn match PopComMarkLineNr "(\d\+)$"')
     hi def link PopComMarkLineNr NonText
-
 enddef
