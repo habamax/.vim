@@ -30,4 +30,5 @@ enddef
 augroup mark_signs
     au!
     au BufEnter,TextChanged * UpdateMarks()
+    au CmdlineLeave : timer_start(0, (_) => UpdateVisibleBuffersMarks())
 augroup END
