@@ -274,7 +274,8 @@ export def Diff()
 enddef
 
 export def Marks()
-    var commands = getmarklist()
+    var commands: list<dict<any>> = [{text: "Marks"}]
+    commands += getmarklist()
         ->extend(getmarklist(bufnr()))
         ->filter((_, v) => v.mark =~ "'\\(\\a\\|'\\)")
         ->mapnew((_, v) => ({
