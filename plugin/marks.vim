@@ -29,5 +29,5 @@ enddef
 
 augroup mark_signs
     au!
-    au BufEnter * UpdateMarks()
+    au BufEnter,TextChanged * UpdateMarks()
 augroup END
