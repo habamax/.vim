@@ -61,7 +61,7 @@ command! Inspect :echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "nam
 
 # Echo formatted vim objects, e.g. :Echo getbufinfo()
 import autoload 'dist/json.vim'
-command! -nargs=1 -complete=var Echo redir @"> | echo json.Format(<args>) | redir END
+command! -nargs=1 -complete=expression Echo redir @"> | echo json.Format(<args>) | redir END
 
 # save and load sessions
 if !isdirectory($'{$MYVIMDIR}.data/sessions')
