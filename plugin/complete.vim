@@ -1,6 +1,7 @@
 vim9script
 
 # insert mode completion
+set infercase
 set completepopup=highlight:Pmenu
 set completeopt=menuone,popup,noselect,fuzzy
 set completefuzzycollect=keyword
