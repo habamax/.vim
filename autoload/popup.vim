@@ -1,14 +1,15 @@
 vim9script
 
-var popup_borderchars     = get(g:, "popup_borderchars", ['─', '│', '─', '│', '┌', '┐', '┘', '└'])
-var popup_borderchars_t   = get(g:, "popup_borderchars_t", ['─', '│', '─', '│', '├', '┤', '┘', '└'])
+var popup_borderchars = get(g:, "popup_borderchars", ['─', '│', '─', '│', '┌', '┐', '┘', '└'])
+var popup_borderchars_t = get(g:, "popup_borderchars_t", ['─', '│', '─', '│', '├', '┤', '┘', '└'])
 var popup_borderhighlight = get(g:, "popup_borderhighlight", ['Normal'])
-var popup_highlight       = get(g:, "popup_highlight", 'Normal')
+var popup_highlight = get(g:, "popup_highlight", 'Normal')
 var popup_match_highlight = get(g:, "popup_match_highlight", "Constant")
-var popup_key_highlight   = get(g:, "popup_key_highlight", "Constant")
-var popup_cursor          = get(g:, "popup_cursor", '▏')
-var popup_prompt          = get(g:, "popup_prompt", '> ')
-var popup_number          = get(g:, "popup_number", false)
+var popup_key_highlight = get(g:, "popup_key_highlight", "Constant")
+var popup_key_sep_highlight = get(g:, "popup_key_sep_highlight", "Comment")
+var popup_cursor = get(g:, "popup_cursor", '▏')
+var popup_prompt = get(g:, "popup_prompt", '> ')
+var popup_number = get(g:, "popup_number", false)
 
 
 # Helper popup to create command popup windows.
@@ -34,14 +35,19 @@ export def Commands(commands: list<dict<any>>, pos_botright: bool = true): numbe
         exe $"hi def link PopupCommandKey {popup_key_highlight}"
         prop_type_add('PopupCommandKey', {highlight: "PopupCommandKey", override: true, priority: 1000, combine: true})
     endif
+    if empty(prop_type_get('PopupCommandKeySep'))
+        exe $"hi def link PopupCommandKeySep {popup_key_sep_highlight}"
+        prop_type_add('PopupCommandKeySep', {highlight: "PopupCommandKeySep", override: true, priority: 1000, combine: true})
+    endif
     if empty(prop_type_get('PopupCommandKeyTitle'))
         hi def link PopupCommandKeyTitle Title
         prop_type_add('PopupCommandKeyTitle', {highlight: "PopupCommandKeyTitle", override: true, priority: 1000, combine: true})
     endif
     commands->foreach((_, v) => {
         if v->has_key("key")
-            v.text = $"  {keytrans(v.key)} - {v.text}"
-            v.props = [{col: 3, length: len(keytrans(v.key)), type: "PopupCommandKey"}]
+            v.text = $"  {keytrans(v.key)} → {v.text}"
+            v.props = [{col: 3, length: len(keytrans(v.key)), type: "PopupCommandKey"},
+                       {col: 4 + len(keytrans(v.key)), length: 1, type: "PopupCommandKeySep"}]
         else
             v.props = [{col: 1, length: len(v.text), type: "PopupCommandKeyTitle"}]
         endif
