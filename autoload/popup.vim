@@ -360,24 +360,30 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
                 RestoreCursor()
             elseif ["\<Right>", "\<PageDown>"]->index(key) > -1
                 win_execute(id, 'normal! ' .. maxheight .. "\<C-d>")
+                AlignPopups(pwinid, id)
             elseif ["\<Left>", "\<PageUp>"]->index(key) > -1
                 win_execute(id, 'normal! ' .. maxheight .. "\<C-u>")
+                AlignPopups(pwinid, id)
             elseif key == "\<Home>"
                 win_execute(id, "normal! gg")
+                AlignPopups(pwinid, id)
             elseif key == "\<End>"
                 win_execute(id, "normal! G")
+                AlignPopups(pwinid, id)
             elseif ["\<tab>", "\<C-n>", "\<Down>", "\<ScrollWheelDown>"]->index(key) > -1
                 var ln = getcurpos(id)[1]
                 win_execute(id, "normal! j")
                 if ln == getcurpos(id)[1]
                     win_execute(id, "normal! gg")
                 endif
+                AlignPopups(pwinid, id)
             elseif ["\<S-Tab>", "\<C-p>", "\<Up>", "\<ScrollWheelUp>"]->index(key) > -1
                 var ln = getcurpos(id)[1]
                 win_execute(id, "normal! k")
                 if ln == getcurpos(id)[1]
                     win_execute(id, "normal! G")
                 endif
+                AlignPopups(pwinid, id)
             # Ignoring fancy events and double clicks, which are 6 char long: `<80><fc> <80><fd>.`
             elseif ignore_input->index(key) == -1 && strcharlen(key) != 6 && str2list(key) != ignore_input_wtf
                 if key == "\<C-u>"
