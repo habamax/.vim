@@ -109,7 +109,7 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
 
 def CmdComplete()
     var [cmdline, curpos, cmdmode] = [getcmdline(), getcmdpos(), expand('<afile>') == ':']
-    var trigger_char = '\v%(\w|[*/:.-])$'
+    var trigger_char = '\v%(\w|[*/:.-]|\s)$'
     # Exclude numeric range and substitute
     var not_trigger_char = '\v^(%(\d|,|\+|-)+$)|%(s[[:punct:]])'
     # Typehead is empty, no more pasted input
@@ -134,6 +134,7 @@ cnoremap <expr> <down> SkipCmdlineChanged("\<down>")
 augroup cmdcomplete
     au!
     autocmd CmdlineChanged : CmdComplete()
+    autocmd CmdlineEnter : feedkeys("\<C-@>", "n")
     # autocmd CmdlineEnter : set belloff+=error
     # autocmd CmdlineLeave : set belloff-=error
 augroup END
