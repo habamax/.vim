@@ -59,9 +59,11 @@ command! MD call mkdir(expand("%:p:h"), "p")
 # syntax group names under cursor
 command! Inspect :echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 
-# Echo formatted vim objects, e.g. :Echo getbufinfo()
 import autoload 'dist/json.vim'
+# Echo formatted vim objects, e.g. :Echo getbufinfo()
 command! -nargs=1 -complete=expression Echo redir @"> | echo json.Format(<args>) | redir END
+# Add formatted vim objects to the current buffer, e.g. :P getbufinfo()
+command! -nargs=1 -complete=expression P append(line('.'), json.Format(<args>)->split("\n"))
 
 # save and load sessions
 if !isdirectory($'{$MYVIMDIR}.data/sessions')
