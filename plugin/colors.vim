@@ -28,6 +28,11 @@ augroup colors | au!
     au Colorscheme gvim,habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
 augroup END
 
+g:colors = {
+    dark: "sil! colo habamax",
+    light: "sil! colo xamabah"
+}
+
 # g:colors = {
 #     dark: "set bg=dark | sil! colo gvim",
 #     light: "set bg=light | sil! colo gvim",
@@ -37,11 +42,6 @@ augroup END
 #     dark: "sil! colo nod-b",
 #     light: "sil! colo nope"
 # }
-
-g:colors = {
-    dark: "sil! colo habamax",
-    light: "sil! colo xamabah"
-}
 
 # g:colors = {
 #     dark: "set bg=dark | sil! colo wildcharm",
