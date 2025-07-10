@@ -6,7 +6,7 @@ set ttimeout ttimeoutlen=25
 set belloff=all shortmess+=Ic
 set autoindent shiftwidth=4 softtabstop=-1 expandtab
 set ruler display=lastline smoothscroll
-set hlsearch incsearch ignorecase smartcase
+set hlsearch incsearch ignorecase smartcase infercase
 set number relativenumber cursorline cursorlineopt=number signcolumn=number
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak nojoinspaces
 set list listchars=tab:›\ ,nbsp:␣,trail:·,extends:…,precedes:… showbreak=↪
