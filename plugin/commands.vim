@@ -21,11 +21,11 @@ augroup general | au!
           |    :exe $'mksession! {$MYVIMDIR}.data/sessions/LAST'
           | endif
 
-    au VimEnter *
-          \ if empty(bufname())
-          |    setl buftype=nofile bufhidden=hide noswapfile
-          |    silent file [Scratch]
-          | endif
+    # au VimEnter *
+    #       \ if empty(bufname())
+    #       |    setl buftype=nofile bufhidden=hide noswapfile
+    #       |    silent file [Scratch]
+    #       | endif
 augroup end
 
 # Commands
