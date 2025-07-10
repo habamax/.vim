@@ -4,7 +4,7 @@ import autoload 'popup.vim'
 import autoload 'os.vim'
 import autoload 'unicode.vim'
 
-var popup_dim_highlight = get(g:, "popup_dim_highlight", "NonText")
+var popup_dim_highlight = get(g:, "popup_dim_highlight", "Comment")
 
 const MAX_ELEMENTS: number = 40000
 
