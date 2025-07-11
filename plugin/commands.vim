@@ -112,33 +112,6 @@ command! Bookmark call SaveBookmark()
 command! -nargs=1 Grep Sh! grep -Rn "<args>" .
 command! -nargs=1 Rg Sh! rg -nS --column "<args>" .
 
-# IRC
-def Irc()
-    var buf_del = -1
-    if (empty(bufname()) || !empty(&buftype)) && !&modified
-        buf_del = bufnr()
-    endif
-
-    exe "IIJoin irc.libera.chat #vim"
-    normal! zb
-    wincmd o
-    exe "IIJoin irc.libera.chat #perl"
-    wincmd L
-    normal! zb
-    exe "IIJoin irc.libera.chat #python"
-    normal! zb
-    wincmd t
-
-    if buf_del != -1
-        exe $"bd {buf_del}"
-    endif
-
-    if !empty($TMUX)
-        system('tmux rename-window "irc"')
-    endif
-enddef
-command! Irc Irc()
-
 def MakeCompletion(_, _, _): string
     return system("make -npq : 2> /dev/null | awk -v RS= -F: '$1 ~ /^[^#%.]+$/ { print $1 }' | sort -u")
 enddef
