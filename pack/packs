@@ -25,4 +25,4 @@ bundle/start/lsp	git@github.com:yegappan/lsp.git
 devel	git@github.com:lifepillar/vim-devel.git
 
 # try?
-bundle/start/copilot	git@github.com:github/copilot.vim.git
+# bundle/start/copilot	git@github.com:github/copilot.vim.git

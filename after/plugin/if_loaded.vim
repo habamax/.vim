@@ -166,11 +166,8 @@ if exists("g:loaded_vim_ii")
     g:ii_filter_rx = ['-!-.*has joined', '-!-.*has left']
 endif
 
-if exists("g:loaded_copilot")
-    # vim-copilot
-    import autoload "popcom.vim"
-    imap <C-g> <scriptcmd>popcom.Copilot()<CR>
-    g:copilot_filetypes = {
-        'ii': false,
-    }
-endif
+# if exists("g:loaded_copilot")
+#     # vim-copilot
+#     import autoload "popcom.vim"
+#     imap <C-g> <scriptcmd>popcom.Copilot()<CR>
+# endif
