@@ -25,6 +25,10 @@ nnoremap <space>P "+P
 xnoremap <space>p "+p
 xnoremap <space>P "+P
 
+# duplicate line
+nnoremap <C-j> <cmd>copy.<CR>
+nnoremap <C-k> <cmd>copy-1<CR>
+
 # fuzzy
 import autoload 'fuzzy.vim'
 nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
