@@ -69,7 +69,7 @@ var instrigger = {
     vim: '\v%(\k|\k-\>|[gvbls]:)$',
     c: '\v%(\k|\k\.|\k-\>)$',
     python: '\v%(\k|\k\.)$',
-    gdscript: '\v%(\k|\k\.)$',
+    gdscript: '\v%(\$|\k|\k\.)$',
     ruby: '\v%(\k|\k\.)$',
     javascript: '\v%(\k|\k\.)$',
 }
