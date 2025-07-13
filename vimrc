@@ -3,7 +3,7 @@ syntax on
 
 set hidden confirm
 set ttimeout ttimeoutlen=25
-set belloff=all shortmess+=Ic
+set belloff=all shortmess+=IcC
 set autoindent shiftwidth=4 softtabstop=-1 expandtab
 set ruler display=lastline smoothscroll
 set hlsearch incsearch ignorecase smartcase infercase
