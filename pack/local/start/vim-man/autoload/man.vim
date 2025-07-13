@@ -53,3 +53,12 @@ export def CaptureOutput(entry: string)
         echom "Can't find manual entry for '" .. entry .. "'"
     endif
 enddef
+
+var man_pages = ""
+export def Complete(_, _, _): string
+    # return system("man -k . | cut -d ' ' -f1 | sort -u")
+    if empty(man_pages)
+        man_pages = system("man -k . | cut -d ' ' -f1 | sort -u")
+    endif
+    return man_pages
+enddef

@@ -6,5 +6,3 @@
 :date:   |date|
 
 I don't like bundled `:Man` so here it is.
-
-TODO: Add better man completion.
