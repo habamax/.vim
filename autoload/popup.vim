@@ -277,6 +277,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
             minwidth: width + padding,
             maxwidth: width + padding
         })
+        scrollbar_before_update = popup_getpos(winid).scrollbar
     enddef
 
     def UpdatePopups(pwinid: number, winid: number)
