@@ -117,5 +117,3 @@ def MakeCompletion(_, _, _): string
 enddef
 
 command! -nargs=* -complete=custom,MakeCompletion Make Sh make <args>
-
-command! -nargs=* -complete=shellcmd Man Sh! man <args>
