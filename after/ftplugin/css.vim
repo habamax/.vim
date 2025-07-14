@@ -1,4 +1,10 @@
 vim9script
+
+if exists("b:did_after_ftplugin")
+    finish
+endif
+b:did_after_ftplugin = 1
+
 if executable('html-beautify')
     # html-beautify is in js-beautify node package
     # sudo npm -g install js-beautify

@@ -1,5 +1,10 @@
 vim9script
 
+if exists("b:did_after_ftplugin")
+    finish
+endif
+b:did_after_ftplugin = 1
+
 setl commentstring=<!--%s-->
 
 compiler markdown_html

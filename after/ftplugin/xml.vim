@@ -1,3 +1,8 @@
+if exists("b:did_after_ftplugin")
+    finish
+endif
+let b:did_after_ftplugin = 1
+
 if executable('xml')
     " Use xmlstarlet in windows (`scoop install xmlstarlet`):
     command -buffer Fmt :%!xml format --indent-spaces 4
