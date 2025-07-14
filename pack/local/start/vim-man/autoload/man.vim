@@ -38,6 +38,8 @@ def PrepareBuffer(): number
 
     setl undolevels=-1
 
+    clearjumps
+
     return bufnr
 enddef
 
