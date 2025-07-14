@@ -1,5 +1,10 @@
 vim9script
 
+if exists("b:did_after_ftplugin")
+    finish
+endif
+b:did_after_ftplugin = 1
+
 setlocal commentstring=//%s
 setlocal foldignore=#
 b:undo_ftplugin ..= ' | setl commentstring< foldignore<'
@@ -64,8 +69,6 @@ nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
 
 if exists("g:loaded_lsp")
-    setlocal keywordprg=:LspHover
-    nnoremap <silent><buffer> gd <scriptcmd>LspGotoDefinition<CR>
-    b:undo_ftplugin ..= ' | setl keywordprg<'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
+    import autoload 'lsp.vim'
+    au User LspAttached lsp.SetupFT()
 endif

@@ -1,5 +1,10 @@
 vim9script
 
+if exists("b:did_after_ftplugin")
+    finish
+endif
+b:did_after_ftplugin = 1
+
 if executable('black')
     &l:formatprg = "black -q - 2>/dev/null"
 elseif executable('yapf')
@@ -29,10 +34,8 @@ nnoremap <buffer> <F5> <scriptcmd>RunPython()<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 
 if exists("g:loaded_lsp")
-    setlocal keywordprg=:LspHover
-    nnoremap <silent><buffer> gd <scriptcmd>LspGotoDefinition<CR>
-    b:undo_ftplugin ..= ' | setl keywordprg<'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
+    import autoload 'lsp.vim'
+    au User LspAttached lsp.SetupFT()
 else
     nnoremap <silent><buffer> K <scriptcmd>PopupHelp(expand("<cfile>"))<CR>
     xnoremap <silent><buffer> K y<scriptcmd>PopupHelp(getreg('"'))<CR>

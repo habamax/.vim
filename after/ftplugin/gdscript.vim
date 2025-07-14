@@ -1,4 +1,10 @@
 vim9script
+
+if exists("b:did_after_ftplugin")
+    finish
+endif
+b:did_after_ftplugin = 1
+
 import autoload 'popup.vim'
 import autoload 'os.vim'
 
@@ -100,10 +106,8 @@ nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
 
 if exists("g:loaded_lsp")
-    setlocal keywordprg=:LspHover
-    nnoremap <silent><buffer> gd <scriptcmd>LspGotoDefinition<CR>
-    b:undo_ftplugin ..= ' | setl keywordprg<'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
+    import autoload 'lsp.vim'
+    au User LspAttached lsp.SetupFT()
 endif
 
 command! -buffer Godot exe "silent !godot --editor %:p:r.tscn 2> /dev/null 1> /dev/null &" <bar> redraw!
