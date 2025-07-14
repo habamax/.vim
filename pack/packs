@@ -21,7 +21,7 @@ bundle/opt/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
 bundle/start/vim-swap	git@github.com:machakann/vim-swap.git
 bundle/start/vim-lion	git@github.com:tommcdo/vim-lion.git
 bundle/start/vim-closetag	git@github.com:alvan/vim-closetag.git
-# bundle/start/lsp	git@github.com:yegappan/lsp.git
+bundle/start/lsp	git@github.com:yegappan/lsp.git
 devel	git@github.com:lifepillar/vim-devel.git
 
 # try?
