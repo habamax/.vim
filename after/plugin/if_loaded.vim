@@ -127,14 +127,14 @@ if exists("g:loaded_lsp")
             path: 'pylsp'
         }])
     endif
-    if executable('netcat')
-        g:LspAddServer([{
-            name: 'gdscript',
-            filetype: ['gdscript'],
-            path: 'netcat',
-            args: ['127.0.0.1', '6008'],
-        }])
-    endif
+    # if executable('netcat')
+    #     g:LspAddServer([{
+    #         name: 'gdscript',
+    #         filetype: ['gdscript'],
+    #         path: 'netcat',
+    #         args: ['127.0.0.1', '6008'],
+    #     }])
+    # endif
     # https://github.com/georgewfraser/java-language-server
     # Proper installation required quite an effort.
     # TODO: Remove absolute paths.
