@@ -94,6 +94,7 @@ endif
 
 # vim-shout
 if exists("g:loaded_shout")
+    g:shout_cursorline = false
     import autoload "shout.vim"
     nnoremap \e <scriptcmd>shout.NextErrorJump()<CR>
     nnoremap \E <scriptcmd>shout.LastErrorJump()<CR>
