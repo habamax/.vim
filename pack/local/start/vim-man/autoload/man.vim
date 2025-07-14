@@ -50,7 +50,7 @@ export def CaptureOutput(entry: string)
         setl undolevels&
         :1
     else
-        echom "Can't find manual entry for '" .. entry .. "'"
+        echom $"Can't open manual for '{entry}'!"
     endif
 enddef
 
