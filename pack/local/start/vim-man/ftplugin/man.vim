@@ -12,8 +12,10 @@ setl buflisted
 setl noswapfile
 setl noundofile
 setl nonumber norelativenumber
+setl keywordprg=:Man
 
-b:undo_ftplugin = 'setl bufhidden< buftype< buflisted< swapfile< undofile< number< relativenumber<'
+b:undo_ftplugin = 'setl bufhidden< buftype< buflisted< swapfile< undofile<'
+b:undo_ftplugin ..= '| setl keywordprg< number< relativenumber<'
 b:undo_ftplugin ..= '| exe "nunmap <buffer> gq"'
 
 nnoremap <buffer> gq <C-w>c
