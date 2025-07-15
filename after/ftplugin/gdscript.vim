@@ -1,10 +1,5 @@
 vim9script
 
-if exists("b:did_after_ftplugin")
-    finish
-endif
-b:did_after_ftplugin = 1
-
 import autoload 'popup.vim'
 import autoload 'os.vim'
 

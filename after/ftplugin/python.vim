@@ -1,10 +1,5 @@
 vim9script
 
-if exists("b:did_after_ftplugin")
-    finish
-endif
-b:did_after_ftplugin = 1
-
 if executable('black')
     &l:formatprg = "black -q - 2>/dev/null"
 elseif executable('yapf')
