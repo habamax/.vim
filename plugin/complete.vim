@@ -114,11 +114,11 @@ def CmdComplete()
     var not_trigger_char = '\v^(%(\d|,|\+|-)+$)|%(s[[:punct:]])'
     # Typehead is empty, no more pasted input
     if getchar(1, {number: true}) == 0
+            && !empty(getcmdcompltype())
             && !wildmenumode() && curpos == cmdline->len() + 1
             && (!cmdmode || (cmdline =~ trigger_char && cmdline !~ not_trigger_char))
         SkipCmdlineChanged()
         feedkeys("\<C-@>", "n")
-        timer_start(0, (_) => getcmdline()->substitute('\%x00', '', 'ge')->setcmdline())  # Remove <C-@>
     endif
 enddef
 
