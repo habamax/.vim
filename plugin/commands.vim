@@ -109,8 +109,8 @@ enddef
 
 command! Bookmark call SaveBookmark()
 
-command! -nargs=1 Grep Sh! grep -Rn "<args>" .
-command! -nargs=1 Rg Sh! rg -nS --column "<args>" .
+command! -nargs=1 Grep Sh! grep -Rn <args> .
+command! -nargs=1 Rg Sh! rg -nS --column <args> .
 
 def MakeCompletion(_, _, _): string
     return system("make -npq : 2> /dev/null | awk -v RS= -F: '$1 ~ /^[^#%.]+$/ { print $1 }' | sort -u")
