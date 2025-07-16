@@ -1,11 +1,11 @@
 vim9script
 
 for r in 'abcdefghijklmnopqrstuvwxyz'
-    sign_define($"mark_'{r}", {text: $"'{r}", culhl: "CursorLineNr", texthl: "LineNr"})
+    sign_define($"mark_'{r}", {text: $"'{r}", culhl: "CursorLineNr", texthl: "Identifier"})
     exe $"nnoremap m{r} m{r}<scriptcmd>UpdateMarks()<CR>"
 endfor
 for r in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    sign_define($"mark_'{r}", {text: $"'{r}", culhl: "CursorLineNr", texthl: "LineNr"})
+    sign_define($"mark_'{r}", {text: $"'{r}", culhl: "CursorLineNr", texthl: "Identifier"})
     exe $"nnoremap m{r} m{r}<scriptcmd>UpdateVisibleBuffersMarks()<CR>"
 endfor
 
