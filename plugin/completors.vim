@@ -30,7 +30,7 @@ def g:AbbrevCompletor(findstart: number, base: string): any
     endif
     var lines = execute('ia', 'silent!')
     if lines =~? gettext('No abbreviation found')
-        return v:none  # Suppresses warning message
+        return v:none
     endif
     var items = []
     for line in lines->split("\n")
