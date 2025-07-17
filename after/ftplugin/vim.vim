@@ -8,6 +8,26 @@ endif
 
 g:vim_indent_cont = 6
 
+setl complete^=FVimCompletor^7
+def g:VimCompletor(findstart: number, base: string): any
+    if findstart > 0
+        var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\k\+$')
+        if prefix->empty()
+            return -2
+        endif
+        return col('.') - prefix->len() - 1
+    endif
+
+    var funcs = getcompletion('', 'function')
+        ->mapnew((_, v) => ({word: v, kind: 'f', dup: 0}))
+    var commands = getcompletion('', 'command')
+        ->mapnew((_, v) => ({word: v, kind: 'c', dup: 0}))
+    var items = funcs->extend(commands)
+        ->matchfuzzy(base, {key: "word", camelcase: false})
+
+    return items->empty() ? v:none : items
+enddef
+
 import autoload 'popup.vim'
 def Things()
     var things = []
