@@ -65,15 +65,12 @@ def g:RegisterComplete(findstart: number, base: string): any
     return items->empty() ? v:none : items
 enddef
 
-set complete^=FLspCompletor^7
+set complete^=FLspCompletor^10
 def g:LspCompletor(findstart: number, base: string): any
-    if !exists('*g:LspOmniFunc')
+    if &l:omnifunc != 'g:LspOmniFunc'
         return -2 # cancel but stay in completion mode
     endif
     var line = getline('.')->strpart(0, col('.') - 1)
-    if line =~ '\s$'
-        return -2
-    endif
     if findstart == 1
         var startcol = g:LspOmniFunc(findstart, base)
         return startcol < 0 ? startcol : startcol + 1
