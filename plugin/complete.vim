@@ -67,6 +67,7 @@ enddef
 
 set complete^=FLspCompletor^10
 def g:LspCompletor(findstart: number, base: string): any
+    # Using g:LspOmniFunc from the yegappan/lsp plugin.
     if &l:omnifunc != 'g:LspOmniFunc'
         return -2 # cancel but stay in completion mode
     endif
