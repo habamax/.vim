@@ -18,7 +18,7 @@ var instrigger = {
     javascript: '\v%(\k|\k\.)$',
 }
 def InsComplete()
-    var trigger = get(instrigger, &ft, '\k$')
+    var trigger = get(instrigger, &ft, '\S$')
     if getcharstr(1) == '' && getline('.')->strpart(0, col('.') - 1) =~ trigger
         SkipTextChangedI()
         feedkeys("\<c-n>", "n")
