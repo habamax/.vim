@@ -111,6 +111,7 @@ if exists("g:loaded_lsp")
         autoPopulateDiags: true,
         popupBorder: true,
     })
+
     # wait for the vim fix for the inscompletion
     if executable('clangd')
         g:LspAddServer([{
@@ -120,6 +121,7 @@ if exists("g:loaded_lsp")
             args: ['--background-index']
         }])
     endif
+
     if executable('pylsp')
         g:LspAddServer([{
             name: 'pylsp',
@@ -127,6 +129,7 @@ if exists("g:loaded_lsp")
             path: 'pylsp'
         }])
     endif
+
     # if executable('netcat')
     #     g:LspAddServer([{
     #         name: 'gdscript',
@@ -135,6 +138,7 @@ if exists("g:loaded_lsp")
     #         args: ['127.0.0.1', '6008'],
     #     }])
     # endif
+
     # https://github.com/georgewfraser/java-language-server
     # Proper installation required quite an effort.
     # TODO: Remove absolute paths.
