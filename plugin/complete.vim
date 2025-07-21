@@ -78,7 +78,5 @@ cnoremap <expr> <down> SkipCmdlineChanged("\<down>")
 augroup cmdcomplete
     au!
     autocmd CmdlineChanged : CmdComplete()
-    # autocmd CmdlineEnter : feedkeys("\<C-@>", "n")
-    # autocmd CmdlineEnter : set belloff+=error
-    # autocmd CmdlineLeave : set belloff-=error
+    # autocmd CmdlineChanged : wildtrigger()
 augroup END
