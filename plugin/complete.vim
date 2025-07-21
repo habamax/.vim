@@ -48,35 +48,9 @@ augroup END
 # command line completion
 set wildmode=noselect:lastused,full
 set wildmenu wildoptions=pum,fuzzy pumheight=20
-set wildcharm=<C-@>
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
-
-def CmdComplete()
-    var [cmdline, curpos, cmdmode] = [getcmdline(), getcmdpos(), expand('<afile>') == ':']
-    var trigger_char = '\v%(\w|[*/:.-]|\s)$'
-    # Exclude numeric range and substitute
-    var not_trigger_char = '\v^(%(\d|,|\+|-)+$)|%(s[[:punct:]])'
-    # Typehead is empty, no more pasted input
-    if getchar(1, {number: true}) == 0
-            && !empty(getcmdcompltype())
-            && !wildmenumode() && curpos == cmdline->len() + 1
-            && (!cmdmode || (cmdline =~ trigger_char && cmdline !~ not_trigger_char))
-        SkipCmdlineChanged()
-        feedkeys("\<C-@>", "n")
-    endif
-enddef
-
-def SkipCmdlineChanged(key = ''): string
-    set eventignore+=CmdlineChanged
-    timer_start(0, (_) => execute('set eventignore-=CmdlineChanged'))
-    return key == '' ? '' : ((wildmenumode() ? "\<C-E>" : '') .. key)
-enddef
-
-cnoremap <expr> <up> SkipCmdlineChanged("\<up>")
-cnoremap <expr> <down> SkipCmdlineChanged("\<down>")
 
 augroup cmdcomplete
     au!
-    autocmd CmdlineChanged : CmdComplete()
-    # autocmd CmdlineChanged : wildtrigger()
+    autocmd CmdlineChanged : wildtrigger()
 augroup END
