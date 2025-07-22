@@ -50,6 +50,17 @@ set wildmode=noselect:lastused,full
 set wildmenu wildoptions=pum,fuzzy pumheight=20
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
 
+def SkipCmdlineChanged(key = ''): string
+    set eventignore+=CmdlineChanged
+    timer_start(0, (_) => execute('set eventignore-=CmdlineChanged'))
+    return key == '' ? '' : ((wildmenumode() ? "\<C-E>" : '') .. key)
+enddef
+
+cnoremap <expr> <up> SkipCmdlineChanged("\<up>")
+cnoremap <expr> <down> SkipCmdlineChanged("\<down>")
+cnoremap <expr> <C-n> SkipCmdlineChanged("\<C-n>")
+cnoremap <expr> <C-p> SkipCmdlineChanged("\<C-p>")
+
 augroup cmdcomplete
     au!
     autocmd CmdlineChanged : wildtrigger()
