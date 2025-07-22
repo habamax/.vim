@@ -11,9 +11,7 @@ augroup general | au!
 
     # create non-existent directory before buffer save
     au BufWritePre *
-          \ if &modifiable
-          |   && expand("%:p:h") !~ "^fugitive"
-          |   && !isdirectory(expand("%:p:h"))
+          \ if &modifiable && !isdirectory(expand("%:p:h"))
           |     mkdir(expand("%:p:h"), "p")
           | endif
 
