@@ -122,21 +122,13 @@ if exists("g:loaded_lsp")
         }])
     endif
 
-    if executable('pyright')
+    if executable('pylsp')
         g:LspAddServer([{
-            name: 'pyright',
+            name: 'pylsp',
             filetype: ['python'],
-            path: 'pyright'
+            path: 'pylsp'
         }])
     endif
-
-    # if executable('pylsp')
-    #     g:LspAddServer([{
-    #         name: 'pylsp',
-    #         filetype: ['python'],
-    #         path: 'pylsp'
-    #     }])
-    # endif
 
     # if executable('netcat')
     #     g:LspAddServer([{
