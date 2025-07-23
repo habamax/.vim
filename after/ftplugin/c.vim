@@ -2,7 +2,9 @@ vim9script
 
 setlocal commentstring=//%s
 setlocal foldignore=#
-b:undo_ftplugin ..= ' | setl commentstring< foldignore<'
+b:undo_ftplugin ..= ' | setl commentstring< foldignore< complete<'
+
+setl complete^=o
 
 g:c_no_curly_error = true
 
