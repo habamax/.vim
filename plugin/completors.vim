@@ -5,26 +5,12 @@ vim9script
 # Language server protocol (LSP) completion
 # provided by the omnifunction from yegappan/lsp plugin.
 def g:LspCompletor(findstart: number, base: string): any
-
-    # if findstart > 0
-    #     return g:LspOmniFunc(findstart, base)
-    # endif
-    # var starttime = reltime()
-    # var result = g:LspOmniFunc(findstart, base)
-    # echom (starttime->reltime()->reltimefloat() * 1000)
-    # return result
-
     # Using g:LspOmniFunc from the yegappan/lsp plugin.
     if &l:omnifunc != 'g:LspOmniFunc'
         return -2 # cancel but stay in completion mode
     endif
-    var line = getline('.')->strpart(0, col('.') - 1)
-    if line =~ '\s$'
-        return -2
-    endif
     if findstart == 1
-        var startcol = g:LspOmniFunc(findstart, base)
-        return startcol < 0 ? startcol : startcol + 1
+        return g:LspOmniFunc(findstart, base)
     elseif findstart == 2
         return g:LspOmniCompletePending() ? 0 : 1
     endif
