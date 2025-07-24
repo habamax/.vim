@@ -1,7 +1,7 @@
 tabnew
 setlocal spell
 setlocal spelllang=en_ca
-setlocal spellfile=colors/sample/en.utf-8.add
+setlocal spellfile=$MYVIMDIR/colors/sample/en.utf-8.add
 setlocal bufhidden=wipe buftype=nofile nobuflisted noswapfile
 
 let s:text = "Colour. colour (Spell Cap), color (Spell Local), couleur (Spell Rare), kolour (Spell Bad)"
