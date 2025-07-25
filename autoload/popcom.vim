@@ -357,7 +357,7 @@ export def Git()
             key: $"{v[idx]}",
             text: v,
             close: true,
-            cmd: $"Git checkout {v}"
+            cmd: $"Git switch {v}"
         }]
     endfor
 
