@@ -70,5 +70,5 @@ command! ColoSpell run colors/sample/spell.vim
 
 if !has("gui_running")
     import autoload 'popcom.vim'
-    nnoremap <space>gt <scriptcmd>popcom.ColorSupport()<CR>
+    nnoremap <space>cs <scriptcmd>popcom.ColorSupport()<CR>
 endif
