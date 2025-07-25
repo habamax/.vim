@@ -328,6 +328,11 @@ export def Git()
             endif
         })
 
+    if empty(current_branch)
+        echom "Not in a git repository!"
+        return
+    endif
+
     var switch_commands: list<dict<any>> = [{text: 'Switch To Branch'}]
     var keys = {}
     for v in branches
