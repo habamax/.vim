@@ -333,6 +333,8 @@ export def Git()
         return
     endif
 
+    var is_github_remote = systemlist('git remote -v')[0] =~ 'git@github\.com'
+
     for br in ["dev", "test", "main", "master"]
         var idx = branches->index(br)
         if idx > -1
@@ -400,14 +402,18 @@ export def Git()
         }},
         {text: $'history ...', key: "h", close: true, cmd: () => {
             popup.Commands(hist_commands)
-        }},
-        {text: $'open in github', key: "o", close: true, cmd: () => {
-            if empty(region)
-                git.GithubOpen()
-            else
-                git.GithubOpen(region[0][1], region[1][1])
-            endif
-        }},
+        }}
     ]
+    if is_github_remote
+        main_commands += [
+            {text: $'open in github', key: "o", close: true, cmd: () => {
+                if empty(region)
+                    git.GithubOpen()
+                else
+                    git.GithubOpen(region[0][1], region[1][1])
+                endif
+            }},
+        ]
+    endif
     var winid = popup.Commands(main_commands)
 enddef
