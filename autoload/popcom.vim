@@ -368,9 +368,15 @@ export def Git()
     var main_commands: list<dict<any>> = [
         {text: $'Git "{current_branch}"'},
         {text: $'fugitive', key: "g", close: true, "cmd": "Git"},
-        {text: $'switch to', key: "s", close: true, cmd: () => {
-            popup.Commands(switch_commands)
-        }},
+    ]
+    if !empty(branches)
+        main_commands += [
+            {text: $'switch to ...', key: "s", close: true, cmd: () => {
+                popup.Commands(switch_commands)
+            }}
+        ]
+    endif
+    main_commands += [
         {text: $'blame', key: "b", close: true, cmd: () => {
             if empty(region)
                 git.Blame()
@@ -378,7 +384,7 @@ export def Git()
                 git.Blame(region[0][1], region[1][1])
             endif
         }},
-        {text: $'history', key: "h", close: true, cmd: () => {
+        {text: $'history ...', key: "h", close: true, cmd: () => {
             popup.Commands(hist_commands)
         }},
         {text: $'open in github', key: "o", close: true, cmd: () => {
