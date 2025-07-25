@@ -214,8 +214,8 @@ nmap <silent> <space>3 <space>"
 nmap <silent> <space>4 <space>`
 
 # git popup commands
-nnoremap <silent> <space>g <scriptcmd>popcom.Git()<CR>
-xnoremap <silent> <space>g <scriptcmd>popcom.Git()<CR>
+nnoremap <space>g <scriptcmd>popcom.Git()<CR>
+xnoremap <space>g <scriptcmd>popcom.Git()<CR>
 
 # diff navigation
 nnoremap <silent> <space>nd <scriptcmd>popcom.Diff()<CR>

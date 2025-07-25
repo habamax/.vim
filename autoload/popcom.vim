@@ -333,13 +333,22 @@ export def Git()
         return
     endif
 
+    for br in ["dev", "test", "main", "master"]
+        var idx = branches->index(br)
+        if idx > -1
+            branches->remove(idx)
+            branches->insert(br)
+        endif
+    endfor
+
     var switch_commands: list<dict<any>> = [{text: 'Switch To Branch'}]
-    var keys = {}
+    var keys = []
     for v in branches
         var idx = 0
         while idx < len(v)
-            if empty(get(keys, v[idx], null))
-                keys[v[idx]] = 1
+            # echo keys typename(keys)
+            if keys->index(v[idx]) == -1
+                keys->add(v[idx])
                 break
             endif
             idx += 1
