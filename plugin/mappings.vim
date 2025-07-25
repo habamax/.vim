@@ -46,12 +46,12 @@ nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
 nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
 nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
 nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
-nnoremap <space>w <scriptcmd>fuzzy.CurrentWord()<CR>
+nnoremap <space>ww <scriptcmd>fuzzy.CurrentWord()<CR>
 nnoremap <space>it <scriptcmd>fuzzy.Template()<CR>
 
 # Ripgrep word under cursor
-nnoremap <space>gw <scriptcmd>exe 'Rg' expand("<cword>")<cr>
-xnoremap <space>gw "0y<scriptcmd>exe "Rg" getreg("0")<cr>
+nnoremap <space>wg <scriptcmd>exe 'Rg' expand("<cword>")<cr>
+xnoremap <space>wg "0y<scriptcmd>exe "Rg" getreg("0")<cr>
 
 import autoload 'popcom.vim'
 # calc visually selected math expression
@@ -213,13 +213,12 @@ nmap <silent> <space>2 <space>-
 nmap <silent> <space>3 <space>"
 nmap <silent> <space>4 <space>`
 
-import autoload 'git.vim'
-nnoremap <silent> <space>gi <scriptcmd>git.ShowCommit(v:count)<CR>
-xnoremap <silent> <space>gi <scriptcmd>git.ShowCommit(v:count, line("v"), line("."))<CR>
-nnoremap <silent> <space>gb <scriptcmd>git.Blame()<CR>
-xnoremap <silent> <space>gb <scriptcmd>git.Blame(line("v"), line("."))<CR>
-nnoremap <silent> <space>gh <scriptcmd>git.GithubOpen()<CR>
-xnoremap <silent> <space>gh <scriptcmd>git.GithubOpen(line("v"), line("."))<CR>
+# git popup commands
+nnoremap <silent> <space>g <scriptcmd>popcom.Git()<CR>
+xnoremap <silent> <space>g <scriptcmd>popcom.Git()<CR>
+
+# diff navigation
+nnoremap <silent> <space>nd <scriptcmd>popcom.Diff()<CR>
 
 import autoload 'buf.vim'
 nnoremap go <nop>
@@ -243,6 +242,3 @@ if !has("gui_running")
     set <M-u>=u
 endif
 inoremap <M-u> <C-G>u<esc><scriptcmd>search('[[:lower:]]', 'bc', line('.'))<cr>gUiwgi
-
-# diff navigation
-nnoremap <silent> <space>gd <scriptcmd>popcom.Diff()<CR>

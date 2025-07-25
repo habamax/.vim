@@ -348,7 +348,7 @@ export def Git()
     endfor
 
     var hist_commands: list<dict<any>> = [
-        {text: 'Show Git History'},
+        {text: 'Git History'},
         {text: 'last', key: "h", close: true, cmd: () => {
             if empty(region)
                 git.ShowCommit(0)
@@ -378,7 +378,7 @@ export def Git()
                 git.Blame(region[0][1], region[1][1])
             endif
         }},
-        {text: $'show history', key: "h", close: true, cmd: () => {
+        {text: $'history', key: "h", close: true, cmd: () => {
             popup.Commands(hist_commands)
         }},
         {text: $'open in github', key: "o", close: true, cmd: () => {
