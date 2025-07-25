@@ -341,7 +341,7 @@ export def Git()
         endif
     endfor
 
-    var switch_commands: list<dict<any>> = [{text: 'Switch To Branch'}]
+    var switch_commands: list<dict<any>> = [{text: $'Switch "{current_branch}" to:'}]
     var keys = []
     for v in branches
         var idx = 0
@@ -362,7 +362,7 @@ export def Git()
     endfor
 
     var hist_commands: list<dict<any>> = [
-        {text: 'Git History'},
+        {text: $'Git history of "{current_branch}"'},
         {text: 'last', key: "h", close: true, cmd: () => {
             if empty(region)
                 git.ShowCommit(0)
