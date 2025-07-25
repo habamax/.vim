@@ -3,6 +3,7 @@ vim9script
 import autoload 'popup.vim'
 import autoload 'text.vim'
 import autoload 'diff.vim'
+import autoload 'git.vim'
 
 # Example of multi level popup
 # export def QfLoc()
@@ -307,4 +308,86 @@ export def Marks()
     var winid = popup.Commands(commands)
     win_execute(winid, 'syn match PopComMarkLineNr "(\d\+)$"')
     hi def link PopComMarkLineNr NonText
+enddef
+
+export def Git()
+    var region = []
+    if mode() =~ '[vV]'
+        region = [getpos('v'), getpos('.')]
+    endif
+
+    var branches = []
+    var current_branch = ""
+    systemlist('git branch')
+        ->mapnew((_, v) => v->trim())
+        ->foreach((_, v) => {
+            if v[0] == '*'
+                current_branch = v[2 : ]
+            else
+                branches->add(v)
+            endif
+        })
+
+    var switch_commands: list<dict<any>> = [{text: 'Switch To Branch'}]
+    var keys = {}
+    for v in branches
+        var idx = 0
+        while idx < len(v)
+            if empty(get(keys, v[idx], null))
+                keys[v[idx]] = 1
+                break
+            endif
+            idx += 1
+        endwhile
+        switch_commands += [{
+            key: $"{v[idx]}",
+            text: v,
+            close: true,
+            cmd: $"Git checkout {v}"
+        }]
+    endfor
+
+    var hist_commands: list<dict<any>> = [
+        {text: 'Show Git History'},
+        {text: 'last', key: "h", close: true, cmd: () => {
+            if empty(region)
+                git.ShowCommit(0)
+            else
+                git.ShowCommit(0, region[0][1], region[1][1])
+            endif
+        }},
+        {text: 'all', key: "a", close: true, cmd: () => {
+            if empty(region)
+                git.ShowCommit(1)
+            else
+                git.ShowCommit(1, region[0][1], region[1][1])
+            endif
+        }}
+    ]
+
+    var main_commands: list<dict<any>> = [
+        {text: $'Git "{current_branch}"'},
+        {text: $'fugitive', key: "g", close: true, "cmd": "Git"},
+        {text: $'switch to', key: "s", close: true, cmd: () => {
+            popup.Commands(switch_commands)
+        }},
+        {text: $'blame', key: "b", close: true, cmd: () => {
+            if empty(region)
+                git.Blame()
+            else
+                git.Blame(region[0][1], region[1][1])
+            endif
+        }},
+        {text: $'show history', key: "h", close: true, cmd: () => {
+            popup.Commands(hist_commands)
+        }},
+        {text: $'open in github', key: "o", close: true, cmd: () => {
+            if empty(region)
+                git.GithubOpen()
+            else
+                git.GithubOpen(region[0][1], region[1][1])
+            endif
+        }},
+    ]
+    var winid = popup.Commands(main_commands)
 enddef
