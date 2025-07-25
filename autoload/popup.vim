@@ -64,7 +64,7 @@ export def Commands(commands: list<dict<any>>, pos_botright: bool = true): numbe
         borderhighlight: popup_borderhighlight,
         highlight: popup_highlight,
         filter: (winid, key) => {
-            if key == "\<cursorhold>"
+            if key == "\<cursorhold>" || key == "\<ignore>"
                 return true
             endif
             var cmd_idx = commands->indexof((_, v) => get(v, "key", "") == key)
