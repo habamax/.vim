@@ -1,5 +1,7 @@
 vim9script
 
+b:undo_ftplugin ..= ' | setl ff< complete< omnifunc<'
+
 setl textwidth=80
 
 if !&readonly
@@ -8,8 +10,9 @@ endif
 
 g:vim_indent_cont = 6
 
-setl complete^=FVimCompletor^7
-def g:VimCompletor(findstart: number, base: string): any
+setl complete^=o^7
+setl omnifunc=s:VimCompletor
+def VimCompletor(findstart: number, base: string): any
     if findstart > 0
         var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\k\+$')
         if prefix->empty()

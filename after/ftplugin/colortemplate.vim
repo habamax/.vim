@@ -118,9 +118,10 @@ const hi_groups = [
     {name: 'Removed', desc: "Removed line in a diff."},
 ]
 
-setl complete^=FHighlightCompletor^7
+setl complete^=o^7
+setl omnifunc=s:HighlightCompletor
 
-def g:HighlightCompletor(findstart: number, base: string): any
+def HighlightCompletor(findstart: number, base: string): any
     if findstart > 0
         var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\k\+$')
         if prefix->empty()
