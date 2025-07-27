@@ -381,6 +381,16 @@ export def Git()
         }}
     ]
 
+    var pull_push_commands: list<dict<any>> = [
+        {text: $'Pull/Push "{current_branch}"'},
+        {text: $'pull', key: "u", close: true, cmd: () => {
+            Sh git pull
+        }},
+        {text: $'push', key: "P", close: true, cmd: () => {
+            Sh git push
+        }},
+    ]
+
     var main_commands: list<dict<any>> = [
         {text: $'Git "{current_branch}"'},
         {text: $'fugitive', key: "g", close: true, "cmd": "Git"},
@@ -393,11 +403,8 @@ export def Git()
         ]
     endif
     main_commands += [
-        {text: $'pull', key: "u", close: true, cmd: () => {
-            Sh git pull
-        }},
-        {text: $'push', key: "P", close: true, cmd: () => {
-            Sh git push
+        {text: $'pull/push ...', key: "p", close: true, cmd: () => {
+            popup.Commands(pull_push_commands)
         }},
         {text: $'blame', key: "b", close: true, cmd: () => {
             if empty(region)
