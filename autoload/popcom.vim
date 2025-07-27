@@ -386,7 +386,7 @@ export def Git()
         {text: $'pull', key: "u", close: true, cmd: () => {
             Sh git pull
         }},
-        {text: $'push', key: "P", close: true, cmd: () => {
+        {text: $'push', key: "p", close: true, cmd: () => {
             Sh git push
         }},
     ]
