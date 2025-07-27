@@ -393,8 +393,12 @@ export def Git()
         ]
     endif
     main_commands += [
-        {text: $'pull', key: "u", close: true, cmd: "G pull"},
-        {text: $'push', key: "P", close: true, cmd: "G push"},
+        {text: $'pull', key: "u", close: true, cmd: () => {
+            Sh git pull
+        }},
+        {text: $'push', key: "P", close: true, cmd: () => {
+            Sh git push
+        }},
         {text: $'blame', key: "b", close: true, cmd: () => {
             if empty(region)
                 git.Blame()
