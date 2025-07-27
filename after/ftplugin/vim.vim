@@ -21,12 +21,11 @@ def VimCompletor(findstart: number, base: string): any
         return col('.') - prefix->len() - 1
     endif
 
-    var funcs = getcompletion('', 'function')
+    var funcs = getcompletion(base, 'function')
         ->mapnew((_, v) => ({word: v, kind: 'f', dup: 0}))
-    var commands = getcompletion('', 'command')
+    var commands = getcompletion(base, 'command')
         ->mapnew((_, v) => ({word: v, kind: 'c', dup: 0}))
     var items = funcs->extend(commands)
-        ->matchfuzzy(base, {key: "word", camelcase: false})
 
     return items->empty() ? v:none : items
 enddef
