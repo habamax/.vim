@@ -41,11 +41,13 @@ command! WipeHiddenBuffers WipeHiddenBuffers()
 command! -nargs=1 Search @/ = $'\V{escape(<q-args>, '\')}' | normal! n
 
 # fix trailing spaces
-command! FixTrailingSpaces :exe 'normal! m`'<bar>
-      \ :keepj silent! :%s/\r\+$//g<bar>
-      \ :keepj silent! :%s/\v(\s+$)//g<bar>
-      \ :exe 'normal! ``'<bar>
-      \ :echom 'Remove trailing spaces and ^Ms.'
+command! FixTrailingSpaces {
+    var v = winsaveview()
+    keepj silent! :%s/\r\+$//g
+    keepj silent! :%s/\v(\s+$)//g
+    winrestview(v)
+    echom 'Remove trailing spaces and ^Ms.'
+}
 
 import autoload "text.vim"
 command! -range FixSpaces text.FixSpaces(<line1>, <line2>)
