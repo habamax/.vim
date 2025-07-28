@@ -24,7 +24,7 @@ def GetTrigger(line: string): list<any>
         result = 'option'
     elseif line =~ '[\[(]\s*$'
         result = 'expression'
-    elseif line =~ '[lvgsb]:'
+    elseif line =~ '[lvgsb]:\k*$'
         result = 'var'
         result_len = 2
     elseif line =~ '\vhi%[ghlight]!?\s+%(def%[ault]\s+)?link\s+(\k+\s+)?\k*$'
