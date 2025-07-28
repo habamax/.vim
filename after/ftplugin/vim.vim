@@ -14,14 +14,18 @@ setl complete^=o^7
 setl omnifunc=s:VimCompletor
 
 var trigger: string = ""
-def GetTrigger(line: string): string
+def GetTrigger(line: string): list<any>
     var result = ""
+    var result_len = 0
     if line =~ '->\k*$' || line =~ '\vcall\s+\k*$'
         result = 'func'
     elseif line =~ '&\k*$' || line =~ '\vset%(\s+\k*)*$'
         result = 'option'
     elseif line =~ '\vecho%[msg]\s+\k*$' || line =~ '('
         result = 'expr'
+    elseif line =~ '[lvgsb]:'
+        result = 'var'
+        result_len = 2
     elseif line =~ '\vau%[tocmd]\s+\k*$'
         result = 'event'
     elseif line =~ '\vhi%[ghlight]!?\s+%(def%[ault]\s+)?link\s+(\k+\s+)?\k*$'
@@ -39,7 +43,7 @@ def GetTrigger(line: string): string
     elseif line =~ '\vhi%[ghlight]!?\s+\k*$'
         result = 'highlight'
     endif
-    return result
+    return [result, result_len]
 enddef
 
 def VimCompletor(findstart: number, base: string): any
@@ -50,11 +54,12 @@ def VimCompletor(findstart: number, base: string): any
         if stx =~? 'Comment' || (stx =~ 'String' && stx !~ 'vimStringInterpolationExpr')
             return -2
         endif
-        trigger = GetTrigger(line)
+        var trigger_len: number = 0
+        [trigger, trigger_len] = GetTrigger(line)
         if keyword->empty() && trigger->empty()
             return -2
         endif
-        return line->len() - keyword->len()
+        return line->len() - keyword->len() - trigger_len
     endif
 
     var funcs = getcompletion(base, 'function')
@@ -65,17 +70,20 @@ def VimCompletor(findstart: number, base: string): any
         ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Command', dup: 0}))
     var options = getcompletion(base, 'option')
         ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Option', dup: 0}))
+    var vars = getcompletion(base, 'var')
+        ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Variable', dup: 0}))
     var events = getcompletion(base, 'event')
         ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Autocommand event', dup: 0}))
     var highlights = getcompletion(base, 'highlight')
         ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Highlight group', dup: 0}))
 
-    # echow "trigger:" trigger "base:" base
     var items = []
     if trigger == 'func'
         items = funcs
     elseif trigger == 'option'
         items = options
+    elseif trigger == 'var'
+        items = vars
     elseif trigger == 'expr'
         items = exprs
     elseif trigger == 'event'
