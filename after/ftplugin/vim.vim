@@ -30,8 +30,8 @@ def VimCompletor(findstart: number, base: string): any
     if findstart > 0
         var line = getline('.')->strpart(0, col('.') - 1)
         var keyword = line->matchstr('\k\+$')
-        var stx = synstack(line('.'), col('.'))->map('synIDattr(v:val, "name")')->join()
-        if stx =~? 'Comment'
+        var stx = synstack(line('.'), col('.') - 1)->map('synIDattr(v:val, "name")')->join()
+        if stx =~? 'Comment' || (stx =~ 'String' && stx !~ 'vimStringInterpolationExpr')
             return -2
         endif
         trigger = GetTrigger(line)
