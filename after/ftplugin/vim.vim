@@ -58,17 +58,17 @@ def VimCompletor(findstart: number, base: string): any
     endif
 
     var funcs = getcompletion(base, 'function')
-        ->mapnew((_, v) => ({word: v, kind: 'f', menu: 'Vim function', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'f', menu: 'Function', dup: 0}))
     var exprs = getcompletion(base, 'expression')
-        ->mapnew((_, v) => ({word: v, kind: 'e', menu: 'Vim expression', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'e', menu: 'Expression', dup: 0}))
     var commands = getcompletion(base, 'command')
-        ->mapnew((_, v) => ({word: v, kind: 'c', menu: 'Vim command', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'c', menu: 'Command', dup: 0}))
     var options = getcompletion(base, 'option')
-        ->mapnew((_, v) => ({word: v, kind: 'o', menu: 'Vim option', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'o', menu: 'Option', dup: 0}))
     var events = getcompletion(base, 'event')
-        ->mapnew((_, v) => ({word: v, kind: 'a', menu: 'Vim autocommand event', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'a', menu: 'Autocommand event', dup: 0}))
     var highlights = getcompletion(base, 'highlight')
-        ->mapnew((_, v) => ({word: v, kind: 'a', menu: 'Vim highlight group', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'h', menu: 'Highlight group', dup: 0}))
 
     # echow "trigger:" trigger "base:" base
     var items = []
