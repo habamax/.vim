@@ -12,20 +12,55 @@ g:vim_indent_cont = 6
 
 setl complete^=o^7
 setl omnifunc=s:VimCompletor
+
+var trigger: string = ""
+def GetTrigger(line: string): string
+    var result = ""
+    if line =~ '->\ze\k*$' || line =~ 'call\ze\s\+\k*$'
+        result = 'func'
+    elseif line =~ '&\ze\k*$' || line =~ 'set\ze\(\s\+\k*\)*$'
+        result = 'option'
+    elseif line =~ 'echo\ze\%[msg]\s\+\k*$'
+        result = 'expr'
+    endif
+    return result
+enddef
+
 def VimCompletor(findstart: number, base: string): any
     if findstart > 0
-        var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\k\+$')
-        if prefix->empty()
+        var line = getline('.')->strpart(0, col('.') - 1)
+        var keyword = line->matchstr('\k\+$')
+        var stx = synstack(line('.'), col('.'))->map('synIDattr(v:val, "name")')->join()
+        if stx =~? 'Comment'
             return -2
         endif
-        return col('.') - prefix->len() - 1
+        trigger = GetTrigger(line)
+        if keyword->empty() && trigger->empty()
+            return -2
+        endif
+        return line->len() - keyword->len()
     endif
 
     var funcs = getcompletion(base, 'function')
         ->mapnew((_, v) => ({word: v, kind: 'f', dup: 0}))
+    var exprs = getcompletion(base, 'expression')
+        ->mapnew((_, v) => ({word: v, kind: 'e', dup: 0}))
     var commands = getcompletion(base, 'command')
         ->mapnew((_, v) => ({word: v, kind: 'c', dup: 0}))
-    var items = funcs->extend(commands)
+    var options = getcompletion(base, 'option')
+        ->mapnew((_, v) => ({word: v, kind: 'o', dup: 0}))
+
+    # echow "trigger:" trigger "base:" base
+    var items = []
+    if trigger == 'func'
+        items = funcs
+    elseif trigger == 'option'
+        items = options
+    elseif trigger == 'expr'
+        items = exprs
+    elseif !empty(base)
+        items = commands->extend(funcs)
+    endif
 
     return items->empty() ? v:none : items
 enddef
