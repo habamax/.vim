@@ -107,7 +107,7 @@ def VimCompletor(findstart: number, base: string): any
         ]
     elseif trigger == 'highlight_attr_color_gui'
         items = v:colornames->keys()
-            ->mapnew((_, v) => ({word: v:colornames[v], kind: '#', menu: v, dup: 0}))
+            ->mapnew((_, v) => ({word: v:colornames[v], kind: 'v', menu: $"Color: {v}", dup: 0}))
     elseif !empty(base)
         items = commands->extend(funcs)
     endif
