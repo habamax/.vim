@@ -24,11 +24,17 @@ def GetTrigger(line: string): string
         result = 'expr'
     elseif line =~ '\vau%[tocmd]\s+\k*$'
         result = 'event'
-    elseif line =~ '\vhi%[ghlight]!?\s+def%[ault]\s+link\s+(\k+\s+)?\k*$'
+    elseif line =~ '\vhi%[ghlight]!?\s+%(def%[ault]\s+)?link\s+(\k+\s+)?\k*$'
         result = 'highlight_def_link'
     elseif line =~ '\vhi%[ghlight]!?\s+def%[ault]\s+\k*$'
         result = 'highlight_def'
-    elseif line =~ '\vhi%[ghlight]!?\s+%(def%[ault]\s+)?\k+%(\s+\k+\=\k+)*\s+\k*$'
+    elseif line =~ '\vhi%[ghlight]!?\s+%(def%[ault]\s+)?\k+%(\s+\k+\=%(\k+,?)+)*%(\s+%(cterm|gui)\=)%(\k+,)*\k*$'
+        result = 'highlight_attr_noncolor'
+    elseif line =~ '\vhi%[ghlight]!?\s+%(def%[ault]\s+)?\k+%(\s+\k+\=%(\k+,?)+)*%(\s+cterm[fb]g\=)\k*$'
+        result = 'highlight_attr_color_cterm'
+    elseif line =~ '\vhi%[ghlight]!?\s+%(def%[ault]\s+)?\k+%(\s+\k+\=%(\k+,?)+)*%(\s+gui[fb]g\=)\k*$'
+        result = 'highlight_attr_color_gui'
+    elseif line =~ '\vhi%[ghlight]!?\s+%(def%[ault]\s+)?\k+%(\s+\k+\=%(\k+,?)+)*\s+\k*$'
         result = 'highlight_attr'
     elseif line =~ '\vhi%[ghlight]!?\s+\k*$'
         result = 'highlight'
@@ -82,6 +88,16 @@ def VimCompletor(findstart: number, base: string): any
         items = ['default', 'link'] + highlights
     elseif trigger == 'highlight_attr'
         items = ['gui', 'cterm', 'guibg', 'ctermbg', 'guifg', 'ctermfg']
+    elseif trigger == 'highlight_attr_noncolor'
+        items = ['bold', 'italic', 'underline', 'NONE']
+    elseif trigger == 'highlight_attr_color_cterm'
+        items = [
+            'black', 'white', 'red', 'darkred', 'green', 'darkgreen', 'yellow', 'darkyellow',
+            'blue', 'darkblue', 'magenta', 'darkmagenta', 'cyan', 'darkcyan', 'gray', 'darkgray'
+        ]
+    elseif trigger == 'highlight_attr_color_gui'
+        items = v:colornames->keys()
+            ->mapnew((_, v) => ({word: v:colornames[v], kind: '#', menu: v, dup: 0}))
     elseif !empty(base)
         items = commands->extend(funcs)
     endif
