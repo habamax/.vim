@@ -13,6 +13,17 @@ g:vim_indent_cont = 6
 setl complete^=o^7
 setl omnifunc=s:VimCompletor
 
+def Filter(haystack: list<any>, needle: string): list<any>
+    if empty(needle)
+        return haystack
+    endif
+    if &completeopt =~ 'fuzzy'
+        return haystack->matchfuzzy(needle, {key: 'word', camelcase: false})
+    else
+        return haystack->filter((_, v) => stridx(v.word, needle) == 0)
+    endif
+enddef
+
 var trigger: string = ""
 def GetTrigger(line: string): list<any>
     var result = ""
@@ -94,29 +105,35 @@ def VimCompletor(findstart: number, base: string): any
     elseif trigger == 'highlight_def'
         items = [
             {word: 'link', kind: 'v', menu: 'Link first highlight group to the second one.'}
-        ] + highlights
+        ]->Filter(base)
+        + highlights
     elseif trigger == 'highlight'
         items = [
             {word: 'default', kind: 'v', menu: 'Set default highlighting.'},
             {word: 'link', kind: 'v', menu: 'Link first highlight group to the second one.'}
-        ] + highlights
+        ]->Filter(base)
+        + highlights
     elseif trigger == 'highlight_attr'
         items = [
             'gui', 'cterm', 'guibg', 'ctermbg', 'guifg', 'ctermfg',
         ]->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Highlight group attribute', dup: 0}))
+        ->Filter(base)
     elseif trigger == 'highlight_attr_noncolor'
         items = [
             'bold', 'italic', 'underline', 'NONE', 'reverse',
             'undercurl', 'underdouble', 'underdouble', 'strikethrough', 'standout'
         ]->mapnew((_, v) => ({word: v, kind: 'v', menu: 'gui= or term= value', dup: 0}))
+        ->Filter(base)
     elseif trigger == 'highlight_attr_color_cterm'
         items = [
             'black', 'white', 'red', 'darkred', 'green', 'darkgreen', 'yellow', 'darkyellow',
             'blue', 'darkblue', 'magenta', 'darkmagenta', 'cyan', 'darkcyan', 'gray', 'darkgray'
-        ]
+        ]->mapnew((_, v) => ({word: v, kind: 'v', menu: 'cterm color', dup: 0}))
+        ->Filter(base)
     elseif trigger == 'highlight_attr_color_gui'
         items = v:colornames->keys()
             ->mapnew((_, v) => ({word: v:colornames[v], kind: 'v', menu: $"Color: {v}", dup: 0}))
+            ->Filter(base)
     elseif !empty(base)
         items = commands->extend(funcs)
     endif
