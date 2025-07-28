@@ -17,17 +17,16 @@ var trigger: string = ""
 def GetTrigger(line: string): list<any>
     var result = ""
     var result_len = 0
-    if line =~ '->\k*$' || line =~ '\vcall\s+\k*$'
-        result = 'func'
-    elseif line =~ '\v%(^|\s+)\&\k*$' || line =~ '\vset%(\s+\k+%([-+^]?\=\S+(\\\s)|\S+)*)*$'
+
+    if line =~ '->\k*$'
+        result = 'function'
+    elseif line =~ '\v%(^|\s+)\&\k*$'
         result = 'option'
-    elseif line =~ '\vecho%[msg]\s+\k*$' || line =~ '[\[(]\s*$'
-        result = 'expr'
+    elseif line =~ '[\[(]\s*$'
+        result = 'expression'
     elseif line =~ '[lvgsb]:'
         result = 'var'
         result_len = 2
-    elseif line =~ '\vau%[tocmd]\s+\k*$'
-        result = 'event'
     elseif line =~ '\vhi%[ghlight]!?\s+%(def%[ault]\s+)?link\s+(\k+\s+)?\k*$'
         result = 'highlight_def_link'
     elseif line =~ '\vhi%[ghlight]!?\s+def%[ault]\s+\k*$'
@@ -42,6 +41,8 @@ def GetTrigger(line: string): list<any>
         result = 'highlight_attr'
     elseif line =~ '\vhi%[ghlight]!?\s+\k*$'
         result = 'highlight'
+    else
+        result = getcompletiontype(line)
     endif
     return [result, result_len]
 enddef
@@ -78,13 +79,13 @@ def VimCompletor(findstart: number, base: string): any
         ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Highlight group', dup: 0}))
 
     var items = []
-    if trigger == 'func'
+    if trigger == 'function'
         items = funcs
     elseif trigger == 'option'
         items = options
     elseif trigger == 'var'
         items = vars
-    elseif trigger == 'expr'
+    elseif trigger == 'expression'
         items = exprs
     elseif trigger == 'event'
         items = events
