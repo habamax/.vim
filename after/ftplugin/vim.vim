@@ -16,12 +16,22 @@ setl omnifunc=s:VimCompletor
 var trigger: string = ""
 def GetTrigger(line: string): string
     var result = ""
-    if line =~ '->\ze\k*$' || line =~ 'call\ze\s\+\k*$'
+    if line =~ '->\k*$' || line =~ '\vcall\s+\k*$'
         result = 'func'
-    elseif line =~ '&\ze\k*$' || line =~ 'set\ze\(\s\+\k*\)*$'
+    elseif line =~ '&\k*$' || line =~ '\vset%(\s+\k*)*$'
         result = 'option'
-    elseif line =~ 'echo\ze\%[msg]\s\+\k*$'
+    elseif line =~ '\vecho%[msg]\s+\k*$'
         result = 'expr'
+    elseif line =~ '\vau%[tocmd]\s+\k*$'
+        result = 'event'
+    elseif line =~ '\vhi%[ghlight]!?\s+def%[ault]\s+link\s+(\k+\s+)?\k*$'
+        result = 'highlight_def_link'
+    elseif line =~ '\vhi%[ghlight]!?\s+def%[ault]\s+\k*$'
+        result = 'highlight_def'
+    elseif line =~ '\vhi%[ghlight]!?\s+%(def%[ault]\s+)?\k+%(\s+\k+\=\k+)*\s+\k*$'
+        result = 'highlight_attr'
+    elseif line =~ '\vhi%[ghlight]!?\s+\k*$'
+        result = 'highlight'
     endif
     return result
 enddef
@@ -42,13 +52,17 @@ def VimCompletor(findstart: number, base: string): any
     endif
 
     var funcs = getcompletion(base, 'function')
-        ->mapnew((_, v) => ({word: v, kind: 'f', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'f', menu: 'Vim function', dup: 0}))
     var exprs = getcompletion(base, 'expression')
-        ->mapnew((_, v) => ({word: v, kind: 'e', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'e', menu: 'Vim expression', dup: 0}))
     var commands = getcompletion(base, 'command')
-        ->mapnew((_, v) => ({word: v, kind: 'c', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'c', menu: 'Vim command', dup: 0}))
     var options = getcompletion(base, 'option')
-        ->mapnew((_, v) => ({word: v, kind: 'o', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'o', menu: 'Vim option', dup: 0}))
+    var events = getcompletion(base, 'event')
+        ->mapnew((_, v) => ({word: v, kind: 'a', menu: 'Vim autocommand event', dup: 0}))
+    var highlights = getcompletion(base, 'highlight')
+        ->mapnew((_, v) => ({word: v, kind: 'a', menu: 'Vim highlight group', dup: 0}))
 
     # echow "trigger:" trigger "base:" base
     var items = []
@@ -58,6 +72,16 @@ def VimCompletor(findstart: number, base: string): any
         items = options
     elseif trigger == 'expr'
         items = exprs
+    elseif trigger == 'event'
+        items = events
+    elseif trigger == 'highlight_def_link'
+        items = highlights
+    elseif trigger == 'highlight_def'
+        items = ['link'] + highlights
+    elseif trigger == 'highlight'
+        items = ['default', 'link'] + highlights
+    elseif trigger == 'highlight_attr'
+        items = ['gui', 'cterm', 'guibg', 'ctermbg', 'guifg', 'ctermfg']
     elseif !empty(base)
         items = commands->extend(funcs)
     endif
