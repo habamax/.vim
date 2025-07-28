@@ -20,7 +20,7 @@ def GetTrigger(line: string): string
         result = 'func'
     elseif line =~ '&\k*$' || line =~ '\vset%(\s+\k*)*$'
         result = 'option'
-    elseif line =~ '\vecho%[msg]\s+\k*$'
+    elseif line =~ '\vecho%[msg]\s+\k*$' || line =~ '('
         result = 'expr'
     elseif line =~ '\vau%[tocmd]\s+\k*$'
         result = 'event'
@@ -58,17 +58,17 @@ def VimCompletor(findstart: number, base: string): any
     endif
 
     var funcs = getcompletion(base, 'function')
-        ->mapnew((_, v) => ({word: v, kind: 'f', menu: 'Function', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Function', dup: 0}))
     var exprs = getcompletion(base, 'expression')
-        ->mapnew((_, v) => ({word: v, kind: 'e', menu: 'Expression', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Expression', dup: 0}))
     var commands = getcompletion(base, 'command')
-        ->mapnew((_, v) => ({word: v, kind: 'c', menu: 'Command', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Command', dup: 0}))
     var options = getcompletion(base, 'option')
-        ->mapnew((_, v) => ({word: v, kind: 'o', menu: 'Option', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Option', dup: 0}))
     var events = getcompletion(base, 'event')
-        ->mapnew((_, v) => ({word: v, kind: 'a', menu: 'Autocommand event', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Autocommand event', dup: 0}))
     var highlights = getcompletion(base, 'highlight')
-        ->mapnew((_, v) => ({word: v, kind: 'h', menu: 'Highlight group', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Highlight group', dup: 0}))
 
     # echow "trigger:" trigger "base:" base
     var items = []
@@ -83,13 +83,23 @@ def VimCompletor(findstart: number, base: string): any
     elseif trigger == 'highlight_def_link'
         items = highlights
     elseif trigger == 'highlight_def'
-        items = ['link'] + highlights
+        items = [
+            {word: 'link', kind: 'v', menu: 'Link first highlight group to the second one.'}
+        ] + highlights
     elseif trigger == 'highlight'
-        items = ['default', 'link'] + highlights
+        items = [
+            {word: 'default', kind: 'v', menu: 'Set default highlighting.'},
+            {word: 'link', kind: 'v', menu: 'Link first highlight group to the second one.'}
+        ] + highlights
     elseif trigger == 'highlight_attr'
-        items = ['gui', 'cterm', 'guibg', 'ctermbg', 'guifg', 'ctermfg']
+        items = [
+            'gui', 'cterm', 'guibg', 'ctermbg', 'guifg', 'ctermfg',
+        ]->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Highlight group attribute', dup: 0}))
     elseif trigger == 'highlight_attr_noncolor'
-        items = ['bold', 'italic', 'underline', 'NONE']
+        items = [
+            'bold', 'italic', 'underline', 'NONE', 'reverse',
+            'undercurl', 'underdouble', 'underdouble', 'strikethrough', 'standout'
+        ]->mapnew((_, v) => ({word: v, kind: 'v', menu: 'gui= or term= value', dup: 0}))
     elseif trigger == 'highlight_attr_color_cterm'
         items = [
             'black', 'white', 'red', 'darkred', 'green', 'darkgreen', 'yellow', 'darkyellow',
