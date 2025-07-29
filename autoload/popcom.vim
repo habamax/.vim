@@ -318,22 +318,39 @@ export def Git()
 
     var branches = []
     var current_branch = ""
-    systemlist('git branch')
-        ->mapnew((_, v) => v->trim())
-        ->foreach((_, v) => {
-            if v[0] == '*'
-                current_branch = v[2 : ]
-            else
-                branches->add(v)
-            endif
-        })
+
+    var cwd = filereadable(expand("%:p:h")) ? expand("%:p:h") : getcwd()
+    var gitdir = finddir('.git', cwd .. ";")
+    if empty(gitdir)
+        echom "Not in a git repository!"
+        return
+    endif
+    var head_file = $"{gitdir}/HEAD"
+    var head = readfile(head_file)
+    if empty(head)
+        echom "Can't read HEAD file!"
+        return
+    endif
+    current_branch = head[0]->substitute('^ref: refs/heads/', '', '')->trim()
 
     if empty(current_branch)
         echom "Not in a git repository!"
         return
     endif
 
-    var is_github_remote = systemlist('git remote -v')[0] =~ 'git@github\.com'
+    for br in readdir($"{gitdir}/refs/heads")
+        if br != current_branch
+            branches->add(br)
+        endif
+    endfor
+
+    # TODO: support different forges
+    var fetch_head_file = $"{gitdir}/FETCH_HEAD"
+    var fetch_head = readfile(fetch_head_file)
+    var is_github_remote = false
+    if !empty(fetch_head)
+        is_github_remote = match(fetch_head[0], 'github\.com') > -1
+    endif
 
     for br in ["dev", "test", "main", "master"]
         var idx = branches->index(br)
