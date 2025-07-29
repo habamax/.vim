@@ -50,7 +50,6 @@ def VimCompletor(findstart: number, base: string): any
         return line->len() - keyword->len() - trigger_len
     endif
 
-
     var items = []
     if trigger == 'function'
         items = getcompletion(base, 'function')
