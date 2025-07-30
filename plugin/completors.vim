@@ -52,7 +52,8 @@ def g:RegisterCompletor(findstart: number, base: string): any
 
     var items = []
 
-    for r in '"/=#:%-0123456789abcdefghijklmnopqrstuvwxyz'
+    # for r in '"/=#:%-0123456789abcdefghijklmnopqrstuvwxyz'
+    for r in '"/=#:%abcdefghijklmnopqrstuvwxyz'
         var text = trim(getreg(r))
         var abbr = text->slice(0, MAX_REG_LENGTH)->substitute('\n', '⏎', 'g')
         var info = ""
