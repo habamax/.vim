@@ -1,5 +1,7 @@
 vim9script
 
+# Quick commands popup
+
 import autoload 'popup.vim'
 import autoload 'text.vim'
 import autoload 'diff.vim'
@@ -34,8 +36,8 @@ import autoload 'git.vim'
 
 # Navigate quickfix/location lists.
 # Usage:
-# import autoload 'popcom.vim'
-# nnoremap <space>q <scriptcmd>popcom.Qf()<CR>
+# import autoload 'qc.vim'
+# nnoremap <space>q <scriptcmd>qc.Qf()<CR>
 export def Qf()
     var commands = []
     if len(getqflist()) > 0
@@ -61,11 +63,11 @@ enddef
 
 # horiontal scroll
 # Usage:
-# import autoload 'popcom.vim'
-# nnoremap zl <scriptcmd>popcom.HScroll($'normal! {v:count1}zl')<CR>
-# nnoremap zh <scriptcmd>popcom.HScroll($'normal! {v:count1}zh')<CR>
-# nnoremap zs <scriptcmd>popcom.HScroll($'normal! zs')<CR>
-# nnoremap ze <scriptcmd>popcom.HScroll($'normal! ze')<CR>
+# import autoload 'qc.vim'
+# nnoremap zl <scriptcmd>qc.HScroll($'normal! {v:count1}zl')<CR>
+# nnoremap zh <scriptcmd>qc.HScroll($'normal! {v:count1}zh')<CR>
+# nnoremap zs <scriptcmd>qc.HScroll($'normal! zs')<CR>
+# nnoremap ze <scriptcmd>qc.HScroll($'normal! ze')<CR>
 export def HScroll(initial: string)
     exe initial
     var commands = [
@@ -82,16 +84,16 @@ enddef
 
 # Navigate windows
 # Usage:
-# import autoload 'popcom.vim'
-# nnoremap gt <scriptcmd>popcom.Windows("gt")<cr>
-# nnoremap gT <scriptcmd>popcom.Windows("gT")<cr>
-# nnoremap <C-w>h <scriptcmd>popcom.Windows("h")<cr>
+# import autoload 'qc.vim'
+# nnoremap gt <scriptcmd>qc.Windows("gt")<cr>
+# nnoremap gT <scriptcmd>qc.Windows("gT")<cr>
+# nnoremap <C-w>h <scriptcmd>qc.Windows("h")<cr>
 # nmap <C-w><C-h> <C-w>h
-# nnoremap <C-w>j <scriptcmd>popcom.Windows("j")<cr>
+# nnoremap <C-w>j <scriptcmd>qc.Windows("j")<cr>
 # nmap <C-w><C-j> <C-w>j
-# nnoremap <C-w>k <scriptcmd>popcom.Windows("k")<cr>
+# nnoremap <C-w>k <scriptcmd>qc.Windows("k")<cr>
 # nmap <C-w><C-k> <C-w>k
-# nnoremap <C-w>l <scriptcmd>popcom.Windows("l")<cr>
+# nnoremap <C-w>l <scriptcmd>qc.Windows("l")<cr>
 # nmap <C-w><C-l> <C-w>l
 export def Windows(initial: string)
     exe "wincmd" initial
@@ -110,9 +112,9 @@ enddef
 
 # Various text transformations
 # Usage:
-# import autoload 'popcom.vim'
-# xnoremap <space>t <scriptcmd>popcom.TextTr()<cr>
-# nnoremap <space>t <scriptcmd>popcom.TextTr()<cr>
+# import autoload 'qc.vim'
+# xnoremap <space>t <scriptcmd>qc.TextTr()<cr>
+# nnoremap <space>t <scriptcmd>qc.TextTr()<cr>
 export def TextTr()
     if &readonly || !&modifiable
         echo "Cannot modify text in readonly buffer"
@@ -157,8 +159,8 @@ enddef
 
 # Colorscheme design support: change tgc/256/16/8/0
 # Usage:
-# import autoload 'popcom.vim'
-# nnoremap <space>x <scriptcmd>popcom.ColorSupport()<CR>
+# import autoload 'qc.vim'
+# nnoremap <space>x <scriptcmd>qc.ColorSupport()<CR>
 export def ColorSupport()
     var commands = []
     commands->extend([
@@ -196,8 +198,8 @@ enddef
 
 # Copilot shortcuts
 # Usage:
-# import autoload 'popcom.vim'
-# nnoremap <space>x <scriptcmd>popcom.Copilot()<CR>
+# import autoload 'qc.vim'
+# nnoremap <space>x <scriptcmd>qc.Copilot()<CR>
 export def Copilot()
     var commands = []
     commands->extend([
@@ -251,8 +253,8 @@ enddef
 
 # Diff shortcuts
 # Usage:
-# import autoload 'popcom.vim'
-# nnoremap <space>gd <scriptcmd>popcom.Diff()<CR>
+# import autoload 'qc.vim'
+# nnoremap <space>gd <scriptcmd>qc.Diff()<CR>
 export def Diff()
     if !&diff
         echo "Diff mode is not enabled!"
@@ -306,8 +308,8 @@ export def Marks()
         })
 
     var winid = popup.Commands(commands)
-    win_execute(winid, 'syn match PopComMarkLineNr "(\d\+)$"')
-    hi def link PopComMarkLineNr NonText
+    win_execute(winid, 'syn match QCMarkLineNr "(\d\+)$"')
+    hi def link QCMarkLineNr NonText
 enddef
 
 export def Git()

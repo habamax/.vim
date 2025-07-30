@@ -53,21 +53,21 @@ nnoremap <space>it <scriptcmd>fuzzy.Template()<CR>
 nnoremap <space>wg <scriptcmd>exe 'Rg' expand("<cword>")<cr>
 xnoremap <space>wg "0y<scriptcmd>exe "Rg" getreg("0")<cr>
 
-import autoload 'popcom.vim'
+import autoload 'qc.vim'
 # calc visually selected math expression
 # base64 encode/decode
-xnoremap <space>t <scriptcmd>popcom.TextTr()<cr>
-nnoremap <space>t <scriptcmd>popcom.TextTr()<cr>
+xnoremap <space>t <scriptcmd>qc.TextTr()<cr>
+nnoremap <space>t <scriptcmd>qc.TextTr()<cr>
 # quickfix&locations
-nnoremap <space>q <scriptcmd>popcom.Qf()<CR>
+nnoremap <space>q <scriptcmd>qc.Qf()<CR>
 # horizontal scroll
-nnoremap zl <scriptcmd>popcom.HScroll($'normal! {v:count1}zl')<CR>
-nnoremap zh <scriptcmd>popcom.HScroll($'normal! {v:count1}zh')<CR>
-nnoremap zs <scriptcmd>popcom.HScroll('normal! zs')<CR>
-nnoremap ze <scriptcmd>popcom.HScroll('normal! ze')<CR>
+nnoremap zl <scriptcmd>qc.HScroll($'normal! {v:count1}zl')<CR>
+nnoremap zh <scriptcmd>qc.HScroll($'normal! {v:count1}zh')<CR>
+nnoremap zs <scriptcmd>qc.HScroll('normal! zs')<CR>
+nnoremap ze <scriptcmd>qc.HScroll('normal! ze')<CR>
 
 # marks
-nnoremap ' <scriptcmd>popcom.Marks()<CR>
+nnoremap ' <scriptcmd>qc.Marks()<CR>
 
 # enhance search with <space> as "whatever"
 # to enter literal <space> use <C-v><space>
@@ -214,11 +214,11 @@ nmap <silent> <space>3 <space>"
 nmap <silent> <space>4 <space>`
 
 # git popup commands
-nnoremap <space>g <scriptcmd>popcom.Git()<CR>
-xnoremap <space>g <scriptcmd>popcom.Git()<CR>
+nnoremap <space>g <scriptcmd>qc.Git()<CR>
+xnoremap <space>g <scriptcmd>qc.Git()<CR>
 
 # diff navigation
-nnoremap <silent> <space>nd <scriptcmd>popcom.Diff()<CR>
+nnoremap <silent> <space>nd <scriptcmd>qc.Diff()<CR>
 
 import autoload 'buf.vim'
 nnoremap go <nop>
