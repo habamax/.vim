@@ -13,6 +13,10 @@ def GetTrigger(line: string): list<any>
         result = 'function'
     elseif line =~ '\v%(^|\s+)\&\k*$'
         result = 'option'
+    elseif line =~ 'set no\k*$'
+        echow "set no too"
+        result = 'nooption'
+        result_len = -2
     elseif line =~ '[lvgsb]:\k*$'
         result = 'var'
         result_len = 2
@@ -39,12 +43,18 @@ export def Vim(findstart: number, base: string): any
         return line->len() - keyword->len() - trigger_len
     endif
 
+    # if prefix == 'set no'
+    #     echow "SET NO"
+    # endif
     var items = []
     if trigger == 'function'
         items = getcompletion(base, 'function')
             ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Function', dup: 0}))
     elseif trigger == 'option'
         items = getcompletion(base, 'option')
+            ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Option', dup: 0}))
+    elseif trigger == 'nooption'
+        items = getcompletion(base, 'cmdline')
             ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Option', dup: 0}))
     elseif trigger == 'var'
         items = getcompletion(base, 'var')
@@ -68,7 +78,7 @@ export def Vim(findstart: number, base: string): any
         endif
     endif
 
-    return items->empty() ? v:none : items
+    return items->empty() ? v:none : {words: items, refresh: "always"}
 enddef
 
 # Language server protocol (LSP) completion

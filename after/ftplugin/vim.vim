@@ -11,7 +11,7 @@ endif
 g:vim_indent_cont = 6
 
 setl complete^=o^7
-setl omnifunc=complete#Vim
+setl omnifunc=completor#Vim
 
 import autoload 'popup.vim'
 def Things()
