@@ -450,7 +450,7 @@ export def Sh(command: string): tuple<number, job>
         job_command = [&shell, &shellcmdflag, escape(command, '\')]
     endif
 
-    var winid = popup_create("", {
+    var winid = popup_create("Running ...", {
         title: $" {command} ",
         pos: 'botright',
         col: &columns,
@@ -491,11 +491,17 @@ export def Sh(command: string): tuple<number, job>
     })
 
     var bufnr = getwininfo(winid)[0].bufnr
-    silent deletebufline(bufnr, 1, '$')  # clear buffer
+    var clean_buf = true
 
     var jobid = job_start(job_command, {
         out_msg: 0,
         out_io: 'buffer',
+        out_cb: (ch, msg) => {
+            if clean_buf
+                silent deletebufline(bufnr, 1, '$')  # clear buffer
+                clean_buf = false
+            endif
+        },
         out_buf: bufnr,
         err_msg: 0,
         err_io: 'buffer',
