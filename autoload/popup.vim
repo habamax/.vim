@@ -441,7 +441,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
     endif
 enddef
 
-# Output shell command in a popup window and show it for 5 seconds.
+# Shell command output in a popup window.
 export def Sh(command: string): tuple<number, job>
     var job_command: any
     if has("win32")
