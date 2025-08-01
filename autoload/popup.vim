@@ -440,3 +440,67 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         Setup(winid)
     endif
 enddef
+
+# Output shell command in a popup window.
+export def Sh(command: string): tuple<number, job>
+    var job_command: any
+    if has("win32")
+        job_command = command
+    else
+        job_command = [&shell, &shellcmdflag, escape(command, '\')]
+    endif
+
+    var winid = popup_create("", {
+        title: $" {command} ",
+        pos: 'botright',
+        col: &columns,
+        line: &lines,
+        padding: [0, 1, 0, 1],
+        border: [1, 1, 1, 1],
+        mapping: 0,
+        tabpage: -1,
+        borderchars: popup_borderchars,
+        borderhighlight: popup_borderhighlight,
+        highlight: popup_highlight,
+        filter: (winid, key) => {
+            if key == "\<cursorhold>" || key == "\<ignore>"
+                return true
+            endif
+            if key == "\<Space>"
+                win_execute(winid, "normal! \<C-d>\<C-d>")
+                return true
+            elseif key == "j"
+                win_execute(winid, "normal! \<C-d>")
+                return true
+            elseif key == "k"
+                win_execute(winid, "normal! \<C-u>")
+                return true
+            elseif key == "g"
+                win_execute(winid, "normal! gg")
+                return true
+            elseif key == "G"
+                win_execute(winid, "normal! G")
+                return true
+            endif
+            if key == "\<ESC>"
+                popup_close(winid)
+                return true
+            endif
+            return true
+        }
+    })
+
+    var bufnr = getwininfo(winid)[0].bufnr
+    silent deletebufline(bufnr, 1, '$')  # clear buffer
+
+    var jobid = job_start(job_command, {
+        out_msg: 0,
+        out_io: 'buffer',
+        out_buf: bufnr,
+        err_msg: 0,
+        err_io: 'buffer',
+        err_buf: bufnr,
+    })
+
+    return (winid, jobid)
+enddef

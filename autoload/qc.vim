@@ -403,10 +403,10 @@ export def Git()
     var pull_push_commands: list<dict<any>> = [
         {text: $'Pull/Push "{current_branch}"'},
         {text: $'pull', key: "u", close: true, cmd: () => {
-            Sh git pull
+            popup.Sh('git pull')
         }},
         {text: $'push', key: "p", close: true, cmd: () => {
-            Sh git push
+            popup.Sh('git push')
         }},
     ]
 
