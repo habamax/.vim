@@ -441,7 +441,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
     endif
 enddef
 
-# Output shell command in a popup window.
+# Output shell command in a popup window and show it for 5 seconds.
 export def Sh(command: string): tuple<number, job>
     var job_command: any
     if has("win32")
@@ -462,32 +462,6 @@ export def Sh(command: string): tuple<number, job>
         borderchars: popup_borderchars,
         borderhighlight: popup_borderhighlight,
         highlight: popup_highlight,
-        filter: (winid, key) => {
-            if key == "\<cursorhold>" || key == "\<ignore>"
-                return true
-            endif
-            if key == "\<Space>"
-                win_execute(winid, "normal! \<C-d>\<C-d>")
-                return true
-            elseif key == "j"
-                win_execute(winid, "normal! \<C-d>")
-                return true
-            elseif key == "k"
-                win_execute(winid, "normal! \<C-u>")
-                return true
-            elseif key == "g"
-                win_execute(winid, "normal! gg")
-                return true
-            elseif key == "G"
-                win_execute(winid, "normal! G")
-                return true
-            endif
-            if key == "\<ESC>"
-                popup_close(winid)
-                return true
-            endif
-            return true
-        }
     })
 
     var bufnr = getwininfo(winid)[0].bufnr
@@ -511,6 +485,11 @@ export def Sh(command: string): tuple<number, job>
                 silent deletebufline(bufnr, 1)
                 clean_buf = false
             endif
+        },
+        close_cb: (ch) => {
+            timer_start(5000, (_) => {
+                popup_close(winid)
+            })
         },
     })
 
