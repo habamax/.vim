@@ -498,7 +498,7 @@ export def Sh(command: string): tuple<number, job>
         out_io: 'buffer',
         out_cb: (ch, msg) => {
             if clean_buf
-                silent deletebufline(bufnr, 1, '$')  # clear buffer
+                silent deletebufline(bufnr, 1)
                 clean_buf = false
             endif
         },
@@ -506,6 +506,12 @@ export def Sh(command: string): tuple<number, job>
         err_msg: 0,
         err_io: 'buffer',
         err_buf: bufnr,
+        err_cb: (ch, msg) => {
+            if clean_buf
+                silent deletebufline(bufnr, 1)
+                clean_buf = false
+            endif
+        },
     })
 
     return (winid, jobid)
