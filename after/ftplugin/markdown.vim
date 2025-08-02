@@ -16,11 +16,24 @@ def Toc()
     var toc_num: list<number> = []
     var plvl = 0
     var lvl = 1
+    var skip_fence = false
+    var skip_yaml = false
     for nr in range(1, line('$'))
         var line = getline(nr)
         var pline = getline(nr - 1)
-        var mdsyn = synstack(nr, 1)->map('synIDattr(v:val, "name")')
-        if line =~ '^#\+\s\S\+' && mdsyn[0] !~ '^markdown\(CodeBlock\|Highlight\)'
+        if line =~ '^```'
+            skip_fence = !skip_fence
+        endif
+        if line =~ '^---' && nr == 1
+            skip_yaml = true
+        elseif line =~ '^---' && skip_yaml
+            skip_yaml = false
+            continue
+        endif
+        if skip_fence || skip_yaml
+            continue
+        endif
+        if line =~ '^#\+\s\S\+'
             lvl = line->matchstr('^#\+')->len() - 1
             if lvl >= len(toc_num)
                 for _ in range(lvl - len(toc_num) + 1)
@@ -46,7 +59,7 @@ def Toc()
                 endif
             endif
             toc->add({lvl: 0, toc_num: toc_num[: 0], text: pline, posttext: $' ({nr - 1})', linenr: nr - 1})
-        elseif line =~ '^-\+$' && pline =~ '^\S\+' && mdsyn[0] !~ 'yaml.*'
+        elseif line =~ '^-\+$' && pline =~ '^\S\+' # && mdsyn[0] !~ 'yaml.*'
             lvl = 2
             if len(toc_num) < 2
                 toc_num->add(1)
