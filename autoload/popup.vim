@@ -487,7 +487,7 @@ export def Sh(command: string): tuple<number, job>
             endif
         },
         close_cb: (ch) => {
-            timer_start(5000, (_) => {
+            timer_start(3000, (_) => {
                 popup_close(winid)
             })
         },
