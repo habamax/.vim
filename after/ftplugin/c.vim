@@ -56,10 +56,12 @@ def Things()
             normal! zz
         },
         (winid) => {
-            win_execute(winid, $"syn match PopupSelectLineNr '(\\d\\+)$'")
-            win_execute(winid, $"syn match PopupSelectFuncName '\\k\\+\\s*\\ze('")
+            win_execute(winid, "syn match PopupSelectLineNr '(\\d\\+)$'")
+            win_execute(winid, "syn match PopupSelectFuncType '^.\\{-}\\ze\\k\\+\\s*('")
+            win_execute(winid, "syn match PopupSelectFuncName '\\k\\+\\s*\\ze('")
             hi def link PopupSelectLineNr Comment
             hi def link PopupSelectFuncName Function
+            hi def link PopupSelectFuncType Type
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
