@@ -1,7 +1,6 @@
 vim9script
 
 b:undo_ftplugin ..= ' | setl complete<'
-b:undo_ftplugin ..= ' | unlet hi_groups'
 
 const hi_groups = [
     {name: 'ColorColumn', desc: "Used for the columns set with 'colorcolumn'."},
