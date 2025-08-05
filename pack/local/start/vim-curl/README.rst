@@ -2,8 +2,8 @@
                                  CURL with Vim
 ********************************************************************************
 
-.. image:: https://asciinema.org/a/XFnIGhMxETK4z1JhSI6qAferw.svg
-  :target: https://asciinema.org/a/XFnIGhMxETK4z1JhSI6qAferw
+.. image:: https://asciinema.org/a/651725.svg
+  :target: https://asciinema.org/a/651725
 
 Example rest api calls:
 
