@@ -34,30 +34,63 @@ import autoload 'git.vim'
 #     popup.Commands(commands)
 # enddef
 
-# Navigate quickfix/location lists.
+# Navigate quickfix/location lists, diff.
 # Usage:
 # import autoload 'qc.vim'
-# nnoremap <space>q <scriptcmd>qc.Qf()<CR>
-export def Qf()
-    var commands = []
+# nnoremap <space>n <scriptcmd>qc.Nav()<CR>
+export def Nav()
+    var commands: list<dict<any>>
+    if &diff
+        commands += [
+            {text: "Diff", key: "d", close: true, cmd: () => {
+                popup.Commands([
+                    {text: "Diff"},
+                    {text: "Next Chunk", key: "j", cmd: "normal! ]c"},
+                    {text: "Previous Chunk", key: "k", cmd: "normal! [c"},
+                    {text: "Next Change", key: "J", cmd: () => {
+                        diff.NextChange()
+                    }},
+                    {text: "Previous Change", key: "K", cmd: () => {
+                        diff.PrevChange()
+                    }},
+                    {text: "Put", key: "p", cmd: "normal! dp"},
+                    {text: "Obtain", key: "o", cmd: "normal! do"},
+                ])
+            }}
+        ]
+    endif
     if len(getqflist()) > 0
-        commands->extend([
-            {text: "Quickfix"},
-            {text: "Next", key: "j", cmd: "redraw|cnext"},
-            {text: "Prev", key: "k", cmd: "redraw|cprev"},
-            {text: "Last", key: "J", cmd: "redraw|clast"},
-            {text: "First", key: "K", cmd: "redraw|cfirst"},
-        ])
+        commands += [
+            {text: "Quickfix", key: "q", close: true, cmd: () => {
+                popup.Commands([
+                    {text: "Quickfix"},
+                    {text: "Next", key: "j", cmd: "redraw|cnext"},
+                    {text: "Prev", key: "k", cmd: "redraw|cprev"},
+                    {text: "Last", key: "J", cmd: "redraw|clast"},
+                    {text: "First", key: "K", cmd: "redraw|cfirst"},
+                ])
+            }},
+        ]
     endif
     if len(getloclist(winnr())) > 0
-        commands->extend([
-            {text: "Locations"},
-            {text: "Next", key: ".", cmd: "redraw|lnext"},
-            {text: "Prev", key: ",", cmd: "redraw|lprev"},
-            {text: "Last", key: ">", cmd: "redraw|llast"},
-            {text: "First", key: "<", cmd: "redraw|lfirst"},
-        ])
+        commands += [
+            {text: "Locations", key: "l", close: true, cmd: () => {
+                popup.Commands([
+                    {text: "Locations"},
+                    {text: "Next", key: "j", cmd: "redraw|lnext"},
+                    {text: "Prev", key: "k", cmd: "redraw|lprev"},
+                    {text: "Last", key: "J", cmd: "redraw|llast"},
+                    {text: "First", key: "K", cmd: "redraw|lfirst"},
+                ])
+            }},
+        ]
     endif
+
+    if empty(commands)
+        return
+    endif
+
+    commands->insert({text: "Space Navigation"})
     popup.Commands(commands)
 enddef
 
@@ -247,32 +280,6 @@ export def Copilot()
             endif
         }},
     ])
-    popup.Commands(commands)
-enddef
-
-
-# Diff shortcuts
-# Usage:
-# import autoload 'qc.vim'
-# nnoremap <space>gd <scriptcmd>qc.Diff()<CR>
-export def Diff()
-    if !&diff
-        echo "Diff mode is not enabled!"
-        return
-    endif
-    var commands = [
-        {text: "Diff"},
-        {text: "Next Chunk", key: "j", cmd: "normal! ]c"},
-        {text: "Previous Chunk", key: "k", cmd: "normal! [c"},
-        {text: "Next Change", key: "J", cmd: () => {
-            diff.NextChange()
-        }},
-        {text: "Previous Change", key: "K", cmd: () => {
-            diff.PrevChange()
-        }},
-        {text: "Put", key: "p", cmd: "normal! dp"},
-        {text: "Obtain", key: "o", cmd: "normal! do"},
-    ]
     popup.Commands(commands)
 enddef
 

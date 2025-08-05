@@ -58,8 +58,8 @@ import autoload 'qc.vim'
 # base64 encode/decode
 xnoremap <space>t <scriptcmd>qc.TextTr()<cr>
 nnoremap <space>t <scriptcmd>qc.TextTr()<cr>
-# quickfix&locations
-nnoremap <space>q <scriptcmd>qc.Qf()<CR>
+# # quickfix&locations&diff
+nnoremap <silent> <space>n <scriptcmd>qc.Nav()<CR>
 # horizontal scroll
 nnoremap zl <scriptcmd>qc.HScroll($'normal! {v:count1}zl')<CR>
 nnoremap zh <scriptcmd>qc.HScroll($'normal! {v:count1}zh')<CR>
@@ -216,9 +216,6 @@ nmap <silent> <space>4 <space>`
 # git popup commands
 nnoremap <space>g <scriptcmd>qc.Git()<CR>
 xnoremap <space>g <scriptcmd>qc.Git()<CR>
-
-# diff navigation
-nnoremap <silent> <space>nd <scriptcmd>qc.Diff()<CR>
 
 import autoload 'buf.vim'
 nnoremap go <nop>
