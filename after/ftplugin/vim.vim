@@ -84,3 +84,38 @@ onoremap <buffer> ) v<scriptcmd>SentenceForward()<cr>
 nnoremap <buffer> ( <scriptcmd>SentenceBackward()<cr>
 xnoremap <buffer> ( <scriptcmd>SentenceBackward()<cr>
 onoremap <buffer> ( v<scriptcmd>SentenceBackward()<cr>
+
+def FindVimFunc(dir: number = 1)
+    var nr = line('.')
+    while nr != 0 && nr != line('$')
+        nr += dir
+        var line = getline(nr)
+        if empty(line)
+            continue
+        endif
+        if line =~ '\(^\|\s\)def \([g]:\)\?\k\+('
+        || line =~ '\(^\|\s\)fu\%[nction]!\?\s\+\([sgl]:\)\?\k\+('
+            exe $":{nr}"
+            return
+        endif
+    endwhile
+enddef
+
+def FuncNav(dir: number)
+    FindVimFunc(dir)
+    normal! zz
+    var commands = [
+        {text: "Functions"},
+        {text: "Next", key: "j", cmd: () => {
+            FindVimFunc(1)
+            normal! zz
+        }},
+        {text: "Prev", key: "k", cmd: () => {
+            FindVimFunc(-1)
+            normal! zz
+        }},
+    ]
+    popup.Commands(commands)
+enddef
+nnoremap <buffer> <space>j <scriptcmd>FuncNav(1)<CR>
+nnoremap <buffer> <space>k <scriptcmd>FuncNav(-1)<CR>
