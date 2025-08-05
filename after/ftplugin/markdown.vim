@@ -1,5 +1,7 @@
 vim9script
 
+import autoload 'popup.vim'
+
 setl commentstring=<!--%s-->
 
 compiler markdown_html
@@ -10,7 +12,58 @@ onoremap <buffer><silent> aP <scriptcmd>HeaderTextObj(false)<CR>
 xnoremap <buffer><silent> iP <esc><scriptcmd>HeaderTextObj(true)<CR>
 xnoremap <buffer><silent> aP <esc><scriptcmd>HeaderTextObj(false)<CR>
 
-import autoload 'popup.vim'
+# Markdown header text object
+# * inner object is the text between prev section header(excluded) and the next
+#   section of the same level(excluded) or end of file.
+# * an object is the text between prev section header(included) and the next section of the same
+#   level(excluded) or end of file.
+def HeaderTextObj(inner: bool)
+    var lnum_start = search('^#\+\s\+[^[:space:]=]', "ncbW")
+    if lnum_start > 0
+        var lvlheader = matchstr(getline(lnum_start), '^#\+')
+        var lnum_end = search('^#\{1,' .. len(lvlheader) .. '}\s', "nW")
+        if lnum_end == 0
+            lnum_end = search('\%$', 'cnW')
+        else
+            lnum_end -= 1
+        endif
+        if inner && getline(lnum_start + 1) !~ '^#\+\s\+[^[:space:]=]'
+            lnum_start += 1
+        endif
+
+        exe $":{lnum_end}"
+        normal! V
+        exe $":{lnum_start}"
+    endif
+enddef
+
+def FindSection(dir: string = '')
+    search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', $'{dir}sW')
+    var mdsyn = synstack(line('.'), 1)->map('synIDattr(v:val, "name")')
+    while mdsyn[0] =~ '^markdown\(CodeBlock\|Highlight\)'
+        search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', $'{dir}sW')
+        mdsyn = synstack(line('.'), 1)->map('synIDattr(v:val, "name")')
+    endwhile
+    normal! zz
+enddef
+
+def SectionNav(dir: string = '')
+    FindSection(dir)
+    var winid = bufwinid(bufnr())
+    var commands = [
+        {text: "Sections"},
+        {text: "Next", key: "j", cmd: () => {
+            FindSection()
+            }},
+        {text: "Prev", key: "k", cmd: () => {
+            FindSection('b')
+        }},
+    ]
+    popup.Commands(commands)
+enddef
+nnoremap <buffer> <space>j <scriptcmd>SectionNav()<CR>
+nnoremap <buffer> <space>k <scriptcmd>SectionNav('b')<CR>
+
 def Toc()
     var toc = []
     var toc_num: list<number> = []
@@ -96,55 +149,3 @@ def Toc()
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
-
-# Markdown header text object
-# * inner object is the text between prev section header(excluded) and the next
-#   section of the same level(excluded) or end of file.
-# * an object is the text between prev section header(included) and the next section of the same
-#   level(excluded) or end of file.
-def HeaderTextObj(inner: bool)
-    var lnum_start = search('^#\+\s\+[^[:space:]=]', "ncbW")
-    if lnum_start > 0
-        var lvlheader = matchstr(getline(lnum_start), '^#\+')
-        var lnum_end = search('^#\{1,' .. len(lvlheader) .. '}\s', "nW")
-        if lnum_end == 0
-            lnum_end = search('\%$', 'cnW')
-        else
-            lnum_end -= 1
-        endif
-        if inner && getline(lnum_start + 1) !~ '^#\+\s\+[^[:space:]=]'
-            lnum_start += 1
-        endif
-
-        exe $":{lnum_end}"
-        normal! V
-        exe $":{lnum_start}"
-    endif
-enddef
-
-def FindSection(dir: string = '')
-    search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', $'{dir}sW')
-    var mdsyn = synstack(line('.'), 1)->map('synIDattr(v:val, "name")')
-    while mdsyn[0] =~ '^markdown\(CodeBlock\|Highlight\)'
-        search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', $'{dir}sW')
-        mdsyn = synstack(line('.'), 1)->map('synIDattr(v:val, "name")')
-    endwhile
-    normal! zz
-enddef
-
-def SectionNav(dir: string = '')
-    FindSection(dir)
-    var winid = bufwinid(bufnr())
-    var commands = [
-        {text: "Sections"},
-        {text: "Next", key: "j", cmd: () => {
-            FindSection()
-            }},
-        {text: "Prev", key: "k", cmd: () => {
-            FindSection('b')
-        }},
-    ]
-    popup.Commands(commands)
-enddef
-nnoremap <buffer> <space>j <scriptcmd>SectionNav()<CR>
-nnoremap <buffer> <space>k <scriptcmd>SectionNav('b')<CR>
