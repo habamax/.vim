@@ -93,7 +93,7 @@ def FindVimFunc(dir: number = 1)
         if empty(line)
             continue
         endif
-        if line =~ '\(^\|\s\)def \([g]:\)\?\k\+('
+        if line =~ '\(^\|\s\)def\s\+\([g]:\)\?\k\+('
         || line =~ '\(^\|\s\)fu\%[nction]!\?\s\+\([sgl]:\)\?\k\+('
             exe $":{nr}"
             return
