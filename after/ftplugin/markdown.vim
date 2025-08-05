@@ -59,7 +59,7 @@ def Toc()
                 endif
             endif
             toc->add({lvl: 0, toc_num: toc_num[: 0], text: pline, posttext: $' ({nr - 1})', linenr: nr - 1})
-        elseif line =~ '^-\+$' && pline =~ '^\S\+' # && mdsyn[0] !~ 'yaml.*'
+        elseif line =~ '^-\+$' && pline =~ '^\S\+'
             lvl = 2
             if len(toc_num) < 2
                 toc_num->add(1)
@@ -122,22 +122,29 @@ def HeaderTextObj(inner: bool)
     endif
 enddef
 
-def SectionNav(init_cmd: string)
-    exe init_cmd
+def FindSection(dir: string = '')
+    search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', $'{dir}sW')
+    var mdsyn = synstack(line('.'), 1)->map('synIDattr(v:val, "name")')
+    while mdsyn[0] =~ '^markdown\(CodeBlock\|Highlight\)'
+        search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', $'{dir}sW')
+        mdsyn = synstack(line('.'), 1)->map('synIDattr(v:val, "name")')
+    endwhile
     normal! zz
+enddef
+
+def SectionNav(dir: string = '')
+    FindSection(dir)
     var winid = bufwinid(bufnr())
     var commands = [
         {text: "Sections"},
         {text: "Next", key: "j", cmd: () => {
-            search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', 'sW')
-            normal! zz
-        }},
+            FindSection()
+            }},
         {text: "Prev", key: "k", cmd: () => {
-            search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', 'bsW')
-            normal! zz
+            FindSection('b')
         }},
     ]
     popup.Commands(commands)
 enddef
-nnoremap <buffer> <space>j <scriptcmd>SectionNav('normal ]]')<CR>
-nnoremap <buffer> <space>k <scriptcmd>SectionNav('normal [[')<CR>
+nnoremap <buffer> <space>j <scriptcmd>SectionNav()<CR>
+nnoremap <buffer> <space>k <scriptcmd>SectionNav('b')<CR>
