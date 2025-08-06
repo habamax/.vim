@@ -442,7 +442,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
 enddef
 
 # Shell command output in a popup window.
-export def Sh(command: string): tuple<number, job>
+export def Sh(command: string, Finish_cb: func() = null_function): tuple<number, job>
     var job_command: any
     if has("win32")
         job_command = command
@@ -490,6 +490,9 @@ export def Sh(command: string): tuple<number, job>
             timer_start(3000, (_) => {
                 popup_close(winid)
             })
+            if Finish_cb != null_function
+                Finish_cb()
+            endif
         },
     })
 
