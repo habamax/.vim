@@ -383,7 +383,6 @@ export def Git()
     for v in branches
         var idx = 0
         while idx < len(v)
-            # echo keys typename(keys)
             if keys->index(v[idx]) == -1
                 keys->add(v[idx])
                 break
@@ -394,7 +393,12 @@ export def Git()
             key: $"{v[idx]}",
             text: v,
             close: true,
-            cmd: $"Git switch {v}"
+            cmd: () => {
+                popup.Sh($'git switch {v}', () => {
+                    RefreshGitSummary()
+                })
+            },
+
         }]
     endfor
 
