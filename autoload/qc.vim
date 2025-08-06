@@ -325,7 +325,7 @@ export def Git()
             ->filter((_, v) => v.hidden == 0 && v.variables->has_key("fugitive_status"))
             ->mapnew((_, v) => v.windows)->flattennew()
         for w in f_windows
-            win_execute(w, ':G')
+            win_execute(w, ':edit')
         endfor
     enddef
 
