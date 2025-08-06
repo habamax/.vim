@@ -95,6 +95,10 @@ def FindVimFunc(dir: number = 1)
         endif
         if line =~ '\(^\|\s\)def\s\+\([g]:\)\?\k\+('
         || line =~ '\(^\|\s\)fu\%[nction]!\?\s\+\([sgl]:\)\?\k\+('
+            var mdsyn = synstack(nr, 1)->map('synIDattr(v:val, "name")')
+            if mdsyn[0] =~ 'Comment'
+                continue
+            endif
             exe $":{nr}"
             return
         endif
