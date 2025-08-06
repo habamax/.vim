@@ -410,10 +410,24 @@ export def Git()
     var pull_push_commands: list<dict<any>> = [
         {text: $'Pull/Push "{current_branch}"'},
         {text: $'pull', key: "u", close: true, cmd: () => {
-            popup.Sh('git pull')
+            popup.Sh('git pull', () => {
+                var f_windows = getbufinfo()
+                    ->filter((_, v) => v.hidden == 0 && v.variables->has_key("fugitive_status"))
+                    ->mapnew((_, v) => v.windows)->flattennew()
+                for w in f_windows
+                    win_execute(w, ':G')
+                endfor
+            })
         }},
         {text: $'push', key: "p", close: true, cmd: () => {
-            popup.Sh('git push')
+            popup.Sh('git push', () => {
+                var f_windows = getbufinfo()
+                    ->filter((_, v) => v.hidden == 0 && v.variables->has_key("fugitive_status"))
+                    ->mapnew((_, v) => v.windows)->flattennew()
+                for w in f_windows
+                    win_execute(w, ':G')
+                endfor
+            })
         }},
     ]
 
