@@ -320,6 +320,15 @@ export def Marks()
 enddef
 
 export def Git()
+    def RefreshGitSummary()
+        var f_windows = getbufinfo()
+            ->filter((_, v) => v.hidden == 0 && v.variables->has_key("fugitive_status"))
+            ->mapnew((_, v) => v.windows)->flattennew()
+        for w in f_windows
+            win_execute(w, ':G')
+        endfor
+    enddef
+
     var region = []
     if mode() =~ '[vV]'
         region = [getpos('v'), getpos('.')]
@@ -411,22 +420,12 @@ export def Git()
         {text: $'Pull/Push "{current_branch}"'},
         {text: $'pull', key: "u", close: true, cmd: () => {
             popup.Sh('git pull', () => {
-                var f_windows = getbufinfo()
-                    ->filter((_, v) => v.hidden == 0 && v.variables->has_key("fugitive_status"))
-                    ->mapnew((_, v) => v.windows)->flattennew()
-                for w in f_windows
-                    win_execute(w, ':G')
-                endfor
+                RefreshGitSummary()
             })
         }},
         {text: $'push', key: "p", close: true, cmd: () => {
             popup.Sh('git push', () => {
-                var f_windows = getbufinfo()
-                    ->filter((_, v) => v.hidden == 0 && v.variables->has_key("fugitive_status"))
-                    ->mapnew((_, v) => v.windows)->flattennew()
-                for w in f_windows
-                    win_execute(w, ':G')
-                endfor
+                RefreshGitSummary()
             })
         }},
     ]
