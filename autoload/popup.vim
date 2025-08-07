@@ -450,6 +450,8 @@ export def Sh(command: string, Finish_cb: func() = null_function): tuple<number,
         job_command = [&shell, &shellcmdflag, escape(command, '\')]
     endif
 
+    var grab_bufnr = 0
+
     var winid = popup_create("Running ...", {
         title: $" {command} ",
         pos: 'botright',
@@ -462,6 +464,21 @@ export def Sh(command: string, Finish_cb: func() = null_function): tuple<number,
         borderchars: popup_borderchars,
         borderhighlight: popup_borderhighlight,
         highlight: popup_highlight,
+        filter: (winid, key) => {
+            if key == "\<C-g>"
+                var lines = getbufline(getwininfo(winid)[0].bufnr, 1, '$')
+                if grab_bufnr == 0
+                    grab_bufnr = bufadd("")
+                    exe $"sbuffer {grab_bufnr}"
+                    setl nobuflisted noswapfile buftype=nofile
+                elseif bufwinnr(grab_bufnr) == -1
+                    exe $"sbuffer {grab_bufnr}"
+                endif
+                setbufline(grab_bufnr, 1, lines)
+                return true
+            endif
+            return false
+        },
     })
 
     var bufnr = getwininfo(winid)[0].bufnr
