@@ -32,7 +32,7 @@ nnoremap <C-k> <cmd>copy-1<CR>
 # fuzzy
 import autoload 'fuzzy.vim'
 nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
-nnoremap <space>b <scriptcmd>fuzzy.Buffer(true)<CR>
+nnoremap <space>b <scriptcmd>fuzzy.Buffer()<CR>
 nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
 nnoremap <space>d <scriptcmd>fuzzy.DirFile()<CR>
 nnoremap <space>fi <scriptcmd>fuzzy.File($MYVIMDIR)<CR>

@@ -8,11 +8,11 @@ var popup_dim_highlight = get(g:, "popup_dim_highlight", "Comment")
 
 const MAX_ELEMENTS: number = 40000
 
-export def Buffer(ext: bool = false)
+export def Buffer(show_bufnr: bool = false)
     var buffer_list = getbufinfo({'buflisted': 1})->mapnew((_, v) => {
         return {bufnr: v.bufnr,
-                pretext: (!ext ? "" : $'{v.bufnr}{v.changed ? "+" : ""} '),
-                text: (bufname(v.bufnr) ?? (ext ? '[No Name]' : $'[{v.bufnr}: No Name]')),
+                pretext: ($'{show_bufnr ? v.bufnr : ""}{v.changed ? "+" : ""} '),
+                text: (bufname(v.bufnr) ?? $'[{v.bufnr}: No Name]'),
                 lastused: v.lastused,
                 winid: len(v.windows) > 0 ? v.windows[0] : -1}
     })->sort((i, j) => i.lastused > j.lastused ? -1 : i.lastused == j.lastused ? 0 : 1)
@@ -37,15 +37,11 @@ export def Buffer(ext: bool = false)
             endif
         },
         (winid) => {
-            if ext
-                win_execute(winid, "syn match PopupSelectBufnr '^\\d\\+'")
-                win_execute(winid, "syn match PopupSelectBufChanged '\\(^\\d\\+\\)\\@<=+'")
-                win_execute(winid, "syn match PopupSelectPath '\\(^\\d\\++\\?\\s\\+\\)\\@<=.*[\\/]'")
-                hi def link PopupSelectBufnr Identifier
-                hi def link PopupSelectBufChanged Special
-            else
-                win_execute(winid, "syn match PopupSelectPath '.*[\\/]'")
-            endif
+            win_execute(winid, "syn match PopupSelectBufnr '^\\d\\+'")
+            win_execute(winid, "syn match PopupSelectBufChanged '\\(^\\d\\+\\)\\?\\zs+'")
+            win_execute(winid, "syn match PopupSelectPath '\\(^\\d\\+\\)\\?+\\?\\zs.*[\\/]'")
+            hi def link PopupSelectBufnr Identifier
+            hi def link PopupSelectBufChanged Special
             exe $"hi def link PopupSelectPath {popup_dim_highlight}"
         })
 enddef
