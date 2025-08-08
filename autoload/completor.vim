@@ -2,8 +2,8 @@ vim9script
 
 # Completor functions used in complete.vim or as omnifunc
 
-var trigger: string = ""
-var prefix: string = ""
+var vimtrigger: string = ""
+var vimprefix: string = ""
 
 def GetTrigger(line: string): list<any>
     var result = ""
@@ -35,11 +35,11 @@ export def Vim(findstart: number, base: string): any
             return -2
         endif
         var trigger_len: number = 0
-        [trigger, trigger_len] = GetTrigger(line)
-        if keyword->empty() && trigger->empty()
+        [vimtrigger, trigger_len] = GetTrigger(line)
+        if keyword->empty() && vimtrigger->empty()
             return -2
         endif
-        prefix = line
+        vimprefix = line
         return line->len() - keyword->len() - trigger_len
     endif
 
@@ -69,7 +69,7 @@ export def Vim(findstart: number, base: string): any
             ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Function', dup: 0}))
         items = commands + functions
     else
-        items = getcompletion(prefix, 'cmdline')
+        items = getcompletion(vimprefix, 'cmdline')
             ->mapnew((_, v) => ({word: v->matchstr('\k\+'), kind: 'v', dup: 0}))
 
         if empty(items) && !empty(base)
