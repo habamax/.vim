@@ -47,22 +47,22 @@ export def Vim(findstart: number, base: string): any
     #     echow "SET NO"
     # endif
     var items = []
-    if trigger == 'function'
+    if vimtrigger == 'function'
         items = getcompletion(base, 'function')
             ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Function', dup: 0}))
-    elseif trigger == 'option'
+    elseif vimtrigger == 'option'
         items = getcompletion(base, 'option')
             ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Option', dup: 0}))
-    elseif trigger == 'nooption'
+    elseif vimtrigger == 'nooption'
         items = getcompletion(base, 'cmdline')
             ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Option', dup: 0}))
-    elseif trigger == 'var'
+    elseif vimtrigger == 'var'
         items = getcompletion(base, 'var')
             ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Variable', dup: 0}))
-    elseif trigger == 'expression'
+    elseif vimtrigger == 'expression'
         items = getcompletion(base, 'expression')
             ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Expression', dup: 0}))
-    elseif trigger == 'command'
+    elseif vimtrigger == 'command'
         var commands = getcompletion(base, 'command')
             ->mapnew((_, v) => ({word: v, kind: 'v', menu: 'Command', dup: 0}))
         var functions = getcompletion(base, 'function')
