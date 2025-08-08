@@ -54,7 +54,7 @@ def SectionNav(dir: string = '')
         {text: "Sections"},
         {text: "Next", key: "j", cmd: (_) => {
             FindSection()
-            }},
+        }},
         {text: "Prev", key: "k", cmd: (_) => {
             FindSection('b')
         }},
