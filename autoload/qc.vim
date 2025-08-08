@@ -24,10 +24,10 @@ import autoload 'git.vim'
 #             {text: "First", key: "<", cmd: "redraw|lfirst"},
 #         ]
 #     var commands = [
-#         {text: "Quickfix", key: "q", close: true, cmd: () => {
+#         {text: "Quickfix", key: "q", close: true, cmd: (_) => {
 #             popup.Commands(qf_commands)
 #         }},
-#         {text: "Location", key: "l", close: true, cmd: () => {
+#         {text: "Location", key: "l", close: true, cmd: (_) => {
 #             popup.Commands(loc_commands)
 #         }},
 #     ]
@@ -42,15 +42,15 @@ export def Nav()
     var commands: list<dict<any>>
     if &diff
         commands += [
-            {text: "Diff", key: "d", close: true, cmd: () => {
+            {text: "Diff", key: "d", close: true, cmd: (_) => {
                 popup.Commands([
                     {text: "Diff"},
                     {text: "Next Chunk", key: "j", cmd: "normal! ]c"},
                     {text: "Previous Chunk", key: "k", cmd: "normal! [c"},
-                    {text: "Next Change", key: "J", cmd: () => {
+                    {text: "Next Change", key: "J", cmd: (_) => {
                         diff.NextChange()
                     }},
-                    {text: "Previous Change", key: "K", cmd: () => {
+                    {text: "Previous Change", key: "K", cmd: (_) => {
                         diff.PrevChange()
                     }},
                     {text: "Put", key: "p", cmd: "normal! dp"},
@@ -61,7 +61,7 @@ export def Nav()
     endif
     if len(getqflist()) > 0
         commands += [
-            {text: "Quickfix", key: "q", close: true, cmd: () => {
+            {text: "Quickfix", key: "q", close: true, cmd: (_) => {
                 popup.Commands([
                     {text: "Quickfix"},
                     {text: "Next", key: "j", cmd: "redraw|cnext"},
@@ -74,7 +74,7 @@ export def Nav()
     endif
     if len(getloclist(winnr())) > 0
         commands += [
-            {text: "Locations", key: "l", close: true, cmd: () => {
+            {text: "Locations", key: "l", close: true, cmd: (_) => {
                 popup.Commands([
                     {text: "Locations"},
                     {text: "Next", key: "j", cmd: "redraw|lnext"},
@@ -159,11 +159,11 @@ export def TextTr()
     var region = getregion(getpos('v'), getpos('.'), {type: mode()})
     var base64_commands = [
         {text: "Base64"},
-        {text: "Encode", key: "e", close: true, cmd: () => {
+        {text: "Encode", key: "e", close: true, cmd: (_) => {
             setreg("", region->str2blob()->base64_encode())
             normal! ""p
         }},
-        {text: "Decode", key: "d", close: true, cmd: () => {
+        {text: "Decode", key: "d", close: true, cmd: (_) => {
             # TODO: go line by line?
             setreg("", region->join('')->base64_decode()->blob2str()->join("\n"))
             normal! ""p
@@ -171,14 +171,14 @@ export def TextTr()
     ]
     var commands = [
         {text: "Text transform"},
-        {text: "Fix spaces", key: "s", close: true, cmd: () => {
+        {text: "Fix spaces", key: "s", close: true, cmd: (_) => {
             text.FixSpaces(line('v'), line('.'))
             exe "normal!" mode()
         }},
-        {text: "Base64", key: "b", close: true, cmd: () => {
+        {text: "Base64", key: "b", close: true, cmd: (_) => {
             popup.Commands(base64_commands, false)
         }},
-        {text: "Calc", key: "c", close: true, cmd: () => {
+        {text: "Calc", key: "c", close: true, cmd: (_) => {
             var result = system($'python -c "from math import *; print({region->join(" ")})"')->trim()
             if v:shell_error == 0
                 setreg("", result)
@@ -198,7 +198,7 @@ export def ColorSupport()
     var commands = []
     commands->extend([
         {text: "Color support"},
-        {text: "tgc/256", key: "g", cmd: () => {
+        {text: "tgc/256", key: "g", cmd: (_) => {
             if &tgc
                 set t_Co=256
                 set notgc
@@ -209,7 +209,7 @@ export def ColorSupport()
                 popup_notification("Switching to GUI colors", {})
             endif
         }},
-        {text: "16/8", key: "t", cmd: () => {
+        {text: "16/8", key: "t", cmd: (_) => {
             set notgc
             if str2nr(&t_Co) == 16
                 set t_Co=8
@@ -219,7 +219,7 @@ export def ColorSupport()
                 popup_notification("Switching to 16 colors", {})
             endif
         }},
-        {text: "0", key: "T", cmd: () => {
+        {text: "0", key: "T", cmd: (_) => {
             set notgc
             set t_Co=0
             popup_notification("Switching to 0 colors", {})
@@ -237,42 +237,42 @@ export def Copilot()
     var commands = []
     commands->extend([
         {text: "Copilot"},
-        {text: "Next", key: "n", cmd: () => {
+        {text: "Next", key: "n", cmd: (_) => {
             if exists('*copilot#Next')
                 copilot#Next()
             else
                 popup_notification("Copilot is not installed", {})
             endif
         }},
-        {text: "Prev", key: "p", cmd: () => {
+        {text: "Prev", key: "p", cmd: (_) => {
             if exists('*copilot#Previous')
                 copilot#Previous()
             else
                 popup_notification("Copilot is not installed", {})
             endif
         }},
-        {text: "Accept", key: "\<Tab>", cmd: () => {
+        {text: "Accept", key: "\<Tab>", cmd: (_) => {
             if exists('*copilot#Accept')
                 feedkeys(copilot#Accept())
             else
                 popup_notification("Copilot is not installed", {})
             endif
         }},
-        {text: "Accept Line", key: "l", cmd: () => {
+        {text: "Accept Line", key: "l", cmd: (_) => {
             if exists('*copilot#AcceptLine')
                 feedkeys(copilot#AcceptLine())
             else
                 popup_notification("Copilot is not installed", {})
             endif
         }},
-        {text: "Accept Word", key: "w", cmd: () => {
+        {text: "Accept Word", key: "w", cmd: (_) => {
             if exists('*copilot#AcceptWord')
                 feedkeys(copilot#AcceptWord())
             else
                 popup_notification("Copilot is not installed", {})
             endif
         }},
-        {text: "Dismiss", key: "g", close: true, cmd: () => {
+        {text: "Dismiss", key: "g", close: true, cmd: (_) => {
             if exists('*copilot#Dismiss')
                 feedkeys(copilot#Dismiss())
             else
@@ -294,7 +294,7 @@ export def Marks()
             linenr: v.pos[1],
             buffer: get(v, 'file', bufname()),
             close: true,
-            cmd: () => {
+            cmd: (_) => {
                 exe $"normal! {v.mark}"
             }
         }))
@@ -392,9 +392,10 @@ export def Git()
         switch_commands += [{
             key: $"{v[idx]}",
             text: v,
+            branch: v,
             close: true,
-            cmd: () => {
-                popup.Sh($'git switch {v}', () => {
+            cmd: (c) => {
+                popup.Sh($'git switch {c.branch}', () => {
                     RefreshGitSummary()
                 })
             },
@@ -404,14 +405,14 @@ export def Git()
 
     var hist_commands: list<dict<any>> = [
         {text: $'Git history of "{current_branch}"'},
-        {text: 'last', key: "h", close: true, cmd: () => {
+        {text: 'last', key: "h", close: true, cmd: (_) => {
             if empty(region)
                 git.ShowCommit(0)
             else
                 git.ShowCommit(0, region[0][1], region[1][1])
             endif
         }},
-        {text: 'all', key: "a", close: true, cmd: () => {
+        {text: 'all', key: "a", close: true, cmd: (_) => {
             if empty(region)
                 git.ShowCommit(1)
             else
@@ -422,12 +423,12 @@ export def Git()
 
     var pull_push_commands: list<dict<any>> = [
         {text: $'Pull/Push "{current_branch}"'},
-        {text: $'pull', key: "u", close: true, cmd: () => {
+        {text: $'pull', key: "u", close: true, cmd: (_) => {
             popup.Sh('git pull', () => {
                 RefreshGitSummary()
             })
         }},
-        {text: $'push', key: "p", close: true, cmd: () => {
+        {text: $'push', key: "p", close: true, cmd: (_) => {
             popup.Sh('git push', () => {
                 RefreshGitSummary()
             })
@@ -440,29 +441,29 @@ export def Git()
     ]
     if !empty(branches)
         main_commands += [
-            {text: $'switch to ...', key: "s", close: true, cmd: () => {
+            {text: $'switch to ...', key: "s", close: true, cmd: (_) => {
                 popup.Commands(switch_commands)
             }}
         ]
     endif
     main_commands += [
-        {text: $'pull/push ...', key: "p", close: true, cmd: () => {
+        {text: $'pull/push ...', key: "p", close: true, cmd: (_) => {
             popup.Commands(pull_push_commands)
         }},
-        {text: $'blame', key: "b", close: true, cmd: () => {
+        {text: $'blame', key: "b", close: true, cmd: (_) => {
             if empty(region)
                 git.Blame()
             else
                 git.Blame(region[0][1], region[1][1])
             endif
         }},
-        {text: $'history ...', key: "h", close: true, cmd: () => {
+        {text: $'history ...', key: "h", close: true, cmd: (_) => {
             popup.Commands(hist_commands)
         }}
     ]
     if is_github_remote
         main_commands += [
-            {text: $'open in github', key: "o", close: true, cmd: () => {
+            {text: $'open in github', key: "o", close: true, cmd: (_) => {
                 if empty(region)
                     git.GithubOpen()
                 else

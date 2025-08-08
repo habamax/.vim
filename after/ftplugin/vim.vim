@@ -110,11 +110,11 @@ def FuncNav(dir: number)
     normal! zz
     var commands = [
         {text: "Functions"},
-        {text: "Next", key: "j", cmd: () => {
+        {text: "Next", key: "j", cmd: (_) => {
             FindVimFunc(1)
             normal! zz
         }},
-        {text: "Prev", key: "k", cmd: () => {
+        {text: "Prev", key: "k", cmd: (_) => {
             FindVimFunc(-1)
             normal! zz
         }},

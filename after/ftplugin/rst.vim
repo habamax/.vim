@@ -107,11 +107,11 @@ def SectionNav(dir: number)
     normal! zz
     var commands = [
         {text: "Sections"},
-        {text: "Next", key: "j", cmd: () => {
+        {text: "Next", key: "j", cmd: (_) => {
             call rst#section(0, 1)
             normal! zz
         }},
-        {text: "Prev", key: "k", cmd: () => {
+        {text: "Prev", key: "k", cmd: (_) => {
             call rst#section(1, 1)
             normal! zz
         }},
