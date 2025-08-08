@@ -52,10 +52,10 @@ def SectionNav(dir: string = '')
     var winid = bufwinid(bufnr())
     var commands = [
         {text: "Sections"},
-        {text: "Next", key: "j", cmd: () => {
+        {text: "Next", key: "j", cmd: (_) => {
             FindSection()
             }},
-        {text: "Prev", key: "k", cmd: () => {
+        {text: "Prev", key: "k", cmd: (_) => {
             FindSection('b')
         }},
     ]
