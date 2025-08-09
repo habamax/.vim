@@ -156,6 +156,9 @@ nnoremap <silent> <space><cr> <scriptcmd>text.Toggle()<CR>
 import autoload 'zoom.vim'
 nnoremap <C-w><C-o> <scriptcmd>zoom.Toggle()<CR>
 nmap <C-w>o <C-w><C-o>
+# new window
+import autoload 'window.vim'
+nnoremap <C-w>n <scriptcmd>window.New()<CR>
 
 import autoload 'text.vim'
 
