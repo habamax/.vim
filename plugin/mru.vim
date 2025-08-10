@@ -36,6 +36,29 @@ def Add()
     writefile(mru[ : mru_max_count], mru_file)
 enddef
 
+def Edit(filename: string)
+    var fname = expand(filename)
+    if !filereadable(fname)
+        echom $"Can't open {fname}"
+        return
+    endif
+    exe $"edit {fname}"
+enddef
+
+def MRUComplete(_, _, _): string
+    var mru = []
+    if filereadable($'{$MYVIMDIR}.data/mru')
+        mru = readfile($'{$MYVIMDIR}.data/mru')
+            ->filter((_, v) => filereadable(expand(v)))
+    endif
+    if mru->len() > 0 && expand(mru[0]) == expand("%:p")
+        mru = mru[1 : ]
+    endif
+    return mru->join("\n")
+enddef
+
+command! -nargs=1 -complete=custom,MRUComplete MRU Edit(<f-args>)
+
 augroup MRU
     au!
     au BufEnter * Add()

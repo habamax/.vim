@@ -31,23 +31,29 @@ nnoremap <C-k> <cmd>copy-1<CR>
 
 # fuzzy
 import autoload 'fuzzy.vim'
-nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
-nnoremap <space>b <scriptcmd>fuzzy.Buffer()<CR>
-nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
-nnoremap <space>d <scriptcmd>fuzzy.DirFile()<CR>
+# nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
+# nnoremap <space>b <scriptcmd>fuzzy.Buffer()<CR>
+# nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
+# nnoremap <space>d <scriptcmd>fuzzy.DirFile()<CR>
+# nnoremap <space>fm <scriptcmd>fuzzy.MRU()<CR>
+# nnoremap <space>fc <scriptcmd>fuzzy.Colorscheme()<CR>
+# nnoremap <space>fs <scriptcmd>fuzzy.Session()<CR>
+# nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
 nnoremap <space>fi <scriptcmd>fuzzy.File($MYVIMDIR)<CR>
 nnoremap <space>fd <scriptcmd>fuzzy.File($DOCS ?? "~/docs")<CR>
 nnoremap <space>fr <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
-nnoremap <space>fm <scriptcmd>fuzzy.MRU()<CR>
 nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
-nnoremap <space>fc <scriptcmd>fuzzy.Colorscheme()<CR>
-nnoremap <space>fs <scriptcmd>fuzzy.Session()<CR>
-nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
 nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
-nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
 nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
-nnoremap <space>ww <scriptcmd>fuzzy.CurrentWord()<CR>
+# nnoremap <space>ww <scriptcmd>fuzzy.CurrentWord()<CR>
 nnoremap <space>it <scriptcmd>fuzzy.Template()<CR>
+
+nnoremap <space>e :<C-u>find<space>
+nnoremap <space>b :<C-u>b<space>
+nnoremap <space>ft :<C-u>set ft=
+nnoremap <space>fs :<C-u>LoadSession<space>
+nnoremap <space>fc :<C-u>colorscheme<space>
+nnoremap <space>fm :<C-u>MRU<space>
 
 # Ripgrep word under cursor
 nnoremap <space>wg <scriptcmd>exe 'Rg' expand("<cword>")<cr>
