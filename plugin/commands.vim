@@ -122,3 +122,36 @@ def MakeComplete(_, _, _): string
 enddef
 
 command! -nargs=* -complete=custom,MakeComplete Make Sh make <args>
+
+def TemplateComplete(_, _, _): string
+    var path = $"{$MYVIMDIR}templates/"
+    var ft = getbufvar(bufnr(), '&filetype')
+    var ft_path = path .. ft
+    var tmpls = []
+
+    if !empty(ft) && isdirectory(ft_path)
+        tmpls = mapnew(readdirex(ft_path, (e) => e.type == 'file'), (_, v) => $"{ft}/{v.name}")
+    endif
+
+    if isdirectory(path)
+        extend(tmpls, mapnew(readdirex(path, (e) => e.type == 'file'), (_, v) => v.name))
+    endif
+    return tmpls->join("\n")
+enddef
+
+def InsertTemplate(template: string)
+    var template_path = $"{$MYVIMDIR}templates/{template}"
+    if !filereadable(template_path)
+        echo $"Can't read {template_path}"
+        return
+    endif
+    append(line('.'), readfile($"{template_path}")->mapnew((_, v) => {
+        return v->substitute('!!\(.\{-}\)!!', '\=eval(submatch(1))', 'g')
+    }))
+    if getline('.') =~ '^\s*$'
+        del _
+    else
+        normal! j^
+    endif
+enddef
+command! -nargs=1 -complete=custom,TemplateComplete InsertTemplate InsertTemplate(<f-args>)

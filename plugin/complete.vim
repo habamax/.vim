@@ -26,7 +26,10 @@ def CmdCompleteSelectFirst()
     if empty(get(info, 'cmdline_orig', ''))
         return
     endif
-    var commands = '\v(^colo%[rscheme])|(^b%[uffer])|(^MRU)|(^LoadSession)\s'
+    var commands = '\v'
+    commands ..= '(^colo%[rscheme])|(^b%[uffer])'
+    commands ..= '|(^MRU)|(^LoadSession)|(^InsertTemplate)'
+    commands ..= '\s'
     if match(info.cmdline_orig, commands) == -1
         return
     endif
