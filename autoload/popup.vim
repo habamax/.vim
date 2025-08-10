@@ -395,7 +395,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
                     if empty(prompt_text)
                         filtered_items = [items_dict]
                     else
-                        filtered_items = items_dict->matchfuzzypos(prompt_text, {key: "text", camelcase: false})
+                        filtered_items = items_dict->matchfuzzypos(prompt_text, {key: "text"})
                     endif
                 elseif (key == "\<C-h>" || key == "\<BS>")
                     if empty(prompt_text) && close_on_bs
@@ -408,11 +408,11 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
                     if empty(prompt_text)
                         filtered_items = [items_dict]
                     else
-                        filtered_items = items_dict->matchfuzzypos(prompt_text, {key: "text", camelcase: false})
+                        filtered_items = items_dict->matchfuzzypos(prompt_text, {key: "text"})
                     endif
                 elseif key =~ '\p'
                     prompt_text ..= key
-                    filtered_items = items_dict->matchfuzzypos(prompt_text, {key: "text", camelcase: false})
+                    filtered_items = items_dict->matchfuzzypos(prompt_text, {key: "text"})
                 endif
                 UpdatePopups(pwinid, id)
                 AlignPopups(pwinid, id)

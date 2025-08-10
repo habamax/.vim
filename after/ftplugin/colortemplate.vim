@@ -131,7 +131,7 @@ def HighlightCompletor(findstart: number, base: string): any
 
     var items = hi_groups
         ->mapnew((_, v) => ({word: v.name, kind: 'H', info: v.desc, dup: 0}))
-        ->matchfuzzy(base, {key: "word", camelcase: false})
+        ->matchfuzzy(base, {key: "word"})
 
     return items->empty() ? v:none : items
 enddef
