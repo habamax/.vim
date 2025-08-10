@@ -41,28 +41,17 @@ import autoload 'fuzzy.vim'
 # nnoremap <space>fi <scriptcmd>fuzzy.File($MYVIMDIR)<CR>
 # nnoremap <space>fd <scriptcmd>fuzzy.File($DOCS ?? "~/docs")<CR>
 # nnoremap <space>fr <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
-# TODO: replace with custom commands
 nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
 nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
 nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
 nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 # nnoremap <space>it <scriptcmd>fuzzy.Template()<CR>
 
-def Lcd(path: string)
-    chdir(expand(path), "window")
-    g:lcd = 1
-enddef
-def LcdBack()
-    if get(g:, "lcd", 0)
-        g:lcd = 0
-        lcd -
-    endif
-enddef
-nnoremap <space>e <scriptcmd>LcdBack()<CR>:<C-u>find<space>
+nnoremap <space>e <scriptcmd>g:SetProjectRoot()<CR>:<C-u>find<space>
 nnoremap <space>b :<C-u>b<space>
-nnoremap <space>fi <scriptcmd>Lcd($MYVIMDIR)<CR>:<C-u>find<space>
-nnoremap <space>fd <scriptcmd>Lcd("~/docs")<CR>:<C-u>find<space>
-nnoremap <space>fr <scriptcmd>Lcd($VIMRUNTIME)<CR>:<C-u>find<space>
+nnoremap <space>fi <cmd>lcd $MYVIMDIR<CR><scriptcmd>g:lcd = 1<CR>:<C-u>find<space>
+nnoremap <space>fd <cmd>lcd ~/docs<CR><scriptcmd>g:lcd = 1<CR>:<C-u>find<space>
+nnoremap <space>fr <cmd>lcd $VIMRUNTIME<CR><scriptcmd>g:lcd = 1<CR>:<C-u>find<space>
 nnoremap <space>ft :<C-u>set ft=
 nnoremap <space>fs :<C-u>LoadSession<space>
 nnoremap <space>fc :<C-u>colorscheme<space>

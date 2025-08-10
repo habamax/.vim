@@ -8,7 +8,7 @@ var rootMarkers = {
     files: ['configure', 'Cargo.toml', 'mix.exs', 'go.mod', 'package.json']
 }
 
-def SetProjectRoot()
+def g:SetProjectRoot()
     if &buftype != ''
         return
     endif
@@ -39,5 +39,5 @@ def SetProjectRoot()
 enddef
 
 augroup prjroot | au!
-    au BufEnter * SetProjectRoot()
+    au BufEnter * g:SetProjectRoot()
 augroup END
