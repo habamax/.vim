@@ -41,14 +41,14 @@ def CmdCompleteSelectFirst()
 enddef
 
 import './find.vim'
-import './MRU.vim'
+import './mru.vim'
 import './template.vim'
 import './session.vim'
 def CmdCompleteResetCache()
     find.CompleteReset()
     template.CompleteReset()
     session.CompleteReset()
-    MRU.CompleteReset()
+    mru.CompleteReset()
 enddef
 
 augroup cmdcomplete
