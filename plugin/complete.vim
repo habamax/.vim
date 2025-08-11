@@ -13,7 +13,7 @@ set complete^=Fcompletor#Lsp^10
 
 # command line completion
 set wildmode=noselect:lastused,full
-set wildmenu wildoptions=pum,fuzzy pumheight=20
+set wildmenu wildoptions=pum,fuzzy pumheight=12
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
 
 cnoremap <Up> <C-U><Up>
