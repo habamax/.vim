@@ -49,9 +49,9 @@ nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 
 nnoremap <space>e <scriptcmd>g:SetProjectRoot()<CR>:<C-u>find<space>
 nnoremap <space>b :<C-u>b<space>
-nnoremap <space>fi <cmd>lcd $MYVIMDIR<CR><scriptcmd>g:lcd = 1<CR>:<C-u>find<space>
-nnoremap <space>fd <cmd>lcd ~/docs<CR><scriptcmd>g:lcd = 1<CR>:<C-u>find<space>
-nnoremap <space>fr <cmd>lcd $VIMRUNTIME<CR><scriptcmd>g:lcd = 1<CR>:<C-u>find<space>
+nnoremap <space>fi <cmd>lcd $MYVIMDIR<CR>:<C-u>find<space>
+nnoremap <space>fd <cmd>lcd ~/docs<CR>:<C-u>find<space>
+nnoremap <space>fr <cmd>lcd $VIMRUNTIME<CR>:<C-u>find<space>
 nnoremap <space>ft :<C-u>set ft=
 nnoremap <space>fs :<C-u>LoadSession<space>
 nnoremap <space>fc :<C-u>colorscheme<space>
