@@ -40,8 +40,20 @@ def CmdCompleteSelectFirst()
     endif
 enddef
 
+import './find.vim'
+import './MRU.vim'
+import './template.vim'
+import './session.vim'
+def CmdCompleteResetCache()
+    find.CompleteReset()
+    template.CompleteReset()
+    session.CompleteReset()
+    MRU.CompleteReset()
+enddef
+
 augroup cmdcomplete
     au!
     autocmd CmdlineChanged : wildtrigger()
+    autocmd CmdlineEnter : CmdCompleteResetCache()
     autocmd CmdlineLeavePre : CmdCompleteSelectFirst()
 augroup END

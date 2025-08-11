@@ -70,16 +70,6 @@ command! -nargs=1 -complete=expression Echo redir @"> | echo json.Format(<args>)
 # Add formatted vim objects to the current buffer, e.g. :EchoHere getbufinfo()
 command! -nargs=1 -complete=expression EchoHere append(line('.'), json.Format(<args>)->split("\n"))
 
-# save and load sessions
-if !isdirectory($'{$MYVIMDIR}.data/sessions')
-    mkdir($'{$MYVIMDIR}.data/sessions', "p")
-endif
-command! -nargs=1 -complete=custom,SessionComplete SaveSession :exe $'mksession! {$MYVIMDIR}.data/sessions/<args>'
-command! -nargs=1 -complete=custom,SessionComplete LoadSession :%bd <bar> exe $'so {$MYVIMDIR}.data/sessions/<args>'
-def SessionComplete(_, _, _): string
-    return globpath($'{$MYVIMDIR}.data/sessions/', "*", 0, 1)->mapnew((_, v) => fnamemodify(v, ":t"))->join("\n")
-enddef
-
 # write to a privileged file
 if executable('sudo')
     command! W w !sudo tee "%" >/dev/null
@@ -123,35 +113,3 @@ enddef
 
 command! -nargs=* -complete=custom,MakeComplete Make Sh make <args>
 
-def TemplateComplete(_, _, _): string
-    var path = $"{$MYVIMDIR}templates/"
-    var ft = getbufvar(bufnr(), '&filetype')
-    var ft_path = path .. ft
-    var tmpls = []
-
-    if !empty(ft) && isdirectory(ft_path)
-        tmpls = mapnew(readdirex(ft_path, (e) => e.type == 'file'), (_, v) => $"{ft}/{v.name}")
-    endif
-
-    if isdirectory(path)
-        extend(tmpls, mapnew(readdirex(path, (e) => e.type == 'file'), (_, v) => v.name))
-    endif
-    return tmpls->join("\n")
-enddef
-
-def InsertTemplate(template: string)
-    var template_path = $"{$MYVIMDIR}templates/{template}"
-    if !filereadable(template_path)
-        echo $"Can't read {template_path}"
-        return
-    endif
-    append(line('.'), readfile($"{template_path}")->mapnew((_, v) => {
-        return v->substitute('!!\(.\{-}\)!!', '\=eval(submatch(1))', 'g')
-    }))
-    if getline('.') =~ '^\s*$'
-        del _
-    else
-        normal! j^
-    endif
-enddef
-command! -nargs=1 -complete=custom,TemplateComplete InsertTemplate InsertTemplate(<f-args>)

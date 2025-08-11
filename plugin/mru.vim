@@ -45,16 +45,20 @@ def Edit(filename: string)
     exe $"edit {fname}"
 enddef
 
+var mru_cache = []
+export def CompleteReset()
+    mru_cache = []
+enddef
+
 def MRUComplete(_, _, _): string
-    var mru = []
-    if filereadable($'{$MYVIMDIR}.data/mru')
-        mru = readfile($'{$MYVIMDIR}.data/mru')
+    if filereadable($'{$MYVIMDIR}.data/mru') && empty(mru_cache)
+        mru_cache = readfile($'{$MYVIMDIR}.data/mru')
             ->filter((_, v) => filereadable(expand(v)))
     endif
-    if mru->len() > 0 && expand(mru[0]) == expand("%:p")
-        mru = mru[1 : ]
+    if mru_cache->len() > 0 && expand(mru_cache[0]) == expand("%:p")
+        mru_cache = mru_cache[1 : ]
     endif
-    return mru->join("\n")
+    return mru_cache->join("\n")
 enddef
 
 command! -nargs=1 -complete=custom,MRUComplete MRU Edit(<f-args>)
