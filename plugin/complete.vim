@@ -26,16 +26,16 @@ def CmdCompleteSelectFirst()
     if empty(get(info, 'cmdline_orig', ''))
         return
     endif
+    var cmd = info.cmdline_orig->split()
+    if getcmdcompltype() == 'command' && cmd->len() == 1
+        return
+    endif
     var commands = '\v'
     commands ..= '(^fin%[d])|(^b%[uffer])|(^bd%[elete])'
     commands ..= '|(^colo%[rscheme])|(^MRU)'
     commands ..= '|(^LoadSession)|(^InsertTemplate)'
     commands ..= '\s'
     if match(info.cmdline_orig, commands) == -1
-        return
-    endif
-    var cmd = info.cmdline_orig->split()
-    if getcmdcompltype() == 'command' && cmd->len() == 1
         return
     endif
     if !empty(get(info, 'matches', []))
