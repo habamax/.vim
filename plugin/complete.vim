@@ -22,25 +22,29 @@ cnoremap <C-p> <C-U><C-p>
 cnoremap <C-n> <C-U><C-n>
 
 def CmdCompleteSelectFirst()
+    if getcmdcompltype() == 'command'
+        return
+    endif
     var info = cmdcomplete_info()
     if empty(get(info, 'cmdline_orig', ''))
         return
     endif
     var commands = '\v'
-    commands ..= '(^colo%[rscheme])|(^b%[uffer])|(^bd%[elete])'
-    commands ..= '|(^MRU)|(^LoadSession)|(^InsertTemplate)'
+    commands ..= '(^fin%[d])|(^b%[uffer])|(^bd%[elete])'
+    commands ..= '|(^colo%[rscheme])|(^MRU)'
+    commands ..= '|(^LoadSession)|(^InsertTemplate)'
     commands ..= '\s'
     if match(info.cmdline_orig, commands) == -1
         return
     endif
     var cmd = info.cmdline_orig->split()
-    if cmd->len() == 1
-        return
-    endif
     if !empty(get(info, 'matches', []))
         if info.selected == -1 && info.pum_visible
             setcmdline($'{cmd[0]} {info.matches[0]}')
         endif
+    endif
+    if cmd->len() == 1
+        return
     endif
 enddef
 
