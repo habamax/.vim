@@ -1,7 +1,5 @@
 vim9script
 
-import autoload 'popup.vim'
-
 var popup_borderchars = get(g:, "popup_borderchars", ['─', '│', '─', '│', '┌', '┐', '┘', '└'])
 var popup_borderhighlight = get(g:, "popup_borderhighlight", ['Normal'])
 var popup_highlight = get(g:, "popup_highlight", 'Normal')
