@@ -28,8 +28,8 @@ augroup end
 # Commands
 
 # update packages
-import autoload "git.vim"
-command! PackUp git.PackUpdate()
+import autoload "pack.vim"
+command! PackUpdate pack.Update()
 
 # Wipe all hidden buffers
 def WipeHiddenBuffers()
