@@ -104,15 +104,15 @@ export def Update()
         endif
         var [name, url] = packages->remove(0)
         var path = $"{$MYVIMDIR}/pack/{name}"
-        appendbufline(bufnr, '$', $"- {name}")
+        appendbufline(bufnr, '$', $"○ {name}")
         if isdirectory(path)
             var job = job_start([&shell, &shellcmdflag, 'git fetch && git reset --hard @{u} && git clean -dfx'], {
                 "cwd": path,
                 close_cb: (ch) => {
                     var buftext = getbufline(bufnr, 1, '$')
                     buftext = buftext->mapnew((_, v) => {
-                        if v == $"- {name}"
-                            return $"✓ {name}"
+                        if v == $"○ {name}"
+                            return $"● {name}"
                         else
                             return v
                         endif
@@ -127,8 +127,8 @@ export def Update()
                 close_cb: (ch) => {
                     var buftext = getbufline(bufnr, 1, '$')
                     buftext = buftext->mapnew((_, v) => {
-                        if v == $"- {name} ..."
-                            return $"✓ {name}"
+                        if v == $"○ {name} ..."
+                            return $"● {name}"
                         else
                             return v
                         endif
