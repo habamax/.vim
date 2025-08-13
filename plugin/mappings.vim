@@ -49,7 +49,7 @@ nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 
 nnoremap <space>e <scriptcmd>g:SetProjectRoot()<CR>:<C-u>find<space>
 nnoremap <space>b :<C-u>b<space>
-nnoremap <space>r :<C-u>MRU<space>
+nnoremap <space>r :<C-u>Recent<space>
 nnoremap <space>d <cmd>lcd ~/docs<CR>:<C-u>find<space>
 nnoremap <space>fi <cmd>lcd $MYVIMDIR<CR>:<C-u>find<space>
 nnoremap <space>fr <cmd>lcd $VIMRUNTIME<CR>:<C-u>find<space>

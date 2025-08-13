@@ -32,7 +32,7 @@ def CmdCompleteSelectFirst()
     endif
     var commands = '\v'
     commands ..= '(^fin%[d])|(^b%[uffer])|(^bd%[elete])'
-    commands ..= '|(^colo%[rscheme])|(^MRU)'
+    commands ..= '|(^colo%[rscheme])|(^Recent)'
     commands ..= '|(^LoadSession)|(^InsertTemplate)'
     commands ..= '\s'
     if match(info.cmdline_orig, commands) == -1
@@ -49,14 +49,14 @@ def CmdCompleteSelectFirst()
 enddef
 
 import './find.vim'
-import './mru.vim'
+import './recent.vim'
 import './template.vim'
 import './session.vim'
 def CmdCompleteResetCache()
     find.CompleteReset()
     template.CompleteReset()
     session.CompleteReset()
-    mru.CompleteReset()
+    recent.CompleteReset()
 enddef
 
 augroup cmdcomplete

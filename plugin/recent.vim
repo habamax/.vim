@@ -1,16 +1,16 @@
 vim9script
 
-const mru_file = $'{$MYVIMDIR}.data/mru'
-const mru_max_count = 300
-const mru_ft_avoid = ['gitcommit']
-var mru_cache = []
+const recent_file = $'{$MYVIMDIR}.data/mru'
+const recent_max_count = 300
+const recent_ft_avoid = ['gitcommit']
+var recent_cache = []
 
 def Add()
     if !empty(&buftype) || empty(bufname())
         return
     endif
 
-    if mru_ft_avoid->index(&filetype) > -1
+    if recent_ft_avoid->index(&filetype) > -1
         return
     endif
 
@@ -24,8 +24,8 @@ def Add()
     endif
 
     var mru: list<string> = []
-    if filereadable(mru_file)
-        mru = readfile(mru_file)
+    if filereadable(recent_file)
+        mru = readfile(recent_file)
             ->filter((_, v) => filereadable(expand(v)))
     endif
 
@@ -34,7 +34,7 @@ def Add()
         mru->remove(idx)
     endif
     mru->insert(buf, 0)
-    writefile(mru[ : mru_max_count], mru_file)
+    writefile(mru[ : recent_max_count], recent_file)
 enddef
 
 def Edit(filename: string)
@@ -47,23 +47,23 @@ def Edit(filename: string)
 enddef
 
 export def CompleteReset()
-    mru_cache = []
+    recent_cache = []
 enddef
 
-def MRUComplete(_, _, _): string
-    if filereadable($'{$MYVIMDIR}.data/mru') && empty(mru_cache)
-        mru_cache = readfile($'{$MYVIMDIR}.data/mru')
+def RecentComplete(_, _, _): string
+    if filereadable($'{$MYVIMDIR}.data/mru') && empty(recent_cache)
+        recent_cache = readfile($'{$MYVIMDIR}.data/mru')
             ->filter((_, v) => filereadable(expand(v)))
     endif
-    if mru_cache->len() > 0 && expand(mru_cache[0]) == expand("%:p")
-        mru_cache = mru_cache[1 : ]
+    if recent_cache->len() > 0 && expand(recent_cache[0]) == expand("%:p")
+        recent_cache = recent_cache[1 : ]
     endif
-    return mru_cache->join("\n")
+    return recent_cache->join("\n")
 enddef
 
-command! -nargs=1 -complete=custom,MRUComplete MRU Edit(<f-args>)
+command! -nargs=1 -complete=custom,RecentComplete Recent Edit(<f-args>)
 
-augroup MRU
+augroup recent
     au!
     au BufEnter * Add()
 augroup END
