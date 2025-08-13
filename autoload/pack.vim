@@ -39,7 +39,7 @@ def InstallPack(path: string, url: string)
     pack_jobs->add(job)
 enddef
 
-def CreatePopup(): tuple<number, number>
+def CreatePopup(Setup: func(number) = null_function): tuple<number, number>
     var grab_bufnr = 0
 
     var winid = popup_create("", {
@@ -70,6 +70,11 @@ def CreatePopup(): tuple<number, number>
             return false
         },
     })
+
+    if Setup != null_function
+        Setup(winid)
+    endif
+
     return (winid, getwininfo(winid)[0].bufnr)
 enddef
 
@@ -80,7 +85,12 @@ export def Update()
         return
     endif
 
-    var [winid, bufnr] = CreatePopup()
+    var [winid, bufnr] = CreatePopup((id) => {
+            win_execute(id, "syn match PackUpdateDone '^●'")
+            win_execute(id, "syn match PackInstallDone '^⋆'")
+            hi def link PackUpdateDone Added
+            hi def link PackInstallDone Changed
+        })
     var packages = Packages()
 
     timer_start(1000, (t) => {
@@ -122,14 +132,14 @@ export def Update()
             )
             pack_jobs->add(job)
         else
-            appendbufline(bufnr, '$', $"□ {name}")
+            appendbufline(bufnr, '$', $"☆ {name}")
             var job = job_start($'git clone {url} {path}', {
                 "cwd": $MYVIMDIR,
                 close_cb: (ch) => {
                     var buftext = getbufline(bufnr, 1, '$')
                     buftext = buftext->mapnew((_, v) => {
-                        if v == $"□ {name}"
-                            return $"■ {name}"
+                        if v == $"☆ {name}"
+                            return $"⋆ {name}"
                         else
                             return v
                         endif
