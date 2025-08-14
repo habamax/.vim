@@ -122,7 +122,7 @@ export def Update()
                 appendbufline(bufnr, '$', $"{UPD1} {name}")
             endif
             var job = job_start([&shell, &shellcmdflag, 'git fetch && git reset --hard @{u} && git clean -dfx'], {
-                "cwd": path,
+                cwd: path,
                 close_cb: (_) => {
                     var buftext = getbufline(bufnr, 1, '$')
                     buftext = buftext->mapnew((_, v) => {
@@ -143,7 +143,7 @@ export def Update()
                 appendbufline(bufnr, '$', $"{INST1} {name}")
             endif
             var job = job_start($'git clone {url} {path}', {
-                "cwd": $MYVIMDIR,
+                cwd: $MYVIMDIR,
                 close_cb: (_) => {
                     var buftext = getbufline(bufnr, 1, '$')
                     buftext = buftext->mapnew((_, v) => {
