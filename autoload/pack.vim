@@ -35,12 +35,6 @@ def IsRunning(): bool
     return reduce(pack_jobs, (acc, val) => acc || job_status(val) == 'run', false)
 enddef
 
-def InstallPack(path: string, url: string)
-    var job = job_start($'git clone {url} {path}',
-        {"err_cb": OutCb, "out_cb": OutCb})
-    pack_jobs->add(job)
-enddef
-
 def CreatePopup(Setup: func(number) = null_function): tuple<number, number>
     var grab_bufnr = 0
 
