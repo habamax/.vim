@@ -30,7 +30,7 @@ def CmdCompleteSelectFirst()
     if getcmdcompltype() == 'command' && cmd->len() == 1
         return
     endif
-    var commands = '\v'
+    var commands = '\C\v'
     commands ..= '(^fin%[d])|(^b%[uffer])|(^bd%[elete])'
     commands ..= '|(^colo%[rscheme])|(^Recent)'
     commands ..= '|(^LoadSession)|(^InsertTemplate)'
