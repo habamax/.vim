@@ -28,7 +28,7 @@ def Find(cmd_arg: string, cmd_complete: bool): list<string>
         if empty(cmd)
             files_cache = globpath('.', '**', 1, 1)
                 ->filter((_, v) => !isdirectory(v))
-                ->mapnew((_, v) => v->substitute('^\./', "", ""))
+                ->mapnew((_, v) => v->substitute('^\.[\/]', "", ""))
         else
             files_cache = systemlist(cmd)
         endif
