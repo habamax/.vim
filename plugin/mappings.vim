@@ -75,9 +75,6 @@ nnoremap zh <scriptcmd>qc.HScroll($'normal! {v:count1}zh')<CR>
 nnoremap zs <scriptcmd>qc.HScroll('normal! zs')<CR>
 nnoremap ze <scriptcmd>qc.HScroll('normal! ze')<CR>
 
-# marks
-# nnoremap ' <scriptcmd>qc.Marks()<CR>
-
 # enhance search with <space> as "whatever"
 # to enter literal <space> use <C-v><space>
 cnoremap <expr> <space> getcmdtype() =~ '[/?]' ? '.\{-}' : "<space>"
