@@ -61,7 +61,7 @@ enddef
 
 augroup cmdcomplete
     au!
-    autocmd CmdlineChanged [:\/] wildtrigger()
+    autocmd CmdlineChanged : wildtrigger()
     autocmd CmdlineEnter : CmdCompleteResetCache()
     autocmd CmdlineLeavePre : CmdCompleteSelectFirst()
 augroup END
