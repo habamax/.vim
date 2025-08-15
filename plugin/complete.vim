@@ -33,7 +33,7 @@ def CmdCompleteSelectFirst()
     var commands = '\C\v'
     commands ..= '(^fin%[d])|(^b%[uffer])|(^bd%[elete])'
     commands ..= '|(^colo%[rscheme])|(^Recent)'
-    commands ..= '|(^LoadSession)|(^InsertTemplate)'
+    commands ..= '|(^LoadSession)|(^InsertTemplate)|(^Colorscheme)'
     commands ..= '\s'
     if match(info.cmdline_orig, commands) == -1
         return

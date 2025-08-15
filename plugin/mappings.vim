@@ -55,7 +55,7 @@ nnoremap <space>fi <cmd>lcd $MYVIMDIR<CR>:<C-u>find<space>
 nnoremap <space>fr <cmd>lcd $VIMRUNTIME<CR>:<C-u>find<space>
 nnoremap <space>ft :<C-u>set ft=
 nnoremap <space>fs :<C-u>LoadSession<space>
-nnoremap <space>fc :<C-u>colorscheme<space>
+nnoremap <space>fc :<C-u>Colorscheme<space>
 nnoremap <space>it :<C-u>InsertTemplate<space>
 
 # Ripgrep word under cursor

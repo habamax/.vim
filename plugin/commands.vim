@@ -113,3 +113,7 @@ enddef
 
 command! -nargs=* -complete=custom,MakeComplete Make Sh make <args>
 
+command -nargs=1 -complete=custom,ColorschemeComplete Colorscheme colorscheme <args>
+def ColorschemeComplete(_, _, _): string
+    return getcompletion('', 'color')->join("\n")
+enddef
