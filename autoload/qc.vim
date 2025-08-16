@@ -164,7 +164,6 @@ export def TextTr()
             normal! ""p
         }},
         {text: "Decode", key: "d", close: true, cmd: (_) => {
-            # TODO: go line by line?
             setreg("", region->join('')->base64_decode()->blob2str()->join("\n"))
             normal! ""p
         }}
