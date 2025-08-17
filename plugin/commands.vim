@@ -115,5 +115,7 @@ command! -nargs=* -complete=custom,MakeComplete Make Sh make <args>
 
 command -nargs=1 -complete=custom,ColorschemeComplete Colorscheme colorscheme <args>
 def ColorschemeComplete(_, _, _): string
-    return getcompletion('', 'color')->join("\n")
+    var cur_colorscheme = get(g:, "colors_name", "default")
+    var colors = [cur_colorscheme] + getcompletion('', 'color')->filter((_, v) => v != cur_colorscheme)
+    return colors->join("\n")
 enddef
