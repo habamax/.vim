@@ -36,7 +36,7 @@ def CmdCompleteSelectFirst()
         'colo%[rscheme]', 'Recent', 'Bookmark', 'Help',
         'LoadSession', 'InsertTemplate', 'Colorscheme'
     ]
-    if !commands->reduce((acc, val) => acc || match(info.cmdline_orig, val) == -1, false) 
+    if !commands->reduce((acc, val) => acc || match(info.cmdline_orig, $'\v\C^\s*{val}\s') != -1, false)
         return
     endif
 
