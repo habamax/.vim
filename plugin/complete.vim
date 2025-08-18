@@ -30,15 +30,16 @@ def CmdCompleteSelectFirst()
     if getcmdcompltype() == 'command' && cmd->len() == 1
         return
     endif
-    var commands = '\C\v^'
-    commands ..= '(fin%[d])|(b%[uffer])|(bd%[elete])'
-    commands ..= '|(colo%[rscheme])|(Recent)|(Bookmark)'
-    commands ..= '|(LoadSession)|(InsertTemplate)|(Colorscheme)'
-    commands ..= '\s'
-    # TODO: add Help here too
-    if match(info.cmdline_orig, commands) == -1
+
+    var commands = [
+        'fin%[d]', 'b%[uffer]', 'bd%[elete]',
+        'colo%[rscheme]', 'Recent', 'Bookmark', 'Help',
+        'LoadSession', 'InsertTemplate', 'Colorscheme'
+    ]
+    if !commands->reduce((acc, val) => acc || match(info.cmdline_orig, val) == -1, false) 
         return
     endif
+
     if !empty(get(info, 'matches', []))
         if info.selected == -1 && info.pum_visible
             setcmdline($'{cmd[0]} {info.matches[0]}')
