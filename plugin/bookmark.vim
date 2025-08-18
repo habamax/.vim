@@ -9,7 +9,7 @@ def BookmarkLoad(): dict<any>
         bookmarks = readfile(bookmarkFile)
             ->join()
             ->json_decode()
-            ->filter((_, v) => filereadable(v.file))
+            ->filter((_, v) => filereadable(v.file) || isdirectory(v.file))
     catch
     endtry
     return bookmarks
@@ -28,7 +28,11 @@ def BookmarkSave()
         else
             bookmarks = BookmarkLoad()
         endif
-        bookmarks[name] = {file: expand("%:p"), line: line('.'), col: col('.')}
+        bookmarks[name] = {
+            file: substitute(expand("%:p"), "^dir://", "", ""),
+            line: line('.'),
+            col: col('.')
+        }
         [bookmarks->json_encode()]->writefile(bookmarkFile)
         bookmark_cache = bookmarks
     catch
