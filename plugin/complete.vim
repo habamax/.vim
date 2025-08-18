@@ -32,7 +32,7 @@ def CmdCompleteSelectFirst()
     endif
     var commands = '\C\v'
     commands ..= '(^fin%[d])|(^b%[uffer])|(^bd%[elete])'
-    commands ..= '|(^colo%[rscheme])|(^Recent)'
+    commands ..= '|(^colo%[rscheme])|(^Recent)|(^Bookmark)'
     commands ..= '|(^LoadSession)|(^InsertTemplate)|(^Colorscheme)'
     commands ..= '\s'
     if match(info.cmdline_orig, commands) == -1

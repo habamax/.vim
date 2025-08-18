@@ -35,14 +35,14 @@ import autoload 'fuzzy.vim'
 # nnoremap <space>b <scriptcmd>fuzzy.Buffer()<CR>
 # nnoremap <space>r <scriptcmd>fuzzy.MRU()<CR>
 # nnoremap <space>d <scriptcmd>fuzzy.File($DOCS ?? "~/docs")<CR>
-nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
 # nnoremap <space>fc <scriptcmd>fuzzy.Colorscheme()<CR>
 # nnoremap <space>fs <scriptcmd>fuzzy.Session()<CR>
 # nnoremap <space>fi <scriptcmd>fuzzy.File($MYVIMDIR)<CR>
 # nnoremap <space>fr <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
 # nnoremap <space>it <scriptcmd>fuzzy.Template()<CR>
 # nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
-nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
+# nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
+nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
 nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
 nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
 nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
@@ -51,6 +51,7 @@ nnoremap <space>e <scriptcmd>g:SetProjectRoot()<CR>:<C-u>find<space>
 nnoremap <space>b :<C-u>b<space>
 nnoremap <space>r :<C-u>Recent<space>
 nnoremap <space>d <cmd>lcd ~/docs<CR>:<C-u>find<space>
+nnoremap <space>B :<C-u>Bookmark<space>
 nnoremap <space>fi <cmd>lcd $MYVIMDIR<CR>:<C-u>find<space>
 nnoremap <space>fr <cmd>lcd $VIMRUNTIME<CR>:<C-u>find<space>
 nnoremap <space>ft :<C-u>set ft=

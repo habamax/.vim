@@ -75,35 +75,6 @@ if executable('sudo')
     command! W w !sudo tee "%" >/dev/null
 endif
 
-# bookmarks
-def SaveBookmark()
-    if empty(expand("%")) | return | endif
-    var name = input("Save bookmark: ", expand("%:t"))
-    if empty(name)
-        name = expand("%:t")
-    endif
-    var bookmarks = {}
-    var bookmarkFile = $'{$MYVIMDIR}.data/bookmarks.json'
-    try
-        if !filereadable(bookmarkFile)
-            mkdir(fnamemodify(bookmarkFile, ":p:h"), "p")
-        else
-            bookmarks = readfile(bookmarkFile)
-                ->join()
-                ->json_decode()
-                ->filter((_, v) => filereadable(v.file))
-        endif
-        bookmarks[name] = {file: expand("%:p"), line: line('.'), col: col('.')}
-        [bookmarks->json_encode()]->writefile(bookmarkFile)
-    catch
-        echohl Error
-        echomsg v:exception
-        echohl None
-    endtry
-enddef
-
-command! Bookmark call SaveBookmark()
-
 command! -nargs=1 Grep Sh! grep -Rn <args> .
 command! -nargs=1 Rg Sh! rg -nS --column <args> .
 
