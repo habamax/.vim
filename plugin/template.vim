@@ -23,7 +23,10 @@ def TemplateComplete(_, _, _): string
 enddef
 
 def InsertTemplate(template: string)
-    # TODO: do nothing if file is readonly
+    if &l:readonly
+        echo "Buffer is read-only!"
+        return
+    endif
     var template_path = $"{$MYVIMDIR}templates/{template}"
     if !filereadable(template_path)
         echo $"Can't read {template_path}"
