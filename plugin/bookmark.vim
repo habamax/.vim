@@ -16,6 +16,16 @@ def BookmarkLoad(): dict<any>
 enddef
 
 def BookmarkSave()
+    if empty(bookmark_cache)
+        return
+    endif
+    try
+        [bookmark_cache->json_encode()]->writefile(bookmarkFile)
+    catch
+    endtry
+enddef
+
+def BookmarkAdd()
     if empty(expand("%")) | return | endif
     var name = input("Save bookmark: ", expand("%:t"))
     if empty(name)
@@ -31,10 +41,11 @@ def BookmarkSave()
         bookmarks[name] = {
             file: substitute(expand("%:p"), "^dir://", "", ""),
             line: line('.'),
-            col: col('.')
+            col: col('.'),
+            use_dt: reltime()->reltimefloat()
         }
-        [bookmarks->json_encode()]->writefile(bookmarkFile)
         bookmark_cache = bookmarks
+        BookmarkSave()
     catch
         echohl Error
         echomsg v:exception
@@ -42,7 +53,7 @@ def BookmarkSave()
     endtry
 enddef
 
-command! BookmarkSave call BookmarkSave()
+command! BookmarkAdd call BookmarkAdd()
 
 command! -nargs=1 -complete=custom,BookmarkComplete Bookmark BookmarkOpen(<f-args>)
 
@@ -50,7 +61,12 @@ def BookmarkComplete(_, _, _): string
     if empty(bookmark_cache) && filereadable(bookmarkFile)
         bookmark_cache = BookmarkLoad()
     endif
-    return bookmark_cache->keys()->join("\n")
+    return bookmark_cache
+        ->items()
+        ->sort((a, b) => a[1].use_dt == b[1].use_dt ? 0 : a[1].use_dt < b[1].use_dt ? 1 : -1)
+        ->mapnew((_, v) => v[0])
+        ->join("\n")
+
 enddef
 
 def BookmarkOpen(name: string)
@@ -61,6 +77,8 @@ def BookmarkOpen(name: string)
         echohl None
         return
     endif
+    bookmark_cache[name].use_dt = reltime()->reltimefloat()
+    BookmarkSave()
     exe $"edit {bookmark.file}"
     cursor(bookmark.line, bookmark.col)
     normal! zz
