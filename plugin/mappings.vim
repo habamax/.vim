@@ -43,7 +43,7 @@ import autoload 'fuzzy.vim'
 # nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
 # nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
 # nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
-nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
+# nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
 nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
 nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 
@@ -55,6 +55,7 @@ nnoremap <space>h :<C-u>Help<space>
 nnoremap <space>B :<C-u>Bookmark<space>
 nnoremap <space>fi <cmd>lcd $MYVIMDIR<CR>:<C-u>find<space>
 nnoremap <space>fr <cmd>lcd $VIMRUNTIME<CR>:<C-u>find<space>
+nnoremap <space>fp :<C-u>Project<space>
 nnoremap <space>ft :<C-u>set ft=
 nnoremap <space>fs :<C-u>LoadSession<space>
 nnoremap <space>fc :<C-u>Colorscheme<space>
