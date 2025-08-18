@@ -90,3 +90,11 @@ def ColorschemeComplete(_, _, _): string
     var colors = [cur_colorscheme] + getcompletion('', 'color')->filter((_, v) => v != cur_colorscheme)
     return colors->join("\n")
 enddef
+
+command -nargs=1 -complete=custom,HelpComplete Help :help <args>
+def HelpComplete(_, _, _): string
+    var help_tags = globpath(&rtp, "doc/tags", 1, 1)
+        ->mapnew((_, v) => readfile(v)->mapnew((_, line) => line->split("\t")[0]))
+        ->flattennew()
+    return help_tags->join("\n")
+enddef

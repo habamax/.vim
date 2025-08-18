@@ -30,11 +30,12 @@ def CmdCompleteSelectFirst()
     if getcmdcompltype() == 'command' && cmd->len() == 1
         return
     endif
-    var commands = '\C\v'
-    commands ..= '(^fin%[d])|(^b%[uffer])|(^bd%[elete])'
-    commands ..= '|(^colo%[rscheme])|(^Recent)|(^Bookmark)'
-    commands ..= '|(^LoadSession)|(^InsertTemplate)|(^Colorscheme)'
+    var commands = '\C\v^'
+    commands ..= '(fin%[d])|(b%[uffer])|(bd%[elete])'
+    commands ..= '|(colo%[rscheme])|(Recent)|(Bookmark)'
+    commands ..= '|(LoadSession)|(InsertTemplate)|(Colorscheme)'
     commands ..= '\s'
+    # TODO: add Help here too
     if match(info.cmdline_orig, commands) == -1
         return
     endif
