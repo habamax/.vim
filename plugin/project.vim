@@ -40,10 +40,10 @@ def ProjectAdd()
         endif
         projects[name] = {
             path: getcwd(),
-            rank: 0
+            use_dt: reltime()->reltimefloat()
         }
-        [projects->json_encode()]->writefile(projectFile)
         project_cache = projects
+        ProjectSave()
     catch
         echohl Error
         echomsg v:exception
