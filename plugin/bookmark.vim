@@ -3,6 +3,18 @@ vim9script
 var bookmark_cache = {}
 var bookmarkFile = $'{$MYVIMDIR}.data/bookmarks.json'
 
+def BookmarkLoad(): dict<any>
+    var bookmarks = {}
+    try
+        bookmarks = readfile(bookmarkFile)
+            ->join()
+            ->json_decode()
+            ->filter((_, v) => filereadable(v.file))
+    catch
+    endtry
+    return bookmarks
+enddef
+
 def BookmarkSave()
     if empty(expand("%")) | return | endif
     var name = input("Save bookmark: ", expand("%:t"))
@@ -14,10 +26,7 @@ def BookmarkSave()
         if !filereadable(bookmarkFile)
             mkdir(fnamemodify(bookmarkFile, ":p:h"), "p")
         else
-            bookmarks = readfile(bookmarkFile)
-                ->join()
-                ->json_decode()
-                ->filter((_, v) => filereadable(v.file))
+            bookmarks = BookmarkLoad()
         endif
         bookmarks[name] = {file: expand("%:p"), line: line('.'), col: col('.')}
         [bookmarks->json_encode()]->writefile(bookmarkFile)
@@ -35,10 +44,7 @@ command! -nargs=1 -complete=custom,BookmarkComplete Bookmark BookmarkOpen(<f-arg
 
 def BookmarkComplete(_, _, _): string
     if empty(bookmark_cache) && filereadable(bookmarkFile)
-        bookmark_cache = readfile(bookmarkFile)
-            ->join()
-            ->json_decode()
-            ->filter((_, v) => filereadable(v.file))
+        bookmark_cache = BookmarkLoad()
     endif
     return bookmark_cache->keys()->join("\n")
 enddef
