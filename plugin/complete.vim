@@ -32,11 +32,11 @@ def CmdCompleteSelectFirst()
     endif
 
     var commands = [
-        'fin%[d]', 'b%[uffer]', 'bd%[elete]', 'colo%[rscheme]',
+        'find', 'buffer', 'bdelete', 'colorscheme',
         'Recent', 'Bookmark', 'Project', 'Help',
         'LoadSession', 'InsertTemplate', 'Colorscheme'
     ]
-    if !commands->reduce((acc, val) => acc || match(info.cmdline_orig, $'\v\C^\s*{val}\s') != -1, false)
+    if commands->index(fullcommand(info.cmdline_orig)) == -1
         return
     endif
 
