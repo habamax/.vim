@@ -1,10 +1,10 @@
 vim9script
 
 var files_cache: list<string> = []
-
-export def CompleteReset()
-    files_cache = []
-enddef
+augroup CmdCompleteResetFind
+    au!
+    au User CmdCompleteReset files_cache = []
+augroup END
 
 def FindCmd(): string
     var cmd = ''

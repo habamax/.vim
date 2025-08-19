@@ -48,17 +48,6 @@ def CmdCompleteSelectFirst()
     endif
 enddef
 
-import './find.vim'
-import './recent.vim'
-import './template.vim'
-import './session.vim'
-def CmdCompleteResetCache()
-    find.CompleteReset()
-    template.CompleteReset()
-    session.CompleteReset()
-    recent.CompleteReset()
-enddef
-
 augroup cmdcomplete
     au!
     autocmd CmdlineChanged : {
@@ -66,6 +55,6 @@ augroup cmdcomplete
             wildtrigger()
         endif
     }
-    autocmd CmdlineEnter : CmdCompleteResetCache()
+    autocmd CmdlineEnter : doautocmd User CmdCompleteReset
     autocmd CmdlineLeavePre : CmdCompleteSelectFirst()
 augroup END

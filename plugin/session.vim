@@ -6,9 +6,10 @@ if !isdirectory($'{$MYVIMDIR}.data/sessions')
 endif
 
 var sessions_cache: string
-export def CompleteReset()
-    sessions_cache = ""
-enddef
+augroup CmdCompleteResetSession
+    au!
+    au User CmdCompleteReset sessions_cache = ""
+augroup END
 
 def SessionComplete(_, _, _): string
     if empty(sessions_cache)

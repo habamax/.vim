@@ -1,9 +1,10 @@
 vim9script
 
 var templates_cache: list<string> = []
-export def CompleteReset()
-    templates_cache = []
-enddef
+augroup CmdCompleteResetTemplate
+    au!
+    au User CmdCompleteReset templates_cache = []
+augroup END
 
 def TemplateComplete(_, _, _): string
     var path = $"{$MYVIMDIR}templates/"

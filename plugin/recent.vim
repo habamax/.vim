@@ -3,7 +3,13 @@ vim9script
 const recent_file = $'{$MYVIMDIR}.data/mru'
 const recent_max_count = 300
 const recent_ft_avoid = ['gitcommit']
+
 var recent_cache = []
+augroup Recent
+    au!
+    au User CmdCompleteReset recent_cache = []
+    au BufEnter * Add()
+augroup END
 
 def Add()
     if !empty(&buftype) || empty(bufname())
@@ -62,8 +68,3 @@ def RecentComplete(_, _, _): string
 enddef
 
 command! -nargs=1 -complete=custom,RecentComplete Recent Edit(<f-args>)
-
-augroup recent
-    au!
-    au BufEnter * Add()
-augroup END
