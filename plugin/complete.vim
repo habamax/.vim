@@ -48,7 +48,7 @@ def CmdCompleteSelectFirst()
     endif
 enddef
 
-augroup cmdcomplete
+augroup CmdComplete
     au!
     autocmd CmdlineChanged : {
         if !((has("win32") || exists("$WSLENV")) && fullcommand(getcmdline()) =~ '^!')
