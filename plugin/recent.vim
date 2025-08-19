@@ -52,10 +52,6 @@ def Edit(filename: string)
     exe $"edit {fname}"
 enddef
 
-export def CompleteReset()
-    recent_cache = []
-enddef
-
 def RecentComplete(_, _, _): string
     if filereadable($'{$MYVIMDIR}.data/mru') && empty(recent_cache)
         recent_cache = readfile($'{$MYVIMDIR}.data/mru')
