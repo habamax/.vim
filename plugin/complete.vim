@@ -40,10 +40,8 @@ def CmdCompleteSelectFirst()
         return
     endif
 
-    if !empty(get(info, 'matches', []))
-        if info.selected == -1 && info.pum_visible
-            setcmdline($'{cmd[0]} {info.matches[0]}')
-        endif
+    if !empty(info.matches) && info.selected == -1 && info.pum_visible
+        setcmdline($'{cmd[0]} {info.matches[0]}')
     endif
     if cmd->len() == 1
         return
