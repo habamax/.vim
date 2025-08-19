@@ -63,7 +63,11 @@ enddef
 
 augroup cmdcomplete
     au!
-    autocmd CmdlineChanged : wildtrigger()
+    autocmd CmdlineChanged : {
+        if !((has("win32") || exists("$WSLENV")) && fullcommand(getcmdline()) =~ '^!')
+            wildtrigger()
+        endif
+    }
     autocmd CmdlineEnter : CmdCompleteResetCache()
     autocmd CmdlineLeavePre : CmdCompleteSelectFirst()
 augroup END
