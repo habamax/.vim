@@ -20,5 +20,11 @@ set nrformats=bin,hex,unsigned
 set nospell spelllang=en,ru
 set diffopt+=algorithm:histogram,indent-heuristic,inline:char,linematch:50
 set sessionoptions=buffers,curdir,tabpages,winsize
-set path=.,,
+set completeopt=popup,fuzzy completepopup=highlight:Pmenu
+set completefuzzycollect=keyword
+set autocomplete
+set complete=.^7,w^5,b^5,u^3,t^5,i^5
+set complete+=Fcompletor#Abbrev^3
+set complete+=Fcompletor#Register^5
+set complete^=Fcompletor#Lsp^10
 set mouse=a
