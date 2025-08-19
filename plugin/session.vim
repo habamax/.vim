@@ -8,7 +8,7 @@ endif
 var sessions_cache: string
 augroup CmdCompleteResetSession
     au!
-    au User CmdCompleteReset sessions_cache = ""
+    au CmdlineEnter : sessions_cache = ""
 augroup END
 
 def SessionComplete(_, _, _): string

@@ -55,6 +55,5 @@ augroup CmdComplete
             wildtrigger()
         endif
     }
-    autocmd CmdlineEnter : doautocmd User CmdCompleteReset
     autocmd CmdlineLeavePre : CmdCompleteSelectFirst()
 augroup END

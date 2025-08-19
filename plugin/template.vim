@@ -3,7 +3,7 @@ vim9script
 var templates_cache: list<string> = []
 augroup CmdCompleteResetTemplate
     au!
-    au User CmdCompleteReset templates_cache = []
+    au CmdlineEnter : templates_cache = []
 augroup END
 
 def TemplateComplete(_, _, _): string

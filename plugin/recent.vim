@@ -7,7 +7,7 @@ const recent_ft_avoid = ['gitcommit']
 var recent_cache = []
 augroup Recent
     au!
-    au User CmdCompleteReset recent_cache = []
+    au CmdlineEnter : recent_cache = []
     au BufEnter * Add()
 augroup END
 

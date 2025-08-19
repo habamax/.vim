@@ -3,7 +3,7 @@ vim9script
 var files_cache: list<string> = []
 augroup CmdCompleteResetFind
     au!
-    au User CmdCompleteReset files_cache = []
+    au CmdlineEnter : files_cache = []
 augroup END
 
 def FindCmd(): string
