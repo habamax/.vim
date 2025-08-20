@@ -16,12 +16,17 @@ def CmdCompleteSelectFirst()
         return
     endif
     var cmd = info.cmdline_orig->split()
+    # Do not accept first element of completion for just commands:
+    # :e<CR> should not be expanded to :edit<CR>
     if getcmdcompltype() == 'command' && cmd->len() == 1
         return
     endif
 
+    # Commands to accept first element of completion if no selection is made and
+    # completion is visible.
+    # :e newfile<CR> should always edit newfile, not the first element of completion
     var commands = [
-        'find', 'buffer', 'bdelete', 'colorscheme',
+        'sfind', 'find', 'buffer', 'bdelete', 'colorscheme',
         'Recent', 'Bookmark', 'Project', 'Help',
         'LoadSession', 'InsertTemplate', 'Colorscheme'
     ]
@@ -30,6 +35,8 @@ def CmdCompleteSelectFirst()
     endif
 
     if !empty(info.matches) && info.selected == -1 && info.pum_visible
+        # XXX: there is no way to distinguish between accepting (by pressing <CR>)
+        # and cancelling completion (by pressing <Esc>).
         setcmdline($'{cmd[0]} {info.matches[0]}')
     endif
     if cmd->len() == 1
