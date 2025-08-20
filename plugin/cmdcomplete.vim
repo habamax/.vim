@@ -11,6 +11,10 @@ cnoremap <C-p> <C-U><C-p>
 cnoremap <C-n> <C-U><C-n>
 
 def CmdCompleteSelectFirst()
+    # if v:char != "\<CR>"
+    #     return
+    # endif
+
     var info = cmdcomplete_info()
     if empty(get(info, 'cmdline_orig', ''))
         return
@@ -35,8 +39,6 @@ def CmdCompleteSelectFirst()
     endif
 
     if !empty(info.matches) && info.selected == -1 && info.pum_visible
-        # XXX: there is no way to distinguish between accepting (by pressing <CR>)
-        # and cancelling completion (by pressing <Esc>).
         setcmdline($'{cmd[0]} {info.matches[0]}')
     endif
     if cmd->len() == 1
