@@ -20,7 +20,7 @@ set nrformats=bin,hex,unsigned
 set sessionoptions=buffers,curdir,tabpages,winsize
 set nospell spelllang=en,ru
 set diffopt+=algorithm:histogram,indent-heuristic,inline:char,linematch:50
-set completeopt=popup,fuzzy completepopup=highlight:Pmenu
+set completeopt=menu,menuone,popup,fuzzy completepopup=highlight:Pmenu
 set completefuzzycollect=keyword
 set complete=.^7,w^5,b^5,u^3,t^5,i^5
 set complete+=Fcompletor#Abbrev^3
