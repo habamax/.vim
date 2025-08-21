@@ -25,6 +25,10 @@ nnoremap <space>P "+P
 xnoremap <space>p "+p
 xnoremap <space>P "+P
 
+# tab && pmenu
+inoremap <expr> <tab> pumvisible() ? "\<C-n>" : "\t"
+inoremap <expr> <s-tab> pumvisible() ? "\<C-p>" : "\t"
+
 # duplicate line
 nnoremap <C-j> <cmd>copy.<CR>
 nnoremap <C-k> <cmd>copy-1<CR>
