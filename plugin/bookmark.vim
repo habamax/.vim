@@ -42,7 +42,7 @@ def BookmarkAdd()
             file: substitute(expand("%:p"), "^dir://", "", ""),
             line: line('.'),
             col: col('.'),
-            use_dt: reltime()->reltimefloat()
+            use_dt: localtime()
         }
         bookmark_cache = bookmarks
         BookmarkSave()
@@ -77,7 +77,7 @@ def BookmarkOpen(name: string)
         echohl None
         return
     endif
-    bookmark_cache[name].use_dt = reltime()->reltimefloat()
+    bookmark_cache[name].use_dt = localtime()
     BookmarkSave()
     exe $"edit {bookmark.file}"
     cursor(bookmark.line, bookmark.col)

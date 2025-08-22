@@ -40,7 +40,7 @@ def ProjectAdd()
         endif
         projects[name] = {
             path: getcwd(),
-            use_dt: reltime()->reltimefloat()
+            use_dt: localtime()
         }
         project_cache = projects
         ProjectSave()
@@ -74,7 +74,7 @@ def ProjectOpen(name: string)
         echohl None
         return
     endif
-    project_cache[name].use_dt = reltime()->reltimefloat()
+    project_cache[name].use_dt = localtime()
     ProjectSave()
     timer_start(0, (_) => {
         chdir(project.path, 'window')
