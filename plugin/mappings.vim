@@ -253,5 +253,7 @@ nnoremap <silent> gx <scriptcmd>os.Gx()<CR>
 # upcase previous non-upcased word
 if !has("gui_running")
     set <M-u>=u
+    set <M-c>=c
 endif
 inoremap <M-u> <C-G>u<esc><scriptcmd>search('[[:lower:]]', 'bc', line('.'))<cr>gUiwgi
+inoremap <M-c> <C-G>u<esc>guiw~gi
