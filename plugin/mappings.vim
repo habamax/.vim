@@ -48,7 +48,7 @@ import autoload 'fuzzy.vim'
 # nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
 # nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
 # nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
-nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
+# nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
 nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 
 nnoremap <space>e <scriptcmd>g:SetProjectRoot()<CR>:<C-u>find<space>
