@@ -1,8 +1,6 @@
 vim9script
 
 if exists("g:loaded_fugitive")
-    command! Gpull Git pull
-    command! Gpush Git push
     command! -nargs=* Glog Git log --oneline --decorate --graph <args>
     # Git log --follow -- %
     # Git log -p --follow -- %
