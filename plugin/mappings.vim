@@ -49,7 +49,7 @@ import autoload 'fuzzy.vim'
 # nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
 # nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
 # nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
-nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
+# nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 
 nnoremap <space>e <scriptcmd>g:SetProjectRoot()<CR>:<C-u>find<space>
 nnoremap <space>b :<C-u>b<space>
@@ -64,6 +64,7 @@ nnoremap <space>ft :<C-u>set ft=
 nnoremap <space>fs :<C-u>LoadSession<space>
 nnoremap <space>fc :<C-u>Colorscheme<space>
 nnoremap <space>it :<C-u>InsertTemplate<space>
+nnoremap <space>fu :<C-u>Unicode<space>
 
 # Ripgrep word under cursor
 nnoremap <space>fw <scriptcmd>exe 'Rg' expand("<cword>")<cr>

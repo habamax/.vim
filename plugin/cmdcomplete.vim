@@ -32,7 +32,7 @@ def CmdCompleteSelectFirst()
     var commands = [
         'sfind', 'find', 'buffer', 'bdelete', 'colorscheme',
         'Recent', 'Bookmark', 'Project', 'Help',
-        'LoadSession', 'InsertTemplate', 'Colorscheme'
+        'LoadSession', 'InsertTemplate', 'Colorscheme', 'Unicode'
     ]
     if commands->index(fullcommand(info.cmdline_orig)) == -1
         return

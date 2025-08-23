@@ -98,3 +98,11 @@ def HelpComplete(_, _, _): string
         ->flattennew()
     return help_tags->join("\n")
 enddef
+
+import autoload 'unicode.vim'
+command! -nargs=1 -complete=custom,UnicodeComplete Unicode unicode.Copy(<f-args>)
+def UnicodeComplete(_, _, _): string
+    return unicode.Subset()
+        ->mapnew((_, v) => $"{printf("%5S", printf("%04X", v.value))}  {printf("%3S", (nr2char(v.value, true) =~ '\p' ? nr2char(v.value, true) : " "))}    {v.name}")
+        ->join("\n")
+enddef

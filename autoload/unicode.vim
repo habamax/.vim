@@ -40104,3 +40104,10 @@ var all = [
     {value: 0xE01EE, name: 'VARIATION SELECTOR-255'},
     {value: 0xE01EF, name: 'VARIATION SELECTOR-256'},
 ]
+
+export def Copy(u: string)
+    var ucode = u->trim()->split()[0]
+    var uchar = nr2char(ucode->str2nr(16), true)
+    setreg('', uchar)
+    echo $"{uchar} is copied to unnamed register, p to paste it!"
+enddef
