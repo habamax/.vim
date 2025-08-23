@@ -11,9 +11,9 @@ cnoremap <C-p> <C-U><C-p>
 cnoremap <C-n> <C-U><C-n>
 
 def CmdCompleteSelectFirst()
-    # if v:char != "\<CR>"
-    #     return
-    # endif
+    if v:char != "\<CR>"
+        return
+    endif
 
     var info = cmdcomplete_info()
     if empty(get(info, 'cmdline_orig', ''))
