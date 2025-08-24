@@ -38,7 +38,6 @@ def CmdCompleteSelectFirst()
         return
     endif
 
-    # echow "After CR, cmdcomplete_info() is" cmdcomplete_info()
     if !empty(info.matches) && info.selected == -1 && info.pum_visible
         setcmdline($'{cmd[0]} {info.matches[0]}')
     endif
