@@ -29,9 +29,14 @@ augroup colors | au!
     # au Colorscheme * hi comment gui=italic cterm=italic
 augroup END
 
+# g:colors = {
+#     dark: "sil! colo habamax",
+#     light: "sil! colo xamabah"
+# }
+#
 g:colors = {
-    dark: "sil! colo habamax",
-    light: "sil! colo xamabah"
+    dark: "set bg=dark | sil! colo wildcharm",
+    light: "set bg=light | sil! colo wildcharm",
 }
 
 # g:colors = {
@@ -42,11 +47,6 @@ g:colors = {
 # g:colors = {
 #     dark: "sil! colo nod-b",
 #     light: "sil! colo nope"
-# }
-
-# g:colors = {
-#     dark: "set bg=dark | sil! colo wildcharm",
-#     light: "set bg=light | sil! colo wildcharm",
 # }
 
 # g:colors = {
