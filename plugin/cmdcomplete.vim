@@ -47,6 +47,7 @@ enddef
 augroup CmdComplete
     au!
     autocmd CmdlineChanged : {
+        # !completion is very slow on Windows and WSL, disable it there
         if !((has("win32") || exists("$WSLENV")) && fullcommand(getcmdline()) =~ '^!')
             wildtrigger()
         endif
