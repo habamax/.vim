@@ -5,7 +5,7 @@ Description: Almost default gui vim colorscheme.
 Author:      Maxim Kim <habamax@gmail.com>
 URL:         https://github.com/habamax/.vim
 License:     Same as Vim
-Options:     backend=vim9
+Options:     backend=vim
 
 Environments: gui 256 16 8 0
 
@@ -74,14 +74,17 @@ Color: Gray3            #878787        102            gray
 Color: Gray4            #9e9e9e        247            gray
 Color: Gray5            #afafaf        145            gray
 
-Color: diffAdd          #002f00        71             darkgreen
-Color: diffDelete       #3f1f00        131            darkred
-Color: diffChange       #1f2f3f        67             darkblue
-Color: diffText         #5f2f5f        139            darkmagenta
+Color: diffAdd          #273923        22             darkgreen
+Color: diffDelete       #2f1f1a        52             darkred
+Color: diffChange       #2f2f2f        236            darkgray
+Color: diffText         #5f2f5f        53             darkmagenta
 
 Color: Added            #5fd75f        77             darkgreen
 Color: Changed          #ffaf5f        215            darkyellow
 Color: Removed          #d75f5f        167            darkred
+
+Color: Srch             #3a4a3a        41             green
+Color: Inc              #5f431f        214            yellow
 
 Color: color00          #000000        16             black
 Color: color08          #767676        243            darkgrey
@@ -156,8 +159,14 @@ ErrorMsg                DarkRed        Black          reverse
 MoreMsg                 DarkGreen      none
 WarningMsg              Red            none
 
-Search                  DarkBlue       Black          reverse
+Search                  DarkGreen      Black          reverse
+ /gui                   none           Srch
+ /256+tgc true          omit           omit
 IncSearch               DarkYellow     Black          reverse
+ /gui                   none           Inc
+ /256+tgc true          omit           omit
+
+
 CursorLine              none           DarkGray4
  /16/8                  none           none           underline
 Folded                  Gray4          DarkGray3
@@ -176,6 +185,20 @@ PreProc                 Magenta1       none
 Type                    Green1         none
 Special                 Orange         none
  /8                     Magenta1       none
+
+DiffAdd                 diffAdd        White          reverse
+ /gui                   none           diffAdd
+ /256+tgc true          omit           omit
+DiffChange              diffChange     White          reverse
+ /gui                   none           diffChange
+ /256+tgc true          omit           omit
+DiffText                diffText       White          reverse
+ /gui                   none           diffText
+ /256+tgc true          omit           omit
+DiffDelete              diffDelete     Gray1          reverse
+ /gui                   Gray1          diffDelete
+ /256+tgc true          omit           omit
+
 
 Background: light
 
@@ -211,14 +234,17 @@ Color: LightGray4       #d0d0d0        252            gray
 Color: LightGray5       #c6c6c6        251            gray
 Color: LightGray6       #b2b2b2        249            gray
 
-Color: diffAdd          #dafada        71             darkgreen
-Color: diffDelete       #fadada        131            darkred
-Color: diffChange       #daeafa        67             darkblue
-Color: diffText         #f7e7f7        139            darkmagenta
+Color: diffAdd          #dafada        151            darkgreen
+Color: diffDelete       #ffd7d7        224            darkred
+Color: diffChange       #e3e3e3        253            lightgray
+Color: diffText         #f7e7f7        182            darkmagenta
 
 Color: Added            #008700        28             darkgreen
 Color: Changed          #af5f00        130            darkyellow
 Color: Removed          #d7005f        161            darkred
+
+Color: Srch             #e7f3e7        28             darkgreen
+Color: Inc              #fff0cf        172            yellow
 
 Color: color00          #000000        16             black
 Color: color08          #808080        240            darkgrey
@@ -278,8 +304,13 @@ ErrorMsg                DarkRed        White          reverse
 MoreMsg                 DarkGreen      none
 WarningMsg              Red            none
 
-Search                  Blue           White          reverse
+Search                  Green          White          reverse
+ /gui                   none           Srch
+ /256+tgc true          omit           omit
 IncSearch               Yellow         White          reverse
+ /gui                   none           Inc
+ /256+tgc true          omit           omit
+
 CursorLine              none           LightGray3
 Folded                  Gray1          LightGray4
 ColorColumn             none           LightGray1
@@ -292,6 +323,19 @@ Statement               Brown          omit           bold
 PreProc                 -> omit
 Type                    SeaGreen       omit           bold
 Special                 -> omit
+
+DiffAdd                 diffAdd        Black          reverse
+ /gui                   none           diffAdd
+ /256+tgc true          omit           omit
+DiffChange              diffChange     Black          reverse
+ /gui                   none           diffChange
+ /256+tgc true          omit           omit
+DiffText                diffText       Black          reverse
+ /gui                   none           diffText
+ /256+tgc true          omit           omit
+DiffDelete              diffDelete     Gray1          reverse
+ /gui                   Gray1          diffDelete
+ /256+tgc true          omit           omit
 
 
 Background: any
@@ -332,19 +376,6 @@ Ignore                  none           none
 Todo                    none           none           bold
 
 Title                   none           none           bold
-
-DiffAdd                 diffAdd        none           reverse
- /gui                   none           diffAdd
- /256+tgc true          omit           omit
-DiffChange              diffChange     none           reverse
- /gui                   none           diffChange
- /256+tgc true          omit           omit
-DiffText                diffText       none           reverse
- /gui                   none           diffText
- /256+tgc true          omit           omit
-DiffDelete              diffDelete     none           reverse
- /gui                   Gray1          diffDelete
- /256+tgc true          omit           omit
 
 Added                   Added          none
 Changed                 Changed        none
