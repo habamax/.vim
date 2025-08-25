@@ -12,6 +12,7 @@ cnoremap <C-n> <C-U><C-n>
 
 def CmdCompleteSelectFirst()
     if v:char != "\<CR>"
+        setcmdline('')
         return
     endif
 
