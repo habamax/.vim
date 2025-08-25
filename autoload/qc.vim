@@ -362,11 +362,13 @@ export def Git()
     endfor
 
     # TODO: support different forges
-    var fetch_head_file = $"{gitdir}/FETCH_HEAD"
-    var fetch_head = readfile(fetch_head_file)
     var is_github_remote = false
-    if !empty(fetch_head)
-        is_github_remote = match(fetch_head[0], 'github\.com') > -1
+    var fetch_head_file = $"{gitdir}/FETCH_HEAD"
+    if filereadable(fetch_head_file)
+        var fetch_head = readfile(fetch_head_file)
+        if !empty(fetch_head)
+            is_github_remote = match(fetch_head[0], 'github\.com') > -1
+        endif
     endif
 
     for br in ["dev", "test", "main", "master"]
