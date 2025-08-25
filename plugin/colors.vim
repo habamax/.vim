@@ -26,7 +26,8 @@ augroup colors | au!
     au Colorscheme * Lsp()
     au Colorscheme gvim,habamax,wildcharm,lunaperche,nod* NoBg()
     au Colorscheme gvim,habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
-    # au Colorscheme * hi comment gui=italic cterm=italic
+    au Colorscheme * hi Comment gui=italic cterm=italic
+    au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
 augroup END
 
 # g:colors = {
