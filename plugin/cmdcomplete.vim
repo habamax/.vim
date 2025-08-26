@@ -11,7 +11,11 @@ cnoremap <C-p> <C-U><C-p>
 cnoremap <C-n> <C-U><C-n>
 
 def CmdCompleteSelectFirst()
-    if v:char != "\<CR>"
+    # if @: is pressed, just return allowing the command to be executed
+    # otherwise if commandline was cancelled, clear it.
+    if v:char == "\n"
+        return
+    elseif v:char != "\<CR>"
         setcmdline('')
         return
     endif
