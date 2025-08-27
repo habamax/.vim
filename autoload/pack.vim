@@ -46,7 +46,6 @@ def ShowChangelog()
         endif
     endfor
     if empty(lines)
-        echo "There are updates..."
         return
     endif
     new
