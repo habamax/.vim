@@ -1,7 +1,5 @@
 vim9script
 
-import autoload 'window.vim'
-
 var popup_borderchars = get(g:, "popup_borderchars", ['─', '│', '─', '│', '┌', '┐', '┘', '└'])
 var popup_borderhighlight = get(g:, "popup_borderhighlight", ['Normal'])
 var popup_highlight = get(g:, "popup_highlight", 'Normal')
@@ -51,7 +49,7 @@ def ShowChangelog()
         echo "There are updates..."
         return
     endif
-    window.New()
+    new
     setl nobuflisted noswapfile buftype=nofile
     set syntax=git
     syn match H1 "^.\+\n=\+$"
