@@ -10,6 +10,7 @@ const INST2 = "⋆"
 
 const MAX_JOBS = 10
 var pack_jobs = []
+var pack_msg = {}
 
 def Packages(): list<tuple<string, string>>
     var pack_list = $'{$MYVIMDIR}pack/packs'
@@ -81,6 +82,8 @@ export def Update()
         return
     endif
 
+    pack_jobs = []
+    pack_msg = {}
     var packages = Packages()
     if empty(packages)
         echow "No packages to install or update!"
@@ -121,8 +124,13 @@ export def Update()
             else
                 appendbufline(bufnr, '$', $"{UPD1} {name}")
             endif
+            var info = {}
+            pack_msg[name] = ""
             var job = job_start([&shell, &shellcmdflag, 'git fetch && git reset --hard @{u} && git clean -dfx'], {
                 cwd: path,
+                out_cb: (ch, msg) => {
+                    pack_msg[name] ..= msg
+                },
                 close_cb: (_) => {
                     var buftext = getbufline(bufnr, 1, '$')
                     buftext = buftext->mapnew((_, v) => {
