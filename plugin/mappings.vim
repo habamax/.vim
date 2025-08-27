@@ -257,4 +257,4 @@ if !has("gui_running")
     set <M-c>=c
 endif
 inoremap <M-u> <C-G>u<esc><scriptcmd>search('[[:lower:]]', 'bc', line('.'))<cr>gUiwgi
-inoremap <M-c> <C-G>u<esc>guiw~gi
+inoremap <M-c> <C-G>u<esc><scriptcmd>search('\<[[:lower:]]', 'bc', line('.'))<cr>guiw~gi
