@@ -251,7 +251,7 @@ nnoremap <silent> gof <scriptcmd>os.FileManager()<CR>
 # open URLs
 nnoremap <silent> gx <scriptcmd>os.Gx()<CR>
 
-# upcase previous non-upcased word
+# upcase/titlecase previous word
 if !has("gui_running")
     set <M-u>=u
     set <M-c>=c
