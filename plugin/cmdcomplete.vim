@@ -15,7 +15,7 @@ def CmdCompleteSelectFirst()
     # Otherwise, if command-line was cancelled, clear it and exit the function.
     if v:char == "\n"
         return
-    elseif v:char != "\<CR>"
+    elseif v:char != "\<CR>" && has("patch-9.1.1679")
         setcmdline('')
         return
     endif
