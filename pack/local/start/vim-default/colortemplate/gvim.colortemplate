@@ -206,7 +206,7 @@ Background: light
 Color: Black            #000000        16             black
 Color: White            #ffffff        231            white
 Color: Blue             #5f87af        67             blue
-Color: Blue2            #afcffa        153            blue
+Color: Blue2            #cfe7fa        153            blue
 Color: Yellow           #af875f        137            yellow
 Color: Red              #ff0000        196            red
 Color: Red1             #ffa0a0        217            red
@@ -234,10 +234,10 @@ Color: LightGray4       #d0d0d0        252            gray
 Color: LightGray5       #c6c6c6        251            gray
 Color: LightGray6       #b2b2b2        249            gray
 
-Color: diffAdd          #dafada        151            darkgreen
-Color: diffDelete       #ffd7d7        224            darkred
-Color: diffChange       #e3e3e3        253            lightgray
-Color: diffText         #f7e7f7        182            darkmagenta
+Color: diffAdd          #e7ffe7        151            darkgreen
+Color: diffDelete       #faeaea        224            darkred
+Color: diffChange       #f7f5f3        253            lightgray
+Color: diffText         #f7d7f7        182            darkmagenta
 
 Color: Added            #008700        28             darkgreen
 Color: Changed          #af5f00        130            darkyellow
