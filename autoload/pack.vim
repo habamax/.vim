@@ -1,5 +1,7 @@
 vim9script
 
+import autoload 'window.vim'
+
 var popup_borderchars = get(g:, "popup_borderchars", ['─', '│', '─', '│', '┌', '┐', '┘', '└'])
 var popup_borderhighlight = get(g:, "popup_borderhighlight", ['Normal'])
 var popup_highlight = get(g:, "popup_highlight", 'Normal')
@@ -36,9 +38,28 @@ def IsRunning(): bool
     return reduce(pack_jobs, (acc, val) => acc || job_status(val) == 'run', false)
 enddef
 
-def CreatePopup(Setup: func(number) = null_function): tuple<number, number>
-    var grab_bufnr = 0
+def ShowChangelog()
+    var lines = []
+    for [name, msg] in pack_msg->items()
+        if !empty(msg)
+            lines->add(name)
+            lines->add(repeat("=", strlen(name)))
+            lines += [''] + msg->split("\n") + ['', '']
+        endif
+    endfor
+    if empty(lines)
+        echo "There are updates..."
+        return
+    endif
+    window.New()
+    setl nobuflisted noswapfile buftype=nofile
+    set syntax=git
+    syn match H1 "^.\+\n=\+$"
+    hi! link H1 Title
+    setline(1, lines[ : -3])
+enddef
 
+def CreatePopup(Setup: func(number) = null_function): tuple<number, number>
     var winid = popup_create("", {
         title: $" Plugins ",
         pos: 'botright',
@@ -51,21 +72,6 @@ def CreatePopup(Setup: func(number) = null_function): tuple<number, number>
         borderchars: popup_borderchars,
         borderhighlight: popup_borderhighlight,
         highlight: popup_highlight,
-        filter: (winid, key) => {
-            if key == "\<C-g>"
-                var lines = getbufline(getwininfo(winid)[0].bufnr, 1, '$')
-                if grab_bufnr == 0
-                    grab_bufnr = bufadd("")
-                    exe $"sbuffer {grab_bufnr}"
-                    setl nobuflisted noswapfile buftype=nofile
-                elseif bufwinnr(grab_bufnr) == -1
-                    exe $"sbuffer {grab_bufnr}"
-                endif
-                setbufline(grab_bufnr, 1, lines)
-                return true
-            endif
-            return false
-        },
     })
 
     if Setup != null_function
@@ -99,10 +105,9 @@ export def Update()
 
     timer_start(1000, (t) => {
         if !IsRunning()
-            timer_start(2000, (_) => {
-                timer_stop(t)
-                popup_close(winid)
-            })
+            timer_stop(t)
+            popup_close(winid)
+            ShowChangelog()
         endif
     }, {repeat: -1})
 
@@ -126,10 +131,10 @@ export def Update()
             endif
             var info = {}
             pack_msg[name] = ""
-            var job = job_start([&shell, &shellcmdflag, 'git fetch && git reset --hard @{u} && git clean -dfx'], {
+            var job = job_start([&shell, &shellcmdflag, 'git fetch && git log HEAD..${u} && git reset --hard -q @{u} && git clean -dfx -q'], {
                 cwd: path,
                 out_cb: (ch, msg) => {
-                    pack_msg[name] ..= msg
+                    pack_msg[name] ..= $"{msg}\n"
                 },
                 close_cb: (_) => {
                     var buftext = getbufline(bufnr, 1, '$')
