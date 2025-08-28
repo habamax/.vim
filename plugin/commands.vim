@@ -95,7 +95,7 @@ enddef
 def BufferComplete(_, _, _): string
     var buffer_list = getbufinfo({'buflisted': 1})
         ->sort((i, j) => i.lastused > j.lastused ? -1 : i.lastused == j.lastused ? 0 : 1)
-        ->mapnew((_, v) => $'{v.bufnr}: {bufname(v.bufnr) ?? "[No Name]"}')
+        ->mapnew((_, v) => $'{v.bufnr}: {v.changed ? "+" : ""}{bufname(v.bufnr) ?? "[No Name]"}')
     if buffer_list->len() > 1
         [buffer_list[0], buffer_list[1]] = [buffer_list[1], buffer_list[0]]
     endif
