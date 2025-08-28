@@ -154,6 +154,8 @@ export def Update()
             endif
             var job = job_start($'git clone {url} {path}', {
                 cwd: $MYVIMDIR,
+                out_cb: (ch, msg) => {
+                },
                 close_cb: (_) => {
                     var buftext = getbufline(bufnr, 1, '$')
                     buftext = buftext->mapnew((_, v) => {
@@ -163,6 +165,7 @@ export def Update()
                             return v
                         endif
                     })
+                    pack_msg[name] = "Installed.\n"
                     popup_settext(winid, buftext)
                 }}
             )
