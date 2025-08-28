@@ -36,7 +36,7 @@ def CmdCompleteSelectFirst()
     # :e newfile<CR> should always edit newfile, not the first element of completion
     var commands = [
         'sfind', 'find', 'buffer', 'bdelete', 'colorscheme', 'highlight',
-        'Recent', 'Bookmark', 'Project', 'Help',
+        'Buffer', 'Recent', 'Bookmark', 'Project', 'Help',
         'LoadSession', 'InsertTemplate', 'Colorscheme', 'Unicode'
     ]
     if commands->index(fullcommand(info.cmdline_orig)) == -1

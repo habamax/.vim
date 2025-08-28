@@ -84,6 +84,24 @@ enddef
 
 command! -nargs=* -complete=custom,MakeComplete Make Sh make <args>
 
+command -nargs=1 -complete=custom,BufferComplete Buffer Buffer(<f-args>)
+def Buffer(buf_info: string)
+    var bufnr = buf_info->matchstr('^\s*\d\+')
+    if empty(bufnr)
+        return
+    endif
+    exe $"buffer {bufnr}"
+enddef
+def BufferComplete(_, _, _): string
+    var buffer_list = getbufinfo({'buflisted': 1})
+        ->sort((i, j) => i.lastused > j.lastused ? -1 : i.lastused == j.lastused ? 0 : 1)
+        ->mapnew((_, v) => $'{v.bufnr}: {bufname(v.bufnr) ?? "[No Name]"}')
+    if buffer_list->len() > 1
+        [buffer_list[0], buffer_list[1]] = [buffer_list[1], buffer_list[0]]
+    endif
+    return buffer_list->join("\n")
+enddef
+
 command -nargs=1 -complete=custom,ColorschemeComplete Colorscheme colorscheme <args>
 def ColorschemeComplete(_, _, _): string
     var cur_colorscheme = get(g:, "colors_name", "default")
