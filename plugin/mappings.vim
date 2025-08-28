@@ -257,4 +257,7 @@ if !has("gui_running")
     set <M-c>=c
 endif
 inoremap <M-u> <C-G>u<esc><scriptcmd>search('[[:lower:]]', 'bc', line('.'))<cr>gUiwgi
-inoremap <M-c> <C-G>u<esc><scriptcmd>search('\<[[:lower:]]', 'bc', line('.'))<cr>guiw~gi
+def ToUncapitalizedWord()
+    search('\v<([[:lower:]]|([[:upper:]][[:lower:]]*[[:upper:]]))', 'bc', line('.'))
+enddef
+inoremap <M-c> <C-G>u<esc><scriptcmd>ToUncapitalizedWord()<cr>guiw~gi
