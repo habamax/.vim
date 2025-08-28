@@ -35,7 +35,7 @@ def CmdCompleteSelectFirst()
     # completion is visible.
     # :e newfile<CR> should always edit newfile, not the first element of completion
     var commands = [
-        'sfind', 'find', 'buffer', 'bdelete', 'colorscheme',
+        'sfind', 'find', 'buffer', 'bdelete', 'colorscheme', 'highlight',
         'Recent', 'Bookmark', 'Project', 'Help',
         'LoadSession', 'InsertTemplate', 'Colorscheme', 'Unicode'
     ]
