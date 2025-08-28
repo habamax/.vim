@@ -46,6 +46,7 @@ def ShowChangelog()
         endif
     endfor
     if empty(lines)
+        popup_notification("All plugins are up to date.", {title: " Plugins ", border: []})
         return
     endif
     new
