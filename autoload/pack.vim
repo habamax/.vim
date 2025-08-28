@@ -5,8 +5,8 @@ var popup_borderhighlight = get(g:, "popup_borderhighlight", ['Normal'])
 var popup_highlight = get(g:, "popup_highlight", 'Normal')
 const UPD1 = "○"
 const UPD2 = "●"
-const INST1 = "☆"
-const INST2 = "⋆"
+const INST1 = "⬠"
+const INST2 = "⬟"
 
 const MAX_JOBS = 10
 var pack_jobs = []
