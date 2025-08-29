@@ -44,7 +44,7 @@ if &background == 'dark'
   hi DiffChange guifg=#87afd7 guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=110 ctermbg=234 cterm=reverse term=NONE
   hi DiffDelete guifg=#d75f5f guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=167 ctermbg=234 cterm=reverse term=reverse
   hi DiffText guifg=#d787d7 guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=176 ctermbg=234 cterm=reverse term=reverse
-  hi Directory guifg=#9e9e9e guibg=NONE guisp=NONE gui=bold ctermfg=247 ctermbg=NONE cterm=bold term=NONE
+  hi Directory guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=NONE
   hi EndOfBuffer guifg=#707070 guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE term=NONE
   hi Error guifg=#ff005f guibg=#1c1c1c guisp=NONE gui=bold,reverse ctermfg=197 ctermbg=234 cterm=bold,reverse term=bold,reverse
   hi ErrorMsg guifg=#dadada guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=253 ctermbg=234 cterm=reverse term=bold,reverse
@@ -68,7 +68,7 @@ if &background == 'dark'
   hi PmenuSbar guifg=#707070 guibg=#585858 guisp=NONE gui=NONE ctermfg=242 ctermbg=240 cterm=NONE term=reverse
   hi PmenuSel guifg=#1c1c1c guibg=#dadada guisp=NONE gui=NONE ctermfg=234 ctermbg=253 cterm=NONE term=bold
   hi PmenuThumb guifg=#dadada guibg=#dadada guisp=NONE gui=NONE ctermfg=253 ctermbg=253 cterm=NONE term=NONE
-  hi PreProc guifg=#9e9e9e guibg=NONE guisp=NONE gui=NONE ctermfg=247 ctermbg=NONE cterm=NONE term=NONE
+  hi PreProc guifg=#dadada guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=NONE
   hi Question guifg=#dadada guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=standout
   hi QuickFixLine guifg=#ff5fff guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=207 ctermbg=234 cterm=reverse term=NONE
   hi Search guifg=#00afff guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=39 ctermbg=234 cterm=reverse term=reverse
@@ -273,7 +273,7 @@ if &background == 'light'
   hi DiffChange guifg=#afafd7 guibg=#000000 guisp=NONE gui=reverse ctermfg=146 ctermbg=16 cterm=reverse term=NONE
   hi DiffDelete guifg=#d78787 guibg=#000000 guisp=NONE gui=reverse ctermfg=174 ctermbg=16 cterm=reverse term=reverse
   hi DiffText guifg=#d787d7 guibg=#000000 guisp=NONE gui=reverse ctermfg=176 ctermbg=16 cterm=reverse term=reverse
-  hi Directory guifg=#6c6c6c guibg=NONE guisp=NONE gui=bold ctermfg=242 ctermbg=NONE cterm=bold term=NONE
+  hi Directory guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=NONE
   hi EndOfBuffer guifg=#626262 guibg=NONE guisp=NONE gui=NONE ctermfg=241 ctermbg=NONE cterm=NONE term=NONE
   hi Error guifg=#ff005f guibg=#000000 guisp=NONE gui=bold,reverse ctermfg=197 ctermbg=16 cterm=bold,reverse term=bold,reverse
   hi ErrorMsg guifg=#000000 guibg=#d7d7d7 guisp=NONE gui=reverse ctermfg=16 ctermbg=188 cterm=reverse term=bold,reverse
@@ -297,7 +297,7 @@ if &background == 'light'
   hi PmenuSbar guifg=#000000 guibg=#e4e4e4 guisp=NONE gui=NONE ctermfg=16 ctermbg=254 cterm=NONE term=reverse
   hi PmenuSel guifg=#d7d7d7 guibg=#000000 guisp=NONE gui=NONE ctermfg=188 ctermbg=16 cterm=NONE term=bold
   hi PmenuThumb guifg=#000000 guibg=#000000 guisp=NONE gui=NONE ctermfg=16 ctermbg=16 cterm=NONE term=NONE
-  hi PreProc guifg=#6c6c6c guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE term=NONE
+  hi PreProc guifg=#000000 guibg=NONE guisp=NONE gui=NONE ctermfg=16 ctermbg=NONE cterm=NONE term=NONE
   hi Question guifg=#000000 guibg=NONE guisp=NONE gui=NONE ctermfg=16 ctermbg=NONE cterm=NONE term=standout
   hi QuickFixLine guifg=#ff5fff guibg=#000000 guisp=NONE gui=reverse ctermfg=207 ctermbg=16 cterm=reverse term=NONE
   hi Search guifg=#00afff guibg=#000000 guisp=NONE gui=reverse ctermfg=39 ctermbg=16 cterm=reverse term=reverse
