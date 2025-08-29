@@ -49,7 +49,7 @@ if &background == 'dark'
   hi Error guifg=#ff005f guibg=#1c1c1c guisp=NONE gui=bold,reverse ctermfg=197 ctermbg=234 cterm=bold,reverse term=bold,reverse
   hi ErrorMsg guifg=#dadada guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=253 ctermbg=234 cterm=reverse term=bold,reverse
   hi FoldColumn guifg=#707070 guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE term=NONE
-  hi Folded guifg=#707070 guibg=#1c1c1c guisp=NONE gui=NONE ctermfg=242 ctermbg=234 cterm=NONE term=NONE
+  hi Folded guifg=#707070 guibg=#000000 guisp=NONE gui=NONE ctermfg=242 ctermbg=16 cterm=NONE term=NONE
   hi Identifier guifg=#dadada guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=NONE
   hi Ignore guifg=#dadada guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=NONE
   hi IncSearch guifg=#ffaf00 guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=214 ctermbg=234 cterm=reverse term=bold,reverse,underline
@@ -278,7 +278,7 @@ if &background == 'light'
   hi Error guifg=#ff005f guibg=#000000 guisp=NONE gui=bold,reverse ctermfg=197 ctermbg=16 cterm=bold,reverse term=bold,reverse
   hi ErrorMsg guifg=#000000 guibg=#d7d7d7 guisp=NONE gui=reverse ctermfg=16 ctermbg=188 cterm=reverse term=bold,reverse
   hi FoldColumn guifg=#626262 guibg=NONE guisp=NONE gui=NONE ctermfg=241 ctermbg=NONE cterm=NONE term=NONE
-  hi Folded guifg=#626262 guibg=#d7d7d7 guisp=NONE gui=NONE ctermfg=241 ctermbg=188 cterm=NONE term=NONE
+  hi Folded guifg=#626262 guibg=#eeeeee guisp=NONE gui=NONE ctermfg=241 ctermbg=255 cterm=NONE term=NONE
   hi Identifier guifg=#000000 guibg=NONE guisp=NONE gui=NONE ctermfg=16 ctermbg=NONE cterm=NONE term=NONE
   hi Ignore guifg=#000000 guibg=NONE guisp=NONE gui=NONE ctermfg=16 ctermbg=NONE cterm=NONE term=NONE
   hi IncSearch guifg=#ffaf00 guibg=#000000 guisp=NONE gui=reverse ctermfg=214 ctermbg=16 cterm=reverse term=bold,reverse,underline

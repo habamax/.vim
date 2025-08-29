@@ -62,6 +62,7 @@ Color: uiblue        #00afff           39                blue
 Color: uipurple      #af00ff           129               darkmagenta
 Color: uiamber       #ffaf00           214               darkyellow
 Color: uiblack       #3a3a3a           237               darkgrey
+Color: black         #000000           16                black
 Color: yasogrey      #262626           235               black
 Color: linenrblack   #585858           240               darkgrey
 Color: uicursearch   #ff5fff           207               magenta
@@ -113,7 +114,7 @@ ErrorMsg             dark7             dark0             reverse
  /16/8               none              none              reverse,bold
 FoldColumn           dark8             none
  /16/8               none              none
-Folded               dark8             dark0
+Folded               dark8             black
  /16                 dark8             none
  /8                  none              none
 IncSearch            uiamber           dark0             reverse
@@ -263,6 +264,7 @@ Color: uiteal        #00ffaf           49                cyan
 Color: uiblue        #00afff           39                blue
 Color: uipurple      #af00ff           129               darkmagenta
 Color: uiamber       #ffaf00           214               yellow
+Color: white         #eeeeee           255               grey
 Color: invisigrey    #a8a8a8           248               darkgrey
 Color: yasogrey      #e4e4e4           254               grey
 Color: uicursearch   #ff5fff           207               magenta
@@ -309,7 +311,7 @@ ErrorMsg             light0            light7            reverse
  /16/8               none              none              reverse,bold
 FoldColumn           light8            none
  /16/8               none              none
-Folded               light8            light7
+Folded               light8            white
  /16                 light8            none
  /8                  none              none
 IncSearch            uiamber           light0            reverse
