@@ -35,16 +35,22 @@ def CmdCompleteSelectFirst()
     # completion is visible.
     # :e newfile<CR> should always edit newfile, not the first element of completion
     var commands = [
-        'sfind', 'find', 'buffer', 'bdelete', 'colorscheme', 'highlight',
+        'sfind', 'find', 'buffer', 'sbuffer', 'bdelete',
+        'colorscheme', 'highlight',
         'Buffer', 'Recent', 'Bookmark', 'Project', 'Help',
         'LoadSession', 'InsertTemplate', 'Colorscheme', 'Unicode'
     ]
-    if commands->index(fullcommand(info.cmdline_orig)) == -1
+
+    # fullcommand() can't figure out `:vertical sbuffer`
+    # so `vertical` is stripped here
+    var cmd_orig = substitute(info.cmdline_orig, '^ver\%[tical]', '', '')
+    var vertical = len(cmd_orig) == len(info.cmdline_orig) ? 0 : 1
+    if commands->index(fullcommand(cmd_orig)) == -1
         return
     endif
 
     if !empty(info.matches) && info.selected == -1 && info.pum_visible
-        setcmdline($'{cmd[0]} {info.matches[0]}')
+        setcmdline($'{cmd[ : vertical]->join()} {info.matches[0]}')
     endif
 enddef
 
