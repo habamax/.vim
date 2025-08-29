@@ -105,7 +105,7 @@ DiffDelete           diffred           dark0             reverse
  /16/8               dark1             dark0             reverse
 DiffText             diffpink          dark0             reverse
  /16/8               dark5             dark0             reverse
-Directory            dark7             none
+Directory            preproc           none              bold
  /16/8               none              none
 EndOfBuffer          dark8             none
  /16                 dark8             none
@@ -303,7 +303,7 @@ DiffDelete           diffred           light0            reverse
  /16/8               light1            light0            reverse
 DiffText             diffpink          light0            reverse
  /16/8               light5            light0            reverse
-Directory            light0            none
+Directory            preproc           none              bold
  /16/8               none              none              bold
 EndOfBuffer          light8            none
  /8                  none              none
