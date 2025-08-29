@@ -133,7 +133,7 @@ export def Update()
             endif
             var info = {}
             pack_msg[name] = ""
-            var job = job_start([&shell, &shellcmdflag, 'git fetch && git log HEAD..${u} && git reset --hard -q @{u} && git clean -dfx -q'], {
+            var job = job_start([&shell, &shellcmdflag, 'git fetch -q && git log HEAD..@{u} && git reset --hard -q @{u} && git clean -dfx -q'], {
                 cwd: path,
                 out_cb: (ch, msg) => {
                     pack_msg[name] ..= $"{msg}\n"
