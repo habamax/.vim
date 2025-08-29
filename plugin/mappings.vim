@@ -53,13 +53,13 @@ import autoload 'fuzzy.vim'
 
 def Find(split: bool = false): string
     var mods = ""
-    if winwidth(winnr()) * 0.3 > winheight(winnr())
+    if split && winwidth(winnr()) * 0.3 > winheight(winnr())
         mods = "vert "
     endif
     g:SetProjectRoot()
     return $":{mods}{split ? "s" : ""}find "
 enddef
-nnoremap <expr> <space><space>e Find(false)
+nnoremap <expr> <space>e Find(false)
 nnoremap <expr> <space><space>e Find(true)
 nnoremap <space>b :<C-u>Buffer<space>
 nnoremap <space><space>b :<C-u>SBuffer<space>
