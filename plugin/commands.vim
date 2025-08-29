@@ -84,13 +84,20 @@ enddef
 
 command! -nargs=* -complete=custom,MakeComplete Make Sh make <args>
 
-command -nargs=1 -complete=custom,BufferComplete Buffer Buffer(<f-args>)
-def Buffer(buf_info: string)
+command -nargs=1 -complete=custom,BufferComplete Buffer Buffer(<f-args>, false, <q-mods>)
+command -nargs=1 -complete=custom,BufferComplete SBuffer Buffer(<f-args>, true, <q-mods>)
+def Buffer(buf_info: string, split: bool = false, mods: string = "")
     var bufnr = buf_info->matchstr('^\s*\d\+')
     if empty(bufnr)
         return
     endif
-    exe $"buffer {bufnr}"
+    var guess_mods = ""
+    if !empty(mods)
+        guess_mods = mods
+    elseif split && winwidth(winnr()) * 0.3 > winheight(winnr())
+        guess_mods = "vert "
+    endif
+    exe $"{guess_mods} {split ? "s" : ""}buffer {bufnr}"
 enddef
 def BufferComplete(_, _, _): string
     var buffer_list = getbufinfo({'buflisted': 1})

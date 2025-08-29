@@ -55,7 +55,8 @@ enddef
 
 command! BookmarkAdd call BookmarkAdd()
 
-command! -nargs=1 -complete=custom,BookmarkComplete Bookmark BookmarkOpen(<f-args>)
+command! -nargs=1 -complete=custom,BookmarkComplete Bookmark BookmarkOpen(<f-args>, false, <q-mods>)
+command! -nargs=1 -complete=custom,BookmarkComplete SBookmark BookmarkOpen(<f-args>, true, <q-mods>)
 
 def BookmarkComplete(_, _, _): string
     if empty(bookmark_cache) && filereadable(bookmarkFile)
@@ -69,7 +70,7 @@ def BookmarkComplete(_, _, _): string
 
 enddef
 
-def BookmarkOpen(name: string)
+def BookmarkOpen(name: string, split: bool = false, mods: string = "")
     var bookmark = get(bookmark_cache, name, null)
     if bookmark == null
         echohl Error
@@ -79,7 +80,13 @@ def BookmarkOpen(name: string)
     endif
     bookmark_cache[name].use_dt = localtime()
     BookmarkSave()
-    exe $"edit {bookmark.file}"
+    var guess_mods = ""
+    if !empty(mods)
+        guess_mods = mods
+    elseif split && winwidth(winnr()) * 0.3 > winheight(winnr())
+        guess_mods = "vert "
+    endif
+    exe $"{guess_mods} {split ? "split" : "edit"} {bookmark.file}"
     cursor(bookmark.line, bookmark.col)
     normal! zz
 enddef

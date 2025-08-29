@@ -43,13 +43,19 @@ def Add()
     writefile(mru[ : recent_max_count], recent_file)
 enddef
 
-def Edit(filename: string)
+def Edit(filename: string, split: bool = false, mods: string = "")
     var fname = expand(filename)
     if !filereadable(fname)
         echom $"Can't open {fname}"
         return
     endif
-    exe $"edit {fname}"
+    var guess_mods = ""
+    if !empty(mods)
+        guess_mods = mods
+    elseif split && winwidth(winnr()) * 0.3 > winheight(winnr())
+        guess_mods = "vert "
+    endif
+    exe $"{guess_mods} {split ? "split" : "edit"} {fname}"
 enddef
 
 def RecentComplete(_, _, _): string
@@ -63,4 +69,5 @@ def RecentComplete(_, _, _): string
     return recent_cache->join("\n")
 enddef
 
-command! -nargs=1 -complete=custom,RecentComplete Recent Edit(<f-args>)
+command! -nargs=1 -complete=custom,RecentComplete Recent Edit(<f-args>, false, <q-mods>)
+command! -nargs=1 -complete=custom,RecentComplete SRecent Edit(<f-args>, true, <q-mods>)

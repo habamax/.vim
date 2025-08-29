@@ -37,20 +37,20 @@ def CmdCompleteSelectFirst()
     var commands = [
         'sfind', 'find', 'buffer', 'sbuffer', 'bdelete',
         'colorscheme', 'highlight',
-        'Buffer', 'Recent', 'Bookmark', 'Project', 'Help',
+        'Buffer', 'SBuffer', 'Recent', 'SRecent', 'Bookmark', 'SBookmark',
+        'Project', 'Help',
         'LoadSession', 'InsertTemplate', 'Colorscheme', 'Unicode'
     ]
 
-    # fullcommand() can't figure out `:vertical sbuffer`
-    # so `vertical` is stripped here
-    var cmd_orig = substitute(info.cmdline_orig, '^ver\%[tical]', '', '')
-    var vertical = len(cmd_orig) == len(info.cmdline_orig) ? 0 : 1
+    # fullcommand() can't figure out `:vertical sbuffer` or `:horizontal sbuffer`,
+    var cmd_orig = substitute(info.cmdline_orig, '\v^%(%(ver%[tical])|%(hor%[izontal]))', '', '')
+    var cmd_len = len(cmd_orig) == len(info.cmdline_orig) ? 0 : 1
     if commands->index(fullcommand(cmd_orig)) == -1
         return
     endif
 
     if !empty(info.matches) && info.selected == -1 && info.pum_visible
-        setcmdline($'{cmd[ : vertical]->join()} {info.matches[0]}')
+        setcmdline($'{cmd[ : cmd_len]->join()} {info.matches[0]}')
     endif
 enddef
 

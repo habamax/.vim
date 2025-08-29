@@ -51,12 +51,25 @@ import autoload 'fuzzy.vim'
 # nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
 # nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
 
-nnoremap <space>e <scriptcmd>g:SetProjectRoot()<CR>:<C-u>find<space>
+def Find(split: bool = false): string
+    var mods = ""
+    if winwidth(winnr()) * 0.3 > winheight(winnr())
+        mods = "vert "
+    endif
+    g:SetProjectRoot()
+    return $":{mods}{split ? "s" : ""}find "
+enddef
+nnoremap <expr> <space><space>e Find(false)
+nnoremap <expr> <space><space>e Find(true)
 nnoremap <space>b :<C-u>Buffer<space>
+nnoremap <space><space>b :<C-u>SBuffer<space>
 nnoremap <space>r :<C-u>Recent<space>
+nnoremap <space><space>r :<C-u>SRecent<space>
 nnoremap <space>d <cmd>lcd ~/docs<CR>:<C-u>find<space>
+nnoremap <space><space>d <cmd>lcd ~/docs<CR>:<C-u>sfind<space>
 nnoremap <space>h :<C-u>Help<space>
 nnoremap <space>B :<C-u>Bookmark<space>
+nnoremap <space><space>B :<C-u>SBookmark<space>
 nnoremap <space>fi <cmd>lcd $MYVIMDIR<CR>:<C-u>find<space>
 nnoremap <space>fr <cmd>lcd $VIMRUNTIME<CR>:<C-u>find<space>
 nnoremap <space>fp :<C-u>Project<space>
