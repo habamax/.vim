@@ -30,15 +30,15 @@ augroup colors | au!
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
 augroup END
 
-# g:colors = {
-#     dark: "set bg=dark | sil! colo plain",
-#     light: "set bg=light | sil! colo plain",
-# }
-
 g:colors = {
-    dark: "sil! colo habamax",
-    light: "sil! colo xamabah"
+    dark: "set bg=dark | sil! colo plain",
+    light: "set bg=light | sil! colo plain",
 }
+
+# g:colors = {
+#     dark: "sil! colo habamax",
+#     light: "sil! colo xamabah"
+# }
 
 # g:colors = {
 #     dark: "set bg=dark | sil! colo wildcharm",
