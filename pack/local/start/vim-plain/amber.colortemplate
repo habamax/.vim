@@ -1,10 +1,10 @@
 ; vim: ft=colortemplate fdm=marker cc=22,40,58 et ts=2 sw=2 vsts=21,18,18,2
 
-Full name:     plain
-Short name:    plain
+Full name:     amber
+Short name:    amber
 Author:        Maxim Kim
 URL:           https://github.com/habamax/vim-plain
-Description:   A mostly monochrome colorscheme, with a few niceties. Based on quiet.
+Description:   Amber
 License:       Vim License (see `:help license`)`
 Options:       backend=vim
 
@@ -74,6 +74,13 @@ Color: search        #374a44           114               green
 Color: incsearch     #5a4a45           215               yellow
 
 Color: comment       #808080           244               darkgrey
+Color: type          #c19552           137               darkyellow
+Color: statement     #ffbf00           214               yellow
+Color: constant      #839a39           107               darkgreen
+
+Color: preproc       #87afaf           109               blue
+Color: identifier    #afaf87           144               yellow
+Color: special       #89743D           94                darkyellow
 
 Term colors: dark0 dark1 dark2 dark3 dark4 dark5 dark6 dark7
              dark8 dark9 dark10 dark11 dark12 dark13 dark14 dark15
@@ -198,21 +205,21 @@ WildMenu             uiblue            dark0             bold
 
 Comment              comment           none
  /16/8               none              none              bold
-Constant             dark7             none
+Constant             constant          none
  /16/8               none              none
-Identifier           dark7             none
+Identifier           identifier        none
  /16/8               none              none
 Ignore               dark7             none
- /16/8               none                                none
-PreProc              dark7             none
  /16/8               none              none
-Special              dark7             none
+PreProc              preproc           none
  /16/8               none              none
-Statement            dark7             none
+Special              special           none
+ /16/8               none              none
+Statement            statement         none
+ /16/8               none              none
+Type                 type              none
  /16/8               none              none
 Todo                 none              none              bold
-Type                 dark7             none
- /16/8               none              none
 Underlined           dark7             none              underline
  /16/8               none              none              underline
 CursorIM             dark0             uilime
@@ -233,204 +240,5 @@ DiffText             none              diffText
 DiffDelete           dark8             diffDelete
  /256                dark8             diffDelete
  /16/8               diffDelete        dark0             reverse
-
-
-Background: light
-
-Color: brightwhite   #eeeeee           255               grey
-
-Color: light0        #000000           16                black
-Color: light1        #af0000           124               darkred
-Color: light2        #005f00           22                darkgreen
-Color: light3        #af5f00           130               darkyellow
-Color: light4        #005faf           25                darkblue
-Color: light5        #870087           90                darkmagenta
-Color: light6        #008787           30                darkcyan
-Color: light7        #d7d7d7           188               grey
-Color: light8        #626262           241               darkgrey
-Color: light9        #d70000           160               red
-Color: light10       #008700           28                green
-Color: light11       #d78700           172               yellow
-Color: light12       #0087d7           32                blue
-Color: light13       #af00af           127               magenta
-Color: light14       #00afaf           37                cyan
-Color: light15       #ffffff           231               white
-
-Color: diffAdd       #b7c7b7           108              green
-Color: diffDelete    #d7b7b7           131              red
-Color: diffChange    #c7c7b7           250              yellow
-Color: diffText      #b7cdcd           109              cyan
-
-Color: uipink        #ff00af           199               magenta
-Color: uilime        #afff00           154               green
-Color: uiteal        #00ffaf           49                cyan
-Color: uiblue        #00afff           39                blue
-Color: uipurple      #af00ff           129               darkmagenta
-Color: white         #eeeeee           255               grey
-Color: invisigrey    #a8a8a8           248               darkgrey
-Color: yasogrey      #e4e4e4           254               grey
-Color: uicursearch   #ff5fff           207               magenta
-Color: uilightgray   #949494           246               lightgray
-Color: errorred      #ff7f8f           197               red
-Color: visual        #a0c0e0           66                darkcyan
-Color: search        #bed7be           22                darkgreen
-Color: incsearch     #d7d0a7           130               yellow
-
-Color: comment       #767676           243               grey
-
-Term colors: light0 light1 light2 light3 light4 light5 light6 light7
-             light8 light9 light10 light11 light12 light13 light14 light15
-
-Normal               light0            light7
- /16/8               none              none
-
-ColorColumn          none              yasogrey
- /16/8               none              none              reverse
-Conceal              none              none
- /16/8               none              none
-Cursor               none              none              reverse
-CursorColumn         none              brightwhite
- /16/8               none              none
-CursorLine           none              brightwhite
- /16/8               none              none
-CursorLineNr         light0            none              bold
- /16/8               none              none              bold
-Directory            none              none              bold
- /16/8               none              none              bold
-EndOfBuffer          light8            none
- /8                  none              none
-Error                errorred          light7            reverse
- /gui                none              errorred
- /256+tgc true       omit              omit
- /16/8               errorred          light7            reverse,bold
-ErrorMsg             light0            light7            reverse
- /16/8               none              none              reverse,bold
-FoldColumn           light8            none
- /16/8               none              none
-Folded               light8            white
- /16                 light8            none
- /8                  none              none
-LineNr               invisigrey        none
- /16                 light8            none
- /8                  none              none
-MatchParen           uipink            light7            bold
- /16/8               none              none              bold,underline
-ModeMsg              light0            none              bold
- /16/8               none              none              bold
-MoreMsg              light0            none
- /16/8               none              none
-NonText              light8            none
- /8                  none              none
-Pmenu                light0            invisigrey
- /16/8               none              none              reverse
-PmenuMatch           light9            invisigrey
- /16/8               none              light1            reverse
-PmenuExtra           light0            invisigrey
- /16/8               none              none              reverse
-PmenuKind            light0            invisigrey        bold
- /16/8               none              none              reverse,bold
-PmenuSbar            light0            yasogrey
- /16                 light8            none              reverse
- /8                  none              none              reverse
-PmenuSel             light7            light0
- /16/8               none              none              bold
-PmenuMatchSel        light9            light0            bold
- /16/8               light1            none              bold
-PmenuExtraSel        light7            light0
- /16/8               none              none              bold
-PmenuKindSel         light7            light0            bold
- /16/8               none              none              bold
-PmenuThumb           light0            light0
- /16/8               none              none
-Question             light0            none
- /16/8               none              none              standout
-QuickFixLine         uicursearch       light0            reverse
- /16/8               light5            light0            reverse
-Search               search            light0            reverse
- /gui                none              search
- /256+tgc true       omit              omit
-IncSearch            incsearch         light0            reverse
- /gui                none              incsearch
- /256+tgc true       omit              omit
-SignColumn           light0            none
- /16/8               none              none              reverse
-SpecialKey           uilightgray       none              bold
- /8                  none              none              bold
-SpellBad             light1            light7            s=none   underline
- /gui                omit              omit              s=light1 undercurl
- /16/8               light1            none              underline
-SpellCap             light4            light7            s=none   underline
- /gui                omit              omit              s=light4 undercurl
- /16/8               light4            none              underline
-SpellLocal           light5            light7            s=none   underline
- /gui                omit              omit              s=light5 undercurl
- /16/8               light5            none              underline
-SpellRare            light6            light7            s=none   underline
- /gui                omit              omit              s=light6 undercurl
- /16/8               light6            none              underline
-StatusLine           brightwhite       light0            bold
- /16/8               none              none              bold,reverse
-StatusLineNC         light0            invisigrey
- /16                 light8            none              reverse
- /8                  none              none              bold,underline
-TabLine              light0            invisigrey
- /16                 light8            none              reverse
- /8                  none              none              bold,underline
-TabLineFill          light0            light7
- /16/8               none              none
-TabLineSel           brightwhite       light0            bold
- /16/8               none              none              reverse,bold
-Title                none              none              bold
-VertSplit            light8            light7
- /16                 light8            none
- /8                  none              none
-Visual               visual            light0            reverse
- /gui                none              visual
- /256+tgc true       omit              omit
-VisualNOS            none              brightwhite
- /16/8               none              none
-WarningMsg           light0            none
- /16/8               none              none              standout
-WildMenu             light0            brightwhite       bold
- /16/8               none              none              bold
-Comment              comment           none
- /16/8               none              none              bold
-Constant             light0            none
- /16/8               none              none
-Identifier           light0            none
- /16/8               none              none
-Ignore               light0            none
- /16/8               none              none
-PreProc              light0            none
- /16/8               none              none
-Special              light0            none
- /16/8               none              none
-Statement            light0            none
- /16/8               none              none
-Todo                 none              none              bold
-Type                 light0            none
- /16/8               none              none
-Underlined           light0            none              underline
- /16/8               none              none              underline
-CursorIM             light0            uilime
- /16/8               none              none
-ToolbarLine          none              light7
- /16/8               none              none              reverse
-ToolbarButton        light0            light7            bold,reverse
- /16/8               none              none              bold,reverse
-DiffAdd              none              diffAdd
- /256                light0            diffAdd
- /16/8               diffAdd           light0            reverse
-DiffChange           none              diffChange
- /256                light0            diffChange
- /16/8               diffChange        light0            reverse
-DiffText             none              diffText
- /256                light0            diffText
- /16/8               diffText          light0            reverse
-DiffDelete           light8            diffDelete
- /256                light0            diffDelete
- /16/8               diffDelete        light0            reverse
-
-Background: any
 
 Include: _tcozero
