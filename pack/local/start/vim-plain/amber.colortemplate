@@ -10,7 +10,7 @@ Options:       backend=vim
 
 Environments: gui 256 16 8 0
 
-Background: any
+Background: dark
 
 CursorLineFold       -> omit
 CursorLineSign       -> omit
