@@ -57,9 +57,9 @@ def Find(split: bool = false, path: string = ""): string
         mods = "vert "
     endif
     if empty(path)
-        g:SetProjectRoot()
+        silent g:SetProjectRoot()
     else
-        exe $"lcd {path}"
+        silent exe $"lcd {path}"
     endif
     return $":{mods}{split ? "s" : ""}find "
 enddef
