@@ -68,11 +68,9 @@ Color: linenrblack   #585858           240               darkgrey
 Color: uicursearch   #ff5fff           207               magenta
 Color: invisigrey    #a8a8a8           248               darkgrey
 Color: uidarkgray    #5f5f5f           59                darkgrey
-
-
-Color: comment       #87875f           101               darkyellow
-
 Color: errorred      #ff005f           197               red
+
+Color: comment       #808080           244               darkgrey
 
 Term colors: dark0 dark1 dark2 dark3 dark4 dark5 dark6 dark7
              dark8 dark9 dark10 dark11 dark12 dark13 dark14 dark15
@@ -268,10 +266,9 @@ Color: invisigrey    #a8a8a8           248               darkgrey
 Color: yasogrey      #e4e4e4           254               grey
 Color: uicursearch   #ff5fff           207               magenta
 Color: uilightgray   #949494           246               lightgray
-
-Color: comment       #87875f           101               darkyellow
-
 Color: errorred      #ff005f           197               red
+
+Color: comment       #767676           243               grey
 
 Term colors: light0 light1 light2 light3 light4 light5 light6 light7
              light8 light9 light10 light11 light12 light13 light14 light15
