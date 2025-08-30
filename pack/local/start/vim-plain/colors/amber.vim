@@ -80,7 +80,7 @@ hi SpellBad guifg=#d7005f guibg=NONE guisp=#d7005f gui=undercurl ctermfg=161 cte
 hi SpellCap guifg=#0087d7 guibg=NONE guisp=#0087d7 gui=undercurl ctermfg=32 ctermbg=NONE cterm=underline term=underline
 hi SpellLocal guifg=#d787d7 guibg=NONE guisp=#d787d7 gui=undercurl ctermfg=176 ctermbg=NONE cterm=underline term=underline
 hi SpellRare guifg=#00afaf guibg=NONE guisp=#00afaf gui=undercurl ctermfg=37 ctermbg=NONE cterm=underline term=underline
-hi Statement guifg=#ffbf00 guibg=NONE guisp=NONE gui=NONE ctermfg=214 ctermbg=NONE cterm=NONE term=NONE
+hi Statement guifg=#ffbf00 guibg=NONE guisp=NONE gui=bold ctermfg=214 ctermbg=NONE cterm=bold term=NONE
 hi StatusLine guifg=#1c1c1c guibg=#dadada guisp=NONE gui=bold ctermfg=234 ctermbg=253 cterm=bold term=bold,reverse
 hi StatusLineNC guifg=#707070 guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=242 ctermbg=234 cterm=reverse term=bold,underline
 hi TabLine guifg=#707070 guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=242 ctermbg=234 cterm=reverse term=bold,underline
@@ -93,7 +93,7 @@ hi ToolbarLine guifg=NONE guibg=#1c1c1c guisp=NONE gui=NONE ctermfg=NONE ctermbg
 hi Type guifg=#c19552 guibg=NONE guisp=NONE gui=NONE ctermfg=137 ctermbg=NONE cterm=NONE term=NONE
 hi Underlined guifg=#dadada guibg=NONE guisp=NONE gui=underline ctermfg=253 ctermbg=NONE cterm=underline term=underline
 hi VertSplit guifg=#707070 guibg=#1c1c1c guisp=NONE gui=NONE ctermfg=242 ctermbg=234 cterm=NONE term=NONE
-hi Visual guifg=NONE guibg=#1a3456 guisp=NONE gui=NONE ctermfg=24 ctermbg=234 cterm=reverse term=reverse
+hi Visual guifg=NONE guibg=#1a3456 guisp=NONE gui=NONE ctermfg=32 ctermbg=234 cterm=reverse term=reverse
 hi VisualNOS guifg=NONE guibg=#3a3a3a guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=NONE
 hi WarningMsg guifg=#dadada guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=standout
 hi WildMenu guifg=#00afff guibg=#1c1c1c guisp=NONE gui=bold ctermfg=39 ctermbg=234 cterm=bold term=bold
@@ -171,7 +171,7 @@ if s:t_Co >= 16
   hi Type ctermfg=NONE ctermbg=NONE cterm=NONE
   hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline
   hi VertSplit ctermfg=darkgrey ctermbg=NONE cterm=NONE
-  hi Visual ctermfg=cyan ctermbg=black cterm=reverse
+  hi Visual ctermfg=darkblue ctermbg=black cterm=reverse
   hi VisualNOS ctermfg=NONE ctermbg=NONE cterm=NONE
   hi WarningMsg ctermfg=NONE ctermbg=NONE cterm=standout
   hi WildMenu ctermfg=NONE ctermbg=NONE cterm=bold
@@ -241,7 +241,7 @@ if s:t_Co >= 8
   hi Type ctermfg=NONE ctermbg=NONE cterm=NONE
   hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline
   hi VertSplit ctermfg=NONE ctermbg=NONE cterm=NONE
-  hi Visual ctermfg=cyan ctermbg=black cterm=reverse
+  hi Visual ctermfg=darkblue ctermbg=black cterm=reverse
   hi VisualNOS ctermfg=NONE ctermbg=NONE cterm=NONE
   hi WarningMsg ctermfg=NONE ctermbg=NONE cterm=standout
   hi WildMenu ctermfg=NONE ctermbg=NONE cterm=bold
