@@ -315,7 +315,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
           \ "\<MiddleMouse>", "\<MiddleRelease>", "\<MiddleDrag>", "\<2-MiddleMouse>",
           \ "\<MiddleMouse>", "\<MiddleRelease>", "\<MiddleDrag>", "\<2-MiddleMouse>",
           \ "\<X1Mouse>", "\<X1Release>", "\<X1Drag>", "\<X2Mouse>", "\<X2Release>", "\<X2Drag>",
-          \ "\<ScrollWheelLeft", "\<ScrollWheelRight>"
+          \ "\<ScrollWheelLeft>", "\<ScrollWheelRight>"
     ]
     # this sequence of bytes are generated when left/right mouse is pressed and
     # mouse wheel is rolled
