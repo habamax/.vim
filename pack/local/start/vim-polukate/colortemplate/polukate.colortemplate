@@ -1,7 +1,7 @@
 ; vim: ft=colortemplate fdm=marker cc=22,40,58 et ts=2 sw=2 vsts=21,18,18,2
 
-Full name:     amber
-Short name:    amber
+Full name:     polukate
+Short name:    polukate
 Author:        Maxim Kim
 URL:           https://github.com/habamax/...
 Description:   Experimental colorscheme with amber statements.
@@ -12,29 +12,32 @@ Environments: gui 256 16 8 0
 
 Background: dark
 
-Added                -> Normal
-Changed              -> Normal
-Removed              -> Normal
-Terminal             -> Normal
-StatusLineTerm       -> StatusLine
-StatusLineTermNC     -> StatusLineNC
-MessageWindow        -> Pmenu
-PopupNotification    -> Todo
-lCursor              -> Cursor
-debugBreakpoint      -> ModeMsg
-debugPC              -> CursorLine
-CurSearch            -> IncSearch
-TabPanelFill         -> Normal
-TabPanel             -> Normal
-LineNrAbove          -> LineNr
-LineNrBelow          -> LineNr
-CursorLineFold       -> FoldColumn
-CursorLineSign       -> FoldColumn
+Include: _link_default
+Include: _link_plugin
 
-vimCommentString     -> Comment
-vimOper              -> Normal
-vimParenSep          -> Normal
-vimSep               -> Normal
+; Added                -> Normal
+; Changed              -> Normal
+; Removed              -> Normal
+; Terminal             -> Normal
+; StatusLineTerm       -> StatusLine
+; StatusLineTermNC     -> StatusLineNC
+; MessageWindow        -> Pmenu
+; PopupNotification    -> Todo
+; lCursor              -> Cursor
+; debugBreakpoint      -> ModeMsg
+; debugPC              -> CursorLine
+; CurSearch            -> IncSearch
+; TabPanelFill         -> Normal
+; TabPanel             -> Normal
+; LineNrAbove          -> LineNr
+; LineNrBelow          -> LineNr
+; CursorLineFold       -> FoldColumn
+; CursorLineSign       -> FoldColumn
+
+; vimCommentString     -> Comment
+; vimOper              -> Normal
+; vimParenSep          -> Normal
+; vimSep               -> Normal
 
 Background: dark
 
