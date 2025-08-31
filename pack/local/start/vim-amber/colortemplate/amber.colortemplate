@@ -66,7 +66,7 @@ Color: black         #000000           16                black
 Color: yasogrey      #262626           235               black
 Color: linenrblack   #585858           240               darkgrey
 Color: uicursearch   #ff5fff           207               magenta
-Color: invisigrey    #a8a8a8           248               darkgrey
+Color: invisigrey    #3a3a3a           237               darkgrey
 Color: uidarkgray    #5f5f5f           59                darkgrey
 Color: errorred      #a03f2f           197               red
 Color: visual        #1a3456           32                darkblue
@@ -77,7 +77,6 @@ Color: comment       #808080           244               darkgrey
 Color: type          #c19552           137               darkyellow
 Color: statement     #ffbf00           214               yellow
 Color: constant      #839a39           107               darkgreen
-
 Color: preproc       #87afaf           109               blue
 Color: identifier    #afaf87           144               yellow
 Color: special       #89743D           94                darkyellow
@@ -129,24 +128,24 @@ MoreMsg              dark7             none
 NonText              dark8             none
  /16                 dark8             none
  /8                  none              none
-Pmenu                dark0             invisigrey
+Pmenu                none              invisigrey
  /16/8               none              none              reverse
-PmenuMatch           dark1             invisigrey
- /16/8               none              dark1             reverse
-PmenuExtra           dark0             invisigrey
+PmenuMatch           dark11            invisigrey
+ /16/8               none              dark3             reverse
+PmenuExtra           none              invisigrey
  /16/8               none              none              reverse
-PmenuKind            dark0             invisigrey        bold
+PmenuKind            none              invisigrey        bold
  /16/8               none              none              reverse,bold
 PmenuSbar            dark8             linenrblack
  /16                 dark8             none              reverse
  /8                  none              none              reverse
-PmenuSel             dark0             dark7
+PmenuSel             none              uidarkgray
  /16/8               none              none              bold
-PmenuMatchSel        dark1             dark7             bold
- /16/8               dark1             none              bold
-PmenuExtraSel        dark0             dark7
+PmenuMatchSel        dark11            uidarkgray
+ /16/8               dark3             none              bold
+PmenuExtraSel        none              uidarkgray
  /16/8               none              none              bold
-PmenuKindSel         dark0             dark7             bold
+PmenuKindSel         none              uidarkgray
  /16/8               none              none              bold
 PmenuThumb           dark7             dark7
  /16/8               none              none

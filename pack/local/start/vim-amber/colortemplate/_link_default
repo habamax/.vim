@@ -1,0 +1,18 @@
+; vim: ft=colortemplate cc=40 vsts=39,4
+;; default links
+Float                                  -> Number
+Function                               -> Identifier
+Number                                 -> Constant
+Terminal                               -> Normal
+StatusLineTerm                         -> StatusLine
+StatusLineTermNC                       -> StatusLineNC
+MessageWindow                          -> Pmenu
+TabPanelFill                           -> Normal
+TabPanel                               -> Normal
+CurSearch                              -> IncSearch
+PopupSelected                          -> PmenuSel
+PopupNotification                      -> Todo
+LineNrAbove                            -> LineNr
+LineNrBelow                            -> LineNr
+CursorLineFold                         -> FoldColumn
+CursorLineSign                         -> FoldColumn

@@ -1,0 +1,37 @@
+; vim: ft=colortemplate cc=40 vsts=39,4
+;; filetype and plugins
+vimCommentString                       -> Comment
+vimVar                                 -> Normal
+vimOper                                -> Normal
+vimSep                                 -> Normal
+vimParenSep                            -> Normal
+yamlBlockMappingKey                    -> Statement
+rubyMacro                              -> Statement
+rubyDefine                             -> Statement
+javaScriptFunction                     -> Statement
+javaScriptIdentifier                   -> Statement
+sqlKeyword                             -> Statement
+sqlSpecial                             -> Constant
+Quote                                  -> String
+markdownUrl                            -> String
+asciidoctorH1Delimiter                 -> Statement
+asciidoctorH2Delimiter                 -> Statement
+asciidoctorH3Delimiter                 -> Statement
+asciidoctorH4Delimiter                 -> Statement
+asciidoctorH5Delimiter                 -> Statement
+asciidoctorH6Delimiter                 -> Statement
+asciidoctorSetextHeaderDelimiter       -> Statement
+asciidoctorTitleDelimiter              -> Statement
+asciidoctorListMarker                  -> Constant
+asciidoctorBlock                       -> Special
+asciidoctorCode                        -> String
+asciidoctorOption                      -> Special
+asciidoctorMacro                       -> Special
+lspDiagVirtualTextError                -> Removed
+lspDiagSignErrorText                   -> Removed
+lspDiagVirtualTextWarning              -> Changed
+lspDiagSignWarningText                 -> Changed
+lspDiagVirtualTextHint                 -> Added
+lspDiagSignHintText                    -> Added
+lspDiagVirtualTextInfo                 -> Question
+lspDiagSignInfoText                    -> Question
