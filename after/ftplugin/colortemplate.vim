@@ -136,4 +136,10 @@ def HighlightCompletor(findstart: number, base: string): any
     return items->empty() ? v:none : items
 enddef
 
-nnoremap <buffer> <F5> <scriptcmd>Colortemplate!<CR>
+def Run()
+    update
+    Colortemplate!
+    ColortemplateShow
+enddef
+
+nnoremap <buffer> <F5> <scriptcmd>Run()<CR>
