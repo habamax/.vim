@@ -74,7 +74,7 @@ hi PmenuSel guifg=NONE guibg=#5f5f5f guisp=NONE gui=NONE ctermfg=NONE ctermbg=59
 hi PmenuThumb guifg=#dadada guibg=#dadada guisp=NONE gui=NONE ctermfg=253 ctermbg=253 cterm=NONE term=NONE
 hi PreProc guifg=#87afaf guibg=NONE guisp=NONE gui=NONE ctermfg=109 ctermbg=NONE cterm=NONE term=NONE
 hi Question guifg=#dadada guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=standout
-hi QuickFixLine guifg=NONE guibg=#402040 guisp=NONE gui=NONE ctermfg=234 ctermbg=207 cterm=NONE term=NONE
+hi QuickFixLine guifg=#dadada guibg=#7f3f7f guisp=NONE gui=NONE ctermfg=234 ctermbg=207 cterm=NONE term=NONE
 hi Search guifg=NONE guibg=#374a44 guisp=NONE gui=NONE ctermfg=114 ctermbg=234 cterm=reverse term=reverse
 hi SignColumn guifg=#dadada guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=reverse
 hi Special guifg=#a76d54 guibg=NONE guisp=NONE gui=NONE ctermfg=208 ctermbg=NONE cterm=NONE term=NONE

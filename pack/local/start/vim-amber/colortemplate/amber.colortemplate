@@ -68,7 +68,7 @@ Color: uiblack       #3a3a3a           237               darkgrey
 Color: black         #000000           16                black
 Color: yasogrey      #262626           235               black
 Color: linenrblack   #585858           240               darkgrey
-Color: quickfix      #402040           207               magenta
+Color: quickfix      #7f3f7f           207               magenta
 Color: invisigrey    #3a3a3a           237               darkgrey
 Color: uidarkgray    #5f5f5f           59                darkgrey
 Color: errorred      #a03f2f           197               red
@@ -159,7 +159,7 @@ PmenuThumb           dark7             dark7
  /16/8               none              none
 Question             dark7             none
  /16/8               none              none              standout
-QuickFixLine         none              quickfix
+QuickFixLine         dark7             quickfix
  /256/16/8           dark0             quickfix
 Search               search            dark0             reverse
  /gui                none              search
