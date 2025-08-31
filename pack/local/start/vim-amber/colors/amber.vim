@@ -30,12 +30,15 @@ hi! link debugBreakpoint ModeMsg
 hi! link debugPC CursorLine
 hi! link lCursor Cursor
 hi! link vimCommentString Comment
+hi! link vimOper Normal
+hi! link vimParenSep Normal
+hi! link vimSep Normal
 
 hi Normal guifg=#dadada guibg=#1c1c1c guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE term=NONE
 hi ColorColumn guifg=NONE guibg=#262626 guisp=NONE gui=NONE ctermfg=NONE ctermbg=235 cterm=NONE term=reverse
 hi Comment guifg=#808080 guibg=NONE guisp=NONE gui=NONE ctermfg=244 ctermbg=NONE cterm=NONE term=bold
 hi Conceal guifg=NONE guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE term=NONE
-hi Constant guifg=#839a39 guibg=NONE guisp=NONE gui=NONE ctermfg=107 ctermbg=NONE cterm=NONE term=NONE
+hi Constant guifg=#8ec07c guibg=NONE guisp=NONE gui=NONE ctermfg=107 ctermbg=NONE cterm=NONE term=NONE
 hi Cursor guifg=NONE guibg=NONE guisp=NONE gui=reverse ctermfg=NONE ctermbg=NONE cterm=reverse term=reverse
 hi CursorColumn guifg=NONE guibg=#3a3a3a guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=NONE
 hi CursorIM guifg=#1c1c1c guibg=#afff00 guisp=NONE gui=NONE ctermfg=234 ctermbg=154 cterm=NONE term=NONE
@@ -74,7 +77,7 @@ hi Question guifg=#dadada guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NON
 hi QuickFixLine guifg=NONE guibg=#402040 guisp=NONE gui=NONE ctermfg=234 ctermbg=207 cterm=NONE term=NONE
 hi Search guifg=NONE guibg=#374a44 guisp=NONE gui=NONE ctermfg=114 ctermbg=234 cterm=reverse term=reverse
 hi SignColumn guifg=#dadada guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=reverse
-hi Special guifg=#89743d guibg=NONE guisp=NONE gui=NONE ctermfg=94 ctermbg=NONE cterm=NONE term=NONE
+hi Special guifg=#a76d54 guibg=NONE guisp=NONE gui=NONE ctermfg=208 ctermbg=NONE cterm=NONE term=NONE
 hi SpecialKey guifg=#5f5f5f guibg=NONE guisp=NONE gui=bold ctermfg=59 ctermbg=NONE cterm=bold term=bold
 hi SpellBad guifg=#d7005f guibg=NONE guisp=#d7005f gui=undercurl ctermfg=161 ctermbg=NONE cterm=underline term=underline
 hi SpellCap guifg=#0087d7 guibg=NONE guisp=#0087d7 gui=undercurl ctermfg=32 ctermbg=NONE cterm=underline term=underline

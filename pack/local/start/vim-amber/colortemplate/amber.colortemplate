@@ -31,6 +31,9 @@ debugPC              -> CursorLine
 CurSearch            -> IncSearch
 
 vimCommentString     -> Comment
+vimOper              -> Normal
+vimParenSep          -> Normal
+vimSep               -> Normal
 
 Background: dark
 
@@ -78,10 +81,13 @@ Color: statusnc      #767676           243               darkgray
 Color: comment       #808080           244               darkgrey
 Color: type          #c19552           137               darkyellow
 Color: statement     #ffbf00           214               yellow
-Color: constant      #839a39           107               darkgreen
+Color: constant      #8ec07c           107               darkgreen
 Color: preproc       #87afaf           109               blue
 Color: identifier    #afaf87           144               yellow
-Color: special       #89743D           94                darkyellow
+Color: special       #a76d54           208               darkred
+; Color: special       #A67447           208               darkred
+; Color: special       #957746           208               darkred
+; Color: special       #fe8019           208               darkred
 
 Term colors: dark0 dark1 dark2 dark3 dark4 dark5 dark6 dark7
              dark8 dark9 dark10 dark11 dark12 dark13 dark14 dark15
