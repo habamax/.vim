@@ -1,7 +1,7 @@
 " Name:         amber
-" Description:  Amber
+" Description:  Experimental colorscheme with amber statements.
 " Author:       Maxim Kim
-" URL:          https://github.com/habamax/vim-plain
+" URL:          https://github.com/habamax/...
 " License:      Vim License (see `:help license`)`
 " Last Change:  2025 Aug 31
 
@@ -77,7 +77,7 @@ hi Question guifg=#dadada guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NON
 hi QuickFixLine guifg=#dadada guibg=#7f3f7f guisp=NONE gui=NONE ctermfg=234 ctermbg=207 cterm=NONE term=NONE
 hi Search guifg=NONE guibg=#374a44 guisp=NONE gui=NONE ctermfg=114 ctermbg=234 cterm=reverse term=reverse
 hi SignColumn guifg=#dadada guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=reverse
-hi Special guifg=#a76d54 guibg=NONE guisp=NONE gui=NONE ctermfg=208 ctermbg=NONE cterm=NONE term=NONE
+hi Special guifg=#c19552 guibg=NONE guisp=NONE gui=NONE ctermfg=137 ctermbg=NONE cterm=NONE term=NONE
 hi SpecialKey guifg=#5f5f5f guibg=NONE guisp=NONE gui=bold ctermfg=59 ctermbg=NONE cterm=bold term=bold
 hi SpellBad guifg=#d7005f guibg=NONE guisp=#d7005f gui=undercurl ctermfg=161 ctermbg=NONE cterm=underline term=underline
 hi SpellCap guifg=#0087d7 guibg=NONE guisp=#0087d7 gui=undercurl ctermfg=32 ctermbg=NONE cterm=underline term=underline
@@ -93,7 +93,7 @@ hi Title guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cte
 hi Todo guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=bold,reverse
 hi ToolbarButton guifg=#dadada guibg=#1c1c1c guisp=NONE gui=bold,reverse ctermfg=253 ctermbg=234 cterm=bold,reverse term=bold,reverse
 hi ToolbarLine guifg=NONE guibg=#1c1c1c guisp=NONE gui=NONE ctermfg=NONE ctermbg=234 cterm=NONE term=reverse
-hi Type guifg=#c19552 guibg=NONE guisp=NONE gui=NONE ctermfg=137 ctermbg=NONE cterm=NONE term=NONE
+hi Type guifg=#d3869b guibg=NONE guisp=NONE gui=NONE ctermfg=175 ctermbg=NONE cterm=NONE term=NONE
 hi Underlined guifg=#dadada guibg=NONE guisp=NONE gui=underline ctermfg=253 ctermbg=NONE cterm=underline term=underline
 hi VertSplit guifg=#707070 guibg=#1c1c1c guisp=NONE gui=NONE ctermfg=242 ctermbg=234 cterm=NONE term=NONE
 hi Visual guifg=NONE guibg=#1a3456 guisp=NONE gui=NONE ctermfg=32 ctermbg=234 cterm=reverse term=reverse

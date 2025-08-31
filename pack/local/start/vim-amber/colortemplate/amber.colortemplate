@@ -3,8 +3,8 @@
 Full name:     amber
 Short name:    amber
 Author:        Maxim Kim
-URL:           https://github.com/habamax/vim-plain
-Description:   Amber
+URL:           https://github.com/habamax/...
+Description:   Experimental colorscheme with amber statements.
 License:       Vim License (see `:help license`)`
 Options:       backend=vim
 
@@ -79,12 +79,16 @@ Color: status        #9e9e9e           247               gray
 Color: statusnc      #767676           243               darkgray
 
 Color: comment       #808080           244               darkgrey
-Color: type          #c19552           137               darkyellow
-Color: statement     #ffbf00           214               yellow
 Color: constant      #8ec07c           107               darkgreen
+; Color: constant      #fe8019           208               darkred
+; Color: string        #8ec07c           107               darkgreen
+; Color: type          #c19552           137               darkyellow
+Color: type          #d3869b           175               darkmagenta
+Color: statement     #ffbf00           214               yellow
 Color: preproc       #87afaf           109               blue
 Color: identifier    #afaf87           144               yellow
-Color: special       #a76d54           208               darkred
+Color: special       #c19552           137               darkyellow
+; Color: special       #a76d54           208               darkred
 ; Color: special       #A67447           208               darkred
 ; Color: special       #957746           208               darkred
 ; Color: special       #fe8019           208               darkred
