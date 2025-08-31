@@ -20,11 +20,17 @@ let g:terminal_ansi_colors = ['#1c1c1c', '#d7005f', '#00af5f', '#d78700', '#0087
 hi! link Added Normal
 hi! link Changed Normal
 hi! link CurSearch IncSearch
+hi! link CursorLineFold FoldColumn
+hi! link CursorLineSign FoldColumn
+hi! link LineNrAbove LineNr
+hi! link LineNrBelow LineNr
 hi! link MessageWindow Pmenu
 hi! link PopupNotification Todo
 hi! link Removed Normal
 hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
+hi! link TabPanel Normal
+hi! link TabPanelFill Normal
 hi! link Terminal Normal
 hi! link debugBreakpoint ModeMsg
 hi! link debugPC CursorLine

@@ -12,11 +12,6 @@ Environments: gui 256 16 8 0
 
 Background: dark
 
-CursorLineFold       -> omit
-CursorLineSign       -> omit
-LineNrAbove          -> omit
-LineNrBelow          -> omit
-
 Added                -> Normal
 Changed              -> Normal
 Removed              -> Normal
@@ -29,6 +24,12 @@ lCursor              -> Cursor
 debugBreakpoint      -> ModeMsg
 debugPC              -> CursorLine
 CurSearch            -> IncSearch
+TabPanelFill         -> Normal
+TabPanel             -> Normal
+LineNrAbove          -> LineNr
+LineNrBelow          -> LineNr
+CursorLineFold       -> FoldColumn
+CursorLineSign       -> FoldColumn
 
 vimCommentString     -> Comment
 vimOper              -> Normal
