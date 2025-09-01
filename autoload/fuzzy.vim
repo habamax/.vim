@@ -1,5 +1,25 @@
 vim9script
 
+# Usage Example:
+#
+# import autoload 'fuzzy.vim'
+# nnoremap <space>e <scriptcmd>fuzzy.File()<CR>
+# nnoremap <space>b <scriptcmd>fuzzy.Buffer()<CR>
+# nnoremap <space>r <scriptcmd>fuzzy.MRU()<CR>
+# nnoremap <space>d <scriptcmd>fuzzy.File($DOCS ?? "~/docs")<CR>
+# nnoremap <space>fc <scriptcmd>fuzzy.Colorscheme()<CR>
+# nnoremap <space>fs <scriptcmd>fuzzy.Session()<CR>
+# nnoremap <space>fi <scriptcmd>fuzzy.File($MYVIMDIR)<CR>
+# nnoremap <space>fr <scriptcmd>fuzzy.File($VIMRUNTIME)<CR>
+# nnoremap <space>it <scriptcmd>fuzzy.Template()<CR>
+# nnoremap <space>ft <scriptcmd>fuzzy.Filetype()<CR>
+# nnoremap <space>fb <scriptcmd>fuzzy.Bookmark()<CR>
+# nnoremap <space>h <scriptcmd>fuzzy.Help()<CR>
+# nnoremap <space>fp <scriptcmd>fuzzy.Project()<CR>
+# nnoremap <space>fh <scriptcmd>fuzzy.Highlight()<CR>
+# nnoremap <space>fu <scriptcmd>fuzzy.Unicode(v:count)<CR>
+
+
 import autoload 'popup.vim'
 import autoload 'os.vim'
 import autoload 'unicode.vim'
