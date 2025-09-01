@@ -21,24 +21,24 @@ def g:SetProjectRoot()
         return
     endif
 
-    var rootDir = ''
+    var rootdir = ''
     for dir in rootMarkers.dirs
-        rootDir = finddir(dir, $"{curdir};")
-        if !rootDir->empty()
+        rootdir = finddir(dir, $"{curdir};")
+        if !rootdir->empty()
             break
         endif
     endfor
-    if rootDir->empty()
+    if rootdir->empty()
         for file in rootMarkers.files
-            rootDir = findfile(file, $"{curdir};")
-            if !rootDir->empty()
+            rootdir = findfile(file, $"{curdir};")
+            if !rootdir->empty()
                 break
             endif
         endfor
     endif
 
-    if !rootDir->empty()
-        exe "lcd " .. fnamemodify(rootDir, ":h")
+    if !rootdir->empty()
+        exe "lcd " .. fnamemodify(rootdir, ":h")
     endif
 enddef
 
