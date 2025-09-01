@@ -25,6 +25,7 @@ def CmdCompleteSelectFirst()
             || empty(info.matches) || !info.pum_visible
         return
     endif
+
     var cmd = info.cmdline_orig->split()
     # Do not accept first element of completion for just commands:
     # :e<CR> should not be expanded to :edit<CR>
