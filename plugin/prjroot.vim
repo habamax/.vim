@@ -9,24 +9,29 @@ var rootMarkers = {
 }
 
 def g:SetProjectRoot()
-    if &buftype != ''
+    if &buftype != '' && ['dir', 'fugitive']->index(&ft) == -1
         return
     endif
 
-    if !isdirectory(expand("%:h"))
+    var curdir = expand("%:p:h")
+        ->substitute('^dir://', '', '')
+        ->substitute('^fugitive:[/\\]\{2}\(.*\)[/\\]\.git', '\1', '')
+    echow curdir
+
+    if !isdirectory(curdir)
         return
     endif
 
     var rootDir = ''
     for dir in rootMarkers.dirs
-        rootDir = finddir(dir, expand("%:p:h") .. ";")
+        rootDir = finddir(dir, $"{curdir};")
         if !rootDir->empty()
             break
         endif
     endfor
     if rootDir->empty()
         for file in rootMarkers.files
-            rootDir = findfile(file, expand("%:p:h") .. ";")
+            rootDir = findfile(file, $"{curdir};")
             if !rootDir->empty()
                 break
             endif
