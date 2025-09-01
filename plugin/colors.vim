@@ -24,15 +24,14 @@ enddef
 
 augroup colors | au!
     au Colorscheme * Lsp()
-    au Colorscheme gvim,habamax,wildcharm,lunaperche,nod* NoBg()
-    au Colorscheme gvim,habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
-    # au Colorscheme * hi Comment gui=italic cterm=italic
+    au Colorscheme habamax,wildcharm,lunaperche,nod* NoBg()
+    au Colorscheme habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
 augroup END
 
 g:colors = {
     dark: "sil! colo polukate",
-    light: "sil! colo xamabah",
+    light: "set bg=light | sil! colo wildcharm",
 }
 
 # g:colors = {
