@@ -16,7 +16,6 @@ def g:SetProjectRoot()
     var curdir = expand("%:p:h")
         ->substitute('^dir://', '', '')
         ->substitute('^fugitive:[/\\]\{2}\(.*\)[/\\]\.git', '\1', '')
-    echow curdir
 
     if !isdirectory(curdir)
         return
