@@ -15,34 +15,10 @@ Background: dark
 Include: _link_default
 Include: _link_plugin
 
-; Added                -> Normal
-; Changed              -> Normal
-; Removed              -> Normal
-; Terminal             -> Normal
-; StatusLineTerm       -> StatusLine
-; StatusLineTermNC     -> StatusLineNC
-; MessageWindow        -> Pmenu
-; PopupNotification    -> Todo
-; lCursor              -> Cursor
-; debugBreakpoint      -> ModeMsg
-; debugPC              -> CursorLine
-; CurSearch            -> IncSearch
-; TabPanelFill         -> Normal
-; TabPanel             -> Normal
-; LineNrAbove          -> LineNr
-; LineNrBelow          -> LineNr
-; CursorLineFold       -> FoldColumn
-; CursorLineSign       -> FoldColumn
-
-; vimCommentString     -> Comment
-; vimOper              -> Normal
-; vimParenSep          -> Normal
-; vimSep               -> Normal
-
 Background: dark
 
 Color: dark0         #1c1c1c           234               black
-Color: dark1         #d7005f           161               darkred
+Color: dark1         #d74f7f           161               darkred
 Color: dark2         #00af5f           35                darkgreen
 Color: dark3         #d78700           172               darkyellow
 Color: dark4         #0087d7           32                darkblue
@@ -50,7 +26,7 @@ Color: dark5         #d787d7           176               darkmagenta
 Color: dark6         #00afaf           37                darkcyan
 Color: dark7         #dadada           253               grey
 Color: dark8         #707070           242               darkgrey
-Color: dark9         #ff005f           197               red
+Color: dark9         #ff4f7f           197               red
 Color: dark10        #00d75f           41                green
 Color: dark11        #ffaf00           214               yellow
 Color: dark12        #5fafff           75                blue
@@ -98,50 +74,94 @@ Color: special       #c19552           137               darkyellow
 Term colors: dark0 dark1 dark2 dark3 dark4 dark5 dark6 dark7
              dark8 dark9 dark10 dark11 dark12 dark13 dark14 dark15
 
+; Group              Foreground        Background        Attributes
 Normal               dark7             dark0
  /256/16/8           none              none
 
-; Group              Foreground        Background        Attributes
-ColorColumn          none              yasogrey
- /16/8               none              none              reverse
-Conceal              none              none
- /16/8               none              none
-Cursor               none              none              reverse
- /16/8               none              none              reverse
-CursorColumn         none              uiblack
- /16/8               none              none
-CursorLine           none              uiblack
- /16/8               none              none
-CursorLineNr         dark7             none              bold
+Comment              comment           none
  /16/8               none              none              bold
+Constant             constant          none
+ /16/8               none              none
+Identifier           identifier        none
+ /16/8               none              none
+Statement            statement         none              bold
+ /16/8               none              none
+PreProc              preproc           none
+ /16/8               none              none
+Type                 type              none
+ /16/8               none              none
+Special              special           none
+ /16/8               none              none
+Underlined           dark7             none              underline
+ /16/8               none              none              underline
+Todo                 none              none              bold
+Title                none              none              bold
 Directory            none              none              bold
  /16/8               none              none
-EndOfBuffer          dark8             none
+Ignore               dark7             none
+ /16/8               none              none
+
+LineNr               linenrblack       none
  /16                 dark8             none
  /8                  none              none
-Error                errorred          dark7             reverse
- /gui                none              errorred
- /256+tgc true       omit              omit
- /16/8               dark1             dark0             reverse,bold
-ErrorMsg             dark7             dark0             reverse
- /16/8               none              none              reverse,bold
+CursorLineNr         dark7             none              bold
+ /16/8               none              none              bold
+CursorLine           none              uiblack
+ /16/8               none              none
+CursorColumn         none              uiblack
+ /16/8               none              none
+ColorColumn          none              yasogrey
+ /16/8               none              none              reverse
 FoldColumn           dark8             none
  /16/8               none              none
 Folded               dark8             black
  /16                 dark8             none
  /8                  none              none
-LineNr               linenrblack       none
+QuickFixLine         dark7             quickfix
+ /256/16/8           dark0             quickfix
+
+EndOfBuffer          dark8             none
  /16                 dark8             none
  /8                  none              none
-MatchParen           uipink            none              bold
- /16/8               none              none              bold,underline
-ModeMsg              dark7             none              bold
- /16/8               none              none              bold
-MoreMsg              dark7             none
- /16/8               none              none
 NonText              dark8             none
  /16                 dark8             none
  /8                  none              none
+SpecialKey           uidarkgray        none              bold
+ /16                 dark8             none              bold
+ /8                  none              none              bold
+Conceal              none              none
+ /16/8               none              none
+MatchParen           uipink            none              bold
+ /16/8               none              none              bold,underline
+
+ModeMsg              dark7             none              bold
+ /16/8               none              none              bold
+Error                errorred          dark7             reverse
+ /gui                none              errorred
+ /256+tgc true       omit              omit
+ /16/8               dark1             dark0             reverse,bold
+ErrorMsg             dark1             dark0             reverse
+ /16/8               none              none              reverse,bold
+MoreMsg              dark2             none
+ /16/8               none              none
+Question             dark4             none
+ /16/8               none              none              standout
+WarningMsg           dark3             none
+ /16/8               none              none              standout
+
+Search               search            dark0             reverse
+ /gui                none              search
+ /256+tgc true       omit              omit
+IncSearch            incsearch         dark0             reverse
+ /gui                none              incsearch
+ /256+tgc true       omit              omit
+
+SignColumn           dark7             none
+ /16/8               none              none              reverse
+
+WildMenu             uiblue            dark0             bold
+ /16/8               none              none              bold
+
 Pmenu                none              invisigrey
  /16/8               none              none              reverse
 PmenuMatch           dark13            invisigrey
@@ -163,21 +183,28 @@ PmenuKindSel         none              uidarkgray
  /16/8               none              none              bold
 PmenuThumb           dark7             dark7
  /16/8               none              none
-Question             dark7             none
- /16/8               none              none              standout
-QuickFixLine         dark7             quickfix
- /256/16/8           dark0             quickfix
-Search               search            dark0             reverse
- /gui                none              search
+
+StatusLine           dark0             status            bold
+ /16/8               none              none              bold,reverse
+StatusLineNC         statusnc          dark0             reverse
+ /16                 dark8             none              reverse
+ /8                  none              none              bold,underline
+VertSplit            dark8             dark0
+ /16                 dark8             none
+ /8                  none              none
+TabLine              statusnc          dark0             reverse
+ /16                 dark8             none              reverse
+ /8                  none              none              bold,underline
+TabLineFill          dark7             statusnc
+ /16/8               none              none
+TabLineSel           dark0             status            bold
+ /16/8               none              none              reverse,bold
+Visual               visual            dark0             reverse
+ /gui                none              visual
  /256+tgc true       omit              omit
-IncSearch            incsearch         dark0             reverse
- /gui                none              incsearch
- /256+tgc true       omit              omit
-SignColumn           dark7             none
- /16/8               none              none              reverse
-SpecialKey           uidarkgray        none              bold
- /16                 dark8             none              bold
- /8                  none              none              bold
+VisualNOS            none              uiblack
+ /16/8               none              none
+
 SpellBad             dark1             none              s=none  underline
  /gui                omit              omit              s=dark1 undercurl
  /16/8               dark1             none              underline
@@ -190,57 +217,7 @@ SpellLocal           dark5             none              s=none  underline
 SpellRare            dark6             none              s=none  underline
  /16/8               dark6             none              underline
  /gui                omit              omit              s=dark6 undercurl
-StatusLine           dark0             status            bold
- /16/8               none              none              bold,reverse
-StatusLineNC         statusnc          dark0             reverse
- /16                 dark8             none              reverse
- /8                  none              none              bold,underline
-TabLine              statusnc          dark0             reverse
- /16                 dark8             none              reverse
- /8                  none              none              bold,underline
-TabLineFill          dark7             statusnc
- /16/8               none              none
-TabLineSel           dark0             status            bold
- /16/8               none              none              reverse,bold
-Title                none              none              bold
-VertSplit            dark8             dark0
- /16                 dark8             none
- /8                  none              none
-Visual               visual            dark0             reverse
- /gui                none              visual
- /256+tgc true       omit              omit
-VisualNOS            none              uiblack
- /16/8               none              none
-WarningMsg           dark7             none
- /16/8               none              none              standout
-WildMenu             uiblue            dark0             bold
- /16/8               none              none              bold
 
-Comment              comment           none
- /16/8               none              none              bold
-Constant             constant          none
- /16/8               none              none
-Identifier           identifier        none
- /16/8               none              none
-Ignore               dark7             none
- /16/8               none              none
-PreProc              preproc           none
- /16/8               none              none
-Special              special           none
- /16/8               none              none
-Statement            statement         none              bold
- /16/8               none              none
-Type                 type              none
- /16/8               none              none
-Todo                 none              none              bold
-Underlined           dark7             none              underline
- /16/8               none              none              underline
-CursorIM             dark0             uilime
- /16/8               none              none
-ToolbarLine          none              dark0
- /16/8               none              none              reverse
-ToolbarButton        dark7             dark0             bold,reverse
- /16/8               none              none              bold,reverse
 DiffAdd              none              diffAdd
  /256                dark7             diffAdd
  /16/8               diffAdd           dark0             reverse
@@ -253,5 +230,19 @@ DiffText             none              diffText
 DiffDelete           dark8             diffDelete
  /256                dark8             diffDelete
  /16/8               diffDelete        dark0             reverse
+
+Added                dark2             none
+Changed              dark3             none
+Removed              dark1             none
+
+ToolbarLine          none              dark0
+ /16/8               none              none              reverse
+ToolbarButton        dark7             dark0             bold,reverse
+ /16/8               none              none              bold,reverse
+
+Cursor               none              none              reverse
+ /16/8               none              none              reverse
+CursorIM             dark0             uilime
+ /16/8               none              none
 
 Include: _tcozero
