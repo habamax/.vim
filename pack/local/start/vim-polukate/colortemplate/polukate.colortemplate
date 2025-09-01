@@ -117,6 +117,8 @@ FoldColumn           dark8             none
 Folded               dark8             black
  /16                 dark8             none
  /8                  none              none
+SignColumn           dark7             none
+ /16/8               none              none              reverse
 QuickFixLine         dark7             quickfix
  /256/16/8           dark0             quickfix
 
@@ -149,6 +151,11 @@ Question             dark4             none
 WarningMsg           dark3             none
  /16/8               none              none              standout
 
+Visual               visual            dark0             reverse
+ /gui                none              visual
+ /256+tgc true       omit              omit
+VisualNOS            none              uiblack
+ /16/8               none              none
 Search               search            dark0             reverse
  /gui                none              search
  /256+tgc true       omit              omit
@@ -156,12 +163,8 @@ IncSearch            incsearch         dark0             reverse
  /gui                none              incsearch
  /256+tgc true       omit              omit
 
-SignColumn           dark7             none
- /16/8               none              none              reverse
-
 WildMenu             uiblue            dark0             bold
  /16/8               none              none              bold
-
 Pmenu                none              invisigrey
  /16/8               none              none              reverse
 PmenuMatch           dark13            invisigrey
@@ -199,11 +202,6 @@ TabLineFill          dark7             statusnc
  /16/8               none              none
 TabLineSel           dark0             status            bold
  /16/8               none              none              reverse,bold
-Visual               visual            dark0             reverse
- /gui                none              visual
- /256+tgc true       omit              omit
-VisualNOS            none              uiblack
- /16/8               none              none
 
 SpellBad             dark1             none              s=none  underline
  /gui                omit              omit              s=dark1 undercurl
