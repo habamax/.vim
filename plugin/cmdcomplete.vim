@@ -54,11 +54,11 @@ def CmdCompleteSelectFirst()
         return
     endif
 
-    if !empty(info.matches) && info.selected == -1 && info.pum_visible
-        setcmdline($'{cmd[ : cmd_len]->join()} {info.matches[0]->escape('#%')}')
-    elseif info.selected != -1
-        setcmdline($'{cmd[ : cmd_len]->join()} {info.matches[info.selected]->escape('#%')}')
+    if empty(info.matches) || !info.pum_visible
+        return
     endif
+    var selected = info.selected == -1 ? 0 : info.selected
+    setcmdline($'{cmd[ : cmd_len]->join()} {info.matches[selected]->escape('#%')}')
 enddef
 
 augroup CmdComplete
