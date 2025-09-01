@@ -55,10 +55,8 @@ def CmdCompleteSelectFirst()
     endif
 
     if !empty(info.matches) && info.selected == -1 && info.pum_visible
-        echo "here"
         setcmdline($'{cmd[ : cmd_len]->join()} {info.matches[0]->escape('#%')}')
     elseif info.selected != -1
-        echo "there"
         setcmdline($'{cmd[ : cmd_len]->join()} {info.matches[info.selected]->escape('#%')}')
     endif
 enddef
