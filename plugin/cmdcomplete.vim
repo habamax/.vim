@@ -22,6 +22,7 @@ def CmdCompleteSelectFirst()
 
     var info = cmdcomplete_info()
     if empty(get(info, 'cmdline_orig', ''))
+            || empty(info.matches) || !info.pum_visible
         return
     endif
     var cmd = info.cmdline_orig->split()
@@ -54,9 +55,6 @@ def CmdCompleteSelectFirst()
         return
     endif
 
-    if empty(info.matches) || !info.pum_visible
-        return
-    endif
     var selected = info.selected == -1 ? 0 : info.selected
     setcmdline($'{cmd[ : cmd_len]->join()} {info.matches[selected]->escape('#%')}')
 enddef
