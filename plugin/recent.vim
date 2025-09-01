@@ -55,7 +55,7 @@ def Edit(filename: string, split: bool = false, mods: string = "")
     elseif split && winwidth(winnr()) * 0.3 > winheight(winnr())
         guess_mods = "vert "
     endif
-    exe $"{guess_mods} {split ? "split" : "edit"} {fname}"
+    exe $"{guess_mods} {split ? "split" : "edit"} {fname->escape('#%')}"
 enddef
 
 def RecentComplete(_, _, _): string

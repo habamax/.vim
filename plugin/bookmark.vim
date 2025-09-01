@@ -86,7 +86,7 @@ def BookmarkOpen(name: string, split: bool = false, mods: string = "")
     elseif split && winwidth(winnr()) * 0.3 > winheight(winnr())
         guess_mods = "vert "
     endif
-    exe $"{guess_mods} {split ? "split" : "edit"} {bookmark.file}"
+    exe $"{guess_mods} {split ? "split" : "edit"} {bookmark.file->escape('#%')}"
     cursor(bookmark.line, bookmark.col)
     normal! zz
 enddef
