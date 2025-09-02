@@ -1,5 +1,5 @@
 " Name:         polukate
-" Description:  Experimental colorscheme with amber statements.
+" Description:  Dark mid-contrast colors with yellow statements.
 " Author:       Maxim Kim
 " URL:          https://github.com/habamax/...
 " License:      Vim License (see `:help license`)`
