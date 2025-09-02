@@ -61,17 +61,17 @@ Color: uimatchchar   #00afff           39                magenta
 
 Color: comment       #808080           244               darkgrey
 Color: constant      #8ec07c           107               darkgreen
-; Color: constant      #fe8019           208               darkred
-; Color: string        #8ec07c           107               darkgreen
-; Color: type          #c19552           137               darkyellow
 Color: type          #d3869b           175               darkmagenta
-Color: statement     #ffcf5f           214               yellow
-; Color: statement     #ffbf00           214               yellow
-; Color: statement     #efbf5f           214               yellow
-; Color: statement     #ffdf5f           214               yellow
+Color: statement     #ffcf5f           221               yellow
 Color: preproc       #87afaf           109               blue
 Color: identifier    #afaf87           144               yellow
 Color: special       #c19552           137               darkyellow
+; Color: constant      #fe8019           208               darkred
+; Color: string        #8ec07c           107               darkgreen
+; Color: statement     #ffbf00           214               yellow
+; Color: statement     #efbf5f           214               yellow
+; Color: statement     #ffdf5f           214               yellow
+; Color: type          #c19552           137               darkyellow
 ; Color: special       #a76d54           208               darkred
 ; Color: special       #A67447           208               darkred
 ; Color: special       #957746           208               darkred
