@@ -41,7 +41,6 @@ Color: diffText      #0f4f4f           23                darkcyan
 
 Color: uipink        #ff00af           199               magenta
 Color: uilime        #afff00           154               green
-Color: uiblue        #00afff           39                blue
 Color: uiblack       #3a3a3a           237               darkgrey
 Color: black         #000000           16                black
 Color: yasogrey      #262626           235               black
@@ -55,7 +54,8 @@ Color: search        #374a44           114               green
 Color: incsearch     #5a4a45           215               yellow
 Color: status        #9e9e9e           247               gray
 Color: statusnc      #767676           243               darkgray
-Color: uimatchchar   #ff87af           211               magenta
+; Color: uimatchchar   #ff87af           211               magenta
+Color: uimatchchar   #00afff           211               magenta
 
 Color: comment       #808080           244               darkgrey
 Color: constant      #8ec07c           107               darkgreen
@@ -166,8 +166,8 @@ IncSearch            incsearch         dark0             reverse
  /gui                none              incsearch
  /256+tgc true       omit              omit
 
-WildMenu             uiblue            dark0             bold
- /16/8               none              none              bold
+WildMenu             dark0             dark11
+ /16/8               none              none              bold,reverse
 Pmenu                none              invisigrey
  /16/8               none              none              reverse
 PmenuMatch           uimatchchar       invisigrey
@@ -190,7 +190,7 @@ PmenuKindSel         none              uidarkgray
 PmenuThumb           dark7             dark7
  /16/8               none              none
 
-StatusLine           dark0             status            bold
+StatusLine           dark0             status
  /16/8               none              none              bold,reverse
 StatusLineNC         statusnc          dark0             reverse
  /16                 dark8             none              reverse
@@ -203,7 +203,7 @@ TabLine              statusnc          dark0             reverse
  /8                  none              none              bold,underline
 TabLineFill          dark7             statusnc
  /16/8               none              none
-TabLineSel           dark0             status            bold
+TabLineSel           dark0             status
  /16/8               none              none              reverse,bold
 
 SpellBad             dark1             none              s=none  underline

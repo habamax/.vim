@@ -104,8 +104,8 @@ hi PmenuExtra guifg=NONE guibg=#3a3a3a guisp=NONE gui=NONE ctermfg=NONE ctermbg=
 hi PmenuExtraSel guifg=NONE guibg=#585858 guisp=NONE gui=NONE ctermfg=NONE ctermbg=240 cterm=NONE term=NONE
 hi PmenuKind guifg=NONE guibg=#3a3a3a guisp=NONE gui=bold ctermfg=NONE ctermbg=237 cterm=bold term=bold
 hi PmenuKindSel guifg=NONE guibg=#585858 guisp=NONE gui=NONE ctermfg=NONE ctermbg=240 cterm=NONE term=NONE
-hi PmenuMatch guifg=#ff87af guibg=#3a3a3a guisp=NONE gui=NONE ctermfg=211 ctermbg=237 cterm=NONE term=NONE
-hi PmenuMatchSel guifg=#ff87af guibg=#585858 guisp=NONE gui=NONE ctermfg=211 ctermbg=240 cterm=NONE term=NONE
+hi PmenuMatch guifg=#00afff guibg=#3a3a3a guisp=NONE gui=NONE ctermfg=211 ctermbg=237 cterm=NONE term=NONE
+hi PmenuMatchSel guifg=#00afff guibg=#585858 guisp=NONE gui=NONE ctermfg=211 ctermbg=240 cterm=NONE term=NONE
 hi PmenuSbar guifg=#707070 guibg=#5f5f5f guisp=NONE gui=NONE ctermfg=242 ctermbg=59 cterm=NONE term=reverse
 hi PmenuSel guifg=NONE guibg=#585858 guisp=NONE gui=NONE ctermfg=NONE ctermbg=240 cterm=NONE term=bold
 hi PmenuThumb guifg=#dadada guibg=#dadada guisp=NONE gui=NONE ctermfg=253 ctermbg=253 cterm=NONE term=NONE
@@ -122,11 +122,11 @@ hi SpellCap guifg=#0087d7 guibg=NONE guisp=#0087d7 gui=undercurl ctermfg=32 cter
 hi SpellLocal guifg=#d787d7 guibg=NONE guisp=#d787d7 gui=undercurl ctermfg=176 ctermbg=NONE cterm=underline term=underline
 hi SpellRare guifg=#00afaf guibg=NONE guisp=#00afaf gui=undercurl ctermfg=37 ctermbg=NONE cterm=underline term=underline
 hi Statement guifg=#ffcf5f guibg=NONE guisp=NONE gui=bold ctermfg=214 ctermbg=NONE cterm=bold term=NONE
-hi StatusLine guifg=#1c1c1c guibg=#9e9e9e guisp=NONE gui=bold ctermfg=234 ctermbg=247 cterm=bold term=bold,reverse
+hi StatusLine guifg=#1c1c1c guibg=#9e9e9e guisp=NONE gui=NONE ctermfg=234 ctermbg=247 cterm=NONE term=bold,reverse
 hi StatusLineNC guifg=#767676 guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=243 ctermbg=234 cterm=reverse term=bold,underline
 hi TabLine guifg=#767676 guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=243 ctermbg=234 cterm=reverse term=bold,underline
 hi TabLineFill guifg=#dadada guibg=#767676 guisp=NONE gui=NONE ctermfg=253 ctermbg=243 cterm=NONE term=NONE
-hi TabLineSel guifg=#1c1c1c guibg=#9e9e9e guisp=NONE gui=bold ctermfg=234 ctermbg=247 cterm=bold term=bold,reverse
+hi TabLineSel guifg=#1c1c1c guibg=#9e9e9e guisp=NONE gui=NONE ctermfg=234 ctermbg=247 cterm=NONE term=bold,reverse
 hi Title guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=NONE
 hi Todo guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=bold,reverse
 hi ToolbarButton guifg=#dadada guibg=#1c1c1c guisp=NONE gui=bold,reverse ctermfg=253 ctermbg=234 cterm=bold,reverse term=bold,reverse
@@ -137,7 +137,7 @@ hi VertSplit guifg=#707070 guibg=#1c1c1c guisp=NONE gui=NONE ctermfg=242 ctermbg
 hi Visual guifg=NONE guibg=#1a3456 guisp=NONE gui=NONE ctermfg=32 ctermbg=234 cterm=reverse term=reverse
 hi VisualNOS guifg=NONE guibg=#3a3a3a guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=NONE
 hi WarningMsg guifg=#d78700 guibg=NONE guisp=NONE gui=NONE ctermfg=172 ctermbg=NONE cterm=NONE term=standout
-hi WildMenu guifg=#00afff guibg=#1c1c1c guisp=NONE gui=bold ctermfg=39 ctermbg=234 cterm=bold term=bold
+hi WildMenu guifg=#1c1c1c guibg=#ffaf00 guisp=NONE gui=NONE ctermfg=234 ctermbg=214 cterm=NONE term=bold
 
 if s:tgc || s:t_Co >= 256
   if s:tgc
@@ -218,7 +218,7 @@ if s:t_Co >= 16
   hi Visual ctermfg=darkblue ctermbg=black cterm=reverse
   hi VisualNOS ctermfg=NONE ctermbg=NONE cterm=NONE
   hi WarningMsg ctermfg=NONE ctermbg=NONE cterm=standout
-  hi WildMenu ctermfg=NONE ctermbg=NONE cterm=bold
+  hi WildMenu ctermfg=NONE ctermbg=NONE cterm=bold,reverse
   finish
 endif
 
@@ -291,7 +291,7 @@ if s:t_Co >= 8
   hi Visual ctermfg=darkblue ctermbg=black cterm=reverse
   hi VisualNOS ctermfg=NONE ctermbg=NONE cterm=NONE
   hi WarningMsg ctermfg=NONE ctermbg=NONE cterm=standout
-  hi WildMenu ctermfg=NONE ctermbg=NONE cterm=bold
+  hi WildMenu ctermfg=NONE ctermbg=NONE cterm=bold,reverse
   finish
 endif
 
