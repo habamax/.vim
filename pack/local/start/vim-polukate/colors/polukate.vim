@@ -85,7 +85,7 @@ hi DiffAdd guifg=NONE guibg=#273923 guisp=NONE gui=NONE ctermfg=253 ctermbg=22 c
 hi DiffChange guifg=NONE guibg=#37352f guisp=NONE gui=NONE ctermfg=253 ctermbg=237 cterm=NONE term=NONE
 hi DiffDelete guifg=#707070 guibg=#2f1f1a guisp=NONE gui=NONE ctermfg=242 ctermbg=52 cterm=NONE term=reverse
 hi DiffText guifg=NONE guibg=#0f4f4f guisp=NONE gui=NONE ctermfg=253 ctermbg=23 cterm=NONE term=reverse
-hi Directory guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=NONE
+hi Directory guifg=#afaf87 guibg=NONE guisp=NONE gui=bold ctermfg=144 ctermbg=NONE cterm=bold term=NONE
 hi EndOfBuffer guifg=#707070 guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE term=NONE
 hi Error guifg=NONE guibg=#a03f2f guisp=NONE gui=NONE ctermfg=197 ctermbg=253 cterm=reverse term=bold,reverse
 hi ErrorMsg guifg=#d74f7f guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=161 ctermbg=234 cterm=reverse term=bold,reverse

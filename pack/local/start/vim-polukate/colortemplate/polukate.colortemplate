@@ -101,7 +101,7 @@ Underlined           dark7             none              underline
  /16/8               none              none              underline
 Todo                 none              none              bold
 Title                none              none              bold
-Directory            none              none              bold
+Directory            identifier        none              bold
  /16/8               none              none
 Ignore               dark7             none
  /16/8               none              none
