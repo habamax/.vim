@@ -55,6 +55,7 @@ Color: search        #374a44           114               green
 Color: incsearch     #5a4a45           215               yellow
 Color: status        #9e9e9e           247               gray
 Color: statusnc      #767676           243               darkgray
+Color: uimatchchar   #ff87af           211               magenta
 
 Color: comment       #808080           244               darkgrey
 Color: constant      #8ec07c           107               darkgreen
@@ -72,7 +73,6 @@ Color: special       #c19552           137               darkyellow
 ; Color: special       #a76d54           208               darkred
 ; Color: special       #A67447           208               darkred
 ; Color: special       #957746           208               darkred
-; Color: special       #fe8019           208               darkred
 
 Term colors: dark0 dark1 dark2 dark3 dark4 dark5 dark6 dark7
              dark8 dark9 dark10 dark11 dark12 dark13 dark14 dark15
@@ -170,7 +170,7 @@ WildMenu             uiblue            dark0             bold
  /16/8               none              none              bold
 Pmenu                none              invisigrey
  /16/8               none              none              reverse
-PmenuMatch           dark13            invisigrey
+PmenuMatch           uimatchchar       invisigrey
  /16/8               none              dark3             reverse
 PmenuExtra           none              invisigrey
  /16/8               none              none              reverse
@@ -181,7 +181,7 @@ PmenuSbar            dark8             linenrblack
  /8                  none              none              reverse
 PmenuSel             none              uidarkgray
  /16/8               none              none              bold
-PmenuMatchSel        dark13            uidarkgray
+PmenuMatchSel        uimatchchar       uidarkgray
  /16/8               dark5             none              bold
 PmenuExtraSel        none              uidarkgray
  /16/8               none              none              bold
