@@ -30,6 +30,7 @@ augroup colors | au!
     au colorscheme polukate {
         if has("gui_running")
             hi normal guibg=#1c1c26
+        endif
     }
 augroup END
 
