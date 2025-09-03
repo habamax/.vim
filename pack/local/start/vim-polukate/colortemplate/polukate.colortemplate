@@ -66,6 +66,9 @@ Color: statement     #ffcf5f           221               yellow
 Color: preproc       #87afaf           109               blue
 Color: identifier    #afaf87           144               yellow
 Color: special       #c19552           137               darkyellow
+
+Color: directory     #bfbf97           144               yellow
+
 ; Color: constant      #fe8019           208               darkred
 ; Color: string        #8ec07c           107               darkgreen
 ; Color: statement     #ffbf00           214               yellow
@@ -101,8 +104,8 @@ Underlined           dark7             none              underline
  /16/8               none              none              underline
 Todo                 none              none              bold
 Title                none              none              bold
-Directory            none              none              bold
- /16/8               none              none
+Directory            directory         none              bold
+ /16/8               none              none              bold
 Ignore               dark7             none
  /16/8               none              none
 
