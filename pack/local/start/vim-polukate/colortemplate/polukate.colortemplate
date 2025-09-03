@@ -4,7 +4,7 @@ Full name:     polukate
 Short name:    polukate
 Author:        Maxim Kim
 URL:           https://github.com/habamax/...
-Description:   Dark mid-contrast colors with yellow statements.
+Description:   Dark mid-contrast colors with bold yellow statements.
 License:       Vim License (see `:help license`)`
 Options:       backend=vim
 
