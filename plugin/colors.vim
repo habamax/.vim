@@ -40,11 +40,6 @@ g:colors = {
 }
 
 # g:colors = {
-#     dark: "set bg=dark | sil! colo plain",
-#     light: "set bg=light | sil! colo plain",
-# }
-
-# g:colors = {
 #     dark: "sil! colo habamax",
 #     light: "sil! colo xamabah"
 # }
@@ -52,16 +47,6 @@ g:colors = {
 # g:colors = {
 #     dark: "set bg=dark | sil! colo wildcharm",
 #     light: "set bg=light | sil! colo wildcharm",
-# }
-
-# g:colors = {
-#     dark: "set bg=dark | sil! colo gvim",
-#     light: "set bg=light | sil! colo gvim",
-# }
-
-# g:colors = {
-#     dark: "sil! colo nod-b",
-#     light: "sil! colo nope"
 # }
 
 # g:colors = {
