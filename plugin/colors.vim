@@ -27,6 +27,7 @@ augroup colors | au!
     au Colorscheme polukate,habamax,wildcharm,lunaperche,nod* NoBg()
     au Colorscheme habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
+    au Colorscheme * hi Comment cterm=italic gui=italic
 augroup END
 
 g:colors = {
