@@ -90,7 +90,7 @@ hi EndOfBuffer guifg=#707070 guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=
 hi Error guifg=NONE guibg=#a03f2f guisp=NONE gui=NONE ctermfg=197 ctermbg=253 cterm=reverse term=bold,reverse
 hi ErrorMsg guifg=#d74f7f guibg=#1c1c1c guisp=NONE gui=reverse ctermfg=161 ctermbg=234 cterm=reverse term=bold,reverse
 hi FoldColumn guifg=#707070 guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE term=NONE
-hi Folded guifg=#707070 guibg=#000000 guisp=NONE gui=NONE ctermfg=242 ctermbg=16 cterm=NONE term=NONE
+hi Folded guifg=#707070 guibg=#121212 guisp=NONE gui=NONE ctermfg=242 ctermbg=233 cterm=NONE term=NONE
 hi Identifier guifg=#afaf87 guibg=NONE guisp=NONE gui=NONE ctermfg=144 ctermbg=NONE cterm=NONE term=NONE
 hi Ignore guifg=#dadada guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=NONE
 hi IncSearch guifg=NONE guibg=#5a4a45 guisp=NONE gui=NONE ctermfg=215 ctermbg=234 cterm=reverse term=bold,reverse,underline

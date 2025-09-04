@@ -39,7 +39,6 @@ Color: diffDelete    #2f1f1a           52                darkred
 Color: diffChange    #37352f           237               darkyellow
 Color: diffText      #0f4f4f           23                darkcyan
 
-Color: black         #000000           16                black
 Color: uipink        #ff00af           199               magenta
 Color: uilime        #afff00           154               green
 Color: uiblack       #3a3a3a           237               darkgrey
@@ -56,6 +55,7 @@ Color: search        #374a44           114               green
 Color: incsearch     #5a4a45           215               yellow
 Color: status        #9e9e9e           247               gray
 Color: statusnc      #767676           243               darkgray
+Color: folded        #121212           233               black
 Color: uimagenta     #ff87af           211               magenta
 Color: uimatchchar   #00afff           39                magenta
 
@@ -122,7 +122,7 @@ ColorColumn          none              yasogrey
  /16/8               none              none              reverse
 FoldColumn           dark8             none
  /16/8               none              none
-Folded               dark8             black
+Folded               dark8             folded
  /16                 dark8             none
  /8                  none              none
 SignColumn           dark7             none
