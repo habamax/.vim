@@ -80,7 +80,7 @@ Color: directory     #bfbf97           144               yellow
 ; Color: special       #957746           208               darkred
 
 Term colors: dark0 dark1 dark2 dark3 dark4 dark5 dark6 dark7
-dark8 dark9 dark10 dark11 dark12 dark13 dark14 dark15
+             dark8 dark9 dark10 dark11 dark12 dark13 dark14 dark15
 
 ; Group              Foreground        Background        Attributes
 Normal               dark7             dark0
