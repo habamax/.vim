@@ -61,3 +61,4 @@ asciidoctorListContinuation            -> asciidoctorListMarker
 asciidoctorCaption                     -> PreProc
 asciidoctorOption                      -> Identifier
 asciidoctorMacro                       -> PreProc
+dirLink                                -> Comment

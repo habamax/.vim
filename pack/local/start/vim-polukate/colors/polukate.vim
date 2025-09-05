@@ -54,6 +54,7 @@ hi! link asciidoctorOption Identifier
 hi! link asciidoctorSetextHeader Statement
 hi! link asciidoctorSetextHeaderDelimiter Type
 hi! link asciidoctorTitle Statement
+hi! link dirLink Comment
 hi! link javaScriptFunction Statement
 hi! link javaScriptIdentifier Statement
 hi! link lspDiagSignErrorText Removed
