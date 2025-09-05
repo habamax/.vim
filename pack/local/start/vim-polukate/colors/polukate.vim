@@ -83,7 +83,6 @@ hi! link markdownLinkText String
 hi! link markdownListMarker PreProc
 hi! link markdownUrl Underlined
 hi! link rstDirective PreProc
-hi! link rstListItem PreProc
 hi! link rstSection Statement
 hi! link rubyDefine Statement
 hi! link rubyMacro Statement

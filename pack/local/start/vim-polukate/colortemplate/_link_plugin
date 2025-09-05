@@ -22,7 +22,6 @@ lspDiagSignHintText                    -> Added
 lspDiagVirtualTextInfo                 -> Question
 lspDiagSignInfoText                    -> Question
 rstDirective                           -> PreProc
-rstListItem                            -> PreProc
 rstSection                             -> Statement
 markdownH1Delimiter                    -> Type
 markdownH2Delimiter                    -> Type
