@@ -8,6 +8,13 @@ Description:   Dark mid-contrast colors with bold yellow statements.
 License:       Vim License (see `:help license`)`
 Options:       backend=vim
 
+; TODO:
+; ✓ gui
+;   256
+;   16
+;   8
+; ✓ 0
+
 Environments: gui 256 16 8 0
 
 Background: dark
