@@ -56,8 +56,11 @@ def CmdCompleteSelectFirst()
         return
     endif
 
-    var selected = info.selected == -1 ? 0 : info.selected
-    setcmdline($'{cmd[ : cmd_len]->join()} {info.matches[selected]->escape('#%')}')
+    var selected = info.matches[info.selected == -1 ? 0 : info.selected]
+    if fullcommand(cmd_orig) != "Help"
+        selected = selected->escape('#%')
+    endif
+    setcmdline($'{cmd[ : cmd_len]->join()} {selected}')
 enddef
 
 augroup CmdComplete
