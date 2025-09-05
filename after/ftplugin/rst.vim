@@ -96,8 +96,8 @@ def Toc()
         (winid) => {
             win_execute(winid, 'syn match PopupSelectLineNr "(\d\+)$"')
             win_execute(winid, 'syn match PopupSelectSecNum "^\s*\(\d\+\.\)*\(\d\+\)"')
-            hi def link PopupSelectLineNr Comment
-            hi def link PopupSelectSecNum Title
+            hi link PopupSelectLineNr Comment
+            hi link PopupSelectSecNum rstSection
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
