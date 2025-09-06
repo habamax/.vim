@@ -68,7 +68,10 @@ def EditDirectoryHelper()
     if fullcommand(get(info, 'cmdline_orig', '')) != 'edit'
         return
     endif
-    if info.pum_visible && info.selected == 0 && len(info.matches) == 1 && info.matches[0] =~ '\([\\/]\)$'
+    if info.pum_visible
+            && info.selected == 0
+            && len(info.matches) == 1
+            && info.matches[0] =~ '\([\\/]\)$'
         timer_start(0, (_) => {
             feedkeys("/", 'nt')
         })
