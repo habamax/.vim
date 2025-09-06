@@ -63,6 +63,21 @@ def CmdCompleteSelectFirst()
     setcmdline($'{cmd[ : cmd_len]->join()} {selected}')
 enddef
 
+def EditDirectoryHelper()
+    var info = cmdcomplete_info()
+    if fullcommand(get(info, 'cmdline_orig', '')) != 'edit'
+        return
+    endif
+    if info.pum_visible && info.selected == 0 && len(info.matches) == 1 && info.matches[0] =~ '\([\\/]\)$'
+        timer_start(0, (_) => {
+            feedkeys("/", 'nt')
+        })
+    else
+        # XXX: what about https://.... or file://...?
+        setcmdline(getcmdline()->substitute('\([\\/]\)\+$', '\1', ''))
+    endif
+enddef
+
 augroup CmdComplete
     au!
     autocmd CmdlineChanged : {
@@ -71,5 +86,6 @@ augroup CmdComplete
             wildtrigger()
         endif
     }
+    autocmd CmdlineChanged : EditDirectoryHelper()
     autocmd CmdlineLeavePre : CmdCompleteSelectFirst()
 augroup END
