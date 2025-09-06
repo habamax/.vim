@@ -73,6 +73,7 @@ def EditDirectoryHelper()
             && len(info.matches) == 1
             && info.matches[0] =~ '\([\\/]\)$'
         timer_start(0, (_) => {
+            # XXX: for windows do \ instead of /
             feedkeys("/", 'nt')
         })
     else
