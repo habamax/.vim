@@ -5,7 +5,7 @@ set wildmode=noselect:lastused,full
 set wildmenu wildoptions=pum,fuzzy pumheight=12
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
 
-cnoremap <expr> <up>   wildmenumode() ? "\<C-e>\<up>"   : "\<up>"
+cnoremap <expr> <up> wildmenumode() ? "\<C-e>\<up>" : "\<up>"
 cnoremap <expr> <down> wildmenumode() ? "\<C-e>\<down>" : "\<down>"
 
 def CmdCompleteSelectFirst()
