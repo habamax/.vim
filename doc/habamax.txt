@@ -41,5 +41,6 @@ or
 
 MAKE AND INSTALL
 >
-  ./configure --prefix=$HOME/.local --with-features=huge --enable-gui=gtk3
+  ./configure --prefix=$HOME/.local --with-features=huge --enable-gui=gtk3 --with-wayland
+  make -j8
   make install
