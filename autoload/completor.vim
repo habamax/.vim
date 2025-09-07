@@ -55,7 +55,10 @@ export def Register(findstart: number, base: string): any
     # for r in '"/=#:%-0123456789abcdefghijklmnopqrstuvwxyz'
     for r in '"/=#:%abcdefghijklmnopqrstuvwxyz'
         var text = trim(getreg(r))
-        var abbr = text->slice(0, MAX_REG_LENGTH)->substitute('\n', '⏎', 'g')
+        var abbr = text
+            ->slice(0, MAX_REG_LENGTH)
+            ->substitute('\n', '⏎', 'g')
+            ->keytrans()
         var info = ""
         if text->len() > MAX_REG_LENGTH
             abbr ..= "…"
