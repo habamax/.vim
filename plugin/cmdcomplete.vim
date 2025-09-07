@@ -7,6 +7,8 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
 
 cnoremap <expr> <up> wildmenumode() ? "\<C-e>\<up>" : "\<up>"
 cnoremap <expr> <down> wildmenumode() ? "\<C-e>\<down>" : "\<down>"
+cnoremap <expr> <left> wildmenumode() ? "\<C-e>\<left>" : "\<left>"
+cnoremap <expr> <right> wildmenumode() ? "\<C-e>\<right>" : "\<right>"
 
 def CmdCompleteSelectFirst()
     # If @: is pressed v:char is \n, exit here, allowing the command to be executed.
