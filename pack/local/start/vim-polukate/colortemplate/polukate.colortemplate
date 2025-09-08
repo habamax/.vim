@@ -91,7 +91,8 @@ Term colors: dark0 dark1 dark2 dark3 dark4 dark5 dark6 dark7
 
 ; Group              Foreground        Background        Attributes
 Normal               dark7             dark0
- /256/16/8           none              none
+ /256                dark7             none
+ /16/8               none              none
 
 Comment              comment           none
  /16/8               none              none              bold
