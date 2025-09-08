@@ -180,7 +180,7 @@ IncSearch            incsearch         dark0             reverse
 
 WildMenu             dark0             dark11
  /16/8               none              none              bold,reverse
-Pmenu                none              invisigrey
+Pmenu                dark7             invisigrey
  /16/8               none              none              reverse
 PmenuMatch           uimatchchar       invisigrey
  /16/8               none              dark3             reverse
@@ -191,7 +191,7 @@ PmenuKind            uimagenta         invisigrey
 PmenuSbar            dark8             linenrblack
  /16                 dark8             none              reverse
  /8                  none              none              reverse
-PmenuSel             none              uidarkgray
+PmenuSel             dark7             uidarkgray
  /16/8               none              none              bold
 PmenuMatchSel        uimatchchar       uidarkgray
  /16/8               dark5             none              bold
