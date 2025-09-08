@@ -126,7 +126,7 @@ hi MatchParen guifg=#ff00af guibg=NONE guisp=NONE gui=bold ctermfg=199 ctermbg=N
 hi ModeMsg guifg=#dadada guibg=NONE guisp=NONE gui=bold ctermfg=253 ctermbg=NONE cterm=bold term=bold
 hi MoreMsg guifg=#00af5f guibg=NONE guisp=NONE gui=NONE ctermfg=35 ctermbg=NONE cterm=NONE term=NONE
 hi NonText guifg=#707070 guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE term=NONE
-hi Pmenu guifg=#dadada guibg=#3a3a3a guisp=NONE gui=NONE ctermfg=253 ctermbg=237 cterm=NONE term=reverse
+hi Pmenu guifg=NONE guibg=#3a3a3a guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=reverse
 hi PmenuExtra guifg=#9e9e9e guibg=#3a3a3a guisp=NONE gui=NONE ctermfg=247 ctermbg=237 cterm=NONE term=NONE
 hi PmenuExtraSel guifg=#b2b2b2 guibg=#585858 guisp=NONE gui=NONE ctermfg=249 ctermbg=240 cterm=NONE term=NONE
 hi PmenuKind guifg=#ff87af guibg=#3a3a3a guisp=NONE gui=NONE ctermfg=211 ctermbg=237 cterm=NONE term=NONE
