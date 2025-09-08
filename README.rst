@@ -13,6 +13,12 @@ Vimscript scratches
 Fuzzy Popup Finder
 ------------------
 
+.. note::
+
+  Vim has introduced improvements on command line complete (e.g.
+  ``wildtrigger()``) so I am using regular commands with fuzzy matching instead.
+
+
 Sometimes ago I have created `vim-select`_ plugin to simplify opening of
 files/buffers and other things in vim. I was a happy user but then another
 scratch of vimscript and I have a way simpler fuzzy popup finder that does most
