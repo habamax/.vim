@@ -68,6 +68,12 @@ def EditDirectoryHelper()
     if fullcommand(get(info, 'cmdline_orig', '')) != 'edit'
         return
     endif
+
+    var cmdline = getcmdline()
+    if getcmdpos() - 1 != getcmdline()->len()
+        return
+    endif
+
     if info.pum_visible
             && info.selected == 0
             && len(info.matches) == 1
@@ -77,7 +83,6 @@ def EditDirectoryHelper()
             feedkeys(slash, 'nt')
         })
     else
-        var cmdline = getcmdline()
         if cmdline =~ "://*$"
             return
         endif
