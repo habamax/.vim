@@ -73,12 +73,15 @@ def EditDirectoryHelper()
             && len(info.matches) == 1
             && info.matches[0] =~ '\([\\/]\)$'
         timer_start(0, (_) => {
-            # XXX: for windows do \ instead of /
-            feedkeys("/", 'nt')
+            var slash = has("win32") ? '\\' : '/'
+            feedkeys(slash, 'nt')
         })
     else
-        # XXX: what about https://.... or file://...?
-        setcmdline(getcmdline()->substitute('\([\\/]\)\+$', '\1', ''))
+        var cmdline = getcmdline()
+        if cmdline =~ "://*$"
+            return
+        endif
+        setcmdline(cmdline->substitute('\([\\/]\)\+$', '\1', ''))
     endif
 enddef
 
