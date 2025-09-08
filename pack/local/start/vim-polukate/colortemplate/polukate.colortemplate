@@ -10,7 +10,7 @@ Options:       backend=vim
 
 ; TODO:
 ; ✓ gui
-;   256
+; ✓ 256
 ;   16
 ;   8
 ; ✓ 0
