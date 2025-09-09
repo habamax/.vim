@@ -76,13 +76,14 @@ if executable('sudo')
 endif
 
 def Grep(args: string = "")
-    var output = []
     if exists("b:grep_jobid") && job_status(b:grep_jobid) == 'run'
         echo "There is a grep job running."
         return
     endif
-    setqflist([], ' ', {title: $"{&grepprg} {args}"})
-    b:grep_jobid = job_start($"{&grepprg} {args} .", {
+    var grepprg = &l:grepprg ?? &grepprg
+    setqflist([], ' ', {title: $"{grepprg} {args}"})
+    copen
+    b:grep_jobid = job_start($"{grepprg} {args} .", {
         cwd: getcwd(),
         out_cb: (_, msg) => {
             setqflist([], 'a', {lines: [msg]})
@@ -91,9 +92,7 @@ def Grep(args: string = "")
             setqflist([], 'a', {lines: [msg]})
         },
         exit_cb: (_, _) => {
-            unlet b:grep_jobid
             echo "Grep is finished!"
-            cwindow
         }
     })
 enddef
@@ -104,20 +103,23 @@ def MakeComplete(_, _, _): string
 enddef
 
 def Make(args: string = "")
-    var output = []
     if exists("b:make_jobid") && job_status(b:make_jobid) == 'run'
         echo "There is a make job running."
         return
     endif
-    b:make_jobid = job_start($"{&makeprg} {args}", {
+    var makeprg = &l:makeprg ?? &makeprg
+    setqflist([], ' ', {title: $"{makeprg} {args}"})
+    copen
+    b:make_jobid = job_start($"{makeprg} {args}", {
         cwd: getcwd(),
-        out_cb: (_, msg) => output->add(msg),
-        err_cb: (_, msg) => output->add(msg),
+        out_cb: (_, msg) => {
+            setqflist([], 'a', {lines: [msg]})
+        },
+        err_cb: (_, msg) => {
+            setqflist([], 'a', {lines: [msg]})
+        },
         exit_cb: (_, _) => {
-            unlet b:make_jobid
-            setqflist([], ' ', {title: $"{&makeprg} {args}", lines: output})
             echo "Make is finished!"
-            cwindow
         }
     })
 enddef
