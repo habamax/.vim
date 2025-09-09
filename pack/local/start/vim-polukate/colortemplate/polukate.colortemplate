@@ -138,7 +138,7 @@ SignColumn           dark7             none
 QuickFixLine         dark7             quickfix
  /gui                none              quickfix
  /256+tgc true       omit              omit
- ; /256/16/8           dark0             quickfix
+ /16/8               dark0             quickfix
 
 EndOfBuffer          dark8             none
  /16                 dark8             none
