@@ -14,3 +14,4 @@ enddef
 
 nnoremap <buffer> i <scriptcmd>popup.ShowAtCursor(getqflist()[line('.') - 1].text)<CR>
 nnoremap <buffer> o <scriptcmd>Preview()<CR>
+nnoremap <buffer> gq <scriptcmd>wincmd c<CR>
