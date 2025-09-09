@@ -14,7 +14,6 @@ enddef
 def Next()
     try
         cnext
-        exe "normal! \<CR>zz"
         if exists(":BlinkLine") == 2
             BlinkLine
         endif
@@ -26,7 +25,6 @@ enddef
 def Prev()
     try
         cprev
-        exe "normal! \<CR>zz"
         if exists(":BlinkLine") == 2
             BlinkLine
         endif
