@@ -68,8 +68,8 @@ nnoremap <space>it :<C-u>InsertTemplate<space>
 nnoremap <space>fu :<C-u>Unicode<space>
 
 # Ripgrep word under cursor
-nnoremap <space>fw <scriptcmd>exe 'Rg' expand("<cword>")<cr>
-xnoremap <space>fw "0y<scriptcmd>exe "Rg" getreg("0")<cr>
+nnoremap <space>fw <scriptcmd>exe 'Grep' expand("<cword>")<cr>
+xnoremap <space>fw "0y<scriptcmd>exe 'Grep' getreg("0")<cr>
 
 import autoload 'qc.vim'
 # calc visually selected math expression

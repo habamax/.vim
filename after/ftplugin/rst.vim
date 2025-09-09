@@ -124,13 +124,8 @@ nnoremap <buffer> <space>k <scriptcmd>SectionNav(1)<CR>
 nnoremap <buffer> <space><space>oh <scriptcmd>RstViewHtml<CR>
 nnoremap <buffer> <space><space>op <scriptcmd>RstViewPdf<CR>
 nnoremap <buffer> <space><space>cp <scriptcmd>Rst2Pdf<CR>
-      \<scriptcmd>wincmd p<cr>
 nnoremap <buffer> <space><space>ch <scriptcmd>Rst2Html<CR>
-      \<scriptcmd>wincmd p<cr>
-nnoremap <buffer> <F5> <scriptcmd>exe "Sh" &makeprg<cr>
-      \<scriptcmd>wincmd p<cr>
-
-nnoremap <buffer> <F4> <scriptcmd>Shut<CR>
+nnoremap <buffer> <F5> <scriptcmd>:Make<cr>
 
 def Rst2Html(locale: string = "")
     if !empty(locale)
@@ -144,8 +139,8 @@ def Rst2Html(locale: string = "")
     :update
 
     compiler rst2html
-    if exists(":Sh") == 2
-        exe "Sh" &l:makeprg
+    if exists(":Make") == 2
+        :Make
     else
         make
     endif
@@ -162,8 +157,8 @@ def Rst2Pdf()
     :update
 
     compiler rst2pdf
-    if exists(":Sh") == 2
-        exe "Sh" &l:makeprg
+    if exists(":Make") == 2
+        :Make
     else
         make
     endif

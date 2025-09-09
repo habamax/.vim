@@ -75,14 +75,53 @@ if executable('sudo')
     command! W w !sudo tee "%" >/dev/null
 endif
 
-command! -nargs=1 Grep Sh! grep -Rn <args> .
-command! -nargs=1 Rg Sh! rg -nS --column <args> .
+def Grep(args: string = "")
+    var output = []
+    if exists("b:grep_jobid") && job_status(b:grep_jobid) == 'run'
+        echo "There is a grep job running."
+        return
+    endif
+    setqflist([], ' ', {title: $"{&grepprg} {args}"})
+    b:grep_jobid = job_start($"{&grepprg} {args} .", {
+        cwd: getcwd(),
+        out_cb: (_, msg) => {
+            setqflist([], 'a', {lines: [msg]})
+        },
+        err_cb: (_, msg) => {
+            setqflist([], 'a', {lines: [msg]})
+        },
+        exit_cb: (_, _) => {
+            unlet b:grep_jobid
+            echo "Grep is finished!"
+            cwindow
+        }
+    })
+enddef
+command! -nargs=1 Grep Grep(<f-args>)
 
 def MakeComplete(_, _, _): string
     return system("make -npq : 2> /dev/null | awk -v RS= -F: '$1 ~ /^[^#%.]+$/ { print $1 }' | sort -u")
 enddef
 
-command! -nargs=* -complete=custom,MakeComplete Make Sh make <args>
+def Make(args: string = "")
+    var output = []
+    if exists("b:make_jobid") && job_status(b:make_jobid) == 'run'
+        echo "There is a make job running."
+        return
+    endif
+    b:make_jobid = job_start($"{&makeprg} {args}", {
+        cwd: getcwd(),
+        out_cb: (_, msg) => output->add(msg),
+        err_cb: (_, msg) => output->add(msg),
+        exit_cb: (_, _) => {
+            unlet b:make_jobid
+            setqflist([], ' ', {title: $"{&makeprg} {args}", lines: output})
+            echo "Make is finished!"
+            cwindow
+        }
+    })
+enddef
+command! -nargs=* -complete=custom,MakeComplete Make Make(<f-args>)
 
 command -nargs=1 -complete=custom,BufferComplete Buffer Buffer(<f-args>, false, <q-mods>)
 command -nargs=1 -complete=custom,BufferComplete SBuffer Buffer(<f-args>, true, <q-mods>)
