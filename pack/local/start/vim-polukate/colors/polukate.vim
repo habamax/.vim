@@ -139,7 +139,7 @@ hi PmenuSel guifg=#dadada guibg=#585858 guisp=NONE gui=NONE ctermfg=253 ctermbg=
 hi PmenuThumb guifg=#dadada guibg=#dadada guisp=NONE gui=NONE ctermfg=253 ctermbg=253 cterm=NONE term=NONE
 hi PreProc guifg=#87afaf guibg=NONE guisp=NONE gui=NONE ctermfg=109 ctermbg=NONE cterm=NONE term=NONE
 hi Question guifg=#0087d7 guibg=NONE guisp=NONE gui=NONE ctermfg=32 ctermbg=NONE cterm=NONE term=standout
-hi QuickFixLine guifg=#dadada guibg=#7f3f7f guisp=NONE gui=NONE ctermfg=234 ctermbg=207 cterm=NONE term=NONE
+hi QuickFixLine guifg=NONE guibg=#4f2f4f guisp=NONE gui=NONE ctermfg=253 ctermbg=53 cterm=NONE term=NONE
 hi Removed guifg=#d74f7f guibg=NONE guisp=NONE gui=NONE ctermfg=161 ctermbg=NONE cterm=NONE term=NONE
 hi Search guifg=NONE guibg=#374a44 guisp=NONE gui=NONE ctermfg=114 ctermbg=234 cterm=reverse term=reverse
 hi SignColumn guifg=#dadada guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=reverse
@@ -171,6 +171,7 @@ if s:tgc || s:t_Co >= 256
   if s:tgc
     hi Error cterm=NONE
     hi IncSearch cterm=NONE
+    hi QuickFixLine cterm=NONE
     hi Search cterm=NONE
     hi Visual cterm=NONE
   endif
@@ -220,7 +221,7 @@ if s:t_Co >= 16
   hi PmenuThumb ctermfg=NONE ctermbg=NONE cterm=NONE
   hi PreProc ctermfg=NONE ctermbg=NONE cterm=NONE
   hi Question ctermfg=NONE ctermbg=NONE cterm=standout
-  hi QuickFixLine ctermfg=black ctermbg=magenta cterm=NONE
+  hi QuickFixLine ctermfg=grey ctermbg=magenta cterm=NONE
   hi Removed ctermfg=darkred ctermbg=NONE cterm=NONE
   hi Search ctermfg=green ctermbg=black cterm=reverse
   hi SignColumn ctermfg=NONE ctermbg=NONE cterm=reverse
@@ -293,7 +294,7 @@ if s:t_Co >= 8
   hi PmenuThumb ctermfg=NONE ctermbg=NONE cterm=NONE
   hi PreProc ctermfg=NONE ctermbg=NONE cterm=NONE
   hi Question ctermfg=NONE ctermbg=NONE cterm=standout
-  hi QuickFixLine ctermfg=black ctermbg=magenta cterm=NONE
+  hi QuickFixLine ctermfg=grey ctermbg=magenta cterm=NONE
   hi Removed ctermfg=darkred ctermbg=NONE cterm=NONE
   hi Search ctermfg=green ctermbg=black cterm=reverse
   hi SignColumn ctermfg=NONE ctermbg=NONE cterm=reverse
