@@ -2,8 +2,10 @@ if exists("b:current_syntax")
   finish
 endif
 
-syn match qfFileName "^\f\+:\d\+:\d\+:" nextgroup=qfText contains=qfLineCol
-syn match qfLineCol ":\d\+:\d\+:" contained
+syn match qfFileName "^\f\+:\d\+:\(\d\+:\)\?" nextgroup=qfText contains=qfLineCol
+" syn match qfFileName "^\f\+:\d\+:" nextgroup=qfText contains=qfLine
+" syn match qfFileName "^\f\+:" nextgroup=qfText
+syn match qfLineCol ":\d\+:\(\d\+:\)\?" contained
 syn match qfText ".*" contained
 
 syn match qfError "error" contained
