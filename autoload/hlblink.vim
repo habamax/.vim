@@ -1,6 +1,6 @@
 vim9script
 
-export def Line(nr: number = line("."), duration: number = 300, hlgroup: string = "Pmenu")
+export def Line(nr: number = line("."), duration: number = 300, hlgroup: string = "Visual")
     var beg = [bufnr(), nr, 1, 0]
     var end = [bufnr(), nr, col('$'), 0]
     var pos = getregionpos(beg, end, {type: 'v', exclusive: false})
