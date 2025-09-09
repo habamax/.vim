@@ -170,3 +170,6 @@ def UnicodeComplete(_, _, _): string
         ->mapnew((_, v) => $"{printf("%5S", printf("%04X", v.value))}  {printf("%3S", (nr2char(v.value, true) =~ '\p' ? nr2char(v.value, true) : " "))}    {v.name}")
         ->join("\n")
 enddef
+
+import autoload 'hlblink.vim'
+command BlinkLine hlblink.Line()
