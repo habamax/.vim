@@ -45,7 +45,7 @@ def CmdCompleteSelectFirst()
         'sfind', 'find', 'buffer', 'sbuffer', 'bdelete',
         'colorscheme', 'highlight',
         'Buffer', 'SBuffer', 'Recent', 'SRecent', 'Bookmark', 'SBookmark',
-        'Project', 'Help', 'Man',
+        'Project', 'Help',
         'LoadSession', 'InsertTemplate', 'Colorscheme', 'Unicode'
     ]
 
