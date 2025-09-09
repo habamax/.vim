@@ -10,7 +10,7 @@ export def QuickFixText(info: dict<any>): list<string>
     var l = []
     for idx in range(info.start_idx - 1, info.end_idx - 1)
         if items[idx].valid
-            var text = fnamemodify(bufname(items[idx].bufnr), ':p:.')
+            var text = fnamemodify(bufname(items[idx].bufnr), ':p:~:.')
             if items[idx].lnum != 0
                 text ..= $":{items[idx].lnum}"
             endif
