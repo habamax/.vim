@@ -139,6 +139,38 @@ def Make(args: string = "")
 enddef
 command! -nargs=* -complete=custom,MakeComplete Make Make(<f-args>)
 
+def QF(args: string = "")
+    if empty(args)
+        return
+    endif
+    if exists("b:qf_jobid") && job_status(b:qf_jobid) == 'run'
+        echo "There is a job running."
+        return
+    endif
+    setqflist([], ' ', {title: $"{args}"})
+    copen
+    b:qf_jobid = job_start($"{args}", {
+        cwd: getcwd(),
+        out_cb: (_, msg) => {
+            setqflist([], 'a', {lines: [msg]})
+        },
+        err_cb: (_, msg) => {
+            setqflist([], 'a', {lines: [msg]})
+        },
+        exit_cb: (_, _) => {
+            if empty(getqflist())
+                timer_start(500, (_) => {
+                    if empty(getqflist())
+                        cclose
+                    endif
+                })
+            endif
+            echo $"{args} is finished!"
+        }
+    })
+enddef
+command! -nargs=* QF QF(<q-args>)
+
 command -nargs=1 -complete=custom,BufferComplete Buffer Buffer(<f-args>, false, <q-mods>)
 command -nargs=1 -complete=custom,BufferComplete SBuffer Buffer(<f-args>, true, <q-mods>)
 def Buffer(buf_info: string, split: bool = false, mods: string = "")

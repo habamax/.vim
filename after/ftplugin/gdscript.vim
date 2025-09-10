@@ -35,7 +35,9 @@ def RunScene(scene_name: string = "")
     endif
 
     var godot_command = $'{g:godot_executable} {scene_name}'
-    if exists(":Sh") == 2
+    if exists(":QF") == 2
+        exe "QF" godot_command
+    elseif exists(":Sh") == 2
         exe "Sh" godot_command
         win_gotoid(b:shout_initial_winid)
     else
