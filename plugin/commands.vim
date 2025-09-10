@@ -92,6 +92,13 @@ def Grep(args: string = "")
             setqflist([], 'a', {lines: [msg]})
         },
         exit_cb: (_, _) => {
+            if empty(getqflist())
+                timer_start(500, (_) => {
+                    if empty(getqflist())
+                        cclose
+                    endif
+                })
+            endif
             echo "Grep is finished!"
         }
     })
@@ -119,6 +126,13 @@ def Make(args: string = "")
             setqflist([], 'a', {lines: [msg]})
         },
         exit_cb: (_, _) => {
+            if empty(getqflist())
+                timer_start(500, (_) => {
+                    if empty(getqflist())
+                        cclose
+                    endif
+                })
+            endif
             echo "Make is finished!"
         }
     })
