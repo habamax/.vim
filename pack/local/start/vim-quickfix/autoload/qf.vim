@@ -26,7 +26,7 @@ export def QuickFixText(info: dict<any>): list<string>
     return l
 enddef
 
-export def Preview()
+export def View()
     if !getqflist()[line('.') - 1].valid
         return
     endif
