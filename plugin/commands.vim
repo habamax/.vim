@@ -102,7 +102,7 @@ def Grep(args: string = "")
         }
     })
     if job_status(grep_jobid) == "run"
-        copen
+        botright copen
         b:grep_jobid = grep_jobid
     else
         echo "Grep is failed!"
@@ -141,7 +141,7 @@ def Make(args: string = "")
         }
     })
     if job_status(make_jobid) == "run"
-        copen
+        botright copen
         b:make_jobid = make_jobid
     else
         echo "Make is failed!"
@@ -185,7 +185,7 @@ def QF(command: string = "")
         }
     })
     if job_status(qf_jobid) == "run"
-        copen
+        botright copen
         b:qf_jobid = qf_jobid
     else
         echo $"'{command}' is failed!"
