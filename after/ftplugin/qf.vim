@@ -11,14 +11,12 @@ enddef
 nnoremap <buffer> i <scriptcmd>ShowQFItem()<CR>
 
 def KillJobs()
-    if exists("b:grep_jobid") && job_status(b:grep_jobid) == "run"
-        job_stop(b:grep_jobid)
-    endif
-    if exists("b:make_jobid") && job_status(b:make_jobid) == "run"
-        job_stop(b:make_jobid)
-    endif
-    if exists("b:qf_jobid") && job_status(b:qf_jobid) == "run"
-        job_stop(b:qf_jobid)
-    endif
+    for job in [get(g:, "grep_jobid", null_job), get(g:, "make_jobid", null_job), get(g:, "qf_jobid", null_job)]
+        if job_status(job) == "run"
+            ch_close(job->job_getchannel())
+            job_stop(job, "kill")
+            echom $"Killing job `{job_info(job).cmd->join()}`, process `{job_info(job).process}` ... {job_info(job).status}"
+        endif
+    endfor
 enddef
 nnoremap <buffer> <C-c> <scriptcmd>KillJobs()<CR>
