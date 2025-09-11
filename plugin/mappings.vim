@@ -52,15 +52,15 @@ nnoremap <space>b :<C-u>Buffer<space>
 nnoremap <space><space>b :<C-u>SBuffer<space>
 nnoremap <space>r :<C-u>Recent<space>
 nnoremap <space><space>r :<C-u>SRecent<space>
-nnoremap <expr> <space>d Find(false, $DOCS ?? "~/docs")
-nnoremap <expr> <space><space>d Find(true, $DOCS ?? "~/docs")
+nnoremap <expr> <space>d Find("", $DOCS ?? "~/docs")
+nnoremap <expr> <space><space>d Find("s", $DOCS ?? "~/docs")
 nnoremap <space>h :<C-u>Help<space>
 nnoremap <space>B :<C-u>Bookmark<space>
 nnoremap <space><space>B :<C-u>SBookmark<space>
-nnoremap <expr> <space>fi Find(false, $MYVIMDIR)
-nnoremap <expr> <space><space>fi Find(true, $MYVIMDIR)
-nnoremap <expr> <space>fr Find(false, $VIMRUNTIME)
-nnoremap <expr> <space><space>fr Find(true, $VIMRUNTIME)
+nnoremap <expr> <space>fi Find("", $MYVIMDIR)
+nnoremap <expr> <space><space>fi Find("s", $MYVIMDIR)
+nnoremap <expr> <space>fr Find("", $VIMRUNTIME)
+nnoremap <expr> <space><space>fr Find("s", $VIMRUNTIME)
 nnoremap <space>fp :<C-u>Project<space>
 nnoremap <space>ft :<C-u>set ft=
 nnoremap <space>fs :<C-u>LoadSession<space>
