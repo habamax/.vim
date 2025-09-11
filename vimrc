@@ -20,7 +20,7 @@ set sidescroll=1 sidescrolloff=3
 set nrformats=bin,hex,unsigned
 set sessionoptions=buffers,curdir,tabpages,winsize
 set nospell spelllang=en,ru
-set diffopt+=algorithm:histogram,indent-heuristic,inline:char,linematch:50
+set diffopt+=algorithm:histogram,linematch:50
 set completeopt=menuone,popup,fuzzy completepopup=highlight:Pmenu
 set completefuzzycollect=keyword
 set complete=.^7,w^5,b^5,t^5
