@@ -82,8 +82,7 @@ def Grep(args: string = "")
     endif
     var grepprg = &l:grepprg ?? &grepprg
     setqflist([], ' ', {title: $"{grepprg} {args}"})
-    copen
-    b:grep_jobid = job_start($"{grepprg} {args} .", {
+    var grep_jobid = job_start($"{grepprg} {args} .", {
         cwd: getcwd(),
         out_cb: (_, msg) => {
             setqflist([], 'a', {lines: [msg]})
@@ -102,6 +101,12 @@ def Grep(args: string = "")
             echo "Grep is finished!"
         }
     })
+    if job_status(grep_jobid) == "run"
+        copen
+        b:grep_jobid = grep_jobid
+    else
+        echo "Grep is failed!"
+    endif
 enddef
 command! -nargs=1 Grep Grep(<f-args>)
 
@@ -116,8 +121,7 @@ def Make(args: string = "")
     endif
     var makeprg = &l:makeprg ?? &makeprg
     setqflist([], ' ', {title: $"{makeprg} {args}"})
-    copen
-    b:make_jobid = job_start($"{makeprg} {args}", {
+    var make_jobid = job_start($"{makeprg} {args}", {
         cwd: getcwd(),
         out_cb: (_, msg) => {
             setqflist([], 'a', {lines: [msg]})
@@ -136,6 +140,13 @@ def Make(args: string = "")
             echo "Make is finished!"
         }
     })
+    if job_status(make_jobid) == "run"
+        copen
+        b:make_jobid = make_jobid
+    else
+        echo "Make is failed!"
+    endif
+
 enddef
 command! -nargs=* -complete=custom,MakeComplete Make Make(<f-args>)
 
@@ -148,8 +159,7 @@ def QF(args: string = "")
         return
     endif
     setqflist([], ' ', {title: $"{args}"})
-    copen
-    b:qf_jobid = job_start($"{args}", {
+    var qf_jobid = job_start($"{args}", {
         cwd: getcwd(),
         out_cb: (_, msg) => {
             setqflist([], 'a', {lines: [msg]})
@@ -165,9 +175,15 @@ def QF(args: string = "")
                     endif
                 })
             endif
-            echo $"{args} is finished!"
+            echo $"'{args}' is finished!"
         }
     })
+    if job_status(qf_jobid) == "run"
+        copen
+        b:qf_jobid = qf_jobid
+    else
+        echo $"'{args}' is failed!"
+    endif
 enddef
 command! -nargs=* QF QF(<q-args>)
 
