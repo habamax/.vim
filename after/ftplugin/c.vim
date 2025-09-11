@@ -4,7 +4,7 @@ setlocal commentstring=//%s
 setlocal foldignore=#
 b:undo_ftplugin ..= ' | setl commentstring< foldignore< complete<'
 
-setl complete^=o
+setl complete^=o^7
 
 g:c_no_curly_error = true
 
