@@ -150,16 +150,22 @@ def Make(args: string = "")
 enddef
 command! -nargs=* -complete=custom,MakeComplete Make Make(<f-args>)
 
-def QF(args: string = "")
-    if empty(args)
+def QF(command: string = "")
+    if empty(command)
         return
     endif
     if exists("b:qf_jobid") && job_status(b:qf_jobid) == 'run'
         echo "There is a job running."
         return
     endif
-    setqflist([], ' ', {title: $"{args}"})
-    var qf_jobid = job_start($"{args}", {
+    var job_command: any
+    if has("win32")
+        job_command = command
+    else
+        job_command = [&shell, &shellcmdflag, escape(command, '\')]
+    endif
+    setqflist([], ' ', {title: $"{command}"})
+    var qf_jobid = job_start(job_command, {
         cwd: getcwd(),
         out_cb: (_, msg) => {
             setqflist([], 'a', {lines: [msg]})
@@ -175,17 +181,17 @@ def QF(args: string = "")
                     endif
                 })
             endif
-            echo $"'{args}' is finished!"
+            echo $"'{command}' is finished!"
         }
     })
     if job_status(qf_jobid) == "run"
         copen
         b:qf_jobid = qf_jobid
     else
-        echo $"'{args}' is failed!"
+        echo $"'{command}' is failed!"
     endif
 enddef
-command! -nargs=* QF QF(<q-args>)
+command! -nargs=1 QF QF(<f-args>)
 
 command -nargs=1 -complete=custom,BufferComplete Buffer Buffer(<f-args>, false, <q-mods>)
 command -nargs=1 -complete=custom,BufferComplete SBuffer Buffer(<f-args>, true, <q-mods>)

@@ -10,10 +10,11 @@ g:c_no_curly_error = true
 
 def Make()
     if filereadable("Makefile")
-        Sh make
+        Make
     else
         var fname = expand("%:p:r")
-        exe $"Sh make {fname} && chmod +x {fname} && {fname}"
+        exe $"QF make {fname} && chmod +x {fname} && {fname}"
+        # exe $"Sh make {fname} && chmod +x {fname} && {fname}"
     endif
 enddef
 
