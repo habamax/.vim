@@ -33,9 +33,9 @@ inoremap <expr> <s-tab> pumvisible() ? "\<C-p>" : "\t"
 nnoremap <C-j> <cmd>copy.<CR>
 nnoremap <C-k> <cmd>copy-1<CR>
 
-def Find(split: bool = false, path: string = ""): string
+def Find(how: string = "", path: string = ""): string
     var mods = ""
-    if split && winwidth(winnr()) * 0.3 > winheight(winnr())
+    if how == "s" && winwidth(winnr()) * 0.3 > winheight(winnr())
         mods = "vert "
     endif
     if empty(path)
@@ -43,10 +43,11 @@ def Find(split: bool = false, path: string = ""): string
     else
         silent exe $"lcd {path}"
     endif
-    return $":{mods}{split ? "s" : ""}find "
+    return $":{mods}{how}find "
 enddef
 nnoremap <expr> <space>e Find()
-nnoremap <expr> <space><space>e Find(true)
+nnoremap <expr> <space><space>e Find("s")
+nnoremap <expr> <space>E Find("tab")
 nnoremap <space>b :<C-u>Buffer<space>
 nnoremap <space><space>b :<C-u>SBuffer<space>
 nnoremap <space>r :<C-u>Recent<space>
