@@ -1,7 +1,14 @@
 vim9script
 
 import autoload 'popup.vim'
-nnoremap <buffer> i <scriptcmd>popup.ShowAtCursor(getqflist()[line('.') - 1].text)<CR>
+def ShowQFItem()
+    if empty(getqflist())
+        echo "Quickfix list is empty"
+        return
+    endif
+    popup.ShowAtCursor(getqflist()[line('.') - 1].text)
+enddef
+nnoremap <buffer> i <scriptcmd>ShowQFItem()<CR>
 
 def KillJobs()
     if exists("b:grep_jobid") && job_status(b:grep_jobid) == "run"
