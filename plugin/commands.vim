@@ -76,13 +76,13 @@ if executable('sudo')
 endif
 
 def Grep(args: string = "")
-    if exists("b:grep_jobid") && job_status(b:grep_jobid) == 'run'
+    if exists("g:grep_jobid") && job_status(g:grep_jobid) == 'run'
         echo "There is a grep job running."
         return
     endif
     var grepprg = &l:grepprg ?? &grepprg
     setqflist([], ' ', {title: $"{grepprg} {args}"})
-    var grep_jobid = job_start($"{grepprg} {args} .", {
+    g:grep_jobid = job_start($"{grepprg} {args} .", {
         cwd: getcwd(),
         out_cb: (_, msg) => {
             setqflist([], 'a', {lines: [msg]})
@@ -90,7 +90,7 @@ def Grep(args: string = "")
         err_cb: (_, msg) => {
             setqflist([], 'a', {lines: [msg]})
         },
-        exit_cb: (_, _) => {
+        close_cb: (_) => {
             if empty(getqflist())
                 timer_start(500, (_) => {
                     if empty(getqflist())
@@ -101,9 +101,8 @@ def Grep(args: string = "")
             echo "Grep is finished!"
         }
     })
-    if job_status(grep_jobid) == "run"
+    if job_status(g:grep_jobid) == "run"
         belowright copen
-        b:grep_jobid = grep_jobid
     else
         echo "Grep is failed!"
     endif
@@ -115,13 +114,13 @@ def MakeComplete(_, _, _): string
 enddef
 
 def Make(args: string = "")
-    if exists("b:make_jobid") && job_status(b:make_jobid) == 'run'
+    if exists("g:make_jobid") && job_status(g:make_jobid) == 'run'
         echo "There is a make job running."
         return
     endif
     var makeprg = &l:makeprg ?? &makeprg
     setqflist([], ' ', {title: $"{makeprg} {args}"})
-    var make_jobid = job_start($"{makeprg} {args}", {
+    g:make_jobid = job_start($"{makeprg} {args}", {
         cwd: getcwd(),
         out_cb: (_, msg) => {
             setqflist([], 'a', {lines: [msg]})
@@ -129,7 +128,7 @@ def Make(args: string = "")
         err_cb: (_, msg) => {
             setqflist([], 'a', {lines: [msg]})
         },
-        exit_cb: (_, _) => {
+        close_cb: (_) => {
             if empty(getqflist())
                 timer_start(500, (_) => {
                     if empty(getqflist())
@@ -140,9 +139,8 @@ def Make(args: string = "")
             echo "Make is finished!"
         }
     })
-    if job_status(make_jobid) == "run"
+    if job_status(g:make_jobid) == "run"
         belowright copen
-        b:make_jobid = make_jobid
     else
         echo "Make is failed!"
     endif
@@ -154,7 +152,7 @@ def QF(command: string = "")
     if empty(command)
         return
     endif
-    if exists("b:qf_jobid") && job_status(b:qf_jobid) == 'run'
+    if exists("g:qf_jobid") && job_status(g:qf_jobid) == 'run'
         echo "There is a job running."
         return
     endif
@@ -165,7 +163,7 @@ def QF(command: string = "")
         job_command = [&shell, &shellcmdflag, escape(command, '\')]
     endif
     setqflist([], ' ', {title: $"{command}"})
-    var qf_jobid = job_start(job_command, {
+    g:qf_jobid = job_start(job_command, {
         cwd: getcwd(),
         out_cb: (_, msg) => {
             setqflist([], 'a', {lines: [msg]})
@@ -173,7 +171,7 @@ def QF(command: string = "")
         err_cb: (_, msg) => {
             setqflist([], 'a', {lines: [msg]})
         },
-        exit_cb: (_, _) => {
+        close_cb: (_) => {
             if empty(getqflist())
                 timer_start(500, (_) => {
                     if empty(getqflist())
@@ -184,9 +182,8 @@ def QF(command: string = "")
             echo $"'{command}' is finished!"
         }
     })
-    if job_status(qf_jobid) == "run"
+    if job_status(g:qf_jobid) == "run"
         belowright copen
-        b:qf_jobid = qf_jobid
     else
         echo $"'{command}' is failed!"
     endif
