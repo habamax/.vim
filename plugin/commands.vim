@@ -92,12 +92,14 @@ def Make(args: string = "")
         cwd: getcwd(),
         out_cb: (_, msg) => {
             if !qf_opened
+                qf_opened = true
                 belowright copen
             endif
             setqflist([], 'a', {lines: [msg]})
         },
         err_cb: (_, msg) => {
             if !qf_opened
+                qf_opened = true
                 belowright copen
             endif
             setqflist([], 'a', {lines: [msg]})
