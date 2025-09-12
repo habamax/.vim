@@ -8,12 +8,19 @@ elseif executable('ugrep')
     set grepformat=%f:%l:%c:%m,%f+%l+%c+%m,%-G%f\\\|%l\\\|%c\\\|%m
 endif
 
-def Grep(...args: list<string>): string
-    return system($"{&grepprg} {args->join(' ')}")
+def Grep(args: string): string
+    return system($"{&grepprg} {args}")
 enddef
 
-command -nargs=+ -bar Grep cgetexpr Grep(<f-args>)
-command -nargs=+ -bar LGrep lgetexpr Grep(<f-args>)
+command -nargs=1 -bar Grep {
+    cgetexpr Grep(<q-args>)
+    setqflist([], 'a', {title: $"{&grepprg} {<q-args>}"})
+}
+
+command -nargs=1 -bar LGrep {
+    lgetexpr Grep(<q-args>)
+    setloclist(winnr(), [], 'a', {title: $"{&grepprg} {<q-args>}"})
+}
 
 cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() ==# 'grep')  ? 'Grep'  : 'grep'
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() ==# 'lgrep') ? 'LGrep' : 'lgrep'
