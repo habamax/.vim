@@ -76,45 +76,6 @@ if executable('sudo')
     command! W w !sudo tee "%" >/dev/null
 endif
 
-def Grep(args: string = "")
-    if exists("g:grep_jobid") && job_status(g:grep_jobid) == 'run'
-        echo "There is a grep job running."
-        return
-    endif
-    var grepprg = &l:grepprg ?? &grepprg
-    var qf_opened = false
-    setqflist([], ' ', {title: $"{grepprg} {args}"})
-    g:grep_jobid = job_start($"{grepprg} {args} .", {
-        cwd: getcwd(),
-        out_cb: (_, msg) => {
-            if !qf_opened
-                belowright copen
-            endif
-            setqflist([], 'a', {lines: [msg]})
-        },
-        err_cb: (_, msg) => {
-            if !qf_opened
-                belowright copen
-            endif
-            setqflist([], 'a', {lines: [msg]})
-        },
-        close_cb: (_) => {
-            if empty(getqflist())
-                timer_start(500, (_) => {
-                    if empty(getqflist())
-                        cclose
-                    endif
-                })
-            endif
-            echom $"{grepprg} {args} ."
-        }
-    })
-    if job_status(g:grep_jobid) != "run"
-        echom $"FAILED: {grepprg} {args} ."
-    endif
-enddef
-command! -nargs=1 Grep Grep(<f-args>)
-
 def MakeComplete(_, _, _): string
     return system("make -npq : 2> /dev/null | awk -v RS= -F: '$1 ~ /^[^#%.]+$/ { print $1 }' | sort -u")
 enddef
@@ -158,53 +119,6 @@ def Make(args: string = "")
 
 enddef
 command! -nargs=* -complete=custom,MakeComplete Make Make(<f-args>)
-
-def QF(command: string = "")
-    if empty(command)
-        return
-    endif
-    if exists("g:qf_jobid") && job_status(g:qf_jobid) == 'run'
-        echo "There is a job running."
-        return
-    endif
-    var job_command: any
-    if has("win32")
-        job_command = command
-    else
-        job_command = [&shell, &shellcmdflag, escape(command, '\')]
-    endif
-    var qf_opened = false
-    setqflist([], ' ', {title: $"{command}"})
-    g:qf_jobid = job_start(job_command, {
-        cwd: getcwd(),
-        out_cb: (_, msg) => {
-            if !qf_opened
-                belowright copen
-            endif
-            setqflist([], 'a', {lines: [msg]})
-        },
-        err_cb: (_, msg) => {
-            if !qf_opened
-                belowright copen
-            endif
-            setqflist([], 'a', {lines: [msg]})
-        },
-        close_cb: (_) => {
-            if empty(getqflist())
-                timer_start(500, (_) => {
-                    if empty(getqflist())
-                        cclose
-                    endif
-                })
-            endif
-            echom command
-        }
-    })
-    if job_status(g:qf_jobid) != "run"
-        echom $"FAILED: {command}"
-    endif
-enddef
-command! -nargs=1 QF QF(<f-args>)
 
 command -nargs=1 -complete=custom,BufferComplete Buffer Buffer(<f-args>, false, <q-mods>)
 command -nargs=1 -complete=custom,BufferComplete SBuffer Buffer(<f-args>, true, <q-mods>)
