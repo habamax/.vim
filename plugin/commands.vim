@@ -82,13 +82,20 @@ def Grep(args: string = "")
         return
     endif
     var grepprg = &l:grepprg ?? &grepprg
+    var qf_opened = false
     setqflist([], ' ', {title: $"{grepprg} {args}"})
     g:grep_jobid = job_start($"{grepprg} {args} .", {
         cwd: getcwd(),
         out_cb: (_, msg) => {
+            if !qf_opened
+                belowright copen
+            endif
             setqflist([], 'a', {lines: [msg]})
         },
         err_cb: (_, msg) => {
+            if !qf_opened
+                belowright copen
+            endif
             setqflist([], 'a', {lines: [msg]})
         },
         close_cb: (_) => {
@@ -99,13 +106,11 @@ def Grep(args: string = "")
                     endif
                 })
             endif
-            echo "Grep is finished!"
+            echom $"{grepprg} {args} ."
         }
     })
-    if job_status(g:grep_jobid) == "run"
-        belowright copen
-    else
-        echo "Grep is failed!"
+    if job_status(g:grep_jobid) != "run"
+        echom $"FAILED: {grepprg} {args} ."
     endif
 enddef
 command! -nargs=1 Grep Grep(<f-args>)
@@ -120,13 +125,20 @@ def Make(args: string = "")
         return
     endif
     var makeprg = &l:makeprg ?? &makeprg
+    var qf_opened = false
     setqflist([], ' ', {title: $"{makeprg} {args}"})
     g:make_jobid = job_start($"{makeprg} {args}", {
         cwd: getcwd(),
         out_cb: (_, msg) => {
+            if !qf_opened
+                belowright copen
+            endif
             setqflist([], 'a', {lines: [msg]})
         },
         err_cb: (_, msg) => {
+            if !qf_opened
+                belowright copen
+            endif
             setqflist([], 'a', {lines: [msg]})
         },
         close_cb: (_) => {
@@ -140,10 +152,8 @@ def Make(args: string = "")
             echo "Make is finished!"
         }
     })
-    if job_status(g:make_jobid) == "run"
-        belowright copen
-    else
-        echo "Make is failed!"
+    if job_status(g:make_jobid) != "run"
+        echom $"FAILED: {makeprg} {args}"
     endif
 
 enddef
@@ -163,13 +173,20 @@ def QF(command: string = "")
     else
         job_command = [&shell, &shellcmdflag, escape(command, '\')]
     endif
+    var qf_opened = false
     setqflist([], ' ', {title: $"{command}"})
     g:qf_jobid = job_start(job_command, {
         cwd: getcwd(),
         out_cb: (_, msg) => {
+            if !qf_opened
+                belowright copen
+            endif
             setqflist([], 'a', {lines: [msg]})
         },
         err_cb: (_, msg) => {
+            if !qf_opened
+                belowright copen
+            endif
             setqflist([], 'a', {lines: [msg]})
         },
         close_cb: (_) => {
@@ -180,13 +197,11 @@ def QF(command: string = "")
                     endif
                 })
             endif
-            echo $"'{command}' is finished!"
+            echom command
         }
     })
-    if job_status(g:qf_jobid) == "run"
-        belowright copen
-    else
-        echo $"'{command}' is failed!"
+    if job_status(g:qf_jobid) != "run"
+        echom $"FAILED: {command}"
     endif
 enddef
 command! -nargs=1 QF QF(<f-args>)
