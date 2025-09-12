@@ -7,6 +7,7 @@ inorea whe where 1 = 1
 cnoreabbrev <expr> g (getcmdtype() ==# ':' && getcmdline() ==# 'g')  ? 'G'  : 'g'
 cnoreabbrev <expr> Qa (getcmdtype() ==# ':' && getcmdline() ==# 'Qa')  ? 'qa'  : 'Qa'
 cnoreabbrev <expr> sh (getcmdtype() ==# ':' && getcmdline() ==# 'sh')  ? 'Sh'  : 'sh'
+cnoreabbrev <expr> make (getcmdtype() ==# ':' && getcmdline() ==# 'make')  ? 'Make'  : 'make'
 cabbr ц w
 cabbr й q
 cabbr цй wq
