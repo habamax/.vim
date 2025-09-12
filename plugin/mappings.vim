@@ -68,9 +68,12 @@ nnoremap <space>fc :<C-u>Colorscheme<space>
 nnoremap <space>it :<C-u>InsertTemplate<space>
 nnoremap <space>fu :<C-u>Unicode<space>
 
-# Ripgrep word under cursor
+# Grep word under cursor
 nnoremap <space>fw <scriptcmd>exe 'Grep' expand("<cword>")<cr>
 xnoremap <space>fw "0y<scriptcmd>exe 'Grep' getreg("0")<cr>
+# lvimgrep word in a current buffer
+nnoremap <space>w <scriptcmd>exe $'Occur {expand("<cword>")}'<cr>
+xnoremap <space>w "0y<scriptcmd>exe $'Occur {getreg("0")}'<cr>
 
 import autoload 'qc.vim'
 # calc visually selected math expression

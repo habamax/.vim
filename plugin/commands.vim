@@ -42,6 +42,7 @@ command! WipeHiddenBuffers WipeHiddenBuffers()
 
 # literal search
 command! -nargs=1 Search @/ = $'\V{escape(<q-args>, '\')}' | normal! n
+command! -nargs=1 Occur exe $'lvim /\V{escape(<q-args>, '\')}/j %' | belowright lopen
 
 # fix trailing spaces
 command! FixTrailingSpaces {
