@@ -1,5 +1,9 @@
 vim9script
 
+def IsLocationList(): bool
+    return getloclist(winnr(), {'filewinid': 0}).filewinid > 0
+enddef
+
 export def QuickFixText(info: dict<any>): list<string>
     var items = []
     if info.quickfix == 1
@@ -36,7 +40,11 @@ enddef
 
 export def Next()
     try
-        cnext
+        if IsLocationList()
+            lnext
+        else
+            cnext
+        endif
         if exists(":BlinkLine") == 2
             BlinkLine
         endif
@@ -47,7 +55,11 @@ enddef
 
 export def Prev()
     try
-        cprev
+        if IsLocationList()
+            lprev
+        else
+            cprev
+        endif
         if exists(":BlinkLine") == 2
             BlinkLine
         endif
