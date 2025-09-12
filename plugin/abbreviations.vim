@@ -4,6 +4,8 @@ inorea ddt <C-r>=strftime("%Y-%m-%d %H:%M")<CR><C-R>=misc#Eatchar('\s')<CR>
 inorea ssf select * from
 inorea whe where 1 = 1
 
+cnoreabbrev <expr> g (getcmdtype() ==# ':' && getcmdline() ==# 'g')  ? 'G'  : 'g'
+cnoreabbrev <expr> Qa (getcmdtype() ==# ':' && getcmdline() ==# 'Qa')  ? 'qa'  : 'Qa'
 cabbr ц w
 cabbr й q
 cabbr цй wq
