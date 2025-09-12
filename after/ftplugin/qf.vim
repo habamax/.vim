@@ -11,7 +11,7 @@ enddef
 nnoremap <buffer> i <scriptcmd>ShowQFItem()<CR>
 
 def KillJobs()
-    for job in [get(g:, "grep_jobid", null_job), get(g:, "make_jobid", null_job), get(g:, "qf_jobid", null_job)]
+    for job in [get(g:, "make_jobid", null_job)]
         if job_status(job) == "run"
             ch_close(job->job_getchannel())
             job_stop(job, "kill")
