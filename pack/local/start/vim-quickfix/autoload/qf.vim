@@ -27,9 +27,6 @@ export def QuickFixText(info: dict<any>): list<string>
 enddef
 
 export def View()
-    if !getqflist()[line('.') - 1].valid
-        return
-    endif
     exe "normal! \<CR>zz"
     if exists(":BlinkLine") == 2
         BlinkLine
