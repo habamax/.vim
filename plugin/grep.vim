@@ -9,7 +9,7 @@ elseif executable('ugrep')
 endif
 
 def Grep(args: string): string
-    return system($"{&grepprg} {args}")
+    return system($"{&grepprg} {expandcmd(args)}")
 enddef
 
 command -nargs=1 -bar Grep {
