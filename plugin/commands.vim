@@ -124,23 +124,22 @@ command! -nargs=* -complete=custom,MakeComplete Make Make(<f-args>)
 
 command -nargs=1 -complete=custom,BufferComplete Buffer Buffer(<f-args>, false, <q-mods>)
 command -nargs=1 -complete=custom,BufferComplete SBuffer Buffer(<f-args>, true, <q-mods>)
-def Buffer(buf_info: string, split: bool = false, mods: string = "")
-    var bufnr = buf_info->matchstr('^\s*\d\+')
-    if empty(bufnr)
-        return
-    endif
+
+def Buffer(bufname: string, split: bool = false, mods: string = "")
     var guess_mods = ""
     if !empty(mods)
         guess_mods = mods
     elseif split && winwidth(winnr()) * 0.3 > winheight(winnr())
         guess_mods = "vert "
     endif
-    exe $"{guess_mods} {split ? "s" : ""}buffer {bufnr}"
+    var nnmbufnr = bufname->matchlist('^\(\d\+\):\[No Name\]$')
+    exe $"{guess_mods} {split ? "s" : ""}buffer {empty(nnmbufnr) ? bufname : nnmbufnr[1]}"
 enddef
+
 def BufferComplete(_, _, _): string
     var buffer_list = getbufinfo({'buflisted': 1})
         ->sort((i, j) => i.lastused > j.lastused ? -1 : i.lastused == j.lastused ? 0 : 1)
-        ->mapnew((_, v) => printf($"%{bufnr("$")->len()}s %s %s", v.bufnr, v.changed ? "+" : " ", bufname(v.bufnr) ?? "[No Name]"))
+        ->mapnew((_, v) => bufname(v.bufnr) ?? $"{v.bufnr}:[No Name]")
     if buffer_list->len() > 1
         [buffer_list[0], buffer_list[1]] = [buffer_list[1], buffer_list[0]]
     endif
