@@ -45,11 +45,18 @@ def Find(how: string = "", path: string = ""): string
     endif
     return $":{mods}{how}find "
 enddef
+def Buffer(how: string = ""): string
+    var mods = ""
+    if how == "s" && winwidth(winnr()) * 0.3 > winheight(winnr())
+        mods = "vert "
+    endif
+    return $":{mods}{how}b "
+enddef
 nnoremap <expr> <space>e Find()
 nnoremap <expr> <space><space>e Find("s")
 nnoremap <expr> <space>E Find("tab")
-nnoremap <space>b :<C-u>Buffer<space>
-nnoremap <space><space>b :<C-u>SBuffer<space>
+nnoremap <expr> <space>b Buffer()
+nnoremap <expr> <space><space>b Buffer("s")
 nnoremap <space>r :<C-u>Recent<space>
 nnoremap <space><space>r :<C-u>SRecent<space>
 nnoremap <expr> <space>d Find("", $DOCS ?? "~/docs")
