@@ -93,11 +93,12 @@ enddef
 augroup CmdComplete
     au!
     autocmd CmdlineChanged : {
-        # :! completion is very slow on Windows and WSL, disable it there.
-        if !((has("win32") || exists("$WSLENV")) && fullcommand(getcmdline()) =~ '^!')
+        # :! and :term completion is very slow on Windows and WSL, disable it there.
+        if !((has("win32") || exists("$WSLENV")) && getcmdcompltype() == 'shellcmd')
             wildtrigger()
         endif
     }
+
     autocmd CmdlineChanged : EditDirectoryHelper()
     autocmd CmdlineLeavePre : CmdCompleteSelectFirst()
 augroup END
