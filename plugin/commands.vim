@@ -105,13 +105,6 @@ def Make(args: string = "")
             setqflist([], 'a', {lines: [msg]})
         },
         close_cb: (_) => {
-            if empty(getqflist())
-                timer_start(500, (_) => {
-                    if empty(getqflist())
-                        cclose
-                    endif
-                })
-            endif
             echo "Make is finished!"
         }
     })
