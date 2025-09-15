@@ -267,8 +267,3 @@ def ToUncapitalizedWord()
     search('\v<([[:lower:]]|([[:upper:]][[:lower:]]*[[:upper:]]))', 'bc', line('.'))
 enddef
 inoremap <M-c> <C-G>u<esc><scriptcmd>ToUncapitalizedWord()<cr>guiw~gi
-
-import autoload 'terminal.vim'
-xnoremap <expr> <space>s terminal.Send()
-nnoremap <expr> <space>s terminal.Send()
-nnoremap <expr> <space>ss terminal.Send() .. '_'
