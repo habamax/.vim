@@ -186,12 +186,16 @@ export def NextError()
     var rxError = '^\f\{-}:\d\+\(:\d\+:\?\)\?'
     var rxPyError = '^\s*File ".\{-}", line \d\+,'
     var rxErlEscriptError = '^\s\+in function\s\+.\{-}(.\{-}, line \d\+)'
-    search($'\({rxError}\)\|\({rxPyError}\)\|\({rxErlEscriptError}\)', 'W')
+    if search($'\({rxError}\)\|\({rxPyError}\)\|\({rxErlEscriptError}\)', 'W') > 0
+        OpenError(true)
+    endif
 enddef
 
 export def PrevError()
     var rxError = '^\f\{-}:\d\+\(:\d\+:\?\)\?'
     var rxPyError = '^\s*File ".\{-}", line \d\+,'
     var rxErlEscriptError = '^\s\+in function\s\+.\{-}(.\{-}, line \d\+)'
-    search($'\({rxError}\)\|\({rxPyError}\)\|\({rxErlEscriptError}\)', 'bW')
+    if search($'\({rxError}\)\|\({rxPyError}\)\|\({rxErlEscriptError}\)', 'bW') > 0
+        OpenError(true)
+    endif
 enddef
