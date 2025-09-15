@@ -71,7 +71,7 @@ export def OpenError(view: bool = false)
         return
     endif
 
-    var fullname = path .. fname[1]
+    var fullname = (isabsolutepath(fname[1]) ? "" : path) .. fname[1]
     if filereadable(fullname)
         try
             var should_split = false
