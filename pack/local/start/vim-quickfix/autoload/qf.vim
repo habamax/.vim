@@ -31,7 +31,12 @@ export def QuickFixText(info: dict<any>): list<string>
 enddef
 
 export def View()
-    exe "normal! \<CR>zz"
+    var winid = win_getid()
+    exe "normal! \<CR>"
+    if winid == win_getid()
+        return
+    endif
+    normal! zz
     if exists(":BlinkLine") == 2
         BlinkLine
     endif
