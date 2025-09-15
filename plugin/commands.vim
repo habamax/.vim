@@ -80,15 +80,15 @@ def MakeComplete(_, _, _): string
     return system("make -npq : 2> /dev/null | awk -v RS= -F: '$1 ~ /^[^#%.]+$/ { print $1 }' | sort -u")
 enddef
 
-def Make(args: string = "")
+def Make(...args: list<string>)
     if exists("g:make_jobid") && job_status(g:make_jobid) == 'run'
         echo "There is a make job running."
         return
     endif
     var makeprg = &l:makeprg ?? &makeprg
     var qf_opened = false
-    setqflist([], ' ', {title: $"{makeprg} {args}"})
-    g:make_jobid = job_start($"{makeprg} {args}", {
+    setqflist([], ' ', {title: $"{makeprg} {args->join()}"})
+    g:make_jobid = job_start($"{makeprg} {args->join()}", {
         cwd: getcwd(),
         out_cb: (_, msg) => {
             if !qf_opened
