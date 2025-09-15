@@ -269,6 +269,6 @@ enddef
 inoremap <M-c> <C-G>u<esc><scriptcmd>ToUncapitalizedWord()<cr>guiw~gi
 
 import autoload 'terminal.vim'
-xnoremap <expr> <cr>j terminal.Send()
-nnoremap <expr> <cr>j terminal.Send()
-nnoremap <expr> <cr>jj terminal.Send() .. '_'
+xnoremap <expr> <space>s terminal.Send()
+nnoremap <expr> <space>s terminal.Send()
+nnoremap <expr> <space>ss terminal.Send() .. '_'
