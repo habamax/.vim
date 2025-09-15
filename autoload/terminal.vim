@@ -77,7 +77,7 @@ enddef
 export def OpenError(view: bool = false)
     # make[1]: Entering directory '/home/habamax/prj/vim/src'
     # make[1]: Leaving directory '/home/habamax/prj/vim/src'
-    var path = ""
+    var path = $"{getcwd()}/"
     var linenr = line('.')
     while linenr > 0
         var line = getline(linenr)
@@ -114,17 +114,17 @@ export def OpenError(view: bool = false)
 
     # regular filename:linenr:colnr:
     if empty(fname)
-        fname = getline('.')->matchlist('^\(.\{-}\):\(\d\+\):\(\d\+\).*')
+        fname = getline('.')->matchlist('^\(\f\{-}\):\(\d\+\):\(\d\+\):.*')
     endif
 
     # regular filename:linenr:
     if empty(fname)
-        fname = getline('.')->matchlist('^\(.\{-}\):\(\d\+\):\?.*')
+        fname = getline('.')->matchlist('^\(\f\{-}\):\(\d\+\):\?.*')
     endif
 
     # regular filename:
     if empty(fname)
-        fname = getline('.')->matchlist('^\(.\{-}\):.*')
+        fname = getline('.')->matchlist('^\(\f\{-}\):.*')
     endif
 
     if empty(fname)
@@ -136,7 +136,7 @@ export def OpenError(view: bool = false)
         try
             var should_split = false
             var buffers = getbufinfo()->filter((_, v) => v.name == fnamemodify(fullname, ":p"))
-            fullname = fullname->substitute('#', '\\&', 'g')
+            fullname = fullname->escape('#&%\')
             if len(buffers) > 0 && len(buffers[0].windows) > 0
                 win_gotoid(buffers[0].windows[0])
             elseif win_gotoid(FindOtherWin())
