@@ -40,7 +40,7 @@ export def OpenError(view: bool = false)
     # - edit file name
 
     # python
-    var fname = getline('.')->matchlist('^\s\+File "\(.\{-}\)", line \(\d\+\)')
+    var fname = getline('.')->matchlist('^\s\+File "\(\f\{-}\)", line \(\d\+\)')
 
     # erlang escript
     if empty(fname)
@@ -124,7 +124,7 @@ enddef
 
 export def NextError()
     var rxError = '^\f\{-}:\d\+\(:\d\+:\?\)\?'
-    var rxPyError = '^\s*File ".\{-}", line \d\+,'
+    var rxPyError = '^\s*File "\f\{-}", line \d\+'
     var rxErlEscriptError = '^\s\+in function\s\+.\{-}(.\{-}, line \d\+)'
     if search($'\({rxError}\)\|\({rxPyError}\)\|\({rxErlEscriptError}\)', 'W') > 0
         OpenError(true)
@@ -133,7 +133,7 @@ enddef
 
 export def PrevError()
     var rxError = '^\f\{-}:\d\+\(:\d\+:\?\)\?'
-    var rxPyError = '^\s*File ".\{-}", line \d\+,'
+    var rxPyError = '^\s*File "\f\{-}", line \d\+'
     var rxErlEscriptError = '^\s\+in function\s\+.\{-}(.\{-}, line \d\+)'
     if search($'\({rxError}\)\|\({rxPyError}\)\|\({rxErlEscriptError}\)', 'bW') > 0
         OpenError(true)
