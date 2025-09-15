@@ -19,12 +19,9 @@ def PopupHelp(symbol: string)
 enddef
 
 def RunPython()
-    exe "Sh python" expand("%:p")
-    win_gotoid(b:shout_initial_winid)
+    exe "botright vertical term python" expand("%:p")
 enddef
 
-nnoremap <buffer> <F4> <scriptcmd>Shut<CR>
-b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F4>"'
 nnoremap <buffer> <F5> <cmd>update<cr><scriptcmd>RunPython()<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 
