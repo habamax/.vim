@@ -23,7 +23,7 @@ export def OpenError(view: bool = false)
         var line = getline(linenr)
         var pathm = line->matchlist('^\s*make\[\d\+\]: Entering directory ''\(\S\+\)''$')
         if !empty(pathm)
-            path = $"{pathm[1]}/"
+            path = $"{pathm[1]}{has('win32') ? '\' : '/'}"
             break
         endif
         if line =~ '^\s*make\[\d\+\]: Leaving directory .\{-}$'
