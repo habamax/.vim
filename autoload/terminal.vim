@@ -69,7 +69,7 @@ export def OpenError(view: bool = false)
         try
             var should_split = false
             var buffers = getbufinfo()->filter((_, v) => v.name == fnamemodify(fullname, ":p"))
-            fullname = fullname->escape('#&%\')
+            fullname = fullname->escape('#&%')
             if len(buffers) > 0 && len(buffers[0].windows) > 0
                 win_gotoid(buffers[0].windows[0])
             elseif win_gotoid(FindOtherWin())
