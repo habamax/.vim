@@ -56,7 +56,7 @@ export def OpenError(view: bool = false)
         return
     endif
 
-    # maybe default output of rg
+    # maybe default output of ripgrep(rg) or ugrep(ug)
     if fname[1] =~ '^\d\+$'
         var nr = line("'{")
         var rgFileName = getline(nr + (nr == 1 ? 0 : 1))
