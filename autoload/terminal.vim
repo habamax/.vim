@@ -21,10 +21,13 @@ def FindOtherWin(): number
 enddef
 
 export def OpenError(view: bool = false)
-    # make[1]: Entering directory '/home/habamax/prj/vim/src'
-    # make[1]: Leaving directory '/home/habamax/prj/vim/src'
     var sep = has('win32') ? '\' : '/'
     var path = $"{getcwd()}{sep}"
+
+    # simple detection of make change of directory
+    # XXX: this might need an improvement.
+    # make[1]: Entering directory '/home/habamax/prj/vim/src'
+    # make[1]: Leaving directory '/home/habamax/prj/vim/src'
     var linenr = line('.')
     while linenr > 0
         var line = getline(linenr)
