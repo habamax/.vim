@@ -1,12 +1,13 @@
 vim9script
 
+# To be used with plugin/terminal.vim
+# functions to navigate error like lines, e.g somefile:20:10: error message
+
 const rxError = '\v^(\f{-}):(\d+):(\d+:)?'
 const rxPyError = '\v^\s+File "(\f{-})", line (\d+)'
 const rxErlEscriptError = '\v^\s+in function\s+.{-}\((.{-}), line (\d+)\)'
 const rxRustError = '\v^\s+--\> (.{-}):(\d+):(\d+)'
 
-# To be used with plugin/terminal.vim
-# functions to navigate error like lines, e.g somefile:20:10: error message
 def FindOtherWin(): number
     var result = -1
     var winid = win_getid()
