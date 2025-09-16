@@ -17,13 +17,14 @@ enddef
 export def OpenError(view: bool = false)
     # make[1]: Entering directory '/home/habamax/prj/vim/src'
     # make[1]: Leaving directory '/home/habamax/prj/vim/src'
-    var path = $"{getcwd()}/"
+    var sep = has('win32') ? '\' : '/'
+    var path = $"{getcwd()}{sep}"
     var linenr = line('.')
     while linenr > 0
         var line = getline(linenr)
         var pathm = line->matchlist('^\s*make\[\d\+\]: Entering directory ''\(\S\+\)''$')
         if !empty(pathm)
-            path = $"{pathm[1]}{has('win32') ? '\' : '/'}"
+            path = $"{pathm[1]}{sep}"
             break
         endif
         if line =~ '^\s*make\[\d\+\]: Leaving directory .\{-}$'
