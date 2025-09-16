@@ -1,5 +1,10 @@
 vim9script
 
+const rxError = '\v^(\f{-}):(\d+):(\d+:)?'
+const rxPyError = '\v^\s+File "(\f{-})", line (\d+)'
+const rxErlEscriptError = '\v^\s+in function\s+.{-}\((.{-}), line (\d+)\)'
+const rxRustError = '\v^\s+--\> (.{-}):(\d+):(\d+)'
+
 # To be used with plugin/terminal.vim
 # functions to navigate error like lines, e.g somefile:20:10: error message
 def FindOtherWin(): number
@@ -33,33 +38,14 @@ export def OpenError(view: bool = false)
         linenr = prevnonblank(linenr - 1)
     endwhile
 
-    # python
-    var fname = getline('.')->matchlist('^\s\+File "\(\f\{-}\)", line \(\d\+\)')
 
-    # erlang escript
-    if empty(fname)
-        fname = getline('.')->matchlist('^\s\+in function\s\+.\{-}(\(.\{-}\), line \(\d\+\))')
-    endif
-
-    # rust
-    if empty(fname)
-        fname = getline('.')->matchlist('^\s\+--> \(.\{-}\):\(\d\+\):\(\d\+\)')
-    endif
-
-    # regular filename:linenr:colnr:
-    if empty(fname)
-        fname = getline('.')->matchlist('^\(\f\{-}\):\(\d\+\):\(\d\+\):.*')
-    endif
-
-    # regular filename:linenr:
-    if empty(fname)
-        fname = getline('.')->matchlist('^\(\f\{-}\):\(\d\+\):\?.*')
-    endif
-
-    # regular filename:
-    if empty(fname)
-        fname = getline('.')->matchlist('^\(\f\{-}\):.*')
-    endif
+    var fname = []
+    for rx in [rxPyError, rxErlEscriptError, rxRustError, rxError]
+        fname = getline('.')->matchlist(rx)
+        if !empty(fname)
+            break
+        endif
+    endfor
 
     if empty(fname)
         return
@@ -117,19 +103,19 @@ export def OpenError(view: bool = false)
 enddef
 
 export def NextError()
-    var rxError = '^\f\{-}:\d\+\(:\d\+:\?\)\?'
-    var rxPyError = '^\s*File "\f\{-}", line \d\+'
-    var rxErlEscriptError = '^\s\+in function\s\+.\{-}(.\{-}, line \d\+)'
-    if search($'\({rxError}\)\|\({rxPyError}\)\|\({rxErlEscriptError}\)', 'W') > 0
-        OpenError(true)
-    endif
+    for rx in [rxError, rxPyError, rxErlEscriptError, rxRustError]
+        if search(rx, 'W') > 0
+            OpenError(true)
+            return
+        endif
+    endfor
 enddef
 
 export def PrevError()
-    var rxError = '^\f\{-}:\d\+\(:\d\+:\?\)\?'
-    var rxPyError = '^\s*File "\f\{-}", line \d\+'
-    var rxErlEscriptError = '^\s\+in function\s\+.\{-}(.\{-}, line \d\+)'
-    if search($'\({rxError}\)\|\({rxPyError}\)\|\({rxErlEscriptError}\)', 'bW') > 0
-        OpenError(true)
-    endif
+    for rx in [rxError, rxPyError, rxErlEscriptError, rxRustError]
+        if search(rx, 'bW') > 0
+            OpenError(true)
+            return
+        endif
+    endfor
 enddef
