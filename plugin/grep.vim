@@ -8,28 +8,29 @@ elseif executable('ugrep')
     set grepformat=%f:%l:%c:%m,%f+%l+%c+%m,%-G%f\\\|%l\\\|%c\\\|%m
 endif
 
-def Grep(args: string): string
-    return system($"{&grepprg} {expandcmd(args)}")
-enddef
-
 command -nargs=1 -bar Grep {
-    cgetexpr Grep(<q-args>)
-    setqflist([], 'a', {title: $"{&grepprg} {<q-args>}"})
+    var cmd = $"{&grepprg} {expandcmd(<q-args>)}"
+    cgetexpr system(cmd)
+    setqflist([], 'a', {title: cmd})
 }
 
 command -nargs=1 -bar LGrep {
-    lgetexpr Grep(<q-args>)
-    setloclist(winnr(), [], 'a', {title: $"{&grepprg} {<q-args>}"})
+    var cmd = $"{&grepprg} {expandcmd(<q-args>)}"
+    lgetexpr system(cmd)
+    setloclist(winnr(), [], 'a', {title: cmd})
 }
-
-cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() ==# 'grep')  ? 'Grep'  : 'grep'
-cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() ==# 'lgrep') ? 'LGrep' : 'lgrep'
 
 command! -nargs=1 Rg :term rg <args>
 command! -nargs=1 Ug :term ug <args>
-cnoreabbrev <expr> rg  (getcmdtype() ==# ':' && getcmdline() ==# 'rg')  ? 'Rg'  : 'rg'
-cnoreabbrev <expr> ug  (getcmdtype() ==# ':' && getcmdline() ==# 'ug')  ? 'Ug'  : 'ug'
 
+def CmdReplace(cmd: string, ucmd: string): string
+    return (getcmdtype() ==# ':' && getcmdline() ==# cmd) ? ucmd : cmd
+enddef
+
+cnoreabbrev <expr> grep CmdReplace('grep', 'Grep')
+cnoreabbrev <expr> lgrep CmdReplace('lgrep', 'LGrep')
+cnoreabbrev <expr> rg CmdReplace('rg', 'Rg')
+cnoreabbrev <expr> ug CmdReplace('ug', 'Ug')
 
 augroup quickfix
     autocmd!
