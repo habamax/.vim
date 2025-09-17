@@ -12,10 +12,10 @@ cnoreabbrev <expr> grep CmdReplace('grep', 'Grep')
 cnoreabbrev <expr> lgrep CmdReplace('lgrep', 'LGrep')
 cnoreabbrev <expr> rg CmdReplace('rg', 'Rg')
 cnoreabbrev <expr> ug CmdReplace('ug', 'Ug')
-
 cnoreabbrev <expr> g CmdReplace('g', 'G')
 cnoreabbrev <expr> Qa CmdReplace('Qa', 'qa')
 cnoreabbrev <expr> make CmdReplace('make', 'Make')
+
 cabbr ц w
 cabbr й q
 cabbr цй wq
