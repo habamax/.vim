@@ -86,12 +86,14 @@ export def OpenError(view: bool = false)
                 var vertical = winwidth(winnr()) * 0.3 > winheight(winnr()) ? "vertical " : ""
                 if len(buffers) > 0
                     exe $"{vertical}sbuffer {fullname}"
+                    set buflisted
                 else
                     exe $"{vertical}split {fullname}"
                 endif
             else
                 if len(buffers) > 0
                     exe $"buffer {fullname}"
+                    set buflisted
                 else
                     exe $"edit {fullname}"
                 endif
