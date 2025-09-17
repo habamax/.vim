@@ -23,15 +23,6 @@ command -nargs=1 -bar LGrep {
 command! -nargs=1 Rg :term rg <args>
 command! -nargs=1 Ug :term ug <args>
 
-def CmdReplace(cmd: string, ucmd: string): string
-    return (getcmdtype() ==# ':' && getcmdline() ==# cmd) ? ucmd : cmd
-enddef
-
-cnoreabbrev <expr> grep CmdReplace('grep', 'Grep')
-cnoreabbrev <expr> lgrep CmdReplace('lgrep', 'LGrep')
-cnoreabbrev <expr> rg CmdReplace('rg', 'Rg')
-cnoreabbrev <expr> ug CmdReplace('ug', 'Ug')
-
 augroup quickfix
     autocmd!
     autocmd QuickFixCmdPost cgetexpr belowright cwindow

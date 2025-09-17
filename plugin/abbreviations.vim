@@ -4,10 +4,18 @@ inorea ddt <C-r>=strftime("%Y-%m-%d %H:%M")<CR><C-R>=misc#Eatchar('\s')<CR>
 inorea ssf select * from
 inorea whe where 1 = 1
 
-cnoreabbrev <expr> g (getcmdtype() ==# ':' && getcmdline() ==# 'g')  ? 'G'  : 'g'
-cnoreabbrev <expr> Qa (getcmdtype() ==# ':' && getcmdline() ==# 'Qa')  ? 'qa'  : 'Qa'
-cnoreabbrev <expr> sh (getcmdtype() ==# ':' && getcmdline() ==# 'sh')  ? 'Sh'  : 'sh'
-cnoreabbrev <expr> make (getcmdtype() ==# ':' && getcmdline() ==# 'make')  ? 'Make'  : 'make'
+def CmdReplace(cmd: string, ucmd: string): string
+    return (getcmdtype() ==# ':' && getcmdline() ==# cmd) ? ucmd : cmd
+enddef
+
+cnoreabbrev <expr> grep CmdReplace('grep', 'Grep')
+cnoreabbrev <expr> lgrep CmdReplace('lgrep', 'LGrep')
+cnoreabbrev <expr> rg CmdReplace('rg', 'Rg')
+cnoreabbrev <expr> ug CmdReplace('ug', 'Ug')
+
+cnoreabbrev <expr> g CmdReplace('g', 'G')
+cnoreabbrev <expr> Qa CmdReplace('Qa', 'qa')
+cnoreabbrev <expr> make CmdReplace('make', 'Make')
 cabbr ц w
 cabbr й q
 cabbr цй wq
