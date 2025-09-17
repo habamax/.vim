@@ -25,6 +25,12 @@ command -nargs=1 -bar LGrep {
 cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() ==# 'grep')  ? 'Grep'  : 'grep'
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() ==# 'lgrep') ? 'LGrep' : 'lgrep'
 
+command! -nargs=1 Rg :term rg <args>
+command! -nargs=1 Ug :term ug <args>
+cnoreabbrev <expr> rg  (getcmdtype() ==# ':' && getcmdline() ==# 'rg')  ? 'Rg'  : 'rg'
+cnoreabbrev <expr> ug  (getcmdtype() ==# ':' && getcmdline() ==# 'ug')  ? 'Ug'  : 'ug'
+
+
 augroup quickfix
     autocmd!
     autocmd QuickFixCmdPost cgetexpr belowright cwindow
