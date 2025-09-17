@@ -85,14 +85,14 @@ export def OpenError(view: bool = false)
             if should_split
                 var vertical = winwidth(winnr()) * 0.3 > winheight(winnr()) ? "vertical " : ""
                 if len(buffers) > 0
-                    exe $"{vertical}sbuffer {fullname}"
+                    exe $"silent {vertical}sbuffer {fullname}"
                     set buflisted
                 else
                     exe $"{vertical}split {fullname}"
                 endif
             else
                 if len(buffers) > 0
-                    exe $"buffer {fullname}"
+                    exe $"silent buffer {fullname}"
                     set buflisted
                 else
                     exe $"edit {fullname}"
@@ -112,7 +112,7 @@ export def OpenError(view: bool = false)
                 BlinkLine
             endif
             if view
-                wincmd p
+                silent wincmd p
             endif
         catch
         endtry
