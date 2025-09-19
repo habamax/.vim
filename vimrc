@@ -14,7 +14,7 @@ set fillchars=fold:\ ,vert:│
 set virtualedit=block
 set backspace=indent,eol,start
 set nostartofline
-set switchbuf=usetab
+set switchbuf=useopen
 set fileformat=unix fileformats=unix,dos
 set sidescroll=1 sidescrolloff=3
 set nrformats=bin,hex,unsigned
