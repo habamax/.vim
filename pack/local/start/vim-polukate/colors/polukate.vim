@@ -161,7 +161,7 @@ hi ToolbarButton guifg=#dadada guibg=#1c1c26 guisp=NONE gui=bold,reverse ctermfg
 hi ToolbarLine guifg=NONE guibg=#1c1c26 guisp=NONE gui=NONE ctermfg=NONE ctermbg=234 cterm=NONE term=reverse
 hi Type guifg=#d3869b guibg=NONE guisp=NONE gui=NONE ctermfg=175 ctermbg=NONE cterm=NONE term=NONE
 hi Underlined guifg=#dadada guibg=NONE guisp=NONE gui=underline ctermfg=253 ctermbg=NONE cterm=underline term=underline
-hi VertSplit guifg=#707070 guibg=#1c1c26 guisp=NONE gui=NONE ctermfg=242 ctermbg=234 cterm=NONE term=NONE
+hi VertSplit guifg=#707070 guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE term=NONE
 hi Visual guifg=NONE guibg=#1a3456 guisp=NONE gui=NONE ctermfg=32 ctermbg=234 cterm=reverse term=reverse
 hi VisualNOS guifg=NONE guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=NONE
 hi WarningMsg guifg=#d78700 guibg=NONE guisp=NONE gui=NONE ctermfg=172 ctermbg=NONE cterm=NONE term=standout
