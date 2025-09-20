@@ -32,7 +32,7 @@ Color: dark4         #0087d7           32                darkblue
 Color: dark5         #d787d7           176               darkmagenta
 Color: dark6         #00afaf           37                darkcyan
 Color: dark7         #dadada           253               grey
-Color: dark8         #707076           242               darkgrey
+Color: dark8         #707070           242               darkgrey
 Color: dark9         #ff4f7f           197               red
 Color: dark10        #00d75f           41                green
 Color: dark11        #ffaf00           214               yellow

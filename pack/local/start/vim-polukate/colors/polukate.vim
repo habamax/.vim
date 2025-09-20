@@ -15,7 +15,7 @@ let g:colors_name = 'polukate'
 let s:t_Co = has('gui_running') ? 16777216 : str2nr(&t_Co)
 let s:tgc = has('termguicolors') && &termguicolors
 
-let g:terminal_ansi_colors = ['#1c1c26', '#d74f7f', '#00af5f', '#d78700', '#0087d7', '#d787d7', '#00afaf', '#dadada', '#707076', '#ff4f7f', '#00d75f', '#ffaf00', '#5fafff', '#ff87ff', '#00d7d7', '#ffffff']
+let g:terminal_ansi_colors = ['#1c1c26', '#d74f7f', '#00af5f', '#d78700', '#0087d7', '#d787d7', '#00afaf', '#dadada', '#707070', '#ff4f7f', '#00d75f', '#ffaf00', '#5fafff', '#ff87ff', '#00d7d7', '#ffffff']
 
 hi! link CurSearch IncSearch
 hi! link CursorLineFold FoldColumn
@@ -111,14 +111,14 @@ hi CursorLine guifg=NONE guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=NONE ctermbg=
 hi CursorLineNr guifg=#dadada guibg=NONE guisp=NONE gui=bold ctermfg=253 ctermbg=NONE cterm=bold term=bold
 hi DiffAdd guifg=NONE guibg=#273923 guisp=NONE gui=NONE ctermfg=253 ctermbg=22 cterm=NONE term=reverse
 hi DiffChange guifg=NONE guibg=#37352f guisp=NONE gui=NONE ctermfg=253 ctermbg=237 cterm=NONE term=NONE
-hi DiffDelete guifg=#707076 guibg=#2f1f1a guisp=NONE gui=NONE ctermfg=242 ctermbg=52 cterm=NONE term=reverse
+hi DiffDelete guifg=#707070 guibg=#2f1f1a guisp=NONE gui=NONE ctermfg=242 ctermbg=52 cterm=NONE term=reverse
 hi DiffText guifg=NONE guibg=#0f4f4f guisp=NONE gui=NONE ctermfg=253 ctermbg=23 cterm=NONE term=reverse
 hi Directory guifg=#bfbf97 guibg=NONE guisp=NONE gui=bold ctermfg=144 ctermbg=NONE cterm=bold term=NONE
-hi EndOfBuffer guifg=#707076 guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE term=NONE
+hi EndOfBuffer guifg=#707070 guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE term=NONE
 hi Error guifg=NONE guibg=#a03f2f guisp=NONE gui=NONE ctermfg=197 ctermbg=253 cterm=reverse term=bold,reverse
 hi ErrorMsg guifg=#d74f7f guibg=#1c1c26 guisp=NONE gui=reverse ctermfg=161 ctermbg=234 cterm=reverse term=bold,reverse
-hi FoldColumn guifg=#707076 guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE term=NONE
-hi Folded guifg=#707076 guibg=#12121c guisp=NONE gui=NONE ctermfg=242 ctermbg=233 cterm=NONE term=NONE
+hi FoldColumn guifg=#707070 guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE term=NONE
+hi Folded guifg=#707070 guibg=#12121c guisp=NONE gui=NONE ctermfg=242 ctermbg=233 cterm=NONE term=NONE
 hi Identifier guifg=#afaf87 guibg=NONE guisp=NONE gui=NONE ctermfg=144 ctermbg=NONE cterm=NONE term=NONE
 hi Ignore guifg=#dadada guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=NONE
 hi IncSearch guifg=NONE guibg=#5a4a45 guisp=NONE gui=NONE ctermfg=215 ctermbg=234 cterm=reverse term=bold,reverse,underline
@@ -126,7 +126,7 @@ hi LineNr guifg=#5f5f5f guibg=NONE guisp=NONE gui=NONE ctermfg=59 ctermbg=NONE c
 hi MatchParen guifg=#ff00af guibg=NONE guisp=NONE gui=bold ctermfg=199 ctermbg=NONE cterm=bold term=bold,underline
 hi ModeMsg guifg=#dadada guibg=NONE guisp=NONE gui=bold ctermfg=253 ctermbg=NONE cterm=bold term=bold
 hi MoreMsg guifg=#00af5f guibg=NONE guisp=NONE gui=NONE ctermfg=35 ctermbg=NONE cterm=NONE term=NONE
-hi NonText guifg=#707076 guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE term=NONE
+hi NonText guifg=#707070 guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE term=NONE
 hi Pmenu guifg=NONE guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=reverse
 hi PmenuExtra guifg=#9e9e9e guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=247 ctermbg=237 cterm=NONE term=NONE
 hi PmenuExtraSel guifg=#b2b2b2 guibg=#585862 guisp=NONE gui=NONE ctermfg=249 ctermbg=240 cterm=NONE term=NONE
@@ -134,7 +134,7 @@ hi PmenuKind guifg=#ff87af guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=211 ctermbg
 hi PmenuKindSel guifg=#ff87af guibg=#585862 guisp=NONE gui=NONE ctermfg=211 ctermbg=240 cterm=NONE term=NONE
 hi PmenuMatch guifg=#00afff guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=39 ctermbg=237 cterm=NONE term=NONE
 hi PmenuMatchSel guifg=#00afff guibg=#585862 guisp=NONE gui=NONE ctermfg=39 ctermbg=240 cterm=NONE term=NONE
-hi PmenuSbar guifg=#707076 guibg=#5f5f5f guisp=NONE gui=NONE ctermfg=242 ctermbg=59 cterm=NONE term=reverse
+hi PmenuSbar guifg=#707070 guibg=#5f5f5f guisp=NONE gui=NONE ctermfg=242 ctermbg=59 cterm=NONE term=reverse
 hi PmenuSel guifg=#dadada guibg=#585862 guisp=NONE gui=NONE ctermfg=253 ctermbg=240 cterm=NONE term=bold
 hi PmenuThumb guifg=#dadada guibg=#dadada guisp=NONE gui=NONE ctermfg=253 ctermbg=253 cterm=NONE term=NONE
 hi PreProc guifg=#87afaf guibg=NONE guisp=NONE gui=NONE ctermfg=109 ctermbg=NONE cterm=NONE term=NONE
@@ -161,7 +161,7 @@ hi ToolbarButton guifg=#dadada guibg=#1c1c26 guisp=NONE gui=bold,reverse ctermfg
 hi ToolbarLine guifg=NONE guibg=#1c1c26 guisp=NONE gui=NONE ctermfg=NONE ctermbg=234 cterm=NONE term=reverse
 hi Type guifg=#d3869b guibg=NONE guisp=NONE gui=NONE ctermfg=175 ctermbg=NONE cterm=NONE term=NONE
 hi Underlined guifg=#dadada guibg=NONE guisp=NONE gui=underline ctermfg=253 ctermbg=NONE cterm=underline term=underline
-hi VertSplit guifg=#707076 guibg=#1c1c26 guisp=NONE gui=NONE ctermfg=242 ctermbg=234 cterm=NONE term=NONE
+hi VertSplit guifg=#707070 guibg=#1c1c26 guisp=NONE gui=NONE ctermfg=242 ctermbg=234 cterm=NONE term=NONE
 hi Visual guifg=NONE guibg=#1a3456 guisp=NONE gui=NONE ctermfg=32 ctermbg=234 cterm=reverse term=reverse
 hi VisualNOS guifg=NONE guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=NONE
 hi WarningMsg guifg=#d78700 guibg=NONE guisp=NONE gui=NONE ctermfg=172 ctermbg=NONE cterm=NONE term=standout
