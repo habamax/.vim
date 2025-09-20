@@ -24,7 +24,7 @@ Include: _link_plugin
 
 Background: dark
 
-Color: dark0         #1c1c1c           234               black
+Color: dark0         #1c1c26           234               black
 Color: dark1         #d74f7f           161               darkred
 Color: dark2         #00af5f           35                darkgreen
 Color: dark3         #d78700           172               darkyellow
@@ -32,7 +32,7 @@ Color: dark4         #0087d7           32                darkblue
 Color: dark5         #d787d7           176               darkmagenta
 Color: dark6         #00afaf           37                darkcyan
 Color: dark7         #dadada           253               grey
-Color: dark8         #707070           242               darkgrey
+Color: dark8         #707076           242               darkgrey
 Color: dark9         #ff4f7f           197               red
 Color: dark10        #00d75f           41                green
 Color: dark11        #ffaf00           214               yellow
@@ -48,25 +48,25 @@ Color: diffText      #0f4f4f           23                darkcyan
 
 Color: uipink        #ff00af           199               magenta
 Color: uilime        #afff00           154               green
-Color: uiblack       #3a3a3a           237               darkgrey
+Color: uiblack       #3a3a44           237               darkgrey
 Color: uiextra       #9e9e9e           247               gray
 Color: uiextrasel    #b2b2b2           249               gray
-Color: yasogrey      #262626           235               black
+Color: yasogrey      #262630           235               black
 Color: linenrblack   #5f5f5f           59                darkgrey
-Color: quickfix      #4f2f4f           53               magenta
-Color: invisigrey    #3a3a3a           237               darkgrey
-Color: uidarkgray    #585858           240               darkgrey
+Color: quickfix      #4f2f4f           53                magenta
+Color: invisigrey    #3a3a44           237               darkgrey
+Color: uidarkgray    #585862           240               darkgrey
 Color: errorred      #a03f2f           197               red
 Color: visual        #1a3456           32                darkblue
 Color: search        #374a44           114               green
 Color: incsearch     #5a4a45           215               yellow
-Color: status        #9e9e9e           247               gray
-Color: statusnc      #767676           243               darkgray
-Color: folded        #121212           233               black
+Color: status        #9e9ea8           247               gray
+Color: statusnc      #767680           243               darkgray
+Color: folded        #12121c           233               black
 Color: uimagenta     #ff87af           211               magenta
 Color: uimatchchar   #00afff           39                magenta
 
-Color: comment       #808080           244               darkgrey
+Color: comment       #80808a           244               darkgrey
 Color: constant      #8ec07c           107               darkgreen
 Color: type          #d3869b           175               darkmagenta
 Color: statement     #ffcf5f           221               yellow
