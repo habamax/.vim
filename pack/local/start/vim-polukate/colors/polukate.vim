@@ -122,7 +122,7 @@ hi Folded guifg=#707070 guibg=#12121c guisp=NONE gui=NONE ctermfg=242 ctermbg=23
 hi Identifier guifg=#afaf87 guibg=NONE guisp=NONE gui=NONE ctermfg=144 ctermbg=NONE cterm=NONE term=NONE
 hi Ignore guifg=#dadada guibg=NONE guisp=NONE gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE term=NONE
 hi IncSearch guifg=NONE guibg=#5a4a45 guisp=NONE gui=NONE ctermfg=215 ctermbg=234 cterm=reverse term=bold,reverse,underline
-hi LineNr guifg=#5f5f5f guibg=NONE guisp=NONE gui=NONE ctermfg=59 ctermbg=NONE cterm=NONE term=NONE
+hi LineNr guifg=#5f5f62 guibg=NONE guisp=NONE gui=NONE ctermfg=59 ctermbg=NONE cterm=NONE term=NONE
 hi MatchParen guifg=#ff00af guibg=NONE guisp=NONE gui=bold ctermfg=199 ctermbg=NONE cterm=bold term=bold,underline
 hi ModeMsg guifg=#dadada guibg=NONE guisp=NONE gui=bold ctermfg=253 ctermbg=NONE cterm=bold term=bold
 hi MoreMsg guifg=#00af5f guibg=NONE guisp=NONE gui=NONE ctermfg=35 ctermbg=NONE cterm=NONE term=NONE
@@ -134,7 +134,7 @@ hi PmenuKind guifg=#ff87af guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=211 ctermbg
 hi PmenuKindSel guifg=#ff87af guibg=#585862 guisp=NONE gui=NONE ctermfg=211 ctermbg=240 cterm=NONE term=NONE
 hi PmenuMatch guifg=#00afff guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=39 ctermbg=237 cterm=NONE term=NONE
 hi PmenuMatchSel guifg=#00afff guibg=#585862 guisp=NONE gui=NONE ctermfg=39 ctermbg=240 cterm=NONE term=NONE
-hi PmenuSbar guifg=#707070 guibg=#5f5f5f guisp=NONE gui=NONE ctermfg=242 ctermbg=59 cterm=NONE term=reverse
+hi PmenuSbar guifg=#707070 guibg=#5f5f62 guisp=NONE gui=NONE ctermfg=242 ctermbg=59 cterm=NONE term=reverse
 hi PmenuSel guifg=#dadada guibg=#585862 guisp=NONE gui=NONE ctermfg=253 ctermbg=240 cterm=NONE term=bold
 hi PmenuThumb guifg=#dadada guibg=#dadada guisp=NONE gui=NONE ctermfg=253 ctermbg=253 cterm=NONE term=NONE
 hi PreProc guifg=#87afaf guibg=NONE guisp=NONE gui=NONE ctermfg=109 ctermbg=NONE cterm=NONE term=NONE
