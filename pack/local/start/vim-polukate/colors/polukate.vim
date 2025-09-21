@@ -125,7 +125,7 @@ hi IncSearch guifg=NONE guibg=#5a4a45 guisp=NONE gui=NONE ctermfg=215 ctermbg=23
 hi LineNr guifg=#5f5f62 guibg=NONE guisp=NONE gui=NONE ctermfg=59 ctermbg=NONE cterm=NONE term=NONE
 hi MatchParen guifg=#ff00af guibg=NONE guisp=NONE gui=bold ctermfg=199 ctermbg=NONE cterm=bold term=bold,underline
 hi ModeMsg guifg=#dadada guibg=NONE guisp=NONE gui=bold ctermfg=253 ctermbg=NONE cterm=bold term=bold
-hi MoreMsg guifg=#8ec07c guibg=NONE guisp=NONE gui=NONE ctermfg=107 ctermbg=NONE cterm=NONE term=NONE
+hi MoreMsg guifg=#00d75f guibg=NONE guisp=NONE gui=NONE ctermfg=41 ctermbg=NONE cterm=NONE term=NONE
 hi NonText guifg=#707070 guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE term=NONE
 hi Pmenu guifg=NONE guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=reverse
 hi PmenuExtra guifg=#9e9e9e guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=247 ctermbg=237 cterm=NONE term=NONE
@@ -138,7 +138,7 @@ hi PmenuSbar guifg=#707070 guibg=#5f5f62 guisp=NONE gui=NONE ctermfg=242 ctermbg
 hi PmenuSel guifg=#dadada guibg=#585862 guisp=NONE gui=NONE ctermfg=253 ctermbg=240 cterm=NONE term=bold
 hi PmenuThumb guifg=#dadada guibg=#dadada guisp=NONE gui=NONE ctermfg=253 ctermbg=253 cterm=NONE term=NONE
 hi PreProc guifg=#87afaf guibg=NONE guisp=NONE gui=NONE ctermfg=109 ctermbg=NONE cterm=NONE term=NONE
-hi Question guifg=#5f87af guibg=NONE guisp=NONE gui=NONE ctermfg=67 ctermbg=NONE cterm=NONE term=standout
+hi Question guifg=#5fafd7 guibg=NONE guisp=NONE gui=NONE ctermfg=74 ctermbg=NONE cterm=NONE term=standout
 hi QuickFixLine guifg=NONE guibg=#4f2f4f guisp=NONE gui=NONE ctermfg=253 ctermbg=53 cterm=NONE term=NONE
 hi Removed guifg=#d74f7f guibg=NONE guisp=NONE gui=NONE ctermfg=161 ctermbg=NONE cterm=NONE term=NONE
 hi Search guifg=NONE guibg=#374a44 guisp=NONE gui=NONE ctermfg=114 ctermbg=234 cterm=reverse term=reverse
@@ -164,7 +164,7 @@ hi Underlined guifg=#dadada guibg=NONE guisp=NONE gui=underline ctermfg=253 cter
 hi VertSplit guifg=#767680 guibg=NONE guisp=NONE gui=NONE ctermfg=243 ctermbg=NONE cterm=NONE term=NONE
 hi Visual guifg=NONE guibg=#1a3456 guisp=NONE gui=NONE ctermfg=32 ctermbg=234 cterm=reverse term=reverse
 hi VisualNOS guifg=NONE guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=NONE
-hi WarningMsg guifg=#c19552 guibg=NONE guisp=NONE gui=NONE ctermfg=137 ctermbg=NONE cterm=NONE term=standout
+hi WarningMsg guifg=#ffcf5f guibg=NONE guisp=NONE gui=NONE ctermfg=221 ctermbg=NONE cterm=NONE term=standout
 hi WildMenu guifg=#1c1c26 guibg=#ffcf5f guisp=NONE gui=NONE ctermfg=234 ctermbg=221 cterm=NONE term=bold
 
 if s:tgc || s:t_Co >= 256
