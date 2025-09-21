@@ -26,19 +26,19 @@ Background: dark
 
 Color: dark0         #1c1c26           234               black
 Color: dark1         #d74f7f           161               darkred
-Color: dark2         #00af5f           35                darkgreen
-Color: dark3         #d78700           172               darkyellow
-Color: dark4         #0087d7           32                darkblue
-Color: dark5         #d787d7           176               darkmagenta
-Color: dark6         #00afaf           37                darkcyan
+Color: dark2         #8ec07c           107               darkgreen
+Color: dark3         #c19552           137               darkyellow
+Color: dark4         #5f87af           67                darkblue
+Color: dark5         #d3869b           175               darkmagenta
+Color: dark6         #87afaf           109               darkcyan
 Color: dark7         #dadada           253               grey
 Color: dark8         #707070           242               darkgrey
 Color: dark9         #ff4f7f           197               red
 Color: dark10        #00d75f           41                green
-Color: dark11        #ffaf00           214               yellow
-Color: dark12        #5fafff           75                blue
-Color: dark13        #ff87ff           213               magenta
-Color: dark14        #00d7d7           44                cyan
+Color: dark11        #ffcf5f           221               yellow
+Color: dark12        #5fafd7           74                blue
+Color: dark13        #e396ab           211               magenta
+Color: dark14        #87d7d7           116               cyan
 Color: dark15        #ffffff           231               white
 
 Color: diffAdd       #273923           22                darkgreen
