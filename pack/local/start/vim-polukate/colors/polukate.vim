@@ -158,7 +158,7 @@ hi TabLineSel guifg=#1c1c26 guibg=#9e9ea8 guisp=NONE gui=NONE ctermfg=234 ctermb
 hi Title guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=NONE
 hi Todo guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=bold,reverse
 hi ToolbarButton guifg=#dadada guibg=#1c1c26 guisp=NONE gui=bold,reverse ctermfg=253 ctermbg=234 cterm=bold,reverse term=bold,reverse
-hi ToolbarLine guifg=NONE guibg=#1c1c26 guisp=NONE gui=NONE ctermfg=NONE ctermbg=234 cterm=NONE term=reverse
+hi ToolbarLine guifg=NONE guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE term=reverse
 hi Type guifg=#d3869b guibg=NONE guisp=NONE gui=NONE ctermfg=175 ctermbg=NONE cterm=NONE term=NONE
 hi Underlined guifg=#dadada guibg=NONE guisp=NONE gui=underline ctermfg=253 ctermbg=NONE cterm=underline term=underline
 hi VertSplit guifg=#767680 guibg=NONE guisp=NONE gui=NONE ctermfg=243 ctermbg=NONE cterm=NONE term=NONE
