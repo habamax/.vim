@@ -162,11 +162,11 @@ Error                errorred          dark7             reverse
  /16/8               dark1             dark0             reverse,bold
 ErrorMsg             dark1             dark0             reverse
  /16/8               none              none              reverse,bold
-MoreMsg              dark10             none
+MoreMsg              dark10            none
  /16/8               none              none
-Question             dark12             none
+Question             dark12            none
  /16/8               none              none              standout
-WarningMsg           dark11             none
+WarningMsg           dark11            none
  /16/8               none              none              standout
 
 Visual               visual            dark0             reverse
