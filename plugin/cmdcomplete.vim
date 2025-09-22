@@ -65,7 +65,8 @@ enddef
 
 def EditDirectoryHelper()
     var info = cmdcomplete_info()
-    if fullcommand(get(info, 'cmdline_orig', '')) != 'edit'
+
+    if empty(info) || getcmdcompltype() != 'file'
         return
     endif
 
