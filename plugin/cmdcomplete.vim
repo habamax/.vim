@@ -80,7 +80,7 @@ def EditDirectoryHelper()
             && len(info.matches) == 1
             && info.matches[0] =~ '\([\\/]\)$'
         timer_start(0, (_) => {
-            var slash = has("win32") ? '\\' : '/'
+            var slash = has("win32") ? '\' : '/'
             feedkeys(slash, 'nt')
         })
     else
