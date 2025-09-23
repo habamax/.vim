@@ -105,7 +105,8 @@ if exists("g:loaded_lsp")
         autoComplete: false,
         showInlayHints: true,
         showDiagOnStatusLine: false,
-        showDiagWithVirtualText: false,
+        showDiagWithVirtualText: true,
+        diagVirtualTextAlign: 'after',
         autoPopulateDiags: true,
         popupBorder: true,
     })

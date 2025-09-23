@@ -70,5 +70,8 @@ b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
 
 if exists("g:loaded_lsp")
     import autoload 'lsp.vim'
-    au User LspAttached lsp.SetupFT()
+    augroup LspSetup
+        au!
+        au User LspAttached lsp.SetupFT()
+    augroup END
 endif

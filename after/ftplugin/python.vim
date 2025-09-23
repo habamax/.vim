@@ -27,7 +27,10 @@ b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 
 if exists("g:loaded_lsp")
     import autoload 'lsp.vim'
-    au User LspAttached lsp.SetupFT()
+    augroup LspSetup
+        au!
+        au User LspAttached lsp.SetupFT()
+    augroup END
 else
     nnoremap <silent><buffer> K <scriptcmd>PopupHelp(expand("<cfile>"))<CR>
     xnoremap <silent><buffer> K y<scriptcmd>PopupHelp(getreg('"'))<CR>
