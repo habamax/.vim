@@ -149,7 +149,7 @@ NonText              dark8             none
 SpecialKey           uidarkgray        none              bold
  /16                 dark8             none              bold
  /8                  none              none              bold
-Conceal              none              none
+Conceal              dark8             folded
  /16/8               none              none
 MatchParen           uipink            none              bold
  /16/8               none              none              bold,underline
