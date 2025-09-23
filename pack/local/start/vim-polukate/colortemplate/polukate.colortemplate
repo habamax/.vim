@@ -224,22 +224,18 @@ TabLineFill          dark7             statusnc
 TabLineSel           dark0             status
  /16/8               none              none              reverse,bold
 
-; SpellBad             dark1             none              s=none  underline
-;  /gui                none              none              s=dark1 undercurl
-;  /256+tgc true       dark1             none              underline
-;  /16/8               dark1             none              underline
 SpellBad             dark1             none              s=none  underline
- /gui                omit              omit              s=dark1 undercurl
- /16/8               dark1             none              underline
+ /gui                none              none              s=dark1 undercurl
+ /256+tgc true       dark1             none              underline
 SpellCap             dark4             none              s=none  underline
- /16/8               dark4             none              underline
- /gui                omit              omit              s=dark4 undercurl
+ /gui                none              none              s=dark4 undercurl
+ /256+tgc true       dark4             none              underline
 SpellLocal           dark5             none              s=none  underline
- /16/8               dark5             none              underline
- /gui                omit              omit              s=dark5 undercurl
+ /gui                none              none              s=dark5 undercurl
+ /256+tgc true       dark5             none              underline
 SpellRare            dark6             none              s=none  underline
- /16/8               dark6             none              underline
- /gui                omit              omit              s=dark6 undercurl
+ /gui                none              none              s=dark6 undercurl
+ /256+tgc true       dark6             none              underline
 
 DiffAdd              none              diffAdd
  /256                dark7             diffAdd
