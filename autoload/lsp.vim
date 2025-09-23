@@ -7,10 +7,10 @@ export def SetupFT()
     nnoremap <silent><buffer> <space>la <scriptcmd>LspCodeAction<CR>
     nnoremap <silent><buffer> <space>lr <scriptcmd>LspRename<CR>
     nnoremap <silent><buffer> <space>ls <scriptcmd>LspShowSignature<CR>
-    b:undo_ftplugin ..= ' | setl keywordprg<'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>ld"'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>la"'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>lr"'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>ls"'
+    # b:undo_ftplugin ..= ' | setl keywordprg<'
+    # b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
+    # b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>ld"'
+    # b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>la"'
+    # b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>lr"'
+    # b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>ls"'
 enddef
