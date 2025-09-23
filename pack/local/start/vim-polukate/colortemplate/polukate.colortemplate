@@ -65,6 +65,10 @@ Color: statusnc      #767680           243               darkgray
 Color: folded        #12121c           233               black
 Color: uimagenta     #ff87af           211               magenta
 Color: uimatchchar   #00afff           39                magenta
+Color: uierror       #2f0000           52                darkred
+Color: uihint        #002a00           22                darkgreen
+Color: uiwarning     #2a2a00           235               darkyellow
+Color: uiinfo        #00002f           17                darkblue
 
 Color: comment       #80808a           244               darkgrey
 Color: constant      #8ec07c           107               darkgreen
@@ -220,6 +224,10 @@ TabLineFill          dark7             statusnc
 TabLineSel           dark0             status
  /16/8               none              none              reverse,bold
 
+; SpellBad             dark1             none              s=none  underline
+;  /gui                none              none              s=dark1 undercurl
+;  /256+tgc true       dark1             none              underline
+;  /16/8               dark1             none              underline
 SpellBad             dark1             none              s=none  underline
  /gui                omit              omit              s=dark1 undercurl
  /16/8               dark1             none              underline
@@ -259,5 +267,29 @@ Cursor               none              none              reverse
  /16/8               none              none              reverse
 CursorIM             dark0             uilime
  /16/8               none              none
+
+
+; yegappan/lsp
+lspDiagVirtualTextError
+                     dark1             none
+ /gui                dark1             uierror
+lspDiagSignErrorText
+                     dark1             none
+lspDiagVirtualTextWarning
+                     dark3             none
+ /gui                dark3             uiwarning
+lspDiagSignWarningText
+                     dark3             none
+lspDiagVirtualTextHint
+                     dark2             none
+ /gui                dark2             uihint
+lspDiagSignHintText
+                     dark2             none
+lspDiagVirtualTextInfo
+                     dark4             none
+ /gui                dark4             uiinfo
+lspDiagSignInfoText
+                     dark4             none
+
 
 Include: _tcozero

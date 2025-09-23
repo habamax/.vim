@@ -13,14 +13,6 @@ javaScriptIdentifier                   -> Statement
 sqlKeyword                             -> Statement
 sqlSpecial                             -> Constant
 Quote                                  -> String
-lspDiagVirtualTextError                -> Removed
-lspDiagSignErrorText                   -> Removed
-lspDiagVirtualTextWarning              -> Changed
-lspDiagSignWarningText                 -> Changed
-lspDiagVirtualTextHint                 -> Added
-lspDiagSignHintText                    -> Added
-lspDiagVirtualTextInfo                 -> Question
-lspDiagSignInfoText                    -> Question
 rstDirective                           -> PreProc
 rstSection                             -> Statement
 markdownH1Delimiter                    -> Type
