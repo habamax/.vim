@@ -153,7 +153,7 @@ NonText              dark8             none
 SpecialKey           uidarkgray        none              bold
  /16                 dark8             none              bold
  /8                  none              none              bold
-Conceal              dark8             folded
+Conceal              dark8             none
  /16/8               none              none
 MatchParen           uipink            none              bold
  /16/8               none              none              bold,underline
@@ -267,29 +267,6 @@ Cursor               none              none              reverse
  /16/8               none              none              reverse
 CursorIM             dark0             uilime
  /16/8               none              none
-
-
-; yegappan/lsp
-lspDiagVirtualTextError
-                     dark1             none
- /gui                dark1             uierror
-lspDiagSignErrorText
-                     dark1             none
-lspDiagVirtualTextWarning
-                     dark3             none
- /gui                dark3             uiwarning
-lspDiagSignWarningText
-                     dark3             none
-lspDiagVirtualTextHint
-                     dark2             none
- /gui                dark2             uihint
-lspDiagSignHintText
-                     dark2             none
-lspDiagVirtualTextInfo
-                     dark4             none
- /gui                dark4             uiinfo
-lspDiagSignInfoText
-                     dark4             none
 
 
 Include: _tcozero

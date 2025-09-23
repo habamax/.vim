@@ -54,3 +54,13 @@ asciidoctorCaption                     -> PreProc
 asciidoctorOption                      -> Identifier
 asciidoctorMacro                       -> PreProc
 dirLink                                -> Comment
+lspDiagVirtualTextError                -> Removed
+lspDiagSignErrorText                   -> Removed
+lspDiagVirtualTextWarning              -> Changed
+lspDiagSignWarningText                 -> Changed
+lspDiagVirtualTextHint                 -> Added
+lspDiagSignHintText                    -> Added
+lspDiagVirtualTextInfo                 -> Question
+lspDiagSignInfoText                    -> Question
+
+

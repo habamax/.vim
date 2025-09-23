@@ -58,6 +58,14 @@ hi! link asciidoctorTitle Statement
 hi! link dirLink Comment
 hi! link javaScriptFunction Statement
 hi! link javaScriptIdentifier Statement
+hi! link lspDiagSignErrorText Removed
+hi! link lspDiagSignHintText Added
+hi! link lspDiagSignInfoText Question
+hi! link lspDiagSignWarningText Changed
+hi! link lspDiagVirtualTextError Removed
+hi! link lspDiagVirtualTextHint Added
+hi! link lspDiagVirtualTextInfo Question
+hi! link lspDiagVirtualTextWarning Changed
 hi! link markdownCodeDelimiter Special
 hi! link markdownH1 Statement
 hi! link markdownH1Delimiter Type
@@ -94,7 +102,7 @@ hi Added guifg=#8ec07c guibg=NONE guisp=NONE gui=NONE ctermfg=107 ctermbg=NONE c
 hi Changed guifg=#c19552 guibg=NONE guisp=NONE gui=NONE ctermfg=137 ctermbg=NONE cterm=NONE term=NONE
 hi ColorColumn guifg=NONE guibg=#262630 guisp=NONE gui=NONE ctermfg=NONE ctermbg=235 cterm=NONE term=reverse
 hi Comment guifg=#80808a guibg=NONE guisp=NONE gui=NONE ctermfg=244 ctermbg=NONE cterm=NONE term=bold
-hi Conceal guifg=#707080 guibg=#12121c guisp=NONE gui=NONE ctermfg=242 ctermbg=233 cterm=NONE term=NONE
+hi Conceal guifg=#707080 guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE term=NONE
 hi Constant guifg=#8ec07c guibg=NONE guisp=NONE gui=NONE ctermfg=107 ctermbg=NONE cterm=NONE term=NONE
 hi Cursor guifg=NONE guibg=NONE guisp=NONE gui=reverse ctermfg=NONE ctermbg=NONE cterm=reverse term=reverse
 hi CursorColumn guifg=NONE guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=NONE
@@ -158,14 +166,6 @@ hi Visual guifg=NONE guibg=#1a3456 guisp=NONE gui=NONE ctermfg=32 ctermbg=234 ct
 hi VisualNOS guifg=NONE guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=NONE
 hi WarningMsg guifg=#ffcf5f guibg=NONE guisp=NONE gui=NONE ctermfg=221 ctermbg=NONE cterm=NONE term=standout
 hi WildMenu guifg=#1c1c26 guibg=#ffcf5f guisp=NONE gui=NONE ctermfg=234 ctermbg=221 cterm=NONE term=bold
-hi lspDiagSignErrorText guifg=#d74f7f guibg=NONE guisp=NONE gui=NONE ctermfg=161 ctermbg=NONE cterm=NONE term=NONE
-hi lspDiagSignHintText guifg=#8ec07c guibg=NONE guisp=NONE gui=NONE ctermfg=107 ctermbg=NONE cterm=NONE term=NONE
-hi lspDiagSignInfoText guifg=#5f87af guibg=NONE guisp=NONE gui=NONE ctermfg=67 ctermbg=NONE cterm=NONE term=NONE
-hi lspDiagSignWarningText guifg=#c19552 guibg=NONE guisp=NONE gui=NONE ctermfg=137 ctermbg=NONE cterm=NONE term=NONE
-hi lspDiagVirtualTextError guifg=#d74f7f guibg=#2f0000 guisp=NONE gui=NONE ctermfg=161 ctermbg=NONE cterm=NONE term=NONE
-hi lspDiagVirtualTextHint guifg=#8ec07c guibg=#002a00 guisp=NONE gui=NONE ctermfg=107 ctermbg=NONE cterm=NONE term=NONE
-hi lspDiagVirtualTextInfo guifg=#5f87af guibg=#00002f guisp=NONE gui=NONE ctermfg=67 ctermbg=NONE cterm=NONE term=NONE
-hi lspDiagVirtualTextWarning guifg=#c19552 guibg=#2a2a00 guisp=NONE gui=NONE ctermfg=137 ctermbg=NONE cterm=NONE term=NONE
 
 if s:tgc || s:t_Co >= 256
   if s:tgc
@@ -248,14 +248,6 @@ if s:t_Co >= 16
   hi VisualNOS ctermfg=NONE ctermbg=NONE cterm=NONE
   hi WarningMsg ctermfg=NONE ctermbg=NONE cterm=standout
   hi WildMenu ctermfg=NONE ctermbg=NONE cterm=bold,reverse
-  hi lspDiagSignErrorText ctermfg=darkred ctermbg=NONE cterm=NONE
-  hi lspDiagSignHintText ctermfg=darkgreen ctermbg=NONE cterm=NONE
-  hi lspDiagSignInfoText ctermfg=darkblue ctermbg=NONE cterm=NONE
-  hi lspDiagSignWarningText ctermfg=darkyellow ctermbg=NONE cterm=NONE
-  hi lspDiagVirtualTextError ctermfg=darkred ctermbg=NONE cterm=NONE
-  hi lspDiagVirtualTextHint ctermfg=darkgreen ctermbg=NONE cterm=NONE
-  hi lspDiagVirtualTextInfo ctermfg=darkblue ctermbg=NONE cterm=NONE
-  hi lspDiagVirtualTextWarning ctermfg=darkyellow ctermbg=NONE cterm=NONE
   finish
 endif
 
@@ -329,14 +321,6 @@ if s:t_Co >= 8
   hi VisualNOS ctermfg=NONE ctermbg=NONE cterm=NONE
   hi WarningMsg ctermfg=NONE ctermbg=NONE cterm=standout
   hi WildMenu ctermfg=NONE ctermbg=NONE cterm=bold,reverse
-  hi lspDiagSignErrorText ctermfg=darkred ctermbg=NONE cterm=NONE
-  hi lspDiagSignHintText ctermfg=darkgreen ctermbg=NONE cterm=NONE
-  hi lspDiagSignInfoText ctermfg=darkblue ctermbg=NONE cterm=NONE
-  hi lspDiagSignWarningText ctermfg=darkyellow ctermbg=NONE cterm=NONE
-  hi lspDiagVirtualTextError ctermfg=darkred ctermbg=NONE cterm=NONE
-  hi lspDiagVirtualTextHint ctermfg=darkgreen ctermbg=NONE cterm=NONE
-  hi lspDiagVirtualTextInfo ctermfg=darkblue ctermbg=NONE cterm=NONE
-  hi lspDiagVirtualTextWarning ctermfg=darkyellow ctermbg=NONE cterm=NONE
   finish
 endif
 
