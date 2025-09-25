@@ -39,6 +39,8 @@ def g:SetProjectRoot()
 
     if !rootdir->empty()
         exe "lcd " .. fnamemodify(rootdir, ":h")
+    else
+        exe "lcd " .. curdir
     endif
 enddef
 
