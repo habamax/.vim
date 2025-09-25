@@ -110,6 +110,7 @@ export def Update()
         if !IsRunning()
             timer_stop(t)
             popup_close(winid)
+            helptags ALL
             ShowChangelog()
         endif
     }, {repeat: -1})
@@ -117,7 +118,6 @@ export def Update()
     timer_start(100, (t) => {
         if empty(packages)
             timer_stop(t)
-            helptags ALL
             return
         endif
         pack_jobs->filter((_, v) => job_status(v) == 'run')
