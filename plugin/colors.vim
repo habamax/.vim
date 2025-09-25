@@ -4,6 +4,13 @@ if !has('gui_running')
     set termguicolors
 endif
 
+def Lsp()
+    hi link lspDiagSignErrorText Removed
+    hi link lspDiagVirtualTextError Removed
+    hi link lspDiagSignWarningText Changed
+    hi link lspDiagVirtualTextWarning Changed
+enddef
+
 def NoBg()
     if has("gui_running") || &background == "light"
         return
@@ -16,6 +23,7 @@ def Vsplit()
 enddef
 
 augroup colors | au!
+    au Colorscheme * Lsp()
     au Colorscheme polukate,habamax,wildcharm,lunaperche,nod* NoBg()
     au Colorscheme habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
