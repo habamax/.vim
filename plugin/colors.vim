@@ -9,6 +9,7 @@ def Lsp()
     hi link lspDiagVirtualTextError Removed
     hi link lspDiagSignWarningText Changed
     hi link lspDiagVirtualTextWarning Changed
+    hi link lspSigActiveParameter PreProc
 enddef
 
 def NoBg()
