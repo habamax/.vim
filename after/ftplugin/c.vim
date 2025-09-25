@@ -2,9 +2,7 @@ vim9script
 
 setlocal commentstring=//%s
 setlocal foldignore=#
-b:undo_ftplugin ..= ' | setl commentstring< foldignore< complete<'
-
-setl complete^=o^7
+b:undo_ftplugin ..= ' | setl commentstring< foldignore<'
 
 g:c_no_curly_error = true
 
