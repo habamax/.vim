@@ -62,5 +62,4 @@ lspDiagVirtualTextHint                 -> Added
 lspDiagSignHintText                    -> Added
 lspDiagVirtualTextInfo                 -> Question
 lspDiagSignInfoText                    -> Question
-
-
+lspSigActiveParameter                  -> PreProc
