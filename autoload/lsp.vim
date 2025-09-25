@@ -1,6 +1,7 @@
 vim9script
 
 export def SetupFT()
+    setlocal noautocomplete
     setlocal keywordprg=:LspHover
     nnoremap <silent><buffer> gd <scriptcmd>LspGotoDefinition<CR>
     nnoremap <silent><buffer> <space>ld <scriptcmd>LspDiag current<CR>
