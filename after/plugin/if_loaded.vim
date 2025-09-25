@@ -103,6 +103,10 @@ endif
 if exists("g:loaded_lsp")
     g:LspOptionsSet({
         autoComplete: true,
+        filterCompletionDuplicates: true,
+        completionMatcher: 'icase',
+        # useBufferCompletion: true,
+        usePopupInCodeAction: true,
         showInlayHints: true,
         showDiagOnStatusLine: false,
         showDiagWithVirtualText: true,
