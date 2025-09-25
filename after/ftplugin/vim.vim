@@ -1,6 +1,6 @@
 vim9script
 
-b:undo_ftplugin ..= ' | setl ff< complete< omnifunc<'
+b:undo_ftplugin ..= ' | setl ff< complete<'
 
 setl textwidth=80
 
