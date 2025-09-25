@@ -102,7 +102,7 @@ endif
 
 if exists("g:loaded_lsp")
     g:LspOptionsSet({
-        autoComplete: false,
+        autoComplete: true,
         showInlayHints: true,
         showDiagOnStatusLine: false,
         showDiagWithVirtualText: true,
@@ -117,7 +117,7 @@ if exists("g:loaded_lsp")
             name: 'clangd',
             filetype: ['c', 'cpp'],
             path: 'clangd',
-            args: ['--background-index']
+            args: ['--background-index'],
         }])
     endif
 
@@ -125,7 +125,7 @@ if exists("g:loaded_lsp")
         g:LspAddServer([{
             name: 'pylsp',
             filetype: ['python'],
-            path: 'pylsp'
+            path: 'pylsp',
         }])
     endif
 
