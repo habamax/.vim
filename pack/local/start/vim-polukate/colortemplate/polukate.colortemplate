@@ -150,7 +150,7 @@ EndOfBuffer          dark8             none
 NonText              dark8             none
  /16                 dark8             none
  /8                  none              none
-SpecialKey           uidarkgray        none              bold
+SpecialKey           uidarkgray        none
  /16                 dark8             none              bold
  /8                  none              none              bold
 Conceal              dark8             none
