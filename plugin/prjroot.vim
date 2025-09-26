@@ -37,6 +37,10 @@ def g:SetProjectRoot()
         curdir = fnamemodify(curdir, ":h")
     endif
 
+    if !isdirectory(curdir)
+        return
+    endif
+
     var rootdir = ''
     for dir in rootMarkers.dirs
         rootdir = finddir(dir, $"{curdir};")
@@ -55,7 +59,7 @@ def g:SetProjectRoot()
 
     if !rootdir->empty()
         exe "lcd " .. fnamemodify(rootdir, ":h")
-    elseif isdirectory(curdir)
+    else
         exe "lcd " .. curdir
     endif
 enddef
