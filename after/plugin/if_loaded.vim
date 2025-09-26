@@ -88,7 +88,6 @@ if exists("g:loaded_lsp")
         autoComplete: true,
         filterCompletionDuplicates: true,
         completionMatcher: 'icase',
-        # useBufferCompletion: true,
         usePopupInCodeAction: true,
         showInlayHints: true,
         showDiagOnStatusLine: false,
