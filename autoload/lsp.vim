@@ -8,4 +8,7 @@ export def SetupFT()
     nnoremap <silent><buffer> <space>la <scriptcmd>LspCodeAction<CR>
     nnoremap <silent><buffer> <space>lr <scriptcmd>LspRename<CR>
     nnoremap <silent><buffer> <space>ls <scriptcmd>LspShowSignature<CR>
+    nnoremap <silent><buffer> <space>z <scriptcmd>LspDocumentSymbol<CR>
+    xnoremap <silent><buffer> . <scriptcmd>LspSelectionExpand<CR>
+    xnoremap <silent><buffer> , <scriptcmd>LspSelectionShrink<CR>
 enddef
