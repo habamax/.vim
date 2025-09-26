@@ -8,17 +8,33 @@ var rootMarkers = {
     files: ['configure', 'Cargo.toml', 'mix.exs', 'go.mod', 'package.json']
 }
 
+def g:Lcd(path: string)
+    var curdir = expand(path)
+        ->substitute('^dir://', '', '')
+        ->substitute('^fugitive:[/\\]\{2}\(.*\)[/\\]\.git', '\1', '')
+
+    if !isdirectory(curdir)
+        curdir = fnamemodify(curdir, ":h")
+    endif
+
+    if !isdirectory(curdir)
+        return
+    endif
+
+    exe "lcd " .. curdir
+enddef
+
 def g:SetProjectRoot()
     if &buftype != '' && ['dir', 'fugitive']->index(&ft) == -1
         return
     endif
 
-    var curdir = expand("%:p:h")
+    var curdir = expand("%:p")
         ->substitute('^dir://', '', '')
         ->substitute('^fugitive:[/\\]\{2}\(.*\)[/\\]\.git', '\1', '')
 
     if !isdirectory(curdir)
-        return
+        curdir = fnamemodify(curdir, ":h")
     endif
 
     var rootdir = ''
@@ -39,7 +55,7 @@ def g:SetProjectRoot()
 
     if !rootdir->empty()
         exe "lcd " .. fnamemodify(rootdir, ":h")
-    else
+    elseif isdirectory(curdir)
         exe "lcd " .. curdir
     endif
 enddef

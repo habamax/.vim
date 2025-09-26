@@ -41,7 +41,7 @@ def Find(how: string = "", path: string = ""): string
     if empty(path)
         silent g:SetProjectRoot()
     else
-        silent exe $"lcd {path}"
+        silent g:Lcd(path)
     endif
     return $":{mods}{how}find "
 enddef
@@ -55,8 +55,8 @@ enddef
 nnoremap <expr> <space>e Find()
 nnoremap <expr> <space><space>e Find("s")
 nnoremap <expr> <space>E Find("tab")
-nnoremap <expr> <space>fe Find("", expand("%:p:h"))
-nnoremap <expr> <space><space>fe Find("s", expand("%:p:h"))
+nnoremap <expr> <space>fe Find("", expand("%"))
+nnoremap <expr> <space><space>fe Find("s", expand("%"))
 nnoremap <expr> <space>b Buffer()
 nnoremap <expr> <space><space>b Buffer("s")
 nnoremap <space>r :<C-u>Recent<space>
