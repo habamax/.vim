@@ -95,6 +95,8 @@ if exists("g:loaded_lsp")
         diagVirtualTextAlign: 'after',
         autoPopulateDiags: true,
         popupBorder: true,
+        popupHighlight: 'Normal',
+        popupBorderHighlight: 'Normal',
     })
 
     # wait for the vim fix for the inscompletion
