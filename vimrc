@@ -5,7 +5,7 @@ set hidden confirm
 set ttimeout ttimeoutlen=25
 set belloff=all shortmess+=IcC
 set autoindent shiftwidth=4 softtabstop=-1 expandtab
-set ruler display=lastline smoothscroll
+set display=lastline smoothscroll
 set hlsearch incsearch ignorecase smartcase
 set number relativenumber cursorline cursorlineopt=number signcolumn=number
 set nowrap breakindent breakindentopt=sbr,list:-1 linebreak nojoinspaces
