@@ -85,7 +85,7 @@ endif
 
 if exists("g:loaded_lsp")
     g:LspOptionsSet({
-        autoComplete: true,
+        autoComplete: false,
         filterCompletionDuplicates: true,
         completionMatcher: 'icase',
         usePopupInCodeAction: true,
