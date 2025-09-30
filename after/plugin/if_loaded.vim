@@ -98,6 +98,7 @@ if exists("g:loaded_lsp")
         popupHighlight: 'Normal',
         popupBorderHighlight: 'Normal',
         # issue with autocomplete in C: -> is not triggering the completions
+        # https://github.com/vim/vim/issues/18445
         ShowSignature: false,
     })
 
