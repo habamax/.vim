@@ -256,7 +256,7 @@ Removed              dark1             none
 
 ToolbarLine          none              none
  /16/8               none              none              reverse
-ToolbarButton        dark7             dark0             bold,reverse
+ToolbarButton        dark6             dark0             bold,reverse
  /16/8               none              none              bold,reverse
 
 Cursor               none              none              reverse
