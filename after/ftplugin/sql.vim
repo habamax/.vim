@@ -4,4 +4,6 @@ if executable('sql-formatter')
     command -buffer Fmt :%!sql-formatter
 endif
 
+setlocal omnifunc=
+
 iab ssf select * from
