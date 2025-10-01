@@ -20,8 +20,8 @@ command -nargs=1 -bar LGrep {
     setloclist(winnr(), [], 'a', {title: cmd})
 }
 
-command! -nargs=1 -complete=file Rg :term ++shell rg <args>
-command! -nargs=1 -complete=file Ug :term ++shell ug <args>
+command! -nargs=1 -complete=file Rg :term rg <args>
+command! -nargs=1 -complete=file Ug :term ug <args>
 
 augroup quickfix
     autocmd!
