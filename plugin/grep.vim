@@ -23,11 +23,7 @@ command -nargs=1 -bar LGrep {
 command! -nargs=1 -complete=file Rg :term rg <args>
 command! -nargs=1 -complete=file Ug :term ug <args>
 
-if has("win32")
-    command! Todo :LGrep "\\(TODO:\\|FIXME:\\|NOTE:\\|BUG:\\|HACK:\\|XXX:\\)"
-else
-    command! Todo :LGrep '\(TODO:\|FIXME:\|NOTE:\|BUG:\|HACK:\|XXX:\)'
-endif
+command! Todo :Rg \(TODO:\|FIXME:\|NOTE:\|BUG:\|HACK:\|XXX:\)
 
 augroup quickfix
     autocmd!
