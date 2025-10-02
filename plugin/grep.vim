@@ -16,7 +16,6 @@ command -nargs=1 -bar Grep {
 
 command -nargs=1 -bar LGrep {
     var cmd = $"{&grepprg} {expandcmd(<q-args>)}"
-    echow cmd
     lgetexpr system(cmd)
     setloclist(winnr(), [], 'a', {title: cmd})
 }
@@ -24,7 +23,7 @@ command -nargs=1 -bar LGrep {
 command! -nargs=1 -complete=file Rg :term rg <args>
 command! -nargs=1 -complete=file Ug :term ug <args>
 
-command! Todo :LGrep \\(TODO\\\|FIXME\\\|NOTE\\\|BUG\\\|HACK\\\|XXX\\):
+command! Todo :LGrep "\\(TODO\\|FIXME\\|NOTE\\|BUG\\|HACK\\|XXX\\):"
 
 augroup quickfix
     autocmd!
