@@ -8,6 +8,13 @@ const rxPyError = '\v^\s+File "(\f{-})", line (\d+)'
 const rxErlEscriptError = '\v^\s+in function\s+.{-}\((.{-}), line (\d+)\)'
 const rxRustError = '\v^\s+--\> (.{-}):(\d+):(\d+)'
 const rxRgUgDefault = '\v^\s*(\d+):'
+const rxAllErrors = [
+    rxRgUgDefault,
+    rxRustError,
+    rxErlEscriptError,
+    rxPyError,
+    rxError,
+]
 
 def FindOtherWin(): number
     var result = -1
@@ -120,7 +127,7 @@ export def OpenError(view: bool = false)
 enddef
 
 export def NextError()
-    for rx in [rxError, rxPyError, rxErlEscriptError, rxRustError, rxRgUgDefault]
+    for rx in rxAllErrors
         if search(rx, 'W') > 0
             OpenError(true)
             return
@@ -129,7 +136,7 @@ export def NextError()
 enddef
 
 export def PrevError()
-    for rx in [rxError, rxPyError, rxErlEscriptError, rxRustError, rxRgUgDefault]
+    for rx in rxAllErrors
         if search(rx, 'bW') > 0
             OpenError(true)
             return
