@@ -87,7 +87,7 @@ if exists("g:loaded_lsp")
     g:LspOptionsSet({
         autoComplete: false,
         filterCompletionDuplicates: true,
-        completionMatcher: 'icase',
+        completionMatcher: 'fuzzy',
         usePopupInCodeAction: true,
         showInlayHints: true,
         showDiagOnStatusLine: false,
