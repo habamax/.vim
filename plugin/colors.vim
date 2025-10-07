@@ -23,8 +23,17 @@ def Vsplit()
     hi VertSplit guibg=NONE ctermbg=NONE
 enddef
 
+def Pum()
+    hi Pmenu guibg=NONE ctermbg=NONE
+    hi PmenuMatch guibg=NONE ctermbg=NONE
+    hi PmenuExtra guibg=NONE ctermbg=NONE
+    hi PmenuKind guibg=NONE ctermbg=NONE
+    hi PmenuBorder guibg=NONE ctermbg=NONE
+enddef
+
 augroup colors | au!
     au Colorscheme * Lsp()
+    au Colorscheme habamax,polukate,wildcharm Pum()
     au Colorscheme polukate,habamax,wildcharm,lunaperche,nod* NoBg()
     au Colorscheme habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold

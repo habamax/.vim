@@ -21,7 +21,7 @@ set nrformats=bin,hex,unsigned
 set sessionoptions=buffers,curdir,tabpages,winsize
 set nospell spelllang=en,ru
 set diffopt+=algorithm:histogram,linematch:50
-set completeopt=menuone,popup,fuzzy completepopup=highlight:Pmenu
+set completeopt=popup,fuzzy completepopup=highlight:Pmenu pumborder=round
 set complete=o^10,.^10,w^5,b^5,u^3,t^3,Fcompletor#Abbrev^3
 set completefuzzycollect=keyword
 set autocomplete
