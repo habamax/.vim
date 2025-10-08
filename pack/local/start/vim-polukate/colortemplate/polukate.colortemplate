@@ -214,7 +214,7 @@ PmenuThumb           dark7             dark7
  /16/8               none              none
 
 TitleBar             dark15            guiTitle
-TitleBarNC           dark7             guiTitleNC
+TitleBarNC           comment           guiTitleNC
 
 StatusLine           dark0             status
  /16/8               none              none              bold,reverse
