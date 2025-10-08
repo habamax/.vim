@@ -12,7 +12,6 @@ set nowrap breakindent breakindentopt=sbr,list:-1 linebreak nojoinspaces
 set list listchars=tab:›\ ,nbsp:␣,trail:·,extends:…,precedes:… showbreak=↪
 set fillchars=fold:\ ,vert:│
 set virtualedit=block
-set backspace=indent,eol,start
 set nostartofline
 set switchbuf=useopen
 set fileformat=unix fileformats=unix,dos
