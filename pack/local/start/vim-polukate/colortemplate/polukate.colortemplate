@@ -69,6 +69,8 @@ Color: uierror       #2f0000           52                darkred
 Color: uihint        #002a00           22                darkgreen
 Color: uiwarning     #2a2a00           235               darkyellow
 Color: uiinfo        #00002f           17                darkblue
+Color: guiTitle      #3c3c46           236               black
+Color: guiTitleNC    #2c2c36           236               black
 
 Color: comment       #80808a           244               darkgrey
 Color: constant      #8ec07c           107               darkgreen
@@ -210,6 +212,9 @@ PmenuKindSel         uimagenta         uidarkgray
  /16/8               none              none              bold
 PmenuThumb           dark7             dark7
  /16/8               none              none
+
+TitleBar             dark15            guiTitle
+TitleBarNC           dark7             guiTitleNC
 
 StatusLine           dark0             status
  /16/8               none              none              bold,reverse

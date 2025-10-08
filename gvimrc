@@ -1,7 +1,7 @@
 vim9script
 
 set winaltkeys=no
-set guioptions=cM!
+set guioptions=CcM!
 
 if has("win32")
     set renderoptions=type:directx
