@@ -33,7 +33,7 @@ enddef
 
 augroup colors | au!
     au Colorscheme * Lsp()
-    # au Colorscheme habamax,polukate,wildcharm Pum()
+    au Colorscheme habamax,polukate,wildcharm Pum()
     au Colorscheme polukate,habamax,wildcharm,lunaperche,nod* NoBg()
     au Colorscheme habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold

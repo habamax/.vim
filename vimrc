@@ -16,7 +16,7 @@ set switchbuf=useopen
 set fileformat=unix fileformats=unix,dos
 set nrformats=bin,hex,unsigned
 set diffopt+=algorithm:histogram,linematch:50
-set completeopt=menu,popup,fuzzy completepopup=highlight:Pmenu
+set completeopt=menu,popup,fuzzy completepopup=highlight:Pmenu pumborder=round
 set autocomplete complete=o^10,.^10,w^5,b^5,u^3,t^3,Fcompletor#Abbrev^3
 set completefuzzycollect=keyword
 set sessionoptions=buffers,curdir,tabpages,winsize
