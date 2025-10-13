@@ -143,3 +143,28 @@ export def PrevError()
         endif
     endfor
 enddef
+
+export def Run(cmd: string)
+    var term_name = $'!{cmd}'
+    var curwin = false
+    var bufnr = bufnr()
+    # var term_bufs = term_list()->mapnew((_, v) => {
+    #     return {
+    #         bufnr: v,
+    #         name: bufname(v),
+    #         status: term_getstatus(v)}
+    # })->filter((_, v) => v.status != 'running')
+    if term_list()->index(bufnr) != -1 && term_getstatus(bufnr) != 'running'
+        curwin = true
+    endif
+    if !curwin
+    endif
+    term_start([&shell, &shellcmdflag, cmd], {
+        term_name: term_name,
+        curwin: curwin,
+    })
+
+    if curwin
+        exe "bw!" bufnr
+    endif
+enddef

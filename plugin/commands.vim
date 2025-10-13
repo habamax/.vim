@@ -116,6 +116,9 @@ enddef
 
 command! -nargs=* -complete=custom,MakeComplete Make Make(<f-args>)
 
+import autoload 'terminal.vim'
+command! -nargs=1 Term terminal.Run(<f-args>)
+
 command -nargs=1 -complete=custom,ColorschemeComplete Colorscheme colorscheme <args>
 def ColorschemeComplete(_, _, _): string
     var cur_colorscheme = get(g:, "colors_name", "default")
