@@ -20,8 +20,8 @@ command -nargs=1 -bar LGrep {
     setloclist(winnr(), [], 'a', {title: cmd})
 }
 
-command! -nargs=1 Rg :term rg <args>
-command! -nargs=1 Ug :term ug <args>
+command! -nargs=1 Rg :Term rg <args>
+command! -nargs=1 Ug :Term ug <args>
 
 command! Todo :Rg \(TODO:\|FIXME:\|NOTE:\|BUG:\|HACK:\|XXX:\)
 

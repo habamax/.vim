@@ -16,6 +16,7 @@ cnoreabbrev <expr> git CmdReplace('git', 'Git')
 cnoreabbrev <expr> Qa CmdReplace('Qa', 'qa')
 cnoreabbrev <expr> make CmdReplace('make', 'Make')
 cnoreabbrev <expr> todo CmdReplace('todo', 'Todo')
+cnoreabbrev <expr> term CmdReplace('term', 'Term')
 
 cabbr ц w
 cabbr й q

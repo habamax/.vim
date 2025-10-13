@@ -148,23 +148,32 @@ export def Run(cmd: string)
     var term_name = $'!{cmd}'
     var curwin = false
     var bufnr = bufnr()
-    # var term_bufs = term_list()->mapnew((_, v) => {
-    #     return {
-    #         bufnr: v,
-    #         name: bufname(v),
-    #         status: term_getstatus(v)}
-    # })->filter((_, v) => v.status != 'running')
     if term_list()->index(bufnr) != -1 && term_getstatus(bufnr) != 'running'
         curwin = true
     endif
     if !curwin
+        var termbuf = term_list()->filter((_, v) => term_getstatus(v) != 'running')
+        bufnr = !empty(termbuf) ? termbuf[0] : -1
+        if win_gotoid(bufwinid(bufnr))
+            curwin = true
+        elseif bufnr != -1
+            exe "sbuffer" bufnr
+            curwin = true
+        else
+            var counter = 1
+            while !empty(term_list()->filter((_, v) => bufname(v) == term_name))
+                term_name = term_name->substitute('\( (\d\+)\)\?$', $' ({counter})', '')
+                counter += 1
+            endwhile
+        endif
     endif
+
     term_start([&shell, &shellcmdflag, cmd], {
         term_name: term_name,
         curwin: curwin,
     })
 
-    if curwin
+    if curwin && bufnr != -1
         exe "bw!" bufnr
     endif
 enddef
