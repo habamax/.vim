@@ -248,7 +248,7 @@ xnoremap <space>g <scriptcmd>qc.Git()<CR>
 import autoload 'buf.vim'
 nnoremap go <nop>
 # go to journal file
-nnoremap <silent> goj <scriptcmd>buf.EditInTab($"{expand($DOCS ?? '~/docs')}/journal/2025.rst")<CR>
+nnoremap <silent> goj <scriptcmd>buf.EditInTab($"{expand($DOCS ?? '~/docs')}/journal/{strftime("%Y")}.rst")<CR>
 # go to todo file
 nnoremap <silent> got <scriptcmd>buf.EditInTab($"{expand($DOCS ?? '~/docs')}/todo.rst")<CR>
 # go to work todo file
