@@ -1,6 +1,6 @@
 vim9script
 
-b:undo_ftplugin ..= ' | setl ff< complete<'
+b:undo_ftplugin ..= ' | setl ff<'
 
 setl textwidth=80
 
@@ -9,8 +9,6 @@ if !&readonly
 endif
 
 g:vim_indent_cont = 6
-
-setl complete^=o^7
 
 import autoload 'popup.vim'
 def Things()
