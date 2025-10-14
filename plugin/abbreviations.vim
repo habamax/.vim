@@ -15,6 +15,7 @@ cnoreabbrev <expr> ug CmdReplace('ug', 'Ug')
 cnoreabbrev <expr> git CmdReplace('git', 'Git')
 cnoreabbrev <expr> Qa CmdReplace('Qa', 'qa')
 cnoreabbrev <expr> make CmdReplace('make', 'Make')
+cnoreabbrev <expr> mak CmdReplace('mak', 'Make')
 cnoreabbrev <expr> todo CmdReplace('todo', 'Todo')
 cnoreabbrev <expr> term CmdReplace('term', 'Term')
 
