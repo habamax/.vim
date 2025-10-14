@@ -71,6 +71,7 @@ Color: uiwarning     #2a2a00           235               darkyellow
 Color: uiinfo        #00002f           17                darkblue
 Color: guiTitle      #3c3c46           236               black
 Color: guiTitleNC    #2c2c36           236               black
+Color: uiShadow      #12121c           233               black
 
 Color: comment       #80808a           244               darkgrey
 Color: constant      #8ec07c           107               darkgreen
@@ -193,6 +194,8 @@ Pmenu                none              invisigrey
  /16/8               none              none              reverse
 PmenuBorder          dark8             invisigrey
  /16/8               none              none              reverse
+PmenuShadow          dark8             uiShadow
+ /16/8               none              none
 PmenuMatch           uimatchchar       invisigrey
  /16/8               none              dark3             reverse
 PmenuExtra           uiextra           invisigrey
