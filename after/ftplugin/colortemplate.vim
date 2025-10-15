@@ -24,7 +24,7 @@ def HighlightCompletor(findstart: number, base: string): any
     endif
 
     var items = getcompletion('', 'highlight')
-        ->mapnew((_, v) => ({word: v, kind: 'H', dup: 0}))
+        ->mapnew((_, v) => ({word: v, kind: 'h', dup: 0}))
         ->matchfuzzy(base, {key: "word"})
 
     return items->empty() ? v:none : items
