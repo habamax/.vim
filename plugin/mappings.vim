@@ -78,7 +78,11 @@ nnoremap <space>it :<C-u>InsertTemplate<space>
 nnoremap <space>fu :<C-u>Unicode<space>
 
 # Grep word under cursor
-nnoremap <space>fw <scriptcmd>exe $'Rg \\b{expand("<cword>")}\\b'<cr>
+if has("win32")
+    nnoremap <space>fw <scriptcmd>exe $'Rg \b{expand("<cword>")}\b'<cr>
+else
+    nnoremap <space>fw <scriptcmd>exe $'Rg \\b{expand("<cword>")}\\b'<cr>
+endif
 # lvimgrep word in a current buffer
 nnoremap <space>w <scriptcmd>exe $'Occur {expand("<cword>")}'<cr>
 
