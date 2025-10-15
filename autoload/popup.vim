@@ -443,8 +443,7 @@ enddef
 
 # Shell command output in a popup window.
 export def Sh(command: string, Finish_cb: func() = null_function): tuple<number, job>
-    var job_command: any
-    job_command = [&shell, &shellcmdflag, escape(command, '\')]
+    var job_command: any = [&shell, &shellcmdflag, escape(command, '\')]
 
     var grab_bufnr = 0
 
