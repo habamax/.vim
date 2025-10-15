@@ -444,11 +444,7 @@ enddef
 # Shell command output in a popup window.
 export def Sh(command: string, Finish_cb: func() = null_function): tuple<number, job>
     var job_command: any
-    if has("win32")
-        job_command = command
-    else
-        job_command = [&shell, &shellcmdflag, escape(command, '\')]
-    endif
+    job_command = [&shell, &shellcmdflag, escape(command, '\')]
 
     var grab_bufnr = 0
 
