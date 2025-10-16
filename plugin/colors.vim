@@ -41,15 +41,15 @@ augroup colors | au!
     au Colorscheme xamabah hi Normal guibg=#d7d7d0
 augroup END
 
-# g:colors = {
-#     dark: "sil! colo polukate",
-#     light: "set bg=light | sil! colo wildcharm",
-# }
-
 g:colors = {
     dark: "sil! colo polukate",
-    light: "sil! colo xamabah"
+    light: "set bg=light | sil! colo wildcharm",
 }
+
+# g:colors = {
+#     dark: "sil! colo polukate",
+#     light: "sil! colo xamabah"
+# }
 
 # g:colors = {
 #     dark: "sil! colo habamax",
