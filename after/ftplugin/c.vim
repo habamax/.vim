@@ -8,16 +8,13 @@ g:c_no_curly_error = true
 
 def Make()
     if filereadable("Makefile")
-        Make
+        TMake
     else
         var fname = expand("%:p:r")
-        exe $"QF make {fname} && chmod +x {fname} && {fname}"
-        # exe $"Sh make {fname} && chmod +x {fname} && {fname}"
+        exe $"TMake {fname} && chmod +x {fname} && {fname}"
     endif
 enddef
 
-nnoremap <buffer> <F4> <scriptcmd>Shut<CR>
-b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F4>"'
 nnoremap <buffer><F5> <scriptcmd>Make()<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 

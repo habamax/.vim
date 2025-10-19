@@ -114,7 +114,8 @@ def MakeComplete(_, _, _): string
     return system("make -npq : 2> /dev/null | awk -v RS= -F: '$1 ~ /^[^#%.]+$/ { print $1 }' | sort -u")
 enddef
 
-command! -nargs=* -complete=custom,MakeComplete Make Term make <args>
+command! -nargs=* -complete=custom,MakeComplete Make Make(<f-args>)
+command! -nargs=* -complete=custom,MakeComplete TMake Term make <args>
 
 import autoload 'terminal.vim'
 command! -nargs=1 Term terminal.Run(<f-args>)
