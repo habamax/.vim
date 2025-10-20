@@ -20,6 +20,7 @@ cnoreabbrev <expr> todo CmdReplace('todo', 'Todo')
 cnoreabbrev <expr> term CmdReplace('term', 'Term')
 cnoreabbrev <expr> tmake CmdReplace('tmake', 'TMake')
 cnoreabbrev <expr> tm CmdReplace('tm', 'TMake')
+cnoreabbrev <expr> man CmdReplace('man', 'Man')
 
 cabbr ц w
 cabbr й q
