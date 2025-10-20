@@ -144,36 +144,29 @@ export def PrevError()
     endfor
 enddef
 
-export def Run(cmd: string)
+export def Run(cmd: string, mods: string)
+    var cwd = getcwd()
     var term_name = $'!{cmd}'
-    var curwin = false
-    var bufnr = bufnr()
-    if term_list()->index(bufnr) != -1 && term_getstatus(bufnr) != 'running'
-        curwin = true
-    endif
-    if !curwin
-        var termbuf = term_list()->filter((_, v) => term_getstatus(v) != 'running')
-        bufnr = !empty(termbuf) ? termbuf[0] : -1
-        if win_gotoid(bufwinid(bufnr))
-            curwin = true
-        elseif bufnr != -1
-            exe "sbuffer" bufnr
-            curwin = true
-        else
-            var counter = 1
-            while !empty(term_list()->filter((_, v) => bufname(v) == term_name))
-                term_name = term_name->substitute('\( (\d\+)\)\?$', $' ({counter})', '')
-                counter += 1
-            endwhile
-        endif
+    var termbuf = term_list()->filter((_, v) => term_getstatus(v) != 'running')
+    var bufnr = !empty(termbuf) ? termbuf[0] : -1
+    if !win_gotoid(bufwinid(bufnr)) && bufnr != -1
+        exe $"{mods} sbuffer {bufnr}"
+    else
+        var counter = 1
+        while !empty(term_list()->filter((_, v) => bufname(v) == term_name))
+            term_name = term_name->substitute('\( (\d\+)\)\?$', $' ({counter})', '')
+            counter += 1
+        endwhile
+        exe $"{mods} split"
     endif
 
     term_start([&shell, &shellcmdflag, cmd], {
         term_name: term_name,
-        curwin: curwin,
+        curwin: true,
+        cwd: cwd,
     })
 
-    if curwin && bufnr != -1
+    if bufnr != -1
         exe "bw!" bufnr
     endif
 enddef
