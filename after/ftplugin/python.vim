@@ -19,7 +19,7 @@ def PopupHelp(symbol: string)
 enddef
 
 def RunPython()
-    exe "botright vertical term python" expand("%:p")
+    exe "botright vertical Term python" expand("%:p")
 enddef
 
 nnoremap <buffer> <F5> <cmd>update<cr><scriptcmd>RunPython()<cr>
