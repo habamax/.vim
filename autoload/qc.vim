@@ -115,6 +115,21 @@ export def HScroll(initial: string)
     popup.Commands(commands)
 enddef
 
+# navigate change list
+# Usage:
+# import autoload 'qc.vim'
+# nnoremap g; <scriptcmd>qc.ChangeList('g;')<CR>
+# nnoremap g, <scriptcmd>qc.ChangeList('g,')<CR>
+export def ChangeList(initial: string)
+    exe $"normal! {initial}"
+    var commands = [
+        {text: "Change list"},
+        {text: "Older", key: ";", cmd: "normal! g;"},
+        {text: "Newer", key: ",", cmd: "normal! g,"},
+    ]
+    popup.Commands(commands)
+enddef
+
 # Navigate windows
 # Usage:
 # import autoload 'qc.vim'

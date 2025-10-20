@@ -91,13 +91,16 @@ import autoload 'qc.vim'
 # base64 encode/decode
 xnoremap <space>t <scriptcmd>qc.TextTr()<cr>
 nnoremap <space>t <scriptcmd>qc.TextTr()<cr>
-# # quickfix&locations&diff
+# quickfix&locations&diff
 nnoremap <silent> <space>n <scriptcmd>qc.Nav()<CR>
 # horizontal scroll
 nnoremap zl <scriptcmd>qc.HScroll($'normal! {v:count1}zl')<CR>
 nnoremap zh <scriptcmd>qc.HScroll($'normal! {v:count1}zh')<CR>
 nnoremap zs <scriptcmd>qc.HScroll('normal! zs')<CR>
 nnoremap ze <scriptcmd>qc.HScroll('normal! ze')<CR>
+# changelist
+nnoremap g; <scriptcmd>qc.ChangeList('g;')<CR>
+nnoremap g, <scriptcmd>qc.ChangeList('g,')<CR>
 
 # whitespace
 nnoremap <space><space><space> <cmd>FixTrailingSpaces<CR>
