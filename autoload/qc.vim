@@ -425,7 +425,8 @@ export def Git()
     var pull_push_commands: list<dict<any>> = [
         {text: $'Pull/Push "{current_branch}"'},
         {text: $'pull', key: "u", close: true, cmd: (_) => {
-            popup.Sh('git pull && git clean -df', () => {
+            # popup.Sh('git pull && git clean -df', () => {
+            popup.Sh('git pull', () => {
                 RefreshGitSummary()
             })
         }},
