@@ -40,7 +40,7 @@ def RunScene(scene_name: string = "")
     if winwidth(winnr()) * 0.3 > winheight(winnr())
         mods = "vert "
     endif
-    exe $"{mods}term {godot_command}"
+    exe $"{mods}Term {godot_command}"
 
     last_scene_run = scene_name
 enddef
