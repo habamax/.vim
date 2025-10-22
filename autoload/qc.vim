@@ -297,6 +297,19 @@ export def Copilot()
     popup.Commands(commands)
 enddef
 
+export def LspCommands()
+    var commands = []
+    commands->extend([
+        {text: "LSP"},
+        {text: "Diagnostics", key: "d", close: true, cmd: "LspDiag current"},
+        {text: "Code Action", key: "a", close: true, cmd: "LspCodeAction"},
+        {text: "Show References", key: "r", close: true, cmd: "LspShowReferences"},
+        {text: "Show Signature", key: "s", close: true, cmd: "LspShowSignature"},
+        {text: "Rename", key: "R", close: true, cmd: "LspRename"},
+    ])
+    popup.Commands(commands)
+enddef
+
 export def Marks()
     var commands: list<dict<any>> = [{text: "Marks"}]
     commands += getmarklist()
