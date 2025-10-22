@@ -18,4 +18,4 @@ enddef
 nnoremap <silent><buffer> K <scriptcmd>PopupHelp(expand("<cfile>"))<CR>
 xnoremap <silent><buffer> K y<scriptcmd>PopupHelp(getreg('"'))<CR>
 
-nnoremap <silent><buffer> <F5> :botright term ++shell ++close iex -S mix<CR>
+nnoremap <silent><buffer> <F5> :botright Term iex -S mix<CR>
