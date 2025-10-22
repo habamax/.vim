@@ -41,12 +41,10 @@ enddef
 command! WipeHiddenBuffers WipeHiddenBuffers()
 
 # literal search
-# command! -nargs=1 Search @/ = $'\V{escape(<q-args>, '\')}' | normal! n
 command! -nargs=? Search {
-    var needle = escape(<q-args>, '\')
-    if !empty(needle)
-        @/ = $'\V{needle}'
-        exe "normal! n"
+    if !empty(<q-args>)
+        @/ = $'\V{escape(<q-args>, '\')}'
+        feedkeys("n")
     endif
 }
 command! -nargs=1 Occur exe $'lvim /\V{escape(<q-args>, '\')}/j %' | belowright lopen
