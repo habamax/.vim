@@ -121,8 +121,13 @@ nnoremap yod <cmd>exe (&diff ? ':diffoff' : ':diffthis')<CR>
 nnoremap yov <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
 nnoremap yob <cmd>exe &bg == "light" ? g:colors.dark : g:colors.light<CR>
 
-nnoremap gV ']V'[
-nnoremap gb `]v`[
+def Lazy(ncmd: string)
+    var lazy = &lazyredraw
+    set lazyredraw
+    defer execute($"&lazyredraw = {lazy}")
+    exe $"normal! {ncmd}"
+enddef
+nnoremap gb <scriptcmd>Lazy("`]v`[")<cr>
 
 # move lines
 xnoremap <tab> :sil! m '>+1<CR>gv
