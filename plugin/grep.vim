@@ -23,7 +23,7 @@ command -nargs=1 -bar LGrep {
 command! -nargs=1 Rg :exe $'{<q-mods> ?? window#BotRight()} Term rg {<q-args>}'
 command! -nargs=1 Ug :exe $'{<q-mods> ?? window#BotRight()} Term ug {<q-args>}'
 
-command! Todo :Rg \(TODO:\|FIXME:\|NOTE:\|BUG:\|HACK:\|XXX:\)
+command! Todo :Rg TODO:
 
 augroup quickfix
     autocmd!
