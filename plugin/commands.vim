@@ -120,7 +120,7 @@ def MakeComplete(_, _, _): string
 enddef
 
 command! -nargs=* -complete=custom,MakeComplete Make Make(<f-args>)
-command! -nargs=* -complete=custom,MakeComplete TMake Term make <args>
+command! -nargs=* -complete=custom,MakeComplete TMake <mods> Term make <args>
 
 import autoload 'terminal.vim'
 command! -nargs=1 Term terminal.Run(<f-args>, <q-mods>)

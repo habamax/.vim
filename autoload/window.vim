@@ -29,3 +29,11 @@ export def New()
     exe $":{FindLargestWindow()} wincmd w"
     exe $"{Vertical()} new"
 enddef
+
+export def BotRight(): string
+    var res = "botright "
+    if &columns * 0.7 < winwidth(winnr())
+        res = "vertical " .. res
+    endif
+    return res
+enddef

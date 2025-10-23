@@ -8,10 +8,10 @@ g:c_no_curly_error = true
 
 def Make()
     if filereadable("Makefile")
-        TMake
+        exe $"{window#BotRight()} TMake"
     else
         var fname = expand("%:p:r")
-        exe $"TMake {fname} && chmod +x {fname} && {fname}"
+        exe $"{window#BotRight()} TMake {fname} && chmod +x {fname} && {fname}"
     endif
 enddef
 
