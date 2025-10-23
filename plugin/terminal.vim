@@ -9,6 +9,7 @@ def TermMappings()
     nmap <buffer> <2-LeftMouse> o
     nnoremap <buffer> J <scriptcmd>terminal.NextError()<CR>
     nnoremap <buffer> K <scriptcmd>terminal.PrevError()<CR>
+    nnoremap <buffer> <C-r> <scriptcmd>terminal.ReRun()<CR>
 enddef
 
 augroup Terminal

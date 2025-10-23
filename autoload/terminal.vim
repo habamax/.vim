@@ -151,15 +151,13 @@ export def Run(cmd: string, mods: string)
     var bufnr = !empty(termbuf) ? termbuf[0] : -1
     if !win_gotoid(bufwinid(bufnr)) && bufnr != -1
         exe $"{mods} sbuffer {bufnr}"
-    else
+    elseif bufnr == -1
         var counter = 1
         while !empty(term_list()->filter((_, v) => bufname(v) == term_name))
             term_name = term_name->substitute('\( (\d\+)\)\?$', $' ({counter})', '')
             counter += 1
         endwhile
-        if bufnr == -1
-            exe $"{mods} split"
-        endif
+        exe $"{mods} split"
     endif
 
     term_start([&shell, &shellcmdflag, cmd], {
@@ -171,4 +169,9 @@ export def Run(cmd: string, mods: string)
     if bufnr != -1
         exe "bw!" bufnr
     endif
+enddef
+
+export def ReRun()
+    echow bufname()
+    Run(bufname()[1 : ], '')
 enddef
