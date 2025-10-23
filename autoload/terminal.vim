@@ -157,7 +157,9 @@ export def Run(cmd: string, mods: string)
             term_name = term_name->substitute('\( (\d\+)\)\?$', $' ({counter})', '')
             counter += 1
         endwhile
-        exe $"{mods} split"
+        if bufnr == -1
+            exe $"{mods} split"
+        endif
     endif
 
     term_start([&shell, &shellcmdflag, cmd], {
