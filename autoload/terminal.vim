@@ -172,6 +172,5 @@ export def Run(cmd: string, mods: string)
 enddef
 
 export def ReRun()
-    echow bufname()
     Run(bufname()[1 : ], '')
 enddef
