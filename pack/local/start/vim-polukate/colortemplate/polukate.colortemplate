@@ -46,7 +46,7 @@ Color: diffDelete    #2f1f1a           52                darkred
 Color: diffChange    #37352f           237               darkyellow
 Color: diffText      #0f4f4f           23                darkcyan
 
-Color: uipink        #ff00af           199               magenta
+Color: uipink        #ff00af           199               magenta;{{{
 Color: uilime        #afff00           154               green
 Color: uiblack       #3a3a44           237               darkgrey
 Color: uiextra       #9e9e9e           247               gray
@@ -63,6 +63,7 @@ Color: incsearch     #5a4a45           215               yellow
 Color: status        #9e9ea8           247               gray
 Color: statusnc      #767680           243               darkgray
 Color: folded        #12121c           233               black
+Color: uiconceal     #12121c           233               black
 Color: uimagenta     #ff87af           211               magenta
 Color: uimatchchar   #00afff           39                magenta
 Color: uierror       #2f0000           52                darkred
@@ -71,7 +72,7 @@ Color: uiwarning     #2a2a00           235               darkyellow
 Color: uiinfo        #00002f           17                darkblue
 Color: guiTitle      #3c3c46           236               black
 Color: guiTitleNC    #2c2c36           236               black
-Color: uiShadow      #12121c           233               black
+Color: uiShadow      #12121c           233               black;}}}
 
 Color: comment       #80808a           244               darkgrey
 Color: constant      #8ec07c           107               darkgreen
@@ -156,7 +157,7 @@ NonText              dark8             none
 SpecialKey           uidarkgray        none
  /16                 dark8             none              bold
  /8                  none              none              bold
-Conceal              dark8             none
+Conceal              dark8             uiconceal
  /16/8               none              none
 MatchParen           uipink            none              bold
  /16/8               none              none              bold,underline
