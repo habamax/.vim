@@ -10,6 +10,7 @@ def TermMappings()
     nnoremap <buffer> J <scriptcmd>terminal.NextError()<CR>
     nnoremap <buffer> K <scriptcmd>terminal.PrevError()<CR>
     nnoremap <buffer> <C-r> <scriptcmd>terminal.ReRun()<CR>
+    nnoremap <buffer> <F5> <scriptcmd>terminal.ReRun()<CR>
 enddef
 
 augroup Terminal
