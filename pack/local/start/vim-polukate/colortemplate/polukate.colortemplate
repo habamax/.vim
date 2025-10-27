@@ -3,7 +3,7 @@
 Full name:     polukate
 Short name:    polukate
 Author:        Maxim Kim
-URL:           https://github.com/habamax/...
+URL:           https://github.com/habamax/vim-polukate
 Description:   Dark mid-contrast colors with bold yellow statements.
 License:       Vim License (see `:help license`)`
 Options:       backend=vim
