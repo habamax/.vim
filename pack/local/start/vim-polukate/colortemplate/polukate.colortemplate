@@ -63,7 +63,6 @@ Color: incsearch     #5a4a45           215               yellow
 Color: status        #9e9ea8           247               gray
 Color: statusnc      #767680           243               darkgray
 Color: folded        #12121c           233               black
-Color: uiconceal     #12121c           233               black
 Color: uimagenta     #ff87af           211               magenta
 Color: uimatchchar   #00afff           39                magenta
 Color: uierror       #2f0000           52                darkred
@@ -157,7 +156,7 @@ NonText              dark8             none
 SpecialKey           uidarkgray        none
  /16                 dark8             none              bold
  /8                  none              none              bold
-Conceal              dark8             uiconceal
+Conceal              dark8             none
  /16/8               none              none
 MatchParen           uipink            none              bold
  /16/8               none              none              bold,underline

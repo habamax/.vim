@@ -1,7 +1,7 @@
 " Name:         polukate
 " Description:  Dark mid-contrast colors with bold yellow statements.
 " Author:       Maxim Kim
-" URL:          https://github.com/habamax/...
+" URL:          https://github.com/habamax/vim-polukate
 " License:      Vim License (see `:help license`)`
 " Last Change:  2025 Oct 27
 
@@ -103,7 +103,7 @@ hi Added guifg=#8ec07c guibg=NONE guisp=NONE gui=NONE ctermfg=107 ctermbg=NONE c
 hi Changed guifg=#c19552 guibg=NONE guisp=NONE gui=NONE ctermfg=137 ctermbg=NONE cterm=NONE term=NONE
 hi ColorColumn guifg=NONE guibg=#262630 guisp=NONE gui=NONE ctermfg=NONE ctermbg=235 cterm=NONE term=reverse
 hi Comment guifg=#80808a guibg=NONE guisp=NONE gui=NONE ctermfg=244 ctermbg=NONE cterm=NONE term=bold
-hi Conceal guifg=#707080 guibg=#12121c guisp=NONE gui=NONE ctermfg=242 ctermbg=233 cterm=NONE term=NONE
+hi Conceal guifg=#707080 guibg=NONE guisp=NONE gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE term=NONE
 hi Constant guifg=#8ec07c guibg=NONE guisp=NONE gui=NONE ctermfg=107 ctermbg=NONE cterm=NONE term=NONE
 hi Cursor guifg=NONE guibg=NONE guisp=NONE gui=reverse ctermfg=NONE ctermbg=NONE cterm=reverse term=reverse
 hi CursorColumn guifg=NONE guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=NONE
