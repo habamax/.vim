@@ -237,9 +237,6 @@ onoremap <silent> al :<C-u>normal val<CR>
 # so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-# spell correction for the first suggested
-inoremap <C-l> <C-g>u<ESC>[s1z=`]a<C-g>u
-
 nnoremap <silent> <space># <scriptcmd>text.Underline('#')<CR>
 nnoremap <silent> <space>* <scriptcmd>text.Underline('*')<CR>
 nnoremap <silent> <space>= <scriptcmd>text.Underline('=')<CR>
@@ -275,6 +272,9 @@ import autoload 'os.vim'
 nnoremap <silent> gof <scriptcmd>os.FileManager()<CR>
 # open URLs
 nnoremap <silent> gx <scriptcmd>os.Gx()<CR>
+
+# spell correction for the first suggested
+inoremap <C-l> <C-g>u<ESC>[s1z=`]a<C-g>u
 
 # upcase/titlecase previous word
 if !has("gui_running")
