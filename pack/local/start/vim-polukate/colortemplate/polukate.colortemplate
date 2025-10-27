@@ -75,8 +75,7 @@ Color: guiTitleNC    #2c2c36           236               black
 Color: uiShadow      #12121c           233               black;}}}
 
 Color: comment       #80808a           244               darkgrey
-Color: constant      #5fafd7           74                blue
-Color: string        #8ec07c           107               darkgreen
+Color: constant      #8ec07c           107               darkgreen
 Color: type          #d3869b           175               darkmagenta
 Color: statement     #ffcf5f           221               yellow
 Color: preproc       #87afaf           109               blue
@@ -106,8 +105,6 @@ Normal               dark7             dark0
 Comment              comment           none
  /16/8               none              none              bold
 Constant             constant          none
- /16/8               none              none
-String               string            none
  /16/8               none              none
 Identifier           identifier        none
  /16/8               none              none

@@ -104,7 +104,7 @@ hi Changed guifg=#c19552 guibg=NONE guisp=NONE gui=NONE ctermfg=137 ctermbg=NONE
 hi ColorColumn guifg=NONE guibg=#262630 guisp=NONE gui=NONE ctermfg=NONE ctermbg=235 cterm=NONE term=reverse
 hi Comment guifg=#80808a guibg=NONE guisp=NONE gui=NONE ctermfg=244 ctermbg=NONE cterm=NONE term=bold
 hi Conceal guifg=#707080 guibg=#12121c guisp=NONE gui=NONE ctermfg=242 ctermbg=233 cterm=NONE term=NONE
-hi Constant guifg=#5fafd7 guibg=NONE guisp=NONE gui=NONE ctermfg=74 ctermbg=NONE cterm=NONE term=NONE
+hi Constant guifg=#8ec07c guibg=NONE guisp=NONE gui=NONE ctermfg=107 ctermbg=NONE cterm=NONE term=NONE
 hi Cursor guifg=NONE guibg=NONE guisp=NONE gui=reverse ctermfg=NONE ctermbg=NONE cterm=reverse term=reverse
 hi CursorColumn guifg=NONE guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=NONE
 hi CursorIM guifg=#1c1c26 guibg=#afff00 guisp=NONE gui=NONE ctermfg=234 ctermbg=154 cterm=NONE term=NONE
@@ -155,7 +155,6 @@ hi SpellRare guifg=NONE guibg=NONE guisp=#87afaf gui=undercurl ctermfg=109 cterm
 hi Statement guifg=#ffcf5f guibg=NONE guisp=NONE gui=bold ctermfg=221 ctermbg=NONE cterm=bold term=NONE
 hi StatusLine guifg=#1c1c26 guibg=#9e9ea8 guisp=NONE gui=NONE ctermfg=234 ctermbg=247 cterm=NONE term=bold,reverse
 hi StatusLineNC guifg=#767680 guibg=#1c1c26 guisp=NONE gui=reverse ctermfg=243 ctermbg=234 cterm=reverse term=bold,underline
-hi String guifg=#8ec07c guibg=NONE guisp=NONE gui=NONE ctermfg=107 ctermbg=NONE cterm=NONE term=NONE
 hi TabLine guifg=#767680 guibg=#1c1c26 guisp=NONE gui=reverse ctermfg=243 ctermbg=234 cterm=reverse term=bold,underline
 hi TabLineFill guifg=#dadada guibg=#767680 guisp=NONE gui=NONE ctermfg=253 ctermbg=243 cterm=NONE term=NONE
 hi TabLineSel guifg=#1c1c26 guibg=#9e9ea8 guisp=NONE gui=NONE ctermfg=234 ctermbg=247 cterm=NONE term=bold,reverse
@@ -246,7 +245,6 @@ if s:t_Co >= 16
   hi Statement ctermfg=NONE ctermbg=NONE cterm=NONE
   hi StatusLine ctermfg=NONE ctermbg=NONE cterm=bold,reverse
   hi StatusLineNC ctermfg=darkgrey ctermbg=NONE cterm=reverse
-  hi String ctermfg=NONE ctermbg=NONE cterm=NONE
   hi TabLine ctermfg=darkgrey ctermbg=NONE cterm=reverse
   hi TabLineFill ctermfg=NONE ctermbg=NONE cterm=NONE
   hi TabLineSel ctermfg=NONE ctermbg=NONE cterm=bold,reverse
@@ -324,7 +322,6 @@ if s:t_Co >= 8
   hi Statement ctermfg=NONE ctermbg=NONE cterm=NONE
   hi StatusLine ctermfg=NONE ctermbg=NONE cterm=bold,reverse
   hi StatusLineNC ctermfg=NONE ctermbg=NONE cterm=bold,underline
-  hi String ctermfg=NONE ctermbg=NONE cterm=NONE
   hi TabLine ctermfg=NONE ctermbg=NONE cterm=bold,underline
   hi TabLineFill ctermfg=NONE ctermbg=NONE cterm=NONE
   hi TabLineSel ctermfg=NONE ctermbg=NONE cterm=bold,reverse
