@@ -9,8 +9,6 @@ g:loaded_netrwPlugin = 1
 # popup
 g:popup_borderchars = ['─', '│', '─', '│', '╭', '╮', '╯', '╰']
 g:popup_borderchars_t = ['─', '│', '─', '│', '├', '┤', '╯', '╰']
-# g:popup_prompt = '🔍 '
-# g:popup_prompt = '🔎 '
 
 g:hlyank_hlgroup = "Visual"
 g:hlyank_duration = 250
