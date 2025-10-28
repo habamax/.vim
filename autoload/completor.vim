@@ -94,6 +94,9 @@ export def Path(findstart: number, base: string): any
         if suffix->empty() && prefix !~ '[/\\]\+$'
             return -2
         endif
+        if !isdirectory(current_path)
+            return -2
+        endif
         return col('.') - suffix->len() - 1
     endif
 
