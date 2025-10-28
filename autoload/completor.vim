@@ -105,10 +105,10 @@ export def Path(findstart: number, base: string): any
     for f in readdirex(current_path ?? getcwd())
         items->add({
             word: f.name,
-            kind: "P",
+            kind: "/",
             menu: f.type,
             info: $"{f.perm} {f.group} {f.user} {PathSize(f.size)} {strftime("%Y-%m-%d %H:%M:%S", f.time)}\n",
-            dup: 0
+            dup: 1
         })
     endfor
 
