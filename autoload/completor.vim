@@ -65,6 +65,7 @@ export def Register(findstart: number, base: string): any
     return items->empty() ? v:none : items
 enddef
 
+# Path completion
 var current_path = ''
 def PathSize(size: number): string
     if size >= 10 * 1073741824 # 10G
