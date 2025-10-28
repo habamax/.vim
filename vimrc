@@ -19,7 +19,8 @@ set diffopt+=hiddenoff,algorithm:histogram,linematch:50
 set completeopt=menu,popup,fuzzy
 set completefuzzycollect=keyword,files,whole_line
 set completepopup=highlight:Pmenu,border:round pumborder=round,shadow
-set autocomplete complete=o^10,.^10,w^5,b^5,u^3,t^3,Fcompletor#Abbrev^3
+set autocomplete complete=o^10,.^10,w^5,b^5,u^3,t^3
+set complete+=Fcompletor#Abbrev^3,Fcompletor#Register^3
 set termwinscroll=40000
 set sessionoptions=buffers,curdir,tabpages,winsize
 set nospell spelllang=en,ru

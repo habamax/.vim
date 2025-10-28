@@ -1,21 +1,6 @@
 vim9script
 
-# Completor functions used in complete.vim or as omnifunc
-
-# Language server protocol (LSP) completion
-# provided by the omnifunction from yegappan/lsp plugin.
-export def Lsp(findstart: number, base: string): any
-    # Using g:LspOmniFunc from the yegappan/lsp plugin.
-    if &l:omnifunc != 'g:LspOmniFunc'
-        return -2 # cancel but stay in completion mode
-    endif
-    if findstart == 1
-        return g:LspOmniFunc(findstart, base)
-    elseif findstart == 2
-        return g:LspOmniCompletePending() ? 0 : 1
-    endif
-    return g:LspOmniFunc(findstart, base)
-enddef
+# Completor functions used in `set complete`
 
 # Abbreviations completion.
 export def Abbrev(findstart: number, base: string): any
@@ -58,7 +43,7 @@ export def Register(findstart: number, base: string): any
         var abbr = text
             ->slice(0, MAX_REG_LENGTH)
             ->substitute('\n', '⏎', 'g')
-            ->keytrans()
+            ->strtrans()
         var info = ""
         if text->len() > MAX_REG_LENGTH
             abbr ..= "…"
