@@ -66,35 +66,49 @@ export def Register(findstart: number, base: string): any
 enddef
 
 var current_path = ''
+def PathSize(size: number): string
+    if size >= 10 * 1073741824 # 10G
+        return printf("%.0fG", ceil(size / 1073741824.0))
+    elseif size >= 10 * 1048576 # 10M
+        return printf("%.0fM", ceil(size / 1048576.0))
+    elseif size >= 1048576 # 1M
+        return printf("%.1fM", size / 1048576.0)
+    elseif size >= 10240 # 10K
+        return printf("%.0fK", ceil(size / 1024.0))
+    else
+        return $"{size}"
+    endif
+enddef
+
 export def Path(findstart: number, base: string): any
     if findstart > 0
-        var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('[^/\\]\+$')
-        current_path = getline('.')->strpart(0, col('.') - 1)
-            ->matchstr('\f\+$')
-            ->fnamemodify(':p')
-        if current_path !~ '[/\\]$'
-            current_path = current_path->fnamemodify(':p:h')
-        else
+        var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\f\+$')
+        var suffix = prefix->matchstr('[^/\\]\+$')
+        current_path = prefix->fnamemodify(':p')
+        if isdirectory(current_path) && !suffix->empty()
             current_path = current_path->fnamemodify(':p:h:h')
+        else
+            current_path = current_path->fnamemodify(':p:h')
         endif
-        if prefix->empty()
+
+        if suffix->empty() && prefix !~ '[/\\]\+$'
             return -2
         endif
-        return col('.') - prefix->len() - 1
+        return col('.') - suffix->len() - 1
     endif
 
     var items = []
 
-    for f in globpath(current_path ?? getcwd(), '*', 0, 1)
-        var isdir = isdirectory(f)
+    for f in readdirex(current_path ?? getcwd())
         items->add({
-            word: fnamemodify(f, ':t'),
-            kind: isdir ? 'd' : 'f',
+            word: f.name,
+            kind: "P",
+            menu: f.type,
+            info: $"{f.perm} {f.group} {f.user} {PathSize(f.size)} {strftime("%Y-%m-%d %H:%M:%S", f.time)}\n",
             dup: 0
         })
     endfor
 
-    # echow current_path base items
     if !empty(base)
         items = items->matchfuzzy(fnamemodify(base, ":t"), {key: "word"})
     endif
