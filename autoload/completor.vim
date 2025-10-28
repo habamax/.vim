@@ -107,7 +107,7 @@ export def Path(findstart: number, base: string): any
             word: f.name,
             kind: "/",
             menu: f.type,
-            info: $"{f.perm} {f.group} {f.user} {PathSize(f.size)} {strftime("%Y-%m-%d %H:%M:%S", f.time)}\n",
+            info: $"{f.perm} {f.user} {f.group} {PathSize(f.size)} {strftime("%Y-%m-%d %H:%M:%S", f.time)}\n",
             dup: 1
         })
     endfor
