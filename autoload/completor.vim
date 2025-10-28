@@ -94,7 +94,7 @@ export def Path(findstart: number, base: string): any
         })
     endfor
 
-    echow current_path base items
+    # echow current_path base items
     if !empty(base)
         items = items->matchfuzzy(fnamemodify(base, ":t"), {key: "word"})
     endif
