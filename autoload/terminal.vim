@@ -149,6 +149,11 @@ export def Run(cmd: string, mods: string)
     var term_name = $'!{cmd}'
     var termbuf = term_list()->filter((_, v) => term_getstatus(v) != 'running')
     var bufnr = !empty(termbuf) ? termbuf[0] : -1
+    defer () => {
+        if bufnr != -1
+            exe "bw!" bufnr
+        endif
+    }()
     if !win_gotoid(bufwinid(bufnr)) && bufnr != -1
         exe $"{mods} sbuffer {bufnr}"
     elseif bufnr == -1
@@ -165,10 +170,6 @@ export def Run(cmd: string, mods: string)
         curwin: true,
         cwd: cwd,
     })
-
-    if bufnr != -1
-        exe "bw!" bufnr
-    endif
 enddef
 
 export def ReRun()
