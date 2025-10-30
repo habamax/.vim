@@ -43,13 +43,8 @@ augroup END
 
 g:colors = {
     dark: "sil! colo polukate",
-    light: "sil! colo xamabah",
+    light: "set bg=light | sil! colo wildcharm",
 }
-
-# g:colors = {
-#     dark: "sil! colo polukate",
-#     light: "set bg=light | sil! colo wildcharm",
-# }
 
 # g:colors = {
 #     dark: "sil! colo polukate",
