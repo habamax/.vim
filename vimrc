@@ -15,7 +15,7 @@ set virtualedit=block nostartofline
 set switchbuf=useopen
 set fileformat=unix fileformats=unix,dos
 set nrformats=bin,hex,unsigned
-set diffopt+=hiddenoff,algorithm:histogram,linematch:50
+set diffopt+=hiddenoff,algorithm:histogram,linematch:100
 set completeopt=menu,popup,fuzzy
 set completefuzzycollect=keyword,files,whole_line
 set completepopup=border:round pumborder=round
