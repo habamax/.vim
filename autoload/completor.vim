@@ -83,7 +83,7 @@ enddef
 
 export def Path(findstart: number, base: string): any
     if findstart > 0
-        var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\f\+$')
+        var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\v\f%(\f|\s)*$')
         var suffix = prefix->matchstr('[^/\\]\+$')
         current_path = prefix->fnamemodify(':p')
         if isdirectory(current_path) && !suffix->empty()
@@ -103,15 +103,18 @@ export def Path(findstart: number, base: string): any
 
     var items = []
 
-    for f in readdirex(current_path ?? getcwd())
-        items->add({
-            word: f.name,
-            kind: "/",
-            menu: f.type,
-            info: $"{f.perm} {f.user} {f.group} {PathSize(f.size)} {strftime("%Y-%m-%d %H:%M:%S", f.time)}\n",
-            dup: 1
-        })
-    endfor
+    try
+        for f in readdirex(current_path ?? getcwd())
+            items->add({
+                word: f.name,
+                kind: "/",
+                menu: f.type,
+                info: $"{f.perm} {f.user} {f.group} {PathSize(f.size)} {strftime("%Y-%m-%d %H:%M:%S", f.time)}\n",
+                dup: 1
+            })
+        endfor
+    catch
+    endtry
 
     if !empty(base)
         items = items->matchfuzzy(fnamemodify(base, ":t"), {key: "word"})
