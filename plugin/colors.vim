@@ -49,7 +49,6 @@ augroup colors | au!
     au Colorscheme habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
     au Colorscheme * hi Comment cterm=italic gui=italic
-    au Colorscheme xamabah hi Normal guibg=#d5d7d2
 augroup END
 
 g:colors = {
