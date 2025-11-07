@@ -31,9 +31,20 @@ def Pum()
     hi PmenuBorder guibg=NONE ctermbg=NONE
 enddef
 
+def Wildcharm()
+    if &background == 'dark'
+        return
+    endif
+    hi PmenuSel guibg=#e4e4e4 ctermbg=254
+    hi PmenuMatchSel guibg=#e4e4e4 ctermbg=254
+    hi PmenuExtraSel guibg=#e4e4e4 ctermbg=254
+    hi PmenuKindSel guibg=#e4e4e4 ctermbg=254
+enddef
+
 augroup colors | au!
     au Colorscheme * Lsp()
     au Colorscheme habamax,xamabah,polukate,wildcharm Pum()
+    au Colorscheme wildcharm Wildcharm()
     au Colorscheme polukate,habamax,wildcharm,lunaperche,nod* NoBg()
     au Colorscheme habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
