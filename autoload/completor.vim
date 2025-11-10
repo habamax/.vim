@@ -25,7 +25,7 @@ export def Abbrev(findstart: number, base: string): any
 enddef
 
 # Registers completion.
-const MAX_REG_LENGTH = 50
+const MAX_REG_LENGTH = 30
 export def Register(findstart: number, base: string): any
     if findstart > 0
         var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\S\+$')
