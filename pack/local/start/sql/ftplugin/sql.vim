@@ -8,7 +8,6 @@ b:did_ftplugin = 1
 
 b:undo_ftplugin = "setl comments< commentstring< formatprg<"
 
-# setlocal omnifunc=
 setlocal comments=:-- commentstring=--\ %s
 iab <buffer> ssf select * from
 
