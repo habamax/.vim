@@ -67,6 +67,7 @@ enddef
 
 # Path completion
 var current_path = ''
+var path_cache = []
 def PathSize(size: number): string
     if size >= 10 * 1073741824 # 10G
         return printf("%.0fG", ceil(size / 1073741824.0))
@@ -99,13 +100,17 @@ export def Path(findstart: number, base: string): any
         if !isdirectory(current_path)
             return -2
         endif
+        path_cache = []
         return col('.') - suffix->len() - 1
     endif
 
     var items = []
 
     try
-        for f in readdirex(current_path ?? getcwd())
+        if path_cache->empty()
+            path_cache = readdirex(current_path ?? getcwd())
+        endif
+        for f in path_cache
             items->add({
                 word: f.name,
                 kind: "/",
