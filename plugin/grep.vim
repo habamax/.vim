@@ -9,13 +9,13 @@ elseif executable('ugrep')
 endif
 
 command -nargs=1 -bar Grep {
-    var cmd = $"{&grepprg} {expandcmd(<q-args>)}"
+    var cmd = $"{&grepprg} {<q-args>}"
     cgetexpr system(cmd)
     setqflist([], 'a', {title: cmd})
 }
 
 command -nargs=1 -bar LGrep {
-    var cmd = $"{&grepprg} {expandcmd(<q-args>)}"
+    var cmd = $"{&grepprg} {<q-args>}"
     lgetexpr system(cmd)
     setloclist(winnr(), [], 'a', {title: cmd})
 }
