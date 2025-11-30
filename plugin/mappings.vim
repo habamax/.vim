@@ -29,6 +29,10 @@ xnoremap <space>P "+P
 imap <expr> <tab> pumvisible() ? "\<C-n>" : "\t"
 imap <expr> <s-tab> pumvisible() ? "\<C-p>" : "\t"
 
+# next/prev buffer
+nnoremap <C-n> <cmd>bnext<CR>
+nnoremap <C-p> <cmd>bprevious<CR>
+
 # duplicate line
 nnoremap <C-j> <cmd>copy.<CR>
 nnoremap <C-k> <cmd>copy-1<CR>
