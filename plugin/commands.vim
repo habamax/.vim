@@ -81,46 +81,24 @@ if executable('sudo')
     command! W w !sudo tee "%" >/dev/null
 endif
 
-def Make(...args: list<string>)
-    if exists("g:make_jobid") && job_status(g:make_jobid) == 'run'
-        echo "There is a make job running."
-        return
-    endif
-    var makeprg = $"{&l:makeprg ?? &makeprg} {args->join()}"
-    var qf_opened = false
-    setqflist([], ' ', {title: makeprg})
-    g:make_jobid = job_start(makeprg, {
-        cwd: getcwd(),
-        out_cb: (_, msg) => {
-            if !qf_opened
-                qf_opened = true
-                belowright copen
-            endif
-            setqflist([], 'a', {lines: [msg]})
-        },
-        err_cb: (_, msg) => {
-            if !qf_opened
-                qf_opened = true
-                belowright copen
-            endif
-            setqflist([], 'a', {lines: [msg]})
-        },
-        close_cb: (_) => {
-            echo "Make is finished!"
-        }
-    })
-    if job_status(g:make_jobid) != "run"
-        echom $"FAILED: {makeprg} {args}"
-    endif
-
-enddef
-
+command! -nargs=* -complete=custom,MakeComplete TMake <mods> Term make <args>
 def MakeComplete(_, _, _): string
+    if has("win32")
+        return ""
+    endif
     return system("make -npq : 2> /dev/null | awk -v RS= -F: '$1 ~ /^[^#%.]+$/ { print $1 }' | sort -u")
 enddef
 
-command! -nargs=* -complete=custom,MakeComplete Make Make(<f-args>)
-command! -nargs=* -complete=custom,MakeComplete TMake <mods> Term make <args>
+command! -nargs=* -complete=custom,MakeComplete -bar Make {
+    var cmd = $"{&l:makeprg} {<q-args>}"
+    cgetexpr system(cmd)
+    setqflist([], 'a', {title: cmd})
+    if !empty(getqflist())
+        copen
+    else
+        cclose
+    endif
+}
 
 command -nargs=1 -complete=custom,ColorschemeComplete Colorscheme colorscheme <args>
 def ColorschemeComplete(_, _, _): string
