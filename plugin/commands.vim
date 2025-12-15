@@ -98,6 +98,7 @@ command! -nargs=* -complete=custom,MakeComplete -bar Make {
     else
         cclose
     endif
+    echo "Make is finished!"
 }
 
 command -nargs=1 -complete=custom,ColorschemeComplete Colorscheme colorscheme <args>
