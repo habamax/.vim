@@ -90,7 +90,7 @@ def MakeComplete(_, _, _): string
 enddef
 
 command! -nargs=* -complete=custom,MakeComplete -bar Make {
-    var cmd = $"{&l:makeprg} {<q-args>}"
+    var cmd = $"{expandcmd(&l:makeprg)} {<q-args>}"
     cgetexpr system(cmd)
     setqflist([], 'a', {title: cmd})
     if !empty(getqflist())
