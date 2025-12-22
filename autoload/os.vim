@@ -43,7 +43,7 @@ export def FileManager()
         endif
         fm_cmd = $"explorer.exe /select, {path}"
     elseif executable("dolphin")
-        fm_cmd = $'dolphin {select} {path}'
+        fm_cmd = $'dolphin {select} {path} >/dev/null 2>&1 &'
     elseif executable("nautilus")
         fm_cmd = $'nautilus {select} {path}'
     endif
