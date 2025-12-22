@@ -1,0 +1,6 @@
+---
+title: Title
+author: Maxim Kim
+date: !!strftime("%Y-%m-%d")!!
+---
+

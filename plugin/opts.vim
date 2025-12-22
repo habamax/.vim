@@ -58,7 +58,7 @@ g:asciidoctor_syntax_conceal = 0
 # g:asciidoctor_fold_options = 1
 
 # vim-markdown
-g:markdown_fenced_languages = ['python', 'go']
+g:markdown_fenced_languages = ['python', 'sql', 'json', 'vim', 'xml']
 
 # vim-closetag
 g:closetag_filetypes = 'html,xhtml,xml'

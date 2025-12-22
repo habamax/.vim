@@ -260,13 +260,13 @@ xnoremap <space>g <scriptcmd>qc.Git()<CR>
 import autoload 'buf.vim'
 nnoremap go <nop>
 # go to journal file
-nnoremap <silent> goj <scriptcmd>buf.EditInTab($"{expand($DOCS ?? '~/docs')}/journal/{strftime("%Y")}.rst")<CR>
+nnoremap <silent> goj <scriptcmd>buf.EditInTab($"{expand($DOCS ?? '~/docs')}/journal/{strftime("%Y")}.md")<CR>
 # go to todo file
-nnoremap <silent> got <scriptcmd>buf.EditInTab($"{expand($DOCS ?? '~/docs')}/todo.rst")<CR>
+nnoremap <silent> got <scriptcmd>buf.EditInTab($"{expand($DOCS ?? '~/docs')}/todo.md")<CR>
 # go to work todo file
-nnoremap <silent> gow <scriptcmd>buf.EditInTab($"{expand($DOCS ?? '~/docs')}/todo-w.rst")<CR>
+nnoremap <silent> gow <scriptcmd>buf.EditInTab($"{expand($DOCS ?? '~/docs')}/todo-w.md")<CR>
 # go to *** file
-nnoremap <silent> gop <scriptcmd>buf.EditInTab($"{expand($DOCS ?? '~/docs')}/habamax.rst")<CR>
+nnoremap <silent> gop <scriptcmd>buf.EditInTab($"{expand($DOCS ?? '~/docs')}/habamax.md")<CR>
 
 import autoload 'os.vim'
 # go to current file in os file manager
