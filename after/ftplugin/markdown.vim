@@ -14,6 +14,13 @@ onoremap <buffer><silent> aP <scriptcmd>HeaderTextObj(false)<CR>
 xnoremap <buffer><silent> iP <esc><scriptcmd>HeaderTextObj(true)<CR>
 xnoremap <buffer><silent> aP <esc><scriptcmd>HeaderTextObj(false)<CR>
 
+
+inorea <buffer> no! > [!NOTE]
+inorea <buffer> ti! > [!TIP]
+inorea <buffer> im! > [!IMPORTANT]
+inorea <buffer> wa! > [!WARNING]
+inorea <buffer> ca! > [!CAUTION]
+
 # Markdown header text object
 # * inner object is the text between prev section header(excluded) and the next
 #   section of the same level(excluded) or end of file.
