@@ -2,5 +2,6 @@
 title: Title
 author: Maxim Kim
 date: !!strftime("%Y-%m-%d")!!
+maxwidth: 60em
 ---
 
