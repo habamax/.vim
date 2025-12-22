@@ -6,6 +6,8 @@ setl commentstring=<!--%s-->
 
 compiler markdown_html
 
+nnoremap <buffer> <F5> :up<CR>:Make<CR>
+
 # header textobject
 onoremap <buffer><silent> iP <scriptcmd>HeaderTextObj(true)<CR>
 onoremap <buffer><silent> aP <scriptcmd>HeaderTextObj(false)<CR>
