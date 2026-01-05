@@ -168,15 +168,3 @@ command -buffer Rst2Pdf Rst2Pdf()
 
 command -buffer RstViewHtml :call os.Open(expand("%:p:r") .. '.html')
 command -buffer RstViewPdf :call os.Open(expand("%:p:r") .. '.pdf')
-
-def HlCheckmark()
-    exe 'syn match rstCheckDone /\%(' .. &l:formatlistpat .. '\)\@<=✓/ containedin=TOP'
-    exe 'syn match rstCheckReject /\%(' .. &l:formatlistpat .. '\)\@<=✗/ containedin=TOP'
-    hi link rstCheckDone Added
-    hi link rstCheckReject Removed
-enddef
-
-augroup checkmark | au!
-    au Syntax rst call HlCheckmark()
-    au Colorscheme * call HlCheckmark()
-augroup END
