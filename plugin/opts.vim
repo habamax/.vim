@@ -60,6 +60,9 @@ g:asciidoctor_syntax_conceal = 0
 # vim-markdown
 g:markdown_fenced_languages = ['python', 'sql', 'json', 'vim', 'xml']
 
+# typst
+g:typst_embedded_languages = ['python', 'sql']
+
 # vim-closetag
 g:closetag_filetypes = 'html,xhtml,xml'
 
