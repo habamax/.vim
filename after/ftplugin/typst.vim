@@ -5,7 +5,7 @@ b:undo_ftplugin ..= ' | setl makeprg<'
 
 def BuildPDF(watch: bool = false)
     if watch
-        exe "Term typst watch" expand("%:p")
+        exe $"Term typst watch --root={expand("~/docs")} {expand("%:p")}"
     else
         exe "Make"
     endif
