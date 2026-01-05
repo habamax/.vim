@@ -1,18 +1,18 @@
 vim9script
 
 
-var cbDone = '\(\s*✓\s*\)'
-var cbRejected = '\(\s*✗\s*\)'
+var cbDone = '\(\s*\[[xX]\]\s*\)'
+var cbTodo = '\(\s*\[ \]\s*\)'
 
 
 def ToggleListItem(lnum: number)
     var line = getline(lnum)
     if IsDone(line)
-        exe $':{lnum}s/\({&l:formatlistpat}\){cbDone}/\1✗ /'
-    elseif IsRejected(line)
-        exe $':{lnum}s/\({&l:formatlistpat}\){cbRejected}/\1/'
+        exe $':{lnum}s/\({&l:formatlistpat}\){cbDone}\s*/\1/'
+    elseif IsTodo(line)
+        exe $':{lnum}s/\({&l:formatlistpat}\){cbTodo}\s*/\1[x] /'
     elseif IsListItem(line)
-        exe $':{lnum}s/{&l:formatlistpat}/&✓ /'
+        exe $':{lnum}s/{&l:formatlistpat}/&[ ] /'
     endif
 enddef
 
@@ -27,8 +27,8 @@ def IsDone(line: string): bool
 enddef
 
 
-def IsRejected(line: string): bool
-    return line =~ $'\%({&l:formatlistpat}\){cbRejected}'
+def IsTodo(line: string): bool
+    return line =~ $'\%({&l:formatlistpat}\){cbTodo}'
 enddef
 
 
