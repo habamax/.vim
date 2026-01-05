@@ -1,6 +1,6 @@
 vim9script
 
-&l:makeprg = $"typst compile {expand("%")}"
+&l:makeprg = $"typst compile --root={expand("~/docs")} {expand("%")}"
 b:undo_ftplugin ..= ' | setl makeprg<'
 
 def BuildPDF(watch: bool = false)
