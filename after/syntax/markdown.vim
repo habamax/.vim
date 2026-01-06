@@ -5,3 +5,7 @@ syntax clear markdownError
 
 syn match markdownListMarker "^\s*[-*+]\%(\s\+\S\)\@=" contained
 syn match markdownOrderedListMarker "^\s*\<\d\+\.\%(\s\+\S\)\@=" contained
+
+hi! def link markdownBold Bold
+hi! def link markdownItalic Italic
+hi! def link markdownBoldItalic BoldItalic
