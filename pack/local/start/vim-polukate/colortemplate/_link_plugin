@@ -22,12 +22,6 @@ markdownH4Delimiter                    -> Type
 markdownH5Delimiter                    -> Type
 markdownH6Delimiter                    -> Type
 markdownHeadingRule                    -> Type
-markdownH1                             -> Statement
-markdownH2                             -> Statement
-markdownH3                             -> Statement
-markdownH4                             -> Statement
-markdownH5                             -> Statement
-markdownH6                             -> Statement
 markdownCodeDelimiter                  -> Special
 markdownId                             -> String
 markdownListMarker                     -> PreProc
