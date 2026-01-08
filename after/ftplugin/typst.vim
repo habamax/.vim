@@ -22,6 +22,6 @@ def HlCheckmark()
 enddef
 
 augroup checkmark | au!
-    au Syntax markdown call HlCheckmark()
+    au Syntax typst call HlCheckmark()
     au Colorscheme * call HlCheckmark()
 augroup END
