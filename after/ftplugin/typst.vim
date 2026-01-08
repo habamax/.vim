@@ -15,3 +15,13 @@ nnoremap <buffer> <F5> <cmd>update<cr><scriptcmd>BuildPDF()<cr>
 nnoremap <buffer> <space><F5> <cmd>update<cr><scriptcmd>BuildPDF(true)<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space><F5>"'
+
+def HlCheckmark()
+    exe 'syn match typstCheckbox /\%(' .. &l:formatlistpat .. '\)\@<=\[[xX ]\]/ containedin=TOP'
+    hi link typstCheckbox typstMarkupBulletList
+enddef
+
+augroup checkmark | au!
+    au Syntax markdown call HlCheckmark()
+    au Colorscheme * call HlCheckmark()
+augroup END
