@@ -32,13 +32,14 @@ def Pum()
 enddef
 
 def Wildcharm()
-    if &background == 'dark'
-        return
+    if &background == 'light'
+        hi PmenuSel guibg=#e4e4e4 ctermbg=254
+        hi PmenuMatchSel guibg=#e4e4e4 ctermbg=254
+        hi PmenuExtraSel guibg=#e4e4e4 ctermbg=254
+        hi PmenuKindSel guibg=#e4e4e4 ctermbg=254
+    elseif has("gui_running")
+        hi Normal guibg=#1c1c26
     endif
-    hi PmenuSel guibg=#e4e4e4 ctermbg=254
-    hi PmenuMatchSel guibg=#e4e4e4 ctermbg=254
-    hi PmenuExtraSel guibg=#e4e4e4 ctermbg=254
-    hi PmenuKindSel guibg=#e4e4e4 ctermbg=254
 enddef
 
 augroup colors | au!
