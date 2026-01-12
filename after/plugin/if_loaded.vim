@@ -89,7 +89,7 @@ if exists("g:loaded_lsp")
         filterCompletionDuplicates: true,
         completionMatcher: 'fuzzy',
         usePopupInCodeAction: true,
-        showInlayHints: true,
+        showInlayHints: false,
         showDiagOnStatusLine: false,
         showDiagWithVirtualText: true,
         diagVirtualTextAlign: 'after',
