@@ -14,6 +14,15 @@ if has("win32")
     augroup mswin_strat | au!
         au VimEnter * test_mswin_event('set_keycode_trans_strategy', {'strategy': 'experimental'})
     augroup END
+
+    command! ToggleFullscreen {
+        if &guioptions =~# 's'
+            set guioptions-=s
+        else
+            set guioptions+=s
+        endif
+    }
+    nnoremap <F11> <cmd>ToggleFullscreen<CR>
 else
     set guifont=Monospace\ 17
 endif
