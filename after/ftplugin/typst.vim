@@ -71,13 +71,3 @@ def Toc()
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
-
-def HlCheckmark()
-    exe 'syn match typstCheckbox /\%(' .. &l:formatlistpat .. '\)\@<=\[[xX ]\]/ containedin=TOP'
-    hi link typstCheckbox typstMarkupBulletList
-enddef
-
-augroup checkmark | au!
-    au Syntax typst call HlCheckmark()
-    au Colorscheme * call HlCheckmark()
-augroup END

@@ -158,13 +158,3 @@ def Toc()
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
-
-def HlCheckmark()
-    exe 'syn match mdCheckbox /\%(' .. &l:formatlistpat .. '\)\@<=\[[xX ]\]/ containedin=TOP'
-    hi link mdCheckbox MarkdownListMarker
-enddef
-
-augroup checkmark | au!
-    au Syntax markdown call HlCheckmark()
-    au Colorscheme * call HlCheckmark()
-augroup END
