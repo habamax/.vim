@@ -33,6 +33,11 @@ imap <expr> <s-tab> pumvisible() ? "\<C-p>" : "\t"
 nnoremap <C-n> <cmd>bnext<CR>
 nnoremap <C-p> <cmd>bprevious<CR>
 
+nnoremap j gj
+xnoremap j gj
+nnoremap k gk
+xnoremap k gk
+
 # duplicate line
 nnoremap <C-j> <cmd>copy.<CR>
 nnoremap <C-k> <cmd>copy-1<CR>
