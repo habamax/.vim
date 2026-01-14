@@ -4,7 +4,7 @@ Full name:     polukate
 Short name:    polukate
 Author:        Maxim Kim
 URL:           https://github.com/habamax/vim-polukate
-Description:   Dark mid-contrast colors with bold yellow statements.
+Description:   Dark colorscheme.
 License:       Vim License (see `:help license`)`
 Options:       backend=vim
 
@@ -107,7 +107,7 @@ Constant             constant          none
  /16/8               none              none
 Identifier           identifier        none
  /16/8               none              none
-Statement            statement         none              bold
+Statement            statement         none
  /16/8               none              none
 PreProc              preproc           none
  /16/8               none              none
