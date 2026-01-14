@@ -14,7 +14,6 @@ sqlKeyword                             -> Statement
 sqlSpecial                             -> Constant
 Quote                                  -> String
 rstDirective                           -> PreProc
-rstSection                             -> Statement
 markdownH1Delimiter                    -> Type
 markdownH2Delimiter                    -> Type
 markdownH3Delimiter                    -> Type
