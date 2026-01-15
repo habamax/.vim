@@ -42,30 +42,42 @@ def Wildcharm()
     endif
 enddef
 
+def Habamax()
+    if !has("gui_running")
+        return
+    endif
+    if &background == 'light'
+        hi Normal guibg=#d7d5d3
+    else
+        hi Normal guibg=#1c1c26
+    endif
+enddef
+
 augroup colors | au!
     au Colorscheme * Lsp()
     au Colorscheme habamax,xamabah,polukate,wildcharm Pum()
     au Colorscheme wildcharm Wildcharm()
+    au Colorscheme habamax,xamabah Habamax()
     au Colorscheme polukate,habamax,wildcharm,lunaperche,nod* NoBg()
     au Colorscheme habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
     au Colorscheme * hi Comment cterm=italic gui=italic
 augroup END
 
-g:colors = {
-    dark: "sil! colo polukate",
-    light: "set bg=light | sil! colo wildcharm",
-}
+# g:colors = {
+#     dark: "sil! colo habamax",
+#     light: "set bg=light | sil! colo wildcharm",
+# }
 
 # g:colors = {
 #     dark: "sil! colo polukate",
 #     light: "sil! colo xamabah"
 # }
 
-# g:colors = {
-#     dark: "sil! colo habamax",
-#     light: "sil! colo xamabah"
-# }
+g:colors = {
+    dark: "sil! colo habamax",
+    light: "sil! colo xamabah"
+}
 
 # g:colors = {
 #     dark: "set bg=dark | sil! colo wildcharm",
