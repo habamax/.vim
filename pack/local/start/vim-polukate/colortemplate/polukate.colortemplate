@@ -106,7 +106,7 @@ Constant             constant          none
  /16/8               none              none
 Identifier           identifier        none
  /16/8               none              none
-Statement            statement         none
+Statement            statement         none              bold
  /16/8               none              none
 PreProc              preproc           none
  /16/8               none              none
