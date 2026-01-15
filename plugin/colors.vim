@@ -47,7 +47,7 @@ def Habamax()
         return
     endif
     if &background == 'light'
-        hi Normal guibg=#d7d5d3
+        hi Normal guibg=#d2d5d7
     else
         hi Normal guibg=#1c1c26
     endif
