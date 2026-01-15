@@ -15,7 +15,7 @@ let g:colors_name = 'polukate'
 let s:t_Co = has('gui_running') ? 16777216 : str2nr(&t_Co)
 let s:tgc = has('termguicolors') && &termguicolors
 
-let g:terminal_ansi_colors = ['#1c1c26', '#d74f7f', '#8ec07c', '#c19552', '#5f87af', '#d3869b', '#87afaf', '#dadada', '#707080', '#ff4f7f', '#00d75f', '#ffcf5f', '#5fafd7', '#e396ab', '#87d7d7', '#ffffff']
+let g:terminal_ansi_colors = ['#1c1c26', '#d74f7f', '#8ec07c', '#c19552', '#5f87af', '#d3869b', '#87afaf', '#dadada', '#707080', '#ff4f7f', '#00d75f', '#ffd75f', '#5fafd7', '#e396ab', '#87d7d7', '#ffffff']
 
 hi! link CurSearch IncSearch
 hi! link CursorLineFold FoldColumn
@@ -162,8 +162,8 @@ hi Underlined guifg=#dadada guibg=NONE guisp=NONE gui=underline ctermfg=253 cter
 hi VertSplit guifg=#767680 guibg=NONE guisp=NONE gui=NONE ctermfg=243 ctermbg=NONE cterm=NONE term=NONE
 hi Visual guifg=NONE guibg=#1a3456 guisp=NONE gui=NONE ctermfg=32 ctermbg=234 cterm=reverse term=reverse
 hi VisualNOS guifg=NONE guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=NONE
-hi WarningMsg guifg=#ffcf5f guibg=NONE guisp=NONE gui=NONE ctermfg=221 ctermbg=NONE cterm=NONE term=standout
-hi WildMenu guifg=#1c1c26 guibg=#ffcf5f guisp=NONE gui=NONE ctermfg=234 ctermbg=221 cterm=NONE term=bold
+hi WarningMsg guifg=#ffd75f guibg=NONE guisp=NONE gui=NONE ctermfg=221 ctermbg=NONE cterm=NONE term=standout
+hi WildMenu guifg=#1c1c26 guibg=#ffd75f guisp=NONE gui=NONE ctermfg=234 ctermbg=221 cterm=NONE term=bold
 
 if s:tgc || s:t_Co >= 256
   if s:tgc
