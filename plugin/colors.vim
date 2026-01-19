@@ -64,20 +64,20 @@ augroup colors | au!
     au Colorscheme * hi Comment cterm=italic gui=italic
 augroup END
 
-# g:colors = {
-#     dark: "sil! colo habamax",
-#     light: "set bg=light | sil! colo wildcharm",
-# }
+g:colors = {
+    dark: "sil! colo habamax",
+    light: "set bg=light | sil! colo wildcharm",
+}
 
 # g:colors = {
 #     dark: "sil! colo polukate",
 #     light: "sil! colo xamabah"
 # }
 
-g:colors = {
-    dark: "sil! colo habamax",
-    light: "sil! colo xamabah"
-}
+# g:colors = {
+#     dark: "sil! colo habamax",
+#     light: "sil! colo xamabah"
+# }
 
 # g:colors = {
 #     dark: "set bg=dark | sil! colo wildcharm",
