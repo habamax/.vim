@@ -159,10 +159,13 @@ def Toc()
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
 
-
-
 # code block text object
 def ObjCode(inner: bool)
+    # requires syntax support
+    if !exists("g:syntax_on")
+      return
+    endif
+
     def IsCode(): bool
         var stx = map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')->join()
         return stx =~? 'markdownCodeBlock\|markdownHighlight'
@@ -171,11 +174,6 @@ def ObjCode(inner: bool)
         var stx = map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')->join()
         return stx =~? 'markdownCodeDelimiter'
     enddef
-
-    # requires syntax support
-    if !exists("g:syntax_on")
-      return
-    endif
 
     cursor(line('.'), 1)
 
