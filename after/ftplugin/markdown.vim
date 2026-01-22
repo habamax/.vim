@@ -158,3 +158,52 @@ def Toc()
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
+
+
+
+# code block text object
+def ObjCode(inner: bool)
+    def IsCode(): bool
+        var stx = map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')->join()
+        return stx =~? 'markdownCodeBlock\|markdownHighlight'
+    enddef
+    def IsCodeDelimiter(): bool
+        var stx = map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')->join()
+        return stx =~? 'markdownCodeDelimiter'
+    enddef
+
+    # requires syntax support
+    if !exists("g:syntax_on")
+      return
+    endif
+
+    cursor(line('.'), 1)
+
+    if !IsCode() && !IsCodeDelimiter()
+        if search('^\s*```', 'cW', line(".") + 500, 100) <= 0
+            return
+        endif
+    elseif !IsCodeDelimiter() || (!IsCode() && IsCodeDelimiter())
+        if search('^\s*```', 'bW') <= 0
+            return
+        endif
+    endif
+
+    var pos_start = line('.') + (inner ? 1 : 0)
+
+    # Search for the code end.
+    if search('^\s*```\s*$', 'W') <= 0
+        return
+    endif
+
+    var pos_end = line('.') - (inner ? 1 : 0)
+
+    exe $":{pos_end}"
+    normal! V
+    exe $":{pos_start}"
+enddef
+
+onoremap <silent>ic <scriptcmd>ObjCode(true)<CR>
+onoremap <silent>ac <scriptcmd>ObjCode(false)<CR>
+xnoremap <silent>ic <esc><scriptcmd>ObjCode(true)<CR>
+xnoremap <silent>ac <esc><scriptcmd>ObjCode(false)<CR>
