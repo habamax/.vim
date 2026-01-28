@@ -1,3 +1,3 @@
 #set document(title: "Sample Document")
 #import "/typst/habamax.typ": *
-#show: habamax.with(author: (name: "Maxim Kim", email: "habamax@gmail.com"))
+#show: habamax.with(name: "Maxim Kim", email: "habamax@gmail.com")
