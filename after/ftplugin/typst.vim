@@ -1,6 +1,7 @@
 vim9script
 
 import autoload 'popup.vim'
+import autoload 'os.vim'
 
 &l:makeprg = $"typst compile --root={expand("~/docs")} {expand("%")}"
 b:undo_ftplugin ..= ' | setl makeprg<'
@@ -17,7 +18,7 @@ nnoremap <buffer> <F5> <cmd>update<cr><scriptcmd>BuildPDF()<cr>
 nnoremap <buffer> <space><F5> <cmd>update<cr><scriptcmd>BuildPDF(true)<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space><F5>"'
-nnoremap <buffer> <F3> <cmd>Open %<.pdf<cr>
+nnoremap <buffer> <F3> <scriptcmd>os.Open(expand("%<") .. ".pdf")<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space><F3>"'
 
 def Toc()
