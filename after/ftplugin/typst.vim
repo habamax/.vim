@@ -17,6 +17,8 @@ nnoremap <buffer> <F5> <cmd>update<cr><scriptcmd>BuildPDF()<cr>
 nnoremap <buffer> <space><F5> <cmd>update<cr><scriptcmd>BuildPDF(true)<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space><F5>"'
+nnoremap <buffer> <F3> <cmd>Open %<.pdf<cr>
+b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space><F3>"'
 
 def Toc()
     var toc = []
