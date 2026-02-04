@@ -201,7 +201,7 @@ def ObjCode(inner: bool)
     exe $":{pos_start}"
 enddef
 
-onoremap <buffer> <silent>ic <scriptcmd>ObjCode(true)<CR>
-onoremap <buffer> <silent>ac <scriptcmd>ObjCode(false)<CR>
-xnoremap <buffer> <silent>ic <esc><scriptcmd>ObjCode(true)<CR>
-xnoremap <buffer> <silent>ac <esc><scriptcmd>ObjCode(false)<CR>
+onoremap <buffer> <silent>ir <scriptcmd>ObjCode(true)<CR>
+onoremap <buffer> <silent>ar <scriptcmd>ObjCode(false)<CR>
+xnoremap <buffer> <silent>ir <esc><scriptcmd>ObjCode(true)<CR>
+xnoremap <buffer> <silent>ar <esc><scriptcmd>ObjCode(false)<CR>
