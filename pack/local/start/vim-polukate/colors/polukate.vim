@@ -170,6 +170,7 @@ hi VisualNOS guifg=NONE guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=NONE ctermbg=2
 hi WarningMsg guifg=#ffd75f guibg=NONE guisp=NONE gui=NONE ctermfg=221 ctermbg=NONE cterm=NONE term=standout
 hi WildMenu guifg=#1c1c26 guibg=#ffd75f guisp=NONE gui=NONE ctermfg=234 ctermbg=221 cterm=NONE term=bold
 hi markdownH1 guifg=#ffffff guibg=NONE guisp=NONE gui=bold ctermfg=231 ctermbg=NONE cterm=bold term=bold
+hi typstMarkupHeading guifg=#ffffff guibg=NONE guisp=NONE gui=bold ctermfg=231 ctermbg=NONE cterm=bold term=bold
 
 if s:tgc || s:t_Co >= 256
   if s:tgc
@@ -261,6 +262,7 @@ if s:t_Co >= 16
   hi WarningMsg ctermfg=NONE ctermbg=NONE cterm=standout
   hi WildMenu ctermfg=NONE ctermbg=NONE cterm=bold,reverse
   hi markdownH1 ctermfg=white ctermbg=NONE cterm=bold
+  hi typstMarkupHeading ctermfg=white ctermbg=NONE cterm=bold
   finish
 endif
 
@@ -339,6 +341,7 @@ if s:t_Co >= 8
   hi WarningMsg ctermfg=NONE ctermbg=NONE cterm=standout
   hi WildMenu ctermfg=NONE ctermbg=NONE cterm=bold,reverse
   hi markdownH1 ctermfg=white ctermbg=NONE cterm=bold
+  hi typstMarkupHeading ctermfg=white ctermbg=NONE cterm=bold
   finish
 endif
 
