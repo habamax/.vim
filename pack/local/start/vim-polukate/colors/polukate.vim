@@ -36,25 +36,19 @@ hi! link TabPanel Normal
 hi! link TabPanelFill Normal
 hi! link Terminal Normal
 hi! link asciidoctorCaption PreProc
-hi! link asciidoctorH1 Statement
 hi! link asciidoctorH1Delimiter Type
-hi! link asciidoctorH2 Statement
 hi! link asciidoctorH2Delimiter Type
-hi! link asciidoctorH3 Statement
 hi! link asciidoctorH3Delimiter Type
-hi! link asciidoctorH4 Statement
 hi! link asciidoctorH4Delimiter Type
-hi! link asciidoctorH5 Statement
 hi! link asciidoctorH5Delimiter Type
-hi! link asciidoctorH6 Statement
 hi! link asciidoctorH6Delimiter Type
 hi! link asciidoctorListContinuation asciidoctorListMarker
 hi! link asciidoctorListMarker Special
 hi! link asciidoctorMacro PreProc
 hi! link asciidoctorOption Identifier
-hi! link asciidoctorSetextHeader Statement
+hi! link asciidoctorSetextHeader htmlH1
 hi! link asciidoctorSetextHeaderDelimiter Type
-hi! link asciidoctorTitle Statement
+hi! link asciidoctorTitle htmlH1
 hi! link dirLink Comment
 hi! link javaScriptFunction Statement
 hi! link javaScriptIdentifier Statement
@@ -68,27 +62,19 @@ hi! link lspDiagVirtualTextInfo Question
 hi! link lspDiagVirtualTextWarning Changed
 hi! link lspSigActiveParameter PreProc
 hi! link markdownCodeDelimiter Special
-hi! link markdownH1Delimiter Type
-hi! link markdownH2 markdownH1
-hi! link markdownH2Delimiter Type
-hi! link markdownH3 markdownH1
-hi! link markdownH3Delimiter Type
-hi! link markdownH4 markdownH1
-hi! link markdownH4Delimiter Type
-hi! link markdownH5 markdownH1
-hi! link markdownH5Delimiter Type
-hi! link markdownH6 markdownH1
-hi! link markdownH6Delimiter Type
+hi! link markdownHeadingDelimiter Type
 hi! link markdownHeadingRule Type
 hi! link markdownId String
 hi! link markdownLinkText String
 hi! link markdownListMarker PreProc
 hi! link markdownUrl Underlined
 hi! link rstDirective PreProc
+hi! link rstSection htmlH1
 hi! link rubyDefine Statement
 hi! link rubyMacro Statement
 hi! link sqlKeyword Statement
 hi! link sqlSpecial Constant
+hi! link typstMarkupHeading htmlH1
 hi! link vimCommentString Comment
 hi! link vimOper Normal
 hi! link vimParenSep Normal
@@ -169,8 +155,7 @@ hi Visual guifg=NONE guibg=#1a3456 guisp=NONE gui=NONE ctermfg=32 ctermbg=234 ct
 hi VisualNOS guifg=NONE guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=NONE
 hi WarningMsg guifg=#ffd75f guibg=NONE guisp=NONE gui=NONE ctermfg=221 ctermbg=NONE cterm=NONE term=standout
 hi WildMenu guifg=#1c1c26 guibg=#ffd75f guisp=NONE gui=NONE ctermfg=234 ctermbg=221 cterm=NONE term=bold
-hi markdownH1 guifg=#ffffff guibg=NONE guisp=NONE gui=bold ctermfg=231 ctermbg=NONE cterm=bold term=bold
-hi typstMarkupHeading guifg=#ffffff guibg=NONE guisp=NONE gui=bold ctermfg=231 ctermbg=NONE cterm=bold term=bold
+hi htmlH1 guifg=#ffffff guibg=NONE guisp=NONE gui=bold ctermfg=231 ctermbg=NONE cterm=bold term=bold
 
 if s:tgc || s:t_Co >= 256
   if s:tgc
@@ -261,8 +246,7 @@ if s:t_Co >= 16
   hi VisualNOS ctermfg=NONE ctermbg=NONE cterm=NONE
   hi WarningMsg ctermfg=NONE ctermbg=NONE cterm=standout
   hi WildMenu ctermfg=NONE ctermbg=NONE cterm=bold,reverse
-  hi markdownH1 ctermfg=white ctermbg=NONE cterm=bold
-  hi typstMarkupHeading ctermfg=white ctermbg=NONE cterm=bold
+  hi htmlH1 ctermfg=white ctermbg=NONE cterm=bold
   finish
 endif
 
@@ -340,8 +324,7 @@ if s:t_Co >= 8
   hi VisualNOS ctermfg=NONE ctermbg=NONE cterm=NONE
   hi WarningMsg ctermfg=NONE ctermbg=NONE cterm=standout
   hi WildMenu ctermfg=NONE ctermbg=NONE cterm=bold,reverse
-  hi markdownH1 ctermfg=white ctermbg=NONE cterm=bold
-  hi typstMarkupHeading ctermfg=white ctermbg=NONE cterm=bold
+  hi htmlH1 ctermfg=white ctermbg=NONE cterm=bold
   finish
 endif
 

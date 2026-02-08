@@ -272,5 +272,7 @@ Cursor               none              none              reverse
 CursorIM             dark0             uilime
  /16/8               none              none
 
+;; ftplugins
+htmlH1               dark15            none              bold
 
 Include: _tcozero
