@@ -1,4 +1,4 @@
-; vim: ft=colortemplate cc=40 vsts=39,4
+; vim: ft=colortemplate fdm=marker cc=24,40,58 et ts=2 sw=2 vsts=23,18,18,2
 ;; filetype and plugins
 vimCommentString                       -> Comment
 vimVar                                 -> Normal
@@ -14,18 +14,6 @@ sqlKeyword                             -> Statement
 sqlSpecial                             -> Constant
 Quote                                  -> String
 rstDirective                           -> PreProc
-markdownH1Delimiter                    -> Type
-markdownH2Delimiter                    -> Type
-markdownH3Delimiter                    -> Type
-markdownH4Delimiter                    -> Type
-markdownH5Delimiter                    -> Type
-markdownH6Delimiter                    -> Type
-markdownHeadingRule                    -> Type
-markdownCodeDelimiter                  -> Special
-markdownId                             -> String
-markdownListMarker                     -> PreProc
-markdownUrl                            -> Underlined
-markdownLinkText                       -> String
 asciidoctorTitle                       -> Statement
 asciidoctorH1                          -> Statement
 asciidoctorH2                          -> Statement
@@ -56,3 +44,23 @@ lspDiagSignHintText                    -> Added
 lspDiagVirtualTextInfo                 -> Question
 lspDiagSignInfoText                    -> Question
 lspSigActiveParameter                  -> PreProc
+
+
+markdownH1             dark1           none              bold
+markdownH2                             -> markdownH1
+markdownH3                             -> markdownH1
+markdownH4                             -> markdownH1
+markdownH5                             -> markdownH1
+markdownH6                             -> markdownH1
+markdownH1Delimiter                    -> Type
+markdownH2Delimiter                    -> Type
+markdownH3Delimiter                    -> Type
+markdownH4Delimiter                    -> Type
+markdownH5Delimiter                    -> Type
+markdownH6Delimiter                    -> Type
+markdownHeadingRule                    -> Type
+markdownCodeDelimiter                  -> Special
+markdownId                             -> String
+markdownListMarker                     -> PreProc
+markdownUrl                            -> Underlined
+markdownLinkText                       -> String

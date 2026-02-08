@@ -19,11 +19,6 @@ Environments: gui 256 16 8 0
 
 Background: dark
 
-Include: _link_default
-Include: _link_plugin
-
-Background: dark
-
 Color: dark0         #1c1c26           234               black
 Color: dark1         #d74f7f           161               darkred
 Color: dark2         #8ec07c           107               darkgreen
@@ -91,6 +86,10 @@ Color: directory     #bfbf97           144               yellow
 ; Color: special       #a76d54           208               darkred
 ; Color: special       #A67447           208               darkred
 ; Color: special       #957746           208               darkred
+
+
+Include: _link_default
+Include: _link_plugin
 
 Term colors: dark0 dark1 dark2 dark3 dark4 dark5 dark6 dark7
              dark8 dark9 dark10 dark11 dark12 dark13 dark14 dark15
