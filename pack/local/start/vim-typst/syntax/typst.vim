@@ -309,24 +309,24 @@ syntax region typstMarkupTermList
       \ contains=@typstMarkup
 
 syn region typstMarkupBold
-      \ start=+\%(^\|[[:space:]-:/]\)\zs\*\ze[^*[:space:]]+
+      \ start=+\%(^\|[[:space:]-:/]\)\@1<=\*[^*]\@1=+
       \ skip=+\\\*+
-      \ end=+\S\zs\*\ze\($\|[[:space:]-.,:;!?"'/\\>)\]}]\)+
+      \ end=+\*\($\|[[:space:]-.,:;!?"'/\\>)\]}]\)\@1=+
       \ concealends contains=typstMarkupLabel,@Spell
 syn region typstMarkupItalic
-      \ start=+\%(^\|[[:space:]-:/]\)\zs_\ze[^_[:space:]]+
+      \ start=+\%(^\|[[:space:]-:/]\)\@1<=_[^_]\@1=+
       \ skip=+\\_+
-      \ end=+\S\zs_\ze\($\|[[:space:]-.,:;!?"'/\\>)\]}]\)+
+      \ end=+_\($\|[[:space:]-.,:;!?"'/\\>)\]}]\)\@1=+
       \ concealends contains=typstMarkupLabel,@Spell
 syn region typstMarkupBoldItalic
-      \ start=+\%(^\|[[:space:]-:/]\)\zs\*_\ze[^[:space:]]+
+      \ start=+\%(^\|[[:space:]-:/]\)\@1<=\*_[^*_]\@1=+
       \ skip=+\\\*_+
-      \ end=+\S\zs_\*\ze\($\|[[:space:]-.,:;!?"'/\\>)\]}]\)+
+      \ end=+_\*\($\|[[:space:]-.,:;!?"'/\\>)\]}]\)\@1=+
       \ concealends contains=typstMarkupLabel,@Spell
 syn region typstMarkupBoldItalic
-      \ start=+\%(^\|[[:space:]-:/]\)\zs_\*\ze[^[:space:]]+
+      \ start=+\%(^\|[[:space:]-:/]\)\@1<=_\*[^*_]\@1=+
       \ skip=+\\_\*+
-      \ end=+\S\zs\*_\ze\($\|[[:space:]-.,:;!?"'/\\>)\]}]\)+
+      \ end=+\*_\($\|[[:space:]-.,:;!?"'/\\>)\]}]\)\@1=+
       \ concealends contains=typstMarkupLabel,@Spell
 
 syntax match typstMarkupLinebreak
