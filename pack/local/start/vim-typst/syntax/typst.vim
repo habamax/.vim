@@ -308,28 +308,26 @@ syntax region typstMarkupTermList
       \ oneline start=/\v^\s*\/\s/ end=/:/
       \ contains=@typstMarkup
 
-syntax match typstMarkupBold
-      \ /\v(\w|\\)@1<!\*\S@=.{-}(\n.{-1,})*\S@1<=\\@1<!\*/
-      \ contains=typstMarkupBoldRegion
-syntax match typstMarkupItalic
-      \ /\v(\w|\\)@1<!_\S@=.{-}(\n.{-1,})*\S@1<=\\@1<!_/
-      \ contains=typstMarkupItalicRegion
-syntax match typstMarkupBoldItalic
-      \ contained
-      \ /\v(\w|\\)@1<!_\S@=.{-}(\n.{-1,})*\S@1<=\\@1<!\2/
-      \ contains=typstMarkupBoldRegion,typstMarkupItalicRegion
-" FIX: **shouldn't be bolditalic**
-" FIX: _*shoul be bolditalic*_
-syntax region typstMarkupBoldRegion
-      \ contained
-      \ transparent matchgroup=typstMarkupBold
-      \ start=/\(^\|[^0-9a-zA-Z]\)\@<=\*/ end=/\*\($\|[^0-9a-zA-Z]\)\@=/
-      \ concealends contains=typstMarkupBoldItalic,typstMarkupLabel,@Spell
-syntax region typstMarkupItalicRegion
-      \ contained
-      \ transparent matchgroup=typstMarkupItalic
-      \ start=/\(^\|[^0-9a-zA-Z]\)\@<=_/ end=/_\($\|[^0-9a-zA-Z]\)\@=/
-      \ concealends contains=typstMarkupBoldItalic,typstMarkupLabel,@Spell
+syn region typstMarkupBold
+      \ start=+\%(^\|[[:space:]-:/]\)\zs\*\ze[^*[:space:]]+
+      \ skip=+\\\*+
+      \ end=+\S\zs\*\ze\($\|[[:space:]-.,:;!?"'/\\>)\]}]\)+
+      \ concealends contains=typstMarkupLabel,@Spell
+syn region typstMarkupItalic
+      \ start=+\%(^\|[[:space:]-:/]\)\zs_\ze[^_[:space:]]+
+      \ skip=+\\_+
+      \ end=+\S\zs_\ze\($\|[[:space:]-.,:;!?"'/\\>)\]}]\)+
+      \ concealends contains=typstMarkupLabel,@Spell
+syn region typstMarkupBoldItalic
+      \ start=+\%(^\|[[:space:]-:/]\)\zs\*_\ze[^[:space:]]+
+      \ skip=+\\\*_+
+      \ end=+\S\zs_\*\ze\($\|[[:space:]-.,:;!?"'/\\>)\]}]\)+
+      \ concealends contains=typstMarkupLabel,@Spell
+syn region typstMarkupBoldItalic
+      \ start=+\%(^\|[[:space:]-:/]\)\zs_\*\ze[^[:space:]]+
+      \ skip=+\\_\*+
+      \ end=+\S\zs\*_\ze\($\|[[:space:]-.,:;!?"'/\\>)\]}]\)+
+      \ concealends contains=typstMarkupLabel,@Spell
 
 syntax match typstMarkupLinebreak
       \ /\\\\/
