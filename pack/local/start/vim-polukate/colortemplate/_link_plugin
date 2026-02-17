@@ -15,12 +15,6 @@ sqlSpecial                             -> Constant
 Quote                                  -> String
 rstDirective                           -> PreProc
 asciidoctorTitle                       -> htmlH1
-; asciidoctorH1                          -> Statement
-; asciidoctorH2                          -> Statement
-; asciidoctorH3                          -> Statement
-; asciidoctorH4                          -> Statement
-; asciidoctorH5                          -> Statement
-; asciidoctorH6                          -> Statement
 asciidoctorH1Delimiter                 -> Type
 asciidoctorH2Delimiter                 -> Type
 asciidoctorH3Delimiter                 -> Type
