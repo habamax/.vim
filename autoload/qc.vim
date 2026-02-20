@@ -199,6 +199,20 @@ export def TextTr()
                 normal! ""p
             endif
         }},
+        {text: "Epoch to Date", key: "e", close: true, cmd: (_) => {
+            var reg = region->join(" ")
+            if reg !~ '^\s*\d\{10}\s*$' && reg !~ '^\s*\d\{13}\s*$'
+                return
+            endif
+            if len(reg) == 13
+                reg = reg->trim()[ : 9]
+            endif
+            var result = system($'python -c "from datetime import datetime,timezone; print(datetime.fromtimestamp({reg}, tz=timezone.utc).astimezone())"')->trim()
+            if v:shell_error == 0
+                setreg("", result)
+                normal! ""p
+            endif
+        }},
     ]
     popup.Commands(commands, false)
 enddef
