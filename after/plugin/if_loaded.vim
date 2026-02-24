@@ -100,7 +100,7 @@ if exists("g:loaded_lsp")
         autoPopulateDiags: true,
         popupBorder: true,
         popupHighlight: 'Normal',
-        popupBorderHighlight: 'Normal',
+        popupBorderHighlight: 'PmenuBorder',
     })
 
     # wait for the vim fix for the inscompletion
