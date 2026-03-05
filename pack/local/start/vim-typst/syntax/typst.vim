@@ -334,7 +334,7 @@ syn region typstMarkupBoldItalic
       \ concealends contains=typstMarkupLabel,@Spell
 
 syntax match typstMarkupLinebreak
-      \ /\\\s*$/
+      \ /\%([^\\]\|^\)\@1<=\\\%(\s\|$\)/
 syntax match typstMarkupNonbreakingSpace
       \ /\~/
 syntax match typstMarkupShy
