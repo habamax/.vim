@@ -2,7 +2,7 @@
 " Previous Maintainer:  Luca Saccarola <github.e41mv@aleeas.com>
 " Maintainer:  Maxim Kim <habamax@gmail.com>
 " Language:    Typst
-" Last Change: 2026-02-13
+" Last Change: 2026-03-05
 
 if exists('b:current_syntax')
     finish
