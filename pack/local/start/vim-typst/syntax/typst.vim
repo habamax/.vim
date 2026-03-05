@@ -1,8 +1,8 @@
 " Vim syntax file
-" Previous Maintainer:  Luca Saccarola <github.e41mv@aleeas.com>
 " Maintainer:  Maxim Kim <habamax@gmail.com>
 " Language:    Typst
 " Last Change: 2026-03-05
+" Based on the syntax file from https://github.com/kaarmu/typst.vim
 
 if exists('b:current_syntax')
     finish
