@@ -14,9 +14,6 @@ set cpo&vim
 syntax spell toplevel
 syntax sync minlines=300
 
-syntax cluster typstCommon
-      \ contains=@typstComment
-
 syntax cluster typstComment
       \ contains=typstCommentBlock,typstCommentLine
 syntax region typstCommentBlock
@@ -31,7 +28,7 @@ syntax keyword typstCommentTodo
 
 
 syntax cluster typstCode
-      \ contains=@typstCommon
+      \ contains=@typstComment
       \ ,@typstCodeKeywords
       \ ,@typstCodeConstants
       \ ,@typstCodeIdentifiers
@@ -236,7 +233,7 @@ syntax region typstHashtagDollar
 
 
 syntax cluster typstMarkup
-      \ contains=@typstCommon
+      \ contains=@typstComment
       \ ,@Spell
       \ ,@typstHashtag
       \ ,@typstMarkupText
@@ -361,9 +358,9 @@ syntax region typstMarkupMath
       \ contains=@typstMath
 
 
-" Math {{{1
+" Math
 syntax cluster typstMath
-      \ contains=@typstCommon
+      \ contains=@typstComment
       \ ,@typstHashtag
       \ ,typstMathIdentifier
       \ ,typstMathFunction
