@@ -8,6 +8,8 @@ def CmdReplace(cmd: string, ucmd: string): string
     return (getcmdtype() ==# ':' && getcmdline() ==# cmd) ? ucmd : cmd
 enddef
 
+cnoreabbrev <expr> help CmdReplace('help', 'Help')
+cnoreabbrev <expr> h CmdReplace('h', 'Help')
 cnoreabbrev <expr> grep CmdReplace('grep', 'Grep')
 cnoreabbrev <expr> lgrep CmdReplace('lgrep', 'LGrep')
 cnoreabbrev <expr> rg CmdReplace('rg', 'Rg')
