@@ -260,8 +260,12 @@ syntax cluster typstMarkupText
       \ ,typstMarkupDash
       \ ,typstMarkupEllipsis
 
-syntax match typstMarkupRawInline
-      \ /`.\{-}`/
+syntax region typstMarkupRawInline
+      \ matchgroup=typstMarkupRawInlineDelimiter
+      \ start=+\%(^\|[[:space:]-:/]\)\@1<=`[^`]\@1=+
+      \ skip=/\\`/
+      \ end=+`+
+
 syntax region typstMarkupRawBlock
       \ matchgroup=Macro start=/```\w*/
       \ matchgroup=Macro end=/```/ keepend
@@ -296,8 +300,10 @@ syntax match typstMarkupReference
 syntax match typstMarkupUrl
       \ #\v\w+://\S*#
 
-syntax match typstMarkupHeading
-      \ /^\s*\zs=\{1,6}\s.*$/
+syntax region typstMarkupHeading
+      \ matchgroup=typstMarkupHeadingDelimiter
+      \ start=/^\s*\zs=\{1,6}\s/
+      \ end=/$/ keepend oneline
       \ contains=typstMarkupLabel,@Spell
 
 syntax match typstMarkupBulletList
@@ -305,8 +311,11 @@ syntax match typstMarkupBulletList
 syntax match typstMarkupEnumList
       \ /\v^\s*(\+|\d+\.)\s+/
 syntax region typstMarkupTermList
-      \ oneline start=/\v^\s*\/\s/ end=/:/
-      \ contains=@typstMarkup
+      \ matchgroup=typstMarkupTermListDelimiter
+      \ start=/\v^\s*\/\s/
+      \ skip=/\\:/
+      \ end=/:/
+      \ oneline contains=@typstMarkup
 
 syn region typstMarkupBold
       \ start=+\%(^\|[[:space:]-:/]\)\@1<=\*[^*]\@1=+
@@ -330,7 +339,7 @@ syn region typstMarkupBoldItalic
       \ concealends contains=typstMarkupLabel,@Spell
 
 syntax match typstMarkupLinebreak
-      \ /\\\\/
+      \ /\\\s*$/
 syntax match typstMarkupNonbreakingSpace
       \ /\~/
 syntax match typstMarkupShy
@@ -343,12 +352,12 @@ syntax match typstMarkupEllipsis
 
 syntax cluster typstMarkupParens
       \ contains=typstMarkupBracket
-      \ ,typstMarkupDollar
+      \ ,typstMarkupMath
 syntax region typstMarkupBracket
       \ start=/\[/ end=/\]/
       \ contains=@typstMarkup
-syntax region typstMarkupDollar
-      \ matchgroup=Special start=/\\\@<!\$/ end=/\\\@<!\$/
+syntax region typstMarkupMath
+      \ matchgroup=typstMarkupDollar start=/\\\@<!\$/ end=/\\\@<!\$/
       \ contains=@typstMath
 
 
@@ -408,19 +417,22 @@ hi def link typstHashtagStatementWord Statement
 hi def link typstHashtagIdentifier Identifier
 hi def link typstHashtagFieldAccess Identifier
 hi def link typstHashtagFunction Function
-hi def link typstMarkupRawInline Macro
-hi def link typstMarkupRawBlock Macro
-hi def link typstMarkupLabel Structure
-hi def link typstMarkupReference Structure
-hi def link typstMarkupBulletList Structure
-hi def link typstMarkupEnumList Structure
-hi def link typstMarkupLinebreak Structure
-hi def link typstMarkupNonbreakingSpace Structure
-hi def link typstMarkupShy Structure
-hi def link typstMarkupDash Structure
-hi def link typstMarkupEllipsis Structure
-hi def link typstMarkupTermList Structure
+hi def link typstMarkupRawInlineDelimiter Special
+hi def link typstMarkupRawBlock Special
+hi def link typstMarkupDollar Special
+hi def link typstMarkupLabel PreProc
+hi def link typstMarkupReference Special
+hi def link typstMarkupBulletList PreProc
+hi def link typstMarkupEnumList PreProc
+hi def link typstMarkupLinebreak Special
+hi def link typstMarkupNonbreakingSpace Special
+hi def link typstMarkupShy Special
+hi def link typstMarkupDash Special
+hi def link typstMarkupEllipsis Special
+hi def link typstMarkupTermList Bold
+hi def link typstMarkupTermListDelimiter PreProc
 hi def link typstMarkupHeading Title
+hi def link typstMarkupHeadingDelimiter Type
 hi def link typstMarkupUrl Underlined
 hi def link typstMarkupBold Bold
 hi def link typstMarkupItalic Italic
