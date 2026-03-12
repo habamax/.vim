@@ -39,8 +39,10 @@ def CmdCompleteSelectFirst()
     endif
 
     # Commands to accept first element of completion if no selection is made and
-    # completion is visible.
-    # :e newfile<CR> should always edit newfile, not the first element of completion
+    # completion is visible, e.g:
+    # - :find somefile<CR> should edit the first element of the completion popup
+    # - on the other hand, :e newfile<CR> should always edit newfile, not the
+    #   first element of completion popup
     var commands = [
         'sfind', 'find', 'tabfind', 'buffer', 'sbuffer',
         'colorscheme', 'highlight',
