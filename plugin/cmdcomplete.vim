@@ -97,7 +97,7 @@ augroup CmdComplete
     au!
     autocmd CmdlineChanged : {
         EditDirectoryHelper()
-        # :! and :term completion is very slow on Windows and WSL, disable it there.
+        # :! and :term completion is very slow on Windows and WSL, avoid using it there.
         if !((has("win32") || exists("$WSLENV")) && getcmdcompltype() == 'shellcmd')
             wildtrigger()
         endif
