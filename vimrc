@@ -20,7 +20,7 @@ set completeopt=menu,popup,fuzzy
 set completepopup=border:round pumborder=round
 set completepopup+=highlight:Pmenu,borderhighlight:PmenuBorder
 set previewpopup=border:round,borderhighlight:PmenuBorder
-set autocomplete complete=o^10,.^10,w^5,b^5,u^3,t^3
+set autocomplete complete=o^10,.^10,b^5
 set complete+=Fcompletor#Path^10,Fcompletor#Abbrev^3,Fcompletor#Register^3
 set termwinscroll=40000
 set sessionoptions=buffers,curdir,tabpages,winsize
