@@ -88,7 +88,7 @@ export def Execute(line1: number, line2: number)
 
     if !state->has_key("result_buf")
         rightbelow vnew
-        silent file `='[cURL output]'`
+        silent file `='__cURL_output__'`
         setlocal buftype=nofile noswapfile noundofile
         setlocal nospell
         setlocal nowrap
