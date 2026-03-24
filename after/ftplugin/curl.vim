@@ -1,4 +1,4 @@
 vim9script
 
-nnoremap <buffer> <space><space>r :Curl<CR>
-xnoremap <buffer> <space><space>r :Curl<CR>
+nnoremap <buffer> <F5> :Curl<CR>
+xnoremap <buffer> <F5> :Curl<CR>
