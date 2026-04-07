@@ -2,7 +2,7 @@ vim9script
 
 import autoload 'terminal.vim'
 
-command! -nargs=? Term terminal.Run(<q-args> ?? &shell, <q-mods> ?? window#BotRight())
+command! -nargs=? Term terminal.Run(<q-args> ?? &shell, <q-mods> ?? "botright")
 
 def TermMappings()
     nnoremap <buffer> gq <scriptcmd>bd<CR>
