@@ -213,6 +213,15 @@ export def TextTr()
                 normal! ""p
             endif
         }},
+        {text: "Ata Encrypt", key: "*", close: true, cmd: (_) => {
+            # var encrypt = '~/ata/ataccama-one-desktop-16.3.0.251201-16535-07894386-windows/runtime/bin/encrypt.bat'->expand()
+            var result = systemlist($ATAENCRYPT,
+                region->join(" "))->filter((_, v) => v =~ '^crypted:AES')
+            if v:shell_error == 0
+                setreg("", result[0]->trim())
+                normal! ""p
+            endif
+        }},
     ]
     popup.Commands(commands, false)
 enddef
