@@ -19,10 +19,6 @@ def NoBg()
     hi Normal guibg=NONE ctermbg=NONE
 enddef
 
-def Vsplit()
-    hi VertSplit guibg=NONE ctermbg=NONE
-enddef
-
 def Pum()
     hi Pmenu guibg=NONE ctermbg=NONE
     hi PmenuMatch guibg=NONE ctermbg=NONE
@@ -59,7 +55,6 @@ augroup colors | au!
     au Colorscheme wildcharm Wildcharm()
     au Colorscheme habamax,xamabah Habamax()
     au Colorscheme polukate,habamax,wildcharm,lunaperche,nod* NoBg()
-    au Colorscheme habamax,xamabah,wildcharm,lunaperche,nod*,nope* Vsplit()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
     au Colorscheme * hi Comment cterm=italic gui=italic
 augroup END
