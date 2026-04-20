@@ -66,13 +66,7 @@ export def OpenError(view: bool = false)
     # maybe default output of ripgrep(rg) or ugrep(ug)
     if fname[1] =~ '^\d\+$'
         var nr = line("'{")
-        nr += (nr == 1 ? 0 : 1)
-        var snr = nr
-        # filename might be hard wrapped by terminal output
-        while snr < line('$') && getline(snr + 1) !~ '^\s*$' && getline(snr + 1) !~ '^\d\+:'
-            snr += 1
-        endwhile
-        var rgFileName = getline(nr, snr)->join('')
+        var rgFileName = getline(nr + (nr == 1 ? 0 : 1))
         if rgFileName =~ '^\f\+$'
             fname[2] = fname[1]
             fname[1] = rgFileName
