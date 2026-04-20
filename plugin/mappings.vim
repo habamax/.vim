@@ -95,6 +95,7 @@ else
 endif
 # lvimgrep word in a current buffer
 nnoremap <space>w <scriptcmd>exe $'Occur {expand("<cword>")}'<cr>
+nnoremap <space><space>w :<C-U>Rg <C-r>=expand("<cword>")<CR><CR>
 
 import autoload 'qc.vim'
 # calc visually selected math expression
