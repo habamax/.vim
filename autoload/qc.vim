@@ -422,7 +422,7 @@ export def Git()
         endif
     endif
 
-    for br in ["dev", "test", "main", "master"]
+    for br in ["dev", "test", "prod", "main", "master"]
         var idx = branches->index(br)
         if idx > -1
             branches->remove(idx)
@@ -430,6 +430,7 @@ export def Git()
         endif
     endfor
 
+    # TODO: better branch letter selection
     var switch_commands: list<dict<any>> = [{text: $'Switch "{current_branch}" to:'}]
     var keys = []
     for v in branches
