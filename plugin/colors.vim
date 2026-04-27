@@ -51,7 +51,7 @@ enddef
 
 augroup colors | au!
     au Colorscheme * Lsp()
-    au Colorscheme habamax,xamabah,polukate,wildcharm Pum()
+    # au Colorscheme habamax,xamabah,polukate,wildcharm Pum()
     au Colorscheme wildcharm Wildcharm()
     au Colorscheme habamax,xamabah Habamax()
     au Colorscheme polukate,habamax,wildcharm,lunaperche,nod* NoBg()
