@@ -17,7 +17,7 @@ set fileformat=unix fileformats=unix,dos
 set nrformats=bin,hex,unsigned
 set diffopt+=hiddenoff,algorithm:histogram,linematch:100
 set completeopt=menu,popup,fuzzy
-set completepopup=border:round pumborder=round
+set completepopup=border:round
 set completepopup+=highlight:Pmenu,borderhighlight:PmenuBorder
 set previewpopup=border:round,borderhighlight:PmenuBorder
 set autocomplete complete=o^10,.^10,b^5
