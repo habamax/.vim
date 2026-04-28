@@ -17,10 +17,10 @@ set fileformat=unix fileformats=unix,dos
 set nrformats=bin,hex,unsigned
 set diffopt+=hiddenoff,algorithm:histogram,linematch:100
 set completeopt=menu,popup,fuzzy
-set completepopup=border:round
+set completepopup=border:round,close:off
 set completepopup+=highlight:Pmenu,borderhighlight:PmenuBorder
-set pumopt=height:15
 set previewpopup=border:round,borderhighlight:PmenuBorder
+set pumopt=height:15
 set autocomplete complete=o^10,.^10,b^5
 set complete+=Fcompletor#Path^10,Fcompletor#Abbrev^3,Fcompletor#Register^3
 set termwinscroll=40000
