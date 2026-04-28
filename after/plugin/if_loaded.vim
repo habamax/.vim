@@ -99,7 +99,7 @@ if exists("g:loaded_lsp")
         diagSignInfoText: 'ℹ',
         autoPopulateDiags: true,
         popupBorder: true,
-        popupHighlight: 'Normal',
+        # popupHighlight: 'Normal',
         popupBorderHighlight: 'PmenuBorder',
     })
 
