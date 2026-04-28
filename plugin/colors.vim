@@ -19,14 +19,6 @@ def NoBg()
     hi Normal guibg=NONE ctermbg=NONE
 enddef
 
-def Pum()
-    hi Pmenu guibg=NONE ctermbg=NONE
-    hi PmenuMatch guibg=NONE ctermbg=NONE
-    hi PmenuExtra guibg=NONE ctermbg=NONE
-    hi PmenuKind guibg=NONE ctermbg=NONE
-    hi PmenuBorder guibg=NONE ctermbg=NONE
-enddef
-
 def Wildcharm()
     if &background == 'light'
         hi PmenuSel guibg=#e4e4e4 ctermbg=254
@@ -51,10 +43,9 @@ enddef
 
 augroup colors | au!
     au Colorscheme * Lsp()
-    # au Colorscheme habamax,xamabah,polukate,wildcharm Pum()
     au Colorscheme wildcharm Wildcharm()
     au Colorscheme habamax,xamabah Habamax()
-    au Colorscheme polukate,habamax,wildcharm,lunaperche,nod* NoBg()
+    au Colorscheme polukate,habamax,wildcharm,lunaperche NoBg()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
     au Colorscheme * hi Comment cterm=italic gui=italic
 augroup END
