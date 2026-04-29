@@ -37,14 +37,12 @@ enddef
 # nnoremap <silent> <space>= :call text#Underline('=')<CR>
 # nnoremap <silent> <space>- :call text#Underline('-')<CR>
 # nnoremap <silent> <space>~ :call text#Underline('~')<CR>
-# nnoremap <silent> <space>^ :call text#Underline('^')<CR>
-# nnoremap <silent> <space>+ :call text#Underline('+')<CR>
 export def Underline(char: string)
     var nextnr = line('.') + 1
     var line = matchlist(getline('.'), '^\(\s*\)\(.*\)$')
     if empty(line[2]) | return | endif
     var underline = line[1] .. repeat(char, strchars(line[2]))
-    if getline(nextnr) =~ '^\s*' .. escape(char, '*\~^.') .. '\+$'
+    if getline(nextnr) =~ '^\s*' .. '\([-=*~#^_]\)\1\+$'
         setline(nextnr, underline)
     else
         append('.', underline)
