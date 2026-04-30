@@ -2,8 +2,8 @@ vim9script
 
 var popup_borderchars = get(g:, "popup_borderchars", ['─', '│', '─', '│', '┌', '┐', '┘', '└'])
 var popup_borderchars_t = get(g:, "popup_borderchars_t", ['─', '│', '─', '│', '├', '┤', '┘', '└'])
-var popup_borderhighlight = get(g:, "popup_borderhighlight", ['Normal'])
-var popup_highlight = get(g:, "popup_highlight", 'Normal')
+var popup_borderhighlight = get(g:, "popup_borderhighlight", ['PmenuBorder'])
+var popup_highlight = get(g:, "popup_highlight", 'Pmenu')
 var popup_match_highlight = get(g:, "popup_match_highlight", "PmenuMatch")
 var popup_key_highlight = get(g:, "popup_key_highlight", "Constant")
 var popup_key_sep_highlight = get(g:, "popup_key_sep_highlight", "Comment")
@@ -326,6 +326,7 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         maxwidth: maxwidth,
         borderhighlight: popup_borderhighlight,
         highlight: popup_highlight,
+        highlights: "CursorLine:PmenuSel",
         drag: 0,
         wrap: 1,
         scrollbar: true,
