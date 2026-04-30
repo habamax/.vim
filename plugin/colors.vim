@@ -26,13 +26,19 @@ def Wildcharm()
 enddef
 
 def Habamax()
-    if !has("gui_running")
-        return
-    endif
     if &background == 'light'
         hi Normal guibg=#d2d5d7
     else
         hi Normal guibg=#1c1c26
+        hi Pmenu guibg=#3a3a44
+        hi PmenuKind guibg=#3a3a44
+        hi PmenuExtra guibg=#3a3a44
+        hi PmenuBorder guibg=#3a3a44
+        hi PmenuSel guibg=#585862
+        hi PmenuKindSel guibg=#585862
+        hi PmenuMatchSel guibg=#585862
+        hi PmenuExtraSel guibg=#585862
+        hi Comment guifg=#80808a
     endif
 enddef
 
@@ -45,15 +51,15 @@ augroup colors | au!
     au Colorscheme * hi Comment cterm=italic gui=italic
 augroup END
 
-g:colors = {
-    dark: "sil! colo polukate",
-    light: "set bg=light | sil! colo wildcharm",
-}
-
 # g:colors = {
-#     dark: "sil! colo habamax",
-#     light: "sil! colo xamabah"
+#     dark: "sil! colo polukate",
+#     light: "set bg=light | sil! colo wildcharm",
 # }
+
+g:colors = {
+    dark: "sil! colo habamax",
+    light: "sil! colo xamabah"
+}
 
 # g:colors = {
 #     dark: "set bg=dark | sil! colo wildcharm",
