@@ -1,8 +1,8 @@
 vim9script
 
 var popup_borderchars = get(g:, "popup_borderchars", ['─', '│', '─', '│', '┌', '┐', '┘', '└'])
-var popup_borderhighlight = get(g:, "popup_borderhighlight", ['Normal'])
-var popup_highlight = get(g:, "popup_highlight", 'Normal')
+var popup_borderhighlight = get(g:, "popup_borderhighlight", ['PmenuBorder'])
+var popup_highlight = get(g:, "popup_highlight", 'Pmenu')
 const UPD1 = "○"
 const UPD2 = "●"
 const INST1 = "⬠"
