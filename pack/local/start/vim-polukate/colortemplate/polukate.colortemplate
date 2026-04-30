@@ -194,7 +194,7 @@ PmenuBorder          dark8             invisigrey
  /16/8               none              none              reverse
 PmenuShadow          dark8             uiShadow
  /16/8               none              none
-PmenuMatch           uimatchchar       invisigrey
+PmenuMatch           uimatchchar       none
  /16/8               none              dark3             reverse
 PmenuExtra           uiextra           invisigrey
  /16/8               none              none              reverse
