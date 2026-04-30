@@ -26,9 +26,7 @@ def Wildcharm()
 enddef
 
 def Habamax()
-    if &background == 'light'
-        # hi Normal guibg=#d2d5d7
-    else
+    if &background == 'dark'
         hi Normal guibg=#1c1c26
         hi Pmenu guibg=#3a3a44
         hi PmenuKind guibg=#3a3a44
