@@ -203,7 +203,7 @@ PmenuKind            uimagenta         invisigrey
 PmenuSbar            dark8             linenrblack
  /16                 dark8             none              reverse
  /8                  none              none              reverse
-PmenuSel             dark7             uidarkgray
+PmenuSel             none              uidarkgray
  /16/8               none              none              bold
 PmenuMatchSel        uimatchchar       uidarkgray
  /16/8               dark5             none              bold

@@ -121,7 +121,7 @@ hi PmenuKindSel guifg=#ff87af guibg=#585862 guisp=NONE gui=NONE ctermfg=211 cter
 hi PmenuMatch guifg=#00afff guibg=NONE guisp=NONE gui=NONE ctermfg=39 ctermbg=NONE cterm=NONE term=NONE
 hi PmenuMatchSel guifg=#00afff guibg=#585862 guisp=NONE gui=NONE ctermfg=39 ctermbg=240 cterm=NONE term=NONE
 hi PmenuSbar guifg=#707080 guibg=#5f5f62 guisp=NONE gui=NONE ctermfg=242 ctermbg=59 cterm=NONE term=reverse
-hi PmenuSel guifg=#dadada guibg=#585862 guisp=NONE gui=NONE ctermfg=253 ctermbg=240 cterm=NONE term=bold
+hi PmenuSel guifg=NONE guibg=#585862 guisp=NONE gui=NONE ctermfg=NONE ctermbg=240 cterm=NONE term=bold
 hi PmenuShadow guifg=#707080 guibg=#12121c guisp=NONE gui=NONE ctermfg=242 ctermbg=233 cterm=NONE term=NONE
 hi PmenuThumb guifg=#dadada guibg=#dadada guisp=NONE gui=NONE ctermfg=253 ctermbg=253 cterm=NONE term=NONE
 hi PreProc guifg=#87afaf guibg=NONE guisp=NONE gui=NONE ctermfg=109 ctermbg=NONE cterm=NONE term=NONE
