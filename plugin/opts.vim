@@ -28,7 +28,7 @@ if executable("ctags")
     silent! packadd vim-gutentags
 endif
 
-# on windows yegappan/lsp is impacts the startup
+# on windows yegappan/lsp impacts the startup
 if !has("win32")
     silent! packadd lsp
 endif
