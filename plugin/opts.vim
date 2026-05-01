@@ -75,13 +75,6 @@ g:closetag_filetypes = 'html,xhtml,xml'
 g:elixir_mix_test_position = "bottom"
 g:mix_format_on_save = 1
 
-# Colorizer
-g:colorizer_auto_filetype = 'css,html,colortemplate'
-g:colorizer_disable_bufleave = 1
-
-# lens
-g:lens_disabled_filetypes = ['fugitiveblame', 'selectprompt', 'selectresults']
-
 # vim-rst
 g:rst2html_opts = "--input-encoding=utf8"
                .. " --smart-quotes=yes"
@@ -107,11 +100,6 @@ g:rst_syntax_code_list = {
 if !executable('godot') && executable('flatpak')
     g:godot_executable = "flatpak run org.godotengine.Godot"
 endif
-
-# tex
-g:tex_flavor = "latex"
-g:tex_no_error = 1
-g:tex_fast = "pbv"
 
 # vim-sandwich, no default mappings
 g:sandwich_no_default_key_mappings = 1
