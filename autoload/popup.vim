@@ -483,11 +483,12 @@ export def Sh(command: string, Finish_cb: func() = null_function): tuple<number,
     var jobid = job_start(job_command, {
         out_msg: 0,
         out_cb: (ch, msg) => {
+            var msg_nl = substitute(msg, "\r", "\n", "g")
             if clean_buf
-                setbufline(bufnr, 1, msg)
+                setbufline(bufnr, 1, msg_nl)
                 clean_buf = false
             else
-                appendbufline(bufnr, 0, msg)
+                appendbufline(bufnr, 0, msg_nl)
             endif
         },
         err_msg: 0,
