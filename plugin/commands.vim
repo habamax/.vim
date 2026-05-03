@@ -117,16 +117,22 @@ def HelpComplete(_, _, _): string
 enddef
 
 import autoload 'unicode.vim'
-command! -nargs=1 -complete=custom,UnicodeComplete Unicode unicode.Copy(<f-args>)
-def UnicodeComplete(_, _, _): string
-    return unicode.Subset()
-        ->mapnew((_, v) => {
-            return printf("%5S", printf("%04X", v.value))
-                .. "  "
-                .. printf("%3S", (nr2char(v.value, true) =~ '\p' ? nr2char(v.value, true) : " "))
-                .. "    " .. v.name
-        })->join("\n")
+command! -nargs=1 -complete=customlist,UnicodeComplete Unicode unicode.Copy(<f-args>)
+def UnicodeComplete(arg: string, _, _): list<dict<any>>
+    var ulist = unicode.Subset()->mapnew((_, v) => {
+        return {
+            word: printf("%04X", v.value),
+            abbr: v.name,
+            kind: printf("%6s", (nr2char(v.value, true) =~ '\p' ? nr2char(v.value, true) : " ")),
+            menu: printf("%04X", v.value)}
+    })
+    if empty(arg)
+        return ulist
+    else
+        return ulist->matchfuzzy(arg ?? '', {key: "abbr"})
+    endif
 enddef
+
 
 import autoload 'hlblink.vim'
 command BlinkLine hlblink.Line()
