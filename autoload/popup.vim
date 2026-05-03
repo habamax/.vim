@@ -482,21 +482,21 @@ export def Sh(command: string, Finish_cb: func() = null_function): tuple<number,
 
     var jobid = job_start(job_command, {
         out_msg: 0,
-        out_io: 'buffer',
         out_cb: (ch, msg) => {
             if clean_buf
-                silent deletebufline(bufnr, 1)
+                setbufline(bufnr, 1, msg)
                 clean_buf = false
+            else
+                appendbufline(bufnr, 0, msg)
             endif
         },
-        out_buf: bufnr,
         err_msg: 0,
-        err_io: 'buffer',
-        err_buf: bufnr,
         err_cb: (ch, msg) => {
             if clean_buf
-                silent deletebufline(bufnr, 1)
+                setbufline(bufnr, 1, msg)
                 clean_buf = false
+            else
+                appendbufline(bufnr, 0, msg)
             endif
         },
         close_cb: (ch) => {
