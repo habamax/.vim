@@ -129,7 +129,7 @@ def UnicodeComplete(arg: string, _, _): list<dict<any>>
     if empty(arg)
         return ulist
     else
-        return ulist->matchfuzzy(arg ?? '', {key: "abbr"})
+        return ulist->matchfuzzy(arg, {key: "abbr"})
     endif
 enddef
 
