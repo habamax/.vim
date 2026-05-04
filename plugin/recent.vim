@@ -1,6 +1,6 @@
 vim9script
 
-const recent_file = $'{$MYVIMDIR}.data/mru'
+const recent_file = $'{$MYVIMDIR}.data/mru.json'
 # TODO: use recent_max_count to limit number of recent files
 const recent_max_count = 300
 const recent_ft_avoid = ['gitcommit']
@@ -17,7 +17,7 @@ def Read()
     if filereadable(recent_file)
         var current_mru = deepcopy(mru)
 
-        mru = readfile($'{$MYVIMDIR}.data/mru')
+        mru = readfile(recent_file)
             ->join()
             ->json_decode()
             ->filter((k, _) => filereadable(expand(k)))
