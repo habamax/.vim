@@ -79,7 +79,11 @@ def RecentComplete(arg: string, _, _): list<dict<any>>
         mru_list = mru_list[1 : ]
     endif
 
-    return mru_list->matchfuzzy(arg, {key: "word"}) ?? mru_list
+    if empty(arg)
+        return mru_list
+    else
+        return mru_list->matchfuzzy(arg, {key: "word"})
+    endif
 enddef
 
 command! -nargs=1 -complete=customlist,RecentComplete Recent Edit(<q-args>, false, <q-mods>)
