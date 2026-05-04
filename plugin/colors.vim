@@ -27,7 +27,9 @@ enddef
 
 def Habamax()
     if &background == 'dark'
-        hi Normal guibg=#1c1c26
+        if has("gui_running")
+            hi Normal guibg=#1c1c26
+        endif
         hi Pmenu guibg=#3a3a44
         hi PmenuKind guibg=#3a3a44
         hi PmenuExtra guibg=#3a3a44
@@ -37,6 +39,8 @@ def Habamax()
         hi PmenuMatchSel guibg=#585862
         hi PmenuExtraSel guibg=#585862
         hi Comment guifg=#80808a
+    else
+        hi Normal guibg=#dededc
     endif
 enddef
 
