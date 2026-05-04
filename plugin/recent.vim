@@ -1,9 +1,10 @@
 vim9script
 
 const recent_file = $'{$MYVIMDIR}.data/mru'
+# TODO: use recent_max_count to limit number of recent files
 const recent_max_count = 300
 const recent_ft_avoid = ['gitcommit']
-var mru: list<string> = []
+var mru: dict<any> = {}
 
 augroup Recent
     au!
@@ -13,16 +14,26 @@ augroup Recent
 augroup END
 
 def Read()
-    if filereadable(recent_file) && empty(mru)
+    if filereadable(recent_file)
+        var current_mru = deepcopy(mru)
+
         mru = readfile($'{$MYVIMDIR}.data/mru')
-            ->filter((_, v) => filereadable(expand(v)))
+            ->join()
+            ->json_decode()
+            ->filter((k, _) => filereadable(expand(k)))
+            ->extendnew(current_mru, 'keep')
+
+        for [k, v] in items(mru)
+            var ts = get(current_mru, k, 0)
+            mru[k] = v > ts ? v : ts
+        endfor
     endif
 enddef
 
 def Save()
-    # TODO: merge inmemory list with the file?
     if filereadable(recent_file)
-        writefile(mru[ : recent_max_count], recent_file)
+        Read()
+        writefile([mru->json_encode()], recent_file)
     endif
 enddef
 
@@ -44,11 +55,7 @@ def Add()
         buf = "~" .. buf[len($HOME) : ]
     endif
 
-    var idx = mru->index(buf)
-    if idx > -1
-        mru->remove(idx)
-    endif
-    mru->insert(buf, 0)
+    mru[buf] = localtime()
 enddef
 
 def Edit(fname: string, split: bool = false, mods: string = "")
@@ -63,10 +70,14 @@ enddef
 
 def RecentComplete(_, _, _): string
     Read()
-    if mru->len() > 0 && expand(mru[0]) == expand("%:p")
-        return mru[1 : ]->join("\n")
+    var mru_list = mru
+        ->items()
+        ->sort((v1, v2) => v1[1] == v2[1] ? 0 : v1[1] < v2[1] ? 1 : -1)
+        ->map((_, v) => v[0])
+    if mru_list->len() > 0 && expand(mru_list[0]) == expand("%:p")
+        return mru_list[1 : ]->join("\n")
     endif
-    return mru->join("\n")
+    return mru_list->join("\n")
 enddef
 
 command! -nargs=1 -complete=custom,RecentComplete Recent Edit(<q-args>, false, <q-mods>)
