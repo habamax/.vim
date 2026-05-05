@@ -1,8 +1,7 @@
 vim9script
 
 const recent_file = $'{$MYVIMDIR}.data/mru.json'
-# TODO: use recent_max_count to limit number of recent files
-const recent_max_count = 300
+const recent_max_count = 100
 const recent_ft_avoid = ['gitcommit']
 var mru: dict<any> = {}
 
@@ -16,17 +15,29 @@ augroup END
 
 def Read()
     if filereadable(recent_file)
-        var current_mru = deepcopy(mru)
 
-        mru = readfile(recent_file)
+        # Merging in memory and in file recent files.
+        # Ineffective, but the recent files count should be relatively small
+        var current_mru = deepcopy(mru)
+        var new_mru = readfile(recent_file)
             ->join()
             ->json_decode()
             ->filter((k, _) => filereadable(expand(k)))
             ->extendnew(current_mru, 'keep')
 
-        for [k, v] in items(mru)
+        for [k, v] in items(new_mru)
             var ts = get(current_mru, k, 0)
-            mru[k] = v > ts ? v : ts
+            new_mru[k] = v > ts ? v : ts
+        endfor
+
+        # Remove >max_count entries.
+        # 1. Convert to list and sort by timestamp
+        # 2. Take first max_count entries
+        # 3. Convert back to dict
+        for [k, v] in items(new_mru)
+                ->sort((v1, v2) => v1[1] == v2[1] ? 0 : v1[1] < v2[1] ? 1 : -1)
+                ->slice(0, recent_max_count - 1)
+            mru[k] = v
         endfor
     endif
 enddef
