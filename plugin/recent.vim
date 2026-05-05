@@ -74,7 +74,12 @@ def RecentComplete(arg: string, _, _): list<dict<any>>
     var mru_list = mru
         ->items()
         ->sort((v1, v2) => v1[1] == v2[1] ? 0 : v1[1] < v2[1] ? 1 : -1)
-        ->map((_, v) => ({word: v[0], menu: strftime('%Y-%m-%d %T', v[1])}))
+        ->map((_, v) => (
+        {
+            word: v[0],
+            abbr: fnamemodify(v[0], ":."),
+            menu: strftime('%Y-%m-%d %T', v[1])
+        }))
 
     if mru_list->len() > 0 && expand(mru_list[0].word) == expand("%:p")
         mru_list = mru_list[1 : ]
