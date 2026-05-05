@@ -40,7 +40,7 @@ def Habamax()
         hi PmenuExtraSel guibg=#585862
         hi Comment guifg=#80808a
     else
-        hi Normal guibg=#dededc
+        hi Normal guibg=#ded7d0
     endif
 enddef
 
