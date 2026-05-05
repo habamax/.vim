@@ -53,15 +53,15 @@ augroup colors | au!
     au Colorscheme * hi Comment cterm=italic gui=italic
 augroup END
 
-# g:colors = {
-#     dark: "sil! colo polukate",
-#     light: "set bg=light | sil! colo wildcharm",
-# }
-
 g:colors = {
-    dark: "sil! colo habamax",
-    light: "sil! colo xamabah"
+    dark: "sil! colo polukate",
+    light: "set bg=light | sil! colo wildcharm",
 }
+
+# g:colors = {
+#     dark: "sil! colo habamax",
+#     light: "sil! colo xamabah"
+# }
 
 if has("win32") && has("gui_running")
     exe g:colors.light
