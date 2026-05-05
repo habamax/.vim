@@ -8,6 +8,6 @@ let &t_SI = "\e[5 q"
 let &t_SR = "\e[3 q"
 
 " Undercurl in Windows Terminal
-if has("win32")
+if !empty($WT_SESSION)
     let &t_Cs = "\e[4:3m"
 endif
