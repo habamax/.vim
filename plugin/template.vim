@@ -14,7 +14,11 @@ def TemplateComplete(arg: string, _, _): list<dict<any>>
     if empty(templates_cache)
         if !empty(ft) && isdirectory(ft_path)
             templates_cache = mapnew(readdirex(ft_path, (e) => e.type == 'file'), (_, v) => {
-                return {word: $"{ft}/{v.name}", info: readfile($"{ft_path}/{v.name}")->join("\n")}
+                return {
+                    word: $"{ft}/{v.name}",
+                    abbr: v.name,
+                    kind: ft,
+                    info: readfile($"{ft_path}/{v.name}")->join("\n")}
             })
         endif
         if isdirectory(path)
