@@ -17,6 +17,13 @@ augroup general | au!
         endif
     }
 
+    # update Last Change in vim files
+    au BufWritePre *.vim {
+        if &modifiable
+            :1,10s/^[#"]\s\+Last Change:\s*\zs.*/\=strftime("%Y-%m-%d")/e
+        endif
+    }
+
     # save last session on exit if there is a buffer with name
     au VimLeavePre * {
         if reduce(getbufinfo({'buflisted': 1}), (a, v) => a || !empty(v.name), false)
