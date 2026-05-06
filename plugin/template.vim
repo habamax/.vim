@@ -1,26 +1,34 @@
 vim9script
 
-var templates_cache: list<string> = []
+var templates_cache: list<dict<any>> = []
 augroup CmdCompleteResetTemplate
     au!
     au CmdlineEnter : templates_cache = []
 augroup END
 
-def TemplateComplete(_, _, _): string
+def TemplateComplete(arg: string, _, _): list<dict<any>>
     var path = $"{$MYVIMDIR}templates/"
     var ft = getbufvar(bufnr(), '&filetype')
     var ft_path = path .. ft
 
     if empty(templates_cache)
         if !empty(ft) && isdirectory(ft_path)
-            templates_cache = mapnew(readdirex(ft_path, (e) => e.type == 'file'), (_, v) => $"{ft}/{v.name}")
+            templates_cache = mapnew(readdirex(ft_path, (e) => e.type == 'file'), (_, v) => {
+                return {word: $"{ft}/{v.name}", info: readfile($"{ft_path}/{v.name}")->join("\n")}
+            })
         endif
         if isdirectory(path)
-            extend(templates_cache, mapnew(readdirex(path, (e) => e.type == 'file'), (_, v) => v.name))
+            extend(templates_cache, mapnew(readdirex(path, (e) => e.type == 'file'), (_, v) => {
+                return {word: $"{v.name}", info: readfile($"{path}/{v.name}")->join("\n")}
+            }))
         endif
     endif
 
-    return templates_cache->join("\n")
+    if empty(arg)
+        return templates_cache
+    else
+        return templates_cache->matchfuzzy(arg, {key: "word"})
+    endif
 enddef
 
 def InsertTemplate(template: string)
@@ -42,4 +50,4 @@ def InsertTemplate(template: string)
         normal! j^
     endif
 enddef
-command! -nargs=1 -complete=custom,TemplateComplete InsertTemplate InsertTemplate(<f-args>)
+command! -nargs=1 -complete=customlist,TemplateComplete InsertTemplate InsertTemplate(<f-args>)
