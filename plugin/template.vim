@@ -17,7 +17,7 @@ def TemplateComplete(arg: string, _, _): list<dict<any>>
                 return {
                     word: $"{ft}/{v.name}",
                     abbr: v.name,
-                    kind: ft,
+                    menu: ft,
                     info: readfile($"{ft_path}/{v.name}")->join("\n")}
             })
         endif
