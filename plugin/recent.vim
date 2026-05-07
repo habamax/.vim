@@ -107,7 +107,7 @@ def DateDiffToText(dt: number): string
     var now = localtime()
     var diff = now - dt
     if diff < 60
-        return printf("%d sec ago", diff)
+        return printf("just now", diff)
     elseif diff < 3600
         var d = diff / 60
         return printf("%d min%s ago", d, d > 1 ? 's' : '')
@@ -116,10 +116,18 @@ def DateDiffToText(dt: number): string
         return printf("%d hour%s ago", d, d > 1 ? 's' : '')
     elseif diff < 3600 * 24 * 7
         var d = diff / (3600 * 24)
-        return printf("%d day%s ago", d, d > 1 ? 's' : '')
-        #TODO: add "week ago" and "month ago" if needed
+        return printf("%d day%s", d, d > 1 ? 's' : '')
+    elseif diff < 3600 * 24 * 7 * 4
+        var d = diff / (3600 * 24 * 7)
+        return printf("%d week%s", d, d > 1 ? 's' : '')
+    elseif diff < 3600 * 24 * 7 * 4 * 12
+        var d = diff / (3600 * 24 * 7 * 4)
+        return printf("%d month%s", d, d > 1 ? 's' : '')
+    elseif diff < 3600 * 24 * 365 * 5
+        var d = diff / (3600 * 24 * 365)
+        return printf("%d year%s", d, d > 1 ? 's' : '')
     else
-        return strftime('%Y-%m-%d %T', dt)
+        return 'long time ago'
     endif
 enddef
 
