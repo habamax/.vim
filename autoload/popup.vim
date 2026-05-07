@@ -493,8 +493,9 @@ export def Sh(command: string, Finish_cb: func() = null_function): tuple<number,
         },
         err_msg: 0,
         err_cb: (ch, msg) => {
+            var msg_nl = substitute(msg, "\r", "\n", "g")
             if clean_buf
-                setbufline(bufnr, 1, msg)
+                setbufline(bufnr, 1, msg_nl)
                 clean_buf = false
             else
                 appendbufline(bufnr, "$", msg_nl)
