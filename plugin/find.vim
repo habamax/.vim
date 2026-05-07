@@ -22,7 +22,7 @@ def FindCmd(): string
     return cmd
 enddef
 
-def Find(cmd_arg: string, cmd_complete: bool): list<string>
+def Find(cmd_arg: string, _): list<string>
     if empty(files_cache)
         var cmd = FindCmd()
         if empty(cmd)
