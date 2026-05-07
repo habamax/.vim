@@ -89,7 +89,7 @@ def RecentComplete(arg: string, _, _): list<dict<any>>
         {
             word: v[0],
             abbr: fnamemodify(v[0], ":."),
-            menu: strftime('%Y-%m-%d %T', v[1])
+            menu: DateDiffToText(v[1])
         }))
 
     if mru_list->len() > 0 && expand(mru_list[0].word) == expand("%:p")
@@ -102,6 +102,27 @@ def RecentComplete(arg: string, _, _): list<dict<any>>
         return mru_list->matchfuzzy(arg, {key: "word"})
     endif
 enddef
+
+def DateDiffToText(dt: number): string
+    var now = localtime()
+    var diff = now - dt
+    if diff < 60
+        return printf("%d sec ago", diff)
+    elseif diff < 3600
+        var d = diff / 60
+        return printf("%d min%s ago", d, d > 1 ? 's' : '')
+    elseif diff < 3600 * 24
+        var d = diff / 3600
+        return printf("%d hour%s ago", d, d > 1 ? 's' : '')
+    elseif diff < 3600 * 24 * 7
+        var d = diff / (3600 * 24)
+        return printf("%d day%s ago", d, d > 1 ? 's' : '')
+        #TODO: add "week ago" and "month ago" if needed
+    else
+        return strftime('%Y-%m-%d %T', dt)
+    endif
+enddef
+
 
 command! -nargs=1 -complete=customlist,RecentComplete Recent Edit(<q-args>, false, <q-mods>)
 command! -nargs=1 -complete=customlist,RecentComplete SRecent Edit(<q-args>, true, <q-mods>)
