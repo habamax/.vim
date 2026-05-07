@@ -488,7 +488,7 @@ export def Sh(command: string, Finish_cb: func() = null_function): tuple<number,
                 setbufline(bufnr, 1, msg_nl)
                 clean_buf = false
             else
-                appendbufline(bufnr, 0, msg_nl)
+                appendbufline(bufnr, "$", msg_nl)
             endif
         },
         err_msg: 0,
@@ -497,7 +497,7 @@ export def Sh(command: string, Finish_cb: func() = null_function): tuple<number,
                 setbufline(bufnr, 1, msg)
                 clean_buf = false
             else
-                appendbufline(bufnr, 0, msg)
+                appendbufline(bufnr, "$", msg_nl)
             endif
         },
         close_cb: (ch) => {
