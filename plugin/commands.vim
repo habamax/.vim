@@ -115,12 +115,18 @@ def ColorschemeComplete(_, _, _): string
     return colors->join("\n")
 enddef
 
-command -nargs=1 -complete=custom,HelpComplete Help :help <args>
-def HelpComplete(_, _, _): string
+command -nargs=1 -complete=customlist,HelpComplete Help :help <args>
+def HelpComplete(arg: string, _, _): list<dict<any>>
     var help_tags = globpath(&rtp, "doc/tags", 1, 1)
-        ->mapnew((_, v) => readfile(v)->mapnew((_, line) => line->split("\t")[0]))
-        ->flattennew()
-    return help_tags->join("\n")
+        ->mapnew((_, v) => readfile(v)->mapnew((_, line) => {
+            var tag_info = line->split("\t")
+            return {word: tag_info[0], menu: tag_info[1]}
+        }))->flattennew()
+    if empty(arg)
+        return help_tags
+    else
+        return help_tags->matchfuzzy(arg, {key: "word"})
+    endif
 enddef
 
 import autoload 'unicode.vim'
