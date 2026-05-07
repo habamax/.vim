@@ -18,15 +18,14 @@ def Read()
 
         # Merging in memory and in file recent files.
         # Ineffective, but the recent files count should be relatively small
-        var current_mru = deepcopy(mru)
         var new_mru = readfile(recent_file)
             ->join()
             ->json_decode()
             ->filter((k, _) => filereadable(expand(k)))
-            ->extendnew(current_mru, 'keep')
+            ->extendnew(mru, 'keep')
 
         for [k, v] in items(new_mru)
-            var ts = get(current_mru, k, 0)
+            var ts = get(mru, k, 0)
             new_mru[k] = v > ts ? v : ts
         endfor
 
