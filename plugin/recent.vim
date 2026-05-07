@@ -13,8 +13,16 @@ augroup Recent
     au CursorHold * Save()
 augroup END
 
-def Read()
+def Read(reset: bool = false)
     if filereadable(recent_file)
+
+        if reset
+            mru = readfile(recent_file)
+                ->join()
+                ->json_decode()
+                ->filter((k, _) => filereadable(expand(k)))
+            return
+        endif
 
         # Merging in memory and in file recent files.
         # Ineffective, but the recent files count should be relatively small
@@ -133,3 +141,4 @@ enddef
 
 command! -nargs=1 -complete=customlist,RecentComplete Recent Edit(<q-args>, false, <q-mods>)
 command! -nargs=1 -complete=customlist,RecentComplete SRecent Edit(<q-args>, true, <q-mods>)
+command! RecentReset Read(true)
