@@ -22,7 +22,7 @@ def FindCmd(): string
     return cmd
 enddef
 
-def Find(cmd_arg: string, _): list<string>
+def Find(arg: string, _): list<string>
     if empty(files_cache)
         var cmd = FindCmd()
         if empty(cmd)
@@ -33,10 +33,10 @@ def Find(cmd_arg: string, _): list<string>
             files_cache = systemlist(cmd)
         endif
     endif
-    if empty(cmd_arg)
+    if empty(arg)
         return files_cache
     else
-        return files_cache->matchfuzzy(cmd_arg)
+        return files_cache->matchfuzzy(arg)
     endif
 enddef
 
