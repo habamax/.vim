@@ -12,6 +12,9 @@ g:popup_borderchars_t = ['─', '│', '─', '│', '├', '┤', '╯', '╰']
 
 g:hlyank_hlgroup = "Visual"
 g:hlyank_duration = 200
+g:hlput_hlgroup = "Visual"
+g:hlput_duration = 200
+g:hlput_enable = true
 
 packadd comment
 packadd nohlsearch
