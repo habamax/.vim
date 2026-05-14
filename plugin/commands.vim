@@ -20,7 +20,7 @@ augroup general | au!
     # update Last Change in vim files
     au BufWritePre *.vim {
         if &modifiable
-            :1,10s/\v^[#"]\s+Last\s+(Change|Update):\s*\zs.*/\=strftime("%Y-%m-%d")/ie
+            exe $':1,{min([10, line('$')])}s/\v^[#"]\s+Last\s+(Change|Update):\s*\zs.*/\=strftime("%Y-%m-%d")/ie'
         endif
     }
 
