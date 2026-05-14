@@ -117,10 +117,10 @@ def DateDiffToText(dt: number): string
         return printf("just now", diff)
     elseif diff < 3600
         var d = diff / 60
-        return printf("%d min%s ago", d, d > 1 ? 's' : '')
+        return printf("%d min%s", d, d > 1 ? 's' : '')
     elseif diff < 3600 * 24
         var d = diff / 3600
-        return printf("%d hour%s ago", d, d > 1 ? 's' : '')
+        return printf("%d hour%s", d, d > 1 ? 's' : '')
     elseif diff < 3600 * 24 * 7
         var d = diff / (3600 * 24)
         return printf("%d day%s", d, d > 1 ? 's' : '')
