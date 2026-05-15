@@ -138,6 +138,15 @@ nnoremap yob <cmd>exe &bg == "light" ? g:colors.dark : g:colors.light<CR>
 xnoremap <tab> :sil! m '>+1<CR>gv
 xnoremap <s-tab> :sil! m '<-2<CR>gv
 
+nnoremap <space>" <cmd>norm! ciw"<C-r>""<CR>
+nnoremap <space>' <cmd>norm! ciw'<C-r>"'<CR>
+nnoremap <space>` <cmd>norm! ciw`<C-r>"`<CR>
+nnoremap <space>8 <cmd>norm! ciw*<C-r>"*<CR>
+xnoremap <space>" <cmd>norm! c"<C-r>""<CR>
+xnoremap <space>' <cmd>norm! c'<C-r>"'<CR>
+xnoremap <space>` <cmd>norm! c`<C-r>"`<CR>
+xnoremap <space>8 <cmd>norm! c*<C-r>"*<CR>
+
 # In visual block { and } navigate to the first/last line of paragraph,
 # which is useful if followed by I or A.
 def VisualBlockPara(cmd: string)
