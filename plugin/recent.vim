@@ -130,11 +130,9 @@ def DateDiffToText(dt: number): string
     elseif diff < 3600 * 24 * 7 * 4 * 12
         var d = diff / (3600 * 24 * 7 * 4)
         return printf("%d month%s", d, d > 1 ? 's' : '')
-    elseif diff < 3600 * 24 * 365 * 5
+    else
         var d = diff / (3600 * 24 * 365)
         return printf("%d year%s", d, d > 1 ? 's' : '')
-    else
-        return 'long time ago'
     endif
 enddef
 
