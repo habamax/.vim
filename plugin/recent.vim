@@ -137,6 +137,6 @@ def DateDiffToText(dt: number): string
 enddef
 
 
-command! -nargs=1 -complete=customlist,RecentComplete Recent Edit(<q-args>, false, <q-mods>)
-command! -nargs=1 -complete=customlist,RecentComplete SRecent Edit(<q-args>, true, <q-mods>)
+command! -nargs=_ -complete=customlist,RecentComplete Recent Edit(<q-args>, false, <q-mods>)
+command! -nargs=_ -complete=customlist,RecentComplete SRecent Edit(<q-args>, true, <q-mods>)
 command! RecentReset Read(true)

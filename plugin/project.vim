@@ -53,17 +53,21 @@ enddef
 
 command! ProjectAdd call ProjectAdd()
 
-command! -nargs=1 -complete=custom,ProjectComplete Project ProjectOpen(<f-args>)
+command! -nargs=_ -complete=customlist,ProjectComplete Project ProjectOpen(<f-args>)
 
-def ProjectComplete(_, _, _): string
+def ProjectComplete(arg: string, _, _): list<string>
     if empty(project_cache) && filereadable(projectFile)
         project_cache = ProjectLoad()
     endif
-    return project_cache
+    var projects = project_cache
         ->items()
         ->sort((a, b) => a[1].use_dt == b[1].use_dt ? 0 : a[1].use_dt < b[1].use_dt ? 1 : -1)
         ->mapnew((_, v) => v[0])
-        ->join("\n")
+    if empty(arg)
+        return projects
+    else
+        return projects->matchfuzzy(arg)
+    endif
 enddef
 
 def ProjectOpen(name: string)

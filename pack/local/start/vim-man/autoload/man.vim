@@ -56,11 +56,15 @@ export def CaptureOutput(entry: string)
     endif
 enddef
 
-var man_pages = ""
-export def Complete(_, _, _): string
+var man_pages = []
+export def Complete(arg: string, _, _): list<string>
     # return system("man -k . | cut -d ' ' -f1 | sort -u")
     if empty(man_pages)
-        man_pages = system("man -k . | cut -d ' ' -f1 | sort -u")
+        man_pages = systemlist("man -k . | cut -d ' ' -f1 | sort -u")
     endif
-    return man_pages
+    if empty(arg)
+        return man_pages
+    else
+        return man_pages->matchfuzzy(arg)
+    endif
 enddef

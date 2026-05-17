@@ -54,4 +54,4 @@ def InsertTemplate(template: string)
         normal! j^
     endif
 enddef
-command! -nargs=1 -complete=customlist,TemplateComplete InsertTemplate InsertTemplate(<f-args>)
+command! -nargs=_ -complete=customlist,TemplateComplete InsertTemplate InsertTemplate(<f-args>)

@@ -55,19 +55,22 @@ enddef
 
 command! BookmarkAdd call BookmarkAdd()
 
-command! -nargs=1 -complete=custom,BookmarkComplete Bookmark BookmarkOpen(<f-args>, false, <q-mods>)
-command! -nargs=1 -complete=custom,BookmarkComplete SBookmark BookmarkOpen(<f-args>, true, <q-mods>)
+command! -nargs=_ -complete=customlist,BookmarkComplete Bookmark BookmarkOpen(<f-args>, false, <q-mods>)
+command! -nargs=_ -complete=customlist,BookmarkComplete SBookmark BookmarkOpen(<f-args>, true, <q-mods>)
 
-def BookmarkComplete(_, _, _): string
+def BookmarkComplete(arg: string, _, _): list<string>
     if empty(bookmark_cache) && filereadable(bookmarkFile)
         bookmark_cache = BookmarkLoad()
     endif
-    return bookmark_cache
+    var bookmarks = bookmark_cache
         ->items()
         ->sort((a, b) => a[1].use_dt == b[1].use_dt ? 0 : a[1].use_dt < b[1].use_dt ? 1 : -1)
         ->mapnew((_, v) => v[0])
-        ->join("\n")
-
+    if empty(arg)
+        return bookmarks
+    else
+        return bookmarks->matchfuzzy(arg)
+    endif
 enddef
 
 def BookmarkOpen(name: string, split: bool = false, mods: string = "")

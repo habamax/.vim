@@ -108,14 +108,18 @@ command! -nargs=* -complete=custom,MakeComplete -bar Make {
     echo "Make is finished!"
 }
 
-command -nargs=1 -complete=custom,ColorschemeComplete Colorscheme colorscheme <args>
-def ColorschemeComplete(_, _, _): string
+command -nargs=_ -complete=customlist,ColorschemeComplete Colorscheme colorscheme <args>
+def ColorschemeComplete(arg: string, _, _): list<string>
     var cur_colorscheme = get(g:, "colors_name", "default")
     var colors = [cur_colorscheme] + getcompletion('', 'color')->filter((_, v) => v != cur_colorscheme)
-    return colors->join("\n")
+    if empty(arg)
+        return colors
+    else
+        return colors->matchfuzzy(arg)
+    endif
 enddef
 
-command -nargs=1 -complete=customlist,HelpComplete Help :help <args>
+command -nargs=_ -complete=customlist,HelpComplete Help :help <args>
 def HelpComplete(arg: string, _, _): list<dict<any>>
     var help_tags = globpath(&rtp, "doc/tags", 1, 1)
         ->mapnew((_, v) => readfile(v)->mapnew((_, line) => {
@@ -130,7 +134,7 @@ def HelpComplete(arg: string, _, _): list<dict<any>>
 enddef
 
 import autoload 'unicode.vim'
-command! -nargs=1 -complete=customlist,UnicodeComplete Unicode unicode.Copy(<f-args>)
+command! -nargs=_ -complete=customlist,UnicodeComplete Unicode unicode.Copy(<f-args>)
 def UnicodeComplete(arg: string, _, _): list<dict<any>>
     var ulist = unicode.Subset()->mapnew((_, v) => {
         return {
