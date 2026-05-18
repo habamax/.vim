@@ -265,7 +265,7 @@ export def Surround(char: string, mode: string = 'v')
             res_line = SurroundInLine(getline(end[1]), char, end[2] + 1)
             setline(end[1], res_line)
         endif
-        normal! w
+        normal! l
     elseif mode == 'V'
         exe $":{start[1]}normal! O{char}"
         exe $":{end[1]}normal! jo{char}"
