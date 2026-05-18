@@ -141,6 +141,8 @@ xnoremap <s-tab> :sil! m '<-2<CR>gv
 
 nnoremap <space>8 <scriptcmd>&opfunc = (_) => text.Surround('*')<CR>g@iw
 xnoremap <space>8 <scriptcmd>&opfunc = (_) => text.Surround('*', visualmode())<CR>g@
+nnoremap <space>_ <scriptcmd>&opfunc = (_) => text.Surround('_')<CR>g@iw
+xnoremap <space>_ <scriptcmd>&opfunc = (_) => text.Surround('_', visualmode())<CR>g@
 nnoremap <space>' <scriptcmd>&opfunc = (_) => text.Surround("'")<CR>g@iw
 xnoremap <space>' <scriptcmd>&opfunc = (_) => text.Surround("'", visualmode())<CR>g@
 nnoremap <space>" <scriptcmd>&opfunc = (_) => text.Surround('"')<CR>g@iw
