@@ -138,14 +138,15 @@ nnoremap yob <cmd>exe &bg == "light" ? g:colors.dark : g:colors.light<CR>
 xnoremap <tab> :sil! m '>+1<CR>gv
 xnoremap <s-tab> :sil! m '<-2<CR>gv
 
-nnoremap <space>" <cmd>norm! ciw"<C-r>""<CR>
-nnoremap <space>' <cmd>norm! ciw'<C-r>"'<CR>
-nnoremap <space>` <cmd>norm! ciw`<C-r>"`<CR>
-nnoremap <space>8 <cmd>norm! ciw*<C-r>"*<CR>
-xnoremap <space>" <cmd>norm! c"<C-r>""<CR>
-xnoremap <space>' <cmd>norm! c'<C-r>"'<CR>
-xnoremap <space>` <cmd>norm! c`<C-r>"`<CR>
-xnoremap <space>8 <cmd>norm! c*<C-r>"*<CR>
+
+nnoremap <space>8 <scriptcmd>&opfunc = (_) => text.Surround('*')<CR>g@iw
+xnoremap <space>8 <scriptcmd>&opfunc = (_) => text.Surround('*', visualmode())<CR>g@
+nnoremap <space>' <scriptcmd>&opfunc = (_) => text.Surround("'")<CR>g@iw
+xnoremap <space>' <scriptcmd>&opfunc = (_) => text.Surround("'", visualmode())<CR>g@
+nnoremap <space>" <scriptcmd>&opfunc = (_) => text.Surround('"')<CR>g@iw
+xnoremap <space>" <scriptcmd>&opfunc = (_) => text.Surround('"', visualmode())<CR>g@
+nnoremap <space>` <scriptcmd>&opfunc = (_) => text.Surround('`')<CR>g@iw
+xnoremap <space>` <scriptcmd>&opfunc = (_) => text.Surround('`', visualmode())<CR>g@
 
 # In visual block { and } navigate to the first/last line of paragraph,
 # which is useful if followed by I or A.
@@ -250,10 +251,8 @@ onoremap <silent> al :<C-u>normal val<CR>
 # so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-nnoremap <silent> <space>* <scriptcmd>text.Underline('*')<CR>
 nnoremap <silent> <space>= <scriptcmd>text.Underline('=')<CR>
 nnoremap <silent> <space>- <scriptcmd>text.Underline('-')<CR>
-nnoremap <silent> <space>~ <scriptcmd>text.Underline('~')<CR>
 nmap <silent> <space>1 <space>=
 nmap <silent> <space>2 <space>-
 

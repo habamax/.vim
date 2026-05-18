@@ -236,3 +236,43 @@ export def Toggle()
         execute 'normal! "_ciw' .. toggles[word]
     endif
 enddef
+
+def SurroundInLine(line: string, surround_string: string, start: number, end: number = -1): string
+    var res_line = line->slice(0, start - 1)
+    res_line ..= surround_string
+    if end >= 0
+        res_line ..= line->slice(start - 1, end)
+        res_line ..= surround_string
+        res_line ..= line->slice(end)
+    else
+        res_line ..= line->slice(start - 1)
+    endif
+    return res_line
+enddef
+
+export def Surround(char: string, mode: string = 'v')
+    var region = getregionpos(getpos("'["), getpos("']"), {mode: mode})
+    # echow region mode
+    var start = region[0][0]
+    var end = region[-1][1]
+    if mode == 'v'
+        if start[1] == end[1]
+            var res_line = SurroundInLine(getline(start[1]), char, start[2], end[2])
+            setline(start[1], res_line)
+        else
+            var res_line = SurroundInLine(getline(start[1]), char, start[2])
+            setline(start[1], res_line)
+            res_line = SurroundInLine(getline(end[1]), char, end[2] + 1)
+            setline(end[1], res_line)
+        endif
+        normal! w
+    elseif mode == 'V'
+        exe $":{start[1]}normal! O{char}"
+        exe $":{end[1]}normal! jo{char}"
+    elseif mode == "\<C-V>"
+        region->foreach((_, v) => {
+            var res_line = SurroundInLine(getline(v[0][1]), char, start[2], end[2])
+            setline(v[0][1], res_line)
+        })
+    endif
+enddef
