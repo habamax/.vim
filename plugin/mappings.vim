@@ -253,10 +253,8 @@ onoremap <silent> al :<C-u>normal val<CR>
 # so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-nnoremap <silent> <space>= <scriptcmd>text.Underline('=')<CR>
-nnoremap <silent> <space>- <scriptcmd>text.Underline('-')<CR>
-nmap <silent> <space>1 <space>=
-nmap <silent> <space>2 <space>-
+nnoremap <silent> <space>1 <scriptcmd>text.Underline('=')<CR>
+nnoremap <silent> <space>2 <scriptcmd>text.Underline('-')<CR>
 
 # git popup commands
 nnoremap <space>g <scriptcmd>qc.Git()<CR>
