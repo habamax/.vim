@@ -19,12 +19,6 @@ def NoBg()
     hi Normal guibg=NONE ctermbg=NONE
 enddef
 
-def Wildcharm()
-    if has("gui_running") && &background == 'dark'
-        hi Normal guibg=#1c1c26
-    endif
-enddef
-
 def Habamax()
     if &background == 'dark'
         if has("gui_running")
@@ -50,7 +44,6 @@ enddef
 
 augroup colors | au!
     au Colorscheme * Lsp()
-    au Colorscheme wildcharm Wildcharm()
     au Colorscheme habamax,xamabah Habamax()
     au Colorscheme polukate,habamax,wildcharm,lunaperche NoBg()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
