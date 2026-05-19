@@ -30,6 +30,8 @@ def Habamax()
         if has("gui_running")
             hi Normal guibg=#1c1c26
         endif
+        hi Popup guibg=#3a3a44
+        hi PopupBorder guibg=#3a3a44
         hi Pmenu guibg=#3a3a44
         hi PmenuKind guibg=#3a3a44
         hi PmenuExtra guibg=#3a3a44
