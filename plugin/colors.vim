@@ -44,6 +44,7 @@ def Habamax()
         hi Comment guifg=#80808a
     else
         hi Normal guibg=#ded7d0
+        hi Comment guifg=#7b7672
     endif
 enddef
 
