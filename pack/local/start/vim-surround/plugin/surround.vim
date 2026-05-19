@@ -2,11 +2,23 @@ vim9script
 
 # WIP
 # More or less simple surround plugin.
+# Usage:
+# 1. ys{char}{motion} to surround with a char or tag, e.g. ys*iw to surround
+#    word with * => *word* or ys(iw to surround word with () => (word)
+# 2. yss to surround the whole line
+# 3. s in visual mode to surround the selection
+# 4. <space>s to surround the word under cursor
+#
 # TODO:
 # 1. delete surrounds
 # 2. change surrounds?
 # 3. bugs
 # 4. v:count1 support
+
+if exists('g:loaded_surround')
+    finish
+endif
+g:loaded_surround = 1
 
 import autoload 'surround.vim'
 
