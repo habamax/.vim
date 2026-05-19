@@ -44,8 +44,7 @@ def CmdCompleteSelectFirst()
     # - on the other hand, :e newfile<CR> should always edit newfile, not the
     #   first element of completion popup
     var commands = [
-        'sfind', 'find', 'tabfind', 'buffer', 'sbuffer',
-        'colorscheme', 'highlight',
+        'sfind', 'find', 'tabfind', 'buffer', 'sbuffer', 'colorscheme',
         'Recent', 'SRecent', 'Bookmark', 'SBookmark',
         'Project', 'Help',
         'LoadSession', 'InsertTemplate', 'Colorscheme', 'Unicode'
