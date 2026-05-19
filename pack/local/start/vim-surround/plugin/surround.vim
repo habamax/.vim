@@ -13,7 +13,6 @@ vim9script
 # 1. delete surrounds
 # 2. change surrounds?
 # 3. bugs
-# 4. v:count1 support
 
 if exists('g:loaded_surround')
     finish
