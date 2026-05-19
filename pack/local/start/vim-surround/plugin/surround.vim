@@ -23,7 +23,7 @@ import autoload 'surround.vim'
 
 g:surround_with = ''
 
-def SurroundOp(move: string = ''): string
+def Surround(move: string = ''): string
     var char = getcharstr(-1, {cursor: 'keep'})
     if char !~ '\p' && char == "\<Esc>"
         return ''
@@ -42,7 +42,7 @@ def SurroundOp(move: string = ''): string
     return 'g@' .. move
 enddef
 
-nnoremap <expr> ys SurroundOp()
-nnoremap <expr> yss SurroundOp('_')
-xnoremap <expr> s SurroundOp()
-nnoremap <expr> <space>s SurroundOp('iw')
+nnoremap <expr> ys Surround()
+nnoremap <expr> yss Surround('_')
+xnoremap <expr> s Surround()
+nnoremap <expr> <space>s Surround('iw')
