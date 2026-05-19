@@ -186,6 +186,13 @@ IncSearch            incsearch         dark0             reverse
  /gui                none              incsearch
  /256+tgc true       omit              omit
 
+Popup                none              invisigrey
+ /16/8               none              none              reverse
+PopupBorder          dark8             invisigrey
+ /16/8               none              none              reverse
+PopupTitle           dark15            invisigrey        bold
+ /16/8               none              none              bold
+
 WildMenu             dark0             dark11
  /16/8               none              none              bold,reverse
 Pmenu                none              invisigrey
