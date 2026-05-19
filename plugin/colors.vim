@@ -32,6 +32,7 @@ def Habamax()
         endif
         hi Popup guibg=#3a3a44
         hi PopupBorder guibg=#3a3a44
+        hi PopupTitle guibg=#3a3a44
         hi Pmenu guibg=#3a3a44
         hi PmenuKind guibg=#3a3a44
         hi PmenuExtra guibg=#3a3a44
