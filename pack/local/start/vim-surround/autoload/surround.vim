@@ -39,6 +39,7 @@ export def Surround(mode: string, s_text: string)
     elseif mode == 'line'
         exe $":{start[1]}normal! O{s_left}"
         exe $":{end[1]}normal! jo{s_right}"
+        exe $":{start[1] + 1},{end[1] + 1}normal! =="
         exe $":{start[1] + 1}"
         exe ":normal! _"
     elseif mode == "block"
