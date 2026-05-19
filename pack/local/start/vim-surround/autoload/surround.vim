@@ -10,7 +10,10 @@ var pairs = {
 }
 
 export def Surround(mode: string, s_text: string)
-    var region = getregionpos(getpos("'["), getpos("']"), {mode: mode})
+    var region = getregionpos(getpos("'["), getpos("']"), {
+        mode: mode,
+        eol: true
+    })
 
     var start = region[0][0]
     var end = region[-1][1]
