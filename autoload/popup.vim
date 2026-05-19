@@ -2,8 +2,6 @@ vim9script
 
 var popup_borderchars = get(g:, "popup_borderchars", ['─', '│', '─', '│', '┌', '┐', '┘', '└'])
 var popup_borderchars_t = get(g:, "popup_borderchars_t", ['─', '│', '─', '│', '├', '┤', '┘', '└'])
-var popup_borderhighlight = get(g:, "popup_borderhighlight", ['PmenuBorder'])
-var popup_highlight = get(g:, "popup_highlight", 'Pmenu')
 var popup_match_highlight = get(g:, "popup_match_highlight", "PmenuMatch")
 var popup_key_highlight = get(g:, "popup_key_highlight", "Constant")
 var popup_key_sep_highlight = get(g:, "popup_key_sep_highlight", "Comment")
@@ -61,8 +59,6 @@ export def Commands(commands: list<dict<any>>, pos_botright: bool = true): numbe
         mapping: 0,
         tabpage: -1,
         borderchars: popup_borderchars,
-        borderhighlight: popup_borderhighlight,
-        highlight: popup_highlight,
         filter: (winid, key) => {
             if key == "\<cursorhold>" || key == "\<ignore>"
                 return true
@@ -102,8 +98,6 @@ export def ShowAtCursor(text: any, Setup: func(number) = null_function): number
         padding: [0, 1, 0, 1],
         border: [],
         borderchars: popup_borderchars,
-        borderhighlight: popup_borderhighlight,
-        highlight: popup_highlight,
         pos: screencol() > &columns / 1.7 ? "botright" : "botleft",
         line: 'cursor-1',
         col: 'cursor',
@@ -324,8 +318,6 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
     var popts = {
         minwidth: minwidth,
         maxwidth: maxwidth,
-        borderhighlight: popup_borderhighlight,
-        highlight: popup_highlight,
         highlights: "CursorLine:PmenuSel",
         drag: 0,
         wrap: 1,
@@ -458,8 +450,6 @@ export def Sh(command: string, Finish_cb: func() = null_function): tuple<number,
         mapping: 1,
         tabpage: -1,
         borderchars: popup_borderchars,
-        borderhighlight: popup_borderhighlight,
-        highlight: popup_highlight,
         filter: (winid, key) => {
             if key == "\<C-g>"
                 var lines = getbufline(getwininfo(winid)[0].bufnr, 1, '$')
