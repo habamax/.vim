@@ -14,7 +14,6 @@ habamax/start/vim-odin	git@github.com:habamax/vim-odin.git
 # Very nice to have
 bundle/start/traces.vim	git@github.com:markonm/traces.vim.git
 bundle/opt/vim-fugitive	git@github.com:tpope/vim-fugitive.git
-bundle/start/vim-sandwich	git@github.com:machakann/vim-sandwich
 bundle/opt/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
 
 # Nice to have

@@ -142,18 +142,6 @@ if exists("g:loaded_lsp")
     endif
 endif
 
-if exists("g:loaded_sandwich")
-    # vim-sandwich, mimic vim-surround mappings
-    nmap ys <Plug>(sandwich-add)
-    onoremap <SID>line :normal! ^vg_<CR>
-    nmap <silent> yss <Plug>(sandwich-add)<SID>line
-    nmap ds <Plug>(sandwich-delete)
-    nmap dss <Plug>(sandwich-delete-auto)
-    nmap cs <Plug>(sandwich-replace)
-    nmap css <Plug>(sandwich-replace-auto)
-    xmap S <Plug>(sandwich-add)
-endif
-
 if exists("g:loaded_copilot")
     # vim-copilot
     import autoload "qc.vim"

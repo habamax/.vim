@@ -138,19 +138,6 @@ nnoremap yob <cmd>exe &bg == "light" ? g:colors.dark : g:colors.light<CR>
 xnoremap <tab> :sil! m '>+1<CR>gv
 xnoremap <s-tab> :sil! m '<-2<CR>gv
 
-nnoremap <space>8 <scriptcmd>&opfunc = (_) => text.Surround('*')<CR>g@iw
-xnoremap <space>8 <scriptcmd>&opfunc = (_) => text.Surround('*', visualmode())<CR>g@
-nnoremap <space>* <scriptcmd>&opfunc = (_) => text.Surround('*')<CR>g@iw
-xnoremap <space>* <scriptcmd>&opfunc = (_) => text.Surround('*', visualmode())<CR>g@
-nnoremap <space>_ <scriptcmd>&opfunc = (_) => text.Surround('_')<CR>g@iw
-xnoremap <space>_ <scriptcmd>&opfunc = (_) => text.Surround('_', visualmode())<CR>g@
-nnoremap <space>' <scriptcmd>&opfunc = (_) => text.Surround("'")<CR>g@iw
-xnoremap <space>' <scriptcmd>&opfunc = (_) => text.Surround("'", visualmode())<CR>g@
-nnoremap <space>" <scriptcmd>&opfunc = (_) => text.Surround('"')<CR>g@iw
-xnoremap <space>" <scriptcmd>&opfunc = (_) => text.Surround('"', visualmode())<CR>g@
-nnoremap <space>` <scriptcmd>&opfunc = (_) => text.Surround('`')<CR>g@iw
-xnoremap <space>` <scriptcmd>&opfunc = (_) => text.Surround('`', visualmode())<CR>g@
-
 # In visual block { and } navigate to the first/last line of paragraph,
 # which is useful if followed by I or A.
 def VisualBlockPara(cmd: string)
