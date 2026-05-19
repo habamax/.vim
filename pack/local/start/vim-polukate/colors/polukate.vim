@@ -126,7 +126,7 @@ hi PmenuShadow guifg=#707080 guibg=#12121c guisp=NONE gui=NONE ctermfg=242 cterm
 hi PmenuThumb guifg=#dadada guibg=#dadada guisp=NONE gui=NONE ctermfg=253 ctermbg=253 cterm=NONE term=NONE
 hi Popup guifg=NONE guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=NONE
 hi PopupBorder guifg=#707080 guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=242 ctermbg=237 cterm=NONE term=NONE
-hi PopupTitle guifg=#ffffff guibg=#3a3a44 guisp=NONE gui=bold ctermfg=231 ctermbg=237 cterm=bold term=bold
+hi PopupTitle guifg=#707080 guibg=#3a3a44 guisp=NONE gui=bold ctermfg=242 ctermbg=237 cterm=bold term=bold
 hi PreProc guifg=#87afaf guibg=NONE guisp=NONE gui=NONE ctermfg=109 ctermbg=NONE cterm=NONE term=NONE
 hi Question guifg=#5fafd7 guibg=NONE guisp=NONE gui=NONE ctermfg=74 ctermbg=NONE cterm=NONE term=standout
 hi QuickFixLine guifg=NONE guibg=#4f2f4f guisp=NONE gui=NONE ctermfg=253 ctermbg=53 cterm=NONE term=NONE

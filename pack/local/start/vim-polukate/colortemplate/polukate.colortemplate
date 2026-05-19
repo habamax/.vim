@@ -41,7 +41,7 @@ Color: diffDelete    #2f1f1a           52                darkred
 Color: diffChange    #37352f           237               darkyellow
 Color: diffText      #0f4f4f           23                darkcyan
 
-Color: uipink        #ff00af           199               magenta;{{{
+Color: uipink        #ff00af           199               magenta
 Color: uilime        #afff00           154               green
 Color: uiblack       #3a3a44           237               darkgrey
 Color: uiextra       #9e9e9e           247               gray
@@ -66,7 +66,7 @@ Color: uiwarning     #2a2a00           235               darkyellow
 Color: uiinfo        #00002f           17                darkblue
 Color: guiTitle      #3c3c46           236               black
 Color: guiTitleNC    #2c2c36           236               black
-Color: uiShadow      #12121c           233               black;}}}
+Color: uiShadow      #12121c           233               black
 
 Color: comment       #80808a           244               darkgrey
 Color: constant      #8ec07c           107               darkgreen
@@ -190,7 +190,7 @@ Popup                none              invisigrey
  /16/8               none              none              reverse
 PopupBorder          dark8             invisigrey
  /16/8               none              none              reverse
-PopupTitle           dark15            invisigrey        bold
+PopupTitle           dark8             invisigrey        bold
  /16/8               none              none              bold
 
 WildMenu             dark0             dark11
