@@ -1,17 +1,15 @@
 vim9script
 
 # source vimscript (operator)
-def SourceVim(...args: list<any>): string
-    if len(args) == 0
-        &opfunc = matchstr(expand('<stack>'), '[^. ]*\ze[')
-        return 'g@'
-    endif
-    if getline(nextnonblank(1) ?? 1) =~ '^\s*vim9script\s*$'
-        vim9cmd :'[,']source
-    else
-        :'[,']source
-    endif
-    return ''
+def SourceVim(): string
+    &opfunc = (_) => {
+        if getline(nextnonblank(1) ?? 1) =~ '^\s*vim9script\s*$'
+            vim9cmd :'[,']source
+        else
+            :'[,']source
+        endif
+    }
+    return 'g@'
 enddef
 nnoremap <silent> <expr> <space>v SourceVim()
 xnoremap <silent> <expr> <space>v SourceVim()
