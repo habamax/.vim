@@ -6,7 +6,7 @@ vim9script
 # 1. ys{char}{motion} to surround with a char or tag, e.g. ys*iw to surround
 #    word with * => *word* or ys(iw to surround word with () => (word)
 # 2. yss to surround the whole line
-# 3. s in visual mode to surround the selection
+# 3. S in visual mode to surround the selection
 # 4. <space>s to surround the word under cursor
 #
 # TODO:
@@ -44,5 +44,5 @@ enddef
 
 nnoremap <expr> ys Surround()
 nnoremap <expr> yss Surround('_')
-xnoremap <expr> s Surround()
+xnoremap <expr> S Surround()
 nnoremap <expr> <space>s Surround('iw')
