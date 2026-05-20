@@ -1,8 +1,6 @@
 vim9script
 
 var popup_borderchars = get(g:, "popup_borderchars", ['─', '│', '─', '│', '┌', '┐', '┘', '└'])
-var popup_borderhighlight = get(g:, "popup_borderhighlight", ['PmenuBorder'])
-var popup_highlight = get(g:, "popup_highlight", 'Pmenu')
 const UPD1 = "○"
 const UPD2 = "●"
 const INST1 = "⬠"
@@ -74,8 +72,6 @@ def CreatePopup(Setup: func(number) = null_function): tuple<number, number>
         mapping: 1,
         tabpage: -1,
         borderchars: popup_borderchars,
-        borderhighlight: popup_borderhighlight,
-        highlight: popup_highlight,
     })
 
     if Setup != null_function
