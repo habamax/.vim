@@ -10,6 +10,11 @@ var pairs = {
 }
 
 export def Surround(mode: string, s_text: string)
+    var lzredraw = &lazyredraw
+    set lazyredraw
+    defer () => {
+        &lazyredraw = lzredraw
+    }()
     var region = getregionpos(getpos("'["), getpos("']"), {
         mode: mode,
         eol: true
@@ -30,19 +35,27 @@ export def Surround(mode: string, s_text: string)
 
     if mode == 'char'
         if start[1] == end[1]
-            var res_line = SurroundInLine(getline(start[1]), s_left, s_right, start[2], end[2])
-            setline(start[1], res_line)
+            if s_text == "\<CR>"
+                exe $"normal! {end[2]}|a{s_text}"
+                exe $":{start[1]}"
+                exe $"normal! {start[2]}|i{s_text}"
+            else
+                var res_line = SurroundInLine(getline(start[1]), s_left, s_right, start[2], end[2])
+                setline(start[1], res_line)
+            endif
         else
             var res_line = SurroundInLine(getline(start[1]), s_left, s_right, start[2])
             setline(start[1], res_line)
             res_line = SurroundInLine(getline(end[1]), s_right, s_left, end[2] + 1)
             setline(end[1], res_line)
         endif
-        exe $"normal! {len(s_left)}l"
+        if s_text != "\<CR>"
+            exe $"normal! {len(s_left)}l"
+        endif
     elseif mode == 'line'
         exe $":{start[1]}normal! O{s_left}"
         exe $":{end[1]}normal! jo{s_right}"
-        exe $":{start[1] + 1},{end[1] + 1}normal! =="
+        exe $":{start[1] + 1},{end[1] + 2}normal! =="
         exe $":{start[1] + 1}"
         exe ":normal! _"
     elseif mode == "block"
