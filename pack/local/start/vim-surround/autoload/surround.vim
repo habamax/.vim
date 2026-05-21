@@ -67,6 +67,9 @@ export def Surround(mode: string, s_text: string)
             var res_line = SurroundInLine(getline(v[0][1]), s_left, s_right, start[2], end[2])
             setline(v[0][1], res_line)
         })
+        if s_text != "\<CR>"
+            exe $"normal! {len(s_left)}l"
+        endif
     endif
 enddef
 
