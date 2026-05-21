@@ -37,11 +37,31 @@ export def Surround(mode: string, s_text: string)
     endif
 
     if mode == 'char'
+        setcharpos('.', start)
+        exe $"normal! i{s_left}"
+        if start[1] == end[1]
+            end[2] += strchars(s_left)
+        endif
+        if s_text == "\<CR>"
+            end[1] += 1
+            start[1] += 1
+        endif
         setcharpos('.', end)
         exe $"normal! a{s_right}"
         setcharpos('.', start)
-        exe $"normal! i{s_left}"
-        exe "normal! l"
+        if s_text == "\<CR>"
+            exe "normal! _"
+        else
+            exe "normal! l"
+        endif
+
+        # INFO: simpler, but undo puts the cursor to the end of the text
+        #       which I don't like
+        # setcharpos('.', end)
+        # exe $"normal! a{s_right}"
+        # setcharpos('.', start)
+        # exe $"normal! i{s_left}"
+        # exe "normal! l"
     elseif mode == 'line'
         if s_text == "\<CR>"
             s_left = ""
