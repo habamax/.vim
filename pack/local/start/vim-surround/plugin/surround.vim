@@ -25,7 +25,7 @@ g:surround_with = ''
 
 def Surround(move: string = ''): string
     var char = getcharstr(-1, {cursor: 'keep'})
-    if char !~ '\p' && char == "\<Esc>"
+    if char == "\<Esc>" || char == "\<CR>"
         return ''
     endif
     if char == "t"

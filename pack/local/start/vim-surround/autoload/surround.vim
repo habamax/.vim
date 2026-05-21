@@ -14,13 +14,16 @@ var pairs = {
 }
 
 export def Surround(mode: string, s_text: string)
-    var lzredraw = &lazyredraw
+    var lazyredraw = &lazyredraw
+    var virtualedit = &virtualedit
+    var shiftwidth = &shiftwidth
+    var expandtab = &expandtab
+    var softtabstop = &softtabstop
     set lazyredraw
-    var vedit = &virtualedit
-    set virtualedit=all
+    setlocal virtualedit=all
     defer () => {
-        &lazyredraw = lzredraw
-        &virtualedit = vedit
+        &lazyredraw = lazyredraw
+        &l:virtualedit = virtualedit
     }()
 
     var start = getcharpos("'[")
@@ -38,22 +41,15 @@ export def Surround(mode: string, s_text: string)
 
     if mode == 'char'
         setcharpos('.', start)
-        exe $"normal! i{s_left}"
+        exe $"normal! i\<C-v>{s_left}"
         if start[1] == end[1]
             end[2] += strchars(s_left)
         endif
-        if s_text == "\<CR>"
-            end[1] += 1
-            start[1] += 1
-        endif
         setcharpos('.', end)
-        exe $"normal! a{s_right}"
+        exe $"normal! a\<C-v>{s_right}"
         setcharpos('.', start)
-        if s_text == "\<CR>"
-            exe "normal! _"
-        else
-            exe "normal! l"
-        endif
+        # XXX: with tabs, the cursor is wrongly placed
+        exe $"normal! {strchars(s_left)}l"
 
         # INFO: simpler, but undo puts the cursor to the end of the text
         #       which I don't like
@@ -63,20 +59,18 @@ export def Surround(mode: string, s_text: string)
         # exe $"normal! i{s_left}"
         # exe "normal! l"
     elseif mode == 'line'
-        if s_text == "\<CR>"
-            s_left = ""
-            s_right = ""
-        endif
         exe $":{start[1]}normal! O{s_left}"
         exe $":{end[1]}normal! jo{s_right}"
         exe $":{start[1] + 1},{end[1] + 2}normal! =="
         exe $":{start[1] + 1}"
         exe ":normal! _"
     elseif mode == "block"
+        # XXX: undo places cursor at the end of previously selected block.
+        # is there a way to prevent that?
         normal! gv
-        exe $"normal! A{s_right}"
+        exe $"normal! A\<C-v>{s_right}"
         normal! gv
-        exe $"normal! I{s_left}"
+        exe $"normal! I\<C-v>{s_left}"
 
         # reselect and cancel the visual block so it would be possible to repeat
         # with .
