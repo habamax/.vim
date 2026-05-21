@@ -64,7 +64,7 @@ export def Surround(mode: string, s_text: string)
                 line += idx * 2
             endif
             exe $":{line}"
-            exe $"normal! {end[2]}|a{s_right}"
+            exe $"normal! {end[3] ?? end[2]}|a{s_right}"
             exe $":{line}"
             exe $"normal! {start[2]}|i{s_left}"
         })
