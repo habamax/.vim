@@ -12,8 +12,11 @@ var pairs = {
 export def Surround(mode: string, s_text: string)
     var lzredraw = &lazyredraw
     set lazyredraw
+    var vedit = &virtualedit
+    set virtualedit=all
     defer () => {
         &lazyredraw = lzredraw
+        &virtualedit = vedit
     }()
     var region = getregionpos(getpos("'["), getpos("']"), {
         mode: mode,
@@ -34,23 +37,12 @@ export def Surround(mode: string, s_text: string)
     endif
 
     if mode == 'char'
-        if start[1] == end[1]
-            if s_text == "\<CR>"
-                exe $"normal! {end[2]}|a{s_text}"
-                exe $":{start[1]}"
-                exe $"normal! {start[2]}|i{s_text}"
-            else
-                var res_line = SurroundInLine(getline(start[1]), s_left, s_right, start[2], end[2])
-                setline(start[1], res_line)
-            endif
-        else
-            var res_line = SurroundInLine(getline(start[1]), s_left, s_right, start[2])
-            setline(start[1], res_line)
-            res_line = SurroundInLine(getline(end[1]), s_right, s_left, end[2] + 1)
-            setline(end[1], res_line)
-        endif
+        exe $":{end[1]}"
+        exe $"normal! {end[2]}|a{s_right}"
+        exe $":{start[1]}"
+        exe $"normal! {start[2]}|i{s_left}"
         if s_text != "\<CR>"
-            exe $"normal! {len(s_left)}l"
+            exe "normal! l"
         endif
     elseif mode == 'line'
         if s_text == "\<CR>"
@@ -63,25 +55,21 @@ export def Surround(mode: string, s_text: string)
         exe $":{start[1] + 1}"
         exe ":normal! _"
     elseif mode == "block"
-        region->foreach((_, v) => {
-            var res_line = SurroundInLine(getline(v[0][1]), s_left, s_right, start[2], end[2])
-            setline(v[0][1], res_line)
+        region->foreach((idx, v) => {
+            var line = v[0][1]
+            if s_text == "\<CR>"
+                line += idx * 2
+            endif
+            exe $":{line}"
+            exe $"normal! {end[2]}|a{s_right}"
+            exe $":{line}"
+            exe $"normal! {start[2]}|i{s_left}"
         })
         if s_text != "\<CR>"
-            exe $"normal! {len(s_left)}l"
+            exe $":{start[1]}"
+            exe "normal! l"
+        else
+            exe $":{start[1] + 1}"
         endif
     endif
-enddef
-
-def SurroundInLine(line: string, s_left: string, s_right: string, start: number, end: number = -1): string
-    var res_line = line->slice(0, start - 1)
-    res_line ..= s_left
-    if end >= 0
-        res_line ..= line->slice(start - 1, end)
-        res_line ..= s_right
-        res_line ..= line->slice(end)
-    else
-        res_line ..= line->slice(start - 1)
-    endif
-    return res_line
 enddef
