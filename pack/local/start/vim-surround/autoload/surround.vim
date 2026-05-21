@@ -28,6 +28,8 @@ export def Surround(mode: string, s_text: string)
 
     var start = region[0][0]
     var end = region[-1][1]
+    echow region
+    echow start end
     var s_left = ''
     var s_right = ''
     if s_text =~ '^<.*>$'
@@ -58,13 +60,15 @@ export def Surround(mode: string, s_text: string)
         exe $":{start[1] + 1}"
         exe ":normal! _"
     elseif mode == "block"
+        echow start end
         region->foreach((idx, v) => {
             var line = v[0][1]
             if s_text == "\<CR>"
                 line += idx * 2
             endif
+            var end_adj = end[2] + (end[3] > 0 ? end[3] - 1 : 0)
             exe $":{line}"
-            exe $"normal! {end[3] ?? end[2]}|a{s_right}"
+            exe $"normal! {end_adj}|a{s_right}"
             exe $":{line}"
             exe $"normal! {start[2]}|i{s_left}"
         })
