@@ -60,12 +60,11 @@ export def Surround(mode: string, s_text: string)
         normal! gv
         exe $"normal! I{s_left}"
 
-        # XXX: gv fails with unicode chars like ‹ ›
-        # move selection to the new position and cancel
-        exe $"normal! gv{strchars(s_left)}lO{strchars(s_left)}l"
+        # reselect and cancel the visual block so it would be possible to repeat
+        # with .
+        setcursorcharpos(end[1], end[2] + strchars(s_left) + end[3])
+        exe "normal! \<C-v>"
+        setcursorcharpos(start[1], start[2] + strchars(s_left) + start[3])
         exe "normal! \<esc>"
-        # move cursor to the beginning of the visual block
-        setcharpos('.', start)
-        exe $"normal! {strchars(s_left)}l"
     endif
 enddef
