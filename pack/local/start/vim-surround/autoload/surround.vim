@@ -21,15 +21,9 @@ export def Surround(mode: string, s_text: string)
         &lazyredraw = lzredraw
         &virtualedit = vedit
     }()
-    var region = getregionpos(getpos("'["), getpos("']"), {
-        mode: mode,
-        eol: true
-    })
 
-    var start = region[0][0]
-    var end = region[-1][1]
-    echow region
-    echow start end
+    var start = getpos("'[")
+    var end = getpos("']")
     var s_left = ''
     var s_right = ''
     if s_text =~ '^<.*>$'
@@ -60,18 +54,20 @@ export def Surround(mode: string, s_text: string)
         exe $":{start[1] + 1}"
         exe ":normal! _"
     elseif mode == "block"
-        echow start end
-        region->foreach((idx, v) => {
-            var line = v[0][1]
+        var idx = 0
+        for linenr in range(start[1], end[1])
+            var adj_linenr = linenr
             if s_text == "\<CR>"
-                line += idx * 2
+                adj_linenr += idx * 2
             endif
-            var end_adj = end[2] + (end[3] > 0 ? end[3] - 1 : 0)
-            exe $":{line}"
+            var start_adj = start[2] + start[3]
+            var end_adj = end[2] + end[3]
+            exe $":{adj_linenr}"
             exe $"normal! {end_adj}|a{s_right}"
-            exe $":{line}"
-            exe $"normal! {start[2]}|i{s_left}"
-        })
+            exe $":{adj_linenr}"
+            exe $"normal! {start_adj}|i{s_left}"
+            idx += 1
+        endfor
         if s_text != "\<CR>"
             exe $":{start[1]}"
             exe "normal! l"
