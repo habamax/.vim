@@ -23,8 +23,8 @@ export def Surround(mode: string, s_text: string)
         &virtualedit = vedit
     }()
 
-    var start = getpos("'[")
-    var end = getpos("']")
+    var start = getcharpos("'[")
+    var end = getcharpos("']")
     var s_left = ''
     var s_right = ''
     if s_text =~ '^<.*>$'
@@ -37,10 +37,10 @@ export def Surround(mode: string, s_text: string)
     endif
 
     if mode == 'char'
-        exe $":{end[1]}"
-        exe $"normal! {end[2]}|a{s_right}"
-        exe $":{start[1]}"
-        exe $"normal! {start[2]}|i{s_left}"
+        setcharpos('.', end)
+        exe $"normal! a{s_right}"
+        setcharpos('.', start)
+        exe $"normal! i{s_left}"
         if s_text != "\<CR>"
             exe "normal! l"
         endif
@@ -57,16 +57,13 @@ export def Surround(mode: string, s_text: string)
     elseif mode == "block"
         var idx = 0
         for linenr in range(start[1], end[1])
-            var adj_linenr = linenr
-            if s_text == "\<CR>"
-                adj_linenr += idx * 2
-            endif
-            var start_adj = start[2] + start[3]
-            var end_adj = end[2] + end[3]
-            exe $":{adj_linenr}"
-            exe $"normal! {end_adj}|a{s_right}"
-            exe $":{adj_linenr}"
-            exe $"normal! {start_adj}|i{s_left}"
+            var linenr_cr = linenr + (s_text == "\<CR>" ? idx * 2 : 0)
+            var start_col = start[2] + start[3] - 1
+            var end_col = end[2] + end[3] - 1
+            exe $":{linenr_cr}"
+            exe $"normal! 0{end_col}la{s_right}"
+            exe $":{linenr_cr}"
+            exe $"normal! 0{start_col}li{s_left}"
             idx += 1
         endfor
         if s_text != "\<CR>"
