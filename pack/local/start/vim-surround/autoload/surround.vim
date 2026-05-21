@@ -55,22 +55,17 @@ export def Surround(mode: string, s_text: string)
         exe $":{start[1] + 1}"
         exe ":normal! _"
     elseif mode == "block"
-        var idx = 0
-        for linenr in range(start[1], end[1])
-            var linenr_cr = linenr + (s_text == "\<CR>" ? idx * 2 : 0)
-            var start_col = start[2] + start[3] - 1
-            var end_col = end[2] + end[3] - 1
-            exe $":{linenr_cr}"
-            exe $"normal! 0{end_col}la{s_right}"
-            exe $":{linenr_cr}"
-            exe $"normal! 0{start_col}li{s_left}"
-            idx += 1
-        endfor
-        if s_text != "\<CR>"
-            exe $":{start[1]}"
-            exe "normal! l"
-        else
-            exe $":{start[1] + 1}"
-        endif
+        normal! gv
+        exe $"normal! A{s_right}"
+        normal! gv
+        exe $"normal! I{s_left}"
+
+        # XXX: gv fails with unicode chars like ‹ ›
+        # move selection to the new position and cancel
+        exe $"normal! gv{strchars(s_left)}lO{strchars(s_left)}l"
+        exe "normal! \<esc>"
+        # move cursor to the beginning of the visual block
+        setcharpos('.', start)
+        exe $"normal! {strchars(s_left)}l"
     endif
 enddef
