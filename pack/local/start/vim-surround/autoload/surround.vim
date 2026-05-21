@@ -41,9 +41,7 @@ export def Surround(mode: string, s_text: string)
         exe $"normal! a{s_right}"
         setcharpos('.', start)
         exe $"normal! i{s_left}"
-        if s_text != "\<CR>"
-            exe "normal! l"
-        endif
+        exe "normal! l"
     elseif mode == 'line'
         if s_text == "\<CR>"
             s_left = ""
