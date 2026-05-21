@@ -65,18 +65,13 @@ export def Surround(mode: string, s_text: string)
         exe $":{start[1] + 1}"
         exe ":normal! _"
     elseif mode == "block"
-        # XXX: undo places cursor at the end of previously selected block.
-        # is there a way to prevent that?
-        normal! gv
-        exe $"normal! A\<C-v>{s_right}"
         normal! gv
         exe $"normal! I\<C-v>{s_left}"
 
-        # reselect and cancel the visual block so it would be possible to repeat
-        # with .
         setcursorcharpos(end[1], end[2] + strchars(s_left) + end[3])
         exe "normal! \<C-v>"
         setcursorcharpos(start[1], start[2] + strchars(s_left) + start[3])
-        exe "normal! \<esc>"
+
+        exe $"normal! A\<C-v>{s_right}"
     endif
 enddef
