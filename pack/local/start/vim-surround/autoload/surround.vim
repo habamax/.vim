@@ -53,6 +53,10 @@ export def Surround(mode: string, s_text: string)
             exe $"normal! {len(s_left)}l"
         endif
     elseif mode == 'line'
+        if s_text == "\<CR>"
+            s_left = ""
+            s_right = ""
+        endif
         exe $":{start[1]}normal! O{s_left}"
         exe $":{end[1]}normal! jo{s_right}"
         exe $":{start[1] + 1},{end[1] + 2}normal! =="
