@@ -21,8 +21,6 @@ g:loaded_surround = 1
 
 import autoload 'surround.vim'
 
-g:surround_with = ''
-
 def Surround(move: string = ''): string
     var char = getcharstr(-1, {cursor: 'keep'})
     if char == "\<Esc>" || char == "\<CR>"
@@ -33,12 +31,12 @@ def Surround(move: string = ''): string
         if empty(trim(tag))
             return ''
         else
-            g:surround_with = '<' .. trim(tag) .. '>'
+            surround.With('<' .. trim(tag) .. '>')
         endif
     else
-        g:surround_with = char
+        surround.With(char)
     endif
-    &opfunc = (mode) => surround.Surround(mode, g:surround_with)
+    &opfunc = (mode) => surround.Surround(mode)
     return 'g@' .. move
 enddef
 

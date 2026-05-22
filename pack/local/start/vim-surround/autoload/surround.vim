@@ -13,7 +13,13 @@ var pairs = {
     '9': ('(', ')'), '0': ('(', ')'),
 }
 
-export def Surround(mode: string, s_text: string)
+var s_text: string = ''
+
+export def With(s: string)
+    s_text = s
+enddef
+
+export def Surround(mode: string)
     var lazyredraw = &lazyredraw
     var virtualedit = &virtualedit
     set lazyredraw
