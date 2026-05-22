@@ -10,9 +10,8 @@ vim9script
 # 4. <space>s to surround the word under cursor
 #
 # TODO:
-# 1. delete surrounds
-# 2. change surrounds?
-# 3. bugs
+# 1. delete surrounds: dss, ds*, dst, dsB, etc
+# 2. change surrounds: css*, cs*_, csbB, etc?
 
 if exists('g:loaded_surround')
     finish
