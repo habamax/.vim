@@ -16,9 +16,6 @@ var pairs = {
 export def Surround(mode: string, s_text: string)
     var lazyredraw = &lazyredraw
     var virtualedit = &virtualedit
-    var shiftwidth = &shiftwidth
-    var expandtab = &expandtab
-    var softtabstop = &softtabstop
     set lazyredraw
     setlocal virtualedit=all
     defer () => {
@@ -65,13 +62,21 @@ export def Surround(mode: string, s_text: string)
         exe $":{start[1] + 1}"
         exe ":normal! _"
     elseif mode == "block"
-        normal! gv
+        # extend short lines to fix `I` in visual block
+        for nr in range(start[1], end[1])
+            if strchars(getline(nr)) < end[2] + end[3]
+                call setline(nr, getline(nr) .. repeat(' ', end[2] + end[3] - 1 - strchars(getline(nr))))
+            endif
+        endfor
+
+        setcursorcharpos(end[1], end[2] + end[3])
+        exe "normal! \<C-v>"
+        setcursorcharpos(start[1], start[2] + start[3])
         exe $"normal! I\<C-v>{s_left}"
 
         setcursorcharpos(end[1], end[2] + strchars(s_left) + end[3])
         exe "normal! \<C-v>"
         setcursorcharpos(start[1], start[2] + strchars(s_left) + start[3])
-
         exe $"normal! A\<C-v>{s_right}"
     endif
 enddef
