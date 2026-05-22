@@ -36,15 +36,17 @@ export def Surround(mode: string, s_text: string)
         s_right = empty(pair) ? s_text : pair[1]
     endif
 
+    var s_tab = s_text == "\<tab>" ? "\<C-v>" : ''
+
     if mode == 'char'
         setcharpos('.', start)
-        exe $"normal! i\<C-v>{s_left}"
+        exe $"normal! i{s_tab}{s_left}"
         if start[1] == end[1]
             end[2] += strchars(s_left)
         endif
         start[2] += strchars(s_left)
         setcharpos('.', end)
-        exe $"normal! a\<C-v>{s_right}"
+        exe $"normal! a{s_tab}{s_right}"
         setcharpos('.', start)
     elseif mode == 'line'
         exe $":{start[1]}normal! O{s_left}"
@@ -63,11 +65,11 @@ export def Surround(mode: string, s_text: string)
         setcursorcharpos(end[1], end[2] + end[3])
         exe "normal! \<C-v>"
         setcursorcharpos(start[1], start[2] + start[3])
-        exe $"normal! I\<C-v>{s_left}"
+        exe $"normal! I{s_tab}{s_left}"
 
         setcursorcharpos(end[1], end[2] + strchars(s_left) + end[3])
         exe "normal! \<C-v>"
         setcursorcharpos(start[1], start[2] + strchars(s_left) + start[3])
-        exe $"normal! A\<C-v>{s_right}"
+        exe $"normal! A{s_tab}{s_right}"
     endif
 enddef
