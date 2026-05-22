@@ -39,22 +39,11 @@ export def Surround(mode: string, s_text: string)
     if mode == 'char'
         setcharpos('.', start)
         exe $"normal! i\<C-v>{s_left}"
-        if start[1] == end[1]
-            end[2] += strchars(s_left)
-        endif
+        end[2] += strchars(s_left)
+        start[2] += strchars(s_left)
         setcharpos('.', end)
         exe $"normal! a\<C-v>{s_right}"
         setcharpos('.', start)
-        # XXX: with tabs, the cursor is wrongly placed
-        exe $"normal! {strchars(s_left)}l"
-
-        # INFO: simpler, but undo puts the cursor to the end of the text
-        #       which I don't like
-        # setcharpos('.', end)
-        # exe $"normal! a{s_right}"
-        # setcharpos('.', start)
-        # exe $"normal! i{s_left}"
-        # exe "normal! l"
     elseif mode == 'line'
         exe $":{start[1]}normal! O{s_left}"
         exe $":{end[1]}normal! jo{s_right}"
