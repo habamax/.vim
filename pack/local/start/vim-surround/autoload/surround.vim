@@ -39,7 +39,9 @@ export def Surround(mode: string, s_text: string)
     if mode == 'char'
         setcharpos('.', start)
         exe $"normal! i\<C-v>{s_left}"
-        end[2] += strchars(s_left)
+        if start[1] == end[1]
+            end[2] += strchars(s_left)
+        endif
         start[2] += strchars(s_left)
         setcharpos('.', end)
         exe $"normal! a\<C-v>{s_right}"
