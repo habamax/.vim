@@ -49,7 +49,7 @@ export def Surround(mode: string)
     var s_tab = s_text == "\<tab>" ? "\<C-v>" : ''
 
     var s_mode = mode
-    if mode == 'line' && start[1] == end[1] && s_left[-1] != ' '
+    if mode == 'line' && start[1] == end[1] && s_left[-1] !~ '[> ]' && s_left != '```'
         s_mode = 'char'
         normal! _
         start = getpos('.')
