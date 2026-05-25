@@ -48,6 +48,11 @@ export def Surround(mode: string)
 
     var s_tab = s_text == "\<tab>" ? "\<C-v>" : ''
 
+    # For a single line surround
+    # - ( [ { < surround with newlines
+    # - ``` surrounds with newlines
+    # - <tag> surrounds with newlines
+    # - others surround line without newlines
     var s_mode = mode
     if mode == 'line' && start[1] == end[1] && s_left[-1] !~ '[> ]' && s_left != '```'
         s_mode = 'char'
