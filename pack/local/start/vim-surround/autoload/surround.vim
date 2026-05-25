@@ -1,14 +1,23 @@
 vim9script
 
+# XXX: reword it later
+# If left pair ends with space
+# - linewise surround adds newline instead of space
+# If left pair ends with \n
+# - charwise/blockwise ignores it
+# - linewise surround adds newline instead of \n
+# If left pair ends with no space
+# - linewise for a single line surrounds within the line
+# - linewise for multiple lines surrounds with additional newlines
 var pairs = {
     b: ('(', ')'), '(': ('( ', ' )'), ')': ('(', ')'),
     B: ('{', '}'), '{': ('{ ', ' }'), '}': ('{', '}'),
     d: ('[', ']'), D: ('[ ', ' ]'), '[': ('[ ', ' ]'), ']': ('[', ']'),
     v: ('<', '>'), V: ('< ', ' >'), '<': ('< ', ' >'), '>': ('<', '>'),
-    g: ('"', '"'), G: ('"""', '"""'),
+    g: ('"', '"'), G: ("\"\"\"\n", '"""'),
     q: ("‘", "’"), Q: ("“", "”"),
     w: ("‹", "›"), W: ("«", "»"),
-    r: ('`', '`'), R: ('```', '```'),
+    r: ('`', '`'), R: ("```\n", '```'),
     u: ('_', '_'), U: ('__', '__'),
     o: ('*', '*'), O: ('**', '**'),
     y: ('~', '~'), Y: ('~~', '~~'),
@@ -50,11 +59,12 @@ export def Surround(mode: string)
 
     # For a single line surround
     # - ( [ { < surround with newlines
-    # - ``` surrounds with newlines
+    # - ``` and """ surrounds with newlines
     # - <tag> surrounds with newlines
     # - others surround line without newlines
     var s_mode = mode
-    if mode == 'line' && start[1] == end[1] && s_left[-1] !~ '[> ]' && s_left != '```'
+    # if mode == 'line' && start[1] == end[1] && s_left[-1] !~ '[> ]' && s_left != '```'
+    if mode == 'line' && start[1] == end[1] && s_left[-1] !~ '[> ]' && s_left[-1] != "\n"
         s_mode = 'char'
         normal! _
         start = getpos('.')
@@ -64,6 +74,8 @@ export def Surround(mode: string)
         s_left = trim(s_left)
         s_right = trim(s_right)
     endif
+
+    s_left = trim(s_left, "\n")
 
     if s_mode == 'char'
         setcharpos('.', start)
