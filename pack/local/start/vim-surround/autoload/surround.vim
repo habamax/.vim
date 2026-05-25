@@ -63,11 +63,10 @@ export def Surround(mode: string)
     # - <tag> surrounds with newlines
     # - others surround line without newlines
     var s_mode = mode
-    # if mode == 'line' && start[1] == end[1] && s_left[-1] !~ '[> ]' && s_left != '```'
     if mode == 'line' && start[1] == end[1] && s_left[-1] !~ '[> ]' && s_left[-1] != "\n"
         s_mode = 'char'
         normal! _
-        start = getpos('.')
+        start = getcharpos('.')
         normal! g_
         end = getcharpos('.')
     elseif mode == 'line'
