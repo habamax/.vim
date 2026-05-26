@@ -35,6 +35,7 @@ def Surround(move: string = ''): string
     else
         surround.With(char)
     endif
+    surround.VisualDollar(getcursorcharpos()[-1] == v:maxcol)
     &opfunc = (mode) => surround.Surround(mode)
     return 'g@' .. move
 enddef
