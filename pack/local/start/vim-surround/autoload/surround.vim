@@ -108,6 +108,7 @@ export def Surround(mode: string)
         exe $":{start[1] + 1}"
         exe ":normal! _"
     elseif s_mode == "block"
+        # FIXME: bad on lines with tabs
         if visual_dollar
             for nr in range(start[1], end[1])
                 if strchars(getline(nr)) > start[2] + start[3]
