@@ -39,13 +39,16 @@ export def Surround(mode: string)
     var lazyredraw = &lazyredraw
     var virtualedit = &virtualedit
     var indentkeys = &indentkeys
+    var autoindent = &autoindent
     set lazyredraw
     setlocal virtualedit=all
     setlocal indentkeys=
+    setlocal autoindent
     defer () => {
         &lazyredraw = lazyredraw
         &l:virtualedit = virtualedit
         &l:indentkeys = indentkeys
+        &l:autoindent = autoindent
     }()
 
     var start = getcharpos("'[")
