@@ -99,7 +99,22 @@ export def Surround(mode: string)
         setcharpos('.', end)
         exe $"normal! a{s_tab}{s_right}"
         setcharpos('.', start)
+
+        var blink_start_start = deepcopy(start)
+        var blink_start_end = deepcopy(start)
+        blink_start_start[2] -= strchars(s_left)
+        var blink_end_start = deepcopy(end)
+        blink_end_start[2] += 1
+        var blink_end_end = deepcopy(end)
+        blink_end_end[2] += strchars(s_right)
+        Blink(getregionpos(blink_start_start, blink_start_end))
+        Blink(getregionpos(blink_end_start, blink_end_end))
     elseif s_mode == 'line'
+        var blink_start_start = deepcopy(start)
+        var blink_start_end = deepcopy(start)
+        var blink_end_start = deepcopy(end)
+        var blink_end_end = deepcopy(end)
+
         exe $":{start[1]}normal! O{s_left}"
         exe $":{end[1]}normal! jo{s_right}"
         if s_left =~ '[([{]'
@@ -107,20 +122,45 @@ export def Surround(mode: string)
         endif
         exe $":{start[1] + 1}"
         exe ":normal! _"
+
+        blink_start_start[2] = indent(blink_start_start[1])
+        blink_start_end[2] = blink_start_start[2] + strchars(s_left)
+        blink_end_start[1] += 2
+        blink_end_end[1] += 2
+        blink_end_start[2] = indent(blink_end_start[1])
+        blink_end_end[2] = indent(blink_end_end[1]) + strchars(s_right)
+        Blink(getregionpos(blink_start_start, blink_start_end))
+        Blink(getregionpos(blink_end_start, blink_end_end))
     elseif s_mode == "block"
         # FIXME: bad on lines with tabs
         if visual_dollar
             for nr in range(start[1], end[1])
-                if strchars(getline(nr)) > start[2] + start[3]
+                if strchars(getline(nr)) >= start[2] + start[3]
                     setcursorcharpos(nr, start[2] + start[3])
                     var squeeze = ""
-                    if getline(nr)[ : start[2] + start[3]] =~ '^\s*$'
+                    if getline(nr)[ : start[2] + start[3] - 1] =~ '^\s*$'
                         squeeze = "_"
                     endif
                     exe $"normal! {squeeze}\<C-v>$"
                     exe $"normal! I{s_tab}{s_left}"
                     exe "normal! \<C-v>$"
                     exe $"normal! A{s_tab}{s_right}"
+
+                    var blink_start_start = deepcopy(start)
+                    var blink_start_end = deepcopy(end)
+                    blink_start_start[1] = nr
+                    blink_start_start[2] = max([indent(nr) + 1, blink_start_start[2]])
+                    blink_start_end[1] = nr
+                    blink_start_end[2] = blink_start_start[2] + strchars(s_left) - 1
+                    blink_start_end[3] = 0
+                    Blink(getregionpos(blink_start_start, blink_start_end, {type: "\<C-v>", exclusive: false}))
+                    var blink_end_start = deepcopy(start)
+                    var blink_end_end = deepcopy(end)
+                    blink_end_start[1] = nr
+                    blink_end_end[1] = nr
+                    blink_end_start[2] = strcharlen(getline(blink_end_start[1])) - strchars(s_right) + 1
+                    blink_end_end[2] = v:maxcol
+                    Blink(getregionpos(blink_end_start, blink_end_end, {type: "\<C-v>", exclusive: false}))
                 endif
             endfor
             setcursorcharpos(start[1], start[2] + start[3])
@@ -145,6 +185,29 @@ export def Surround(mode: string)
             exe "normal! \<C-v>"
             setcursorcharpos(start[1], start[2] + strchars(s_left) + start[3])
             exe $"normal! A{s_tab}{s_right}"
+
+            var blink_start_start = deepcopy(start)
+            var blink_start_end = deepcopy(end)
+            blink_start_end[2] = start[2] + strchars(s_left) - 1
+            var blink_end_start = deepcopy(start)
+            var blink_end_end = deepcopy(end)
+            blink_end_start[2] = end[2] + strchars(s_left) + 1
+            blink_end_end[2] = blink_end_start[2] + strchars(s_right) - 1
+            Blink(getregionpos(blink_start_start, blink_start_end, {type: "\<C-v>", exclusive: false}))
+            Blink(getregionpos(blink_end_start, blink_end_end, {type: "\<C-v>", exclusive: false}))
         endif
     endif
+enddef
+
+def Blink(regionpos: list<any>)
+    var m = matchaddpos('MatchParen', regionpos->mapnew((_, v) => {
+        var col_beg = v[0][2] + v[0][3]
+        var col_end = v[1][2] + v[1][3] + 1
+        return [v[0][1], col_beg, col_end - col_beg]
+    }))
+    if m == -1
+        return
+    endif
+    var winid = win_getid()
+    timer_start(300, (_) => m->matchdelete(winid))
 enddef
