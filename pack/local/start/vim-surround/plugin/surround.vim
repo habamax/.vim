@@ -46,3 +46,5 @@ nnoremap <expr> ys Surround()
 nnoremap <expr> yss Surround('_')
 xnoremap <expr> S Surround()
 nnoremap <expr> <space>s Surround('iw')
+
+nnoremap ds <scriptcmd>surround.Delete()<cr>

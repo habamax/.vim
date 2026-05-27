@@ -152,3 +152,42 @@ export def Surround(mode: string)
         endif
     endif
 enddef
+
+# XXX: start simple, only [({< and their corresponding closing pairs
+# probably needs to be an operator to be able to repeat it properly
+# full of bugs at the moment
+# TODO: add s support, dss should delete innermost [({< pair
+export def Delete()
+    var char = getcharstr(-1, {cursor: 'keep'})
+    if char == "\<Esc>" || char == "\<CR>"
+        return
+    endif
+
+    if char !~ '[\[\]{}()<>bBvVdDwWqQ]'
+        return
+    endif
+
+    var pair = get(pairs, char, ())
+    var s_left = empty(pair) ? char : trim(pair[0])
+    var s_right = empty(pair) ? char : trim(pair[1])
+
+    # var start = searchpos('\V' .. escape(s_left, '\'), 'cnb')
+    # var end = searchpos('\V' .. escape(s_right, '\'), 'cn')
+    var start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
+    var end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
+
+    if start == [0, 0] || end == [0, 0]
+        var view = winsaveview()
+        normal! %
+        start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
+        end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
+        if start == [0, 0] || end == [0, 0]
+            winrestview(view)
+            return
+        endif
+    endif
+    cursor(end)
+    normal! x
+    cursor(start)
+    normal! x
+enddef
