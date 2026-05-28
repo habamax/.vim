@@ -159,6 +159,7 @@ export def Remove()
         return
     endif
 
+    var cursor = getcurpos()
     var s_left = ""
     var s_right = ""
     var start = []
@@ -177,7 +178,15 @@ export def Remove()
         if empty(pos_list)
             return
         endif
-        [start, end] = sort(pos_list)[-1]
+        [start, end] = pos_list->sort((v1, v2) => {
+            if v1[0][0] == v2[0][0]
+                return v1[0][1] == v2[0][1] ? 0 : v1[0][1] > v2[0][1] ? 1 : -1
+            elseif v1[0][0] > v2[0][0]
+                return 1
+            else
+                return -1
+            endif
+        })[-1]
     else
         var pair = get(pairs, s_text, ())
         s_left = empty(pair) ? s_text : trim(pair[0])
@@ -185,16 +194,20 @@ export def Remove()
         [start, end] = ProbePair(s_left, s_right)
     endif
 
-
     if empty(start) || empty(end)
         return
     endif
+
     cursor(start)
     exe $'normal! {strcharlen(s_left)}"_x'
     end[1] -= strchars(s_right)
     cursor(end)
     exe $'normal! {strcharlen(s_right)}"_x'
-    cursor(start)
+
+    if start[0] == cursor[1]
+        cursor[2] -= strchars(s_left)
+    endif
+    setpos('.', cursor)
 enddef
 
 
