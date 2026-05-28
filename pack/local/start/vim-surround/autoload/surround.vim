@@ -35,7 +35,7 @@ export def VisualDollar(val: bool)
     visual_dollar = val
 enddef
 
-export def Surround(mode: string)
+export def Add(mode: string)
     var lazyredraw = &lazyredraw
     var virtualedit = &virtualedit
     var indentkeys = &indentkeys
@@ -154,22 +154,16 @@ export def Surround(mode: string)
 enddef
 
 # XXX: start simple, only [({< and their corresponding closing pairs
-# probably needs to be an operator to be able to repeat it properly
 # full of bugs at the moment
 # TODO: add s support, dss should delete innermost [({< pair
-export def Delete()
-    var char = getcharstr(-1, {cursor: 'keep'})
-    if char == "\<Esc>" || char == "\<CR>"
+export def Remove()
+    if s_text !~ '[\[\]{}()<>bBvVdDwWqQ]'
         return
     endif
 
-    if char !~ '[\[\]{}()<>bBvVdDwWqQ]'
-        return
-    endif
-
-    var pair = get(pairs, char, ())
-    var s_left = empty(pair) ? char : trim(pair[0])
-    var s_right = empty(pair) ? char : trim(pair[1])
+    var pair = get(pairs, s_text, ())
+    var s_left = empty(pair) ? s_text : trim(pair[0])
+    var s_right = empty(pair) ? s_text : trim(pair[1])
 
     # var start = searchpos('\V' .. escape(s_left, '\'), 'cnb')
     # var end = searchpos('\V' .. escape(s_right, '\'), 'cn')
@@ -186,8 +180,11 @@ export def Delete()
             return
         endif
     endif
-    cursor(end)
-    normal! x
+
     cursor(start)
-    normal! x
+    exe $'normal! {strcharlen(s_left)}"_x'
+    end[1] -= strchars(s_right)
+    cursor(end)
+    exe $'normal! {strcharlen(s_right)}"_x'
+    cursor(start)
 enddef

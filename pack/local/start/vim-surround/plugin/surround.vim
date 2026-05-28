@@ -38,8 +38,18 @@ def Surround(move: string = ''): string
         surround.With(char)
     endif
     surround.VisualDollar(getcursorcharpos()[-1] == v:maxcol)
-    &opfunc = (mode) => surround.Surround(mode)
+    &opfunc = (mode) => surround.Add(mode)
     return 'g@' .. move
+enddef
+
+def Unsurround(): string
+    var char = getcharstr(-1, {cursor: 'keep'})
+    if char == "\<Esc>" || char == "\<CR>"
+        return ''
+    endif
+    surround.With(char)
+    &opfunc = (_) => surround.Remove()
+    return 'g@l'
 enddef
 
 nnoremap <expr> ys Surround()
@@ -47,4 +57,5 @@ nnoremap <expr> yss Surround('_')
 xnoremap <expr> S Surround()
 nnoremap <expr> <space>s Surround('iw')
 
-nnoremap ds <scriptcmd>surround.Delete()<cr>
+# nnoremap ds <scriptcmd>surround.Remove()<cr>
+nnoremap <expr> ds Unsurround()
