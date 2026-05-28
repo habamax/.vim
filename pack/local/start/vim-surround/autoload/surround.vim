@@ -154,37 +154,69 @@ export def Add(mode: string)
 enddef
 
 # XXX: start simple, only [({< and their corresponding closing pairs
-# full of bugs at the moment
-# TODO: add s support, dss should delete innermost [({< pair
 export def Remove()
-    if s_text !~ '[\[\]{}()<>bBvVdDwWqQ]'
+    if s_text !~ '[\[\]{}()<>bBvVdDwWqQs]'
         return
     endif
 
-    var pair = get(pairs, s_text, ())
-    var s_left = empty(pair) ? s_text : trim(pair[0])
-    var s_right = empty(pair) ? s_text : trim(pair[1])
-
-    # var start = searchpos('\V' .. escape(s_left, '\'), 'cnb')
-    # var end = searchpos('\V' .. escape(s_right, '\'), 'cn')
-    var start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
-    var end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
-
-    if start == [0, 0] || end == [0, 0]
-        var view = winsaveview()
-        normal! %
-        start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
-        end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
-        if start == [0, 0] || end == [0, 0]
-            winrestview(view)
+    var s_left = ""
+    var s_right = ""
+    var start = []
+    var end = []
+    if s_text == 's'
+        var pos_list = []
+        for char in '({[<'
+            var pair = get(pairs, char, ())
+            s_left = empty(pair) ? char : trim(pair[0])
+            s_right = empty(pair) ? char : trim(pair[1])
+            [start, end] = ProbePair(s_left, s_right)
+            if !empty(start) && !empty(end)
+                add(pos_list, [start, end])
+            endif
+        endfor
+        if empty(pos_list)
             return
         endif
+        [start, end] = sort(pos_list)[-1]
+    else
+        var pair = get(pairs, s_text, ())
+        s_left = empty(pair) ? s_text : trim(pair[0])
+        s_right = empty(pair) ? s_text : trim(pair[1])
+        [start, end] = ProbePair(s_left, s_right)
     endif
 
+
+    if empty(start) || empty(end)
+        return
+    endif
     cursor(start)
     exe $'normal! {strcharlen(s_left)}"_x'
     end[1] -= strchars(s_right)
     cursor(end)
     exe $'normal! {strcharlen(s_right)}"_x'
     cursor(start)
+enddef
+
+
+def ProbePair(s_left: string, s_right: string): list<list<number>>
+    var view = winsaveview()
+    defer () => {
+        winrestview(view)
+    }()
+
+    # var start = searchpos('\V' .. escape(s_left, '\'), 'cnb')
+    # var end = searchpos('\V' .. escape(s_right, '\'), 'cn')
+
+    var start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
+    var end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
+
+    if start == [0, 0] || end == [0, 0]
+        normal! %
+        start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
+        end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
+        if start == [0, 0] || end == [0, 0]
+            return [[], []]
+        endif
+    endif
+    return [start, end]
 enddef
