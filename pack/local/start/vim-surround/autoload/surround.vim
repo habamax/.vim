@@ -218,6 +218,9 @@ export def Remove()
         exe $'normal! {strcharlen(s_right)}"_x'
     endif
 
+    if end[0] - start[0] > 1 && s_left =~ '[([{]'
+        exe $":{start[0]},{end[0]}normal! =="
+    endif
     setpos('.', cursor)
 enddef
 
