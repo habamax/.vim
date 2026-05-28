@@ -52,6 +52,7 @@ def SurroundRemove(): string
 enddef
 
 nnoremap <silent> <expr> <Plug>(surround-add) SurroundAdd()
+xnoremap <silent> <expr> <Plug>(surround-add) SurroundAdd()
 nnoremap <silent> <expr> <Plug>(surround-line-add) SurroundAdd('_')
 nnoremap <silent> <expr> <Plug>(surround-word-add) SurroundAdd('iw')
 nnoremap <silent> <expr> <Plug>(surround-remove) SurroundRemove()
