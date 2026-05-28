@@ -172,13 +172,13 @@ export def Remove()
             s_right = empty(pair) ? char : trim(pair[1])
             [start, end] = ProbePair(s_left, s_right)
             if !empty(start) && !empty(end)
-                add(pos_list, [start, end])
+                add(pos_list, [start, end, s_left, s_right])
             endif
         endfor
         if empty(pos_list)
             return
         endif
-        [start, end] = pos_list->sort((v1, v2) => {
+        [start, end, s_left, s_right] = pos_list->sort((v1, v2) => {
             if v1[0][0] == v2[0][0]
                 return v1[0][1] == v2[0][1] ? 0 : v1[0][1] > v2[0][1] ? 1 : -1
             elseif v1[0][0] > v2[0][0]
@@ -199,14 +199,25 @@ export def Remove()
     endif
 
     cursor(start)
-    exe $'normal! {strcharlen(s_left)}"_x'
-    end[1] -= strchars(s_right)
-    cursor(end)
-    exe $'normal! {strcharlen(s_right)}"_x'
-
-    if start[0] == cursor[1]
+    if getline('.') =~ $'\V\^\s\*{escape(s_left, '\')}\$'
+        normal! "_dd
+        start[0] -= 1
+        end[0] -= 1
+        cursor[1] -= 1
+    else
+        exe $'normal! {strcharlen(s_left)}"_x'
+    endif
+    if start[0] == cursor[1] && end[0] == cursor[1]
+        end[1] -= strchars(s_left)
         cursor[2] -= strchars(s_left)
     endif
+    cursor(end)
+    if getline('.') =~ $'\V\^\s\*{escape(s_right, '\')}\$'
+        normal! "_dd
+    else
+        exe $'normal! {strcharlen(s_right)}"_x'
+    endif
+
     setpos('.', cursor)
 enddef
 
