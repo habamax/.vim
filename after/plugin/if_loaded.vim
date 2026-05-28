@@ -6,6 +6,10 @@ if exists("g:loaded_fugitive")
     # Git log -p --follow -- %
 endif
 
+if exists("g:loaded_surround")
+    nmap <space>s <Plug>(surround-word-add)
+endif
+
 if exists("g:loaded_swap")
     omap io <Plug>(swap-textobject-i)
     xmap io <Plug>(swap-textobject-i)

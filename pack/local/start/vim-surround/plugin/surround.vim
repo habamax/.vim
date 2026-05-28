@@ -11,8 +11,6 @@ vim9script
 # TODO:
 # 1. delete surrounds: dss, ds*, dst, dsB, etc
 # 2. change surrounds: css*, cs*_, csbB, etc?
-# 3. add <Plug> mappings for users to map their own keys
-# 4. move <space>s outside of the plugin
 #
 # NOTE: visual block doesn't work right if the selection includes tabs.
 
@@ -23,7 +21,7 @@ g:loaded_surround = 1
 
 import autoload 'surround.vim'
 
-def Surround(move: string = ''): string
+def SurroundAdd(move: string = ''): string
     var char = getcharstr(-1, {cursor: 'keep'})
     if char == "\<Esc>" || char == "\<CR>"
         return ''
@@ -43,7 +41,7 @@ def Surround(move: string = ''): string
     return 'g@' .. move
 enddef
 
-def Unsurround(): string
+def SurroundRemove(): string
     var char = getcharstr(-1, {cursor: 'keep'})
     if char == "\<Esc>" || char == "\<CR>"
         return ''
@@ -53,9 +51,14 @@ def Unsurround(): string
     return 'g@l'
 enddef
 
-nnoremap <expr> ys Surround()
-nnoremap <expr> yss Surround('_')
-xnoremap <expr> S Surround()
-nnoremap <expr> <space>s Surround('iw')
+nnoremap <silent> <expr> <Plug>(surround-add) SurroundAdd()
+nnoremap <silent> <expr> <Plug>(surround-line-add) SurroundAdd('_')
+nnoremap <silent> <expr> <Plug>(surround-word-add) SurroundAdd('iw')
+nnoremap <silent> <expr> <Plug>(surround-remove) SurroundRemove()
 
-nnoremap <expr> ds Unsurround()
+if get(g:, 'surround_mappings', true)
+    nmap ys <Plug>(surround-add)
+    nmap yss <Plug>(surround-line-add)
+    xmap S <Plug>(surround-add)
+    nmap ds <Plug>(surround-remove)
+endif
