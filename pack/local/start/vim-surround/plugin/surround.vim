@@ -12,6 +12,7 @@ vim9script
 # TODO:
 # 1. delete surrounds: dss, ds*, dst, dsB, etc
 # 2. change surrounds: css*, cs*_, csbB, etc?
+# 3. add <Plug> mappings for users to map their own keys
 #
 # NOTE: visual block doesn't work right if the selection includes tabs.
 
