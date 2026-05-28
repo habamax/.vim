@@ -7,12 +7,12 @@ vim9script
 #    word with * => *word* or ys(iw to surround word with () => (word)
 # 2. yss to surround the whole line
 # 3. S in visual mode to surround the selection
-# 4. <space>s to surround the word under cursor
 #
 # TODO:
 # 1. delete surrounds: dss, ds*, dst, dsB, etc
 # 2. change surrounds: css*, cs*_, csbB, etc?
 # 3. add <Plug> mappings for users to map their own keys
+# 4. move <space>s outside of the plugin
 #
 # NOTE: visual block doesn't work right if the selection includes tabs.
 
@@ -58,5 +58,4 @@ nnoremap <expr> yss Surround('_')
 xnoremap <expr> S Surround()
 nnoremap <expr> <space>s Surround('iw')
 
-# nnoremap ds <scriptcmd>surround.Remove()<cr>
 nnoremap <expr> ds Unsurround()
