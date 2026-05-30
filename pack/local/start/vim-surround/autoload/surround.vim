@@ -231,19 +231,25 @@ def ProbePair(s_left: string, s_right: string): list<list<number>>
         winrestview(view)
     }()
 
-    # var start = searchpos('\V' .. escape(s_left, '\'), 'cnb')
-    # var end = searchpos('\V' .. escape(s_right, '\'), 'cn')
+    if trim(s_left) != trim(s_right)
+        var start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
+        var end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
 
-    var start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
-    var end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
-
-    if start == [0, 0] || end == [0, 0]
-        normal! %
-        start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
-        end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
         if start == [0, 0] || end == [0, 0]
-            return [[], []]
+            normal! %
+            start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
+            end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
+            if start == [0, 0] || end == [0, 0]
+                return [[], []]
+            endif
         endif
+        return [start, end]
+    else
+        # XXX: searchpairpos doesn't work for identical pairs, so we need to
+        # search them separately and check if they form a pair
+        # var start = searchpos('\V' .. escape(s_left, '\'), 'cnb')
+        # var end = searchpos('\V' .. escape(s_right, '\'), 'cn')
+
+        return [[], []]
     endif
-    return [start, end]
 enddef
