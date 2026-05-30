@@ -5,11 +5,15 @@ if !has('gui_running')
 endif
 
 def Lsp()
-    hi link lspDiagSignErrorText Removed
     hi link lspDiagVirtualTextError Removed
-    hi link lspDiagSignWarningText Changed
-    hi link lspDiagVirtualTextWarning Changed
     hi link lspSigActiveParameter PreProc
+    hi link lspDiagSignErrorText Removed
+    hi link lspDiagVirtualTextWarning Changed
+    hi link lspDiagSignWarningText Changed
+    hi link lspDiagVirtualTextHint Added
+    hi link lspDiagSignHintText Added
+    hi link lspDiagVirtualTextInfo Question
+    hi link lspDiagSignInfoText Question
 enddef
 
 def NoBg()
