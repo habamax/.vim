@@ -253,3 +253,45 @@ def ProbePair(s_left: string, s_right: string): list<list<number>>
         return [[], []]
     endif
 enddef
+
+# def ProbeTag(): list<list<number>>
+#     var view = winsaveview()
+#     defer () => {
+#         winrestview(view)
+#     }()
+
+#     var s_left = ''
+#     var s_right = ''
+#     if search('</[^> ]\+>', 'cW') > 0 || search('</[^> ]\+>', 'cbW') > 0
+#         s_right = expand("<cword>")
+#         if search($'<{s_right}[^>]*>', 'cbW') > 0
+#             s_left = matchstr(getline('.')[col('.') - 1 :], '\V<\s\*' .. escape(s_right, '\') .. '\[^>]\*>')
+#             s_right = '</' .. s_right .. '>'
+#         endif
+#         echow s_left ' - ' s_right
+#     endif
+
+#     return [[], []]
+
+#     # var start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
+#     # var end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
+
+#     # if start == [0, 0] || end == [0, 0]
+#     #     normal! %
+#     #     start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
+#     #     end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
+#     #     if start == [0, 0] || end == [0, 0]
+#     #         return [[], []]
+#     #     endif
+#     # endif
+#     # return [start, end]
+# enddef
+
+# :294
+# ProbeTag()
+
+# finish
+
+# <world class="this and that">
+# hello
+# </world>
