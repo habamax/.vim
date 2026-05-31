@@ -2,7 +2,7 @@ vim9script
 
 # command line completion
 set wildmode=noselect:lastused,full
-set wildmenu wildoptions=pum,fuzzy pumheight=12
+set wildoptions=pum,fuzzy pumheight=12
 set wildignore=*.o,*.obj,*.bak,*.exe,*.swp,tags
 
 cnoremap <expr> <up> wildmenumode() ? "\<C-e>\<up>" : "\<up>"
