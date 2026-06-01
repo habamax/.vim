@@ -36,16 +36,13 @@ def RunScene(scene_name: string = "")
 
     var godot_command = $'{g:godot_executable} {scene_name}'
 
-    var mods = ""
-    if winwidth(winnr()) * 0.3 > winheight(winnr())
-        mods = "vert "
-    endif
-    exe $"{mods}Term {godot_command}"
+    exe $"Term {godot_command}"
 
     last_scene_run = scene_name
 enddef
 
 def RunSceneFile()
+    # TODO: implement using regular command
     var scenes = []
     if executable('fd')
         scenes = systemlist('fd --path-separator / --type f --hidden --follow --exclude .git --glob *.tscn')
@@ -64,11 +61,9 @@ def RunSceneFile()
         })
 enddef
 
-nnoremap <buffer> <F4> <scriptcmd>Shut<CR>
 nnoremap <buffer> <F5> <scriptcmd>RunScene()<CR>
 nnoremap <buffer> <F6> <scriptcmd>RunCurrent()<CR>
 nnoremap <buffer> <F7> <scriptcmd>RunLast()<CR>
-b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F4>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F6>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F7>"'

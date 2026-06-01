@@ -19,10 +19,11 @@ def PopupHelp(symbol: string)
 enddef
 
 def RunPython()
+    update
     exe "Term python" expand("%:p")
 enddef
 
-nnoremap <buffer> <F5> <cmd>update<cr><scriptcmd>RunPython()<cr>
+nnoremap <buffer> <F5> <scriptcmd>RunPython()<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 
 if exists("g:loaded_lsp")
