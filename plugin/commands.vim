@@ -20,7 +20,9 @@ augroup general | au!
     # update Last Change in vim files
     au BufWritePre *.vim {
         if &modifiable
+            var view = winsaveview()
             exe $':1,{min([10, line('$')])}s/\v^[#"]\s+Last\s+(Change|Update):\s*\zs.*/\=strftime("%Y-%m-%d")/ie'
+            winrestview(view)
         endif
     }
 
