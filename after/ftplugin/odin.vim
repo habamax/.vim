@@ -5,12 +5,10 @@ setl noexpandtab
 setl tabstop=4
 
 def RunOdin()
-    Sh odin run .
-    win_gotoid(b:shout_initial_winid)
+    update
+    Term odin run .
 enddef
 
-nnoremap <buffer> <F4> <scriptcmd>Shut<CR>
-b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F4>"'
 nnoremap <buffer> <F5> <scriptcmd>RunOdin()<CR>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 
