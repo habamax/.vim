@@ -60,6 +60,9 @@ export def Add(mode: string)
         s_right = '</' .. s_text[1 : -2]->split()[0] .. '>'
     else
         var pair = get(pairs, s_text, ())
+        if empty(pair) && s_text !~ '[[:punct:][:space:][:blank:]]'
+            return
+        endif
         s_left = empty(pair) ? s_text : pair[0]
         s_right = empty(pair) ? s_text : pair[1]
     endif
