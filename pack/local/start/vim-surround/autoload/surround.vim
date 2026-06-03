@@ -210,6 +210,7 @@ export def Remove()
     cursor(end)
     if getline('.') =~ $'\V\^\s\*{escape(s_right, '\')}\$'
         normal! "_dd
+        end[0] -= 1
     else
         exe $'normal! {strcharlen(s_right)}"_x'
     endif
