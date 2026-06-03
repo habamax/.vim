@@ -104,7 +104,15 @@ if !executable('godot') && executable('flatpak')
     g:godot_executable = "flatpak run org.godotengine.Godot"
 endif
 
-# vim-sandwich, no default mappings
-g:sandwich_no_default_key_mappings = 1
-g:operator_sandwich_no_default_key_mappings = 1
-g:textobj_sandwich_no_default_key_mappings = 1
+g:surround_pairs = {
+    'd': ('[', ']'), 'D': ('[ ', ' ]'),
+    'v': ("\n<", '>'), 'V': ('< ', ' >'),
+    'g': ("\n\"", '"'), 'G': ("\"\"\"\n", '"""'),
+    'q': ("\n‘", "’"), 'Q': ("\n“", "”"),
+    'w': ("\n‹", "›"), 'W': ("\n«", "»"),
+    'r': ("\n`", '`'), 'R': ("```\n", '```'),
+    'u': ("\n_", '_'), 'U': ("\n__", '__'),
+    'o': ("\n*", '*'), 'O': ("\n**", '**'),
+    'y': ("\n~", '~'), 'Y': ("\n~~", '~~'),
+    'p': ("\n|", "|"), 'P': ("\n| ", " |"),
+}
