@@ -153,7 +153,7 @@ enddef
 
 # XXX: start simple, only [({< and their corresponding closing pairs
 export def Remove()
-    if s_text !~ '[\[\]{}()<>bBvVdDwWqQs]'
+    if s_text !~ '[\[\]{}()<>bBvVdDwWqQst]'
         return
     endif
 
@@ -185,6 +185,8 @@ export def Remove()
                 return -1
             endif
         })[-1]
+    elseif s_text == 't'
+        [start, end, s_left, s_right] = ProbeTag()
     else
         var pair = get(pairs, s_text, ())
         s_left = empty(pair) ? s_text : trim(pair[0])
@@ -252,44 +254,33 @@ def ProbePair(s_left: string, s_right: string): list<list<number>>
     endif
 enddef
 
-# def ProbeTag(): list<list<number>>
-#     var view = winsaveview()
-#     defer () => {
-#         winrestview(view)
-#     }()
+def ProbeTag(): tuple<list<number>, list<number>, string, string>
+    var view = winsaveview()
+    defer () => {
+        winrestview(view)
+    }()
 
-#     var s_left = ''
-#     var s_right = ''
-#     if search('</[^> ]\+>', 'cW') > 0 || search('</[^> ]\+>', 'cbW') > 0
-#         s_right = expand("<cword>")
-#         if search($'<{s_right}[^>]*>', 'cbW') > 0
-#             s_left = matchstr(getline('.')[col('.') - 1 :], '\V<\s\*' .. escape(s_right, '\') .. '\[^>]\*>')
-#             s_right = '</' .. s_right .. '>'
-#         endif
-#         echow s_left ' - ' s_right
-#     endif
+    var s_left = ''
+    var s_right = ''
+    var tagregion = []
+    try
+        normal! vat
+        tagregion = getregionpos(getpos('v'), getpos('.'), {type: 'v'})
+        var line = getline(tagregion[-1][-1][1])[ : tagregion[-1][-1][2] - 1]
+        s_right = matchstr(line, '</\S\{-}>$')
+        line = getline(tagregion[0][0][1])[tagregion[0][0][2] - 1 :]
+        s_left = matchstr(line, '^<[^[:punct:][:space:]].\{-}[^/]>')
 
-#     return [[], []]
+        # <world class="this and that"> hello </world>i slksfdjlf
+        if !empty(s_left) && !empty(s_right)
+            var start = [tagregion[0][0][1], tagregion[0][0][2]]
+            var end = [tagregion[-1][-1][1], tagregion[-1][-1][2] - strcharlen(s_right) + 1]
+            return (start, end, s_left, s_right)
+        endif
+    catch
+    finally
+        exe "normal! \<esc>"
+    endtry
+    return ([], [], '', '')
+enddef
 
-#     # var start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
-#     # var end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
-
-#     # if start == [0, 0] || end == [0, 0]
-#     #     normal! %
-#     #     start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
-#     #     end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
-#     #     if start == [0, 0] || end == [0, 0]
-#     #         return [[], []]
-#     #     endif
-#     # endif
-#     # return [start, end]
-# enddef
-
-# :294
-# ProbeTag()
-
-# finish
-
-# <world class="this and that">
-# hello
-# </world>
