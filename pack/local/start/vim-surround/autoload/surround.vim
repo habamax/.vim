@@ -215,9 +215,9 @@ export def Remove()
         exe $'normal! {strcharlen(s_right)}"_x'
     endif
 
-    if end[0] - start[0] > 1 && s_left =~ '[([{]'
-        exe $":{start[0]},{end[0]}normal! =="
-    endif
+    # if end[0] - start[0] > 1 && s_left =~ '[([{]'
+    #     exe $":{start[0]},{end[0]}normal! =="
+    # endif
     setpos('.', cursor)
 enddef
 
@@ -229,8 +229,32 @@ def ProbePair(s_left: string, s_right: string): list<list<number>>
     }()
 
     if trim(s_left) != trim(s_right)
-        var start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
-        var end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
+        var start = []
+        var start1 = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
+        var start2 = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nbW')
+        var end = []
+        var end1 = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
+        var end2 = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnW')
+        if start1[0] > start2[0]
+            start = start1
+        elseif start1[0] < start2[0]
+            start = start2
+        elseif start1[1] > start2[1]
+            start = start1
+        else
+            start = start2
+        endif
+        if end2 == [0, 0]
+            end = end1
+        elseif end1[0] > end2[0]
+            end = end2
+        elseif end1[0] < end2[0]
+            end = end1
+        elseif end1[1] > end2[1]
+            end = end2
+        else
+            end = end1
+        endif
 
         if start == [0, 0] || end == [0, 0]
             normal! %
