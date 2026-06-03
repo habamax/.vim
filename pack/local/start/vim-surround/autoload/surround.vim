@@ -153,10 +153,6 @@ enddef
 
 # XXX: start simple, only [({< and their corresponding closing pairs
 export def Remove()
-    if s_text !~ '[\[\]{}()<>bBvVdDwWqQst]'
-        return
-    endif
-
     var cursor = getcurpos()
     var s_left = ""
     var s_right = ""
@@ -271,7 +267,6 @@ def ProbeTag(): tuple<list<number>, list<number>, string, string>
         line = getline(tagregion[0][0][1])[tagregion[0][0][2] - 1 :]
         s_left = matchstr(line, '^<[^[:punct:][:space:]].\{-}[^/]>')
 
-        # <world class="this and that"> hello </world>i slksfdjlf
         if !empty(s_left) && !empty(s_right)
             var start = [tagregion[0][0][1], tagregion[0][0][2]]
             var end = [tagregion[-1][-1][1], tagregion[-1][-1][2] - strcharlen(s_right) + 1]
