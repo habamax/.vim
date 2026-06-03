@@ -104,7 +104,8 @@ export def Add(mode: string)
         exe $":{start[1]}normal! O{s_left}"
         exe $":{end[1]}normal! jo{s_right}"
         if s_left =~ '[([{]'
-            exe $":{start[1]},{end[1] + 2}normal! =="
+            exe $":{start[1]}"
+            exe $":normal! {end[1] - start[1] + 2}=="
         endif
         exe $":{start[1] + 1}"
         exe ":normal! _"
@@ -215,9 +216,10 @@ export def Remove()
         exe $'normal! {strcharlen(s_right)}"_x'
     endif
 
-    # if end[0] - start[0] > 1 && s_left =~ '[([{]'
-    #     exe $":{start[0]},{end[0]}normal! =="
-    # endif
+    if end[0] - start[0] > 1 && s_left =~ '[([{]'
+        exe $":{start[0]}"
+        exe $":normal! {end[0] - start[0]}=="
+    endif
     setpos('.', cursor)
 enddef
 
