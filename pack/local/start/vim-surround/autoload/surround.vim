@@ -194,6 +194,7 @@ export def Remove()
             var pair = get(pairs, char, ())
             s_left = empty(pair) ? char : trim(pair[0])
             s_right = empty(pair) ? char : trim(pair[1])
+            # XXX: profile perfomance.
             [start, end] = ProbePair(s_left, s_right)
             if !empty(start) && !empty(end)
                 add(pos_list, [start, end, s_left, s_right])
