@@ -30,20 +30,32 @@ export def VisualDollar(val: bool)
     visual_dollar = val
 enddef
 
+var filetypes = []
+def ShouldIndent(): bool
+    if empty(filetypes)
+        filetypes = globpath(&rtp, 'indent/*.vim', 0, 1)
+            ->mapnew((_, v) => fnamemodify(v, ':t:r'))
+    endif
+    return filetypes->index(&filetype) != -1
+enddef
+
 export def Add(mode: string)
     var lazyredraw = &lazyredraw
     var virtualedit = &virtualedit
     var indentkeys = &indentkeys
     var autoindent = &autoindent
+    var comments = &comments
     set lazyredraw
     setlocal virtualedit=all
     setlocal indentkeys=
     setlocal autoindent
+    setlocal comments=
     defer () => {
         &lazyredraw = lazyredraw
         &l:virtualedit = virtualedit
         &l:indentkeys = indentkeys
         &l:autoindent = autoindent
+        &l:comments = comments
     }()
 
     var start = getcharpos("'[")
@@ -112,7 +124,8 @@ export def Add(mode: string)
     elseif s_mode == 'line'
         exe $":{start[1]}normal! O{s_left}"
         exe $":{end[1]}normal! jo{s_right}"
-        if s_left =~ '[([{]' || s_right =~ '</.\{-}>'
+        if (s_left =~ '[([{]' || s_right =~ '</.\{-}>')
+            && ShouldIndent()
             exe $":{start[1]}"
             exe $":silent normal! {end[1] - start[1] + 2}=="
         endif
@@ -229,7 +242,9 @@ export def Remove()
         exe $'normal! {strcharlen(s_right)}"_x'
     endif
 
-    if end[0] - start[0] >= 1 && (s_left =~ '[([{]' || s_text == 't')
+    if end[0] - start[0] >= 1
+            && (s_left =~ '[([{]' || s_text == 't')
+            && ShouldIndent()
         exe $":{start[0]}"
         exe $":silent normal! {end[0] - start[0] + 2}=="
     endif
