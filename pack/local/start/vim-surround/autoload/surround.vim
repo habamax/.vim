@@ -14,7 +14,7 @@ var pairs = {
     'B': ('{', '}'), '{': ('{ ', ' }'), '}': ("\n{", '}'),
     '[': ('[ ', ' ]'), ']': ("\n[", ']'),
     '<': ('< ', ' >'), '>': ("\n<", '>'),
-    '"': ("\n\"", '"'), "'": ("\n'", "'"),
+    '"': ("\n\"", '"'), "'": ("\n'", "'"), "`": ("\n`", "`"),
     '*': ("\n*", '*'), '_': ("\n_", '_'), '/': ("\n/", '/'),
 }
 
@@ -161,7 +161,7 @@ export def Remove()
     var end = []
     if s_text == 's'
         var pos_list = []
-        for char in '({[<'
+        for char in values(pairs)->mapnew((_, v) => trim(v[0]))->sort()->uniq()
             var pair = get(pairs, char, ())
             s_left = empty(pair) ? char : trim(pair[0])
             s_right = empty(pair) ? char : trim(pair[1])
@@ -265,12 +265,18 @@ def ProbePair(s_left: string, s_right: string): list<list<number>>
         endif
         return [start, end]
     else
-        # XXX: searchpairpos doesn't work for identical pairs, so we need to
-        # search them separately and check if they form a pair
-        # var start = searchpos('\V' .. escape(s_left, '\'), 'cnb')
-        # var end = searchpos('\V' .. escape(s_right, '\'), 'cn')
+        var start = searchpos('\V' .. escape(s_left, '\'), 'ncbW', line('.'))
+        var end = searchpos('\V' .. escape(s_right, '\'), 'nW', line('.'))
+        if start != [0, 0] && end == [0, 0]
+            end = deepcopy(start)
+            start = searchpos('\V' .. escape(s_left, '\'), 'nbW', line('.'))
+        endif
 
-        return [[], []]
+        if start != [0, 0] && end != [0, 0] && start != end
+            return [start, end]
+        else
+            return [[], []]
+        endif
     endif
 enddef
 
