@@ -105,7 +105,7 @@ export def Add(mode: string)
         exe $":{end[1]}normal! jo{s_right}"
         if s_left =~ '[([{]' || s_right =~ '</.\{-}>'
             exe $":{start[1]}"
-            exe $":normal! {end[1] - start[1] + 2}=="
+            exe $":silent normal! {end[1] - start[1] + 2}=="
         endif
         exe $":{start[1] + 1}"
         exe ":normal! _"
@@ -218,7 +218,7 @@ export def Remove()
 
     if end[0] - start[0] >= 1 && (s_left =~ '[([{]' || s_text == 't')
         exe $":{start[0]}"
-        exe $":normal! {end[0] - start[0] + 2}=="
+        exe $":silent normal! {end[0] - start[0] + 2}=="
     endif
     setpos('.', cursor)
 enddef
