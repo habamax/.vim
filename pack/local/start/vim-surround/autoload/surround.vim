@@ -183,12 +183,16 @@ export def Remove()
     if s_text == 's'
         var pos_list = []
 
-        # get deduplicated chars from pairs
-        var pair_chars = pairs->items()
-            ->mapnew((_, v) => [v[0], trim(v[1][0]) .. trim(v[1][1])])
-            ->sort((v1, v2) => v1[1] == v2[1] ? 0 : v1[1] > v2[1] ? 1 : -1)
-            ->uniq((v1, v2) => v1[1] == v2[1] ? 0 : v1[1] > v2[1] ? 1 : -1)
-            ->mapnew((_, v) => v[0])
+        # XXX: probing all chars is quite slow in a large buffer (>6k lines)
+        # # get deduplicated chars from pairs
+        # # TODO: remove "duplicates" as ' and ''' or " and """
+        # var pair_chars = pairs->items()
+        #     ->mapnew((_, v) => [v[0], trim(v[1][0]) .. trim(v[1][1])])
+        #     ->sort((v1, v2) => v1[1] == v2[1] ? 0 : v1[1] > v2[1] ? 1 : -1)
+        #     ->uniq((v1, v2) => v1[1] == v2[1] ? 0 : v1[1] > v2[1] ? 1 : -1)
+        #     ->mapnew((_, v) => v[0])
+
+        var pair_chars = '({[<*_/`''"'
 
         for char in pair_chars
             var pair = get(pairs, char, ())
