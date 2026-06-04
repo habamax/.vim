@@ -103,7 +103,7 @@ export def Add(mode: string)
     elseif s_mode == 'line'
         exe $":{start[1]}normal! O{s_left}"
         exe $":{end[1]}normal! jo{s_right}"
-        if s_left =~ '[([{]'
+        if s_left =~ '[([{]' || s_right =~ '</.\{-}>'
             exe $":{start[1]}"
             exe $":normal! {end[1] - start[1] + 2}=="
         endif
@@ -216,9 +216,9 @@ export def Remove()
         exe $'normal! {strcharlen(s_right)}"_x'
     endif
 
-    if end[0] - start[0] > 1 && s_left =~ '[([{]'
+    if end[0] - start[0] > 1 && (s_left =~ '[([{]' || s_text == 't')
         exe $":{start[0]}"
-        exe $":normal! {end[0] - start[0]}=="
+        exe $":normal! {end[0] - start[0] + 2}=="
     endif
     setpos('.', cursor)
 enddef
