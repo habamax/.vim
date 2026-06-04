@@ -216,7 +216,7 @@ export def Remove()
         exe $'normal! {strcharlen(s_right)}"_x'
     endif
 
-    if end[0] - start[0] > 1 && (s_left =~ '[([{]' || s_text == 't')
+    if end[0] - start[0] >= 1 && (s_left =~ '[([{]' || s_text == 't')
         exe $":{start[0]}"
         exe $":normal! {end[0] - start[0] + 2}=="
     endif
@@ -292,7 +292,7 @@ def ProbeTag(): tuple<list<number>, list<number>, string, string>
         var line = getline(tagregion[-1][-1][1])[ : tagregion[-1][-1][2] - 1]
         s_right = matchstr(line, '</\S\{-}>$')
         line = getline(tagregion[0][0][1])[tagregion[0][0][2] - 1 :]
-        s_left = matchstr(line, '^<[^[:punct:][:space:]].\{-}[^/]>')
+        s_left = matchstr(line, '^<[^[:punct:][:space:]].\{-}>')
 
         if !empty(s_left) && !empty(s_right)
             var start = [tagregion[0][0][1], tagregion[0][0][2]]
