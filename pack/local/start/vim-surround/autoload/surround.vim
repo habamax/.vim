@@ -152,7 +152,6 @@ export def Add(mode: string)
     endif
 enddef
 
-# XXX: start simple, only [({< and their corresponding closing pairs
 export def Remove()
     var cursor = getcurpos()
     var s_left = ""
