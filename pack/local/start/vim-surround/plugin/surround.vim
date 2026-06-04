@@ -31,7 +31,7 @@ def SurroundAdd(move: string = ''): string
         if empty(trim(tag))
             return ''
         else
-            surround.With('<' .. trim(tag) .. '>')
+            surround.With('<' .. trim(trim(tag), '<>') .. '>')
         endif
     else
         surround.With(char)
