@@ -169,7 +169,15 @@ export def Remove()
     var end = []
     if s_text == 's'
         var pos_list = []
-        for char in values(pairs)->mapnew((_, v) => trim(v[0]))->sort()->uniq()
+
+        # get deduplicated chars from pairs
+        var pair_chars = pairs->items()
+            ->mapnew((_, v) => [v[0], trim(v[1][0]) .. trim(v[1][1])])
+            ->sort((v1, v2) => v1[1] == v2[1] ? 0 : v1[1] > v2[1] ? 1 : -1)
+            ->uniq((v1, v2) => v1[1] == v2[1] ? 0 : v1[1] > v2[1] ? 1 : -1)
+            ->mapnew((_, v) => v[0])
+
+        for char in pair_chars
             var pair = get(pairs, char, ())
             s_left = empty(pair) ? char : trim(pair[0])
             s_right = empty(pair) ? char : trim(pair[1])
