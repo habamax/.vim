@@ -48,6 +48,15 @@ export def Add(mode: string)
 
     var start = getcharpos("'[")
     var end = getcharpos("']")
+
+    # Handle case with v$S(. when selection is started in the middle of the
+    # line. Start/end positions are incorrect in dot-repeating.
+    var end_len = strcharlen(getline(end[1]))
+    if visual_dollar && start[1] == end[1] && start[2] == 1 && end[2] != end_len
+        start = deepcopy(end)
+        end[2] = end_len
+    endif
+
     var s_left = ''
     var s_right = ''
     if s_text =~ '^<.*>$'
