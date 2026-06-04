@@ -277,6 +277,7 @@ def ProbePair(s_left: string, s_right: string): list<list<number>>
     endif
 enddef
 
+# XXX: I would like not to use visual mode to detect surrounding tags.
 def ProbeTag(): tuple<list<number>, list<number>, string, string>
     var view = winsaveview()
     defer () => {
