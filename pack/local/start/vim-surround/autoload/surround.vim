@@ -198,15 +198,12 @@ export def Remove()
     cursor(start)
     if getline('.') =~ $'\V\^\s\*{escape(s_left, '\')}\$'
         normal! "_dd
-        start[0] -= 1
         end[0] -= 1
-        cursor[1] -= 1
     else
         exe $'normal! {strcharlen(s_left)}"_x'
     endif
     if start[0] == cursor[1] && end[0] == cursor[1]
         end[1] -= strchars(s_left)
-        cursor[2] -= strchars(s_left)
     endif
     cursor(end)
     if getline('.') =~ $'\V\^\s\*{escape(s_right, '\')}\$'
@@ -220,7 +217,7 @@ export def Remove()
         exe $":{start[0]}"
         exe $":silent normal! {end[0] - start[0] + 2}=="
     endif
-    setpos('.', cursor)
+    cursor(start)
 enddef
 
 
@@ -277,28 +274,30 @@ def ProbePair(s_left: string, s_right: string): list<list<number>>
     endif
 enddef
 
-# XXX: I would like not to use visual mode to detect surrounding tags.
 def ProbeTag(): tuple<list<number>, list<number>, string, string>
     var view = winsaveview()
+    var unnamed = getreg("")
     defer () => {
         winrestview(view)
+        setreg("", unnamed)
     }()
 
     var s_left = ''
     var s_right = ''
     var tagregion = []
     try
-        normal! vat
-        tagregion = getregionpos(getpos('v'), getpos('.'), {type: 'v'})
-        var line = getline(tagregion[-1][-1][1])[ : tagregion[-1][-1][2] - 1]
+        noautocmd normal! yat
+        var start = getpos("'[")
+        var end = getpos("']")
+
+        var line = getline(end[1])[ : end[2] - 1]
         s_right = matchstr(line, '</\S\{-}>$')
-        line = getline(tagregion[0][0][1])[tagregion[0][0][2] - 1 :]
+        line = getline(start[1])[start[2] - 1 :]
         s_left = matchstr(line, '^<[^[:punct:][:space:]].\{-}>')
 
         if !empty(s_left) && !empty(s_right)
-            var start = [tagregion[0][0][1], tagregion[0][0][2]]
-            var end = [tagregion[-1][-1][1], tagregion[-1][-1][2] - strcharlen(s_right) + 1]
-            return (start, end, s_left, s_right)
+            end[2] -= (strcharlen(s_right) - 1)
+            return (start[1 : 2], end[1 : 2], s_left, s_right)
         endif
     catch
     finally
