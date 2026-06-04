@@ -226,14 +226,16 @@ export def Remove()
     endif
 
     cursor(start)
+    var indent_lines = end[0] - start[0]
+
+    if start[0] == cursor[1] && end[0] == cursor[1]
+        end[1] -= strchars(s_left)
+    endif
     if getline('.') =~ $'\V\^\s\*{escape(s_left, '\')}\$'
         normal! "_dd
         end[0] -= 1
     else
         exe $'normal! {strcharlen(s_left)}"_x'
-    endif
-    if start[0] == cursor[1] && end[0] == cursor[1]
-        end[1] -= strchars(s_left)
     endif
     cursor(end)
     if getline('.') =~ $'\V\^\s\*{escape(s_right, '\')}\$'
@@ -242,8 +244,7 @@ export def Remove()
     else
         exe $'normal! {strcharlen(s_right)}"_x'
     endif
-
-    if end[0] - start[0] >= 1
+    if indent_lines >= 1
             && (s_left =~ '[([{]' || s_text == 't')
             && ShouldIndent()
         exe $":{start[0]}"
