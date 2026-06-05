@@ -175,6 +175,7 @@ export def Add(mode: string)
 enddef
 
 export def Remove()
+    var view = winsaveview()
     var cursor = getcurpos()
     var s_left = ""
     var s_right = ""
@@ -226,6 +227,7 @@ export def Remove()
     endif
 
     if empty(start) || empty(end)
+        winrestview(view)
         return
     endif
 
@@ -254,6 +256,7 @@ export def Remove()
         exe $":{start[0]}"
         exe $":silent normal! {end[0] - start[0] + 2}=="
     endif
+    winrestview(view)
     cursor(start)
 enddef
 
