@@ -93,16 +93,16 @@ export def Add(mode: string)
     var s_mode = mode
     if mode == 'line' && start[1] == end[1] && s_left[-1] !~ '[> ]' && s_left[-1] != "\n"
         s_mode = 'char'
-        normal! _
+        noautocmd normal! _
         start = getcursorcharpos()
-        normal! g_
+        noautocmd normal! g_
         end = getcursorcharpos()
     elseif mode == 'line' && s_left[0] == "\n"
         s_mode = 'char'
-        normal! _
+        noautocmd normal! _
         start = getcursorcharpos()
         setcharpos('.', end)
-        normal! g_
+        noautocmd normal! g_
         end = getcharpos('.')
     elseif mode == 'line'
         s_left = trim(s_left)
@@ -113,24 +113,24 @@ export def Add(mode: string)
 
     if s_mode == 'char'
         setcharpos('.', start)
-        exe $"normal! i{s_tab}{s_left}"
+        exe $"noautocmd normal! i{s_tab}{s_left}"
         if start[1] == end[1]
             end[2] += strchars(s_left)
         endif
         start[2] += strchars(s_left)
         setcharpos('.', end)
-        exe $"normal! a{s_tab}{s_right}"
+        exe $"noautocmd normal! a{s_tab}{s_right}"
         setcharpos('.', start)
     elseif s_mode == 'line'
-        exe $":{start[1]}normal! O{s_left}"
-        exe $":{end[1]}normal! jo{s_right}"
+        exe $":noautocmd :{start[1]}normal! O{s_left}"
+        exe $":noautocmd :{end[1]}normal! jo{s_right}"
         if (s_left =~ '[([{]' || s_right =~ '</.\{-}>')
             && ShouldIndent()
             exe $":{start[1]}"
-            exe $":silent normal! {end[1] - start[1] + 2}=="
+            exe $":silent noautocmd normal! {end[1] - start[1] + 2}=="
         endif
         exe $":{start[1] + 1}"
-        exe ":normal! _"
+        exe ":noautocmd normal! _"
     elseif s_mode == "block"
         if visual_dollar
             for nr in range(start[1], end[1])
@@ -140,17 +140,17 @@ export def Add(mode: string)
                     if getline(nr)[ : start[2] - 1] =~ '^\s*$'
                         squeeze = "_"
                     endif
-                    exe $"normal! {squeeze}\<C-v>$"
-                    exe $"normal! I{s_tab}{s_left}"
-                    exe "normal! \<C-v>$"
-                    exe $"normal! A{s_tab}{s_right}"
+                    exe $"noautocmd normal! {squeeze}\<C-v>$"
+                    exe $"noautocmd normal! I{s_tab}{s_left}"
+                    exe "noautocmd normal! \<C-v>$"
+                    exe $"noautocmd normal! A{s_tab}{s_right}"
 
                 endif
             endfor
             setcursorcharpos(start[1 :])
-            exe "normal! \<C-v>"
+            exe "noautocmd normal! \<C-v>"
             setcursorcharpos(end[1 :])
-            exe "normal! $\<ESC>"
+            exe "noautocmd normal! $\<ESC>"
             start[2] += strchars(s_left)
             setcursorcharpos(start[1 :])
         else
@@ -162,14 +162,14 @@ export def Add(mode: string)
             endfor
 
             setcursorcharpos(end[1], end[2] + end[3])
-            exe "normal! \<C-v>"
+            exe "noautocmd normal! \<C-v>"
             setcursorcharpos(start[1], start[2] + start[3])
-            exe $"normal! I{s_tab}{s_left}"
+            exe $"noautocmd normal! I{s_tab}{s_left}"
 
             setcursorcharpos(end[1], end[2] + strchars(s_left) + end[3])
-            exe "normal! \<C-v>"
+            exe "noautocmd normal! \<C-v>"
             setcursorcharpos(start[1], start[2] + strchars(s_left) + start[3])
-            exe $"normal! A{s_tab}{s_right}"
+            exe $"noautocmd normal! A{s_tab}{s_right}"
         endif
     endif
 enddef
@@ -238,23 +238,23 @@ export def Remove()
         end[1] -= strchars(s_left)
     endif
     if getline('.') =~ $'\V\^\s\*{escape(s_left, '\')}\$'
-        normal! "_dd
+        noautocmd normal! "_dd
         end[0] -= 1
     else
-        exe $'normal! {strcharlen(s_left)}"_x'
+        exe $'noautocmd normal! {strcharlen(s_left)}"_x'
     endif
     cursor(end)
     if getline('.') =~ $'\V\^\s\*{escape(s_right, '\')}\$'
-        normal! "_dd
+        noautocmd normal! "_dd
         end[0] -= 1
     else
-        exe $'normal! {strcharlen(s_right)}"_x'
+        exe $'noautocmd normal! {strcharlen(s_right)}"_x'
     endif
     if indent_lines >= 1
             && (s_left =~ '[([{]' || s_text == 't')
             && ShouldIndent()
         exe $":{start[0]}"
-        exe $":silent normal! {end[0] - start[0] + 2}=="
+        exe $":silent noautocmd normal! {end[0] - start[0] + 2}=="
     endif
     winrestview(view)
     cursor(start)
@@ -296,7 +296,7 @@ def ProbePair(s_left: string, s_right: string): list<list<number>>
         endif
 
         if start == [0, 0] || end == [0, 0]
-            normal! %
+            noautocmd normal! %
             start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
             end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
             if start == [0, 0] || end == [0, 0]
@@ -347,7 +347,7 @@ def ProbeTag(): tuple<list<number>, list<number>, string, string>
         endif
     catch
     finally
-        exe "normal! \<esc>"
+        exe "noautocmd normal! \<esc>"
     endtry
     return ([], [], '', '')
 enddef
