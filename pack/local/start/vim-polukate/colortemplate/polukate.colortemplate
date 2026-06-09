@@ -72,21 +72,11 @@ Color: comment       #80808a           244               darkgrey
 Color: constant      #8ec07c           107               darkgreen
 Color: type          #d3869b           175               darkmagenta
 Color: statement     #ffd75f           221               yellow
-Color: preproc       #87afaf           109               blue
-Color: identifier    #afaf87           144               yellow
+Color: preproc       #87afaf           109               cyan
+Color: identifier    #afaf87           144               darkyellow
 Color: special       #c19552           137               darkyellow
 
 Color: directory     #bfbf97           144               yellow
-
-; Color: constant      #fe8019           208               darkred
-; Color: string        #8ec07c           107               darkgreen
-; Color: statement     #ffbf00           214               yellow
-; Color: statement     #efbf5f           214               yellow
-; Color: type          #c19552           137               darkyellow
-; Color: special       #a76d54           208               darkred
-; Color: special       #A67447           208               darkred
-; Color: special       #957746           208               darkred
-
 
 Include: _link_default
 Include: _link_plugin
@@ -96,29 +86,29 @@ Term colors: dark0 dark1 dark2 dark3 dark4 dark5 dark6 dark7
 
 ; Group              Foreground        Background        Attributes
 Normal               dark7             dark0
- /256                dark7             none
+ /256                dark7             dark0
  /16/8               none              none
 
 Comment              comment           none
- /16/8               none              none              bold
+ /8                  none              none              bold
 Constant             constant          none
- /16/8               none              none
+ /8                  constant          none
 Identifier           identifier        none
  /16/8               none              none
 Statement            statement         none              bold
- /16/8               none              none
+ /16/8               statement         none              bold
 PreProc              preproc           none
- /16/8               none              none
+ /8                  none              none
 Type                 type              none
- /16/8               none              none
+ /8                  none              none
 Special              special           none
- /16/8               none              none
+ /8                  none              none
 Underlined           dark7             none              underline
  /16/8               none              none              underline
 Todo                 none              none              bold
 Title                none              none              bold
 Directory            directory         none              bold
- /16/8               none              none              bold
+ /8                  none              none              bold
 Ignore               dark7             none
  /16/8               none              none
 
@@ -196,28 +186,37 @@ PopupTitle           dark8             invisigrey        bold
 WildMenu             dark0             dark11
  /16/8               none              none              bold,reverse
 Pmenu                none              invisigrey
- /16/8               none              none              reverse
+ /16                 dark0             dark7
+ /8                  none              none              reverse
 PmenuBorder          dark8             invisigrey
- /16/8               none              none              reverse
+ /16                 dark0             dark7
+ /8                  none              none              reverse
 PmenuShadow          dark8             uiShadow
  /16/8               none              none
 PmenuMatch           uimatchchar       none
- /16/8               none              dark3             reverse
+ /16                 dark0             dark7             bold
+ /8                  none              none              bold
 PmenuExtra           uiextra           invisigrey
- /16/8               none              none              reverse
+ /16                 dark0             dark7
+ /8                  none              none
 PmenuKind            uimagenta         invisigrey
- /16/8               none              none              reverse,bold
+ /16                 dark0             dark7
+ /8                  none              none
 PmenuSbar            dark8             linenrblack
  /16                 dark8             none              reverse
  /8                  none              none              reverse
 PmenuSel             none              uidarkgray
- /16/8               none              none              bold
+ /16                 dark7             dark0
+ /8                  none              none
 PmenuMatchSel        uimatchchar       uidarkgray
- /16/8               dark5             none              bold
+ /16                 dark7             dark0             bold
+ /8                  none              dark0             bold
 PmenuExtraSel        uiextrasel        uidarkgray
- /16/8               none              none              bold
+ /16                 dark7             dark0
+ /8                  none              dark0
 PmenuKindSel         uimagenta         uidarkgray
- /16/8               none              none              bold
+ /16                 dark7             dark0
+ /8                  none              dark0
 PmenuThumb           dark7             dark7
  /16/8               none              none
 
@@ -225,7 +224,7 @@ TitleBar             dark15            guiTitle
 TitleBarNC           comment           guiTitleNC
 
 StatusLine           dark0             status
- /16/8               none              none              bold,reverse
+ /8                  none              none              bold,reverse
 StatusLineNC         statusnc          dark0             reverse
  /16                 dark8             none              reverse
  /8                  none              none              bold,underline
@@ -237,9 +236,9 @@ TabLine              statusnc          dark0             reverse
  /16                 dark8             none              reverse
  /8                  none              none              bold,underline
 TabLineFill          dark7             statusnc
- /16/8               none              none
+ /16/8               statusnc          dark0             reverse
 TabLineSel           dark0             status
- /16/8               none              none              reverse,bold
+ /8                  none              none              reverse,bold
 
 SpellBad             dark1             none              s=none  underline
  /gui                none              none              s=dark1 undercurl
@@ -272,9 +271,8 @@ Changed              dark3             none
 Removed              dark1             none
 
 ToolbarLine          none              none
- /16/8               none              none              reverse
 ToolbarButton        dark6             dark0             bold,reverse
- /16/8               none              none              bold,reverse
+ /8                  none              none              bold,reverse
 
 Cursor               none              none              reverse
  /16/8               none              none              reverse
