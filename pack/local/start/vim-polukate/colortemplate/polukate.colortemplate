@@ -86,11 +86,9 @@ Term colors: dark0 dark1 dark2 dark3 dark4 dark5 dark6 dark7
 
 ; Group              Foreground        Background        Attributes
 Normal               dark7             dark0
- /256                dark7             dark0
- /16/8               none              none
 
 Comment              comment           none
- /8                  none              none              bold
+ /16/8                  none              none              bold
 Constant             constant          none
  /8                  constant          none
 Identifier           identifier        none
@@ -198,25 +196,25 @@ PmenuMatch           uimatchchar       none
  /8                  none              none              bold
 PmenuExtra           uiextra           invisigrey
  /16                 dark0             dark7
- /8                  none              none
+ /8                  none              none              reverse
 PmenuKind            uimagenta         invisigrey
  /16                 dark0             dark7
- /8                  none              none
+ /8                  none              none              reverse
 PmenuSbar            dark8             linenrblack
  /16                 dark8             none              reverse
  /8                  none              none              reverse
 PmenuSel             none              uidarkgray
  /16                 dark7             dark0
- /8                  none              none
+ /8                  dark0             none
 PmenuMatchSel        uimatchchar       uidarkgray
  /16                 dark7             dark0             bold
- /8                  none              dark0             bold
+ /8                  dark0             none              bold
 PmenuExtraSel        uiextrasel        uidarkgray
  /16                 dark7             dark0
- /8                  none              dark0
+ /8                  none              none
 PmenuKindSel         uimagenta         uidarkgray
  /16                 dark7             dark0
- /8                  none              dark0
+ /8                  none              none
 PmenuThumb           dark7             dark7
  /16/8               none              none
 

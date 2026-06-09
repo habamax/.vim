@@ -177,11 +177,11 @@ if s:tgc || s:t_Co >= 256
 endif
 
 if s:t_Co >= 16
-  hi Normal ctermfg=NONE ctermbg=NONE cterm=NONE
+  hi Normal ctermfg=grey ctermbg=black cterm=NONE
   hi Added ctermfg=darkgreen ctermbg=NONE cterm=NONE
   hi Changed ctermfg=darkyellow ctermbg=NONE cterm=NONE
   hi ColorColumn ctermfg=NONE ctermbg=NONE cterm=reverse
-  hi Comment ctermfg=darkgrey ctermbg=NONE cterm=NONE
+  hi Comment ctermfg=NONE ctermbg=NONE cterm=bold
   hi Conceal ctermfg=NONE ctermbg=NONE cterm=NONE
   hi Constant ctermfg=darkgreen ctermbg=NONE cterm=NONE
   hi Cursor ctermfg=NONE ctermbg=NONE cterm=reverse
@@ -259,7 +259,7 @@ if s:t_Co >= 16
 endif
 
 if s:t_Co >= 8
-  hi Normal ctermfg=NONE ctermbg=NONE cterm=NONE
+  hi Normal ctermfg=grey ctermbg=black cterm=NONE
   hi Added ctermfg=darkgreen ctermbg=NONE cterm=NONE
   hi Changed ctermfg=darkyellow ctermbg=NONE cterm=NONE
   hi ColorColumn ctermfg=NONE ctermbg=NONE cterm=reverse
@@ -291,14 +291,14 @@ if s:t_Co >= 8
   hi NonText ctermfg=NONE ctermbg=NONE cterm=NONE
   hi Pmenu ctermfg=NONE ctermbg=NONE cterm=reverse
   hi PmenuBorder ctermfg=NONE ctermbg=NONE cterm=reverse
-  hi PmenuExtra ctermfg=NONE ctermbg=NONE cterm=NONE
-  hi PmenuExtraSel ctermfg=NONE ctermbg=black cterm=NONE
-  hi PmenuKind ctermfg=NONE ctermbg=NONE cterm=NONE
-  hi PmenuKindSel ctermfg=NONE ctermbg=black cterm=NONE
+  hi PmenuExtra ctermfg=NONE ctermbg=NONE cterm=reverse
+  hi PmenuExtraSel ctermfg=NONE ctermbg=NONE cterm=NONE
+  hi PmenuKind ctermfg=NONE ctermbg=NONE cterm=reverse
+  hi PmenuKindSel ctermfg=NONE ctermbg=NONE cterm=NONE
   hi PmenuMatch ctermfg=NONE ctermbg=NONE cterm=bold
-  hi PmenuMatchSel ctermfg=NONE ctermbg=black cterm=bold
+  hi PmenuMatchSel ctermfg=black ctermbg=NONE cterm=bold
   hi PmenuSbar ctermfg=NONE ctermbg=NONE cterm=reverse
-  hi PmenuSel ctermfg=NONE ctermbg=NONE cterm=NONE
+  hi PmenuSel ctermfg=black ctermbg=NONE cterm=NONE
   hi PmenuShadow ctermfg=NONE ctermbg=NONE cterm=NONE
   hi PmenuThumb ctermfg=NONE ctermbg=NONE cterm=NONE
   hi Popup ctermfg=NONE ctermbg=NONE cterm=reverse
