@@ -21,16 +21,39 @@ var pairs = {
 extend(pairs, get(g:, "surround_pairs", {}))
 
 var s_text: string = ''
-export def With(s: string)
-    s_text = s
-enddef
-
 var visual_dollar: bool = false
-export def VisualDollar(val: bool)
-    visual_dollar = val
+var filetypes = []
+
+export def Add(move: string = ''): string
+    var char = getcharstr(-1, {cursor: 'keep'})
+    if char == "\<Esc>" || char == "\<CR>"
+        return ''
+    endif
+    if char == "t"
+        var tag  = input("Tag: ")
+        if empty(trim(tag))
+            return ''
+        else
+            s_text = '<' .. trim(trim(tag), '<>') .. '>'
+        endif
+    else
+        s_text = char
+    endif
+    visual_dollar = getcursorcharpos()[-1] == v:maxcol
+    &opfunc = (mode) => AddSurround(mode)
+    return 'g@' .. move
 enddef
 
-var filetypes = []
+export def Remove(): string
+    var char = getcharstr(-1, {cursor: 'keep'})
+    if char == "\<Esc>" || char == "\<CR>"
+        return ''
+    endif
+    s_text = char
+    &opfunc = (_) => RemoveSurround()
+    return 'g@l'
+enddef
+
 def ShouldIndent(): bool
     if empty(filetypes)
         filetypes = globpath(&rtp, 'indent/*.vim', 0, 1)
@@ -39,7 +62,7 @@ def ShouldIndent(): bool
     return filetypes->index(&filetype) != -1
 enddef
 
-export def Add(mode: string)
+def AddSurround(mode: string)
     var lazyredraw = &lazyredraw
     var virtualedit = &virtualedit
     var indentkeys = &indentkeys
@@ -174,7 +197,7 @@ export def Add(mode: string)
     endif
 enddef
 
-export def Remove()
+def RemoveSurround()
     var view = winsaveview()
     var cursor = getcurpos()
     var s_left = ""
@@ -199,7 +222,6 @@ export def Remove()
             var pair = get(pairs, char, ())
             s_left = empty(pair) ? char : trim(pair[0])
             s_right = empty(pair) ? char : trim(pair[1])
-            # XXX: profile perfomance.
             [start, end] = ProbePair(s_left, s_right)
             if !empty(start) && !empty(end)
                 add(pos_list, [start, end, s_left, s_right])
@@ -351,3 +373,4 @@ def ProbeTag(): tuple<list<number>, list<number>, string, string>
     endtry
     return ([], [], '', '')
 enddef
+
