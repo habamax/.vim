@@ -8,6 +8,7 @@ endif
 
 if exists("g:loaded_surround")
     nmap <space>s <Plug>(surround-word-add)
+    xmap <space>s <Plug>(surround-add)
 endif
 
 if exists("g:loaded_swap")
