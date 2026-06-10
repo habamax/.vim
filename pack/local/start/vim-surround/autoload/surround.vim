@@ -289,6 +289,11 @@ def RemoveSurround()
     cursor(start)
 enddef
 
+def SkipEscaped(): bool
+    var line = getline(line('.'))[ : col('.') - 2]
+    var escaped = matchstr(line, '\\*$')
+    return fmod(len(escaped), 2) > 0
+enddef
 
 def ProbePair(s_left: string, s_right: string): list<list<number>>
     var view = winsaveview()
@@ -298,11 +303,11 @@ def ProbePair(s_left: string, s_right: string): list<list<number>>
 
     if trim(s_left) != trim(s_right)
         var start = []
-        var start1 = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
-        var start2 = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nbW')
+        var start1 = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW', () => SkipEscaped())
+        var start2 = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nbW', () => SkipEscaped())
         var end = []
-        var end1 = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
-        var end2 = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnW')
+        var end1 = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW', () => SkipEscaped())
+        var end2 = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnW', () => SkipEscaped())
         if start1[0] > start2[0]
             start = start1
         elseif start1[0] < start2[0]
@@ -326,8 +331,8 @@ def ProbePair(s_left: string, s_right: string): list<list<number>>
 
         if start == [0, 0] || end == [0, 0]
             noautocmd normal! %
-            start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW')
-            end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW')
+            start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW', () => SkipEscaped())
+            end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW', () => SkipEscaped())
             if start == [0, 0] || end == [0, 0]
                 return [[], []]
             endif
