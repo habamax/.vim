@@ -339,11 +339,11 @@ def ProbePair(s_left: string, s_right: string): list<list<number>>
         endif
         return [start, end]
     else
-        var start = searchpos('\V' .. escape(s_left, '\'), 'ncbW', line('.'))
-        var end = searchpos('\V' .. escape(s_right, '\'), 'nW', line('.'))
+        var start = searchpos('\V' .. escape(s_left, '\'), 'ncbW', line('.'), 200, () => SkipEscaped())
+        var end = searchpos('\V' .. escape(s_right, '\'), 'nW', line('.'), 200, () => SkipEscaped())
         if start != [0, 0] && end == [0, 0]
             end = deepcopy(start)
-            start = searchpos('\V' .. escape(s_left, '\'), 'nbW', line('.'))
+            start = searchpos('\V' .. escape(s_left, '\'), 'nbW', line('.'), 200, () => SkipEscaped())
         endif
 
         if start != [0, 0] && end != [0, 0] && start != end
