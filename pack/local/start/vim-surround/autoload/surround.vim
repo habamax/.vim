@@ -20,6 +20,10 @@ var pairs = {
 
 extend(pairs, get(g:, "surround_pairs", {}))
 
+def Pairs(): dict<any>
+    return extendnew(pairs, get(b:, "surround_pairs", {}))
+enddef
+
 var s_text: string = ''
 var visual_dollar: bool = false
 var filetypes = []
@@ -98,7 +102,7 @@ def AddSurround(mode: string)
         s_left = s_text
         s_right = '</' .. s_text[1 : -2]->split()[0] .. '>'
     else
-        var pair = get(pairs, s_text, ())
+        var pair = get(Pairs(), s_text, ())
         if empty(pair) && s_text !~ '[[:punct:][:space:][:blank:]]'
             return
         endif
@@ -219,7 +223,7 @@ def RemoveSurround()
         var pair_chars = '({[<*_/`''"'
 
         for char in pair_chars
-            var pair = get(pairs, char, ())
+            var pair = get(Pairs(), char, ())
             s_left = empty(pair) ? char : trim(pair[0])
             s_right = empty(pair) ? char : trim(pair[1])
             [start, end] = ProbePair(s_left, s_right)
@@ -242,7 +246,7 @@ def RemoveSurround()
     elseif s_text == 't'
         [start, end, s_left, s_right] = ProbeTag()
     else
-        var pair = get(pairs, s_text, ())
+        var pair = get(Pairs(), s_text, ())
         s_left = empty(pair) ? s_text : trim(pair[0])
         s_right = empty(pair) ? s_text : trim(pair[1])
         [start, end] = ProbePair(s_left, s_right)
