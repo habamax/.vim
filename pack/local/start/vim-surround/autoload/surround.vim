@@ -67,22 +67,25 @@ def ShouldIndent(): bool
 enddef
 
 def AddSurround(mode: string)
-    var lazyredraw = &lazyredraw
-    var virtualedit = &virtualedit
-    var indentkeys = &indentkeys
-    var autoindent = &autoindent
-    var comments = &comments
+    var save_lazyredraw = &lazyredraw
+    var save_virtualedit = &virtualedit
+    var save_indentkeys = &indentkeys
+    var save_autoindent = &autoindent
+    var save_comments = &comments
+    var save_clipboard = &clipboard
     set lazyredraw
     setlocal virtualedit=all
     setlocal indentkeys=
     setlocal autoindent
     setlocal comments=
+    set clipboard=
     defer () => {
-        &lazyredraw = lazyredraw
-        &l:virtualedit = virtualedit
-        &l:indentkeys = indentkeys
-        &l:autoindent = autoindent
-        &l:comments = comments
+        &lazyredraw = save_lazyredraw
+        &l:virtualedit = save_virtualedit
+        &l:indentkeys = save_indentkeys
+        &l:autoindent = save_autoindent
+        &l:comments = save_comments
+        &clipboard = save_clipboard
     }()
 
     var pairs = Pairs()
