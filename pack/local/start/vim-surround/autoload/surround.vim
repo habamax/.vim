@@ -307,40 +307,26 @@ def ProbePair(s_left: string, s_right: string): list<list<number>>
     }()
 
     if trim(s_left) != trim(s_right)
-        var start = []
-        var start1 = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW', () => SkipEscaped())
-        var start2 = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nbW', () => SkipEscaped())
-        var end = []
-        var end1 = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW', () => SkipEscaped())
-        var end2 = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnW', () => SkipEscaped())
-        if start1[0] > start2[0]
-            start = start1
-        elseif start1[0] < start2[0]
-            start = start2
-        elseif start1[1] > start2[1]
-            start = start1
-        else
-            start = start2
-        endif
-        if end2 == [0, 0]
-            end = end1
-        elseif end1[0] > end2[0]
-            end = end2
-        elseif end1[0] < end2[0]
-            end = end1
-        elseif end1[1] > end2[1]
-            end = end2
-        else
-            end = end1
-        endif
-
-        if start == [0, 0] || end == [0, 0]
-            noautocmd normal! %
-            start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'cnbW', () => SkipEscaped())
-            end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'nW', () => SkipEscaped())
-            if start == [0, 0] || end == [0, 0]
-                return [[], []]
+        var char = getline(line('.'))[col('.') - 1]
+        var start_flags = 'bW'
+        var end_flags = 'W'
+        if stridx(s_right, char) != -1
+            if search('\V' .. escape(s_right, '\'), 'cbW', line('.')) == 0
+                start_flags ..= 'c'
             endif
+        else
+            start_flags ..= 'c'
+        endif
+        var start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), start_flags, () => SkipEscaped())
+        if start == [0, 0]
+            return [[], []]
+        endif
+        if stridx(s_left, char) != -1
+            search($'[^{s_left}]', 'W', line('.'))
+        endif
+        var end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), end_flags, () => SkipEscaped())
+        if end == [0, 0]
+            return [[], []]
         endif
         return [start, end]
     else
