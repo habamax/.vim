@@ -72,20 +72,17 @@ def AddSurround(mode: string)
     var save_indentkeys = &indentkeys
     var save_autoindent = &autoindent
     var save_comments = &comments
-    var save_clipboard = &clipboard
     set lazyredraw
     setlocal virtualedit=all
     setlocal indentkeys=
     setlocal autoindent
     setlocal comments=
-    set clipboard=
     defer () => {
         &lazyredraw = save_lazyredraw
         &l:virtualedit = save_virtualedit
         &l:indentkeys = save_indentkeys
         &l:autoindent = save_autoindent
         &l:comments = save_comments
-        &clipboard = save_clipboard
     }()
 
     var pairs = Pairs()
@@ -207,6 +204,11 @@ def AddSurround(mode: string)
 enddef
 
 def RemoveSurround()
+    var save_clipboard = &clipboard
+    set clipboard=
+    defer () => {
+        &clipboard = save_clipboard
+    }()
     var view = winsaveview()
     var cursor = getcurpos()
     var s_left = ""
