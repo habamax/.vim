@@ -178,7 +178,11 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
         endif
         start[2] += strchars(s_left)
         setcharpos('.', end)
-        exe $"noautocmd normal! a{s_tab}{s_right}"
+        if empty(getline(end[1]))
+            setline(end[1], s_right)
+        else
+            exe $"noautocmd normal! a{s_tab}{s_right}"
+        endif
         setcharpos('.', start)
     elseif s_mode == 'line'
         exe $":noautocmd :{start[1]}normal! O{s_left}"
@@ -233,7 +237,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
     endif
 enddef
 
-def RemoveSurround(): list<list<number>>
+def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
     var save_clipboard = &clipboard
     set clipboard=
     defer () => {
@@ -301,14 +305,14 @@ def RemoveSurround(): list<list<number>>
     if start[0] == cursor[1] && end[0] == cursor[1]
         end[1] -= strchars(s_left)
     endif
-    if getline('.') =~ $'\V\^\s\*{escape(s_left, '\')}\$'
+    if delete_empty_lines && getline('.') =~ $'\V\^\s\*{escape(s_left, '\')}\$'
         noautocmd normal! "_dd
         end[0] -= 1
     else
         exe $'noautocmd normal! {strcharlen(s_left)}"_x'
     endif
     cursor(end)
-    if getline('.') =~ $'\V\^\s\*{escape(s_right, '\')}\$'
+    if delete_empty_lines && getline('.') =~ $'\V\^\s\*{escape(s_right, '\')}\$'
         noautocmd normal! "_dd
         end[0] -= 1
     else
@@ -317,12 +321,11 @@ def RemoveSurround(): list<list<number>>
     if indent_lines >= 1
             && (s_left =~ '[([{]' || s_with == 't')
             && ShouldIndent()
-        exe $":{start[0]}"
-        exe $":silent noautocmd normal! {end[0] - start[0] + 2}=="
+        exe $":{start[0] + 1}"
+        exe $":silent noautocmd normal! {end[0] - start[0] - 2}=="
     endif
     winrestview(view)
     cursor(start)
-    mess clear
     start = [0, start[0], start[1], 0]
     end = [0, end[0], end[1] - 1, 0]
     return [start, end]
@@ -333,7 +336,7 @@ def ChangeSurround(mode: string)
         return
     endif
     var with = s_with
-    var pos = RemoveSurround()
+    var pos = RemoveSurround(false)
     if !empty(pos)
         var [start, end] = pos
         s_with = c_with

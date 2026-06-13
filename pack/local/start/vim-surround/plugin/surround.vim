@@ -9,7 +9,8 @@ vim9script
 # 3. S in visual mode to surround the selection
 #
 # TODO:
-# 1. change surrounds: css*, cs*_, csbB, etc?
+# 1. fix unicode change surround: ysqe and csqQ -> end surround is wrong
+# 1. fix change surround cursor (position)
 #
 # NOTE: visual block doesn't work right if the selection includes tabs.
 
