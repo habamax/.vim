@@ -327,8 +327,8 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
     winrestview(view)
     cursor(start)
     start = [0, start[0], start[1], 0]
-    var end_shift = strlen(s_right) - strchars(s_right) + 1
-    end = [0, end[0], end[1] - end_shift, 0]
+    var shift = strlen(s_right) - strchars(s_right) + 1
+    end = [0, end[0], end[1] - shift, 0]
     return [start, end]
 enddef
 
