@@ -318,11 +318,11 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
     else
         exe $'noautocmd normal! {strcharlen(s_right)}"_x'
     endif
-    if indent_lines >= 1
+    if delete_empty_lines && indent_lines >= 1
             && (s_left =~ '[([{]' || s_with == 't')
             && ShouldIndent()
-        exe $":{start[0] + 1}"
-        exe $":silent noautocmd normal! {end[0] - start[0] - 2}=="
+        exe $":{start[0] - 1}"
+        exe $":silent noautocmd normal! {end[0] - start[0] + 2}=="
     endif
     winrestview(view)
     cursor(start)
