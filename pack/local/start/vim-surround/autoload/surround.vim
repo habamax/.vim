@@ -433,4 +433,3 @@ def ProbeTag(): tuple<list<number>, list<number>, string, string>
     endtry
     return ([], [], '', '')
 enddef
-
