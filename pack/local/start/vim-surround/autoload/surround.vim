@@ -103,7 +103,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
     var save_autoindent = &autoindent
     var save_comments = &comments
     set lazyredraw
-    setlocal virtualedit=all
+    setlocal virtualedit=block
     setlocal indentkeys=
     setlocal autoindent
     setlocal comments=
@@ -171,8 +171,10 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
     s_left = trim(s_left, "\n")
 
     if s_mode == 'char'
+        setlocal virtualedit=all
         setcharpos('.', start)
         exe $"noautocmd normal! i{s_tab}{s_left}"
+        setlocal virtualedit=
         if start[1] == end[1]
             end[2] += strchars(s_left)
         endif
@@ -181,12 +183,6 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
         if empty(getline(end[1]))
             setline(end[1], s_right)
         else
-            # XXX: change surround is broken if a tab indent is used
-            # check buffer.c line 146-148
-            # surround with () and change to {} -- bunch of spaces are added after }
-            # Additionally, select hello world with tab and surround it...
-            # hello world	text
-            # It kills tab! Fix it!
             exe $"noautocmd normal! a{s_tab}{s_right}"
         endif
         setcharpos('.', start)
