@@ -84,7 +84,7 @@ export def Change(): string
     else
         c_with = char
     endif
-    &opfunc = (mode) => ChangeSurround(mode)
+    &opfunc = (_) => ChangeSurround()
     return 'g@l'
 enddef
 
@@ -331,7 +331,7 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
     return [start, end]
 enddef
 
-def ChangeSurround(mode: string)
+def ChangeSurround()
     if s_with == c_with
         return
     endif
@@ -339,8 +339,13 @@ def ChangeSurround(mode: string)
     var pos = RemoveSurround(false)
     if !empty(pos)
         var [start, end] = pos
+        if getline(start[1]) =~ '^\s*$'
+            defer () => {
+                noautocmd normal! 2_
+            }()
+        endif
         s_with = c_with
-        AddSurround(mode, start, end)
+        AddSurround('char', start, end)
         s_with = with
     endif
 enddef
