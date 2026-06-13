@@ -177,10 +177,13 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
             end[2] += strchars(s_left)
         endif
         start[2] += strchars(s_left)
-        setcharpos('.', end)
+        setpos('.', end)
         if empty(getline(end[1]))
             setline(end[1], s_right)
         else
+            # XXX: change surround is broken if a tab indent is used
+            # check buffer.c line 146-148
+            # surround with () and change to {} -- bunch of spaces are added after }
             exe $"noautocmd normal! a{s_tab}{s_right}"
         endif
         setcharpos('.', start)
