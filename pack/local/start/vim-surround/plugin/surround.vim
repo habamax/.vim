@@ -25,10 +25,12 @@ xnoremap <silent> <expr> <Plug>(surround-add) surround.Add()
 nnoremap <silent> <expr> <Plug>(surround-line-add) surround.Add('_')
 nnoremap <silent> <expr> <Plug>(surround-word-add) surround.Add('iw')
 nnoremap <silent> <expr> <Plug>(surround-remove) surround.Remove()
+nnoremap <silent> <expr> <Plug>(surround-change) surround.Change()
 
 if get(g:, 'surround_mappings', true)
     nmap ys <Plug>(surround-add)
     nmap yss <Plug>(surround-line-add)
     xmap S <Plug>(surround-add)
     nmap ds <Plug>(surround-remove)
+    nmap cs <Plug>(surround-change)
 endif

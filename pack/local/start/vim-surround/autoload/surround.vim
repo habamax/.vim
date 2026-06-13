@@ -24,8 +24,13 @@ def Pairs(): dict<any>
     return extendnew(base_pairs, get(b:, "surround_pairs", {}))
 enddef
 
-var s_text: string = ''
+# Surround/Remove surround with.
+var s_with: string = ''
+# Change surround with.
+var c_with: string = ''
+# If block selection is done with $
 var visual_dollar: bool = false
+# Filetypes with indent script to fix indent after surround
 var filetypes = []
 
 export def Add(move: string = ''): string
@@ -38,10 +43,10 @@ export def Add(move: string = ''): string
         if empty(trim(tag))
             return ''
         else
-            s_text = '<' .. trim(trim(tag), '<>') .. '>'
+            s_with = '<' .. trim(trim(tag), '<>') .. '>'
         endif
     else
-        s_text = char
+        s_with = char
     endif
     visual_dollar = getcursorcharpos()[-1] == v:maxcol
     &opfunc = (mode) => AddSurround(mode)
@@ -53,8 +58,33 @@ export def Remove(): string
     if char == "\<Esc>" || char == "\<CR>"
         return ''
     endif
-    s_text = char
+    s_with = char
     &opfunc = (_) => RemoveSurround()
+    return 'g@l'
+enddef
+
+export def Change(): string
+    var char = getcharstr(-1, {cursor: 'keep'})
+    if char == "\<Esc>" || char == "\<CR>"
+        return ''
+    endif
+    s_with = char
+
+    char = getcharstr(-1, {cursor: 'keep'})
+    if char == "\<Esc>" || char == "\<CR>"
+        return ''
+    endif
+    if char == "t"
+        var tag  = input("Tag: ")
+        if empty(trim(tag))
+            return ''
+        else
+            c_with = '<' .. trim(trim(tag), '<>') .. '>'
+        endif
+    else
+        c_with = char
+    endif
+    &opfunc = (mode) => ChangeSurround(mode)
     return 'g@l'
 enddef
 
@@ -66,7 +96,7 @@ def ShouldIndent(): bool
     return filetypes->index(&filetype) != -1
 enddef
 
-def AddSurround(mode: string)
+def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: list<number> = getcharpos("']"))
     var save_lazyredraw = &lazyredraw
     var save_virtualedit = &virtualedit
     var save_indentkeys = &indentkeys
@@ -87,8 +117,8 @@ def AddSurround(mode: string)
 
     var pairs = Pairs()
 
-    var start = getcharpos("'[")
-    var end = getcharpos("']")
+    var start = pos_start
+    var end = pos_end
 
     # Handle case with v$S(. when selection is started in the middle of the
     # line. Start/end positions are incorrect in dot-repeating.
@@ -100,19 +130,19 @@ def AddSurround(mode: string)
 
     var s_left = ''
     var s_right = ''
-    if s_text =~ '^<.*>$'
-        s_left = s_text
-        s_right = '</' .. s_text[1 : -2]->split()[0] .. '>'
+    if s_with =~ '^<.*>$'
+        s_left = s_with
+        s_right = '</' .. s_with[1 : -2]->split()[0] .. '>'
     else
-        var pair = get(pairs, s_text, ())
-        if empty(pair) && s_text !~ '[[:punct:][:space:][:blank:]]'
+        var pair = get(pairs, s_with, ())
+        if empty(pair) && s_with !~ '[[:punct:][:space:][:blank:]]'
             return
         endif
-        s_left = empty(pair) ? s_text : pair[0]
-        s_right = empty(pair) ? s_text : pair[1]
+        s_left = empty(pair) ? s_with : pair[0]
+        s_right = empty(pair) ? s_with : pair[1]
     endif
 
-    var s_tab = s_text == "\<tab>" ? "\<C-v>" : ''
+    var s_tab = s_with == "\<tab>" ? "\<C-v>" : ''
 
     # For a single line surround
     # - ( [ { < surround with newlines
@@ -203,7 +233,7 @@ def AddSurround(mode: string)
     endif
 enddef
 
-def RemoveSurround()
+def RemoveSurround(): list<list<number>>
     var save_clipboard = &clipboard
     set clipboard=
     defer () => {
@@ -216,7 +246,7 @@ def RemoveSurround()
     var start = []
     var end = []
     var pairs = Pairs()
-    if s_text == 's'
+    if s_with == 's'
         var pos_list = []
 
         # XXX: probing all chars is quite slow in a large buffer (>6k lines)
@@ -240,7 +270,7 @@ def RemoveSurround()
             endif
         endfor
         if empty(pos_list)
-            return
+            return []
         endif
         [start, end, s_left, s_right] = pos_list->sort((v1, v2) => {
             if v1[0][0] == v2[0][0]
@@ -251,18 +281,18 @@ def RemoveSurround()
                 return -1
             endif
         })[-1]
-    elseif s_text == 't'
+    elseif s_with == 't'
         [start, end, s_left, s_right] = ProbeTag()
     else
-        var pair = get(pairs, s_text, ())
-        s_left = empty(pair) ? s_text : trim(pair[0])
-        s_right = empty(pair) ? s_text : trim(pair[1])
+        var pair = get(pairs, s_with, ())
+        s_left = empty(pair) ? s_with : trim(pair[0])
+        s_right = empty(pair) ? s_with : trim(pair[1])
         [start, end] = ProbePair(s_left, s_right)
     endif
 
     if empty(start) || empty(end)
         winrestview(view)
-        return
+        return []
     endif
 
     cursor(start)
@@ -285,13 +315,31 @@ def RemoveSurround()
         exe $'noautocmd normal! {strcharlen(s_right)}"_x'
     endif
     if indent_lines >= 1
-            && (s_left =~ '[([{]' || s_text == 't')
+            && (s_left =~ '[([{]' || s_with == 't')
             && ShouldIndent()
         exe $":{start[0]}"
         exe $":silent noautocmd normal! {end[0] - start[0] + 2}=="
     endif
     winrestview(view)
     cursor(start)
+    mess clear
+    start = [0, start[0], start[1], 0]
+    end = [0, end[0], end[1] - 1, 0]
+    return [start, end]
+enddef
+
+def ChangeSurround(mode: string)
+    if s_with == c_with
+        return
+    endif
+    var with = s_with
+    var pos = RemoveSurround()
+    if !empty(pos)
+        var [start, end] = pos
+        s_with = c_with
+        AddSurround(mode, start, end)
+        s_with = with
+    endif
 enddef
 
 def SkipEscaped(): bool
