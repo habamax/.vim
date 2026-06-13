@@ -184,6 +184,9 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
             # XXX: change surround is broken if a tab indent is used
             # check buffer.c line 146-148
             # surround with () and change to {} -- bunch of spaces are added after }
+            # Additionally, select hello world with tab and surround it...
+            # hello world	text
+            # It kills tab! Fix it!
             exe $"noautocmd normal! a{s_tab}{s_right}"
         endif
         setcharpos('.', start)
