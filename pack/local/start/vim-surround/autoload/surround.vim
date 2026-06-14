@@ -173,6 +173,9 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
     if s_mode == 'char'
         setlocal virtualedit=all
         setcharpos('.', start)
+        if getline('.') =~ '^\s*$'
+            s_left = trim(s_left)
+        endif
         exe $"noautocmd normal! i{s_tab}{s_left}"
         setlocal virtualedit=
         if start[1] == end[1]
@@ -180,6 +183,9 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
         endif
         start[2] += strchars(s_left)
         setpos('.', end)
+        if getline('.') =~ '^\s*$'
+            s_right = trim(s_right)
+        endif
         if empty(getline(end[1]))
             setline(end[1], s_right)
         else
