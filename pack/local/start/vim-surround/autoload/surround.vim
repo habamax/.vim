@@ -231,6 +231,22 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
             noautocmd normal! x
 
             noautocmd normal! gv
+            var v_pos = getregionpos(getpos("v"), getpos('.'), {mode: visualmode()})
+            var v_start = v_pos[0][0]
+            var v_end = v_pos[-1][0]
+            if v_start[1 : ] != start[1 : ]
+                exe "noautocmd normal! \<ESC>"
+                setlocal virtualedit=all
+                # setcursorcharpos(...) can't navigate to an empty location
+                exe $":{end[1]}"
+                exe $"noautocmd normal! 0{end[2] + end[3] - 1}l"
+                if strchars(getline(end[1])) < end[2] + end[3]
+                    exe "noautocmd normal! i\<space>"
+                endif
+                exe "noautocmd normal! \<C-v>"
+                exe $":{start[1]}"
+                exe $"noautocmd normal! 0{start[2] + start[3] - 1}l"
+            endif
             exe $"noautocmd normal! A{s_tab}{s_right}"
             noautocmd normal! gv
             exe $"noautocmd normal! I{s_tab}{s_left}"
