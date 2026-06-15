@@ -58,7 +58,10 @@ def CmdCompleteSelectFirst()
     endif
 
     var selected = info.matches[info.selected == -1 ? 0 : info.selected]
-    if fullcommand(cmd_orig) != "Help"
+    # XXX: check when escape of #% is needed, we definitely
+    # - don't need it for :buffer (cmd compl type == buffer
+    # - need it for :find and :e (cmd compl type is empty)
+    if empty(getcmdcompltype())
         selected = selected->escape('#%')
     endif
     setcmdline($'{cmd[ : cmd_len]->join()} {selected}')
