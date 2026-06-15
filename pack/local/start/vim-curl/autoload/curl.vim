@@ -84,7 +84,7 @@ export def Execute(line1: number, line2: number)
 
     input = MergeCommonParams(input, CommonParams())
 
-    input = EscapeData(input)
+    input = Escape(input)
 
     var cmd = $"curl --silent {input->join()}"
     if executable("jq")
@@ -93,24 +93,36 @@ export def Execute(line1: number, line2: number)
     if exists(":Term") == 2
         exe $"Term {cmd}"
     else
-        term_start([&shell, &shellcmdflag, cmd], {
+        var fullcmd = [&shell, &shellcmdflag, cmd]
+        term_start(!has("win32") ? fullcmd : fullcmd->join(), {
             term_name: $"!{cmd}"
         })
     endif
 enddef
 
-def EscapeData(input: list<string>): list<string>
-    # find --data (should be last parameter of the curl)
-    # do nothing if not found -- return the same unmodified input
+def Escape(input: list<string>): list<string>
     var data_idx = -1
+    var url_idx = -1
     var idx = 0
     for val in input
+        if val =~ '^--url\s*.*$'
+            url_idx = idx
+        endif
         if val =~ '^--data\s*.*$'
             data_idx = idx
-            break
         endif
         idx += 1
     endfor
+
+    if url_idx == -1
+        return input
+    endif
+
+    # if --url is not "quoted", do quote it
+    var url = input[url_idx]->split('--url\s*')[0]
+    if url !~ '^\s*".*"\s*$'
+        input[url_idx] = $'--url "{url}"'
+    endif
 
     if data_idx == -1
         return input
