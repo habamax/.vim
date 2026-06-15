@@ -227,7 +227,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
         else
             #extend short lines to fix `I` in visual block
             for nr in range(start[1], end[1])
-                if strchars(getline(nr)) < end[2] + end[3]
+                if strdisplaywidth(getline(nr)) < start[2] + start[3]
                     call setline(nr, getline(nr) .. repeat(' ', end[2] + end[3] - 1 - strchars(getline(nr))))
                 endif
             endfor
