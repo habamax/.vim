@@ -76,10 +76,20 @@ export def Execute(line1: number, line2: number, clipboard: bool = false)
         lastline = search('^\(\s*$\)\|\%$', 'cnW')
     endif
     # remove comments and empty lines
-    var input = filter(getline(firstline, lastline), (_, v) => v !~ '^#.*$' && v !~ '^\s*$')
+    # var input = filter(getline(firstline, lastline), (_, v) => v !~ '^#.*$' && v !~ '^\s*$')
+    var input = getline(firstline, lastline)
+        ->filter((_, v) => v !~ '^#.*$' && v !~ '^\s*$')
+        ->mapnew((_, v) => trim(v))
     if empty(input)
         echom 'Nothing to cURL'
         return
+    endif
+
+    # extract --jq
+    var jq_idx = input->index('--jq')
+    var use_jq = jq_idx > -1
+    if use_jq
+        remove(input, jq_idx)
     endif
 
     input = MergeCommonParams(input, CommonParams())
@@ -87,7 +97,7 @@ export def Execute(line1: number, line2: number, clipboard: bool = false)
     input = Escape(input)
 
     var cmd = $"curl --silent {input->join()}"
-    if executable("jq")
+    if use_jq && executable("jq")
         cmd ..= ' | jq'
     endif
     if clipboard
@@ -106,9 +116,13 @@ enddef
 def Escape(input: list<string>): list<string>
     var data_idx = -1
     var url_idx = -1
+    var url_query_idx = -1
     var idx = 0
     for val in input
-        if val =~ '^--url\s*.*$'
+        if val =~ '^--url-query\s*.*$'
+            url_query_idx = idx
+        endif
+        if val =~ '^--url\s\+.*$'
             url_idx = idx
         endif
         if val =~ '^--data\s*.*$'
@@ -125,6 +139,14 @@ def Escape(input: list<string>): list<string>
     var url = input[url_idx]->split('--url\s*')[0]
     if url !~ '^\s*".*"\s*$'
         input[url_idx] = $'--url "{url}"'
+    endif
+
+    if url_query_idx != -1
+        # if --url-query is not "quoted", do quote it
+        var url_query = input[url_query_idx]->split('--url-query\s*')[0]
+        if url_query !~ '^\s*".*"\s*$'
+            input[url_query_idx] = $'--url-query "{url_query}"'
+        endif
     endif
 
     if data_idx == -1
