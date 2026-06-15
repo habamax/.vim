@@ -233,7 +233,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
             noautocmd normal! gv
             var v_pos = getregionpos(getpos("v"), getpos('.'), {mode: visualmode()})
             var v_start = v_pos[0][0]
-            var v_end = v_pos[-1][0]
+            # var v_end = v_pos[-1][0]
             if v_start[1 : ] != start[1 : ]
                 exe "noautocmd normal! \<ESC>"
                 setlocal virtualedit=all
