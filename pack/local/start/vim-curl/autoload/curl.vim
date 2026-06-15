@@ -86,30 +86,16 @@ export def Execute(line1: number, line2: number)
 
     input = EscapeData(input)
 
-    if !state->has_key("result_buf")
-        rightbelow vnew
-        silent file `='__cURL_output__'`
-        setlocal buftype=nofile noswapfile noundofile
-        setlocal nospell
-        setlocal nowrap
-        state.result_buf = bufnr()
-    elseif bufwinnr(state.result_buf) == -1
-        exe $"rightbelow vertical sbuffer {state.result_buf}"
+    var cmd = $"curl --silent {input->join()}"
+    if executable("jq")
+        cmd ..= ' | jq'
+    endif
+    if exists(":Term") == 2
+        exe $"Term {cmd}"
     else
-        exe $":{bufwinnr(state.result_buf)}wincmd w"
-    endif
-
-    deletebufline(bufnr(), 1, '$')
-    setline(1, systemlist("curl -s --config -", input))
-
-    # detect filetype and format accordingly
-    if getline(1) =~ '^<...'
-        set ft=html
-    elseif getline(1) =~ '^[\[{]'
-        set ft=json
-    endif
-    if exists("#User#CurlOutput")
-        doautocmd User CurlOutput
+        term_start([&shell, &shellcmdflag, cmd], {
+            term_name: $"!{cmd}"
+        })
     endif
 enddef
 
