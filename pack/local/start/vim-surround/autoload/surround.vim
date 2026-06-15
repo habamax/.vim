@@ -349,7 +349,8 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
     winrestview(view)
     cursor(start)
     start = [0, start[0], start[1], 0]
-    var shift = strlen(s_right) - strchars(s_right) + 1
+    # var shift = strlen(s_right) - strchars(s_right) + 1
+    var shift = 1
     end = [0, end[0], end[1] - shift, 0]
     return [start, end]
 enddef
@@ -407,6 +408,14 @@ def ProbePair(s_left: string, s_right: string): list<list<number>>
         if end == [0, 0]
             return [[], []]
         endif
+        var charidx = charidx(getline(start[0]), start[1])
+        if charidx != start[1]
+            start[1] = charidx + 1
+        endif
+        charidx = charidx(getline(end[0]), end[1])
+        if charidx != end[1]
+            end[1] = charidx + 1
+        endif
         return [start, end]
     else
         var start = searchpos('\V' .. escape(s_left, '\'), 'ncbW', line('.'), 200, () => SkipEscaped())
@@ -417,6 +426,14 @@ def ProbePair(s_left: string, s_right: string): list<list<number>>
         endif
 
         if start != [0, 0] && end != [0, 0] && start != end
+            var charidx = charidx(getline(start[0]), start[1])
+            if charidx != start[1]
+                start[1] = charidx + 1
+            endif
+            charidx = charidx(getline(end[0]), end[1])
+            if charidx != end[1]
+                end[1] = charidx + 1
+            endif
             return [start, end]
         else
             return [[], []]
