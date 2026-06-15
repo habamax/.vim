@@ -165,7 +165,8 @@ export def Run(cmd: string, mods: string)
         exe $"{mods} split"
     endif
 
-    term_start([&shell, &shellcmdflag, cmd], {
+    var fullcmd = [&shell, &shellcmdflag, cmd]
+    term_start(!has("win32") ? fullcmd : fullcmd->join(), {
         term_name: term_name,
         curwin: true,
         cwd: cwd,
