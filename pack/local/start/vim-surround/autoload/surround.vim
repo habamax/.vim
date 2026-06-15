@@ -182,7 +182,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
             end[2] += strchars(s_left)
         endif
         start[2] += strchars(s_left)
-        setpos('.', end)
+        setcharpos('.', end)
         if getline('.') =~ '^\s*$'
             s_right = trim(s_right)
         endif
