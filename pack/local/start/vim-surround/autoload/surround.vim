@@ -225,24 +225,20 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
             start[2] += strchars(s_left)
             setcursorcharpos(start[1 :])
         else
-            # XXX when block starts and ends on the edge -- wrong surround
-            # select a column after 'in' and to the 'endif'
-            # extend short lines to fix `I` in visual block
-            for nr in range(start[1], end[1])
-                if strdisplaywidth(getline(nr)) < end[2] + end[3]
-                    call setline(nr, getline(nr) .. repeat(' ', end[2] + end[3] - 1 - strchars(getline(nr))))
-                endif
-            endfor
+            # better undo -- first change should be in the block begining
+            # Add letter X and then delete it.
+            noautocmd normal! iX
+            noautocmd normal! x
 
-            setcursorcharpos(end[1], end[2] + end[3])
-            exe "noautocmd normal! \<C-v>"
-            setcursorcharpos(start[1], start[2] + start[3])
+            noautocmd normal! gv
+            exe $"noautocmd normal! A{s_tab}{s_right}"
+            noautocmd normal! gv
             exe $"noautocmd normal! I{s_tab}{s_left}"
 
-            setcursorcharpos(end[1], end[2] + strchars(s_left) + end[3])
+            setcursorcharpos(end[1], end[2] + end[3] + strchars(s_left))
             exe "noautocmd normal! \<C-v>"
-            setcursorcharpos(start[1], start[2] + strchars(s_left) + start[3])
-            exe $"noautocmd normal! A{s_tab}{s_right}"
+            setcursorcharpos(start[1], start[2] + start[3] + strchars(s_left))
+            exe "noautocmd normal! \<ESC>"
         endif
     endif
 enddef
