@@ -67,7 +67,7 @@ def MergeCommonParams(input: list<string>, params: list<string>): list<string>
     return result
 enddef
 
-export def Execute(line1: number, line2: number)
+export def Execute(line1: number, line2: number, clipboard: bool = false)
     var firstline = line1
     var lastline = line2
     # getting input
@@ -89,6 +89,9 @@ export def Execute(line1: number, line2: number)
     var cmd = $"curl --silent {input->join()}"
     if executable("jq")
         cmd ..= ' | jq'
+    endif
+    if clipboard
+        setreg("+", cmd)
     endif
     if exists(":Term") == 2
         exe $"Term {cmd}"

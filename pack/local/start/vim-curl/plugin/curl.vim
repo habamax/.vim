@@ -6,4 +6,4 @@ g:loaded_curl = 1
 
 import autoload 'curl.vim'
 
-command! -range Curl curl.Execute(<line1>, <line2>)
+command! -range -bang Curl curl.Execute(<line1>, <line2>, empty("<bang>") ? false : true)
