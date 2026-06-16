@@ -103,8 +103,7 @@ export def Execute(line1: number, line2: number, clipboard: bool = false)
     if clipboard
         setreg("+", cmd)
     endif
-    var fullcmd = [&shell, &shellcmdflag, cmd]
-    Terminal(!has("win32") ? fullcmd : fullcmd->join(), BotRight())
+    Terminal(cmd, BotRight())
 enddef
 
 def Escape(input: list<string>): list<string>
