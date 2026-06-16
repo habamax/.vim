@@ -103,14 +103,8 @@ export def Execute(line1: number, line2: number, clipboard: bool = false)
     if clipboard
         setreg("+", cmd)
     endif
-    if exists(":Term") == 2
-        exe $"Term {cmd}"
-    else
-        var fullcmd = [&shell, &shellcmdflag, cmd]
-        term_start(!has("win32") ? fullcmd : fullcmd->join(), {
-            term_name: $"!{cmd}"
-        })
-    endif
+    var fullcmd = [&shell, &shellcmdflag, cmd]
+    Terminal(!has("win32") ? fullcmd : fullcmd->join(), BotRight())
 enddef
 
 def Escape(input: list<string>): list<string>
@@ -156,4 +150,42 @@ def Escape(input: list<string>): list<string>
     data[-1] = data[-1] .. '"'
 
     return params + [join(data)]
+enddef
+
+
+def Terminal(cmd: string, mods: string)
+    var cwd = getcwd()
+    var term_name = $'!{cmd}'
+    var termbuf = term_list()->filter((_, v) => term_getstatus(v) != 'running')
+    var bufnr = !empty(termbuf) ? termbuf[0] : -1
+    defer () => {
+        if bufnr != -1
+            exe "bw!" bufnr
+        endif
+    }()
+    if !win_gotoid(bufwinid(bufnr)) && bufnr != -1
+        exe $"{mods} sbuffer {bufnr}"
+    elseif bufnr == -1
+        var counter = 1
+        while !empty(term_list()->filter((_, v) => bufname(v) == term_name))
+            term_name = term_name->substitute('\( (\d\+)\)\?$', $' ({counter})', '')
+            counter += 1
+        endwhile
+        exe $"{mods} split"
+    endif
+
+    var fullcmd = [&shell, &shellcmdflag, cmd]
+    term_start(!has("win32") ? fullcmd : fullcmd->join(), {
+        term_name: term_name,
+        curwin: true,
+        cwd: cwd,
+    })
+enddef
+
+def BotRight(): string
+    var res = "botright "
+    if &columns * 0.6 < winwidth(winnr()) && &columns > 99
+        res = "vertical " .. res
+    endif
+    return res
 enddef
