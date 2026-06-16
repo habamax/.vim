@@ -121,34 +121,24 @@ def Escape(input: list<string>): list<string>
     var idx = 0
     for val in input
         if val =~ '^--url-query\s*.*$'
-            url_query_idx = idx
+            # if --url-query is not "quoted", do quote it
+            var url_query = input[idx]->split('--url-query\s*')[0]
+            if url_query !~ '^\s*".*"\s*$'
+                input[idx] = $'--url-query "{url_query}"'
+            endif
         endif
         if val =~ '^--url\s\+.*$'
-            url_idx = idx
+            # if --url is not "quoted", do quote it
+            var url = input[idx]->split('--url\s*')[0]
+            if url !~ '^\s*".*"\s*$'
+                input[idx] = $'--url "{url}"'
+            endif
         endif
         if val =~ '^--data\s*.*$'
             data_idx = idx
         endif
         idx += 1
     endfor
-
-    if url_idx == -1
-        return input
-    endif
-
-    # if --url is not "quoted", do quote it
-    var url = input[url_idx]->split('--url\s*')[0]
-    if url !~ '^\s*".*"\s*$'
-        input[url_idx] = $'--url "{url}"'
-    endif
-
-    if url_query_idx != -1
-        # if --url-query is not "quoted", do quote it
-        var url_query = input[url_query_idx]->split('--url-query\s*')[0]
-        if url_query !~ '^\s*".*"\s*$'
-            input[url_query_idx] = $'--url-query "{url_query}"'
-        endif
-    endif
 
     if data_idx == -1
         return input
