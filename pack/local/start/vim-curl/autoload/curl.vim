@@ -76,8 +76,7 @@ export def Execute(line1: number, line2: number, clipboard: bool = false)
         firstline = search('^\(\s*$\)\|\%^', 'cbnW')
         lastline = search('^\(\s*$\)\|\%$', 'cnW')
     endif
-    # remove comments and empty lines
-    # var input = filter(getline(firstline, lastline), (_, v) => v !~ '^#.*$' && v !~ '^\s*$')
+    # remove comments and empty lines, trim non-empty.
     var input = getline(firstline, lastline)
         ->filter((_, v) => v !~ '^#.*$' && v !~ '^\s*$')
         ->mapnew((_, v) => trim(v))
