@@ -5,6 +5,8 @@
 .. image:: https://asciinema.org/a/651725.svg
   :target: https://asciinema.org/a/651725
 
+TODO: update per code changes
+
 Example rest api calls:
 
 .. code::
