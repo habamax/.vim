@@ -52,16 +52,6 @@ Collibra queries example:
 --url-query nameMatchMode=EXACT
 ```
 
-
-# Get policy
-# Asset: Critical Data Element
---url /assets
---url-query name=Critical Data Element
---url-query domainId=e0083eb2-c4ec-4099-8720-392859e19cac
---url-query nameMatchMode=EXACT
-
-
-
 ## cURL
 
 There is a single command `:Curl` that creates and runs `curl` query out of
