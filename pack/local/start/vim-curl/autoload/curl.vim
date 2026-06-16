@@ -44,9 +44,10 @@ enddef
 def MergeCommonParams(input: list<string>, params: list<string>): list<string>
     var result = []
     var url = ''
+    var jq = ''
     var auth = false
     for item in params
-        if item =~ '^--url.*$'
+        if item =~ '^--url\s\+.*$'
             url = item
         else
             if item =~ '^--header\s.*Authorization:.*'
@@ -85,14 +86,14 @@ export def Execute(line1: number, line2: number, clipboard: bool = false)
         return
     endif
 
+    input = MergeCommonParams(input, CommonParams())
+
     # extract --jq
     var jq_idx = input->index('--jq')
     var use_jq = jq_idx > -1
     if use_jq
         remove(input, jq_idx)
     endif
-
-    input = MergeCommonParams(input, CommonParams())
 
     input = Escape(input)
 
