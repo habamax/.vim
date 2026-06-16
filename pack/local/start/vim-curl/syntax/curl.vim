@@ -5,9 +5,9 @@ endif
 syn include @curlJsonHighlight syntax/json.vim
 unlet! b:current_syntax
 
-syn match curlDashedParams "^--.*$" transparent contains=curlDashes,curlParam,curlURL,curlString,curlJsonData
-syn match curlDashes "^--" contained
-syn match curlParam "\(^--\)\@<=\S\+" contained
+syn match curlDashedParams "^--\?.*$" transparent contains=curlDashes,curlParam,curlURL,curlString,curlJsonData
+syn match curlDashes '^--\?' contained
+syn match curlParam "\(^--\?\)\@<=\S\+" contained
 syn region curlString start='"' end='"' oneline contained contains=curlEscape
 syn match curlURL "\(url\s\+\)\@<=.*$" contained
 syn match curlEscape +\\['"\\]+ contained
