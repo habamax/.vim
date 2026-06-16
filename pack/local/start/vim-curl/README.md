@@ -59,7 +59,7 @@ Collibra queries example:
 There is a single command `:Curl` that creates and runs `curl` query out of
 text under the cursor.
 
-If `:Curl!` is used, the curl command is copied to `+` register (clipboard).
+If `:Curl!` is used, the `curl` cli-command is copied to `+` register (clipboard).
 
 
 ## Additional setup
