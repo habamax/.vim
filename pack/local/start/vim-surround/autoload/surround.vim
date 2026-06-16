@@ -238,14 +238,12 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
                 exe "noautocmd normal! \<ESC>"
                 setlocal virtualedit=all
                 # setcursorcharpos(...) can't navigate to an empty location
-                exe $":{end[1]}"
-                exe $"noautocmd normal! 0{end[2] + end[3] - 1}l"
+                MoveCursor(end[1], end[2] + end[3])
                 if strchars(getline(end[1])) < end[2] + end[3]
                     exe "noautocmd normal! i\<space>"
                 endif
                 exe "noautocmd normal! \<C-v>"
-                exe $":{start[1]}"
-                exe $"noautocmd normal! 0{start[2] + start[3] - 1}l"
+                MoveCursor(start[1], start[2] + start[3])
             endif
             exe $"noautocmd normal! A{s_tab}{s_right}"
             noautocmd normal! gv
@@ -266,7 +264,7 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
         &clipboard = save_clipboard
     }()
     var view = winsaveview()
-    var cursor = getcurpos()
+    var cursor = getcursorcharpos()
     var s_left = ""
     var s_right = ""
     var start = []
@@ -299,9 +297,9 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
             return []
         endif
         [start, end, s_left, s_right] = pos_list->sort((v1, v2) => {
-            if v1[0][0] == v2[0][0]
-                return v1[0][1] == v2[0][1] ? 0 : v1[0][1] > v2[0][1] ? 1 : -1
-            elseif v1[0][0] > v2[0][0]
+            if v1[0][1] == v2[0][1]
+                return v1[0][2] == v2[0][2] ? 0 : v1[0][2] > v2[0][2] ? 1 : -1
+            elseif v1[0][1] > v2[0][1]
                 return 1
             else
                 return -1
@@ -321,35 +319,38 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
         return []
     endif
 
-    cursor(start)
+    setcharpos('.', start)
     var indent_lines = end[0] - start[0]
 
-    if start[0] == cursor[1] && end[0] == cursor[1]
-        end[1] -= strchars(s_left)
+    if start[1] == cursor[1] && end[1] == cursor[1]
+        end[2] -= strchars(s_left)
     endif
     if delete_empty_lines && getline('.') =~ $'\V\^\s\*{escape(s_left, '\')}\$'
         noautocmd normal! "_dd
-        end[0] -= 1
+        end[1] -= 1
     else
         exe $'noautocmd normal! {strcharlen(s_left)}"_x'
     endif
-    cursor(end)
+    setcharpos('.', end)
     if delete_empty_lines && getline('.') =~ $'\V\^\s\*{escape(s_right, '\')}\$'
         noautocmd normal! "_dd
-        end[0] -= 1
+        end[1] -= 1
     else
         exe $'noautocmd normal! {strcharlen(s_right)}"_x'
+        if charcol('.') < charcol('$') - 1
+            noautocmd normal! h
+        endif
+        end[2] = charcol('.')
     endif
     if delete_empty_lines && indent_lines >= 1
             && (s_left =~ '[([{]' || s_with == 't')
             && ShouldIndent()
         exe $":{start[0] - 1}"
-        exe $":silent noautocmd normal! {end[0] - start[0] + 2}=="
+        exe $":silent noautocmd normal! {end[1] - start[1] + 2}=="
     endif
     winrestview(view)
-    cursor(start)
-    start = [0, start[0], start[1], 0]
-    end = [0, end[0], end[1] - 1, 0]
+    setcharpos('.', start)
+
     return [start, end]
 enddef
 
@@ -380,12 +381,15 @@ enddef
 
 def ProbePair(s_left: string, s_right: string): list<list<number>>
     var view = winsaveview()
+    var unnamed = getreg("")
     defer () => {
+        setreg("", unnamed)
         winrestview(view)
     }()
 
     if trim(s_left) != trim(s_right)
-        var char = getline(line('.'))[col('.') - 1]
+        noautocmd normal! yl
+        var char = getreg("")
         var start_flags = 'bW'
         var end_flags = 'W'
         if stridx(s_right, char) != -1
@@ -399,39 +403,33 @@ def ProbePair(s_left: string, s_right: string): list<list<number>>
         if start == [0, 0]
             return [[], []]
         endif
-        if stridx(s_left, char) != -1
-            search($'[^{s_left}]', 'W', line('.'))
-        endif
+        # if stridx(s_left, char) != -1
+        #     search($'[^{s_left}]', 'W', line('.'))
+        # endif
+        start = getcursorcharpos()
         var end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), end_flags, () => SkipEscaped())
         if end == [0, 0]
             return [[], []]
         endif
-        var charidx = charidx(getline(start[0]), start[1])
-        if charidx != start[1]
-            start[1] = charidx + 1
-        endif
-        charidx = charidx(getline(end[0]), end[1])
-        if charidx != end[1]
-            end[1] = charidx + 1
-        endif
+        end = getcursorcharpos()
         return [start, end]
     else
-        var start = searchpos('\V' .. escape(s_left, '\'), 'ncbW', line('.'), 200, () => SkipEscaped())
-        var end = searchpos('\V' .. escape(s_right, '\'), 'nW', line('.'), 200, () => SkipEscaped())
+        var start = searchpos('\V' .. escape(s_left, '\'), 'cbW', line('.'), 200, () => SkipEscaped())
+        if start != [0, 0]
+            start = getcursorcharpos()
+        endif
+        var end = searchpos('\V' .. escape(s_right, '\'), 'W', line('.'), 200, () => SkipEscaped())
         if start != [0, 0] && end == [0, 0]
             end = deepcopy(start)
-            start = searchpos('\V' .. escape(s_left, '\'), 'nbW', line('.'), 200, () => SkipEscaped())
+            start = searchpos('\V' .. escape(s_left, '\'), 'bW', line('.'), 200, () => SkipEscaped())
+            if start != [0, 0]
+                start = getcursorcharpos()
+            endif
+        elseif end != [0, 0]
+            end = getcursorcharpos()
         endif
 
         if start != [0, 0] && end != [0, 0] && start != end
-            var charidx = charidx(getline(start[0]), start[1])
-            if charidx != start[1]
-                start[1] = charidx + 1
-            endif
-            charidx = charidx(getline(end[0]), end[1])
-            if charidx != end[1]
-                end[1] = charidx + 1
-            endif
             return [start, end]
         else
             return [[], []]
@@ -452,8 +450,8 @@ def ProbeTag(): tuple<list<number>, list<number>, string, string>
     var tagregion = []
     try
         noautocmd normal! yat
-        var start = getpos("'[")
-        var end = getpos("']")
+        var start = getcharpos("'[")
+        var end = getcharpos("']")
 
         var line = getline(end[1])[ : end[2] - 1]
         s_right = matchstr(line, '</\S\{-}>$')
@@ -462,11 +460,19 @@ def ProbeTag(): tuple<list<number>, list<number>, string, string>
 
         if !empty(s_left) && !empty(s_right)
             end[2] -= (strcharlen(s_right) - 1)
-            return (start[1 : 2], end[1 : 2], s_left, s_right)
+            return (start, end, s_left, s_right)
         endif
     catch
     finally
         exe "noautocmd normal! \<esc>"
     endtry
     return ([], [], '', '')
+enddef
+
+def MoveCursor(lnum: number, col: number)
+    exe $":{lnum}"
+    noautocmd normal! 0
+    if col > 1
+        exe $"noautocmd normal! {col - 1}l"
+    endif
 enddef
