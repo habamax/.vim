@@ -273,7 +273,6 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
     if s_with == 's'
         var pos_list = []
 
-        # XXX: probing all chars is quite slow in a large buffer (>6k lines)
         # # get deduplicated chars from pairs
         # # TODO: remove "duplicates" as ' and ''' or " and """
         # var pair_chars = pairs->items()
@@ -282,7 +281,7 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
         #     ->uniq((v1, v2) => v1[1] == v2[1] ? 0 : v1[1] > v2[1] ? 1 : -1)
         #     ->mapnew((_, v) => v[0])
 
-        var pair_chars = '({[<*_/`''"'
+        var pair_chars = '({["`''*_|/'
 
         for char in pair_chars
             var pair = get(pairs, char, ())
@@ -390,44 +389,34 @@ def ProbePair(s_left: string, s_right: string): list<list<number>>
     if trim(s_left) != trim(s_right)
         noautocmd normal! yl
         var char = getreg("")
-        var start_flags = 'bW'
-        var end_flags = 'W'
+        var flags = 'bW'
         if stridx(s_right, char) != -1
             if search('\V' .. escape(s_right, '\'), 'cbW', line('.')) == 0
-                start_flags ..= 'c'
+                flags ..= 'c'
             endif
         else
-            start_flags ..= 'c'
+            flags ..= 'c'
         endif
-        var start = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), start_flags, () => SkipEscaped())
-        if start == [0, 0]
+        if searchpair('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), flags, () => SkipEscaped()) <= 0
             return [[], []]
         endif
-        # if stridx(s_left, char) != -1
-        #     search($'[^{s_left}]', 'W', line('.'))
-        # endif
-        start = getcursorcharpos()
-        var end = searchpairpos('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), end_flags, () => SkipEscaped())
-        if end == [0, 0]
+        var start = getcursorcharpos()
+        if searchpair('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'W', () => SkipEscaped()) <= 0
             return [[], []]
         endif
-        end = getcursorcharpos()
+        var end = getcursorcharpos()
         return [start, end]
     else
-        var start = searchpos('\V' .. escape(s_left, '\'), 'cbW', line('.'), 200, () => SkipEscaped())
-        if start != [0, 0]
-            start = getcursorcharpos()
-        endif
-        var end = searchpos('\V' .. escape(s_right, '\'), 'W', line('.'), 200, () => SkipEscaped())
-        if start != [0, 0] && end == [0, 0]
-            end = deepcopy(start)
-            start = searchpos('\V' .. escape(s_left, '\'), 'bW', line('.'), 200, () => SkipEscaped())
-            if start != [0, 0]
-                start = getcursorcharpos()
+        if search('\V' .. escape(s_left, '\'), 'bW', line('.'), 200, () => SkipEscaped()) <= 0
+            if search('\V' .. escape(s_left, '\'), 'cbW', line('.'), 200, () => SkipEscaped()) <= 0
+                return [[], []]
             endif
-        elseif end != [0, 0]
-            end = getcursorcharpos()
         endif
+        var start = getcursorcharpos()
+        if search('\V' .. escape(s_right, '\'), 'W', line('.'), 200, () => SkipEscaped()) <= 0
+            return [[], []]
+        endif
+        var end = getcursorcharpos()
 
         if start != [0, 0] && end != [0, 0] && start != end
             return [start, end]
