@@ -21,15 +21,45 @@ Example rest api calls:
 
 Common parameters for the rest of `--url`:
 
-.. code::
+```
+--$url https://dog.ceo/api
+--$header "Content-Type: application/json"
+--$jq
 
-  --$url https://dog.ceo/api
-  --$header "Content-Type: application/json"
-  --$jq
+--url /breeds/list/all
 
-  --url /breeds/list/all
+--url /breed/hound/images
+```
 
-  --url /breed/hound/images
+Collibra queries example:
+
+```
+--$url https://somecustomer-test.collibra.com/rest/2.0
+--$user username:password@12345
+--$jq
+
+# Get community
+# 6. Governance
+--url /communities
+--url-query name=6. Governance
+--url-query nameMatchMode=EXACT
+
+# Get both domain and community
+# Domain: Data Policy Register Domain
+# Community: 6. Governance
+--url /domains
+--url-query name=Data Policy Register
+--url-query nameMatchMode=EXACT
+```
+
+
+# Get policy
+# Asset: Critical Data Element
+--url /assets
+--url-query name=Critical Data Element
+--url-query domainId=e0083eb2-c4ec-4099-8720-392859e19cac
+--url-query nameMatchMode=EXACT
+
 
 
 ## cURL
