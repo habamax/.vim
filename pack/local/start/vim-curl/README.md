@@ -1,5 +1,7 @@
 # CURL with Vim
 
+[![asciicast](https://asciinema.org/a/1257605.svg)](https://asciinema.org/a/1257605)
+
 Example rest api calls:
 
 ```
