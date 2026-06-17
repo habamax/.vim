@@ -144,7 +144,7 @@ export def PrevError()
     endfor
 enddef
 
-export def Run(cmd: string, mods: string)
+export def Run(cmd: string, mods: string = '')
     var cwd = getcwd()
     var term_name = $'!{cmd}'
     var termbuf = term_list()->filter((_, v) => term_getstatus(v) != 'running')
@@ -174,5 +174,8 @@ export def Run(cmd: string, mods: string)
 enddef
 
 export def ReRun()
-    Run(bufname()[1 : ], '')
+    if bufname()[0] != '!'
+        return
+    endif
+    Run(bufname()[1 : ])
 enddef
