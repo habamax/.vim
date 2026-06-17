@@ -5,6 +5,31 @@ Personal vim configuration.
 
 ## Vimscript scratches
 
+### Surround
+
+There are 2 very well known and established plugins to surround text in vim:
+
+- [surround.vim](https://github.com/tpope/vim-surround) by Tim Pope
+- [vim-sandwich](https://github.com/machakann/vim-sandwich) by @machakann
+
+And yet I have created my own. It can do most if not all of what `surround.vim`
+can and by default uses same `ys`, `ds` and `cs` operators, `S` for visual
+mode. It is less fancy than `vim-sandwich` which provides quite a few nice
+things in the package.
+
+Key difference is implementation, I use 3 simple operators that are naturally
+dot repeatable:
+
+- `ys(iw` vs `ysiw(` (`surround.vim`) vs `saiw(` (`vim-sandwich`), basically
+  the move comes the last.
+
+[![asciicast](https://asciinema.org/a/1257606.svg)](https://asciinema.org/a/1257606)
+
+It was quite fun and challenging to work through many many edge cases,
+especially related to visual block surrounds and unicode handling.
+
+[vim-surround](https://github.com/habamax/.vim/blob/master/pack/local/start/vim-surround/plugin/surround.vim)
+
 
 ### Fuzzy Popup Finder
 
