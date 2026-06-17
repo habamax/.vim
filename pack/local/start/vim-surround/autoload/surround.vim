@@ -34,6 +34,12 @@ var visual_dollar: bool = false
 var filetypes = []
 
 export def Add(move: string = ''): string
+    if !&l:modifiable
+        echohl ErrorMsg
+        echomsg "E21: Cannot make changes, 'modifiable' is off"
+        echohl NONE
+        return ''
+    endif
     var char = getcharstr(-1, {cursor: 'keep'})
     if char == "\<Esc>" || char == "\<CR>"
         return ''
@@ -54,6 +60,12 @@ export def Add(move: string = ''): string
 enddef
 
 export def Remove(): string
+    if !&l:modifiable
+        echohl ErrorMsg
+        echomsg "E21: Cannot make changes, 'modifiable' is off"
+        echohl NONE
+        return ''
+    endif
     var char = getcharstr(-1, {cursor: 'keep'})
     if char == "\<Esc>" || char == "\<CR>"
         return ''
@@ -64,6 +76,12 @@ export def Remove(): string
 enddef
 
 export def Change(): string
+    if !&l:modifiable
+        echohl ErrorMsg
+        echomsg "E21: Cannot make changes, 'modifiable' is off"
+        echohl NONE
+        return ''
+    endif
     var char = getcharstr(-1, {cursor: 'keep'})
     if char == "\<Esc>" || char == "\<CR>"
         return ''
