@@ -7,9 +7,7 @@ habamax/start/vim-rst	git@github.com:habamax/vim-rst.git
 habamax/start/vim-asciidoctor	git@github.com:habamax/vim-asciidoctor.git
 habamax/start/vim-gdscript	git@github.com:habamax/vim-gdscript.git
 habamax/start/vim-odin	git@github.com:habamax/vim-odin.git
-# habamax/start/vim-nod	git@github.com:habamax/vim-nod.git
-# habamax/start/vim-shout	git@github.com:habamax/vim-shout.git
-# habamax/start/vim-ii	git@github.com:habamax/vim-ii.git
+habamax/start/vim-curl	git@github.com:habamax/vim-curl.git
 
 # Very nice to have
 bundle/start/traces.vim	git@github.com:markonm/traces.vim.git
