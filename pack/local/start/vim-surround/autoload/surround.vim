@@ -153,7 +153,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
         s_right = '</' .. s_with[1 : -2]->split()[0] .. '>'
     else
         var pair = get(pairs, s_with, ())
-        if empty(pair) && s_with !~ '[[:punct:][:space:][:blank:]]'
+        if empty(pair) && s_with !~ '[[:punct:][:blank:]]'
             return
         endif
         s_left = empty(pair) ? s_with : pair[0]
