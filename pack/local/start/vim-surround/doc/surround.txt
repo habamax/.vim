@@ -102,11 +102,48 @@ separate new lines, even for line-wise operations, e.g. `("\n'", "'")`.
 If the last character of the left pair value is a space, e.g. `('{ ', ' }')`
 then always add surrounds on the new lines for line-wise operations.
 
-Delete surround rules
-TBD
+						*surround-delete-rules*
+Delete surround rules `ds{char}`
 
-Change surround rules
-TBD
+- {char} could be the same as defined in |surround-default-rules| and
+  |surround-default-rules-override|
+- If {char} is `t` then the closest to the cursor xml/html tag would be removed
+- If {char} is `s` then the closest to the cursor pair of ({["`'*_|/ would be
+  removed, e.g. `dss` in `([*hello world*])` with cursor on the space will
+  result in `([hello world])`, following `.` will result in `(hello world)`.
+- Pairs with the same left and right part, e.g. `('*', '*')`, could only be
+  removed in the same line.
+- Pairs with the different left and right part could be removed across multiple
+  lines. If after removal, the line is empty, it also is removed>
+
+  some text
+  (                              some text
+      hello      ----> dss ---->     hello
+  )                              other text
+  other text
+<
+
+
+						*surround-change-rules*
+Change surround rules `cs{char1}{char2}`
+
+- {char1} and {char2} could be the same as defined in |surround-default-rules|
+  and |surround-default-rules-override|
+- If {char1} is `t` then the closest to the cursor xml/html tag would be changed
+- If {char2} is `t` then the surround would be changed to xml/html tag
+- If {char1} is `s` then the closest to the cursor pair of ({["`'*_|/ would be
+  changed, e.g. `css_` in `([_hello world_])` with cursor on the space will
+  result in `([_hello world_])`
+- Pairs with the same left and right part, e.g. `('*', '*')`, could only be
+  changed in the same line
+- Pairs with the different left and right part could be changed across multiple
+  lines>
+
+  some text                       some text
+  (                               {
+      hello      ----> cssB ---->     hello
+  )                               }
+  other text                      other text
 
 ==============================================================================
 Options:
