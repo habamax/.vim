@@ -3,5 +3,6 @@ title: Title
 author: Maxim Kim
 date: !!strftime("%Y-%m-%d")!!
 maxwidth: 60em
+fontsize: 16pt
 ---
 
