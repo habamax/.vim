@@ -5,8 +5,12 @@ vim9script
 # Usage:
 # 1. ys{char}{motion} to surround with a char or tag, e.g. ys*iw to surround
 #    word with * => *word* or ys(iw to surround word with () => (word)
-# 2. yss to surround the whole line
-# 3. S in visual mode to surround the selection
+# 2. yss{char} to surround the whole line
+# 3. S{char} in visual mode to surround the selection
+# 4. ds{char} to delete surround
+# 5. dss to delete closest surround of ({["`''*_|/
+# 6. cs{char1}{char2} to change surround of {char1} to {char2}
+# 7. css{char} to change closest surround of ({["`''*_|/ to {char}
 #
 # TODO:
 # 1. help
