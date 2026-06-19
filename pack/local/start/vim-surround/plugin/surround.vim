@@ -1,7 +1,6 @@
 vim9script
 
-# WIP
-# More or less simple surround plugin.
+# Surround plugin for vim.
 # Usage:
 # 1. ys{char}{motion} to surround with a char or tag, e.g. ys*iw to surround
 #    word with * => *word* or ys(iw to surround word with () => (word)
