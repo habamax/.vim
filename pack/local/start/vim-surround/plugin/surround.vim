@@ -24,8 +24,8 @@ import autoload 'surround.vim'
 
 nnoremap <silent> <expr> <Plug>(surround-add) surround.Add()
 xnoremap <silent> <expr> <Plug>(surround-add) surround.Add()
-nnoremap <silent> <expr> <Plug>(surround-line-add) surround.Add('_')
-nnoremap <silent> <expr> <Plug>(surround-word-add) surround.Add('iw')
+nnoremap <silent> <expr> <Plug>(surround-line-add) surround.Add() .. '_'
+nnoremap <silent> <expr> <Plug>(surround-word-add) surround.Add() .. 'iw'
 nnoremap <silent> <expr> <Plug>(surround-remove) surround.Remove()
 nnoremap <silent> <expr> <Plug>(surround-change) surround.Change()
 

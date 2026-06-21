@@ -16,7 +16,7 @@ The surround.vim package allows to
 It defines the following mappings:
 
 							*surround_o_ys*
-ys{char}{motion}	to surround with {char} for the selected motion
+ys{motion}{char}	to surround with {char} for the selected motion
 							*surround_v_S*
 {Visual}S{char}		to surround with {char} the highlighted text.
 							*surround_ds*
@@ -29,13 +29,13 @@ Since ys operates on a motion, it can be used with any motion, for example _
 to surround the current line, or ip to surround the current paragraph.
 Default mapping is defined for `ys_`:
 							*surround_yss*
-yss{char}		to surround current line (same as `ys{char}_`)
+yss{char}		to surround current line (same as `ys_{char}`)
 
 
 						*surround-default-rules*
 DEFAULT SURROUNDING RULES
 
-`ys{char}{motion}`
+`ys{motion}{char}`
 
 - It is possible to surround with any character that is matched as
   [[:punct:][:blank:]], basically, punctuation characters, space and tab.
@@ -50,7 +50,7 @@ DEFAULT SURROUNDING RULES
 					 *surround-default-rules-override*
 DEFAULT OVERRIDE OF SURROUNDING RULES
 
-`ys{char}{motion}`
+`ys{motion}{char}`
 
 - when {char} is `(` or `b`
     - char-wise: surround with ( text ), note added spaces
@@ -207,11 +207,11 @@ SURROUND EXAMPLES
  Lorem ips|um dolor sit amet  -> yss( ->  Lorem ipsum dolor sit amet
                                           )
 
- Lorem ips|um dolor sit       -> ys*iw. ->  Lorem **ipsum** dolor sit
+ Lorem ips|um dolor sit       -> ysiw*. ->  Lorem **ipsum** dolor sit
 
  Lorem ips|um dolor sit amet,             "Lorem ipsum dolor sit amet,
  consectetur adipiscing elit.             consectetur adipiscing elit."
- Maecenas feugiat fermentum   -> ys"is -> Maecenas feugiat fermentum
+ Maecenas feugiat fermentum   -> ysis" -> Maecenas feugiat fermentum
  pretium.  Cras eu dolor                  pretium.  Cras eu dolor
  imperdiet justo mattis                   imperdiet justo mattis
  pulvinar.                                pulvinar.

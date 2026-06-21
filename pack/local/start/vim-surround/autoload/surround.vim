@@ -27,30 +27,21 @@ var visual_dollar: bool = false
 # Filetypes with indent script to fix indent after surround
 var filetypes = []
 
-export def Add(move: string = ''): string
+# To prevent asking for surround char in every repetition of dot command, e.g.
+# ysiw( followed by . should surround with ( as well, not ask for char again.
+var dotrepeat = false
+
+export def Add(): string
     if !&l:modifiable
         echohl ErrorMsg
         echomsg "E21: Cannot make changes, 'modifiable' is off"
         echohl NONE
         return ''
     endif
-    var char = getcharstr(-1, {cursor: 'keep'})
-    if char == "\<Esc>" || char == "\<CR>"
-        return ''
-    endif
-    if char == "t"
-        var tag  = input("Tag: ")
-        if empty(trim(tag))
-            return ''
-        else
-            s_with = '<' .. trim(trim(tag), '<>') .. '>'
-        endif
-    else
-        s_with = char
-    endif
+    dotrepeat = false
     visual_dollar = getcursorcharpos()[-1] == v:maxcol
     &opfunc = (mode) => AddSurround(mode)
-    return 'g@' .. move
+    return 'g@'
 enddef
 
 export def Remove(): string
@@ -126,6 +117,24 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
         &l:autoindent = save_autoindent
         &l:comments = save_comments
     }()
+
+    if !dotrepeat
+        dotrepeat = true
+        var char = getcharstr(-1, {cursor: 'keep'})
+        if char == "\<Esc>" || char == "\<CR>"
+            return
+        endif
+        if char == "t"
+            var tag  = input("Tag: ")
+            if empty(trim(tag))
+                return
+            else
+                s_with = '<' .. trim(trim(tag), '<>') .. '>'
+            endif
+        else
+            s_with = char
+        endif
+    endif
 
     var pairs = Pairs()
 
