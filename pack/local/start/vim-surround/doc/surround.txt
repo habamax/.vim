@@ -52,10 +52,18 @@ DEFAULT OVERRIDE OF SURROUNDING RULES
 
 `ys{motion}{char}`
 
-- when {char} is `(` or `b`
+- when {char} is `b`
+    - char-wise: surround with (text)
+    - line-wise: add newlines before and after the range of lines > 1,
+      otherwise add to the beginning and the ending of the same line
+- when {char} is `B`
+    - char-wise: surround with {text}
+    - line-wise: add newlines before and after the range of lines > 1,
+      otherwise add to the beginning and the ending of the same line
+- when {char} is `(`
     - char-wise: surround with ( text ), note added spaces
     - line-wise: always add newlines before and after the range of lines
-- when {char} is `{` or `B`
+- when {char} is `{`
     - char-wise: surround with { text }, note added spaces
     - line-wise: always add newlines before and after the range of lines
 - when {char} is `[`
@@ -72,7 +80,6 @@ DEFAULT OVERRIDE OF SURROUNDING RULES
 
         {this is another line 1
         and another line 2}
-<
 - when {char} is `"`, `'`, '`', `*`, `_`, `/`
     - char-wise: surround with respected character, e.g. "text", 'text',
     _text_, etc
