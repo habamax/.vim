@@ -1,19 +1,17 @@
-*surround.txt*   For Vim version 9.2.  Last change:  2026 Jun 19
+*surround.txt*   For Vim version 9.2.  Last change:  2026 Jun 21
 
 
 		  VIM REFERENCE MANUAL
 
 Surround, un-surround and change surround of a text.
 
-==============================================================================
-
 See |surround-install| on how to activate this package.
 
-The surround.vim package, allows to
-- surround a single line, a range of lines, a selected text object or a visual
-  block of text;
-- remove surrounded characters;
-- change surrounded characters.
+The surround.vim package allows to
+- Surround a single line, a range of lines, a selected text object or a visual
+  block of text
+- Remove surrounded characters
+- Change surrounded characters
 
 It defines the following mappings:
 
@@ -35,7 +33,9 @@ yss{char}		to surround current line (same as `ys{char}_`)
 
 
 						*surround-default-rules*
-Default surrounding rules:
+DEFAULT SURROUNDING RULES
+
+`ys{char}{motion}`
 
 - It is possible to surround with any character that is matched as
   [[:punct:][:blank:]], basically, punctuation characters, space and tab.
@@ -48,7 +48,9 @@ Default surrounding rules:
   vim's runtime and operation was line-wise, indent surrounded lines.
 
 					 *surround-default-rules-override*
-Default override of surrounding rules:
+DEFAULT OVERRIDE OF SURROUNDING RULES
+
+`ys{char}{motion}`
 
 - when {char} is `(` or `b`
     - char-wise: surround with ( text ), note added spaces
@@ -64,24 +66,26 @@ Default override of surrounding rules:
     - line-wise: always add newlines before and after the range of lines
 - when {char} is `)`, `}`, `]` or `>`
     - char-wise: surround with (text), {text}, [text], etc
-    - line-wise: add surround to the beginning and the end of the range of lines, e.g.>
+    - line-wise: add surround to the beginning and the end of the range of lines, e.g. >
         (this is line 1
         and this is line 2)
 
         {this is another line 1
         and another line 2}
-    <
+<
 - when {char} is `"`, `'`, '`', `*`, `_`, `/`
-    - char-wise: surround with respected character, e.g. "text", 'text', _text_, etc
-    - line-wise: add surround to the beginning and the end of the range of lines, e.g.>
+    - char-wise: surround with respected character, e.g. "text", 'text',
+    _text_, etc
+    - line-wise: add surround to the beginning and the end of the range of
+    lines, e.g. >
         "this is line 1
         and this is line 2"
 
         /this is another line 1
         and another line 2/
-    <
+<
 
-Default overriding rules are set as a following Dict:>
+Default overriding rules are set as a following Dict: >
 
     var base_pairs = {
         'b': ('(', ')'), '(': ('( ', ' )'), ')': ("\n(", ')'),
@@ -103,7 +107,9 @@ If the last character of the left pair value is a space, e.g. `('{ ', ' }')`
 then always add surrounds on the new lines for line-wise operations.
 
 						*surround-delete-rules*
-Delete surround rules `ds{char}`
+DELETE SURROUND RULES
+
+`ds{char}`
 
 - {char} could be the same as defined in |surround-default-rules| and
   |surround-default-rules-override|
@@ -114,18 +120,20 @@ Delete surround rules `ds{char}`
 - Pairs with the same left and right part, e.g. `('*', '*')`, could only be
   removed in the same line.
 - Pairs with the different left and right part could be removed across multiple
-  lines. If after removal, the line is empty, it also is removed>
+  lines. If after removal, the line is empty, it also is removed >
 
-  some text
-  (                              some text
-      hello      ----> dss ---->     hello
-  )                              other text
-  other text
+      some text
+      (                              some text
+          hello      ----> dss ---->     hello
+      )                              other text
+      other text
 <
 
 
 						*surround-change-rules*
-Change surround rules `cs{char1}{char2}`
+CHANGE SURROUND RULES
+
+`cs{char1}{char2}`
 
 - {char1} and {char2} could be the same as defined in |surround-default-rules|
   and |surround-default-rules-override|
@@ -137,20 +145,47 @@ Change surround rules `cs{char1}{char2}`
 - Pairs with the same left and right part, e.g. `('*', '*')`, could only be
   changed in the same line
 - Pairs with the different left and right part could be changed across multiple
-  lines>
+  lines
+  >
+      some text                       some text
+      (                               {
+          hello      ----> cssB ---->     hello
+      )                               }
+      other text                      other text
 
-  some text                       some text
-  (                               {
-      hello      ----> cssB ---->     hello
-  )                               }
-  other text                      other text
 
-==============================================================================
-Options:
+OPTIONS
 
 *g:surround_pairs*
 *b:surround_pairs*
-    TBD
+    To add your own pairs use either g:surround_pairs or b:surround_pairs
+
+    Example of custom global pairs:
+    >
+    vim9script
+    g:surround_pairs = {
+        'd': ('[', ']'), 'D': ('[ ', ' ]'),
+        'v': ("\n<", '>'), 'V': ('< ', ' >'),
+        'g': ("\n\"", '"'), 'G': ("\"\"\"\n", '"""'),
+        'q': ("\n‘", "’"), 'Q': ("\n“", "”"),
+        'w': ("\n‹", "›"), 'W': ("\n«", "»"),
+        'r': ("\n`", '`'), 'R': ("```\n", '```'),
+        'u': ("\n_", '_'), 'U': ("\n__", '__'),
+        'i': ("\n*", '*'), 'I': ("\n**", '**'),
+        'y': ("\n~", '~'), 'Y': ("\n~~", '~~'),
+        'p': ("\n|", "|"), 'P': ("\n| ", " |"),
+        'e': ("\n$", "$"), 'E': ("\n$ ", " $"),
+    }
+<
+    Example of custom buffer local pairs, for markdown filetype, defined in
+    `$MYVIMDIR/after/ftplugin/markdown.vim`
+    >
+    vim9script
+    b:surround_pairs = {
+        'l': ("\n[](", ")"), 'L': ("\n[", "]()"),
+        'k': ("\n<kbd>", "</kbd>"),
+    }
+<
 
 *g:surround_mappings*
     Set to false to disable the default keyboard mappings, e.g. in your vimrc
@@ -159,31 +194,92 @@ Options:
 <
     This option must be set before the package is activated using |packadd|.
 
-==============================================================================
-Surround examples:					*surround-examples*
 
-TBD
+							*surround-examples*
+SURROUND EXAMPLES
 
-==============================================================================
-Mappings:
+| is the cursor position. >
+
+
+ Lorem ips|um dolor sit amet  -> yssb  -> (Lorem ipsum dolor sit amet )
+
+                                          (
+ Lorem ips|um dolor sit amet  -> yss( ->  Lorem ipsum dolor sit amet
+                                          )
+
+ Lorem ips|um dolor sit       -> ys*iw. ->  Lorem **ipsum** dolor sit
+
+ Lorem ips|um dolor sit amet,             "Lorem ipsum dolor sit amet,
+ consectetur adipiscing elit.             consectetur adipiscing elit."
+ Maecenas feugiat fermentum   -> ys"is -> Maecenas feugiat fermentum
+ pretium.  Cras eu dolor                  pretium.  Cras eu dolor
+ imperdiet justo mattis                   imperdiet justo mattis
+ pulvinar.                                pulvinar.
+
+
+          <C-v>4j$Stli class="item"<CR>ystol<CR>ip
+                          |
+                          |          <ol>
+ |Apples                  |              <li class="item">Apples</li>
+ Aubergines               |              <li class="item">Aubergines</li>
+ Spring onions      ->    *   ->         <li class="item">Spring onions</li>
+ Milk                                    <li class="item">Milk</li>
+ Potatos                                 <li class="item">Potatos</li>
+                                     </ol>
+
+
+                                   dstvip:norm dst<CR>
+                                           |
+ |<ol>                                     |      Apples
+     <li class="item">Apples</li>      ->  *  ->  Aubergines
+     <li class="item">Aubergines</li>             Spring onions
+     <li class="item">Spring onions</li>          Milk
+     <li class="item">Milk</li>                   Potatos
+     <li class="item">Potatos</li>
+ </ol>
+
+                                  dstcsttp<CR>v3j:norm .<CR>
+                                           |
+ |<ol>                                     |      <p>Apples</p>
+     <li class="item">Apples</li>      ->  *  ->  <p>Aubergines</p>
+     <li class="item">Aubergines</li>             <p>Spring onions</p>
+     <li class="item">Spring onions</li>          <p>Milk</p>
+     <li class="item">Milk</li>                   <p>Potatos</p>
+     <li class="item">Potatos</li>
+ </ol>
+
+ <p>|Apples</p>                                   `Apples`
+ <p>Aubergines</p>                                `Aubergines`
+ <p>Spring onions</p>     -> cst`j.j.j.j. ->      `Spring onions`
+ <p>Milk</p>                                      `Milk`
+ <p>Potatos</p>                                   `Potatos`
+
+ (hello |world)           -> csbB ->              {hello world}
+ (hello |world)           -> cssB ->              {hello world}
+ "hello |world"           -> css' ->              'hello world'
+ "hello |world"           -> css* ->              *hello world*
+ *hello |world*           -> css[ ->              [ hello world ]
+
+
+MAPPINGS
 
 The following |<Plug>| mappings are included, which you can use to customise the
 keyboard mappings.
 
 *<Plug>(surround-add)*
-    Normal and visual modes, mapped to ys by default
+    Normal and visual modes, mapped to `ys` by default
 
 *<Plug>(surround-line-add)*
-    Normal mode only, mapped to yss by default
+    Normal mode only, mapped to `yss` by default
 
 *<Plug>(surround-word-add)*
     Normal mode only, not mapped by default
 
 *<Plug>(surround-remove)*
-    Normal mode only, mapped to ds by default
+    Normal mode only, mapped to `ds` by default
 
 *<Plug>(surround-change)*
-    Normal mode only, mapped to cs by default
+    Normal mode only, mapped to `cs` by default
 
 The default keyboard mappings are shown below, you can copy these if you wish
 to customise them in your vimrc:
@@ -194,5 +290,10 @@ to customise them in your vimrc:
     nmap ds <Plug>(surround-remove)
     nmap cs <Plug>(surround-change)
 <
+KNOWN LIMITATIONS
+
+Surrounding visual block where beginning or the ending is on the line with
+tabs most probably would not be properly aligned.
+
 ==============================================================================
 vim:tw=78:ts=8:fo=tcq2:ft=help:

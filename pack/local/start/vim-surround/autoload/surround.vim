@@ -1,14 +1,8 @@
 vim9script
 
-# XXX: reword it later
-# If left pair ends with space
-# - linewise surround adds newline instead of space
-# If left pair ends with \n
-# - charwise/blockwise ignores it
-# - linewise surround adds newline instead of \n
-# If left pair ends with no space
-# - linewise for a single line surrounds within the line
-# - linewise for multiple lines surrounds with additional newlines
+# Maintainer: Maxim Kim <habamax@gmail.com>
+# Last Update: 2026-06-21
+
 var base_pairs = {
     'b': ('(', ')'), '(': ('( ', ' )'), ')': ("\n(", ')'),
     'B': ('{', '}'), '{': ('{ ', ' }'), '}': ("\n{", '}'),
