@@ -21,9 +21,6 @@ Key difference is implementation, I use 3 simple operators (add, remove and
 change surround) that are naturally dot repeatable without using `.` remapping
 or [repeat.vim](https://github.com/tpope/vim-repeat).
 
-Additionally, `ys(iw` vs `ysiw(` (`surround.vim`) vs `saiw(` (`vim-sandwich`),
-basically the move comes the last.
-
 [![asciicast](https://asciinema.org/a/1257606.svg)](https://asciinema.org/a/1257606)
 
 It was quite fun and challenging to work through many many edge cases,
