@@ -289,6 +289,8 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
         var pos_list = []
 
         # # get deduplicated chars from pairs
+        # # while this works, I would leave the explicit list of chairs for
+        # # better control and performance
         # # TODO: remove "duplicates" as ' and ''' or " and """
         # var pair_chars = pairs->items()
         #     ->mapnew((_, v) => [v[0], trim(v[1][0]) .. trim(v[1][1])])
