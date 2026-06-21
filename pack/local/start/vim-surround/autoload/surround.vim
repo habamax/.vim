@@ -1,7 +1,7 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-06-21
+# Last Update: 2026-06-22
 
 var base_pairs = {
     'b': ('(', ')'), '(': ('( ', ' )'), ')': ("\n(", ')'),
@@ -31,6 +31,10 @@ var filetypes = []
 # ysiw( followed by . should surround with ( as well, not ask for char again.
 var dotrepeat = false
 
+# save view before Adding surround, to restore if Add operation is canceled with
+# <ESC>
+var cancel_view = {}
+
 export def Add(): string
     if !&l:modifiable
         echohl ErrorMsg
@@ -39,6 +43,7 @@ export def Add(): string
         return ''
     endif
     dotrepeat = false
+    cancel_view = winsaveview()
     visual_dollar = getcursorcharpos()[-1] == v:maxcol
     &opfunc = (mode) => AddSurround(mode)
     return 'g@'
@@ -122,6 +127,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
         dotrepeat = true
         var char = getcharstr(-1, {cursor: 'keep'})
         if char == "\<Esc>" || char == "\<CR>"
+            winrestview(cancel_view)
             return
         endif
         if char == "t"
