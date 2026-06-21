@@ -189,7 +189,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
             s_left = trim(s_left)
         endif
         exe $"noautocmd normal! i{s_tab}{s_left}"
-        setlocal virtualedit=
+        setlocal virtualedit=none
         if start[1] == end[1]
             end[2] += strchars(s_left)
         endif
@@ -271,9 +271,12 @@ enddef
 
 def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
     var save_clipboard = &clipboard
+    var save_virtualedit = &l:virtualedit
     set clipboard=
+    setlocal virtualedit=none
     defer () => {
         &clipboard = save_clipboard
+        &l:virtualedit = save_virtualedit
     }()
     var view = winsaveview()
     var cursor = getcursorcharpos()
