@@ -46,7 +46,21 @@ def Things()
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
 
-nnoremap <buffer> <F5> :source<CR>
+def RunVimscript()
+    # run vim test file
+    var fullname = expand("%:p")
+    var filename = fnamemodify(fullname, ":t")
+    if fullname =~ $'\Vsrc/testdir/{filename->escape('\')}\$'
+        update
+        lcd %:p:h
+        exe $"make {fnamemodify(fullname, ":t:r")}"
+        lcd -
+    else
+        :source
+    endif
+enddef
+
+nnoremap <buffer> <F5> <scriptcmd>RunVimscript()<CR>
 
 iab <buffer> v9 vim9script<C-R>=misc#Eatchar('\s')<CR>
 
