@@ -18,7 +18,7 @@ mode. It is less fancy than `vim-sandwich` which provides quite a few nice
 things in the package.
 
 Key difference is implementation, I use 3 simple operators (add, remove and
-change surround) that are naturally dot repeatable without using `.` remapping
+change surround) that are naturally dot repeatable without using `.` mapping
 or [repeat.vim](https://github.com/tpope/vim-repeat).
 
 [![asciicast](https://asciinema.org/a/1257606.svg)](https://asciinema.org/a/1257606)
