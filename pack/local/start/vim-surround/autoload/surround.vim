@@ -367,8 +367,9 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
         noautocmd normal! "_dd
         end[1] -= 1
     else
+        var move_left = charcol('.') < charcol('$') - strcharlen(s_right)
         exe $'noautocmd normal! {strcharlen(s_right)}"_x'
-        if charcol('.') < charcol('$') - 1
+        if move_left
             noautocmd normal! h
         endif
         end[2] = charcol('.')
