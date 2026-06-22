@@ -53,7 +53,7 @@ def RunVimscript()
     if fullname =~ $'\Vsrc/testdir/{filename->escape('\')}\$'
         update
         lcd %:p:h
-        exe $"make {fnamemodify(fullname, ":t:r")}"
+        exe $"!make {fnamemodify(fullname, ":t:r")}"
         lcd -
     else
         :source
