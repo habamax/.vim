@@ -15,11 +15,11 @@ bundle/opt/vim-fugitive	git@github.com:tpope/vim-fugitive.git
 bundle/opt/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
 
 # Nice to have
-bundle/start/vim-swap	git@github.com:machakann/vim-swap.git
 bundle/start/vim-lion	git@github.com:tommcdo/vim-lion.git
 bundle/start/vim-closetag	git@github.com:alvan/vim-closetag.git
 bundle/opt/lsp	git@github.com:yegappan/lsp.git
 devel	git@github.com:lifepillar/vim-devel.git
+# bundle/start/vim-swap	git@github.com:machakann/vim-swap.git
 
 # try?
 # bundle/start/copilot	git@github.com:github/copilot.vim.git
