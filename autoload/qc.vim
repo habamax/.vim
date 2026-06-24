@@ -90,7 +90,7 @@ export def Nav()
         return
     endif
 
-    commands->insert({text: "Space Navigation"})
+    commands->insert({text: "Navigation"})
     popup.Commands(commands)
 enddef
 
