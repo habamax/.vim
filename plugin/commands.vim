@@ -21,7 +21,10 @@ augroup general | au!
     au BufWritePre *.vim {
         if &modifiable
             var view = winsaveview()
-            exe $':1,{min([10, line('$')])}s/\v^[#"]\s+Last\s+(Change|Update):\s*\zs.*/\=strftime("%Y-%m-%d")/ie'
+            try
+                undojoin | exe $':1,{min([10, line('$')])}s/\v^[#"]\s+Last\s+(Change|Update):\s*\zs.*/\=strftime("%Y-%m-%d")/ie'
+            catch /E790/
+            endtry
             winrestview(view)
         endif
     }
