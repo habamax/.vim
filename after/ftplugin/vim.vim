@@ -46,21 +46,28 @@ def Things()
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
 
-def RunVimscript()
+def RunVimscript(capture_test_output: bool = false)
     # run vim test file
     var fullname = expand("%:p")
     var filename = fnamemodify(fullname, ":t")
     if fullname =~ $'\Vsrc/testdir/{filename->escape('\')}\$'
         update
-        lcd %:p:h
-        exe $"!make {fnamemodify(fullname, ":t:r")}"
-        lcd -
+        if capture_test_output
+            new
+            silent! exe $":.!cd {fnamemodify(fullname, ":p:h")} && make test_plugin_surround"
+            :v/^\(Found\|command line\)/d
+            :%s/^command line.*line \d\+: \zeExpected//e
+            :%s/\ze but got /\r/e
+        else
+            exe $":!cd {fnamemodify(fullname, ":p:h")} && make {fnamemodify(fullname, ":t:r")}"
+        endif
     else
         :source
     endif
 enddef
 
 nnoremap <buffer> <F5> <scriptcmd>RunVimscript()<CR>
+nnoremap <buffer> <F6> <scriptcmd>RunVimscript(true)<CR>
 
 iab <buffer> v9 vim9script<C-R>=misc#Eatchar('\s')<CR>
 
