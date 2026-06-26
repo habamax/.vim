@@ -13,48 +13,55 @@ set cpo&vim
 
 syntax spell toplevel
 syntax sync minlines=300
+syntax iskeyword @,48-57,192-255,_,-
 
 syntax cluster typstExpr
       \ contains=typstExprCodeBlock
+      \ ,typstExprFunc
       \ ,typstExprContentBlock
       \ ,typstExprBraces
+      \ ,typstExprColon
       \ ,typstExprCommand
+      \ ,@typstExprConstants
       \ ,typstExprVar
-      \ ,typstExprFunc
-      \ ,typstExprString
+      \ ,typstExprOpSym
+      \ ,typstExprOp
       \ ,@typstComment
-      " \ ,typstExprLet
-      " \ ,typstExprFor
-      " \ ,typstExprIf
 
 syntax match typstExprStart /#/ nextgroup=@typstExpr,typstExprBareVar
-hi link typstExprStart Special
 
-syntax iskeyword @,48-57,192-255,_,-
-
-syntax match typstExprVar /\k\+/
-      \ skipwhite
-      \ contained
-      \ nextgroup=typstExprOp
-syntax region typstExprBraces
-      \ skipwhite
-      \ contained
-      \ contains=@typstExpr
-      \ nextgroup=typstExprOp
-      \ start=/ (/
-      \ skip=/(.*)/
-      \ end=/)/
-syntax match typstExprOp /\%(=[=>]\)\|\%([-+*/<>!=]=\)\|in\>\|and\>\|or\>\|\%(not\%(\s\+in\>\)\?\)\|[<=>\-+*/]/
+syntax match typstExprColon /:/
       \ skipwhite
       \ contained
       \ nextgroup=@typstExpr
 
+syntax match typstExprVar /\k\+\(\.\k\+\)*/
+      \ skipwhite
+      \ contained
+      \ nextgroup=typstExprOp,typstExprOpSym,@typstExpr
+
+syntax region typstExprBraces
+      \ skipwhite
+      \ contained
+      \ contains=@typstExpr,typstMarkupMath
+      \ nextgroup=typstExprOp,typstExprOpSym,@typstExpr
+      \ start=/(/
+      \ end=/)/
+
+syntax match typstExprOpSym /\%(=[=>]\)\|\%([-+*/<>!=]=\)\|[<=>\-+*/]/
+      \ skipwhite
+      \ contained
+      \ nextgroup=typstExprFunc,@typstExpr
+
+syntax match typstExprOp /in\>\|and\>\|or\>\|\%(not\%(\s\+in\>\)\?\)/
+      \ skipwhite skipempty
+      \ contained
+      \ nextgroup=@typstExpr
 
 syntax match typstExprBareVar /\k\+/ skipwhite contained
 
-
-syntax match typstExprCommand /let\|set\|for\|if\|show\|import/
-      \ skipwhite
+syntax match typstExprCommand /let\|set\|for\|if\|else\|show\|import/
+      \ skipwhite skipempty
       \ contained
       \ nextgroup=@typstExpr
 
@@ -68,102 +75,62 @@ syntax region typstExprCodeBlock
 syntax region typstExprContentBlock
       \ skipwhite
       \ contained
-      \ contains=@typstMarkup,@typstExpr,typstExprStart
-      \ nextgroup=typstExprOp,typstExprContentBlock
+      \ extend
+      \ contains=@typstMarkup,typstExprStart,typstMarkupMath
       \ matchgroup=NONE
       \ start=/\[/
       \ end=/\]/
 
-syntax region typstExprFunc
-      \ transparent
-      \ skipwhite skipempty
-      \ extend
+syntax match typstExprFunc
+      \ skipwhite
       \ contained
-      \ contains=@typstExpr
-      \ nextgroup=@typstExpr
-      \ matchgroup=typstExprFunc
-      \ start=/\k\+\(\.\k\+\)*(\@=/
-      \ end=/)/
+      \ nextgroup=typstExprBraces,typstExprContentBlock,@typstExpr
+      \ /\k\+\%(\.\k\+\)*[[(]\@=/
 
-hi link typstExprOp Operator
-hi link typstExprBareVar Identifier
-hi link typstExprEmbeddedBareVar Identifier
-hi link typstExprFunc Function
-hi link typstExprCommand Statement
+syntax cluster typstExprConstants
+      \ contains=typstExprConstant
+      \ ,typstExprNumberInteger
+      \ ,typstExprNumberFloat
+      \ ,typstExprNumberLength
+      \ ,typstExprNumberAngle
+      \ ,typstExprNumberRatio
+      \ ,typstExprNumberFraction
+      \ ,typstExprString
+      \ ,typstExprLabel
 
-" syntax keyword typstExprKeyword
-"       \ contained
-"       \ let
-"       \ if else
-"       \ while for
-"       \ not in and or return
-
+syntax match typstExprConstant
+      \ contained
+      \ /\v<%(none|auto|true|false)-@!>/
 syntax region typstExprString
       \ contained
       \ start=/"/ skip=/\v\\\\|\\"/ end=/"/
       \ contains=@Spell
+syntax match typstExprNumberInteger
+      \ contained
+      \ /\v<\d+>/
+syntax match typstExprNumberFloat
+      \ contained
+      \ /\v<\d+\.\d*>/
+syntax match typstExprNumberLength
+      \ contained
+      \ /\v<\d+(\.\d*)?(pt|mm|cm|in|em)>/
+syntax match typstExprNumberAngle
+      \ contained
+      \ /\v<\d+(\.\d*)?(deg|rad)>/
+syntax match typstExprNumberRatio
+      \ contained
+      \ /\v<\d+(\.\d*)?\%/
+syntax match typstExprNumberFraction
+      \ contained
+      \ /\v<\d+(\.\d*)?fr>/
+syntax match typstExprLabel
+      \ contained
+      \ /\v\<\K%(\k*-*)*\>/
 
-hi link typstExprString String
-
-" syntax cluster typstCodeIdentifiers
-"       \ contains=typstCodeIdentifier
-"       \ ,typstCodeFieldAccess
-" " syntax match typstCodeIdentifier
-" "       \ contained
-" "       \ /\v\w\k*>(<%(let|set|show|import|include))@<![\.\[\(]@!/
-" " syntax match typstCodeIdentifier
-" "       \ contained
-" "       \ /\v\w\k*>(<%(let|set|show|import|include))@<![\.\[\(]@!/
-" syntax match typstCodeFieldAccess
-"       \ contained
-"       \ /\v\w\k*>(<%(let|set|show|import|include))@<!\.[\[\(]@!/
-"       \ nextgroup=typstCodeFieldAccess,typstCodeFunction
-
-" syntax match typstCodeFunction
-"       \ contained
-"       \ /\v\w\k*>(<%(let|set|show|import|include))@<![\(\[]@=/
-"       \ nextgroup=typstCodeFunctionArgument
-
-" syntax cluster typstCodeConstants
-"       \ contains=typstCodeConstant
-"       \ ,typstCodeNumberInteger
-"       \ ,typstCodeNumberFloat
-"       \ ,typstCodeNumberLength
-"       \ ,typstCodeNumberAngle
-"       \ ,typstCodeNumberRatio
-"       \ ,typstCodeNumberFraction
-"       \ ,typstCodeString
-"       \ ,typstCodeLabel
-" syntax match typstCodeConstant
-"       \ contained
-"       \ /\v<%(none|auto|true|false)-@!>/
-" syntax match typstCodeNumberInteger
-"       \ contained
-"       \ /\v<\d+>/
-
-" syntax match typstCodeNumberFloat
-"       \ contained
-"       \ /\v<\d+\.\d*>/
-" syntax match typstCodeNumberLength
-"       \ contained
-"       \ /\v<\d+(\.\d*)?(pt|mm|cm|in|em)>/
-" syntax match typstCodeNumberAngle
-"       \ contained
-"       \ /\v<\d+(\.\d*)?(deg|rad)>/
-" syntax match typstCodeNumberRatio
-"       \ contained
-"       \ /\v<\d+(\.\d*)?\%/
-" syntax match typstCodeNumberFraction
-"       \ contained
-"       \ /\v<\d+(\.\d*)?fr>/
-" syntax match typstCodeLabel
-"       \ contained
-"       \ /\v\<\K%(\k*-*)*\>/
-
-" syntax region typstCodeDollar
-"       \ contained
-"       \ matchgroup=Number start=/\\\@<!\$/ end=/\\\@<!\$/
-"       \ contains=@typstMath
+syntax region typstMarkupDollar
+      \ contained
+      \ matchgroup=Number start=/\\\@<!\$/ end=/\\\@<!\$/
+      \ contains=@typstMath
 
 
 syntax cluster typstMarkup
@@ -181,6 +148,7 @@ syntax cluster typstMarkup
       \ ,typstMarkupBoldItalic
       \ ,typstMarkupLinebreak
       \ ,typstMarkupNonbreakingSpace
+      \ ,@typstMarkupDollar
       \ ,typstMarkupShy
       \ ,typstMarkupDash
       \ ,typstMarkupEllipsis
@@ -263,17 +231,8 @@ syn region typstMarkupBoldItalic
       \ end=+\*_\($\|[[:space:]-.,:;!?"'/\\>)\]}]\)\@1=+
       \ concealends contains=typstMarkupLabel,@Spell
 
-" syntax match typstMarkupLinebreak
-"       \ /\%([^\\]\|^\)\@1<=\\\%(\s\|$\)/
-" syntax match typstMarkupNonbreakingSpace
-"       \ /\~/
-" syntax match typstMarkupShy
-"       \ /-?/
-
-" syntax match typstMarkupDash
-"       \ /-\{2,3}/
-" syntax match typstMarkupEllipsis
-"       \ /\.\.\./
+syntax match typstMarkupLinebreak
+      \ /\%([^\\]\|^\)\@1<=\\\%(\s\|$\)/
 
 syntax region typstMarkupMath
       \ matchgroup=typstMarkupDollar start=/\\\@<!\$/ end=/\\\@<!\$/
@@ -318,8 +277,6 @@ syntax keyword typstCommentTodo
       \ TODO FIXME XXX TBD
 
 
-hi link typstScriptKeyword Statement
-
 hi def link typstMathIdentifier Identifier
 hi def link typstMathFunction Statement
 hi def link typstMathNumber Number
@@ -328,27 +285,23 @@ hi def link typstCommentBlock Comment
 hi def link typstCommentLine Comment
 hi def link typstCommentTodo Todo
 hi def link typstCodeKeyword Statement
-hi def link typstCodeConstant Constant
-hi def link typstCodeNumberInteger Number
-hi def link typstCodeNumberFloat Number
-hi def link typstCodeNumberLength Number
-hi def link typstCodeNumberAngle Number
-hi def link typstCodeNumberRatio Number
-hi def link typstCodeNumberFraction Number
-hi def link typstCodeString String
-hi def link typstCodeLabel Structure
-hi def link typstCodeStatementWord Statement
-hi def link typstCodeIdentifier Type
-hi def link typstCodeFieldAccess Identifier
-hi def link typstCodeFunction Function
-hi def link typstHashtagConditional Conditional
-hi def link typstHashtagRepeat Repeat
-hi def link typstHashtagKeyword Keyword
-hi def link typstHashtagConstant Constant
-hi def link typstHashtagStatementWord Statement
-hi def link typstHashtagIdentifier Identifier
-hi def link typstHashtagFieldAccess Identifier
-hi def link typstHashtagFunction Function
+
+hi def link typstExprStart Special
+hi def link typstExprOp Statement
+hi def link typstExprBareVar Identifier
+hi def link typstExprEmbeddedBareVar Identifier
+hi def link typstExprFunc Function
+hi def link typstExprCommand Statement
+hi def link typstExprConstant Constant
+hi def link typstExprNumberInteger Number
+hi def link typstExprNumberFloat Number
+hi def link typstExprNumberLength Number
+hi def link typstExprNumberAngle Number
+hi def link typstExprNumberRatio Number
+hi def link typstExprNumberFraction Number
+hi def link typstExprString String
+hi def link typstExprCodeLabel Structure
+
 hi def link typstMarkupRawInlineDelimiter Special
 hi def link typstMarkupRawBlock Special
 hi def link typstMarkupDollar Special
@@ -357,10 +310,6 @@ hi def link typstMarkupReference Special
 hi def link typstMarkupBulletList PreProc
 hi def link typstMarkupEnumList PreProc
 hi def link typstMarkupLinebreak Special
-hi def link typstMarkupNonbreakingSpace Special
-hi def link typstMarkupShy Special
-hi def link typstMarkupDash Special
-hi def link typstMarkupEllipsis Special
 hi def link typstMarkupTermList Bold
 hi def link typstMarkupTermListDelimiter PreProc
 hi def link typstMarkupHeading Title
