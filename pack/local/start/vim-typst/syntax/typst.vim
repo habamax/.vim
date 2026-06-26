@@ -1,7 +1,7 @@
 " Vim syntax file
 " Maintainer:  Maxim Kim <habamax@gmail.com>
 " Language:    Typst
-" Last Change: 2026-06-26
+" Last Change: 2026-06-27
 " Based on the syntax file from https://github.com/kaarmu/typst.vim
 
 if exists('b:current_syntax')
@@ -163,26 +163,33 @@ syntax cluster typstMarkup
       \ ,typstMarkupBold
       \ ,typstMarkupItalic
       \ ,typstMarkupBoldItalic
+      \ ,typstMarkupBackslash
       \ ,typstMarkupLinebreak
       \ ,typstMarkupNonbreakingSpace
       \ ,@typstMarkupDollar
       \ ,typstMarkupShy
       \ ,typstMarkupDash
       \ ,typstMarkupEllipsis
+      \ ,typstMarkupBackslash
+      \ ,typstMarkupEscape
 
 syntax region typstMarkupRawInline
-      \ matchgroup=typstMarkupRawInlineDelimiter
+      \ matchgroup=typstMarkupRawDelimiter
       \ start=+\%(^\|[[:space:]-:/]\)\@1<=`[^`]\@1=+
       \ skip=/\\`/
       \ end=+`+
 
 syntax region typstMarkupRawBlock
-      \ matchgroup=Macro start=/```\w*/
-      \ matchgroup=Macro end=/```/ keepend
+      \ matchgroup=typstMarkupRawDelimiter
+      \ start=/```\w*/
+      \ end=/```/
+      \ keepend
 syntax region typstMarkupCodeBlockTypst
-      \ matchgroup=Macro start=/```typst/
-      \ matchgroup=Macro end=/```/ contains=@typstCode keepend
-      \ concealends
+      \ matchgroup=typstMarkupRawDelimiter
+      \ start=/```typst/
+      \ end=/```/
+      \ contains=@typstCode
+      \ keepend
 
 for s:name in get(g:, 'typst_embedded_languages', [])
     let s:include = ['syntax include'
@@ -190,7 +197,7 @@ for s:name in get(g:, 'typst_embedded_languages', [])
                 \   ,'syntax/'..s:name..'.vim']
     let s:rule = ['syn region'
                 \ ,"typstMarkupRawBlock_"..s:name
-                \ ,'matchgroup=Macro'
+                \ ,'matchgroup=typstMarkupRawDelimiter'
                 \ ,'start=/```'..s:name..'\>/ end=/```/' 
                 \ ,'contains=@typstEmbedded_'..s:name 
                 \ ,'keepend'
@@ -248,8 +255,13 @@ syn region typstMarkupBoldItalic
       \ end=+\*_\($\|[[:space:]-.,:;!?"'/\\>)\]}]\)\@1=+
       \ concealends contains=typstMarkupLabel,@Spell
 
-syntax match typstMarkupLinebreak
-      \ /\%([^\\]\|^\)\@1<=\\\%(\s\|$\)/
+syntax match typstMarkupBackslash /\\\\/
+syntax match typstMarkupLinebreak /\\\%(\s\|$\)/
+syntax match typstMarkupNonbreakingSpace /\~/
+syntax match typstMarkupShy /-?/
+syntax match typstMarkupDash /-\{2,3}/
+syntax match typstMarkupEllipsis /\.\.\./
+syntax match typstMarkupEscape /\\./
 
 syntax region typstMarkupMath
       \ matchgroup=typstMarkupDollar start=/\\\@<!\$/ end=/\\\@<!\$/
@@ -274,7 +286,7 @@ syntax match typstMathFunction
       \ /\a\a\+\ze(/
       \ contained
 syntax match typstMathNumber
-      \ /\<\d\+\>/
+      \ /\d\+/
       \ contained
 syntax region typstMathQuote
       \ matchgroup=String start=/"/ skip=/\\"/ end=/"/
@@ -293,15 +305,14 @@ syntax keyword typstCommentTodo
       \ contained
       \ TODO FIXME XXX TBD
 
+hi def link typstCommentBlock Comment
+hi def link typstCommentLine Comment
+hi def link typstCommentTodo Todo
 
 hi def link typstMathIdentifier Identifier
 hi def link typstMathFunction Statement
 hi def link typstMathNumber Number
 hi def link typstMathSymbol Statement
-hi def link typstCommentBlock Comment
-hi def link typstCommentLine Comment
-hi def link typstCommentTodo Todo
-hi def link typstCodeKeyword Statement
 
 hi def link typstExprStart Special
 hi def link typstExprOp Statement
@@ -317,16 +328,21 @@ hi def link typstExprNumberAngle Number
 hi def link typstExprNumberRatio Number
 hi def link typstExprNumberFraction Number
 hi def link typstExprString String
-hi def link typstExprCodeLabel Structure
+hi def link typstExprLabel Structure
 
-hi def link typstMarkupRawInlineDelimiter Special
-hi def link typstMarkupRawBlock Special
+hi def link typstMarkupRawInline PreProc
+hi def link typstMarkupRawDelimiter Special
+hi def link typstMarkupRawBlock PreProc
 hi def link typstMarkupDollar Special
 hi def link typstMarkupLabel PreProc
 hi def link typstMarkupReference Special
 hi def link typstMarkupBulletList PreProc
 hi def link typstMarkupEnumList PreProc
 hi def link typstMarkupLinebreak Special
+hi def link typstMarkupNonbreakingSpace Special
+hi def link typstMarkupShy Special
+hi def link typstMarkupDash Special
+hi def link typstMarkupEllipsis Special
 hi def link typstMarkupTermList Bold
 hi def link typstMarkupTermListDelimiter PreProc
 hi def link typstMarkupHeading Title
