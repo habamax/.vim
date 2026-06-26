@@ -95,52 +95,28 @@ syntax match typstExprFunc
 
 syntax cluster typstExprConstants
       \ contains=typstExprConstant
-      \ ,typstExprNumberInteger
-      \ ,typstExprNumberFloat
-      \ ,typstExprNumberLength
-      \ ,typstExprNumberAngle
-      \ ,typstExprNumberRatio
-      \ ,typstExprNumberFraction
+      \ ,typstExprNumber
       \ ,typstExprString
       \ ,typstExprLabel
 
 syntax match typstExprConstant
       \ contained
       \ /\v<%(none|auto|true|false)-@!>/
+
 syntax region typstExprString
       \ contained
       \ start=/"/ skip=/\v\\\\|\\"/ end=/"/
       \ contains=@Spell
-syntax match typstExprNumberInteger
+syntax match typstExprNumber
       \ skipwhite
       \ contained
-      \ nextgroup=typstExprOp,typstExprOpSym,@typstExpr
-      \ /\v<\d+>/
-syntax match typstExprNumberFloat
-      \ skipwhite
+      \ nextgroup=typstExprNumberType,typstExprOp,typstExprOpSym,@typstExpr
+      \ /\v<\d+%(\.\d+)?/
+syntax match typstExprNumberType
       \ contained
       \ nextgroup=typstExprOp,typstExprOpSym,@typstExpr
-      \ /\v<\d+\.\d*>/
-syntax match typstExprNumberLength
-      \ skipwhite
-      \ contained
-      \ nextgroup=typstExprOp,typstExprOpSym,@typstExpr
-      \ /\v<\d+(\.\d*)?(pt|mm|cm|in|em)>/
-syntax match typstExprNumberAngle
-      \ skipwhite
-      \ contained
-      \ nextgroup=typstExprOp,typstExprOpSym,@typstExpr
-      \ /\v<\d+(\.\d*)?(deg|rad)>/
-syntax match typstExprNumberRatio
-      \ skipwhite
-      \ contained
-      \ nextgroup=typstExprOp,typstExprOpSym,@typstExpr
-      \ /\v<\d+(\.\d*)?\%/
-syntax match typstExprNumberFraction
-      \ skipwhite
-      \ contained
-      \ nextgroup=typstExprOp,typstExprOpSym,@typstExpr
-      \ /\v<\d+(\.\d*)?fr>/
+      \ /\v%(pt|mm|cm|in|em|deg|rad|\%|fr)>?/
+
 syntax match typstExprLabel
       \ contained
       \ /\v\<\K%(\k*-*)*\>/
@@ -286,8 +262,8 @@ syntax match typstMathFunction
       \ /\a\a\+\ze(/
       \ contained
 syntax match typstMathNumber
-      \ /\d\+/
       \ contained
+      \ /\v\d+%(\.\d+)?/
 syntax region typstMathQuote
       \ matchgroup=String start=/"/ skip=/\\"/ end=/"/
       \ contained
@@ -321,12 +297,8 @@ hi def link typstExprEmbeddedBareVar Identifier
 hi def link typstExprFunc Function
 hi def link typstExprCommand Statement
 hi def link typstExprConstant Constant
-hi def link typstExprNumberInteger Number
-hi def link typstExprNumberFloat Number
-hi def link typstExprNumberLength Number
-hi def link typstExprNumberAngle Number
-hi def link typstExprNumberRatio Number
-hi def link typstExprNumberFraction Number
+hi def link typstExprNumber Number
+hi def link typstExprNumberType Constant
 hi def link typstExprString String
 hi def link typstExprLabel Structure
 
