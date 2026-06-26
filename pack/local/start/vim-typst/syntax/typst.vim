@@ -21,6 +21,7 @@ syntax cluster typstExpr
       \ ,typstExprContentBlock
       \ ,typstExprBraces
       \ ,typstExprColon
+      \ ,typstExprDot
       \ ,typstExprCommand
       \ ,@typstExprConstants
       \ ,typstExprVar
@@ -29,13 +30,16 @@ syntax cluster typstExpr
       \ ,@typstComment
 
 syntax match typstExprStart /#/ nextgroup=@typstExpr,typstExprBareVar
+syntax match typstExprDot /\./
+      \ contained
+      \ nextgroup=@typstExpr
 
 syntax match typstExprColon /:/
       \ skipwhite
       \ contained
       \ nextgroup=@typstExpr
 
-syntax match typstExprVar /\k\+\(\.\k\+\)*/
+syntax match typstExprVar /\k\+/
       \ skipwhite
       \ contained
       \ nextgroup=typstExprOp,typstExprOpSym,@typstExpr
@@ -85,6 +89,7 @@ syntax region typstExprContentBlock
 syntax match typstExprFunc
       \ skipwhite
       \ contained
+      \ contains=typstExprDot
       \ nextgroup=typstExprBraces,typstExprContentBlock,@typstExpr
       \ /\k\+\%(\.\k\+\)*[[(]\@=/
 
@@ -141,8 +146,7 @@ syntax match typstExprLabel
       \ /\v\<\K%(\k*-*)*\>/
 
 syntax region typstMarkupDollar
-      \ contained
-      \ matchgroup=Number start=/\\\@<!\$/ end=/\\\@<!\$/
+      \ matchgroup=typstMarkupDollar start=/\\\@<!\$/ end=/\\\@<!\$/
       \ contains=@typstMath
 
 
