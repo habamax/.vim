@@ -1,0 +1,269 @@
+# Surround, un-surround and change surround of a text
+
+Inspired by Tim Pope's [surround.vim](https://github.com/tpope/vim-surround),
+uses the same mappings.
+
+- Surround a single line, a range of lines, a selected text object or a visual
+  block of text
+- Remove surrounded characters
+- Change surrounded characters
+
+
+# Default mappings
+
+- `ys{motion}{char}`    to surround with `{char}` for the selected motion
+- `{Visual}S{char}`     to surround with `{char}` the highlighted text.
+- `ds{char}`            to delete `{char}` surrounding text around the cursor.
+- `cs{char1}{char2}`    to change `{char1}` surrounding text around the cursor to `{char2}`.
+- `yss{char}`           to surround current line (same as `ys_{char}`)
+
+
+# Default surrounding rules `ys{motion}{char}`
+
+- It is possible to surround with any character that is matched as
+  `[[:punct:][:blank:]]`, basically, punctuation characters, space and tab.
+- If operation is line-wise and number of lines > 1, add surrounding characthers
+  before and after the range of lines. Otherwise add them to the beginning and
+  the ending of the same line.
+- If `{char}` is `t`, surround with an xml/html tag. For line-wise operation, add
+  opening and closing tags on the separate lines.
+- If surrounded by `{`, `(`, `[` or a tag and there is an indent script available in
+  vim's runtime and operation was line-wise, indent surrounded lines.
+
+# Default override of surrounding rules `ys{motion}{char}`
+
+- when `{char}` is `b`
+    - char-wise: surround with `(text)`
+    - line-wise: add newlines before and after the range of lines > 1,
+      otherwise add to the beginning and the ending of the same line
+- when `{char}` is `B`
+    - char-wise: surround with `{text}`
+    - line-wise: add newlines before and after the range of lines > 1,
+      otherwise add to the beginning and the ending of the same line
+- when `{char}` is `(`
+    - char-wise: surround with `( text )`, note added spaces
+    - line-wise: always add newlines before and after the range of lines
+- when `{char}` is `{`
+    - char-wise: surround with `{ text }`, note added spaces
+    - line-wise: always add newlines before and after the range of lines
+- when `{char}` is `[`
+    - char-wise: surround with `[ text ]`, note added spaces
+    - line-wise: always add newlines before and after the range of lines
+- when `{char}` is `<`
+    - char-wise: surround with `<` text `>`, note added spaces
+    - line-wise: always add newlines before and after the range of lines
+- when `{char}` is `)`, `}`, `]` or `>`
+    - char-wise: surround with `(text)`, `{text}`, `[text]`, etc
+    - line-wise: add surround to the beginning and the end of the range of lines, e.g.
+
+          (this is line 1
+          and this is line 2)
+
+          {this is another line 1
+          and another line 2}
+
+- when `{char}` is `"`, `'`, `` ` ``, `*`, `_`, `/`
+    - char-wise: surround with respected character, e.g. `"text"`, `'text'`,
+    `_text_`, etc
+    - line-wise: add surround to the beginning and the end of the range of
+    lines, e.g.
+
+          "this is line 1
+          and this is line 2"
+
+          /this is another line 1
+          and another line 2/
+
+Default overriding rules are set as a following Dict:
+
+    var base_pairs = {
+        'b': ('(', ')'), '(': ('( ', ' )'), ')': ("\n(", ')'),
+        'B': ('{', '}'), '{': ('{ ', ' }'), '}': ("\n{", '}'),
+        '[': ('[ ', ' ]'), ']': ("\n[", ']'),
+        '<': ('< ', ' >'), '>': ("\n<", '>'),
+        '"': ("\n\"", '"'), "'": ("\n'", "'"), "`": ("\n`", "`"),
+        '*': ("\n*", '*'), '_': ("\n_", '_'), '/': ("\n/", '/'),
+    }
+
+Where each Dict key is the triggering `{char}` and the value is the Tuple of
+left and right surrounding characters.
+
+If the first character of the left pair value is `\n` do not surround on
+separate new lines, even for line-wise operations, e.g. `("\n'", "'")`.
+
+If the last character of the left pair value is a space, e.g. `('{ ', ' }')`
+then always add surrounds on the new lines for line-wise operations.
+
+# Delete surround rules `ds{char}`
+
+- `{char}` could be the same as defined in [surrounding rules](#default-surrounding-rules-ysmotionchar)
+- If `{char}` is `t` then the closest to the cursor xml/html tag would be removed
+- If `{char}` is `s` then the closest to the cursor pair of ``({["`'*_|/`` would be
+  removed, e.g. `dss` in `([*hello world*])` with cursor on the space will
+  result in `([hello world])`, following `.` will result in `(hello world)`.
+- Pairs with the same left and right part, e.g. `('*', '*')`, could only be
+  removed in the same line.
+- Pairs with the different left and right part could be removed across multiple
+  lines. If after removal, the line is empty, it also is removed >
+
+      some text
+      (                              some text
+          hello      ----> dss ---->     hello
+      )                              other text
+      other text
+
+
+# Change surround rules `cs{char1}{char2}`
+
+- `{char1}` and `{char2}` could be the same as defined in [surrounding
+  rules](#default-surrounding-rules-ysmotionchar)
+- If `{char1}` is `t` then the closest to the cursor xml/html tag would be changed
+- If `{char2}` is `t` then the surround would be changed to xml/html tag
+- If `{char1}` is `s` then the closest to the cursor pair of ``({["\`'*_|/`` would be
+  changed, e.g. `css_` in `([_hello world_])` with cursor on the space will
+  result in `([_hello world_])`
+- Pairs with the same left and right part, e.g. `('*', '*')`, could only be
+  changed in the same line
+- Pairs with the different left and right part could be changed across multiple
+  lines
+
+      some text                       some text
+      (                               {
+          hello      ----> cssB ---->     hello
+      )                               }
+      other text                      other text
+
+
+# Options
+
+To add your own pairs use either `g:surround_pairs` or `b:surround_pairs`.
+
+Example of custom global pairs:
+
+    vim9script
+    g:surround_pairs = {
+        'd': ('[', ']'), 'D': ('[ ', ' ]'),
+        'v': ("\n<", '>'), 'V': ('< ', ' >'),
+        'g': ("\n\"", '"'), 'G': ("\"\"\"\n", '"""'),
+        'q': ("\n‘", "’"), 'Q': ("\n“", "”"),
+        'w': ("\n‹", "›"), 'W': ("\n«", "»"),
+        'r': ("\n`", '`'), 'R': ("```\n", '```'),
+        'u': ("\n_", '_'), 'U': ("\n__", '__'),
+        'i': ("\n*", '*'), 'I': ("\n**", '**'),
+        'y': ("\n~", '~'), 'Y': ("\n~~", '~~'),
+        'p': ("\n|", "|"), 'P': ("\n| ", " |"),
+        'e': ("\n$", "$"), 'E': ("\n$ ", " $"),
+    }
+
+Example of custom buffer local pairs, for markdown filetype, defined in
+`$MYVIMDIR/after/ftplugin/markdown.vim`
+
+    vim9script
+    b:surround_pairs = {
+        'l': ("\n[](", ")"), 'L': ("\n[", "]()"),
+        'k': ("\n<kbd>", "</kbd>"),
+    }
+
+
+## `g:surround_mappings`
+
+Set to false to disable the default keyboard mappings, e.g. in your vimrc
+
+    let g:surround_mappings = v:false
+
+This option must be set before the package is activated using |packadd|.
+
+
+# Surround examples
+
+`|` is the cursor position.
+
+
+    Lorem ips|um dolor sit amet  -> yssb  -> (Lorem ipsum dolor sit amet )
+
+                                             (
+    Lorem ips|um dolor sit amet  -> yss( ->  Lorem ipsum dolor sit amet
+                                             )
+
+    Lorem ips|um dolor sit       -> ysiw*. ->  Lorem **ipsum** dolor sit
+
+    Lorem ips|um dolor sit amet,             "Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit.             consectetur adipiscing elit."
+    Maecenas feugiat fermentum   -> ysis" -> Maecenas feugiat fermentum
+    pretium.  Cras eu dolor                  pretium.  Cras eu dolor
+    imperdiet justo mattis                   imperdiet justo mattis
+    pulvinar.                                pulvinar.
+
+
+             <C-v>4j$Stli class="item"<CR>ystol<CR>ip
+                             |
+                             |          <ol>
+    |Apples                  |              <li class="item">Apples</li>
+    Aubergines               |              <li class="item">Aubergines</li>
+    Spring onions      ->    *   ->         <li class="item">Spring onions</li>
+    Milk                                    <li class="item">Milk</li>
+    Potatos                                 <li class="item">Potatos</li>
+                                        </ol>
+
+
+                                      dstvip:norm dst<CR>
+                                              |
+    |<ol>                                     |      Apples
+        <li class="item">Apples</li>      ->  *  ->  Aubergines
+        <li class="item">Aubergines</li>             Spring onions
+        <li class="item">Spring onions</li>          Milk
+        <li class="item">Milk</li>                   Potatos
+        <li class="item">Potatos</li>
+    </ol>
+
+                                      dstcsttp<CR>v3j:norm .<CR>
+                                               |
+    |<ol>                                     |      <p>Apples</p>
+        <li class="item">Apples</li>      ->  *  ->  <p>Aubergines</p>
+        <li class="item">Aubergines</li>             <p>Spring onions</p>
+        <li class="item">Spring onions</li>          <p>Milk</p>
+        <li class="item">Milk</li>                   <p>Potatos</p>
+        <li class="item">Potatos</li>
+    </ol>
+
+    <p>|Apples</p>                                   `Apples`
+    <p>Aubergines</p>                                `Aubergines`
+    <p>Spring onions</p>     -> cst`j.j.j.j. ->      `Spring onions`
+    <p>Milk</p>                                      `Milk`
+    <p>Potatos</p>                                   `Potatos`
+
+    (hello |world)           -> csbB ->              {hello world}
+    (hello |world)           -> cssB ->              {hello world}
+    "hello |world"           -> css' ->              'hello world'
+    "hello |world"           -> css* ->              *hello world*
+    *hello |world*           -> css[ ->              [ hello world ]
+
+
+# `<Plug>` mappings
+
+The following `<Plug>` mappings are included, which you can use to customise the
+keyboard mappings.
+
+- `<Plug>(surround-add)` Normal and visual modes, mapped to `ys` by default
+
+- `<Plug>(surround-line-add)` Normal mode only, mapped to `yss` by default
+
+- `<Plug>(surround-word-add)` Normal mode only, not mapped by default
+
+- `<Plug>(surround-remove)` Normal mode only, mapped to `ds` by default
+
+- `<Plug>(surround-change)` Normal mode only, mapped to `cs` by default
+
+The default keyboard mappings are shown below, you can copy these if you wish
+to customise them in your vimrc:
+
+    nmap ys <Plug>(surround-add)
+    nmap yss <Plug>(surround-line-add)
+    xmap S <Plug>(surround-add)
+    nmap ds <Plug>(surround-remove)
+    nmap cs <Plug>(surround-change)
+
+# Known limitations
+
+Surrounding visual block where beginning or the ending is on the line with
+tabs most probably would not be properly aligned.
