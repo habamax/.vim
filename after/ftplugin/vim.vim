@@ -54,7 +54,18 @@ def RunVimscript()
         var testname = expand("%:t:r")
         exe $":!cd {testpath} && make {testname}"
         if v:shell_error != 0
-            exe $":sp {testpath}/test.log"
+            var testlog = $"{testpath}/test.log"
+            if bufexists(testlog)
+                exe $":sb {testlog}"
+                :%delete _
+                exe $":read {testlog}"
+                if empty(getline(1))
+                    exe 'normal! gg"_dip'
+                endif
+            else
+                exe $":sp {testlog}"
+            endif
+
             setlocal buftype=nofile
             setlocal bufhidden=wipe
             silent :%s/^command line.*line \d\+: \zeExpected//e
