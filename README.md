@@ -26,7 +26,7 @@ or [repeat.vim](https://github.com/tpope/vim-repeat).
 It was quite fun and challenging to work through many many edge cases,
 especially related to visual block surrounds and unicode handling.
 
-[vim-surround](https://github.com/habamax/.vim/blob/master/pack/local/start/vim-surround/plugin/surround.vim)
+[vim-surround](https://github.com/habamax/.vim/blob/master/pack/local/start/vim-surround/README.md)
 
 
 ### Fuzzy Popup Finder
