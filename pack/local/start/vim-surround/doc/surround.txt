@@ -141,7 +141,7 @@ CHANGE SURROUND RULES
 - If {char1} is `t` then the closest to the cursor xml/html tag would be changed
 - If {char2} is `t` then the surround would be changed to xml/html tag
 - If {char1} is `s` then the closest to the cursor pair of ({["`'*_|/ would be
-  changed, e.g. `css_` in `([_hello world_])` with cursor on the space will
+  changed, e.g. `css_` in `([*hello world*])` with cursor on the space will
   result in `([_hello world_])`
 - Pairs with the same left and right part, e.g. `('*', '*')`, could only be
   changed in the same line
