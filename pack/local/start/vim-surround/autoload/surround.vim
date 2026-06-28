@@ -1,7 +1,7 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-06-27
+# Last Update: 2026-06-29
 
 var base_pairs = {
     'b': ('(', ')'), '(': ('( ', ' )'), ')': ("\n(", ')'),
@@ -56,11 +56,7 @@ export def Remove(): string
         echohl NONE
         return ''
     endif
-    var char = getcharstr(-1, {cursor: 'keep'})
-    if char == "\<Esc>" || char == "\<CR>"
-        return ''
-    endif
-    s_with = char
+    dotrepeat = false
     &opfunc = (_) => RemoveSurround()
     return 'g@l'
 enddef
@@ -72,26 +68,7 @@ export def Change(): string
         echohl NONE
         return ''
     endif
-    var char = getcharstr(-1, {cursor: 'keep'})
-    if char == "\<Esc>" || char == "\<CR>"
-        return ''
-    endif
-    s_with = char
-
-    char = getcharstr(-1, {cursor: 'keep'})
-    if char == "\<Esc>" || char == "\<CR>"
-        return ''
-    endif
-    if char == "t"
-        var tag  = input("Tag: ")
-        if empty(trim(tag))
-            return ''
-        else
-            c_with = '<' .. trim(trim(tag), '<>') .. '>'
-        endif
-    else
-        c_with = char
-    endif
+    dotrepeat = false
     &opfunc = (_) => ChangeSurround()
     return 'g@l'
 enddef
@@ -295,6 +272,16 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
         &clipboard = save_clipboard
         &l:virtualedit = save_virtualedit
     }()
+
+    if !dotrepeat
+        dotrepeat = true
+        var char = getcharstr(-1, {cursor: 'keep'})
+        if char == "\<Esc>" || char == "\<CR>"
+            return []
+        endif
+        s_with = char
+    endif
+
     var view = winsaveview()
     var cursor = getcursorcharpos()
     var s_left = ""
@@ -389,6 +376,31 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
 enddef
 
 def ChangeSurround()
+    if !dotrepeat
+        dotrepeat = true
+        var char = getcharstr(-1, {cursor: 'keep'})
+        if char == "\<Esc>" || char == "\<CR>"
+            return
+        endif
+        s_with = char
+
+        char = getcharstr(-1, {cursor: 'keep'})
+        if char == "\<Esc>" || char == "\<CR>"
+            return
+        endif
+        if char == "t"
+            var tag  = input("Tag: ")
+            if empty(trim(tag))
+                return
+            else
+                c_with = '<' .. trim(trim(tag), '<>') .. '>'
+            endif
+        else
+            c_with = char
+        endif
+    endif
+
+
     if s_with == c_with
         return
     endif
