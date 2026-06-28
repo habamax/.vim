@@ -400,7 +400,6 @@ def ChangeSurround()
         endif
     endif
 
-
     if s_with == c_with
         return
     endif
