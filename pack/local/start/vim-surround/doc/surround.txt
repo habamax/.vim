@@ -1,19 +1,13 @@
-*surround.txt*   For Vim version 9.2.  Last change:  2026 Jun 21
-
-
-		  VIM REFERENCE MANUAL
+*surround.txt*   For Vim version 9.2.
 
 Surround, un-surround and change surround of a text.
 
-See |surround-install| on how to activate this package.
-
-The surround.vim package allows to
 - Surround a single line, a range of lines, a selected text object or a visual
   block of text
 - Remove surrounded characters
 - Change surrounded characters
 
-It defines the following mappings:
+Defines the following mappings:
 
 							*o_ys*
 ys{motion}{char}	to surround with {char} for the selected motion
