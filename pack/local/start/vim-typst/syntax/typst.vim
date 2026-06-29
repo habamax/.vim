@@ -1,7 +1,7 @@
 " Vim syntax file
 " Maintainer:  Maxim Kim <habamax@gmail.com>
 " Language:    Typst
-" Last Change: 2026-06-27
+" Last Change: 2026-06-30
 " Based on the syntax file from https://github.com/kaarmu/typst.vim
 
 if exists('b:current_syntax')
@@ -64,7 +64,8 @@ syntax match typstExprOp /in\>\|and\>\|or\>\|\%(not\%(\s\+in\>\)\?\)/
 
 syntax match typstExprBareVar /\k\+/ skipwhite contained
 
-syntax match typstExprCommand /let\|set\|for\|if\|else\|show\|import/
+syntax match typstExprCommand
+      \ /let\|set\|while\|for\|if\|else\|show\|import\|include\|context\|return/
       \ skipwhite skipempty
       \ contained
       \ nextgroup=@typstExpr
