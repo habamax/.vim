@@ -77,16 +77,28 @@ uses the same mappings.
 Default overriding rules are set as a following Dict:
 
     var base_pairs = {
+        ' ': (" \n", ' '),
         'b': ('(', ')'), '(': ('( ', ' )'), ')': ("\n(", ')'),
         'B': ('{', '}'), '{': ('{ ', ' }'), '}': ("\n{", '}'),
         '[': ('[ ', ' ]'), ']': ("\n[", ']'),
         '<': ('< ', ' >'), '>': ("\n<", '>'),
         '"': ("\n\"", '"'), "'": ("\n'", "'"), "`": ("\n`", "`"),
         '*': ("\n*", '*'), '_': ("\n_", '_'), '/': ("\n/", '/'),
+        't': {input: "Tag: ", tag: true, pair: ("<__INPUT__>\n", "</__INPUT[0]__>")},
+        'f': {input: "Function: ", rxleft: '\<\k\+(', pair: ("__INPUT__(", ")")},
+        'F': {input: "Function: ", rxleft: '\<\k\+( ', pair: ("__INPUT__( ", " )")},
     }
 
-Where each Dict key is the triggering `{char}` and the value is the Tuple of
-left and right surrounding characters.
+Where each Dict key is the triggering `{char}` and the value is the
+- Tuple of left and right surrounding characters.
+- Dict with following keys:
+    - input: request user input using value as a prompt
+    - tag: boolean, whether this is xml tag related(special case for
+      delete/chage surround)
+    - rxleft: very nomagic regex for the left pair to be deleted/changed
+    - pair: Tuple of left and right surroundg characters where special
+      `__INPUT__` is replaced with user input and `__INPUT[N]__` is replaced with
+      the `N`th word from the input.
 
 If the first character of the left pair value is `\n` do not surround on
 separate new lines, even for line-wise operations, e.g. `("\n'", "'")`.
@@ -98,8 +110,8 @@ then always add surrounds on the new lines for line-wise operations.
 
 - `{char}` could be the same as defined in [surrounding rules](#default-surrounding-rules-ysmotionchar)
 - If `{char}` is `t` then the closest to the cursor xml/html tag would be removed
-- If `{char}` is `s` then the closest to the cursor pair of ``({["`'*_|/`` would be
-  removed, e.g. `dss` in `([*hello world*])` with cursor on the space will
+- If `{char}` is `s` then the closest to the cursor pair of ``({["`'`` would be
+  removed, e.g. `dss` in `(['hello world'])` with cursor on the space will
   result in `([hello world])`, following `.` will result in `(hello world)`.
 - Pairs with the same left and right part, e.g. `('*', '*')`, could only be
   removed in the same line.
@@ -119,8 +131,8 @@ then always add surrounds on the new lines for line-wise operations.
   rules](#default-surrounding-rules-ysmotionchar)
 - If `{char1}` is `t` then the closest to the cursor xml/html tag would be changed
 - If `{char2}` is `t` then the surround would be changed to xml/html tag
-- If `{char1}` is `s` then the closest to the cursor pair of ``({["\`'*_|/`` would be
-  changed, e.g. `css_` in `([*hello world*])` with cursor on the space will
+- If `{char1}` is `s` then the closest to the cursor pair of ``({["\`'`` would be
+  changed, e.g. `css_` in `(['hello world'])` with cursor on the space will
   result in `([_hello world_])`
 - Pairs with the same left and right part, e.g. `('*', '*')`, could only be
   changed in the same line
@@ -164,6 +176,13 @@ Example of custom buffer local pairs, for markdown filetype, defined in
         'k': ("\n<kbd>", "</kbd>"),
     }
 
+Example of custom buffer local pairs, for LaTeX filetype, defined in
+`$MYVIMDIR/after/ftplugin/tex`
+
+    vim9script
+    b:surround_pairs = {
+        'l': {input: "TeX: ", rxleft: '\\\k\+{', pair: ('\__INPUT__{', "}")}
+    }
 
 ## `g:surround_mappings`
 
