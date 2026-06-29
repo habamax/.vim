@@ -16,6 +16,11 @@ extend(base_pairs, get(g:, "surround_pairs", {}))
 
 def Pairs(): dict<any>
     return extendnew(base_pairs, get(b:, "surround_pairs", {}))
+        ->filter((k, v) => {
+            return typename(k) == 'string'
+                && strcharlen(k) == 1
+                && typename(v) == 'tuple<string, string>'
+        })
 enddef
 
 # Surround/Remove surround with.
