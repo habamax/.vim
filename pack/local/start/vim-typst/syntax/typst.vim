@@ -123,7 +123,7 @@ syntax match typstExprLabel
       \ /\v\<\K%(\k*-*)*\>/
 
 syntax region typstMarkupDollar
-      \ matchgroup=typstMarkupDollar start=/\\\@<!\$/ end=/\\\@<!\$/
+      \ matchgroup=typstMarkupDollar start=/\\\@1<!\$/ end=/\\\@1<!\$/
       \ contains=@typstMath
 
 
@@ -241,7 +241,7 @@ syntax match typstMarkupEllipsis /\.\.\./
 syntax match typstMarkupEscape /\\./
 
 syntax region typstMarkupMath
-      \ matchgroup=typstMarkupDollar start=/\\\@<!\$/ end=/\\\@<!\$/
+      \ matchgroup=typstMarkupDollar start=/\\\@1<!\$/ end=/\\\@1<!\$/
       \ contains=@typstMath
 
 " Math
