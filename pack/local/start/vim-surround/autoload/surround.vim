@@ -154,17 +154,20 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
     var save_lazyredraw = &lazyredraw
     var save_virtualedit = &l:virtualedit
     var save_indentkeys = &l:indentkeys
+    var save_cinkeys = &l:cinkeys
     var save_autoindent = &l:autoindent
     var save_comments = &l:comments
     set lazyredraw
     setlocal virtualedit=block
     setlocal indentkeys=
+    setlocal cinkeys=
     setlocal autoindent
     setlocal comments=
     defer () => {
         &lazyredraw = save_lazyredraw
         &l:virtualedit = save_virtualedit
         &l:indentkeys = save_indentkeys
+        &l:cinkeys = save_cinkeys
         &l:autoindent = save_autoindent
         &l:comments = save_comments
     }()
