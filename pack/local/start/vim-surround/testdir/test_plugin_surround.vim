@@ -375,3 +375,34 @@ func Test_surround_custom_pairs()
         \ "five 요 ‘six’ “여보세요” ‘여보세요’ в _целом_ мире»",
         \] , result)
 endfunc
+
+func Test_surround_function()
+  let lines =<< trim END
+    "hello world", 12
+    print("hello world", 12)
+    "hello world", 12
+    print( "hello world", 12 )
+    print("hello world", 12)
+    print( "hello world", 12 )
+  END
+
+  enew
+  call setline(1, lines)
+
+  exe "normal yssfprint\<CR>"
+  exe "normal jdsf"
+  exe "normal jyssFprint\<CR>"
+  exe "normal jdsF"
+  exe "normal jdsF"
+  exe "normal jdsf"
+
+  let result = getline(1, '$')
+  call assert_equal([
+        \ 'print("hello world", 12)',
+        \ '"hello world", 12',
+        \ 'print( "hello world", 12 )',
+        \ '"hello world", 12',
+        \ 'print("hello world", 12)',
+        \ ' "hello world", 12 '
+        \] , result)
+endfunc
