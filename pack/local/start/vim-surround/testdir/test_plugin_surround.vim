@@ -260,7 +260,7 @@ func Test_surround_remove()
   normal f*ds*
   normal j$ds'
   normal F)dss.
-  normal j0f".W.WW.
+  normal j0f".W.WWds_
   normal j0ftdsb
   normal j0ftds"
 
@@ -304,7 +304,7 @@ func Test_surround_change()
   normal 6Gftcssb
   normal f(f)cssBcsb*$cs*_
   normal 7Gf(css]$css"
-  normal 8Gf"css]f'cssbf_css'
+  normal 8Gf"css]f'cssbf_cs_'
   normal 9Gftcss]
   normal 10Gftcs"'
   normal 11Gfics)'
@@ -359,7 +359,7 @@ func Test_surround_custom_pairs()
         \}
 
   normal ysiwq
-  normal ftcssWf(cssWcsswf*cssQ
+  normal ftcssWf(cssWcsswf*cs*Q
   normal 2Gf(cs(q
   normal WdsW
   normal 3Gfscswq
