@@ -23,14 +23,14 @@ var cancel_view = {}
 var base_pairs = {
     ' ': {pair: (' ', ' '), newline: 1},
     'b': ('(', ')'),
-    '(': {pair: ('( ', ' )'), newline: 1},
+    '(': {pair: ('( ', ' )'), newline: 1, trim: 1},
     ')': {pair: ('(', ')'), newline: -1},
     'B': ('{', '}'),
-    '{': {pair: ('{ ', ' }'), newline: 1},
+    '{': {pair: ('{ ', ' }'), newline: 1, trim: 1},
     '}': {pair: ('{', '}'), newline: -1},
-    '[': {pair: ('[ ', ' ]'), newline: 1},
+    '[': {pair: ('[ ', ' ]'), newline: 1, trim: 1},
     ']': {pair: ('[', ']'), newline: -1},
-    '<': {pair: ('< ', ' >'), newline: 1},
+    '<': {pair: ('< ', ' >'), newline: 1, trim: 1},
     '>': {pair: ('<', '>'), newline: -1},
     '"': {pair: ('"', '"'), newline: -1},
     "'": {pair: ("'", "'"), newline: -1},
@@ -58,6 +58,7 @@ enddef
 def Pair(char: string, adding: bool = true): dict<any>
     var pairs = Pairs()
     var pair = get(pairs, char, ())
+    mess clear
     if typename(pair) == 'tuple<string, string>'
         return {
             left: adding ? pair[0] : trim(pair[0]),
@@ -84,6 +85,10 @@ def Pair(char: string, adding: bool = true): dict<any>
             res.tag = get(pair, "tag", false)
             res.left = substitute(res.left, '__INPUT\(\[\d\+\]\)\?__', '', 'g')
             res.right = substitute(res.right, '__INPUT\(\[\d\+\]\)\?__', '', 'g')
+            if !adding && get(pair, "trim", 0) == 1
+                res.left = res.left->trim()
+                res.right = res.right->trim()
+            endif
             res.rxleft = get(pair, "rxleft", res.left)
         endif
         return res

@@ -354,8 +354,10 @@ func Test_surround_custom_pairs()
   call setline(1, lines)
 
   let b:surround_pairs = {
-        \ 'q': ("\n‘", "’"), 'Q': ("\n“", "”"),
-        \ 'w': ("\n‹", "›"), 'W': ("\n«", "»")
+        \ 'q': {"pair": ("‘", "’"), "newline": -1},
+        \ 'Q': {"pair": ("“", "”"), "newline": -1},
+        \ 'w': {"pair": ("‹", "›"), "newline": -1},
+        \ 'W': {"pair": ("«", "»"), "newline": -1}
         \}
 
   normal ysiwq

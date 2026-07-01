@@ -79,14 +79,14 @@ Default overriding rules are set as a following Dict:
     var base_pairs = {
         ' ': {pair: (' ', ' '), newline: 1},
         'b': ('(', ')'),
-        '(': {pair: ('( ', ' )'), newline: 1},
+        '(': {pair: ('( ', ' )'), newline: 1, trim: 1},
         ')': {pair: ('(', ')'), newline: -1},
         'B': ('{', '}'),
-        '{': {pair: ('{ ', ' }'), newline: 1},
+        '{': {pair: ('{ ', ' }'), newline: 1, trim: 1},
         '}': {pair: ('{', '}'), newline: -1},
-        '[': {pair: ('[ ', ' ]'), newline: 1},
+        '[': {pair: ('[ ', ' ]'), newline: 1, trim: 1},
         ']': {pair: ('[', ']'), newline: -1},
-        '<': {pair: ('< ', ' >'), newline: 1},
+        '<': {pair: ('< ', ' >'), newline: 1, trim: 1},
         '>': {pair: ('<', '>'), newline: -1},
         '"': {pair: ('"', '"'), newline: -1},
         "'": {pair: ("'", "'"), newline: -1},
@@ -102,6 +102,9 @@ Default overriding rules are set as a following Dict:
 Where each Dict key is the triggering `{char}` and the value is the
 - Tuple of left and right surrounding characters.
 - Dict with following keys:
+    - trim:
+        - `1` trim pair when removing surround
+        - `0` do trim pair when removing surround (default)
     - newline:
         - `1`  linewise, surround on new lines
         - `-1` linewise, do not surround on new lines
