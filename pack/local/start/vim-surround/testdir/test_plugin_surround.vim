@@ -405,4 +405,24 @@ func Test_surround_function()
         \ 'print("hello world", 12)',
         \ ' "hello world", 12 '
         \] , result)
+
+  let lines =<< trim END
+    # one two three
+    print(
+      "hello world", 12,
+      "hello world", 12
+    )
+    print( "hello world", 12 )
+  END
+  %delete
+  call setline(1, lines)
+
+  normal jdsf
+  let result = getline(1, '$')
+  call assert_equal([
+        \ '# one two three',
+        \ '  "hello world", 12,',
+        \ '  "hello world", 12',
+        \ 'print( "hello world", 12 )'
+        \] , result)
 endfunc

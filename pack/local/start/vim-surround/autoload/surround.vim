@@ -381,7 +381,8 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
     if pos.start[1] == cursor[1] && pos.end[1] == cursor[1]
         pos.end[2] -= pos.startlen
     endif
-    if delete_empty_lines && getline('.') =~ $'\V\^\s\*{escape(pair.left, '\')}\$'
+    var rxleft = get(pair, 'rxleft', escape(pair.left, '\'))
+    if delete_empty_lines && getline('.') =~ $'\V\^\s\*{rxleft}\$'
         noautocmd normal! "_dd
         pos.end[1] -= 1
     else
