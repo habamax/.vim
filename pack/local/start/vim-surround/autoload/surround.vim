@@ -1,15 +1,36 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-06-29
+# Last Update: 2026-07-01
+
+# Surround/Remove surround with.
+var s_with: dict<any> = {}
+# Change surround with.
+var c_with: dict<any> = {}
+# If block selection is done with $
+var visual_dollar: bool = false
+# Filetypes with indent script to fix indent after surround
+var filetypes = []
+
+# To prevent asking for surround char in every repetition of a dot command, e.g.
+# ysiw( followed by . should surround with ( as well, not ask for a char again.
+var dotrepeat = false
+
+# save view before Adding surround, to restore if Add operation is canceled with
+# <ESC>
+var cancel_view = {}
 
 var base_pairs = {
+    ' ': (" \n", ' '),
     'b': ('(', ')'), '(': ('( ', ' )'), ')': ("\n(", ')'),
     'B': ('{', '}'), '{': ('{ ', ' }'), '}': ("\n{", '}'),
     '[': ('[ ', ' ]'), ']': ("\n[", ']'),
     '<': ('< ', ' >'), '>': ("\n<", '>'),
     '"': ("\n\"", '"'), "'": ("\n'", "'"), "`": ("\n`", "`"),
     '*': ("\n*", '*'), '_': ("\n_", '_'), '/': ("\n/", '/'),
+    't': {input: "Tag: ", tag: true, pair: ("<__INPUT__>\n", "</__INPUT[0]__>")},
+    'f': {input: "Function: ", rxleft: '\<\k\+(', pair: ("__INPUT__(", ")")},
+    'F': {input: "Function: ", rxleft: '\<\k\+( ', pair: ("__INPUT__( ", " )")},
 }
 
 extend(base_pairs, get(g:, "surround_pairs", {}))
@@ -19,26 +40,51 @@ def Pairs(): dict<any>
         ->filter((k, v) => {
             return typename(k) == 'string'
                 && strcharlen(k) == 1
-                && typename(v) == 'tuple<string, string>'
+                && (typename(v) == 'tuple<string, string>'
+                || typename(v) == 'dict<any>')
         })
 enddef
 
-# Surround/Remove surround with.
-var s_with: string = ''
-# Change surround with.
-var c_with: string = ''
-# If block selection is done with $
-var visual_dollar: bool = false
-# Filetypes with indent script to fix indent after surround
-var filetypes = []
-
-# To prevent asking for surround char in every repetition of dot command, e.g.
-# ysiw( followed by . should surround with ( as well, not ask for char again.
-var dotrepeat = false
-
-# save view before Adding surround, to restore if Add operation is canceled with
-# <ESC>
-var cancel_view = {}
+def Pair(char: string, adding: bool = true): dict<any>
+    var pairs = Pairs()
+    var pair = get(pairs, char, ())
+    if typename(pair) == 'tuple<string, string>'
+        return {
+            left: adding ? pair[0] : trim(pair[0]),
+            right: adding ? pair[1] : trim(pair[1]),
+        }
+    elseif typename(pair) == 'dict<any>'
+        var res = {
+            left: pair.pair[0],
+            right: pair.pair[1],
+        }
+        if adding
+            var in = input(pair.input)
+            if empty(trim(in))
+                return {}
+            else
+                res.left = substitute(res.left, '__INPUT__', in, 'g')
+                res.right = substitute(res.right, '__INPUT__', in, 'g')
+                res.left = substitute(res.left, '__INPUT\[\(\d\+\)\]__', '\=split(in)[submatch(1)->str2nr()]', 'g')
+                res.right = substitute(res.right, '__INPUT\[\(\d\+\)\]__', '\=split(in)[submatch(1)->str2nr()]', 'g')
+            endif
+        else
+            res.rxleft = get(pair, "rxleft", '')
+            res.tag = get(pair, "tag", false)
+            res.left = substitute(res.left, '__INPUT\(\[\d\+\]\)\?__', '', 'g')
+            res.right = substitute(res.right, '__INPUT\(\[\d\+\]\)\?__', '', 'g')
+        endif
+        return res
+    endif
+    if empty(pair) && char =~ '[[:punct:][:blank:]]'
+        return {
+            left: char,
+            right: char,
+        }
+    else
+        return {}
+    endif
+enddef
 
 export def Add(): string
     if !&l:modifiable
@@ -112,22 +158,20 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
             winrestview(cancel_view)
             return
         endif
-        if char == "t"
-            var tag  = input("Tag: ")
-            if empty(trim(tag))
-                return
-            else
-                s_with = '<' .. trim(trim(tag), '<>') .. '>'
-            endif
-        else
-            s_with = char
-        endif
+        s_with = {trigger: char, pair: Pair(char)}
     endif
 
-    var pairs = Pairs()
+    if empty(s_with.pair)
+        return
+    endif
 
     var start = pos_start
     var end = pos_end
+
+    var s_left = s_with.pair.left
+    var s_right = s_with.pair.right
+
+    var s_tab = s_with.pair.left == "\<tab>" ? "\<C-v>" : ''
 
     # Handle case with v$S(. when selection is started in the middle of the
     # line. Start/end positions are incorrect in dot-repeating.
@@ -137,21 +181,6 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
         end[2] = end_len
     endif
 
-    var s_left = ''
-    var s_right = ''
-    if s_with =~ '^<.*>$'
-        s_left = s_with
-        s_right = '</' .. s_with[1 : -2]->split()[0] .. '>'
-    else
-        var pair = get(pairs, s_with, ())
-        if empty(pair) && s_with !~ '[[:punct:][:blank:]]'
-            return
-        endif
-        s_left = empty(pair) ? s_with : pair[0]
-        s_right = empty(pair) ? s_with : pair[1]
-    endif
-
-    var s_tab = s_with == "\<tab>" ? "\<C-v>" : ''
 
     # For a single line surround
     # - ( [ { < surround with newlines
@@ -159,7 +188,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
     # - <tag> surrounds with newlines
     # - others surround line without newlines
     var s_mode = mode
-    if mode == 'line' && start[1] == end[1] && s_left[-1] !~ '[> ]' && s_left[-1] != "\n"
+    if mode == 'line' && start[1] == end[1] && s_left[-1] != "\n"
         s_mode = 'char'
         noautocmd normal! _
         start = getcursorcharpos()
@@ -284,100 +313,90 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
         if char == "\<Esc>" || char == "\<CR>"
             return []
         endif
-        s_with = char
+        if char == 's'
+            s_with.pair = {left: char}
+        else
+            s_with.pair = Pair(char, false)
+        endif
+        s_with.trigger = char
     endif
 
     var view = winsaveview()
     var cursor = getcursorcharpos()
-    var s_left = ""
-    var s_right = ""
-    var start = []
-    var end = []
-    var pairs = Pairs()
-    if s_with == 's'
+    var pos = {}
+    var pair = {}
+    if s_with.trigger == 's'
+        var pair_chars = '({["`''/'
         var pos_list = []
-
-        # # get deduplicated chars from pairs
-        # # while this works, I would leave the explicit list of chairs for
-        # # better control and performance
-        # # TODO: remove "duplicates" as ' and ''' or " and """
-        # var pair_chars = pairs->items()
-        #     ->mapnew((_, v) => [v[0], trim(v[1][0]) .. trim(v[1][1])])
-        #     ->sort((v1, v2) => v1[1] == v2[1] ? 0 : v1[1] > v2[1] ? 1 : -1)
-        #     ->uniq((v1, v2) => v1[1] == v2[1] ? 0 : v1[1] > v2[1] ? 1 : -1)
-        #     ->mapnew((_, v) => v[0])
-
-        var pair_chars = '({["`''*_|/'
-
         for char in pair_chars
-            var pair = get(pairs, char, ())
-            s_left = empty(pair) ? char : trim(pair[0])
-            s_right = empty(pair) ? char : trim(pair[1])
-            [start, end] = ProbePair(s_left, s_right)
-            if !empty(start) && !empty(end)
-                add(pos_list, [start, end, s_left, s_right])
+            var s_pair = Pair(char, false)
+            var s_pos = ProbePair(s_pair)
+            if !empty(s_pos)
+                add(pos_list, {pos: s_pos, pair: s_pair})
             endif
         endfor
         if empty(pos_list)
             return []
         endif
-        [start, end, s_left, s_right] = pos_list->sort((v1, v2) => {
-            if v1[0][1] == v2[0][1]
-                return v1[0][2] == v2[0][2] ? 0 : v1[0][2] > v2[0][2] ? 1 : -1
-            elseif v1[0][1] > v2[0][1]
+        var closest = pos_list->sort((v1, v2) => {
+            if v1.pos.start[1] == v2.pos.start[1]
+                return v1.pos.start[2] == v2.pos.start[2] ? 0 : v1.pos.start[2] > v2.pos.start[2] ? 1 : -1
+            elseif v1.pos.start[1] > v2.pos.start[1]
                 return 1
             else
                 return -1
             endif
         })[-1]
-    elseif s_with == 't'
-        [start, end, s_left, s_right] = ProbeTag()
+        pos = closest.pos
+        pair = closest.pair
     else
-        var pair = get(pairs, s_with, ())
-        s_left = empty(pair) ? s_with : trim(pair[0])
-        s_right = empty(pair) ? s_with : trim(pair[1])
-        [start, end] = ProbePair(s_left, s_right)
+        pair = Pair(s_with.trigger, false)
+        if get(pair, 'tag', false)
+            [pos, pair] = ProbeTag()
+        else
+            pos = ProbePair(pair)
+        endif
     endif
 
-    if empty(start) || empty(end)
+    if empty(pos)
         winrestview(view)
         return []
     endif
 
-    setcharpos('.', start)
-    var indent_lines = end[0] - start[0]
+    setcharpos('.', pos.start)
+    var indent_lines = pos.end[0] - pos.start[0]
 
-    if start[1] == cursor[1] && end[1] == cursor[1]
-        end[2] -= strchars(s_left)
+    if pos.start[1] == cursor[1] && pos.end[1] == cursor[1]
+        pos.end[2] -= pos.startlen
     endif
-    if delete_empty_lines && getline('.') =~ $'\V\^\s\*{escape(s_left, '\')}\$'
+    if delete_empty_lines && getline('.') =~ $'\V\^\s\*{escape(pair.left, '\')}\$'
         noautocmd normal! "_dd
-        end[1] -= 1
+        pos.end[1] -= 1
     else
-        exe $'noautocmd normal! {strcharlen(s_left)}"_x'
+        exe $'noautocmd normal! {pos.startlen}"_x'
     endif
-    setcharpos('.', end)
-    if delete_empty_lines && getline('.') =~ $'\V\^\s\*{escape(s_right, '\')}\$'
+    setcharpos('.', pos.end)
+    if delete_empty_lines && getline('.') =~ $'\V\^\s\*{escape(pair.right, '\')}\$'
         noautocmd normal! "_dd
-        end[1] -= 1
+        pos.end[1] -= 1
     else
-        var move_left = charcol('.') < charcol('$') - strcharlen(s_right)
-        exe $'noautocmd normal! {strcharlen(s_right)}"_x'
+        var move_left = charcol('.') < charcol('$') - pos.endlen
+        exe $'noautocmd normal! {pos.endlen}"_x'
         if move_left
             noautocmd normal! h
         endif
-        end[2] = charcol('.')
+        pos.end[2] = charcol('.')
     endif
     if delete_empty_lines && indent_lines >= 1
-            && (s_left =~ '[([{]' || s_with == 't')
+            && (pair.left =~ '[([{]' || s_with.trigger == 't')
             && ShouldIndent()
-        exe $":{start[0] - 1}"
-        exe $":silent noautocmd normal! {end[1] - start[1] + 2}=="
+        exe $":{pos.start[0] - 1}"
+        exe $":silent noautocmd normal! {pos.end[1] - pos.start[1] + 2}=="
     endif
     winrestview(view)
-    setcharpos('.', start)
+    setcharpos('.', pos.start)
 
-    return [start, end]
+    return [pos.start, pos.end]
 enddef
 
 def ChangeSurround()
@@ -387,29 +406,19 @@ def ChangeSurround()
         if char == "\<Esc>" || char == "\<CR>"
             return
         endif
-        s_with = char
+        s_with.trigger = char
+        s_with.pair = Pair(char, false)
 
         char = getcharstr(-1, {cursor: 'keep'})
         if char == "\<Esc>" || char == "\<CR>"
             return
         endif
-        if char == "t"
-            var tag  = input("Tag: ")
-            if empty(trim(tag))
-                return
-            else
-                c_with = '<' .. trim(trim(tag), '<>') .. '>'
-            endif
-        else
-            c_with = char
-        endif
+        c_with.trigger = char
+        c_with.pair = Pair(char)
     endif
 
-    if s_with == c_with
-        return
-    endif
-    var with = s_with
     var pos = RemoveSurround(false)
+    var with = s_with->deepcopy()
     if !empty(pos)
         var [start, end] = pos
         if getline(start[1]) =~ '^\s*$'
@@ -417,9 +426,9 @@ def ChangeSurround()
                 noautocmd normal! 2_
             }()
         endif
-        s_with = c_with
+        s_with = c_with->deepcopy()
         AddSurround('char', start, end)
-        s_with = with
+        s_with = with->deepcopy()
     endif
 enddef
 
@@ -429,55 +438,71 @@ def SkipEscaped(): bool
     return fmod(len(escaped), 2) > 0
 enddef
 
-def ProbePair(s_left: string, s_right: string): list<list<number>>
+def ProbePair(pair: dict<any>): dict<any>
     var view = winsaveview()
     var unnamed = getreg("")
     defer () => {
         setreg("", unnamed)
         winrestview(view)
     }()
+    var rxleft = get(pair, "rxleft", pair.left)
+    var startlen = strchars(pair.left)
 
-    if trim(s_left) != trim(s_right)
+    if trim(pair.left) != trim(pair.right)
         noautocmd normal! yl
         var char = getreg("")
         var flags = 'bW'
-        if stridx(s_right, char) != -1
-            if search('\V' .. escape(s_right, '\'), 'cbW', line('.')) == 0
+        if stridx(pair.right, char) != -1
+            if search('\V' .. escape(pair.right, '\'), 'cbW', line('.')) == 0
                 flags ..= 'c'
             endif
         else
             flags ..= 'c'
         endif
-        if searchpair('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), flags, () => SkipEscaped()) <= 0
-            return [[], []]
+        if searchpair($'\V{rxleft}', '', '\V' .. escape(pair.right, '\'), flags, () => SkipEscaped()) <= 0
+            return {}
         endif
         var start = getcursorcharpos()
-        if searchpair('\V' .. escape(s_left, '\'), '', '\V' .. escape(s_right, '\'), 'W', () => SkipEscaped()) <= 0
-            return [[], []]
+        if search(rxleft, 'ce', line('.')) != -1
+            startlen = (getcursorcharpos()[2] - start[2]) + 1
+        endif
+
+        if searchpair($'\V{rxleft}', '', '\V' .. escape(pair.right, '\'), 'W', () => SkipEscaped()) <= 0
+            return {}
         endif
         var end = getcursorcharpos()
-        return [start, end]
+        return {
+            start: start,
+            startlen: startlen,
+            end: end,
+            endlen: strchars(pair.right)
+        }
     else
-        if search('\V' .. escape(s_left, '\'), 'bW', line('.'), 200, () => SkipEscaped()) <= 0
-            if search('\V' .. escape(s_left, '\'), 'cbW', line('.'), 200, () => SkipEscaped()) <= 0
-                return [[], []]
+        if search($'\V{rxleft}', 'bW', line('.'), 200, () => SkipEscaped()) <= 0
+            if search($'\V{rxleft}', 'cbW', line('.'), 200, () => SkipEscaped()) <= 0
+                return {}
             endif
         endif
         var start = getcursorcharpos()
-        if search('\V' .. escape(s_right, '\'), 'W', line('.'), 200, () => SkipEscaped()) <= 0
-            return [[], []]
+        if search('\V' .. escape(pair.right, '\'), 'W', line('.'), 200, () => SkipEscaped()) <= 0
+            return {}
         endif
         var end = getcursorcharpos()
 
         if start != [0, 0] && end != [0, 0] && start != end
-            return [start, end]
+            return {
+                start: start,
+                startlen: startlen,
+                end: end,
+                endlen: strchars(pair.right)
+            }
         else
-            return [[], []]
+            return {}
         endif
     endif
 enddef
 
-def ProbeTag(): tuple<list<number>, list<number>, string, string>
+def ProbeTag(): list<dict<any>>
     var view = winsaveview()
     var unnamed = getreg("")
     defer () => {
@@ -485,8 +510,6 @@ def ProbeTag(): tuple<list<number>, list<number>, string, string>
         setreg("", unnamed)
     }()
 
-    var s_left = ''
-    var s_right = ''
     var tagregion = []
     try
         noautocmd normal! yat
@@ -494,19 +517,24 @@ def ProbeTag(): tuple<list<number>, list<number>, string, string>
         var end = getcharpos("']")
 
         var line = getline(end[1])[ : end[2] - 1]
-        s_right = matchstr(line, '</\S\{-}>$')
+        var s_right = matchstr(line, '</\S\{-}>$')
         line = getline(start[1])[start[2] - 1 :]
-        s_left = matchstr(line, '^<[^[:punct:][:space:]].\{-}>')
+        var s_left = matchstr(line, '^<[^[:punct:][:space:]].\{-}>')
 
-        if !empty(s_left) && !empty(s_right)
-            end[2] -= (strcharlen(s_right) - 1)
-            return (start, end, s_left, s_right)
+        if !empty(s_right) && !empty(s_left)
+            end[2] -= (strchars(s_right) - 1)
+            return [{
+                start: start,
+                startlen: strchars(s_left),
+                end: end,
+                endlen: strchars(s_right)
+            }, {left: s_left, right: s_right}]
         endif
     catch
     finally
         exe "noautocmd normal! \<esc>"
     endtry
-    return ([], [], '', '')
+    return [{}, {}]
 enddef
 
 def MoveCursor(lnum: number, col: number)

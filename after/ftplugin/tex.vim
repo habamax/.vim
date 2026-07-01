@@ -117,3 +117,9 @@ nnoremap <buffer> <F6> <scriptcmd>exe "Sh latexmk " expand("%:p")<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F6>"'
 nnoremap <buffer> <F8> <scriptcmd>exe "Sh latexmk -c" expand("%:p")<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F8>"'
+
+
+
+b:surround_pairs = {
+    'l': {input: "TeX: ", rxleft: '\\\k\+{', pair: ('\__INPUT__{', "}")},
+}
