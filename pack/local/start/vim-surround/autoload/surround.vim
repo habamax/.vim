@@ -21,14 +21,24 @@ var dotrepeat = false
 var cancel_view = {}
 
 var base_pairs = {
-    ' ': (" \n", ' '),
-    'b': ('(', ')'), '(': ("( \n", ' )'), ')': ("\n(", ')'),
-    'B': ('{', '}'), '{': ("{ \n", ' }'), '}': ("\n{", '}'),
-    '[': ("[ \n", ' ]'), ']': ("\n[", ']'),
-    '<': ("< \n", ' >'), '>': ("\n<", '>'),
-    '"': ("\n\"", '"'), "'": ("\n'", "'"), "`": ("\n`", "`"),
-    '*': ("\n*", '*'), '_': ("\n_", '_'), '/': ("\n/", '/'),
-    't': {input: "Tag: ", tag: true, pair: ("<__INPUT__>\n", "</__INPUT[0]__>")},
+    ' ': {pair: (' ', ' '), newline: 1},
+    'b': ('(', ')'),
+    '(': {pair: ('( ', ' )'), newline: 1},
+    ')': {pair: ('(', ')'), newline: -1},
+    'B': ('{', '}'),
+    '{': {pair: ('{ ', ' }'), newline: 1},
+    '}': {pair: ('{', '}'), newline: -1},
+    '[': {pair: ('[ ', ' ]'), newline: 1},
+    ']': {pair: ('[', ']'), newline: -1},
+    '<': {pair: ('< ', ' >'), newline: 1},
+    '>': {pair: ('<', '>'), newline: -1},
+    '"': {pair: ('"', '"'), newline: -1},
+    "'": {pair: ("'", "'"), newline: -1},
+    "`": {pair: ('`', '`'), newline: -1},
+    '*': {pair: ('*', '*'), newline: -1},
+    '_': {pair: ('_', '_'), newline: -1},
+    '/': {pair: ('/', '/'), newline: -1},
+    't': {input: "Tag: ", tag: true, pair: ("<__INPUT__>", "</__INPUT[0]__>"), newline: 1},
     'f': {input: "Function: ", rxleft: '\<\k\+(', pair: ("__INPUT__(", ")")},
     'F': {input: "Function: ", rxleft: '\<\k\+( ', pair: ("__INPUT__( ", " )")},
 }
@@ -52,13 +62,15 @@ def Pair(char: string, adding: bool = true): dict<any>
         return {
             left: adding ? pair[0] : trim(pair[0]),
             right: adding ? pair[1] : trim(pair[1]),
+            newline: 0
         }
     elseif typename(pair) == 'dict<any>'
         var res = {
             left: pair.pair[0],
             right: pair.pair[1],
+            newline: get(pair, "newline", 0)
         }
-        if adding
+        if adding && get(pair, "input", null) != null
             var in = input(pair.input)
             if empty(trim(in))
                 return {}
@@ -69,10 +81,10 @@ def Pair(char: string, adding: bool = true): dict<any>
                 res.right = substitute(res.right, '__INPUT\[\(\d\+\)\]__', '\=split(in)[submatch(1)->str2nr()]', 'g')
             endif
         else
-            res.rxleft = get(pair, "rxleft", '')
             res.tag = get(pair, "tag", false)
             res.left = substitute(res.left, '__INPUT\(\[\d\+\]\)\?__', '', 'g')
             res.right = substitute(res.right, '__INPUT\(\[\d\+\]\)\?__', '', 'g')
+            res.rxleft = get(pair, "rxleft", res.left)
         endif
         return res
     endif
@@ -80,6 +92,7 @@ def Pair(char: string, adding: bool = true): dict<any>
         return {
             left: char,
             right: char,
+            newline: 0
         }
     else
         return {}
@@ -181,20 +194,14 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
         end[2] = end_len
     endif
 
-
-    # For a single line surround
-    # - ( [ { < surround with newlines
-    # - ``` and """ surrounds with newlines
-    # - <tag> surrounds with newlines
-    # - others surround line without newlines
     var s_mode = mode
-    if mode == 'line' && start[1] == end[1] && s_left[-1] != "\n"
+    if mode == 'line' && start[1] == end[1] && s_with.pair.newline != 1
         s_mode = 'char'
         noautocmd normal! _
         start = getcursorcharpos()
         noautocmd normal! g_
         end = getcursorcharpos()
-    elseif mode == 'line' && s_left[0] == "\n"
+    elseif mode == 'line' && s_with.pair.newline == -1
         s_mode = 'char'
         noautocmd normal! _
         start = getcursorcharpos()
@@ -207,6 +214,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
     endif
 
     s_left = trim(s_left, "\n")
+    s_right = trim(s_right, "\n")
 
     if s_mode == 'char'
         setlocal virtualedit=all
@@ -273,7 +281,6 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
             noautocmd normal! gv
             var v_pos = getregionpos(getpos("v"), getpos('.'), {mode: visualmode()})
             var v_start = v_pos[0][0]
-            # var v_end = v_pos[-1][0]
             if v_start[1 : ] != start[1 : ]
                 exe "noautocmd normal! \<ESC>"
                 setlocal virtualedit=all
@@ -326,7 +333,7 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
     var pos = {}
     var pair = {}
     if s_with.trigger == 's'
-        var pair_chars = '({["`''/'
+        var pair_chars = ')}]"`'''
         var pos_list = []
         for char in pair_chars
             var s_pair = Pair(char, false)

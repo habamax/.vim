@@ -89,14 +89,24 @@ DEFAULT OVERRIDE OF SURROUNDING RULES
 Default overriding rules are set as a following Dict: >
 
     var base_pairs = {
-        ' ': (" \n", ' '),
-        'b': ('(', ')'), '(': ("( \n", ' )'), ')': ("\n(", ')'),
-        'B': ('{', '}'), '{': ("{ \n", ' }'), '}': ("\n{", '}'),
-        '[': ("[ \n", ' ]'), ']': ("\n[", ']'),
-        '<': ("< \n", ' >'), '>': ("\n<", '>'),
-        '"': ("\n\"", '"'), "'": ("\n'", "'"), "`": ("\n`", "`"),
-        '*': ("\n*", '*'), '_': ("\n_", '_'), '/': ("\n/", '/'),
-        't': {input: "Tag: ", tag: true, pair: ("<__INPUT__>\n", "</__INPUT[0]__>")},
+        ' ': {pair: (' ', ' '), newline: 1},
+        'b': ('(', ')'),
+        '(': {pair: ('( ', ' )'), newline: 1},
+        ')': {pair: ('(', ')'), newline: -1},
+        'B': ('{', '}'),
+        '{': {pair: ('{ ', ' }'), newline: 1},
+        '}': {pair: ('{', '}'), newline: -1},
+        '[': {pair: ('[ ', ' ]'), newline: 1},
+        ']': {pair: ('[', ']'), newline: -1},
+        '<': {pair: ('< ', ' >'), newline: 1},
+        '>': {pair: ('<', '>'), newline: -1},
+        '"': {pair: ('"', '"'), newline: -1},
+        "'": {pair: ("'", "'"), newline: -1},
+        "`": {pair: ('`', '`'), newline: -1},
+        '*': {pair: ('*', '*'), newline: -1},
+        '_': {pair: ('_', '_'), newline: -1},
+        '/': {pair: ('/', '/'), newline: -1},
+        't': {input: "Tag: ", tag: true, pair: ("<__INPUT__>", "</__INPUT[0]__>"), newline: 1},
         'f': {input: "Function: ", rxleft: '\<\k\+(', pair: ("__INPUT__(", ")")},
         'F': {input: "Function: ", rxleft: '\<\k\+( ', pair: ("__INPUT__( ", " )")},
     }
@@ -105,6 +115,11 @@ Default overriding rules are set as a following Dict: >
 Where each Dict key is the triggering {char} and the value is the
 - Tuple of left and right surrounding characters.
 - Dict with following keys:
+    - newline:
+        - `1`  linewise, surround on new lines
+        - `-1` linewise, do not surround on new lines
+        - `0`  linewise, for a single line surround on the same line, for
+             lines > 1, surround on newlines
     - input: request user input using value as a prompt
     - tag: boolean, whether this is xml tag related(special case for
       delete/chage surround)
@@ -113,11 +128,6 @@ Where each Dict key is the triggering {char} and the value is the
       `__INPUT__` is replaced with user input and `__INPUT[N]__` is replaced with
       the `N`th word from the input.
 
-If the first character of the left pair value is `\n` do not surround on
-separate new lines, even for line-wise operations, e.g. `("\n'", "'")`.
-
-If the last character of the left pair value is a space, e.g. `('{ ', ' }')`
-then always add surrounds on the new lines for line-wise operations.
 
 						*surround-delete-rules*
 DELETE SURROUND RULES
@@ -177,17 +187,28 @@ OPTIONS
     >
     vim9script
     g:surround_pairs = {
-        'd': ('[', ']'), 'D': ("[ \n", ' ]'),
-        'v': ("\n<", '>'), 'V': ("< \n", ' >'),
-        'g': ("\n\"", '"'), 'G': ("\"\"\"\n", '"""'),
-        'q': ("\n‘", "’"), 'Q': ("\n“", "”"),
-        'w': ("\n‹", "›"), 'W': ("\n«", "»"),
-        'r': ("\n`", '`'), 'R': ("```\n", '```'),
-        'u': ("\n_", '_'), 'U': ("\n__", '__'),
-        'i': ("\n*", '*'), 'I': ("\n**", '**'),
-        'y': ("\n~", '~'), 'Y': ("\n~~", '~~'),
-        'p': ("\n|", "|"), 'P': ("\n| ", " |"),
-        'e': ("\n$", "$"), 'E': ("\n$ ", " $"),
+        'd': ('[', ']'),
+        'D': {pair: ('[ ', ' ]'), newline: 1},
+        'v': {pair: ("<", '>'), newline: -1},
+        'V': {pair: ('< ', ' >'), newline: 1},
+        'g': {pair: ("\n\"", '"'), newline: -1},
+        'G': {pair: ("\"\"\"\n", '"""'), newline: 1},
+        'q': {pair: ("\n‘", "’"), newline: -1},
+        'Q': {pair: ("\n“", "”"), newline: -1},
+        'w': {pair: ("\n‹", "›"), newline: -1},
+        'W': {pair: ("\n«", "»"), newline: -1},
+        'r': {pair: ("\n`", '`'), newline: -1},
+        'R': {pair: ("```\n", '```'), newline: 1},
+        'u': {pair: ("\n_", '_'), newline: -1},
+        'U': {pair: ("\n__", '__'), newline: -1},
+        'i': {pair: ("\n*", '*'), newline: -1},
+        'I': {pair: ("\n**", '**'), newline: -1},
+        'y': {pair: ("\n~", '~'), newline: -1},
+        'Y': {pair: ("\n~~", '~~'), newline: -1},
+        'p': {pair: ("\n|", "|"), newline: -1},
+        'P': {pair: ("\n| ", " |"), newline: -1},
+        'e': {pair: ("\n$", "$"), newline: -1},
+        'E': {pair: ("\n$ ", " $"), newline: -1},
     }
 <
     Example of custom buffer local pairs, for markdown filetype, defined in
@@ -195,8 +216,8 @@ OPTIONS
     >
     vim9script
     b:surround_pairs = {
-        'l': ("\n[](", ")"), 'L': ("\n[", "]()"),
-        'k': ("\n<kbd>", "</kbd>")
+        'l': ("[](", ")"), 'L': ("[", "]()"),
+        'k': ("<kbd>", "</kbd>"),
     }
 <
 

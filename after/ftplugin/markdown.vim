@@ -208,6 +208,6 @@ xnoremap <buffer> <silent>ar <esc><scriptcmd>ObjCode(false)<CR>
 
 
 b:surround_pairs = {
-    'l': ("\n[](", ")"), 'L': ("\n[", "]()"),
-    'k': ("\n<kbd>", "</kbd>"),
+    'l': ("[](", ")"), 'L': ("[", "]()"),
+    'k': ("<kbd>", "</kbd>"),
 }
