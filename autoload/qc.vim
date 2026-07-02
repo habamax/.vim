@@ -406,11 +406,19 @@ export def Git()
         return
     endif
 
-    for br in readdir($"{gitdir}/refs/heads")
-        if br != current_branch
-            branches->add(br)
-        endif
-    endfor
+    # get max 10 most recent branches to switch to (without current branch)
+    branches = readdirex($"{gitdir}/refs/heads", (f) => f.name != current_branch)
+        ->sort((d1, d2) => {
+            var ret = 0
+            if d2.time > d1.time
+                ret = -1
+            elseif d2.time < d1.time
+                ret = 1
+            else
+                ret = 0
+            endif
+            return ret * -1
+    })->mapnew((_, v) => v.name)[: 10]
 
     # TODO: support different forges
     var is_github_remote = false
