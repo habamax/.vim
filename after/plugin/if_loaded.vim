@@ -85,6 +85,20 @@ if exists("g:loaded_dir")
                 :Dir
             endif
         }},
+        {text: 'Compare vim screendumps', Action: (items) => {
+            if len(items) > 1
+                return
+            endif
+            mess clear
+            echow b:dir_cwd
+            var failed = $"{b:dir_cwd}/{items[0].name}"
+            if b:dir_cwd !~ 'failed$'
+                echom "Should only work for vim screendump file!"
+                return
+            endif
+            var dump = fnamemodify(failed, ":s/failed/dumps/")
+            term_dumpdiff(failed, dump)
+        }},
     ]
 endif
 
