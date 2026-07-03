@@ -2,7 +2,10 @@ vim9script
 
 setlocal expandtab
 
-if executable('tidy')
+if executable('pup')
+    # sudo apt install pup
+    &l:formatprg = "pup"
+elseif executable('tidy')
     # sudo apt install tidy
     &l:formatprg = $"tidy -q -wrap 0 -i --indent-spaces {&sw} --show-errors 0 --show-body-only auto"
     b:formatprg_err = 1
