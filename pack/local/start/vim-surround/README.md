@@ -279,7 +279,7 @@ This option must be set before the package is activated using |packadd|.
     (hello |world)           -> cssB ->              {hello world}
     "hello |world"           -> css' ->              'hello world'
     "hello |world"           -> css* ->              *hello world*
-    *hello |world*           -> css[ ->              [ hello world ]
+    *hello |world*           -> cs*[ ->              [ hello world ]
 
 
 # `<Plug>` mappings
