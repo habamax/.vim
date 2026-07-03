@@ -15,6 +15,8 @@ nnoremap <silent> <expr> <space>v SourceVim()
 xnoremap <silent> <expr> <space>v SourceVim()
 nnoremap <silent> <expr> <space>vv SourceVim() .. '_'
 
+noremap <F2> <cmd>up<CR>
+
 # clipboard copy/paste
 nnoremap <space>y "+y
 xnoremap <space>y "+y
