@@ -90,7 +90,6 @@ if exists("g:loaded_dir")
                 return
             endif
             mess clear
-            echow b:dir_cwd
             var failed = $"{b:dir_cwd}/{items[0].name}"
             if b:dir_cwd !~ 'failed$'
                 echom "Should only work for vim screendump file!"
