@@ -11,13 +11,6 @@ if exists("g:loaded_surround")
     xmap <space>s <Plug>(surround-add)
 endif
 
-if exists("g:loaded_swap")
-    omap io <Plug>(swap-textobject-i)
-    xmap io <Plug>(swap-textobject-i)
-    omap ao <Plug>(swap-textobject-a)
-    xmap ao <Plug>(swap-textobject-a)
-endif
-
 if exists("g:loaded_checkbox")
     xmap <space>x  <Plug>(CheckboxToggleOp)
     nmap <space>x  <Plug>(CheckboxToggleOp)
