@@ -1,7 +1,7 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-07-01
+# Last Update: 2026-07-06
 
 # Surround/Remove surround with.
 var s_with: dict<any> = {}
@@ -58,7 +58,6 @@ enddef
 def Pair(char: string, adding: bool = true): dict<any>
     var pairs = Pairs()
     var pair = get(pairs, char, ())
-    mess clear
     if typename(pair) == 'tuple<string, string>'
         return {
             left: adding ? pair[0] : trim(pair[0]),
