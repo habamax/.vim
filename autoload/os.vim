@@ -5,7 +5,7 @@ import autoload "dist/vim9.vim"
 
 # Return true if vim is in WSL environment
 export def IsWsl(): bool
-    return exists("$WSLENV")
+    return exists("$WSL_DISTRO_NAME")
 enddef
 
 
@@ -56,7 +56,7 @@ enddef
 # Silently execute OS command
 export def ExeTerm(cmd: string)
     var job_opts = {term_finish: "close", term_rows: 15}
-    if exists("$WSLENV")
+    if exists("$WSL_DISTRO_NAME")
         job_opts.cwd = "/mnt/c"
     endif
     botright term_start(cmd, job_opts)
@@ -66,7 +66,7 @@ enddef
 # Open filename in an OS
 export def Open(url: string)
     var url_x = url
-    if exists("$WSLENV") && filereadable(url)
+    if exists("$WSL_DISTRO_NAME") && filereadable(url)
         url_x = WslToWindowsPath(url)
     endif
     vim9.Open(url_x)
