@@ -40,15 +40,12 @@ def Habamax()
         hi PmenuMatchSel guibg=#585862
         hi PmenuExtraSel guibg=#585862
         hi Comment guifg=#80808a
-    else
-        hi Normal guibg=#ded7d0
-        hi Comment guifg=#7b7672
     endif
 enddef
 
 augroup colors | au!
     au Colorscheme * Lsp()
-    au Colorscheme habamax,xamabah Habamax()
+    au Colorscheme habamax Habamax()
     au Colorscheme polukate,habamax,wildcharm,lunaperche NoBg()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
     au Colorscheme * hi Comment cterm=italic gui=italic
