@@ -4,8 +4,8 @@ vim9script
 # Maintainer: Maxim Kim <habamax@gmail.com>
 # Last Update: 2026-07-07
 # Usage:
-# 1. ys{char}{motion} to surround with a char or tag, e.g. ys*iw to surround
-#    word with * => *word* or ys(iw to surround word with () => (word)
+# 1. ys{char}{motion} to surround with a char or tag, e.g. ysiw* to surround
+#    word with * => *word* or ysiw( to surround word with () => (word)
 # 2. yss{char} to surround the whole line
 # 3. S{char} in visual mode to surround the selection
 # 4. ds{char} to delete surround
