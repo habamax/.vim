@@ -246,7 +246,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
         exe $":noautocmd :{end[1]}normal! jo{s_right}"
         if (s_left =~ '[([{]' || s_right =~ '</.\{-}>')
             && ShouldIndent()
-            exe $":{start[1]}"
+            exe $":{start[1] + 1}"
             exe $":silent noautocmd normal! {end[1] - start[1] + 2}=="
         endif
         exe $":{start[1] + 1}"
@@ -372,7 +372,7 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
     endif
 
     setcharpos('.', pos.start)
-    var indent_lines = pos.end[0] - pos.start[0]
+    var indent_lines = pos.end[1] - pos.start[1]
 
     if pos.start[1] == cursor[1] && pos.end[1] == cursor[1]
         pos.end[2] -= pos.startlen
@@ -399,8 +399,8 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
     if delete_empty_lines && indent_lines >= 1
             && (pair.left =~ '[([{]' || s_with.trigger == 't')
             && ShouldIndent()
-        exe $":{pos.start[0] - 1}"
-        exe $":silent noautocmd normal! {pos.end[1] - pos.start[1] + 2}=="
+        exe $":{pos.start[1]}"
+        exe $":silent noautocmd normal! {pos.end[1] - pos.start[1] + 1}=="
     endif
     winrestview(view)
     setcharpos('.', pos.start)
