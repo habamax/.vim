@@ -2,16 +2,16 @@ vim9script
 
 # Surround plugin for vim.
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-06-21
+# Last Update: 2026-07-07
 # Usage:
 # 1. ys{char}{motion} to surround with a char or tag, e.g. ys*iw to surround
 #    word with * => *word* or ys(iw to surround word with () => (word)
 # 2. yss{char} to surround the whole line
 # 3. S{char} in visual mode to surround the selection
 # 4. ds{char} to delete surround
-# 5. dss to delete closest surround of ({["`''*_|/
+# 5. dss to delete closest surround of ({["`'
 # 6. cs{char1}{char2} to change surround of {char1} to {char2}
-# 7. css{char} to change closest surround of ({["`''*_|/ to {char}
+# 7. css{char} to change closest surround of ({["`' to {char}
 #
 # NOTE: visual block doesn't work right if the selection includes tabs.
 
