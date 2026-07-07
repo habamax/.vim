@@ -1,12 +1,11 @@
 vim9script
 
 setl shiftwidth=0
-setl noexpandtab
-setl tabstop=4
+setl expandtab
 
 def RunOdin()
     update
-    Term odin run .
+    Term! odin run .
 enddef
 
 nnoremap <buffer> <F5> <scriptcmd>RunOdin()<CR>
