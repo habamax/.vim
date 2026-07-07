@@ -1,7 +1,7 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-07-06
+# Last Update: 2026-07-07
 
 # Surround/Remove surround with.
 var s_with: dict<any> = {}
@@ -9,8 +9,6 @@ var s_with: dict<any> = {}
 var c_with: dict<any> = {}
 # If block selection is done with $
 var visual_dollar: bool = false
-# Filetypes with indent script to fix indent after surround
-var filetypes = []
 
 # To prevent asking for surround char in every repetition of a dot command, e.g.
 # ysiw( followed by . should surround with ( as well, not ask for a char again.
@@ -142,11 +140,7 @@ export def Change(): string
 enddef
 
 def ShouldIndent(): bool
-    if empty(filetypes)
-        filetypes = globpath(&rtp, 'indent/*.vim', 0, 1)
-            ->mapnew((_, v) => fnamemodify(v, ':t:r'))
-    endif
-    return filetypes->index(&filetype) != -1
+    return !empty(&indentexpr) || &cindent
 enddef
 
 def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: list<number> = getcharpos("']"))
