@@ -1,3 +1,4 @@
+" Test for th
 " Test for the surround package
 
 packadd surround
@@ -203,18 +204,18 @@ func Test_visual_block_virtualedit_surround_add()
 endfunc
 
 func Test_indent_surround_add()
-  let lines =<< trim END
-    #include <stdio.h>
-
-    int main() {
-        printf("hello world\n");
-        return 0;
-    }
-  END
+  let lines = [
+        \ '#include <stdio.h>',
+        \ '',
+        \ 'int main() {',
+        \ "\tprintf(\"hello world\\n\");",
+        \ "\treturn 0;",
+        \ '}',
+        \]
 
   enew
   set ft=c
-  setlocal ve&
+  setlocal ve& ai cindent
   call setline(1, lines)
   normal 4GVjS{.
 
@@ -228,11 +229,41 @@ func Test_indent_surround_add()
         \ "\t\t\tprintf(\"hello world\\n\");",
         \ "\t\t\treturn 0;",
         \ "\t\t}",
-        \ "    }",
+        \ "\t}",
         \ '}',
         \] , result)
 endfunc
 
+func Test_indent_surround_remove()
+  let lines = [
+        \ '#include <stdio.h>',
+        \ '',
+        \ 'int main() {',
+        \ "\t{",
+        \ "\t\t{",
+        \ "\t\t\tprintf(\"hello world\\n\");",
+        \ "\t\t\treturn 0;",
+        \ "\t\t}",
+        \ "\t}",
+        \ '}',
+        \]
+
+  enew
+  set ft=c
+  setlocal ve& ai cindent
+  call setline(1, lines)
+  normal 6Gdss.
+
+  let result = getline(1, '$')
+  call assert_equal([
+        \ '#include <stdio.h>',
+        \ '',
+        \ 'int main() {',
+        \ "\tprintf(\"hello world\\n\");",
+        \ "\treturn 0;",
+        \ '}',
+        \] , result)
+endfunc
 
 func Test_surround_remove()
   let lines =<< trim END
@@ -424,5 +455,21 @@ func Test_surround_function()
         \ '  "hello world", 12,',
         \ '  "hello world", 12',
         \ 'print( "hello world", 12 )'
+        \] , result)
+endfunc
+
+func Test_surround_function_cancel()
+  let lines =<< trim END
+    print("hello world", 12)
+  END
+
+  enew
+  call setline(1, lines)
+  exe "normal i\<C-G>u"
+  exe "normal csff\<ESC>"
+
+  let result = getline(1, '$')
+  call assert_equal([
+        \ 'print("hello world", 12)',
         \] , result)
 endfunc
