@@ -1,4 +1,3 @@
-" Test for th
 " Test for the surround package
 
 packadd surround
@@ -374,6 +373,26 @@ func Test_surround_change2()
         \] , result)
 endfunc
 
+func Test_surround_change3()
+  let lines =<< trim END
+    ({
+    hello
+    })
+  END
+
+  enew
+  call setline(1, lines)
+
+  normal f{cs{]
+
+  let result = getline(1, '$')
+  call assert_equal([
+        \ '([',
+        \ 'hello',
+        \ '])',
+        \] , result)
+endfunc
+
 func Test_surround_custom_pairs()
   let lines =<< trim END
     one "보two" 여보((세요 дважды)) два *четыре*
@@ -432,9 +451,9 @@ func Test_surround_function()
         \ 'print("hello world", 12)',
         \ '"hello world", 12',
         \ 'print( "hello world", 12 )',
+        \ ' "hello world", 12',
         \ '"hello world", 12',
-        \ 'print("hello world", 12)',
-        \ ' "hello world", 12 '
+        \ ' "hello world", 12'
         \] , result)
 
   let lines =<< trim END
@@ -449,12 +468,46 @@ func Test_surround_function()
   call setline(1, lines)
 
   normal jdsf
+
   let result = getline(1, '$')
   call assert_equal([
         \ '# one two three',
         \ '  "hello world", 12,',
         \ '  "hello world", 12',
         \ 'print( "hello world", 12 )'
+        \] , result)
+
+  let lines =<< trim END
+    timer_start(3000, (_) => {
+      popup_close(winid)
+    })
+  END
+  %delete
+  call setline(1, lines)
+
+  normal dsf
+
+  let result = getline(1, '$')
+  call assert_equal([
+        \'3000, (_) => {',
+        \'  popup_close(winid)',
+        \'}',
+        \] , result)
+
+  let lines =<< trim END
+    extend(base_pairs, get(g:, "surround_pairs", {}))
+    extend(base_pairs, get(g:, "surround_pairs", {}))
+  END
+  %delete
+  call setline(1, lines)
+
+  normal dsf
+  normal j0fadsf
+
+  let result = getline(1, '$')
+  call assert_equal([
+        \ 'base_pairs, get(g:, "surround_pairs", {})',
+        \ 'extend(base_pairs, g:, "surround_pairs", {})',
         \] , result)
 endfunc
 
