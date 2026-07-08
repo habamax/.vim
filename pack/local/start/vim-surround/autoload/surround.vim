@@ -1,7 +1,7 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-07-08
+# Last Update: 2026-07-09
 
 # Surround/Remove surround with.
 var s_with: dict<any> = {}
@@ -307,13 +307,16 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
 enddef
 
 def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
+    var save_lazyredraw = &lazyredraw
     var save_clipboard = &clipboard
     var save_virtualedit = &l:virtualedit
     set clipboard=
     setlocal virtualedit=none
+    set lazyredraw
     defer () => {
         &clipboard = save_clipboard
         &l:virtualedit = save_virtualedit
+        &lazyredraw = save_lazyredraw
     }()
 
     if !dotrepeat
@@ -530,9 +533,9 @@ def ProbeFunc(): list<dict<any>>
         var end = getcharpos("']")
 
         var line = getline(end[1])[ : end[2] - 1]
-        var s_right = matchstr(line, '\s*)$')
+        var s_right = ')'
         line = getline(start[1])[: start[2] - 1]
-        var s_left = matchstr(line, '\k\+(\ze\s*$')
+        var s_left = matchstr(line, '\k\+($')
 
         if !empty(s_right) && !empty(s_left)
             end[2] -= (strchars(s_right) - 1)

@@ -451,9 +451,9 @@ func Test_surround_function()
         \ 'print("hello world", 12)',
         \ '"hello world", 12',
         \ 'print( "hello world", 12 )',
-        \ ' "hello world", 12',
+        \ ' "hello world", 12 ',
         \ '"hello world", 12',
-        \ ' "hello world", 12'
+        \ ' "hello world", 12 '
         \] , result)
 
   let lines =<< trim END
@@ -497,15 +497,18 @@ func Test_surround_function()
   let lines =<< trim END
     extend(base_pairs, get(g:, "surround_pairs", {}))
     extend(base_pairs, get(g:, "surround_pairs", {}))
+    extend(base_pairs, get(g:, "surround_pairs", {}))
   END
   %delete
   call setline(1, lines)
 
   normal dsf
   normal j0fadsf
+  normal j0fgdsf
 
   let result = getline(1, '$')
   call assert_equal([
+        \ 'base_pairs, get(g:, "surround_pairs", {})',
         \ 'base_pairs, get(g:, "surround_pairs", {})',
         \ 'extend(base_pairs, g:, "surround_pairs", {})',
         \] , result)
