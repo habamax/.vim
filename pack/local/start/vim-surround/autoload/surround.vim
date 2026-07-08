@@ -521,6 +521,10 @@ def ProbeFunc(): list<dict<any>>
         setreg("", unnamed)
     }()
 
+    # timer_start(3000, (FAILS HERE) => {
+    #     popup_close(winid)
+    # })
+
     var funcregion = []
     try
         if expand("<cWORD>") =~ '\k\+('
