@@ -1,7 +1,7 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-07-07
+# Last Update: 2026-07-08
 
 # Surround/Remove surround with.
 var s_with: dict<any> = {}
@@ -143,7 +143,7 @@ def ShouldIndent(): bool
     return !empty(&indentexpr) || &cindent
 enddef
 
-def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: list<number> = getcharpos("']"))
+def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: list<number> = getcharpos("']")): bool
     var save_lazyredraw = &lazyredraw
     var save_virtualedit = &l:virtualedit
     var save_indentkeys = &l:indentkeys
@@ -170,13 +170,13 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
         var char = getcharstr(-1, {cursor: 'keep'})
         if char == "\<Esc>" || char == "\<CR>"
             winrestview(cancel_view)
-            return
+            return false
         endif
         s_with = {trigger: char, pair: Pair(char)}
     endif
 
     if empty(s_with.pair)
-        return
+        return false
     endif
 
     var start = pos_start
@@ -303,6 +303,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
             exe "noautocmd normal! \<ESC>"
         endif
     endif
+    return true
 enddef
 
 def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
@@ -436,7 +437,9 @@ def ChangeSurround()
             }()
         endif
         s_with = c_with->deepcopy()
-        AddSurround('char', start, end)
+        if !AddSurround('char', start, end)
+            silent undo
+        endif
         s_with = with->deepcopy()
     endif
 enddef
