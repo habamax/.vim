@@ -525,34 +525,39 @@ def ProbeFunc(): list<dict<any>>
         setreg("", unnamed)
     }()
 
-    # timer_start(3000, (FAILS HERE) => {
-    #     popup_close(winid)
-    # })
-
     if expand("<cWORD>") =~ '\k\+('
         search('[[:space:]]\|^', 'b', line('.'))
         search('(\|)', '', line('.'))
     endif
 
+    var cursor = getcursorcharpos()
+
     noautocmd normal! yab
-    var start = getcharpos("'[")
-    var end = getcharpos("']")
+    var count = 1
+    while !empty(getreg(""))
+        var start = getcharpos("'[")
+        var end = getcharpos("']")
 
-    var line = getline(end[1])[ : end[2] - 1]
-    var s_right = ')'
-    line = getline(start[1])[: start[2] - 1]
-    var s_left = matchstr(line, '\k\+($')
+        var line = getline(end[1])[ : end[2] - 1]
+        var s_right = ')'
+        line = getline(start[1])[: start[2] - 1]
+        var s_left = matchstr(line, '\k\+($')
 
-    if !empty(s_right) && !empty(s_left)
-        end[2] -= (strchars(s_right) - 1)
-        start[2] -= (strchars(s_left) - 1)
-        return [{
-            start: start,
-            startlen: strchars(s_left),
-            end: end,
-            endlen: strchars(s_right)
-        }, {left: s_left, right: s_right}]
-    endif
+        if !empty(s_right) && !empty(s_left)
+            end[2] -= (strchars(s_right) - 1)
+            start[2] -= (strchars(s_left) - 1)
+            return [{
+                start: start,
+                startlen: strchars(s_left),
+                end: end,
+                endlen: strchars(s_right)
+            }, {left: s_left, right: s_right}]
+        endif
+        count += 1
+        setreg("", "")
+        setcharpos('.', cursor)
+        exe $"noautocmd normal! {count}yab"
+    endwhile
     return [{}, {}]
 enddef
 
