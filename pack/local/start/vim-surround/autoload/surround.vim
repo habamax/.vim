@@ -36,9 +36,9 @@ var base_pairs = {
     '*': {pair: ('*', '*'), newline: -1},
     '_': {pair: ('_', '_'), newline: -1},
     '/': {pair: ('/', '/'), newline: -1},
-    't': {input: "Tag: ", probe: "tag", pair: ("<__INPUT__>", "</__INPUT[0]__>"), newline: 1},
-    'f': {input: "Function: ", probe: "func", pair: ("__INPUT__(", ")")},
-    'F': {input: "Function: ", probe: "func", pair: ("__INPUT__( ", " )")},
+    't': {probe: "tag", input: "Tag: ", pair: ("<__INPUT__>", "</__INPUT[0]__>"), newline: 1},
+    'f': {probe: "func", input: "Function: ", pair: ("__INPUT__CAMEL__(", ")")},
+    'F': {probe: "func", input: "Function: ", pair: ("__INPUT__CAMEL__( ", " )")},
 }
 
 extend(base_pairs, get(g:, "surround_pairs", {}))
@@ -73,7 +73,15 @@ def Pair(char: string, adding: bool = true): dict<any>
             if empty(trim(in))
                 return {}
             else
+                res.left = substitute(res.left, '__INPUT__SNAKE__',
+                    substitute(trim(in), '\s', '_', 'g'), 'g')
+                res.left = substitute(res.left, '__INPUT__CAMEL__',
+                    substitute(trim(in), '\(\w\)\s\+\(\w\)', '\1\U\2', 'g'), 'g')
                 res.left = substitute(res.left, '__INPUT__', in, 'g')
+                res.right = substitute(res.right, '__INPUT__SNAKE__',
+                    substitute(trim(in), '\s', '_', 'g'), 'g')
+                res.right = substitute(res.right, '__INPUT__CAMEL__',
+                    substitute(trim(in), '\(\w\)\s\+\(\w\)', '\1\U\2', 'g'), 'g')
                 res.right = substitute(res.right, '__INPUT__', in, 'g')
                 res.left = substitute(res.left, '__INPUT\[\(\d\+\)\]__', '\=split(in)[submatch(1)->str2nr()]', 'g')
                 res.right = substitute(res.right, '__INPUT\[\(\d\+\)\]__', '\=split(in)[submatch(1)->str2nr()]', 'g')
