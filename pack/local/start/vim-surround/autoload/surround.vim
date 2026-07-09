@@ -490,12 +490,14 @@ def ProbePair(pair: dict<any>): dict<any>
         endif
         if searchpair($'\V{escape(pair.left, '\')}', '', $'\V{escape(pair.right, '\')}', flags, () => SkipEscaped()) > 0
             start = getcursorcharpos()
+            # TODO: ignore pairs in strings?
+            # can't remove surround here: (s == '(')
             if searchpair($'\V{escape(pair.left, '\')}', '', $'\V{escape(pair.right, '\')}', 'W', () => SkipEscaped()) > 0
                 end = getcursorcharpos()
             endif
         endif
 
-        if empty(start) && empty(end)
+        if empty(start) || empty(end)
             return {}
         endif
         return {
