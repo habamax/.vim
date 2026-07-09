@@ -512,6 +512,30 @@ func Test_surround_function()
         \ 'base_pairs, get(g:, "surround_pairs", {})',
         \ 'extend(base_pairs, g:, "surround_pairs", {})',
         \] , result)
+
+  let lines =<< trim END
+    timer_start(3000, (_) => {
+        popup_close(winid)
+    })
+    timer_start(3000, ((_)) => {
+        popup_close(winid)
+    })
+  END
+  %delete
+  call setline(1, lines)
+
+  normal f_;dsf
+  normal 4G0f_;dsf
+
+  let result = getline(1, '$')
+  call assert_equal([
+        \ '3000, (_) => {',
+        \ '    popup_close(winid)',
+        \ '}',
+        \ '3000, ((_)) => {',
+        \ '    popup_close(winid)',
+        \ '}',
+        \] , result)
 endfunc
 
 func Test_surround_function_cancel()
