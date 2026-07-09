@@ -466,6 +466,9 @@ def SkipEscaped(): bool
 enddef
 
 def ProbePair(pair: dict<any>): dict<any>
+    if empty(pair)
+        return {}
+    endif
     var view = winsaveview()
     var unnamed = getreg("")
     defer () => {
