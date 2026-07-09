@@ -86,7 +86,6 @@ def Pair(char: string, adding: bool = true): dict<any>
                 res.left = res.left->trim()
                 res.right = res.right->trim()
             endif
-            # res.rxleft = get(pair, "rxleft", res.left)
         endif
         return res
     endif
