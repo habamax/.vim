@@ -143,7 +143,7 @@ def ShouldIndent(): bool
     return !empty(&indentexpr) || &cindent
 enddef
 
-def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: list<number> = getcharpos("']")): bool
+def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: list<number> = getcharpos("']"), change: bool = false): bool
     var save_lazyredraw = &lazyredraw
     var save_virtualedit = &l:virtualedit
     var save_indentkeys = &l:indentkeys
@@ -238,7 +238,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
         if empty(getline(end[1]))
             setline(end[1], s_right)
         else
-            exe $"noautocmd normal! a{s_tab}{s_right}"
+            exe $"noautocmd normal! {change && end[2] == 0 ? "i" : "a"}{s_tab}{s_right}"
         endif
         setcharpos('.', start)
     elseif s_mode == 'line'
@@ -397,9 +397,13 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
         var move_left = charcol('.') < charcol('$') - pos.endlen
         exe $'noautocmd normal! {pos.endlen}"_x'
         if move_left
-            noautocmd normal! h
+            if charcol('.') > 1
+                noautocmd normal! h
+                pos.end[2] = charcol('.')
+            else
+                pos.end[2] -= 1
+            endif
         endif
-        pos.end[2] = charcol('.')
     endif
     if delete_empty_lines && indent_lines >= 1
             && (pair.left =~ '[([{]' || s_with.trigger == 't')
@@ -441,7 +445,7 @@ def ChangeSurround()
             }()
         endif
         s_with = c_with->deepcopy()
-        if !AddSurround('char', start, end)
+        if !AddSurround('char', start, end, true)
             silent undo
         endif
         s_with = with->deepcopy()
