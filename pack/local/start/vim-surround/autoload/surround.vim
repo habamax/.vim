@@ -74,12 +74,12 @@ def Pair(char: string, adding: bool = true): dict<any>
                 return {}
             else
                 res.left = substitute(res.left, '__INPUT__SNAKE__',
-                    substitute(trim(in), '\s', '_', 'g'), 'g')
+                    substitute(trim(in), '\s\+', '_', 'g'), 'g')
                 res.left = substitute(res.left, '__INPUT__CAMEL__',
                     substitute(trim(in), '\(\w\)\s\+\(\w\)', '\1\U\2', 'g'), 'g')
                 res.left = substitute(res.left, '__INPUT__', in, 'g')
                 res.right = substitute(res.right, '__INPUT__SNAKE__',
-                    substitute(trim(in), '\s', '_', 'g'), 'g')
+                    substitute(trim(in), '\s\+', '_', 'g'), 'g')
                 res.right = substitute(res.right, '__INPUT__CAMEL__',
                     substitute(trim(in), '\(\w\)\s\+\(\w\)', '\1\U\2', 'g'), 'g')
                 res.right = substitute(res.right, '__INPUT__', in, 'g')
