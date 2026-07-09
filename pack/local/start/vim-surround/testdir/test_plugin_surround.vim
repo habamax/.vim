@@ -536,6 +536,31 @@ func Test_surround_function()
         \ '    popup_close(winid)',
         \ '}',
         \] , result)
+
+  let lines =<< trim END
+    test \newcommand{\graph}[2][]{
+        \begin{tikzpicture}[baseline=(current bounding box.center)]
+        \end{tikzpicture}
+    }
+  END
+  %delete
+  call setline(1, lines)
+  let b:surround_pairs = {
+        \'l': {"input": "TeX: ", "probe": 'func', "pair": ('\__INPUT__CAMEL__{', '}')},
+        \}
+
+  normal fndsl
+  normal 2G0fbcsl(
+  exe "normal 3G0fecsllnewcommand\<CR>"
+  unlet b:surround_pairs
+
+  let result = getline(1, '$')
+  call assert_equal([
+        \ 'test \graph[2][]{',
+        \ '    ( tikzpicture )[baseline=(current bounding box.center)]',
+        \ '    \newcommand{tikzpicture}',
+        \ '}',
+        \] , result)
 endfunc
 
 func Test_surround_function_cancel()

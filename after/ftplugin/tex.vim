@@ -121,5 +121,5 @@ b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F8>"'
 
 
 b:surround_pairs = {
-    'l': {input: "TeX: ", rxleft: '\\\k\+{', pair: ('\__INPUT__{', "}")},
+    'l': {input: "TeX: ", probe: 'func', pair: ('\__INPUT__CAMEL__{', '}')},
 }

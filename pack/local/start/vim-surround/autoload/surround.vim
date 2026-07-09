@@ -88,7 +88,9 @@ def Pair(char: string, adding: bool = true): dict<any>
             endif
         else
             res.probe = get(pair, "probe", "pair")
+            res.left = substitute(res.left, '__INPUT__\(SNAKE\|CAMEL\)__', '', 'g')
             res.left = substitute(res.left, '__INPUT\(\[\d\+\]\)\?__', '', 'g')
+            res.right = substitute(res.right, '__INPUT__\(SNAKE\|CAMEL\)__', '', 'g')
             res.right = substitute(res.right, '__INPUT\(\[\d\+\]\)\?__', '', 'g')
             if !adding && get(pair, "trim", 0) == 1
                 res.left = res.left->trim()
@@ -373,7 +375,7 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
         if get(pair, 'probe', "pair") == "tag"
             [pos, pair] = ProbeTag()
         elseif get(pair, 'probe', "pair") == "func"
-            [pos, pair] = ProbeFunc()
+            [pos, pair] = ProbeFunc(pair)
         else
             pos = ProbePair(pair)
         endif
@@ -527,7 +529,7 @@ def ProbePair(pair: dict<any>): dict<any>
     endif
 enddef
 
-def ProbeFunc(): list<dict<any>>
+def ProbeFunc(pair: dict<any>): list<dict<any>>
     var view = winsaveview()
     var unnamed = getreg("")
     defer () => {
@@ -535,23 +537,30 @@ def ProbeFunc(): list<dict<any>>
         setreg("", unnamed)
     }()
 
-    if expand("<cWORD>") =~ '\k\+('
+    var left = trim(pair.left)[-1]
+    var leftPrefix = trim(pair.left)[-2]
+    var right = trim(pair.right)[-1]
+    if left !~ '[{(\[]' && right !~ '[})\]]'
+        return [{}, {}]
+    endif
+
+    if expand("<cWORD>") =~ $'\V\k\+{left}'
         search('[[:space:]]\|^', 'b', line('.'))
-        search('(\|)', '', line('.'))
+        search($'\V{left}\|{right}', '', line('.'))
     endif
 
     var cursor = getcursorcharpos()
 
-    noautocmd normal! yab
+    exe $"noautocmd normal! ya{left}"
     var count = 1
     while !empty(getreg(""))
         var start = getcharpos("'[")
         var end = getcharpos("']")
 
         var line = getline(end[1])[ : end[2] - 1]
-        var s_right = ')'
+        var s_right = right
         line = getline(start[1])[: start[2] - 1]
-        var s_left = matchstr(line, '\k\+($')
+        var s_left = matchstr(line, $'\V{escape(leftPrefix, '\')}\k\+{left}\$')
 
         if !empty(s_right) && !empty(s_left)
             end[2] -= (strchars(s_right) - 1)
@@ -566,7 +575,7 @@ def ProbeFunc(): list<dict<any>>
         count += 1
         setreg("", "")
         setcharpos('.', cursor)
-        exe $"noautocmd normal! {count}yab"
+        exe $"noautocmd normal! {count}ya{left}"
     endwhile
     return [{}, {}]
 enddef
