@@ -529,34 +529,30 @@ def ProbeFunc(): list<dict<any>>
     #     popup_close(winid)
     # })
 
-    var funcregion = []
-    try
-        if expand("<cWORD>") =~ '\k\+('
-            search('[[:space:]]\|^', 'b', line('.'))
-            search('(\|)', '', line('.'))
-        endif
+    if expand("<cWORD>") =~ '\k\+('
+        search('[[:space:]]\|^', 'b', line('.'))
+        search('(\|)', '', line('.'))
+    endif
 
-        noautocmd normal! yab
-        var start = getcharpos("'[")
-        var end = getcharpos("']")
+    noautocmd normal! yab
+    var start = getcharpos("'[")
+    var end = getcharpos("']")
 
-        var line = getline(end[1])[ : end[2] - 1]
-        var s_right = ')'
-        line = getline(start[1])[: start[2] - 1]
-        var s_left = matchstr(line, '\k\+($')
+    var line = getline(end[1])[ : end[2] - 1]
+    var s_right = ')'
+    line = getline(start[1])[: start[2] - 1]
+    var s_left = matchstr(line, '\k\+($')
 
-        if !empty(s_right) && !empty(s_left)
-            end[2] -= (strchars(s_right) - 1)
-            start[2] -= (strchars(s_left) - 1)
-            return [{
-                start: start,
-                startlen: strchars(s_left),
-                end: end,
-                endlen: strchars(s_right)
-            }, {left: s_left, right: s_right}]
-        endif
-    catch
-    endtry
+    if !empty(s_right) && !empty(s_left)
+        end[2] -= (strchars(s_right) - 1)
+        start[2] -= (strchars(s_left) - 1)
+        return [{
+            start: start,
+            startlen: strchars(s_left),
+            end: end,
+            endlen: strchars(s_right)
+        }, {left: s_left, right: s_right}]
+    endif
     return [{}, {}]
 enddef
 
@@ -568,28 +564,24 @@ def ProbeTag(): list<dict<any>>
         setreg("", unnamed)
     }()
 
-    var tagregion = []
-    try
-        noautocmd normal! yat
-        var start = getcharpos("'[")
-        var end = getcharpos("']")
+    noautocmd normal! yat
+    var start = getcharpos("'[")
+    var end = getcharpos("']")
 
-        var line = getline(end[1])[ : end[2] - 1]
-        var s_right = matchstr(line, '</\S\{-}>$')
-        line = getline(start[1])[start[2] - 1 :]
-        var s_left = matchstr(line, '^<[^[:punct:][:space:]].\{-}>')
+    var line = getline(end[1])[ : end[2] - 1]
+    var s_right = matchstr(line, '</\S\{-}>$')
+    line = getline(start[1])[start[2] - 1 :]
+    var s_left = matchstr(line, '^<[^[:punct:][:space:]].\{-}>')
 
-        if !empty(s_right) && !empty(s_left)
-            end[2] -= (strchars(s_right) - 1)
-            return [{
-                start: start,
-                startlen: strchars(s_left),
-                end: end,
-                endlen: strchars(s_right)
-            }, {left: s_left, right: s_right}]
-        endif
-    catch
-    endtry
+    if !empty(s_right) && !empty(s_left)
+        end[2] -= (strchars(s_right) - 1)
+        return [{
+            start: start,
+            startlen: strchars(s_left),
+            end: end,
+            endlen: strchars(s_right)
+        }, {left: s_left, right: s_right}]
+    endif
     return [{}, {}]
 enddef
 
