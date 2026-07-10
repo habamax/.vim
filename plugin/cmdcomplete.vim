@@ -45,7 +45,7 @@ def CmdCompleteSelectFirst()
     #   first element of completion popup
     var commands = [
         'sfind', 'find', 'tabfind', 'buffer', 'sbuffer', 'colorscheme',
-        'Recent', 'SRecent', 'Bookmark', 'SBookmark',
+        'Buffer', 'SBuffer', 'Recent', 'SRecent', 'Bookmark', 'SBookmark',
         'Project', 'Help',
         'LoadSession', 'InsertTemplate', 'Colorscheme', 'Unicode'
     ]

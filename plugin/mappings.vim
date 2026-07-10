@@ -52,20 +52,13 @@ def Find(how: string = "", path: string = ""): string
     endif
     return $":{mods}{how}find "
 enddef
-def Buffer(how: string = ""): string
-    var mods = ""
-    if how == "s" && winwidth(winnr()) * 0.3 > winheight(winnr())
-        mods = "vert "
-    endif
-    return $":{mods}{how}b "
-enddef
 nnoremap <expr> <space>e Find()
 nnoremap <expr> <space><space>e Find("s")
 nnoremap <expr> <space>E Find("tab")
 nnoremap <expr> <space>fe Find("", expand("%"))
 nnoremap <expr> <space><space>fe Find("s", expand("%"))
-nnoremap <expr> <space>b Buffer()
-nnoremap <expr> <space><space>b Buffer("s")
+nnoremap <space>b :<C-u>Buffer<space>
+nnoremap <space><space>b :<C-u>SBuffer<space>
 nnoremap <space>r :<C-u>Recent<space>
 nnoremap <space><space>r :<C-u>SRecent<space>
 nnoremap <expr> <space>d Find("", $DOCS ?? "~/docs")
@@ -199,9 +192,6 @@ nnoremap <silent> <space><cr> <scriptcmd>text.Toggle()<CR>
 import autoload 'zoom.vim'
 nnoremap <C-w><C-o> <scriptcmd>zoom.Toggle()<CR>
 nmap <C-w>o <C-w><C-o>
-# new window
-import autoload 'window.vim'
-nnoremap <C-w>n <scriptcmd>window.New()<CR>
 
 import autoload 'text.vim'
 

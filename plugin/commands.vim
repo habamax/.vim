@@ -155,6 +155,27 @@ def UnicodeComplete(arg: string, _, _): list<dict<any>>
     endif
 enddef
 
+command -nargs=_ -complete=customlist,BufferComplete Buffer :b <args>
+command -nargs=_ -complete=customlist,BufferComplete SBuffer :sb <args>
+def BufferComplete(arg: string, _, _): list<dict<any>>
+    var buffer_list = getbufinfo({'buflisted': 1})->mapnew((_, v) => {
+        return {bufnr: v.bufnr,
+                abbr: (bufname(v.bufnr) ?? $'[No Name]'),
+                word: (bufname(v.bufnr) ?? v.bufnr),
+                menu: $'ln {v.lnum}',
+                kind: $'{empty(v.windows) ? "" : "a"}{v.hidden ? "h" : ""}{v.changed ? "+" : ""}',
+                lastused: v.lastused }
+    })->sort((i, j) => i.lastused > j.lastused ? -1 : i.lastused == j.lastused ? 0 : 1)
+    # Alternate buffer first, current buffer second
+    if buffer_list->len() > 1 && buffer_list[0].bufnr == bufnr()
+        [buffer_list[0], buffer_list[1]] = [buffer_list[1], buffer_list[0]]
+    endif
+    if empty(arg)
+        return buffer_list
+    else
+        return buffer_list->matchfuzzy(arg, {key: "abbr"})
+    endif
+enddef
 
 import autoload 'hlblink.vim'
 command BlinkLine hlblink.Line()
