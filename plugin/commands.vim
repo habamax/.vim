@@ -155,8 +155,15 @@ def UnicodeComplete(arg: string, _, _): list<dict<any>>
     endif
 enddef
 
+def MaybeVertCmd(cmd: string, args: string)
+    var mods = ""
+    if winwidth(winnr()) * 0.3 > winheight(winnr())
+        mods = "vert "
+    endif
+    exe $":{mods} {cmd} {args}"
+enddef
 command -nargs=_ -complete=customlist,BufferComplete Buffer :b <args>
-command -nargs=_ -complete=customlist,BufferComplete SBuffer :sb <args>
+command -nargs=_ -complete=customlist,BufferComplete SBuffer MaybeVertCmd("sb", <f-args>)
 def BufferComplete(arg: string, _, _): list<dict<any>>
     var buffer_list = getbufinfo({'buflisted': 1})->mapnew((_, v) => {
         return {bufnr: v.bufnr,
