@@ -166,16 +166,21 @@ command -nargs=_ -complete=customlist,BufferComplete Buffer :b <args>
 command -nargs=_ -complete=customlist,BufferComplete SBuffer MaybeVertCmd("sb", <f-args>)
 def BufferComplete(arg: string, _, _): list<dict<any>>
     var buffer_list = getbufinfo({'buflisted': 1})->mapnew((_, v) => {
+        var preview_start = max([v.lnum - 5, 1])
+        var preview_end = preview_start + 10
         return {bufnr: v.bufnr,
                 abbr: (bufname(v.bufnr) ?? $'[No Name]'),
                 word: (bufname(v.bufnr) ?? v.bufnr),
-                menu: $'ln {v.lnum}',
+                menu: $'line {v.lnum}',
                 kind: $'{empty(v.windows) ? "" : "a"}{v.hidden ? "h" : ""}{v.changed ? "+" : ""}',
+                info: getbufline(v.bufnr, preview_start, preview_end)->join("\n"),
                 lastused: v.lastused }
     })->sort((i, j) => i.lastused > j.lastused ? -1 : i.lastused == j.lastused ? 0 : 1)
     # Alternate buffer first, current buffer second
     if buffer_list->len() > 1 && buffer_list[0].bufnr == bufnr()
         [buffer_list[0], buffer_list[1]] = [buffer_list[1], buffer_list[0]]
+        buffer_list[0].kind = '#' .. buffer_list[0].kind
+        buffer_list[1].kind = '%' .. buffer_list[1].kind
     endif
     if empty(arg)
         return buffer_list
