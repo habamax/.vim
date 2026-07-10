@@ -166,22 +166,29 @@ command -nargs=_ -complete=customlist,BufferComplete Buffer :b <args>
 command -nargs=_ -complete=customlist,BufferComplete SBuffer MaybeVertCmd("sb", <f-args>)
 def BufferComplete(arg: string, _, _): list<dict<any>>
     var buffer_list = getbufinfo({'buflisted': 1})->mapnew((_, v) => {
-        var preview_start = max([v.lnum - 5, 1])
-        var preview_end = preview_start + 10
-        var info = getbufline(v.bufnr, preview_start, preview_end)->join("\n")
+        var term_status = ''
+        var kind = bufnr('#') == v.bufnr ? '#' : ''
+        kind ..= bufnr('%') == v.bufnr ? '%' : ''
+        kind ..= empty(v.windows) ? "" : "a"
+        kind ..= v.hidden ? "h" : ""
+        if getbufvar(v.bufnr, "&buftype") == 'terminal'
+            term_status = $' [{term_getstatus(v.bufnr)}]'
+            kind ..=  term_status[2]->toupper()
+        else
+            kind ..= v.changed ? "+" : ""
+            kind ..= getbufvar(v.bufnr, "&readonly") ? '=' : ''
+            kind ..= getbufvar(v.bufnr, "&modifiable") ? '' : '-'
+        endif
         return {bufnr: v.bufnr,
-                abbr: (bufname(v.bufnr) ?? $'[No Name]'),
+                abbr: (bufname(v.bufnr) ?? $'[No Name]') .. term_status,
                 word: (bufname(v.bufnr) ?? v.bufnr),
                 menu: $'line {v.lnum}',
-                kind: $'{empty(v.windows) ? "" : "a"}{v.hidden ? "h" : ""}{v.changed ? "+" : ""}',
-                info: info,
+                kind: kind,
                 lastused: v.lastused }
     })->sort((i, j) => i.lastused > j.lastused ? -1 : i.lastused == j.lastused ? 0 : 1)
     # Alternate buffer first, current buffer second
     if buffer_list->len() > 1 && buffer_list[0].bufnr == bufnr()
         [buffer_list[0], buffer_list[1]] = [buffer_list[1], buffer_list[0]]
-        buffer_list[0].kind = '#' .. buffer_list[0].kind
-        buffer_list[1].kind = '%' .. buffer_list[1].kind
     endif
     if empty(arg)
         return buffer_list
