@@ -168,12 +168,13 @@ def BufferComplete(arg: string, _, _): list<dict<any>>
     var buffer_list = getbufinfo({'buflisted': 1})->mapnew((_, v) => {
         var preview_start = max([v.lnum - 5, 1])
         var preview_end = preview_start + 10
+        var info = getbufline(v.bufnr, preview_start, preview_end)->join("\n")
         return {bufnr: v.bufnr,
                 abbr: (bufname(v.bufnr) ?? $'[No Name]'),
                 word: (bufname(v.bufnr) ?? v.bufnr),
                 menu: $'line {v.lnum}',
                 kind: $'{empty(v.windows) ? "" : "a"}{v.hidden ? "h" : ""}{v.changed ? "+" : ""}',
-                info: getbufline(v.bufnr, preview_start, preview_end)->join("\n"),
+                info: info,
                 lastused: v.lastused }
     })->sort((i, j) => i.lastused > j.lastused ? -1 : i.lastused == j.lastused ? 0 : 1)
     # Alternate buffer first, current buffer second
