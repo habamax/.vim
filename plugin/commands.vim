@@ -167,8 +167,12 @@ command -nargs=_ -complete=customlist,BufferComplete SBuffer MaybeVertCmd("sb", 
 def BufferComplete(arg: string, _, _): list<dict<any>>
     var buffer_list = getbufinfo({'buflisted': 1})->mapnew((_, v) => {
         var term_status = ''
-        var kind = bufnr('#') == v.bufnr ? '#' : ''
-        kind ..= bufnr('%') == v.bufnr ? '%' : ''
+        var kind = ''
+        if bufnr('%') == v.bufnr
+               kind ..= '%'
+        elseif bufnr('#') == v.bufnr
+               kind ..= '#'
+        endif
         kind ..= empty(v.windows) ? "" : "a"
         kind ..= v.hidden ? "h" : ""
         if getbufvar(v.bufnr, "&buftype") == 'terminal'
