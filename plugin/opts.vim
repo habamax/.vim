@@ -22,11 +22,6 @@ packadd hlyank
 packadd matchit
 packadd editorconfig
 
-# on windows yegappan/lsp impacts the startup
-if !has("win32")
-    silent! packadd lsp
-endif
-
 # vim-closetag
 g:closetag_filetypes = 'html,xhtml,xml'
 
