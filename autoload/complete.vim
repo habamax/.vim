@@ -1,6 +1,6 @@
 vim9script
 
-# Completor functions used in `set complete`
+# Complete functions used in `set complete`
 
 # Abbreviations completion.
 export def Abbrev(findstart: number, base: string): any
