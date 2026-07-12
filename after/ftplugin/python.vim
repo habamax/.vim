@@ -26,7 +26,12 @@ enddef
 nnoremap <buffer> <F5> <scriptcmd>RunPython()<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 
-if exists("g:loaded_lsp")
+if exists("g:loaded_lsp") && executable('pylsp')
+    g:LspAddServer([{
+        name: 'pylsp',
+        filetype: ['python'],
+        path: 'pylsp',
+    }])
     import autoload 'lsp.vim'
     augroup LspSetup
         au!

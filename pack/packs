@@ -11,8 +11,8 @@ habamax/start/vim-curl	git@github.com:habamax/vim-curl.git
 
 # Very nice to have
 bundle/start/traces.vim	git@github.com:markonm/traces.vim.git
-bundle/opt/vim-fugitive	git@github.com:tpope/vim-fugitive.git
-bundle/opt/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
+bundle/start/vim-fugitive	git@github.com:tpope/vim-fugitive.git
+bundle/start/vim-gutentags	git@github.com:ludovicchabant/vim-gutentags.git
 
 # Nice to have
 bundle/start/vim-lion	git@github.com:tommcdo/vim-lion.git

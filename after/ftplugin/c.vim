@@ -63,10 +63,19 @@ enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
 
-if exists("g:loaded_lsp")
+if exists("g:loaded_lsp") && executable('clangd')
+    g:LspAddServer([{
+        name: 'clangd',
+        filetype: ['c', 'cpp'],
+        path: 'clangd',
+        args: ['--background-index'],
+    }])
+
     import autoload 'lsp.vim'
     augroup LspSetup
         au!
         au User LspAttached lsp.SetupFT()
     augroup END
 endif
+
+

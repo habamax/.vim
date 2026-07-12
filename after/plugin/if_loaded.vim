@@ -113,44 +113,6 @@ if exists("g:loaded_lsp")
         # popupHighlight: 'Normal',
         popupBorderHighlight: 'PmenuBorder',
     })
-
-    # wait for the vim fix for the inscompletion
-    if executable('clangd')
-        g:LspAddServer([{
-            name: 'clangd',
-            filetype: ['c', 'cpp'],
-            path: 'clangd',
-            args: ['--background-index'],
-        }])
-    endif
-
-    if executable('pylsp')
-        g:LspAddServer([{
-            name: 'pylsp',
-            filetype: ['python'],
-            path: 'pylsp',
-        }])
-    endif
-
-    if executable('netcat')
-        g:LspAddServer([{
-            name: 'gdscript',
-            filetype: ['gdscript'],
-            path: 'netcat',
-            args: ['127.0.0.1', '6008'],
-        }])
-    endif
-
-    # https://github.com/georgewfraser/java-language-server
-    # Proper installation required quite an effort.
-    # TODO: Remove absolute paths.
-    if executable('/home/habamax/prj/java-language-server/dist/lang_server_linux.sh')
-        g:LspAddServer([{
-            name: 'java',
-            filetype: ['java'],
-            path: '/home/habamax/prj/java-language-server/dist/lang_server_linux.sh',
-        }])
-    endif
 endif
 
 if exists("g:loaded_copilot")
