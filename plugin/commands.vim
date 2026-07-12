@@ -93,15 +93,8 @@ if executable('sudo')
     command! W w !sudo tee "%" >/dev/null
 endif
 
-command! -nargs=* -complete=custom,MakeComplete TMake <mods> Term make <args>
-def MakeComplete(_, _, _): string
-    if has("win32")
-        return ""
-    endif
-    return system("make -npq : 2> /dev/null | awk -v RS= -F: '$1 ~ /^[^#%.]+$/ { print $1 }' | sort -u")
-enddef
-
-command! -nargs=* -complete=custom,MakeComplete -bar Make {
+command! -nargs=* -complete=custom,cmdcomplete#Make TMake <mods> Term make <args>
+command! -nargs=* -complete=custom,cmdcomplete#Make -bar Make {
     var cmd = $"{expandcmd(&makeprg)} {<q-args>}"
     cgetexpr system(cmd)
     setqflist([], 'a', {title: cmd})
@@ -113,93 +106,21 @@ command! -nargs=* -complete=custom,MakeComplete -bar Make {
     echo "Make is finished!"
 }
 
-command -nargs=_ -complete=customlist,ColorschemeComplete Colorscheme colorscheme <args>
-def ColorschemeComplete(arg: string, _, _): list<string>
-    var cur_colorscheme = get(g:, "colors_name", "default")
-    var colors = [cur_colorscheme] + getcompletion('', 'color')->filter((_, v) => v != cur_colorscheme)
-    if empty(arg)
-        return colors
-    else
-        return colors->matchfuzzy(arg)
-    endif
-enddef
+command -nargs=_ -complete=customlist,cmdcomplete#Colorscheme Colorscheme colorscheme <args>
 
-command -nargs=_ -complete=customlist,HelpComplete Help :help <args>
-def HelpComplete(arg: string, _, _): list<dict<any>>
-    var help_tags = globpath(&rtp, "doc/tags", 1, 1)
-        ->mapnew((_, v) => readfile(v)->mapnew((_, line) => {
-            var tag_info = line->split("\t")
-            return {word: tag_info[0], menu: tag_info[1]}
-        }))->flattennew()
-    if empty(arg)
-        return help_tags
-    else
-        return help_tags->matchfuzzy(arg, {key: "word"})
-    endif
-enddef
+command -nargs=_ -complete=customlist,cmdcomplete#Help Help :help <args>
 
 import autoload 'unicode.vim'
-command! -nargs=_ -complete=customlist,UnicodeComplete Unicode unicode.Copy(<f-args>)
-def UnicodeComplete(arg: string, _, _): list<dict<any>>
-    var ulist = unicode.Subset()->mapnew((_, v) => {
-        return {
-            word: printf("%04X", v.value),
-            abbr: v.name,
-            kind: printf("%6s", (nr2char(v.value, true) =~ '\p' ? nr2char(v.value, true) : " ")),
-            menu: printf("%04X", v.value)}
-    })
-    if empty(arg)
-        return ulist
-    else
-        return ulist->matchfuzzy(arg, {key: "abbr"})
-    endif
-enddef
+command! -nargs=_ -complete=customlist,cmdcomplete#Unicode Unicode unicode.Copy(<f-args>)
 
-def MaybeVertCmd(cmd: string, args: string)
+command -nargs=_ -complete=customlist,cmdcomplete#Buffer Buffer :b <args>
+command -nargs=_ -complete=customlist,cmdcomplete#Buffer SBuffer {
     var mods = ""
     if winwidth(winnr()) * 0.3 > winheight(winnr())
         mods = "vert "
     endif
-    exe $":{mods} {cmd} {args}"
-enddef
-command -nargs=_ -complete=customlist,BufferComplete Buffer :b <args>
-command -nargs=_ -complete=customlist,BufferComplete SBuffer MaybeVertCmd("sb", <f-args>)
-def BufferComplete(arg: string, _, _): list<dict<any>>
-    var buffer_list = getbufinfo({'buflisted': 1})->mapnew((_, v) => {
-        var term_status = ''
-        var kind = ''
-        if bufnr('%') == v.bufnr
-               kind ..= '%'
-        elseif bufnr('#') == v.bufnr
-               kind ..= '#'
-        endif
-        kind ..= empty(v.windows) ? "" : "a"
-        kind ..= v.hidden ? "h" : ""
-        if getbufvar(v.bufnr, "&buftype") == 'terminal'
-            term_status = $' [{term_getstatus(v.bufnr)}]'
-            kind ..=  term_status[2]->toupper()
-        else
-            kind ..= v.changed ? "+" : ""
-            kind ..= getbufvar(v.bufnr, "&readonly") ? '=' : ''
-            kind ..= getbufvar(v.bufnr, "&modifiable") ? '' : '-'
-        endif
-        return {bufnr: v.bufnr,
-                abbr: (bufname(v.bufnr) ?? $'[No Name]') .. term_status,
-                word: (bufname(v.bufnr) ?? v.bufnr),
-                menu: $'line {v.lnum}',
-                kind: kind,
-                lastused: v.lastused }
-    })->sort((i, j) => i.lastused > j.lastused ? -1 : i.lastused == j.lastused ? 0 : 1)
-    # Alternate buffer first, current buffer second
-    if buffer_list->len() > 1 && buffer_list[0].bufnr == bufnr()
-        [buffer_list[0], buffer_list[1]] = [buffer_list[1], buffer_list[0]]
-    endif
-    if empty(arg)
-        return buffer_list
-    else
-        return buffer_list->matchfuzzy(arg, {key: "abbr"})
-    endif
-enddef
+    exe $":{mods}sb {<q-args>}"
+}
 
 import autoload 'hlblink.vim'
 command BlinkLine hlblink.Line()
