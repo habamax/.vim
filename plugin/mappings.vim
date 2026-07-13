@@ -269,5 +269,5 @@ def ToUncapitalizedWord()
 enddef
 inoremap <M-c> <C-G>u<esc><scriptcmd>ToUncapitalizedWord()<cr>guiw~gi
 
-xnoremap <expr> gA mode() == "\<C-v>" ? "$A" : "<C-v>$A"
-xnoremap <expr> gI mode() == "\<C-v>" ? "_I" : "<C-v>_I"
+xnoremap <expr> gA mode() == "\<C-v>" ? "$A" : "\<C-v>$A"
+xnoremap <expr> gI mode() == "\<C-v>" ? "_I" : "\<C-v>_I"
