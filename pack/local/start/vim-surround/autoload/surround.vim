@@ -1,7 +1,7 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-07-09
+# Last Update: 2026-07-14
 
 # Surround/Remove surround with.
 var s_with: dict<any> = {}
@@ -153,12 +153,14 @@ def ShouldIndent(): bool
 enddef
 
 def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: list<number> = getcharpos("']"), change: bool = false): bool
+    var save_selection = &selection
     var save_lazyredraw = &lazyredraw
     var save_virtualedit = &l:virtualedit
     var save_indentkeys = &l:indentkeys
     var save_cinkeys = &l:cinkeys
     var save_autoindent = &l:autoindent
     var save_comments = &l:comments
+    set selection=inclusive
     set lazyredraw
     setlocal virtualedit=block
     setlocal indentkeys=
@@ -166,6 +168,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
     setlocal autoindent
     setlocal comments=
     defer () => {
+        &selection = save_selection
         &lazyredraw = save_lazyredraw
         &l:virtualedit = save_virtualedit
         &l:indentkeys = save_indentkeys
@@ -316,13 +319,16 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
 enddef
 
 def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
+    var save_selection = &selection
     var save_lazyredraw = &lazyredraw
     var save_clipboard = &clipboard
     var save_virtualedit = &l:virtualedit
+    set selection=inclusive
+    set lazyredraw
     set clipboard=
     setlocal virtualedit=none
-    set lazyredraw
     defer () => {
+        &selection = save_selection
         &clipboard = save_clipboard
         &l:virtualedit = save_virtualedit
         &lazyredraw = save_lazyredraw
