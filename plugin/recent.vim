@@ -9,7 +9,6 @@ augroup Recent
     au!
     au BufEnter * Add()
     au QuitPre * Save()
-    au VimEnter * Read()
     au CursorHold * Save()
 augroup END
 
