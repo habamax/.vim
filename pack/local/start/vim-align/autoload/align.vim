@@ -4,7 +4,7 @@ vim9script
 # Last Update: 2026-07-13
 
 # Align with
-var with: dict<any> = {}
+var with: string = ""
 # If block selection is done with $
 var visual_dollar: bool = false
 
@@ -32,21 +32,27 @@ def Align(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: lis
     }()
 
     if !dotrepeat
-        dotrepeat = true
         var char = getcharstr(-1, {cursor: 'keep'})
         if char == "\<Esc>" || char == "\<CR>"
-            # winrestview(cancel_view)
             return
         endif
-        # with = {trigger: char, pair: Pair(char)}
+        if char == '/'
+            var regex = input("Pattern: ")
+            if empty(trim(regex))
+                return
+            endif
+            with = regex
+        else
+            with = char
+        endif
+        dotrepeat = true
     endif
 
     var start = pos_start
     var end = pos_end
 
-    if s_mode == 'char'
-    elseif s_mode == 'line'
-    elseif s_mode == "block"
+    if mode != 'block'
+    else
         if visual_dollar
         else
         endif
