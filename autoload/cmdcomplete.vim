@@ -16,8 +16,11 @@ export def Buffer(arg: string, _, _): list<dict<any>>
             kind ..=  term_status[2]->toupper()
         else
             kind ..= v.changed ? "+" : ""
-            kind ..= getbufvar(v.bufnr, "&readonly") ? '=' : ''
-            kind ..= getbufvar(v.bufnr, "&modifiable") ? '' : '-'
+            if !getbufvar(v.bufnr, "&modifiable")
+                kind ..= '-'
+            elseif getbufvar(v.bufnr, "&readonly")
+                kind ..= '='
+            endif
         endif
         return {bufnr: v.bufnr,
                 abbr: (bufname(v.bufnr) ?? $'[No Name]') .. term_status,
