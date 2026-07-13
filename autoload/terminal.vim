@@ -7,9 +7,11 @@ const rxError = '\v^(\f{-}):(\d+:)?(\d+:)?'
 const rxPyError = '\v^\s+File "(\f{-})", line (\d+)'
 const rxErlEscriptError = '\v^\s+in function\s+.{-}\((.{-}), line (\d+)\)'
 const rxRustError = '\v^\s+--\> (.{-}):(\d+):(\d+)'
+const rxOdinError = '\v^(.{-})\((\d+):(\d+)\)'
 const rxRgUgDefault = '\v^\s*(\d+):'
 const rxAllErrors = [
     rxRgUgDefault,
+    rxOdinError,
     rxRustError,
     rxErlEscriptError,
     rxPyError,
@@ -52,7 +54,8 @@ export def OpenError(view: bool = false)
 
 
     var fname = []
-    for rx in [rxPyError, rxErlEscriptError, rxRustError, rxError, rxRgUgDefault]
+    # for rx in [rxPyError, rxErlEscriptError, rxRustError, rxError, rxRgUgDefault]
+    for rx in rxAllErrors
         fname = getline('.')->matchlist(rx)
         if !empty(fname)
             break
