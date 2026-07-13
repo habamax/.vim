@@ -13,7 +13,7 @@ if has("win32")
     # :h w32-experimental-keycode-trans-strategy
     # Should fix CTRL-=
     augroup mswin_strat | au!
-        au VimEnter * test_mswin_event('set_keycode_trans_strategy', {'strategy': 'experimental'})
+        au VimEnter * test_mswin_event('set_keycode_trans_strategy', {strategy: 'experimental'})
     augroup END
 
     command! ToggleFullscreen {
