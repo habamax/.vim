@@ -268,3 +268,6 @@ def ToUncapitalizedWord()
     search('\v<([[:lower:]]|([[:upper:]][[:lower:]]*[[:upper:]]))', 'bc', line('.'))
 enddef
 inoremap <M-c> <C-G>u<esc><scriptcmd>ToUncapitalizedWord()<cr>guiw~gi
+
+xnoremap <expr> gA visualmode() == "\<C-v>" ? "$A" : "<C-v>$A"
+xnoremap <expr> gI visualmode() == "\<C-v>" ? "_I" : "<C-v>_I"
