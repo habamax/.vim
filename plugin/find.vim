@@ -1,10 +1,6 @@
 vim9script
 
 var files_cache: list<string> = []
-augroup CmdCompleteResetFind
-    au!
-    au CmdlineEnter : files_cache = []
-augroup END
 
 def FindCmd(): string
     var cmd = ''
@@ -24,9 +20,10 @@ enddef
 
 def Find(arg: string, _): list<string>
     if empty(files_cache)
+        au CmdlineEnter : ++once files_cache = []
         var cmd = FindCmd()
         if empty(cmd)
-            files_cache = globpath('.', '**', 1, 1)
+            files_cache = expand('**', 1, 1)
                 ->filter((_, v) => !isdirectory(v))
                 ->mapnew((_, v) => v->substitute('^\.[\/]', "", ""))
         else
