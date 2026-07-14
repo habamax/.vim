@@ -1,7 +1,7 @@
 vim9script
 
 setl shiftwidth=0
-setl expandtab
+setl noexpandtab tabstop=4
 
 def RunOdin()
     update
