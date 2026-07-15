@@ -121,11 +121,11 @@ enddef
 # nnoremap g; <scriptcmd>qc.ChangeList('g;')<CR>
 # nnoremap g, <scriptcmd>qc.ChangeList('g,')<CR>
 export def ChangeList(initial: string)
-    exe $"normal! {initial}"
+    exe $"silent! normal! {initial}"
     var commands = [
         {text: "Change list"},
-        {text: "Older", key: ";", cmd: "normal! g;"},
-        {text: "Newer", key: ",", cmd: "normal! g,"},
+        {text: "Older", key: ";", cmd: "silent! normal! g;"},
+        {text: "Newer", key: ",", cmd: "silent! normal! g,"},
     ]
     popup.Commands(commands)
 enddef
