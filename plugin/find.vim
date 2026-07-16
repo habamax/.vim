@@ -1,5 +1,6 @@
 vim9script
 
+set findfunc=Find
 var files: list<string> = []
 
 def FindCmd(): string
@@ -31,4 +32,3 @@ def Find(arg: string, _): list<string>
     return empty(arg) ? files : files->matchfuzzy(arg)
 enddef
 
-set findfunc=Find
