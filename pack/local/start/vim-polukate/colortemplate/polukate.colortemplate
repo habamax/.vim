@@ -218,9 +218,9 @@ StatusLineNC         statusnc          dark0             reverse
  /16                 dark8             none              reverse
  /8                  none              none              reverse
 VertSplit            status            status
- /8                  none              none
+ /8                  dark7             dark7
 VertSplitNC          statusnc          statusnc
- /8                  none              none
+ /8                  dark7             dark7
 TabLine              statusnc          dark0             reverse
  /16                 dark8             none              reverse
  /8                  dark0             dark7

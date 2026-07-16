@@ -330,8 +330,8 @@ if s:t_Co >= 8
   hi ToolbarLine ctermfg=NONE ctermbg=NONE cterm=NONE
   hi Type ctermfg=darkmagenta ctermbg=NONE cterm=NONE
   hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline
-  hi VertSplit ctermfg=NONE ctermbg=NONE cterm=NONE
-  hi VertSplitNC ctermfg=NONE ctermbg=NONE cterm=NONE
+  hi VertSplit ctermfg=grey ctermbg=grey cterm=NONE
+  hi VertSplitNC ctermfg=grey ctermbg=grey cterm=NONE
   hi Visual ctermfg=darkblue ctermbg=black cterm=reverse
   hi VisualNOS ctermfg=NONE ctermbg=NONE cterm=NONE
   hi WarningMsg ctermfg=NONE ctermbg=NONE cterm=standout
