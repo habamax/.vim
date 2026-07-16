@@ -13,7 +13,7 @@ def FindCmd(): string
     elseif executable('rg')
         cmd = 'rg --path-separator / --files --hidden --glob !.git'
     elseif executable('find')
-        cmd = 'find \! \( -path "*/.git" -prune -o -name "*.swp" \) -type f -follow'
+        cmd = 'find \! \( -path "*/.git" -prune -o -name "*.swp" \) -type f -follow -printf ''%P\n'''
     endif
     return cmd
 enddef
