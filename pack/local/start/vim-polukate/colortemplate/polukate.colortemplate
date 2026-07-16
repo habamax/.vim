@@ -8,13 +8,6 @@ Description:   Dark colorscheme.
 License:       Vim License (see `:help license`)`
 Options:       backend=vim
 
-; TODO:
-; ✓ gui
-; ✓ 256
-;   16
-;   8
-; ✓ 0
-
 Environments: gui 256 16 8 0
 
 Background: dark
@@ -96,11 +89,9 @@ Identifier           identifier        none
 Statement            statement         none              bold
  /16/8               statement         none              bold
 PreProc              preproc           none
- /8                  none              none
+ /8                  dark6             none
 Type                 type              none
- /8                  none              none
 Special              special           none
- /8                  none              none
 Underlined           dark7             none              underline
  /16/8               none              none              underline
 Todo                 none              none              bold
@@ -225,16 +216,17 @@ StatusLine           dark0             status
  /8                  none              none              bold,reverse
 StatusLineNC         statusnc          dark0             reverse
  /16                 dark8             none              reverse
- /8                  none              none              bold,underline
-VertSplit            status            status
+ /8                  none              none              reverse
+VertSplit            status            none
  /8                  none              none
-VertSplitNC          statusnc          statusnc
+VertSplitNC          statusnc          none
  /8                  none              none
 TabLine              statusnc          dark0             reverse
  /16                 dark8             none              reverse
- /8                  none              none              bold,underline
+ /8                  dark0             dark7
 TabLineFill          dark7             statusnc
- /16/8               statusnc          dark0             reverse
+ /16                 statusnc          dark0             reverse
+ /8                  dark7             dark7
 TabLineSel           dark0             status
  /8                  none              none              reverse,bold
 
