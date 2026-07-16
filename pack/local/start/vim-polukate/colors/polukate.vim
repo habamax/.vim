@@ -153,8 +153,8 @@ hi ToolbarButton guifg=#87afaf guibg=#1c1c26 guisp=NONE gui=bold,reverse ctermfg
 hi ToolbarLine guifg=NONE guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE term=reverse
 hi Type guifg=#d3869b guibg=NONE guisp=NONE gui=NONE ctermfg=175 ctermbg=NONE cterm=NONE term=NONE
 hi Underlined guifg=#dadada guibg=NONE guisp=NONE gui=underline ctermfg=253 ctermbg=NONE cterm=underline term=underline
-hi VertSplit guifg=#9e9ea8 guibg=NONE guisp=NONE gui=NONE ctermfg=247 ctermbg=NONE cterm=NONE term=NONE
-hi VertSplitNC guifg=#767680 guibg=NONE guisp=NONE gui=NONE ctermfg=243 ctermbg=NONE cterm=NONE term=NONE
+hi VertSplit guifg=#9e9ea8 guibg=#9e9ea8 guisp=NONE gui=NONE ctermfg=247 ctermbg=247 cterm=NONE term=NONE
+hi VertSplitNC guifg=#767680 guibg=#767680 guisp=NONE gui=NONE ctermfg=243 ctermbg=243 cterm=NONE term=NONE
 hi Visual guifg=NONE guibg=#1a3456 guisp=NONE gui=NONE ctermfg=32 ctermbg=234 cterm=reverse term=reverse
 hi VisualNOS guifg=NONE guibg=#3a3a44 guisp=NONE gui=NONE ctermfg=NONE ctermbg=237 cterm=NONE term=NONE
 hi WarningMsg guifg=#ffd75f guibg=NONE guisp=NONE gui=NONE ctermfg=221 ctermbg=NONE cterm=NONE term=standout
@@ -248,8 +248,8 @@ if s:t_Co >= 16
   hi ToolbarLine ctermfg=NONE ctermbg=NONE cterm=NONE
   hi Type ctermfg=darkmagenta ctermbg=NONE cterm=NONE
   hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline
-  hi VertSplit ctermfg=gray ctermbg=NONE cterm=NONE
-  hi VertSplitNC ctermfg=darkgray ctermbg=NONE cterm=NONE
+  hi VertSplit ctermfg=gray ctermbg=gray cterm=NONE
+  hi VertSplitNC ctermfg=darkgray ctermbg=darkgray cterm=NONE
   hi Visual ctermfg=darkblue ctermbg=black cterm=reverse
   hi VisualNOS ctermfg=NONE ctermbg=NONE cterm=NONE
   hi WarningMsg ctermfg=NONE ctermbg=NONE cterm=standout
