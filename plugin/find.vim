@@ -31,4 +31,3 @@ def Find(arg: string, _): list<string>
     endif
     return empty(arg) ? files : files->matchfuzzy(arg)
 enddef
-
