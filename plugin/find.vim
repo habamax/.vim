@@ -1,6 +1,6 @@
 vim9script
 
-var files_cache: list<string> = []
+var files: list<string> = []
 
 def FindCmd(): string
     var cmd = ''
@@ -19,22 +19,16 @@ def FindCmd(): string
 enddef
 
 def Find(arg: string, _): list<string>
-    if empty(files_cache)
-        au CmdlineEnter : ++once files_cache = []
+    if empty(files)
+        au CmdlineEnter : ++once files = []
         var cmd = FindCmd()
         if empty(cmd)
-            files_cache = expand('**', 1, 1)
-                ->filter((_, v) => !isdirectory(v))
-                ->mapnew((_, v) => v->substitute('^\.[\/]', "", ""))
+            files = expand('**', 1, 1)->filter((_, v) => !isdirectory(v))
         else
-            files_cache = systemlist(cmd)
+            files = systemlist(cmd)
         endif
     endif
-    if empty(arg)
-        return files_cache
-    else
-        return files_cache->matchfuzzy(arg)
-    endif
+    return empty(arg) ? files : files->matchfuzzy(arg)
 enddef
 
 set findfunc=Find
