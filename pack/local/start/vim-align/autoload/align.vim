@@ -116,7 +116,9 @@ def LPositions(lnum_start: number, lnum_end: number, count: number): list<any>
             pos = match(line, '\S', pos + 1)
         endif
         positions += [pos]
-        longest = max([longest, virtcol([nr, pos])])
+        if pos != -1
+            longest = max([longest, virtcol([nr, pos])])
+        endif
     endfor
     return [longest, positions]
 enddef
@@ -127,10 +129,6 @@ def AlignRange(lnum_start: number, lnum_end: number, lpositions: list<any>): boo
         return false
     endif
     var positions = lpositions[1]
-    # TODO: is there a better way?
-    if empty(positions->deepcopy()->filter((_, v) => v != -1))
-        return false
-    endif
     for nr in range(lnum_start, lnum_end)
         var pos = positions[nr - lnum_start]
         var vpos = virtcol([nr, pos])
