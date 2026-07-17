@@ -63,10 +63,10 @@ def Align(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: lis
         dotrepeat = true
     endif
 
-    # hello = w    = 10    = is       = here
-    # h     = wo   = 100   = isnt     = here
-    # he    = wor  = 1000  = is bla   = here
-    # hel   = worl = 10000 = isabella = here
+    # hello = w = 10 = is = here
+    # h = wo = 100 = isnt = here
+    # he = wor = 1000 = is bla = here
+    # hel = worl = 10000 = isabella = here
 
     if mode != 'block'
         var [lnum_start, lnum_end] = AdjustRange(pos_start, pos_end)
