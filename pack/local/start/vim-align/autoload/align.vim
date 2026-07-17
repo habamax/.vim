@@ -6,7 +6,11 @@ vim9script
 # Align with
 var with: string = ""
 
-var count: number = 0
+# Align up to how many occurences (0 == all)
+var vcount: number = 0
+
+# Align after the occurence (add spaces after)
+var space_after: bool = false
 
 # If block selection is done with $
 var visual_dollar: bool = false
@@ -14,7 +18,7 @@ var visual_dollar: bool = false
 # If operation is repeated with dot
 var dotrepeat = false
 
-export def Op(): string
+export def Op(after: bool = false): string
     if !&l:modifiable
         echohl ErrorMsg
         echomsg "E21: Cannot make changes, 'modifiable' is off"
@@ -23,7 +27,8 @@ export def Op(): string
     endif
     dotrepeat = false
     visual_dollar = getcursorcharpos()[-1] == v:maxcol
-    count = v:count
+    vcount = v:count
+    space_after = after
     &opfunc = (mode) => Align(mode)
     if mode() == 'n'
         return ":\<C-U>\<CR>g@"
@@ -51,30 +56,31 @@ def Align(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: lis
             endif
             with = regex
         elseif char == ' '
-            with = '\V\S\zs\s'
+            with = '\V\S\s\+\zs'
         else
             with = '\V\C' .. char
         endif
         dotrepeat = true
     endif
 
-    # hello = w = 10 = is = here
-    # h = wo = 100 = isnt = here
-    # he = wor = 1000 = is bla = here
-    # hel = worl = 10000 = isabella = here
+    # hello = w    = 10    = is       = here
+    # h     = wo   = 100   = isnt     = here
+    # he    = wor  = 1000  = is bla   = here
+    # hel   = worl = 10000 = isabella = here
 
     if mode != 'block'
         var [lnum_start, lnum_end] = AdjustRange(pos_start, pos_end)
         if lnum_start == lnum_end
             return
         endif
+
         var step = 1
         while true
             var lpositions = LPositions(lnum_start, lnum_end, step)
             if !AlignRange(lnum_start, lnum_end, lpositions)
                 break
             endif
-            if count == step
+            if vcount == step
                 break
             endif
             step += 1
@@ -100,12 +106,15 @@ def AdjustRange(start: list<number>, end: list<number>): list<number>
     return [lnum_start, lnum_end]
 enddef
 
-def LPositions(lnum_start: number, lnum_end: number, step: number): list<any>
+def LPositions(lnum_start: number, lnum_end: number, count: number): list<any>
     var longest = -1
     var positions = []
     for nr in range(lnum_start, lnum_end)
         var line = getline(nr)
-        var pos = match(line, with, 0, step)
+        var pos = match(line, with, 0, count)
+        if space_after && pos != -1
+            pos = match(line, '\S', pos + 1)
+        endif
         positions += [pos]
         longest = max([longest, virtcol([nr, pos])])
     endfor
