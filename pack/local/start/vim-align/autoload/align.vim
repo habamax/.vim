@@ -1,10 +1,13 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-07-13
+# Last Update: 2026-07-17
 
 # Align with
 var with: string = ""
+
+var count: number = 0
+
 # If block selection is done with $
 var visual_dollar: bool = false
 
@@ -20,8 +23,13 @@ export def Op(): string
     endif
     dotrepeat = false
     visual_dollar = getcursorcharpos()[-1] == v:maxcol
+    count = v:count
     &opfunc = (mode) => Align(mode)
-    return 'g@'
+    if mode() == 'n'
+        return ":\<C-U>\<CR>g@"
+    else
+        return "g@"
+    endif
 enddef
 
 def Align(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: list<number> = getcharpos("']"))
@@ -42,19 +50,87 @@ def Align(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: lis
                 return
             endif
             with = regex
+        elseif char == ' '
+            with = '\V\S\zs\s'
         else
-            with = char
+            with = '\V\C' .. char
         endif
         dotrepeat = true
     endif
 
-    var start = pos_start
-    var end = pos_end
+    # hello = w = 10 = is = here
+    # h = wo = 100 = isnt = here
+    # he = wor = 1000 = is bla = here
+    # hel = worl = 10000 = isabella = here
 
     if mode != 'block'
+        var [lnum_start, lnum_end] = AdjustRange(pos_start, pos_end)
+        if lnum_start == lnum_end
+            return
+        endif
+        var step = 1
+        while true
+            var lpositions = LPositions(lnum_start, lnum_end, step)
+            if !AlignRange(lnum_start, lnum_end, lpositions)
+                break
+            endif
+            if count == step
+                break
+            endif
+            step += 1
+        endwhile
     else
         if visual_dollar
         else
         endif
     endif
+enddef
+
+def AdjustRange(start: list<number>, end: list<number>): list<number>
+    var lnum_start = start[1]
+    var lnum_end = end[1]
+    if lnum_start == lnum_end && getline(lnum_start) !~ '^\s*$'
+        while lnum_start > 1 && getline(lnum_start - 1) !~ '^\s*$'
+            lnum_start -= 1
+        endwhile
+        while lnum_end < line('$') && getline(lnum_end + 1) !~ '^\s*$'
+            lnum_end += 1
+        endwhile
+    endif
+    return [lnum_start, lnum_end]
+enddef
+
+def LPositions(lnum_start: number, lnum_end: number, step: number): list<any>
+    var longest = -1
+    var positions = []
+    for nr in range(lnum_start, lnum_end)
+        var line = getline(nr)
+        var pos = match(line, with, 0, step)
+        positions += [pos]
+        longest = max([longest, virtcol([nr, pos])])
+    endfor
+    return [longest, positions]
+enddef
+
+def AlignRange(lnum_start: number, lnum_end: number, lpositions: list<any>): bool
+    var longest = lpositions[0]
+    if longest == -1
+        return false
+    endif
+    var positions = lpositions[1]
+    # TODO: is there a better way?
+    if empty(positions->deepcopy()->filter((_, v) => v != -1))
+        return false
+    endif
+    for nr in range(lnum_start, lnum_end)
+        var pos = positions[nr - lnum_start]
+        var vpos = virtcol([nr, pos])
+        if pos == -1 || vpos == -1
+            continue
+        endif
+        var line = getline(nr)
+        var space = repeat(' ', longest - vpos)
+        setline(nr, line->strpart(0, pos) .. space .. line->strpart(pos))
+    endfor
+    return true
 enddef
