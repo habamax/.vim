@@ -56,7 +56,7 @@ def Align(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: lis
             endif
             with_pattern = regex
         elseif char == ' '
-            with_pattern = '\V\S\s\+\zs'
+            with_pattern = '\V\C\S\@<=\s\+\zs'
         else
             with_pattern = '\V\C' .. char
         endif
