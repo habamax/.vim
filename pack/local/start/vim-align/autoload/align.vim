@@ -92,6 +92,8 @@ def Align(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: lis
     endif
 enddef
 
+# If a range is a single non-empty line, extend to a contiguous same or greater
+# indent non-emtpy lines
 def AdjustRange(start: list<number>, end: list<number>): list<number>
     var lnum_start = start[1]
     var lnum_end = end[1]
@@ -113,8 +115,8 @@ def LPositions(lnum_start: number, lnum_end: number, count: number): list<any>
     for nr in range(lnum_start, lnum_end)
         var line = getline(nr)
         var pos = match(line, with, 0, count)
-        if space_after && pos != -1
-            pos = match(line, '\S', pos + 1)
+        if space_after
+            pos = match(line, with .. '\.\{-\}\S\?', 0, count)
         endif
         positions += [pos]
         if pos != -1
