@@ -3,8 +3,8 @@ vim9script
 # Maintainer: Maxim Kim <habamax@gmail.com>
 # Last Update: 2026-07-18
 
-# Align with
-var with: string = ""
+# Align with pattern
+var with_pattern: string = ""
 
 # Align up to how many occurences (0 == all)
 var vcount: number = 0
@@ -54,19 +54,14 @@ def Align(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: lis
             if empty(trim(regex))
                 return
             endif
-            with = regex
+            with_pattern = regex
         elseif char == ' '
-            with = '\V\S\s\+\zs'
+            with_pattern = '\V\S\s\+\zs'
         else
-            with = '\V\C' .. char
+            with_pattern = '\V\C' .. char
         endif
         dotrepeat = true
     endif
-
-    # hello = w = 10 = is = here
-    # h = wo = 100 = isnt = here
-    # he = wor = 1000 = is bla = here
-    # hel = worl = 10000 = isabella = here
 
     if mode != 'block'
         var [lnum_start, lnum_end] = AdjustRange(pos_start, pos_end)
@@ -76,7 +71,7 @@ def Align(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: lis
 
         var step = 1
         while true
-            var lpositions = LPositions(lnum_start, lnum_end, step)
+            var lpositions = LPositions(with_pattern, lnum_start, lnum_end, step)
             if !AlignRange(lnum_start, lnum_end, lpositions)
                 break
             endif
@@ -109,14 +104,15 @@ def AdjustRange(start: list<number>, end: list<number>): list<number>
     return [lnum_start, lnum_end]
 enddef
 
-def LPositions(lnum_start: number, lnum_end: number, count: number): list<any>
+# Calculate count'th positions of a pattern in a range
+def LPositions(pattern: string, lnum_start: number, lnum_end: number, count: number): list<any>
     var longest = -1
     var positions = []
     for nr in range(lnum_start, lnum_end)
         var line = getline(nr)
-        var pos = match(line, with, 0, count)
+        var pos = match(line, pattern, 0, count)
         if space_after
-            pos = match(line, with .. '\.\{-\}\zs\S\?', 0, count)
+            pos = match(line, pattern .. '\.\{-\}\zs\S\?', 0, count)
         endif
         positions += [pos]
         if pos != -1
