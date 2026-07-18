@@ -116,7 +116,7 @@ def LPositions(lnum_start: number, lnum_end: number, count: number): list<any>
         var line = getline(nr)
         var pos = match(line, with, 0, count)
         if space_after
-            pos = match(line, with .. '\.\{-\}\S\?', 0, count)
+            pos = match(line, with .. '\.\{-\}\zs\S\?', 0, count)
         endif
         positions += [pos]
         if pos != -1
