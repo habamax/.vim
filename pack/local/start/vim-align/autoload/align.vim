@@ -1,7 +1,7 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-07-17
+# Last Update: 2026-07-18
 
 # Align with
 var with: string = ""
@@ -96,10 +96,11 @@ def AdjustRange(start: list<number>, end: list<number>): list<number>
     var lnum_start = start[1]
     var lnum_end = end[1]
     if lnum_start == lnum_end && getline(lnum_start) !~ '^\s*$'
-        while lnum_start > 1 && getline(lnum_start - 1) !~ '^\s*$'
+        var indent = indent(lnum_start)
+        while lnum_start > 1 && getline(lnum_start - 1) !~ '^\s*$' && indent(lnum_start - 1) >= indent
             lnum_start -= 1
         endwhile
-        while lnum_end < line('$') && getline(lnum_end + 1) !~ '^\s*$'
+        while lnum_end < line('$') && getline(lnum_end + 1) !~ '^\s*$' && indent(lnum_end + 1) >= indent
             lnum_end += 1
         endwhile
     endif
