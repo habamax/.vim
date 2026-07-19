@@ -269,6 +269,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
             ## Basically I need to find chunks of contiguous lines where start < virtcol of end line
             ## and run following for each chunk.
             ## All to prevent unnesessary empty surrounds and handling of tabs
+
             # setcursorcharpos(start[1 :])
             # exe $"noautocmd normal! \<C-v>"
             # setcursorcharpos(end[1 :])
@@ -636,4 +637,32 @@ def MoveCursor(lnum: number, col: number)
     if col > 1
         exe $"noautocmd normal! {col - 1}l"
     endif
+enddef
+
+## TODO: use them in 'char' mode surround
+def StrInsert(src_str: string, src_idx: number, ins_str: string, append: bool = false): string
+    var idx = append ? src_idx + strlen(matchstr(src_str, '.', src_idx)) : src_idx
+    var result = src_str->strpart(0, idx) .. ins_str
+    result ..= src_str->strpart(idx)
+    return result
+enddef
+
+def StrRemove(src_str: string, src_idx: number, rem_str: string): string
+    var result = src_str->strpart(0, src_idx)
+    result ..= src_str->strpart(src_idx + strlen(rem_str))
+    return result
+enddef
+
+def StrAddAroundRegion(pos_start: list<number>, pos_end: list<number>, sur_start: string, sur_end: string)
+    var col_start = pos_start[2] - 1
+    var col_end = (pos_start[1] == pos_end[1] ? pos_end[2] + strlen(sur_end) : pos_end[2]) - 1
+    setline(pos_start[1], StrInsert(getline(pos_start[1]), col_start, sur_start))
+    setline(pos_end[1], StrInsert(getline(pos_end[1]), col_end, sur_end, true))
+enddef
+
+def StrRemoveAroundRegion(pos_start: list<number>, pos_end: list<number>, sur_start: string, sur_end: string)
+    var col_start = pos_start[2] - 1
+    var col_end = pos_end[2] - 1
+    setline(pos_end[1], StrRemove(getline(pos_end[1]), col_end, sur_end))
+    setline(pos_start[1], StrRemove(getline(pos_start[1]), col_start, sur_start))
 enddef
