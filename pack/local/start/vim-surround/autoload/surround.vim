@@ -1,7 +1,7 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-07-14
+# Last Update: 2026-07-19
 
 # Surround/Remove surround with.
 var s_with: dict<any> = {}
@@ -265,6 +265,20 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
         exe ":noautocmd normal! _"
     elseif s_mode == "block"
         if visual_dollar
+            ## XXX: this approach needs to be investigated
+            ## Basically I need to find chunks of contiguous lines where start < virtcol of end line
+            ## and run following for each chunk.
+            ## All to prevent unnesessary empty surrounds and handling of tabs
+            # setcursorcharpos(start[1 :])
+            # exe $"noautocmd normal! \<C-v>"
+            # setcursorcharpos(end[1 :])
+            # exe $"noautocmd normal! I{s_tab}{s_left}"
+            # setcursorcharpos(start[1 :])
+            # exe "noautocmd normal! \<C-v>"
+            # setcursorcharpos(end[1 :])
+            # noautocmd normal! $
+            # exe $"noautocmd normal! A{s_tab}{s_right}"
+
             for nr in range(start[1], end[1])
                 if strchars(getline(nr)) >= start[2]
                     setcursorcharpos(nr, start[2])
@@ -276,7 +290,6 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
                     exe $"noautocmd normal! I{s_tab}{s_left}"
                     exe "noautocmd normal! \<C-v>$"
                     exe $"noautocmd normal! A{s_tab}{s_right}"
-
                 endif
             endfor
             setcursorcharpos(start[1 :])
