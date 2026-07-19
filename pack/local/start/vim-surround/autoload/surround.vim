@@ -1,7 +1,7 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-07-19
+# Last Update: 2026-07-20
 
 # Surround/Remove surround with.
 var s_with: dict<any> = {}
@@ -273,7 +273,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
                 exe $":silent noautocmd normal! {end[1] - start[1] + 2}=="
             endif
         endfor
-        exe $":{start[1] + 1}"
+        exe $":{start[1] + vcount}"
         exe ":noautocmd normal! _"
     elseif s_mode == "block"
         if visual_dollar
