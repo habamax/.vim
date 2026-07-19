@@ -10,6 +10,9 @@ var c_with: dict<any> = {}
 # If block selection is done with $
 var visual_dollar: bool = false
 
+# how many times to surround, e.g. 2yssB
+var vcount: number = 1
+
 # To prevent asking for surround char in every repetition of a dot command, e.g.
 # ysiw( followed by . should surround with ( as well, not ask for a char again.
 var dotrepeat = false
@@ -120,8 +123,13 @@ export def Add(): string
     dotrepeat = false
     cancel_view = winsaveview()
     visual_dollar = getcursorcharpos()[-1] == v:maxcol
+    vcount = v:count1
     &opfunc = (mode) => AddSurround(mode)
-    return 'g@'
+    if mode() == 'n'
+        return ":\<C-U>\<CR>g@"
+    else
+        return "g@"
+    endif
 enddef
 
 export def Remove(): string
@@ -231,36 +239,40 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
 
     if s_mode == 'char'
         setlocal virtualedit=all
-        setcharpos('.', start)
-        if col('.') == col('$')
-                || getline('.') =~ '^\s*$'
-                || getline('.')[col('.') - 1] =~ '\s'
-            s_left = trim(s_left)
-        endif
-        exe $"noautocmd normal! i{s_tab}{s_left}"
-        setlocal virtualedit=none
-        if start[1] == end[1]
-            end[2] += strchars(s_left)
-        endif
-        start[2] += strchars(s_left)
-        setcharpos('.', end)
-        if getline('.') =~ '^\s*$' || getline('.')[col('.') - 1] =~ '\s'
-            s_right = trim(s_right)
-        endif
-        if empty(getline(end[1]))
-            setline(end[1], s_right)
-        else
-            exe $"noautocmd normal! {change && end[2] == 0 ? "i" : "a"}{s_tab}{s_right}"
-        endif
+        for _ in range(vcount)
+            setcharpos('.', start)
+            if col('.') == col('$')
+                    || getline('.') =~ '^\s*$'
+                    || getline('.')[col('.') - 1] =~ '\s'
+                s_left = trim(s_left)
+            endif
+            exe $"noautocmd normal! i{s_tab}{s_left}"
+            setlocal virtualedit=none
+            if start[1] == end[1]
+                end[2] += strchars(s_left)
+            endif
+            start[2] += strchars(s_left)
+            setcharpos('.', end)
+            if getline('.') =~ '^\s*$' || getline('.')[col('.') - 1] =~ '\s'
+                s_right = trim(s_right)
+            endif
+            if empty(getline(end[1]))
+                setline(end[1], s_right)
+            else
+                exe $"noautocmd normal! {change && end[2] == 0 ? "i" : "a"}{s_tab}{s_right}"
+            endif
+        endfor
         setcharpos('.', start)
     elseif s_mode == 'line'
-        exe $":noautocmd :{start[1]}normal! O{s_left}"
-        exe $":noautocmd :{end[1]}normal! jo{s_right}"
-        if (s_left =~ '[([{]' || s_right =~ '</.\{-}>')
-            && ShouldIndent()
-            exe $":{start[1] + 1}"
-            exe $":silent noautocmd normal! {end[1] - start[1] + 2}=="
-        endif
+        for cnt in range(vcount)
+            exe $":noautocmd :{start[1] + cnt}normal! O{s_left}"
+            exe $":noautocmd :{end[1] + cnt}normal! jo{s_right}"
+            if (s_left =~ '[([{]' || s_right =~ '</.\{-}>')
+                && ShouldIndent()
+                exe $":{start[1] + cnt + 1}"
+                exe $":silent noautocmd normal! {end[1] - start[1] + 2}=="
+            endif
+        endfor
         exe $":{start[1] + 1}"
         exe ":noautocmd normal! _"
     elseif s_mode == "block"
@@ -280,18 +292,20 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
             # noautocmd normal! $
             # exe $"noautocmd normal! A{s_tab}{s_right}"
 
-            for nr in range(start[1], end[1])
-                if strchars(getline(nr)) >= start[2]
-                    setcursorcharpos(nr, start[2])
-                    var squeeze = ""
-                    if getline(nr)[ : start[2] - 1] =~ '^\s*$'
-                        squeeze = "_"
+            for _ in range(vcount)
+                for nr in range(start[1], end[1])
+                    if strchars(getline(nr)) >= start[2]
+                        setcursorcharpos(nr, start[2])
+                        var squeeze = ""
+                        if getline(nr)[ : start[2] - 1] =~ '^\s*$'
+                            squeeze = "_"
+                        endif
+                        exe $"noautocmd normal! {squeeze}\<C-v>$"
+                        exe $"noautocmd normal! I{s_tab}{s_left}"
+                        exe "noautocmd normal! \<C-v>$"
+                        exe $"noautocmd normal! A{s_tab}{s_right}"
                     endif
-                    exe $"noautocmd normal! {squeeze}\<C-v>$"
-                    exe $"noautocmd normal! I{s_tab}{s_left}"
-                    exe "noautocmd normal! \<C-v>$"
-                    exe $"noautocmd normal! A{s_tab}{s_right}"
-                endif
+                endfor
             endfor
             setcursorcharpos(start[1 :])
             exe "noautocmd normal! \<C-v>"
