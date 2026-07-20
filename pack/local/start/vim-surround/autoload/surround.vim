@@ -216,17 +216,18 @@ def AddSurround(mode: string, pos_start: list<number> = getpos("'["), pos_end: l
     var s_mode = mode
     if mode == 'line' && start[1] == end[1] && s_with.pair.newline != 1
         s_mode = 'char'
-        noautocmd normal! _
-        start = getpos('.')
         noautocmd normal! g_
         end = getpos('.')
-    elseif mode == 'line' && s_with.pair.newline == -1
-        s_mode = 'char'
         noautocmd normal! _
         start = getpos('.')
+    elseif mode == 'line' && s_with.pair.newline == -1
+        s_mode = 'char'
         setpos('.', end)
         noautocmd normal! g_
         end = getpos('.')
+        setpos('.', start)
+        noautocmd normal! _
+        start = getpos('.')
     elseif mode == 'line'
         s_left = trim(s_left)
         s_right = trim(s_right)
