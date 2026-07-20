@@ -158,10 +158,6 @@ export def Change(): string
     return 'g@l'
 enddef
 
-def ShouldIndent(): bool
-    return !empty(&indentexpr) || &cindent
-enddef
-
 def AddSurround(mode: string, pos_start: list<number> = getpos("'["), pos_end: list<number> = getpos("']")): bool
     var save_selection = &selection
     var save_lazyredraw = &lazyredraw
@@ -271,8 +267,8 @@ def AddSurround(mode: string, pos_start: list<number> = getpos("'["), pos_end: l
             # exe $"noautocmd normal! A{s_tab}{s_right}"
 
             for nr in range(start[1], end[1])
-                if strchars(getline(nr)) >= start[2]
-                    setcursorcharpos(nr, start[2])
+                if strlen(getline(nr)) >= start[2]
+                    cursor(nr, start[2])
                     var squeeze = ""
                     if getline(nr)[ : start[2] - 1] =~ '^\s*$'
                         squeeze = "_"
@@ -604,6 +600,10 @@ def ProbeTag(): dict<any>
         }
     endif
     return {}
+enddef
+
+def ShouldIndent(): bool
+    return !empty(&indentexpr) || &cindent
 enddef
 
 def StrInsert(src_str: string, src_idx: number, ins_str: string, append: bool = false): string
