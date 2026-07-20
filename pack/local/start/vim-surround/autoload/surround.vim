@@ -589,7 +589,7 @@ def ProbeTag(): dict<any>
     var end = getpos("']")
 
     var line = getline(end[1])->strpart(0, end[2])
-    var s_right = matchstr(line, '</\S\{-}>$')
+    var s_right = matchstr(line, '</[^<]\{-}>$')
     line = getline(start[1])->strpart(start[2] - 1)
     var s_left = matchstr(line, '^<[^[:punct:][:space:]].\{-}>')
 
