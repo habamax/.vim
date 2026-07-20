@@ -139,6 +139,7 @@ export def Remove(): string
         echohl NONE
         return ''
     endif
+    vcount = 1
     dotrepeat = false
     &opfunc = (_) => RemoveSurround()
     return 'g@l'
@@ -151,6 +152,7 @@ export def Change(): string
         echohl NONE
         return ''
     endif
+    vcount = 1
     dotrepeat = false
     &opfunc = (_) => ChangeSurround()
     return 'g@l'
@@ -264,15 +266,13 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
         endfor
         setcharpos('.', start)
     elseif s_mode == 'line'
-        for cnt in range(vcount)
-            exe $":noautocmd :{start[1] + cnt}normal! O{s_left}"
-            exe $":noautocmd :{end[1] + cnt}normal! jo{s_right}"
-            if (s_left =~ '[([{]' || s_right =~ '</.\{-}>')
+        exe $":noautocmd :{start[1]}normal! {vcount}O{s_left}"
+        exe $":noautocmd :{end[1]}normal! {vcount}j{vcount}o{s_right}"
+        if (s_left =~ '[([{]' || s_right =~ '</.\{-}>')
                 && ShouldIndent()
-                exe $":{start[1] + cnt + 1}"
-                exe $":silent noautocmd normal! {end[1] - start[1] + 2}=="
-            endif
-        endfor
+            exe $":{start[1]}"
+            exe $":silent noautocmd normal! {end[1] - start[1] + vcount * 2 + 1}=="
+        endif
         exe $":{start[1] + vcount}"
         exe ":noautocmd normal! _"
     elseif s_mode == "block"
@@ -292,20 +292,18 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
             # noautocmd normal! $
             # exe $"noautocmd normal! A{s_tab}{s_right}"
 
-            for _ in range(vcount)
-                for nr in range(start[1], end[1])
-                    if strchars(getline(nr)) >= start[2]
-                        setcursorcharpos(nr, start[2])
-                        var squeeze = ""
-                        if getline(nr)[ : start[2] - 1] =~ '^\s*$'
-                            squeeze = "_"
-                        endif
-                        exe $"noautocmd normal! {squeeze}\<C-v>$"
-                        exe $"noautocmd normal! I{s_tab}{s_left}"
-                        exe "noautocmd normal! \<C-v>$"
-                        exe $"noautocmd normal! A{s_tab}{s_right}"
+            for nr in range(start[1], end[1])
+                if strchars(getline(nr)) >= start[2]
+                    setcursorcharpos(nr, start[2])
+                    var squeeze = ""
+                    if getline(nr)[ : start[2] - 1] =~ '^\s*$'
+                        squeeze = "_"
                     endif
-                endfor
+                    exe $"noautocmd normal! {squeeze}\<C-v>$"
+                    exe $"noautocmd normal! I{s_tab}{repeat(s_left, vcount)}"
+                    exe "noautocmd normal! \<C-v>$"
+                    exe $"noautocmd normal! A{s_tab}{repeat(s_right, vcount)}"
+                endif
             endfor
             setcursorcharpos(start[1 :])
             exe "noautocmd normal! \<C-v>"
@@ -319,12 +317,12 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
             noautocmd normal! iX
             noautocmd normal! x
 
+            setlocal virtualedit=all
             noautocmd normal! gv
             var v_pos = getregionpos(getpos("v"), getpos('.'), {mode: visualmode()})
             var v_start = v_pos[0][0]
             if v_start[1 : ] != start[1 : ]
                 exe "noautocmd normal! \<ESC>"
-                setlocal virtualedit=all
                 # setcursorcharpos(...) can't navigate to an empty location
                 MoveCursor(end[1], end[2] + end[3])
                 if strchars(getline(end[1])) < end[2] + end[3]
@@ -333,13 +331,13 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
                 exe "noautocmd normal! \<C-v>"
                 MoveCursor(start[1], start[2] + start[3])
             endif
-            exe $"noautocmd normal! A{s_tab}{s_right}"
+            exe $"noautocmd normal! A{s_tab}{repeat(s_right, vcount)}"
             noautocmd normal! gv
-            exe $"noautocmd normal! I{s_tab}{s_left}"
+            exe $"noautocmd normal! I{s_tab}{repeat(s_left, vcount)}"
 
-            setcursorcharpos(end[1], end[2] + end[3] + strchars(s_left))
+            setcursorcharpos(end[1], end[2] + end[3] + vcount * strchars(s_left))
             exe "noautocmd normal! \<C-v>"
-            setcursorcharpos(start[1], start[2] + start[3] + strchars(s_left))
+            setcursorcharpos(start[1], start[2] + start[3] + vcount * strchars(s_left))
             exe "noautocmd normal! \<ESC>"
         endif
     endif
