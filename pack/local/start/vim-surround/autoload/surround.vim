@@ -538,8 +538,11 @@ def ProbeFunc(pair: dict<any>): dict<any>
     endif
 
     if expand("<cWORD>") =~ $'\V\k\+{left}'
-        search('[[:space:]]\|^', 'b', line('.'))
+        var save_pos = getpos('.')
         search($'\V{left}\|{right}', '', line('.'))
+        if getline('.')->strpart(save_pos[2], col('.') - save_pos[2]) =~ '\s'
+            setpos('.', save_pos)
+        endif
     endif
 
     var cursor = getpos('.')
