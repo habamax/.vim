@@ -162,7 +162,7 @@ def ShouldIndent(): bool
     return !empty(&indentexpr) || &cindent
 enddef
 
-def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: list<number> = getcharpos("']"), change: bool = false): bool
+def AddSurround(mode: string, pos_start: list<number> = getpos("'["), pos_end: list<number> = getpos("']")): bool
     var save_selection = &selection
     var save_lazyredraw = &lazyredraw
     var save_virtualedit = &l:virtualedit
@@ -211,7 +211,7 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
 
     # Handle case with v$S(. when selection is started in the middle of the
     # line. Start/end positions are incorrect in dot-repeating.
-    var end_len = strcharlen(getline(end[1]))
+    var end_len = strlen(getline(end[1]))
     if visual_dollar && start[1] == end[1] && start[2] == 1 && end[2] != end_len
         start = deepcopy(end)
         end[2] = end_len
@@ -221,16 +221,16 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
     if mode == 'line' && start[1] == end[1] && s_with.pair.newline != 1
         s_mode = 'char'
         noautocmd normal! _
-        start = getcursorcharpos()
+        start = getpos('.')
         noautocmd normal! g_
-        end = getcursorcharpos()
+        end = getpos('.')
     elseif mode == 'line' && s_with.pair.newline == -1
         s_mode = 'char'
         noautocmd normal! _
-        start = getcursorcharpos()
-        setcharpos('.', end)
+        start = getpos('.')
+        setpos('.', end)
         noautocmd normal! g_
-        end = getcharpos('.')
+        end = getpos('.')
     elseif mode == 'line'
         s_left = trim(s_left)
         s_right = trim(s_right)
@@ -240,31 +240,9 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
     s_right = trim(s_right, "\n")
 
     if s_mode == 'char'
-        setlocal virtualedit=all
-        for _ in range(vcount)
-            setcharpos('.', start)
-            if col('.') == col('$')
-                    || getline('.') =~ '^\s*$'
-                    || getline('.')[col('.') - 1] =~ '\s'
-                s_left = trim(s_left)
-            endif
-            exe $"noautocmd normal! i{s_tab}{s_left}"
-            setlocal virtualedit=none
-            if start[1] == end[1]
-                end[2] += strchars(s_left)
-            endif
-            start[2] += strchars(s_left)
-            setcharpos('.', end)
-            if getline('.') =~ '^\s*$' || getline('.')[col('.') - 1] =~ '\s'
-                s_right = trim(s_right)
-            endif
-            if empty(getline(end[1]))
-                setline(end[1], s_right)
-            else
-                exe $"noautocmd normal! {change && end[2] == 0 ? "i" : "a"}{s_tab}{s_right}"
-            endif
-        endfor
-        setcharpos('.', start)
+        StrAddAroundRegion(start, end, repeat(s_left, vcount), repeat(s_right, vcount))
+        start[2] += vcount * strlen(s_left)
+        setpos('.', start)
     elseif s_mode == 'line'
         exe $":noautocmd :{start[1]}normal! {vcount}O{s_left}"
         exe $":noautocmd :{end[1]}normal! {vcount}j{vcount}o{s_right}"
@@ -305,46 +283,90 @@ def AddSurround(mode: string, pos_start: list<number> = getcharpos("'["), pos_en
                     exe $"noautocmd normal! A{s_tab}{repeat(s_right, vcount)}"
                 endif
             endfor
-            setcursorcharpos(start[1 :])
+            setpos('.', start)
             exe "noautocmd normal! \<C-v>"
-            setcursorcharpos(end[1 :])
+            setpos('.', end)
             exe "noautocmd normal! $\<ESC>"
-            start[2] += strchars(s_left)
-            setcursorcharpos(start[1 :])
+            start[2] += strlen(s_left)
+            setpos('.', start)
         else
             # better undo -- first change should be in the block begining
             # Add letter X and then delete it.
             noautocmd normal! iX
             noautocmd normal! x
 
-            setlocal virtualedit=all
-            noautocmd normal! gv
-            var v_pos = getregionpos(getpos("v"), getpos('.'), {mode: visualmode()})
-            var v_start = v_pos[0][0]
-            if v_start[1 : ] != start[1 : ]
-                exe "noautocmd normal! \<ESC>"
-                # setcursorcharpos(...) can't navigate to an empty location
-                MoveCursor(end[1], end[2] + end[3])
-                if strchars(getline(end[1])) < end[2] + end[3]
-                    exe "noautocmd normal! i\<space>"
-                endif
-                exe "noautocmd normal! \<C-v>"
-                MoveCursor(start[1], start[2] + start[3])
-            endif
+            var line = getline(start[1])
+            setline(start[1], line .. repeat(' ', start[2] + start[3] - strlen(line)))
+            line = getline(end[1])
+            setline(end[1], line .. repeat(' ', end[2] + end[3] - strlen(line)))
+            setpos('.', [0, start[1], start[2] + start[3]])
+            exe "noautocmd normal! \<C-v>"
+            setpos('.', [0, end[1], end[2] + end[3]])
             exe $"noautocmd normal! A{s_tab}{repeat(s_right, vcount)}"
             noautocmd normal! gv
             exe $"noautocmd normal! I{s_tab}{repeat(s_left, vcount)}"
 
-            setcursorcharpos(end[1], end[2] + end[3] + vcount * strchars(s_left))
+            end[2] += end[3] + vcount * strlen(s_left)
+            setpos('.', end)
             exe "noautocmd normal! \<C-v>"
-            setcursorcharpos(start[1], start[2] + start[3] + vcount * strchars(s_left))
+            start[2] += start[3] + vcount * strlen(s_left)
+            setpos('.', start)
             exe "noautocmd normal! \<ESC>"
         endif
     endif
     return true
 enddef
 
-def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
+def ProbeSurround(): dict<any>
+    var pos = {}
+    var pair = {}
+    if s_with.trigger == 's'
+        var pair_chars = ')}]"`'''
+        var pos_list = []
+        for char in pair_chars
+            var s_pair = Pair(char, false)
+            var s_pos = ProbePair(s_pair)
+            if !empty(s_pos)
+                add(pos_list, {pos: s_pos, pair: s_pair})
+            endif
+        endfor
+        if empty(pos_list)
+            return {}
+        endif
+        var closest = pos_list->sort((v1, v2) => {
+            if v1.pos.start[1] == v2.pos.start[1]
+                return v1.pos.start[2] == v2.pos.start[2] ? 0 : v1.pos.start[2] > v2.pos.start[2] ? 1 : -1
+            elseif v1.pos.start[1] > v2.pos.start[1]
+                return 1
+            else
+                return -1
+            endif
+        })[-1]
+        pos = {
+            start: closest.pos.start,
+            end: closest.pos.end,
+            left: closest.pair.left,
+            right: closest.pair.right
+        }
+    else
+        pair = Pair(s_with.trigger, false)
+        if get(pair, 'probe', "pair") == "tag"
+            pos = ProbeTag()
+        elseif get(pair, 'probe', "pair") == "func"
+            pos = ProbeFunc(pair)
+        else
+            pos = ProbePair(pair)
+        endif
+    endif
+
+    if empty(pos)
+        return {}
+    endif
+
+    return pos
+enddef
+
+def RemoveSurround()
     var save_selection = &selection
     var save_lazyredraw = &lazyredraw
     var save_clipboard = &clipboard
@@ -364,7 +386,7 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
         dotrepeat = true
         var char = getcharstr(-1, {cursor: 'keep'})
         if char == "\<Esc>" || char == "\<CR>"
-            return []
+            return
         endif
         if char == 's'
             s_with.pair = {left: char}
@@ -374,88 +396,30 @@ def RemoveSurround(delete_empty_lines: bool = true): list<list<number>>
         s_with.trigger = char
     endif
 
-    var view = winsaveview()
-    var cursor = getcursorcharpos()
-    var pos = {}
-    var pair = {}
-    if s_with.trigger == 's'
-        var pair_chars = ')}]"`'''
-        var pos_list = []
-        for char in pair_chars
-            var s_pair = Pair(char, false)
-            var s_pos = ProbePair(s_pair)
-            if !empty(s_pos)
-                add(pos_list, {pos: s_pos, pair: s_pair})
-            endif
-        endfor
-        if empty(pos_list)
-            return []
-        endif
-        var closest = pos_list->sort((v1, v2) => {
-            if v1.pos.start[1] == v2.pos.start[1]
-                return v1.pos.start[2] == v2.pos.start[2] ? 0 : v1.pos.start[2] > v2.pos.start[2] ? 1 : -1
-            elseif v1.pos.start[1] > v2.pos.start[1]
-                return 1
-            else
-                return -1
-            endif
-        })[-1]
-        pos = closest.pos
-        pair = closest.pair
-    else
-        pair = Pair(s_with.trigger, false)
-        if get(pair, 'probe', "pair") == "tag"
-            [pos, pair] = ProbeTag()
-        elseif get(pair, 'probe', "pair") == "func"
-            [pos, pair] = ProbeFunc(pair)
-        else
-            pos = ProbePair(pair)
-        endif
-    endif
-
+    var pos = ProbeSurround()
     if empty(pos)
-        winrestview(view)
-        return []
+        return
     endif
 
-    setcharpos('.', pos.start)
     var indent_lines = pos.end[1] - pos.start[1]
 
-    if pos.start[1] == cursor[1] && pos.end[1] == cursor[1]
-        pos.end[2] -= pos.startlen
-    endif
-    if delete_empty_lines && getline('.') =~ $'\V\^\s\*{escape(pair.left, '\')}\$'
+    StrRemoveAroundRegion(pos.start, pos.end, pos.left, pos.right)
+    if getline(pos.end[1]) =~ '^\s*$'
+        setpos('.', pos.end)
         noautocmd normal! "_dd
-        pos.end[1] -= 1
-    else
-        exe $'noautocmd normal! {pos.startlen}"_x'
     endif
-    setcharpos('.', pos.end)
-    if delete_empty_lines && getline('.') =~ $'\V\^\s\*{escape(pair.right, '\')}\$'
+    if getline(pos.start[1]) =~ '^\s*$'
+        setpos('.', pos.start)
         noautocmd normal! "_dd
-        pos.end[1] -= 1
-    else
-        var move_left = charcol('.') < charcol('$') - pos.endlen
-        exe $'noautocmd normal! {pos.endlen}"_x'
-        if move_left
-            if charcol('.') > 1
-                noautocmd normal! h
-                pos.end[2] = charcol('.')
-            else
-                pos.end[2] -= 1
-            endif
-        endif
     endif
-    if delete_empty_lines && indent_lines >= 1
-            && (pair.left =~ '[([{]' || s_with.trigger == 't')
+    if indent_lines >= 1
+            && (pos.left =~ '[([{]' || s_with.trigger == 't')
             && ShouldIndent()
         exe $":{pos.start[1]}"
-        exe $":silent noautocmd normal! {pos.end[1] - pos.start[1] + 1}=="
+        exe $":silent noautocmd normal! {pos.end[1] - pos.start[1] - 1}=="
     endif
-    winrestview(view)
-    setcharpos('.', pos.start)
 
-    return [pos.start, pos.end]
+    setpos('.', pos.start)
 enddef
 
 def ChangeSurround()
@@ -476,20 +440,15 @@ def ChangeSurround()
         c_with.pair = Pair(char)
     endif
 
-    var pos = RemoveSurround(false)
+    var pos = ProbeSurround()
+    if empty(pos)
+        return
+    endif
     var with = s_with->deepcopy()
-    if !empty(pos)
-        var [start, end] = pos
-        if getline(start[1]) =~ '^\s*$'
-            defer () => {
-                noautocmd normal! 2_
-            }()
-        endif
-        s_with = c_with->deepcopy()
-        if !AddSurround('char', start, end, true)
-            silent undo
-        endif
+    s_with = c_with->deepcopy()
+    if AddSurround('char', pos.start, [pos.end[0], pos.end[1], pos.end[2] + strlen(pos.right) - 1])
         s_with = with->deepcopy()
+        RemoveSurround()
     endif
 enddef
 
@@ -511,7 +470,7 @@ def ProbePair(pair: dict<any>): dict<any>
     }()
     var start = []
     var end = []
-    var cur = getcursorcharpos()
+    var cur = getpos('.')
 
     if trim(pair.left) != trim(pair.right)
         noautocmd normal! yl
@@ -521,11 +480,11 @@ def ProbePair(pair: dict<any>): dict<any>
             flags ..= 'c'
         endif
         if searchpair($'\V{escape(pair.left, '\')}', '', $'\V{escape(pair.right, '\')}', flags, () => SkipEscaped()) > 0
-            start = getcursorcharpos()
+            start = getpos('.')
             # TODO: ignore pairs in strings?
             # can't remove surround here: (s == '(')
             if searchpair($'\V{escape(pair.left, '\')}', '', $'\V{escape(pair.right, '\')}', 'W', () => SkipEscaped()) > 0
-                end = getcursorcharpos()
+                end = getpos('.')
             endif
         endif
 
@@ -534,28 +493,28 @@ def ProbePair(pair: dict<any>): dict<any>
         endif
         return {
             start: start,
-            startlen: strchars(pair.left),
+            left: pair.left,
             end: end,
-            endlen: strchars(pair.right)
+            right: pair.right
         }
     else
-        if search($'\V{escape(pair.left, '\')}', 'bW', line('.'), 200, () => SkipEscaped()) <= 0
-            if search($'\V{escape(pair.left, '\')}', 'cbW', line('.'), 200, () => SkipEscaped()) <= 0
+        if search($'\V{escape(pair.left, '\')}', 'W', line('.'), 200, () => SkipEscaped()) <= 0
+            if search($'\V{escape(pair.left, '\')}', 'cW', line('.'), 200, () => SkipEscaped()) <= 0
                 return {}
             endif
         endif
-        start = getcursorcharpos()
-        if search('\V' .. escape(pair.right, '\'), 'W', line('.'), 200, () => SkipEscaped()) <= 0
+        end = getpos('.')
+        if search('\V' .. escape(pair.right, '\'), 'bW', line('.'), 200, () => SkipEscaped()) <= 0
             return {}
         endif
-        end = getcursorcharpos()
+        start = getpos('.')
 
         if start != end
             return {
                 start: start,
-                startlen: strchars(pair.left),
+                left: pair.left,
                 end: end,
-                endlen: strchars(pair.right)
+                right: pair.right
             }
         else
             return {}
@@ -563,7 +522,7 @@ def ProbePair(pair: dict<any>): dict<any>
     endif
 enddef
 
-def ProbeFunc(pair: dict<any>): list<dict<any>>
+def ProbeFunc(pair: dict<any>): dict<any>
     var view = winsaveview()
     var unnamed = getreg("")
     defer () => {
@@ -575,7 +534,7 @@ def ProbeFunc(pair: dict<any>): list<dict<any>>
     var leftPrefix = trim(pair.left)[-2]
     var right = trim(pair.right)[-1]
     if left !~ '[{(\[]' && right !~ '[})\]]'
-        return [{}, {}]
+        return {}
     endif
 
     if expand("<cWORD>") =~ $'\V\k\+{left}'
@@ -583,13 +542,13 @@ def ProbeFunc(pair: dict<any>): list<dict<any>>
         search($'\V{left}\|{right}', '', line('.'))
     endif
 
-    var cursor = getcursorcharpos()
+    var cursor = getpos('.')
 
     exe $"noautocmd normal! ya{left}"
     var count = 1
     while !empty(getreg(""))
-        var start = getcharpos("'[")
-        var end = getcharpos("']")
+        var start = getpos("'[")
+        var end = getpos("']")
 
         var line = getline(end[1])[ : end[2] - 1]
         var s_right = right
@@ -597,24 +556,24 @@ def ProbeFunc(pair: dict<any>): list<dict<any>>
         var s_left = matchstr(line, $'\V{escape(leftPrefix, '\')}\k\+{left}\$')
 
         if !empty(s_right) && !empty(s_left)
-            end[2] -= (strchars(s_right) - 1)
-            start[2] -= (strchars(s_left) - 1)
-            return [{
+            end[2] -= (strlen(s_right) - 1)
+            start[2] -= (strlen(s_left) - 1)
+            return {
                 start: start,
-                startlen: strchars(s_left),
+                left: s_left,
                 end: end,
-                endlen: strchars(s_right)
-            }, {left: s_left, right: s_right}]
+                right: s_right
+            }
         endif
         count += 1
         setreg("", "")
-        setcharpos('.', cursor)
+        setpos('.', cursor)
         exe $"noautocmd normal! {count}ya{left}"
     endwhile
-    return [{}, {}]
+    return {}
 enddef
 
-def ProbeTag(): list<dict<any>>
+def ProbeTag(): dict<any>
     var view = winsaveview()
     var unnamed = getreg("")
     defer () => {
@@ -623,40 +582,31 @@ def ProbeTag(): list<dict<any>>
     }()
 
     noautocmd normal! yat
-    var start = getcharpos("'[")
-    var end = getcharpos("']")
+    var start = getpos("'[")
+    var end = getpos("']")
 
-    var line = getline(end[1])[ : end[2] - 1]
+    var line = getline(end[1])->strpart(0, end[2])
     var s_right = matchstr(line, '</\S\{-}>$')
-    line = getline(start[1])[start[2] - 1 :]
+    line = getline(start[1])->strpart(start[2] - 1)
     var s_left = matchstr(line, '^<[^[:punct:][:space:]].\{-}>')
 
     if !empty(s_right) && !empty(s_left)
-        end[2] -= (strchars(s_right) - 1)
-        return [{
+        end[2] -= (strlen(s_right) - 1)
+        return {
             start: start,
-            startlen: strchars(s_left),
+            left: s_left,
             end: end,
-            endlen: strchars(s_right)
-        }, {left: s_left, right: s_right}]
+            right: s_right
+        }
     endif
-    return [{}, {}]
+    return {}
 enddef
 
-def MoveCursor(lnum: number, col: number)
-    exe $":{lnum}"
-    noautocmd normal! 0
-    if col > 1
-        exe $"noautocmd normal! {col - 1}l"
-    endif
-enddef
-
-## TODO: use them in 'char' mode surround
 def StrInsert(src_str: string, src_idx: number, ins_str: string, append: bool = false): string
     var idx = append ? src_idx + strlen(matchstr(src_str, '.', src_idx)) : src_idx
-    var result = src_str->strpart(0, idx) .. ins_str
-    result ..= src_str->strpart(idx)
-    return result
+    var str_before = src_str->strpart(0, idx)
+    var str_after = src_str->strpart(idx)
+    return str_before .. ins_str .. str_after
 enddef
 
 def StrRemove(src_str: string, src_idx: number, rem_str: string): string
@@ -667,7 +617,7 @@ enddef
 
 def StrAddAroundRegion(pos_start: list<number>, pos_end: list<number>, sur_start: string, sur_end: string)
     var col_start = pos_start[2] - 1
-    var col_end = (pos_start[1] == pos_end[1] ? pos_end[2] + strlen(sur_end) : pos_end[2]) - 1
+    var col_end = (pos_start[1] == pos_end[1] ? pos_end[2] + strlen(sur_start) : pos_end[2]) - 1
     setline(pos_start[1], StrInsert(getline(pos_start[1]), col_start, sur_start))
     setline(pos_end[1], StrInsert(getline(pos_end[1]), col_end, sur_end, true))
 enddef
