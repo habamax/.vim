@@ -1,7 +1,7 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-07-18
+# Last Update: 2026-07-21
 
 # Align with pattern
 var with_pattern: string = ""
@@ -37,7 +37,7 @@ export def Op(after: bool = false): string
     endif
 enddef
 
-def Align(mode: string, pos_start: list<number> = getcharpos("'["), pos_end: list<number> = getcharpos("']"))
+def Align(mode: string, pos_start: list<number> = getpos("'["), pos_end: list<number> = getpos("']"))
     var save_lazyredraw = &lazyredraw
     set lazyredraw
     defer () => {
