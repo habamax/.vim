@@ -29,6 +29,8 @@ Pmenu          /0 omit   omit    reverse
 PmenuSbar      /0 omit   omit    reverse
 PmenuSel       /0 omit   omit    bold
 PmenuThumb     /0 omit   omit
+PmenuExtra     /0 omit   omit    reverse
+PmenuKind      /0 omit   omit    reverse
 Question       /0 omit   omit    standout
 Search         /0 omit   omit    reverse
 SignColumn     /0 omit   omit    reverse
