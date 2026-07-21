@@ -111,7 +111,7 @@ def LPositions(pattern: string, lnum_start: number, lnum_end: number, count: num
     for nr in range(lnum_start, lnum_end)
         var line = getline(nr)
         var pos = match(line, pattern, 0, count)
-        if space_after
+        if pos > -1 && space_after
             pos = match(line, pattern .. '\.\{-\}\zs\S\?', 0, count)
         endif
         positions += [pos]
