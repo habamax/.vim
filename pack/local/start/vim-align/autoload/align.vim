@@ -1,7 +1,7 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-07-21
+# Last Update: 2026-07-23
 
 # Align with pattern
 var with_pattern: string = ""
@@ -87,17 +87,17 @@ def Align(mode: string, pos_start: list<number> = getpos("'["), pos_end: list<nu
     endif
 enddef
 
-# If a range is a single non-empty line, extend to a contiguous same or greater
-# indent non-emtpy lines
+# If a range is a single non-empty line, extend to a contiguous same indent
+# non-emtpy lines
 def AdjustRange(start: list<number>, end: list<number>): list<number>
     var lnum_start = start[1]
     var lnum_end = end[1]
     if lnum_start == lnum_end && getline(lnum_start) !~ '^\s*$'
         var indent = indent(lnum_start)
-        while lnum_start > 1 && getline(lnum_start - 1) !~ '^\s*$' && indent(lnum_start - 1) >= indent
+        while lnum_start > 1 && getline(lnum_start - 1) !~ '^\s*$' && indent(lnum_start - 1) == indent
             lnum_start -= 1
         endwhile
-        while lnum_end < line('$') && getline(lnum_end + 1) !~ '^\s*$' && indent(lnum_end + 1) >= indent
+        while lnum_end < line('$') && getline(lnum_end + 1) !~ '^\s*$' && indent(lnum_end + 1) == indent
             lnum_end += 1
         endwhile
     endif
