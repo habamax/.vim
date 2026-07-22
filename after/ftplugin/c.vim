@@ -71,10 +71,9 @@ if exists("g:loaded_lsp") && executable('clangd')
         args: ['--background-index'],
     }])
 
-    import autoload 'lsp.vim'
     augroup LspSetup
         au!
-        au User LspAttached lsp.SetupFT()
+        au User LspAttached lsp#SetupFT()
     augroup END
 endif
 

@@ -32,10 +32,9 @@ if exists("g:loaded_lsp") && executable('pylsp')
         filetype: ['python'],
         path: 'pylsp',
     }])
-    import autoload 'lsp.vim'
     augroup LspSetup
         au!
-        au User LspAttached lsp.SetupFT()
+        au User LspAttached lsp#SetupFT()
     augroup END
 else
     nnoremap <silent><buffer> K <scriptcmd>PopupHelp(expand("<cfile>"))<CR>

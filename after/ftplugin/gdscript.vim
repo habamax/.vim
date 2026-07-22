@@ -98,10 +98,9 @@ if exists("g:loaded_lsp") && executable('nc')
         args: ['127.0.0.1', '6008'],
     }])
 
-    import autoload 'lsp.vim'
     augroup LspSetup
         au!
-        au User LspAttached lsp.SetupFT()
+        au User LspAttached lsp#SetupFT()
     augroup END
 endif
 
