@@ -68,13 +68,13 @@ else
 endif
 
 # helper commands and mappings to work with vim/colorschemes
-command! ColoMisc run colors/sample/misc.vim
-command! ColoMess run colors/sample/messages.vim
-command! ColoDiff run colors/sample/diff.vim
-command! ColoQF run colors/sample/quickfix.vim
-command! ColoPmenu run colors/sample/popupmenu.vim
+command! ColoMisc      run colors/sample/misc.vim
+command! ColoMess      run colors/sample/messages.vim
+command! ColoDiff      run colors/sample/diff.vim
+command! ColoQF        run colors/sample/quickfix.vim
+command! ColoPmenu     run colors/sample/popupmenu.vim
 command! ColoPmenuKind run colors/sample/popupmenu_kind.vim
-command! ColoSpell run colors/sample/spell.vim
+command! ColoSpell     run colors/sample/spell.vim
 
 if !has("gui_running")
     import autoload 'qc.vim'
