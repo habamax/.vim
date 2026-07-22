@@ -5,15 +5,15 @@ if !has('gui_running')
 endif
 
 def Lsp()
-    hi link lspDiagVirtualTextError Removed
-    hi link lspSigActiveParameter PreProc
-    hi link lspDiagSignErrorText Removed
+    hi link lspDiagVirtualTextError   Removed
+    hi link lspSigActiveParameter     PreProc
+    hi link lspDiagSignErrorText      Removed
     hi link lspDiagVirtualTextWarning Changed
-    hi link lspDiagSignWarningText Changed
-    hi link lspDiagVirtualTextHint Added
-    hi link lspDiagSignHintText Added
-    hi link lspDiagVirtualTextInfo Question
-    hi link lspDiagSignInfoText Question
+    hi link lspDiagSignWarningText    Changed
+    hi link lspDiagVirtualTextHint    Added
+    hi link lspDiagSignHintText       Added
+    hi link lspDiagVirtualTextInfo    Question
+    hi link lspDiagSignInfoText       Question
 enddef
 
 def NoBg()
@@ -28,18 +28,18 @@ def Habamax()
         if has("gui_running")
             hi Normal guibg=#1c1c26
         endif
-        hi Popup guibg=#3a3a44
-        hi PopupBorder guibg=#3a3a44
-        hi PopupTitle guibg=#3a3a44
-        hi Pmenu guibg=#3a3a44
-        hi PmenuKind guibg=#3a3a44
-        hi PmenuExtra guibg=#3a3a44
-        hi PmenuBorder guibg=#3a3a44
-        hi PmenuSel guibg=#585862
-        hi PmenuKindSel guibg=#585862
+        hi Popup         guibg=#3a3a44
+        hi PopupBorder   guibg=#3a3a44
+        hi PopupTitle    guibg=#3a3a44
+        hi Pmenu         guibg=#3a3a44
+        hi PmenuKind     guibg=#3a3a44
+        hi PmenuExtra    guibg=#3a3a44
+        hi PmenuBorder   guibg=#3a3a44
+        hi PmenuSel      guibg=#585862
+        hi PmenuKindSel  guibg=#585862
         hi PmenuMatchSel guibg=#585862
         hi PmenuExtraSel guibg=#585862
-        hi Comment guifg=#80808a
+        hi Comment       guifg=#80808a
     endif
 enddef
 
