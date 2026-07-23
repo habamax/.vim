@@ -52,11 +52,6 @@ g:rst_syntax_code_list = {
     odin: ['odin'],
 }
 
-# godot, assuming it is installed as flatpak
-# if !executable('godot') && executable('flatpak')
-#     g:godot_executable = "flatpak run org.godotengine.Godot"
-# endif
-
 g:surround_pairs = {
     'd': ('[', ']'),
     'D': {pair: ('[ ', ' ]'), newline: 1},
