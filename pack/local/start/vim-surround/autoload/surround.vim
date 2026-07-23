@@ -161,14 +161,14 @@ enddef
 def AddSurround(mode: string, pos_start: list<number> = getpos("'["), pos_end: list<number> = getpos("']")): bool
     var save_selection = &selection
     var save_lazyredraw = &lazyredraw
-    var save_virtualedit = &l:virtualedit
+    var save_virtualedit = &virtualedit
     var save_indentkeys = &l:indentkeys
     var save_cinkeys = &l:cinkeys
     var save_autoindent = &l:autoindent
     var save_comments = &l:comments
     set selection=inclusive
     set lazyredraw
-    setlocal virtualedit=block
+    set virtualedit=all
     setlocal indentkeys=
     setlocal cinkeys=
     setlocal autoindent
@@ -176,7 +176,7 @@ def AddSurround(mode: string, pos_start: list<number> = getpos("'["), pos_end: l
     defer () => {
         &selection = save_selection
         &lazyredraw = save_lazyredraw
-        &l:virtualedit = save_virtualedit
+        &virtualedit = save_virtualedit
         &l:indentkeys = save_indentkeys
         &l:cinkeys = save_cinkeys
         &l:autoindent = save_autoindent
