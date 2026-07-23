@@ -293,6 +293,10 @@ def AddSurround(mode: string, pos_start: list<number> = getpos("'["), pos_end: l
             noautocmd normal! x
 
             set virtualedit=all
+            start[2] += start[3]
+            start[3] = 0
+            end[2] += end[3]
+            end[3] = 0
             setpos('.', start)
             exe "noautocmd normal! \<C-v>"
             setpos('.', end)
@@ -303,12 +307,10 @@ def AddSurround(mode: string, pos_start: list<number> = getpos("'["), pos_end: l
             setpos('.', end)
             exe $"noautocmd normal! I{s_tab}{repeat(s_left, vcount)}"
 
-            end[2] += end[3] + vcount * strlen(s_left)
-            end[3] = 0
+            end[2] += vcount * strlen(s_left)
             setpos('.', end)
             exe "noautocmd normal! \<C-v>"
-            start[2] += start[3] + vcount * strlen(s_left)
-            start[3] = 0
+            start[2] += vcount * strlen(s_left)
             setpos('.', start)
             exe "noautocmd normal! \<ESC>"
         endif
