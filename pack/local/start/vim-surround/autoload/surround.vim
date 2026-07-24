@@ -1,7 +1,7 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-07-23
+# Last Update: 2026-07-24
 
 # Surround/Remove surround with.
 var s_with: dict<any> = {}
@@ -277,19 +277,25 @@ def AddSurround(mode: string, pos_start: list<number> = getpos("'["), pos_end: l
             noautocmd normal! iX
             noautocmd normal! x
 
+            var start_line = getline(start[1])
+            if strlen(start_line) < start[2] + start[3]
+                start[2] += start[3]
+                start[3] = 0
+                setline(start[1], start_line .. repeat(' ', start[2] + start[3] - strlen(start_line) - 1))
+            endif
+            var end_line = getline(end[1])
+            if strlen(end_line) < end[2] + end[3]
+                end[2] += end[3]
+                end[3] = 0
+                setline(end[1], end_line .. repeat(' ', end[2] + end[3] - strlen(end_line) - 1))
+            endif
             setlocal virtualedit=all
-            start[2] += start[3]
-            start[3] = 0
-            end[2] += end[3]
-            end[3] = 0
             setpos('.', start)
             exe "noautocmd normal! \<C-v>"
             setpos('.', end)
             exe $"noautocmd normal! A{s_tab}{repeat(s_right, vcount)}"
 
-            setpos('.', start)
-            exe "noautocmd normal! \<C-v>"
-            setpos('.', end)
+            noautocmd normal! gv
             exe $"noautocmd normal! I{s_tab}{repeat(s_left, vcount)}"
 
             end[2] += vcount * strlen(s_left)
