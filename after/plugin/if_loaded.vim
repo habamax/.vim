@@ -97,20 +97,20 @@ endif
 if exists("g:loaded_lsp")
     g:LspOptionsSet({
         autoComplete: false,
+        autoHighlight: false,
+        highlightDiagInline: false,
         filterCompletionDuplicates: true,
-        completionMatcher: 'fuzzy',
         usePopupInCodeAction: true,
         showInlayHints: false,
-        showDiagOnStatusLine: false,
-        showDiagWithVirtualText: true,
+        showDiagInPopup: true,
+        autoPopulateDiags: true,
+        showDiagWithVirtualText: false,
         diagVirtualTextAlign: 'after',
         diagSignErrorText: '✘',
         diagSignWarningText: '•',
         diagSignHintText: '§',
         diagSignInfoText: 'ℹ',
-        autoPopulateDiags: true,
         popupBorder: true,
-        # popupHighlight: 'Normal',
         popupBorderHighlight: 'PmenuBorder',
     })
 endif
