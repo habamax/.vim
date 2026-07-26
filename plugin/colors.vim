@@ -60,11 +60,7 @@ g:colors = {
 #     light: "sil! colo xamabah"
 # }
 
-if has("win32") && has("gui_running")
-    exe g:colors.light
-else
-    exe g:colors.dark
-endif
+exe g:colors.dark
 
 # helper commands and mappings to work with vim/colorschemes
 command! ColoMisc      run colors/sample/misc.vim
