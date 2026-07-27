@@ -1,0 +1,9 @@
+#set page(margin: 0.2cm)
+#grid(
+  columns: 2,
+  gutter: 0.2cm,
+  image("image1.jpg", width: 100%),
+  image("image2.jpg", width: 100%),
+  image("image3.jpg", width: 100%),
+  image("image4.jpg", width: 100%),
+)
