@@ -1,4 +1,5 @@
 vim9script
+finish
 
 var color_char = "●"
 # var color_char = "█"
