@@ -82,6 +82,7 @@ def PathSize(size: number): string
     endif
 enddef
 
+# TODO: make it work relative to the current buffer path
 export def Path(findstart: number, base: string): any
     if findstart > 0
         var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\v\f%(\f|\s)*$')
