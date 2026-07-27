@@ -43,11 +43,19 @@ def Habamax()
     endif
 enddef
 
+def Wildcharm()
+    if &background == 'light'
+        hi Statement gui=bold cterm=bold
+        hi Type      gui=bold cterm=bold
+    endif
+enddef
+
 augroup colors | au!
     au Colorscheme * Lsp()
     au Colorscheme habamax Habamax()
     au Colorscheme polukate,habamax,wildcharm,lunaperche NoBg()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
+    au Colorscheme wildcharm Wildcharm()
 augroup END
 
 g:colors = {
