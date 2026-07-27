@@ -5,7 +5,11 @@ setl noexpandtab tabstop=4
 
 def RunOdin()
     update
-    Term! odin run .
+    if exists("$WSL_DISTRO_NAME")
+        Term! odin run . -thread-count:1
+    else
+        Term! odin run .
+    endif
 enddef
 
 nnoremap <buffer> <F5> <scriptcmd>RunOdin()<CR>
