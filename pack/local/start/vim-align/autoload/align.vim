@@ -1,7 +1,7 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-07-23
+# Last Update: 2026-07-27
 
 # Align with pattern
 var with_pattern: string = ""
@@ -56,7 +56,7 @@ def Align(mode: string, pos_start: list<number> = getpos("'["), pos_end: list<nu
             endif
             with_pattern = regex
         elseif char == ' '
-            with_pattern = '\V\C\S\@<=\s\+\zs'
+            with_pattern = '\V\s\+\zs'
         else
             with_pattern = '\V\C' .. char
         endif
