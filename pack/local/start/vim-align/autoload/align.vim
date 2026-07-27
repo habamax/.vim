@@ -12,9 +12,6 @@ var vcount: number = 0
 # Align after the occurence (add spaces after)
 var space_after: bool = false
 
-# If block selection is done with $
-var visual_dollar: bool = false
-
 # If operation is repeated with dot
 var dotrepeat = false
 
@@ -26,7 +23,6 @@ export def Op(after: bool = false): string
         return ''
     endif
     dotrepeat = false
-    visual_dollar = getcursorcharpos()[-1] == v:maxcol
     vcount = v:count
     space_after = after
     &opfunc = (mode) => Align(mode)
@@ -81,9 +77,7 @@ def Align(mode: string, pos_start: list<number> = getpos("'["), pos_end: list<nu
             step += 1
         endwhile
     else
-        if visual_dollar
-        else
-        endif
+        # TODO: align starting from the Visual block start
     endif
 enddef
 
