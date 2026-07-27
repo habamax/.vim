@@ -42,3 +42,16 @@ def Things()
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
+
+if exists("g:loaded_lsp") && executable('ols')
+    g:LspAddServer([{
+        name: 'ols',
+        filetype: ['odin'],
+        path: 'ols',
+    }])
+    augroup LspSetup
+        au!
+        au User LspAttached lsp#SetupFT()
+    augroup END
+endif
+
