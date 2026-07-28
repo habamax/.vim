@@ -26,8 +26,8 @@ enddef
 def Default()
     if &background == 'light'
         hi Normal        guifg=#000000 guibg=#ffffff gui=NONE ctermfg=16   ctermbg=15
-        hi Search        guifg=NONE guibg=#e7f3e7    gui=NONE ctermfg=28   ctermbg=231  cterm=NONE
-        hi IncSearch     guifg=NONE guibg=#fff0cf    gui=NONE ctermfg=172  ctermbg=231  cterm=NONE
+        hi Search        guifg=NONE    guibg=#e7f3e7 gui=NONE ctermfg=28   ctermbg=231  cterm=NONE
+        hi IncSearch     guifg=NONE    guibg=#fff0cf gui=NONE ctermfg=172  ctermbg=231  cterm=NONE
         hi Pmenu         guifg=NONE    guibg=#e4e4e4 gui=NONE ctermfg=NONE ctermbg=254  cterm=NONE
         hi PmenuBorder   guifg=#808080 guibg=#e4e4e4 gui=NONE ctermfg=240  ctermbg=254  cterm=NONE
         hi PmenuExtra    guifg=#808080 guibg=#e4e4e4 gui=NONE ctermfg=240  ctermbg=254  cterm=NONE
