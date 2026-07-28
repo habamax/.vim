@@ -63,9 +63,9 @@ def Default()
         hi DiffChange    guifg=NONE    guibg=#e3e3e3 gui=NONE ctermfg=16   ctermbg=253  cterm=NONE
         hi DiffDelete    guifg=#808080 guibg=#ffd7d7 gui=NONE ctermfg=240  ctermbg=224  cterm=NONE
         hi DiffText      guifg=NONE    guibg=#bfe7e7 gui=NONE ctermfg=16   ctermbg=152  cterm=NONE
-        hi Todo          gui=bold                                                       cterm=bold
-        hi Statement cterm=bold
-        hi Type cterm=bold
+        hi Todo                                      gui=bold                           cterm=bold
+        hi Statement                                                                    cterm=bold
+        hi Type                                                                         cterm=bold
     endif
 enddef
 
