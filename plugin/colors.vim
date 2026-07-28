@@ -52,8 +52,8 @@ def Default()
         hi SpecialKey    guifg=#a8a8a8 guibg=NONE    gui=NONE ctermfg=248  ctermbg=NONE cterm=NONE
         hi TitleBar      guifg=#000000 guibg=#ececec gui=NONE ctermfg=16   ctermbg=255  cterm=NONE
         hi TitleBarNC    guifg=#808080 guibg=#f5f5f5 gui=NONE ctermfg=240  ctermbg=255  cterm=NONE
-        hi VertSplit     guifg=#5f5f5f guibg=NONE    gui=NONE ctermfg=59   ctermbg=59   cterm=NONE
-        hi VertSplitNC   guifg=#d0d0d0 guibg=NONE    gui=NONE ctermfg=252  ctermbg=252  cterm=NONE
+        hi VertSplit     guibg=#000000 ctermbg=16
+        hi VertSplitNC   guibg=#878787
         hi StatusLineNC  guifg=#ffffff guibg=#878787 gui=NONE ctermfg=16   ctermbg=252  cterm=NONE
         hi TabLineFill   guifg=NONE    guibg=#878787 gui=NONE ctermfg=16   ctermbg=252  cterm=NONE
         hi DiffAdd       guifg=NONE    guibg=#dafada gui=NONE ctermfg=16   ctermbg=151  cterm=NONE
