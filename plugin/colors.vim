@@ -71,6 +71,13 @@ def Default()
     endif
 enddef
 
+def Wildcharm()
+    if &background == 'light'
+        hi Statement gui=bold cterm=bold
+        hi Type gui=bold cterm=bold
+    endif
+enddef
+
 def Habamax()
     if &background == 'dark'
         if has("gui_running")
@@ -95,13 +102,14 @@ augroup colors | au!
     au Colorscheme * Lsp()
     au Colorscheme habamax Habamax()
     au Colorscheme default Default()
+    au Colorscheme wildcharm Wildcharm()
     au Colorscheme polukate,habamax,wildcharm,lunaperche NoBg()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
 augroup END
 
 g:colors = {
     dark: "sil! colo polukate",
-    light: "set bg=light | colo default",
+    light: "set bg=light | colo wildcharm",
 }
 
 exe g:colors.dark
