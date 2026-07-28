@@ -82,24 +82,21 @@ def PathSize(size: number): string
     endif
 enddef
 
-# TODO: make it work relative to the current buffer path
 export def Path(findstart: number, base: string): any
     if findstart > 0
         var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\v\f%(\f|\s)*$')
         prefix = prefix->substitute('\v[^/\\]{-}\ze\f*([/\\]|$)', '', '')
         var suffix = prefix->matchstr('[^/\\]\+$')
-        current_path = prefix->fnamemodify(':p')
-        if isdirectory(current_path) && !suffix->empty()
-            current_path = current_path->fnamemodify(':p:h:h')
-        else
-            current_path = current_path->fnamemodify(':p:h')
-        endif
-
-        if suffix->empty() && prefix !~ '[/\\]\+$'
+        if empty(suffix) && empty(prefix)
             return -2
         endif
-        if !isdirectory(current_path)
-            return -2
+        if !isabsolutepath(prefix)
+            prefix = [expand('%:h') ?? getcwd(), prefix]->join('/')
+        endif
+        if isdirectory(prefix)
+            current_path = prefix
+        elseif !empty(suffix)
+            current_path = prefix->fnamemodify(':h')
         endif
         path_cache = []
         return col('.') - suffix->len() - 1
