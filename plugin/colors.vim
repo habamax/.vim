@@ -97,11 +97,6 @@ g:colors = {
     light: "set bg=light | colo default",
 }
 
-# g:colors = {
-#     dark: "sil! colo habamax",
-#     light: "sil! colo xamabah"
-# }
-
 exe g:colors.dark
 
 # helper commands and mappings to work with vim/colorschemes
