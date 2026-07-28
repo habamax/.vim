@@ -90,6 +90,7 @@ export def Path(findstart: number, base: string): any
         if empty(suffix) && empty(prefix)
             return -2
         endif
+        prefix = expand(prefix)
         if !isabsolutepath(prefix)
             prefix = [expand('%:h') ?? getcwd(), prefix]->join('/')
         endif
