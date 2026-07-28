@@ -73,6 +73,7 @@ enddef
 
 def Wildcharm()
     hi Statement gui=bold cterm=bold
+    hi Type gui=bold cterm=bold
 enddef
 
 def Habamax()
