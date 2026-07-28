@@ -45,6 +45,8 @@ def Default()
         hi PopupTitle    guifg=#808080 guibg=#e4e4e4 gui=bold ctermfg=240  ctermbg=254  cterm=bold
         hi Visual        guifg=NONE    guibg=#bfdfff gui=NONE ctermfg=32   ctermbg=231  cterm=NONE
         hi LineNr        guifg=#a8a8a8 guibg=NONE    gui=NONE ctermfg=248  ctermbg=NONE cterm=NONE
+        hi SignColumn    guifg=#a8a8a8 guibg=NONE    gui=NONE ctermfg=248  ctermbg=NONE cterm=NONE
+        hi FoldColumn    guifg=#a8a8a8 guibg=NONE    gui=NONE ctermfg=248  ctermbg=NONE cterm=NONE
         hi QuickFixLine  guifg=NONE    guibg=#e7cfe7 gui=NONE ctermfg=16   ctermbg=182  cterm=NONE
         hi MatchParen    guifg=#ff00af guibg=NONE    gui=bold ctermfg=199  ctermbg=NONE cterm=bold
         hi CursorColumn  guifg=NONE    guibg=#eeeeee gui=NONE ctermfg=NONE ctermbg=255  cterm=NONE
