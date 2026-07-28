@@ -82,6 +82,7 @@ def PathSize(size: number): string
     endif
 enddef
 
+mess  clear
 export def Path(findstart: number, base: string): any
     if findstart > 0
         var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\v\f%(\f|\s)*$')
@@ -98,6 +99,8 @@ export def Path(findstart: number, base: string): any
             current_path = prefix
         elseif !empty(suffix)
             current_path = prefix->fnamemodify(':h')
+        else
+            current_path = ''
         endif
         path_cache = []
         return col('.') - suffix->len() - 1
@@ -105,9 +108,13 @@ export def Path(findstart: number, base: string): any
 
     var items = []
 
+    if empty(current_path)
+        return v:none
+    endif
+
     try
         if path_cache->empty()
-            path_cache = readdirex(current_path ?? getcwd())
+            path_cache = readdirex(current_path)
         endif
         for f in path_cache
             items->add({
