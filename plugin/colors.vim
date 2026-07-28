@@ -58,7 +58,7 @@ def Default()
         hi VertSplitNC   guifg=#878787 guibg=#878787 ctermfg=102 ctermbg=102
         hi StatusLineNC  guifg=#ffffff guibg=#878787 gui=NONE ctermfg=16   ctermbg=252  cterm=NONE
         hi TabLineFill   guifg=NONE    guibg=#878787 gui=NONE ctermfg=16   ctermbg=252  cterm=NONE
-        hi Title guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=NONE
+        hi Title         guifg=NONE    guibg=NONE    gui=bold ctermfg=NONE ctermbg=NONE cterm=bold
         hi DiffAdd       guifg=NONE    guibg=#dafada gui=NONE ctermfg=16   ctermbg=151  cterm=NONE
         hi DiffChange    guifg=NONE    guibg=#e3e3e3 gui=NONE ctermfg=16   ctermbg=253  cterm=NONE
         hi DiffDelete    guifg=#808080 guibg=#ffd7d7 gui=NONE ctermfg=240  ctermbg=224  cterm=NONE
