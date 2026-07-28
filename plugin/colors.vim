@@ -26,8 +26,8 @@ enddef
 def Default()
     if &background == 'light'
         hi Normal        guifg=#000000 guibg=#ffffff gui=NONE ctermfg=16   ctermbg=15
-        hi Search        guifg=NONE guibg=#e7f3e7    gui=NONE ctermfg=28   ctermbg=231  cterm=reverse
-        hi IncSearch     guifg=NONE guibg=#fff0cf    gui=NONE ctermfg=172  ctermbg=231  cterm=reverse
+        hi Search        guifg=NONE guibg=#e7f3e7    gui=NONE ctermfg=28   ctermbg=231  cterm=NONE
+        hi IncSearch     guifg=NONE guibg=#fff0cf    gui=NONE ctermfg=172  ctermbg=231  cterm=NONE
         hi Pmenu         guifg=NONE    guibg=#e4e4e4 gui=NONE ctermfg=NONE ctermbg=254  cterm=NONE
         hi PmenuBorder   guifg=#808080 guibg=#e4e4e4 gui=NONE ctermfg=240  ctermbg=254  cterm=NONE
         hi PmenuExtra    guifg=#808080 guibg=#e4e4e4 gui=NONE ctermfg=240  ctermbg=254  cterm=NONE
@@ -43,7 +43,7 @@ def Default()
         hi Popup         guifg=NONE    guibg=#e4e4e4 gui=NONE ctermfg=NONE ctermbg=254  cterm=NONE
         hi PopupBorder   guifg=#8a8a8a guibg=#e4e4e4 gui=NONE ctermfg=245  ctermbg=254  cterm=NONE
         hi PopupTitle    guifg=#808080 guibg=#e4e4e4 gui=bold ctermfg=240  ctermbg=254  cterm=bold
-        hi Visual        guifg=NONE    guibg=#bfdfff gui=NONE ctermfg=32   ctermbg=231  cterm=reverse
+        hi Visual        guifg=NONE    guibg=#bfdfff gui=NONE ctermfg=32   ctermbg=231  cterm=NONE
         hi LineNr        guifg=#a8a8a8 guibg=NONE    gui=NONE ctermfg=248  ctermbg=NONE cterm=NONE
         hi QuickFixLine  guifg=NONE    guibg=#e7cfe7 gui=NONE ctermfg=16   ctermbg=182  cterm=NONE
         hi MatchParen    guifg=#ff00af guibg=NONE    gui=bold ctermfg=199  ctermbg=NONE cterm=bold
@@ -64,6 +64,8 @@ def Default()
         hi DiffDelete    guifg=#808080 guibg=#ffd7d7 gui=NONE ctermfg=240  ctermbg=224  cterm=NONE
         hi DiffText      guifg=NONE    guibg=#bfe7e7 gui=NONE ctermfg=16   ctermbg=152  cterm=NONE
         hi Todo          gui=bold                                                       cterm=bold
+        hi Statement cterm=bold
+        hi Type cterm=bold
     endif
 enddef
 
