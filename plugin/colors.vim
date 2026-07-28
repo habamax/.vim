@@ -23,6 +23,47 @@ def NoBg()
     hi Normal guibg=NONE ctermbg=NONE
 enddef
 
+def Default()
+    if &background == 'light'
+        hi Normal        guifg=#000000 guibg=#f0f5f7 gui=NONE ctermfg=16   ctermbg=15
+        hi Pmenu         guifg=NONE    guibg=#e4e4e4 gui=NONE ctermfg=NONE ctermbg=254  cterm=NONE
+        hi PmenuBorder   guifg=#808080 guibg=#e4e4e4 gui=NONE ctermfg=240  ctermbg=254  cterm=NONE
+        hi PmenuExtra    guifg=#808080 guibg=#e4e4e4 gui=NONE ctermfg=240  ctermbg=254  cterm=NONE
+        hi PmenuExtraSel guifg=#808080 guibg=#c6c6c6 gui=NONE ctermfg=240  ctermbg=251  cterm=NONE
+        hi PmenuKind     guifg=#808080 guibg=#e4e4e4 gui=NONE ctermfg=160  ctermbg=254  cterm=NONE
+        hi PmenuKindSel  guifg=#808080 guibg=#c6c6c6 gui=NONE ctermfg=160  ctermbg=251  cterm=NONE
+        hi PmenuMatch    guifg=#000000 guibg=NONE    gui=bold ctermfg=16   ctermbg=NONE cterm=bold
+        hi PmenuMatchSel guifg=#000000 guibg=NONE    gui=bold ctermfg=16   ctermbg=NONE cterm=bold
+        hi PmenuSbar     guifg=NONE    guibg=NONE    gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
+        hi PmenuSel      guifg=NONE    guibg=#c6c6c6 gui=NONE ctermfg=NONE ctermbg=251  cterm=NONE
+        hi PmenuShadow   guifg=#808080 guibg=#303030 gui=NONE ctermfg=240  ctermbg=236  cterm=NONE
+        hi PmenuThumb    guifg=NONE    guibg=#808080 gui=NONE ctermfg=NONE ctermbg=240  cterm=NONE
+        hi Popup         guifg=NONE    guibg=#e4e4e4 gui=NONE ctermfg=NONE ctermbg=254  cterm=NONE
+        hi PopupBorder   guifg=#8a8a8a guibg=#e4e4e4 gui=NONE ctermfg=245  ctermbg=254  cterm=NONE
+        hi PopupTitle    guifg=#808080 guibg=#e4e4e4 gui=bold ctermfg=240  ctermbg=254  cterm=bold
+        hi Visual        guifg=NONE    guibg=#bfdfff gui=NONE ctermfg=32   ctermbg=231  cterm=reverse
+        hi LineNr        guifg=#a8a8a8 guibg=NONE    gui=NONE ctermfg=248  ctermbg=NONE cterm=NONE
+        hi QuickFixLine  guifg=NONE    guibg=#e7cfe7 gui=NONE ctermfg=16   ctermbg=182  cterm=NONE
+        hi MatchParen    guifg=#ff00af guibg=NONE    gui=bold ctermfg=199  ctermbg=NONE cterm=bold
+        hi CursorColumn  guifg=NONE    guibg=#eeeeee gui=NONE ctermfg=NONE ctermbg=255  cterm=NONE
+        hi CursorLine    guifg=NONE    guibg=#eeeeee gui=NONE ctermfg=NONE ctermbg=255  cterm=NONE
+        hi CursorLineNr  guifg=#000000 guibg=NONE    gui=bold ctermfg=16   ctermbg=NONE cterm=bold
+        hi NonText       guifg=#a8a8a8 guibg=NONE    gui=NONE ctermfg=248  ctermbg=NONE cterm=NONE
+        hi SpecialKey    guifg=#a8a8a8 guibg=NONE    gui=NONE ctermfg=248  ctermbg=NONE cterm=NONE
+        hi TitleBar      guifg=#000000 guibg=#ececec gui=NONE ctermfg=16   ctermbg=255  cterm=NONE
+        hi TitleBarNC    guifg=#808080 guibg=#f5f5f5 gui=NONE ctermfg=240  ctermbg=255  cterm=NONE
+        hi VertSplit     guifg=#5f5f5f guibg=NONE    gui=NONE ctermfg=59   ctermbg=59   cterm=NONE
+        hi VertSplitNC   guifg=#d0d0d0 guibg=NONE    gui=NONE ctermfg=252  ctermbg=252  cterm=NONE
+        hi StatusLineNC  guifg=#ffffff guibg=#878787 gui=NONE ctermfg=16   ctermbg=252  cterm=NONE
+        hi TabLineFill   guifg=NONE    guibg=#878787 gui=NONE ctermfg=16   ctermbg=252  cterm=NONE
+        hi DiffAdd       guifg=NONE    guibg=#dafada gui=NONE ctermfg=16   ctermbg=151  cterm=NONE
+        hi DiffChange    guifg=NONE    guibg=#e3e3e3 gui=NONE ctermfg=16   ctermbg=253  cterm=NONE
+        hi DiffDelete    guifg=#808080 guibg=#ffd7d7 gui=NONE ctermfg=240  ctermbg=224  cterm=NONE
+        hi DiffText      guifg=NONE    guibg=#bfe7e7 gui=NONE ctermfg=16   ctermbg=152  cterm=NONE
+        hi Todo gui=bold cterm=bold
+    endif
+enddef
+
 def Habamax()
     if &background == 'dark'
         if has("gui_running")
@@ -43,24 +84,17 @@ def Habamax()
     endif
 enddef
 
-def Wildcharm()
-    if &background == 'light'
-        hi Statement gui=bold cterm=bold
-        hi Type      gui=bold cterm=bold
-    endif
-enddef
-
 augroup colors | au!
     au Colorscheme * Lsp()
     au Colorscheme habamax Habamax()
+    au Colorscheme default Default()
     au Colorscheme polukate,habamax,wildcharm,lunaperche NoBg()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
-    au Colorscheme wildcharm Wildcharm()
 augroup END
 
 g:colors = {
     dark: "sil! colo polukate",
-    light: "set bg=light | sil! colo wildcharm",
+    light: "set bg=light | colo default",
 }
 
 # g:colors = {
