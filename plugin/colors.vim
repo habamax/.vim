@@ -25,7 +25,9 @@ enddef
 
 def Default()
     if &background == 'light'
-        hi Normal        guifg=#000000 guibg=#f0f5f7 gui=NONE ctermfg=16   ctermbg=15
+        hi Normal        guifg=#000000 guibg=#ffffff gui=NONE ctermfg=16   ctermbg=15
+        hi Search        guifg=NONE guibg=#e7f3e7    gui=NONE ctermfg=28   ctermbg=231  cterm=reverse
+        hi IncSearch     guifg=NONE guibg=#fff0cf    gui=NONE ctermfg=172  ctermbg=231  cterm=reverse
         hi Pmenu         guifg=NONE    guibg=#e4e4e4 gui=NONE ctermfg=NONE ctermbg=254  cterm=NONE
         hi PmenuBorder   guifg=#808080 guibg=#e4e4e4 gui=NONE ctermfg=240  ctermbg=254  cterm=NONE
         hi PmenuExtra    guifg=#808080 guibg=#e4e4e4 gui=NONE ctermfg=240  ctermbg=254  cterm=NONE
@@ -52,15 +54,16 @@ def Default()
         hi SpecialKey    guifg=#a8a8a8 guibg=NONE    gui=NONE ctermfg=248  ctermbg=NONE cterm=NONE
         hi TitleBar      guifg=#000000 guibg=#ececec gui=NONE ctermfg=16   ctermbg=255  cterm=NONE
         hi TitleBarNC    guifg=#808080 guibg=#f5f5f5 gui=NONE ctermfg=240  ctermbg=255  cterm=NONE
-        hi VertSplit     guibg=#000000 ctermbg=16
-        hi VertSplitNC   guibg=#878787
+        hi VertSplit     guifg=#000000 guibg=#000000 ctermfg=16 ctermbg=16
+        hi VertSplitNC   guifg=#878787 guibg=#878787 ctermfg=102 ctermbg=102
         hi StatusLineNC  guifg=#ffffff guibg=#878787 gui=NONE ctermfg=16   ctermbg=252  cterm=NONE
         hi TabLineFill   guifg=NONE    guibg=#878787 gui=NONE ctermfg=16   ctermbg=252  cterm=NONE
+        hi Title guifg=NONE guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold term=NONE
         hi DiffAdd       guifg=NONE    guibg=#dafada gui=NONE ctermfg=16   ctermbg=151  cterm=NONE
         hi DiffChange    guifg=NONE    guibg=#e3e3e3 gui=NONE ctermfg=16   ctermbg=253  cterm=NONE
         hi DiffDelete    guifg=#808080 guibg=#ffd7d7 gui=NONE ctermfg=240  ctermbg=224  cterm=NONE
         hi DiffText      guifg=NONE    guibg=#bfe7e7 gui=NONE ctermfg=16   ctermbg=152  cterm=NONE
-        hi Todo gui=bold cterm=bold
+        hi Todo          gui=bold                                                       cterm=bold
     endif
 enddef
 
