@@ -5,7 +5,7 @@ setl noexpandtab tabstop=4
 
 def RunOdin(file: bool = false)
     update
-    var param = !file ? '.' : expand("%:t") .. ' -file'
+    var param = !file ? '.' : expand("%") .. ' -file'
     if exists("$WSL_DISTRO_NAME")
         exe $"Term! odin run {param} -thread-count:1"
     else
