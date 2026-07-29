@@ -51,7 +51,6 @@ Color: incsearch     #5a4a45           215               yellow
 Color: status        #9e9ea8           247               gray
 Color: statusnc      #767680           243               darkgray
 Color: folded        #12121c           233               black
-Color: uimagenta     #ff87af           211               magenta
 Color: uierror       #2f0000           52                darkred
 Color: uihint        #002a00           22                darkgreen
 Color: uiwarning     #2a2a00           235               darkyellow
@@ -187,7 +186,7 @@ PmenuMatch           dark15            none              bold
 PmenuExtra           uiextra           invisigrey
  /16                 dark0             dark7
  /8                  none              none              reverse
-PmenuKind            uimagenta         invisigrey
+PmenuKind            dark6             invisigrey
  /16                 dark0             dark7
  /8                  none              none              reverse
 PmenuSbar            dark8             linenrblack
@@ -202,7 +201,7 @@ PmenuMatchSel        dark15            uidarkgray        bold
 PmenuExtraSel        uiextrasel        uidarkgray
  /16                 dark7             dark0
  /8                  none              none
-PmenuKindSel         uimagenta         uidarkgray
+PmenuKindSel         dark6             uidarkgray
  /16                 dark7             dark0
  /8                  none              none
 PmenuThumb           dark7             dark7
