@@ -100,6 +100,7 @@ enddef
 
 # Calculate count'th positions of a pattern in a range
 def LPositions(pattern: string, lnum_start: number, lnum_end: number, count: number): dict<any>
+    var padding = false
     var longest = -1
     var positions = []
     for nr in range(lnum_start, lnum_end)
@@ -108,9 +109,20 @@ def LPositions(pattern: string, lnum_start: number, lnum_end: number, count: num
         if pos > -1 && space_after
             pos = match(line, pattern .. '\.\{-\}\zs\S\?', 0, count)
         endif
-        positions += [pos]
+
+        var pos2 = pos
+        while line->strpart(pos2 - 1, 1) == ' '
+            pos2 -= 1
+        endwhile
+        if pos2 != pos
+            pos2 += 1
+        else
+            padding = false
+        endif
+
+        positions += [[pos, pos2]]
         if pos != -1
-            longest = max([longest, virtcol([nr, pos])])
+            longest = max([longest, virtcol([nr, pos2])])
         endif
     endfor
     return {longest: longest, positions: positions}
@@ -124,13 +136,13 @@ def AlignRange(lnum_start: number, lnum_end: number, lpositions: dict<any>): boo
     var positions = lpositions.positions
     for nr in range(lnum_start, lnum_end)
         var pos = positions[nr - lnum_start]
-        var vpos = virtcol([nr, pos])
-        if pos == -1 || vpos == -1
+        var vpos = virtcol([nr, pos[1]])
+        if pos[0] == -1 || vpos == -1
             continue
         endif
         var line = getline(nr)
         var space = repeat(' ', longest - vpos)
-        setline(nr, line->strpart(0, pos) .. space .. line->strpart(pos))
+        setline(nr, line->strpart(0, pos[1]) .. space .. line->strpart(pos[0]))
     endfor
     return true
 enddef
