@@ -109,17 +109,9 @@ def LPositions(pattern: string, lnum_start: number, lnum_end: number, count: num
             pos = match(line, pattern .. '\.\{-\}\zs\S\?', 0, count)
         endif
 
-        var pos2 = pos
-        while line->strpart(pos2 - 1, 1) == ' '
-            pos2 -= 1
-        endwhile
-        if pos2 != pos
-            pos2 += 1
-        endif
-
-        positions += [[pos, pos2]]
+        positions += [pos]
         if pos != -1
-            longest = max([longest, virtcol([nr, pos2])])
+            longest = max([longest, virtcol([nr, pos])])
         endif
     endfor
     return {longest: longest, positions: positions}
@@ -133,13 +125,13 @@ def AlignRange(lnum_start: number, lnum_end: number, lpositions: dict<any>): boo
     var positions = lpositions.positions
     for nr in range(lnum_start, lnum_end)
         var pos = positions[nr - lnum_start]
-        var vpos = virtcol([nr, pos[1]])
-        if pos[0] == -1 || vpos == -1
+        var vpos = virtcol([nr, pos])
+        if pos == -1 || vpos == -1
             continue
         endif
         var line = getline(nr)
         var space = repeat(' ', longest - vpos)
-        setline(nr, line->strpart(0, pos[1]) .. space .. line->strpart(pos[0]))
+        setline(nr, line->strpart(0, pos) .. space .. line->strpart(pos))
     endfor
     return true
 enddef
