@@ -256,9 +256,10 @@ nnoremap <silent> gof <scriptcmd>os.FileManager()<CR>
 nnoremap <silent> gx <scriptcmd>os.Gx()<CR>
 
 # spell correction for the first suggested
+# complement to C-x C-s
 inoremap <C-l> <C-g>u<ESC>[s1z=`]a<C-g>u
 
-# upcase/titlecase previous word
+# ucase/capitalize previous word
 if !has("gui_running")
     set <M-u>=u
     set <M-c>=c
