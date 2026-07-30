@@ -100,7 +100,6 @@ enddef
 
 # Calculate count'th positions of a pattern in a range
 def LPositions(pattern: string, lnum_start: number, lnum_end: number, count: number): dict<any>
-    var padding = false
     var longest = -1
     var positions = []
     for nr in range(lnum_start, lnum_end)
@@ -116,8 +115,6 @@ def LPositions(pattern: string, lnum_start: number, lnum_end: number, count: num
         endwhile
         if pos2 != pos
             pos2 += 1
-        else
-            padding = false
         endif
 
         positions += [[pos, pos2]]
