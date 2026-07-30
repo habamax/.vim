@@ -9,7 +9,7 @@ import autoload 'normspa.vim'
 
 nnoremap <silent> <expr> <Plug>(normspa) normspa.Op()
 xnoremap <silent> <expr> <Plug>(normspa) normspa.Op()
-nnoremap <silent> <expr> <Plug>(normspa-line) normspa.Op() .. '_'
+nnoremap <silent> <expr> <Plug>(normspa-line) normspa.Op() .. 'l'
 
 if get(g:, 'normspa_mappings', true)
     nmap gs  <Plug>(normspa)
