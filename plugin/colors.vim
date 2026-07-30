@@ -100,7 +100,7 @@ augroup colors | au!
     au Colorscheme * Lsp()
     au Colorscheme habamax Habamax()
     au Colorscheme default Default()
-    au Colorscheme wildcharm Wildcharm()
+    au Colorscheme wildcharm,xamabah Wildcharm()
     au Colorscheme polukate,habamax,wildcharm,lunaperche NoBg()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
 augroup END
