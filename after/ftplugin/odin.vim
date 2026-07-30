@@ -52,6 +52,9 @@ if exists("g:loaded_lsp") && executable('ols')
     augroup LspSetup
         au!
         au User LspAttached lsp#SetupFT()
+        if executable('odinfmt')
+            au BufWritePre <buffer> LspFormat
+        endif
     augroup END
 endif
 
