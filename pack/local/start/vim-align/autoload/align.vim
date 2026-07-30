@@ -1,7 +1,7 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-07-27
+# Last Update: 2026-07-30
 
 # Align with pattern
 var with_pattern: string = ""
@@ -99,7 +99,7 @@ def AdjustRange(start: list<number>, end: list<number>): list<number>
 enddef
 
 # Calculate count'th positions of a pattern in a range
-def LPositions(pattern: string, lnum_start: number, lnum_end: number, count: number): list<any>
+def LPositions(pattern: string, lnum_start: number, lnum_end: number, count: number): dict<any>
     var longest = -1
     var positions = []
     for nr in range(lnum_start, lnum_end)
@@ -113,15 +113,15 @@ def LPositions(pattern: string, lnum_start: number, lnum_end: number, count: num
             longest = max([longest, virtcol([nr, pos])])
         endif
     endfor
-    return [longest, positions]
+    return {longest: longest, positions: positions}
 enddef
 
-def AlignRange(lnum_start: number, lnum_end: number, lpositions: list<any>): bool
-    var longest = lpositions[0]
+def AlignRange(lnum_start: number, lnum_end: number, lpositions: dict<any>): bool
+    var longest = lpositions.longest
     if longest == -1
         return false
     endif
-    var positions = lpositions[1]
+    var positions = lpositions.positions
     for nr in range(lnum_start, lnum_end)
         var pos = positions[nr - lnum_start]
         var vpos = virtcol([nr, pos])
