@@ -70,9 +70,6 @@ command! FixTrailingSpaces {
     echom 'Remove trailing spaces and ^Ms.'
 }
 
-import autoload "text.vim"
-command! -range FixSpaces text.FixSpaces(<line1>, <line2>)
-
 import autoload "share.vim"
 command! -range=% -nargs=? -complete=custom,share.Complete Share share.Paste(<q-args>, <line1>, <line2>)
 
