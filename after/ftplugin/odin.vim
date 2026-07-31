@@ -40,6 +40,7 @@ def Things()
             hi def link PopupSelectLineNr Comment
         })
 enddef
+
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
 
@@ -52,6 +53,7 @@ if exists("g:loaded_lsp") && executable('ols')
     augroup LspSetup
         au!
         au User LspAttached lsp#SetupFT()
+        au User LspDetached lsp#UnSetupFT()
     augroup END
 endif
 
