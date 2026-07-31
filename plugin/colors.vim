@@ -71,7 +71,7 @@ def Default()
     endif
 enddef
 
-def Wildcharm()
+def Boldness()
     hi Statement gui=bold cterm=bold
     hi Type gui=bold cterm=bold
 enddef
@@ -100,7 +100,7 @@ augroup colors | au!
     au Colorscheme * Lsp()
     au Colorscheme habamax Habamax()
     au Colorscheme default Default()
-    au Colorscheme wildcharm,xamabah Wildcharm()
+    au Colorscheme wildcharm,xamabah Boldness()
     au Colorscheme polukate,habamax,wildcharm,lunaperche NoBg()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
 augroup END
