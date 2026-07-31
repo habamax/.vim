@@ -25,13 +25,13 @@ enddef
 
 def Boldness()
     hi Statement gui=bold cterm=bold
-    hi Type gui=bold cterm=bold
+    hi Type      gui=bold cterm=bold
 enddef
 
 def Habamax()
     if &background == 'dark'
         if has("gui_running")
-            hi Normal guibg=#1c1c26
+            hi Normal    guibg=#1c1c26
         endif
         hi Popup         guibg=#3a3a44
         hi PopupBorder   guibg=#3a3a44
@@ -50,7 +50,7 @@ enddef
 
 augroup colors | au!
     au Colorscheme * Lsp()
-    au Colorscheme habamax Habamax()
+    au Colorscheme habamax,wildcharm Habamax()
     au Colorscheme wildcharm,xamabah Boldness()
     au Colorscheme polukate,habamax,wildcharm,lunaperche NoBg()
     au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
