@@ -6,6 +6,7 @@ export def SetupFT()
     setlocal keywordprg=:LspHover
     nnoremap <silent><buffer> gd <scriptcmd>LspGotoDefinition<CR>
     nnoremap <silent><buffer> <space>z :<C-U>LspGoToSymbol<space>
+    # nnoremap <silent><buffer> <space>z <scriptcmd>LspDocumentSymbol<CR>
     xnoremap <silent><buffer> . <scriptcmd>LspSelectionExpand<CR>
     xnoremap <silent><buffer> , <scriptcmd>LspSelectionShrink<CR>
     nnoremap <silent><buffer> <space>l <scriptcmd>qc.LspCommands()<CR>
@@ -71,37 +72,33 @@ def GetDocSymbols(): dict<any>
     # interface DocumentSymbolParams
     # interface TextDocumentIdentifier
     var params = {textDocument: {uri: util.LspFileToUri(fname)}}
-    doc_symbols = lspserver.rpc('textDocument/documentSymbol', params)
-    return doc_symbols
+    return lspserver.rpc('textDocument/documentSymbol', params)
 enddef
 
-var doc_symbols = {}
 def DocSymbolsComplete(arg: string, _, _): list<dict<any>>
-    doc_symbols = GetDocSymbols()
+    var doc_symbols = GetDocSymbols()
     if empty(doc_symbols)
         return []
     endif
     var result = doc_symbols.result->mapnew((_, v) => {
         return {
-            word: v.name,
+            word: $'{v.name}:{v.range.start.line + 1}:{v.range.start.character + 1}',
+            abbr: v.name,
             kind: symbol_map[v.kind]}
         })
-    return empty(arg) ? result : result->matchfuzzy(arg, {key: "word"})
+    return empty(arg) ? result : result->matchfuzzy(arg, {key: "abbr"})
 enddef
 
-def GoToSymbol(symbol_name: string)
-    if empty(doc_symbols)
-        doc_symbols = GetDocSymbols()
-    endif
-    if empty(doc_symbols)
+# position is the string of Whatever:Line:Character, e.g. MyFunc:10:5
+def GoTo(position: string)
+    if position !~ '\d\+:\d\+$'
+        echoerr "Invalid position format. Expected 'Whatever:Line:CharCol'."
         return
     endif
-    for symbol in doc_symbols.result
-        if symbol.name == symbol_name
-            setcursorcharpos(symbol.range.start.line + 1, symbol.range.start.character + 1)
-            break
-        endif
-    endfor
+    var pos_list = split(position, ':')
+    var line = str2nr(pos_list[-2])
+    var charcol = str2nr(pos_list[-1])
+    setcursorcharpos(line, charcol)
 enddef
 
-command -nargs=_ -complete=customlist,DocSymbolsComplete LspGoToSymbol GoToSymbol(<f-args>)
+command -nargs=_ -complete=customlist,DocSymbolsComplete LspGoToSymbol GoTo(<f-args>)
