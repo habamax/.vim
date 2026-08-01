@@ -47,7 +47,8 @@ def CmdCompleteSelectFirst()
         'sfind', 'find', 'tabfind', 'buffer', 'sbuffer', 'colorscheme',
         'Buffer', 'SBuffer', 'Recent', 'SRecent', 'Bookmark', 'SBookmark',
         'Project', 'Help',
-        'LoadSession', 'InsertTemplate', 'Colorscheme', 'Unicode'
+        'LoadSession', 'InsertTemplate', 'Colorscheme', 'Unicode',
+        'LspGoToSymbol',
     ]
 
     # fullcommand() can't figure out `:vertical sbuffer` or `:horizontal sbuffer`,
