@@ -1,7 +1,7 @@
 vim9script
 
 # Maintainer: Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-07-30
+# Last Update: 2026-08-03
 
 # Align with pattern
 var with_pattern: string = ""
@@ -59,26 +59,30 @@ def Align(mode: string, pos_start: list<number> = getpos("'["), pos_end: list<nu
         dotrepeat = true
     endif
 
+    var lnum_start = pos_start[1]
+    var lnum_end   = pos_end[1]
+    var start_col  = 0
     if mode != 'block'
-        var [lnum_start, lnum_end] = AdjustRange(pos_start, pos_end)
-        if lnum_start == lnum_end
-            return
-        endif
-
-        var step = 1
-        while true
-            var lpositions = LPositions(with_pattern, lnum_start, lnum_end, step)
-            if !AlignRange(lnum_start, lnum_end, lpositions)
-                break
-            endif
-            if vcount == step
-                break
-            endif
-            step += 1
-        endwhile
+        [lnum_start, lnum_end] = AdjustRange(pos_start, pos_end)
     else
-        # TODO: align starting from the Visual block start
+        start_col = pos_start[2]
     endif
+
+    if lnum_start == lnum_end
+        return
+    endif
+
+    var step = 1
+    while true
+        var lpositions = LPositions(with_pattern, lnum_start, lnum_end, step, start_col)
+        if !AlignRange(lnum_start, lnum_end, lpositions)
+            break
+        endif
+        if vcount == step
+            break
+        endif
+        step += 1
+    endwhile
 enddef
 
 # If a range is a single non-empty line, extend to a contiguous same indent
@@ -99,14 +103,14 @@ def AdjustRange(start: list<number>, end: list<number>): list<number>
 enddef
 
 # Calculate count'th positions of a pattern in a range
-def LPositions(pattern: string, lnum_start: number, lnum_end: number, count: number): dict<any>
+def LPositions(pattern: string, lnum_start: number, lnum_end: number, count: number, start_col: number = 0): dict<any>
     var longest = -1
     var positions = []
     for nr in range(lnum_start, lnum_end)
         var line = getline(nr)
-        var pos = match(line, pattern, 0, count)
+        var pos = match(line, pattern, start_col, count)
         if pos > -1 && space_after
-            pos = match(line, pattern .. '\.\{-\}\zs\S', 0, count)
+            pos = match(line, pattern .. '\.\{-\}\zs\S', start_col, count)
         endif
 
         positions += [pos]
