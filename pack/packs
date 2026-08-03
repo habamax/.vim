@@ -2,6 +2,7 @@
 
 # My
 habamax/start/vim-habamax	git@github.com:habamax/vim-habamax.git
+habamax/start/vim-polukate	git@github.com:habamax/vim-polukate.git
 habamax/start/vim-dir	git@github.com:habamax/vim-dir.git
 habamax/start/vim-rst	git@github.com:habamax/vim-rst.git
 habamax/start/vim-asciidoctor	git@github.com:habamax/vim-asciidoctor.git
