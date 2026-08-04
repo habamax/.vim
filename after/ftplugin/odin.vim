@@ -27,6 +27,5 @@ if exists("g:loaded_lsp") && executable('ols')
     augroup LspSetup
         au!
         au User LspAttached lsp#SetupFT()
-        au User LspDetached lsp#UnSetupFT()
     augroup END
 endif

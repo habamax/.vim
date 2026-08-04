@@ -6,19 +6,29 @@ import autoload 'lsp/lsp.vim'
 import autoload 'lsp/util.vim'
 
 export def SetupFT()
-    setlocal keywordprg=:LspHover
     nnoremap <silent><buffer> gd <scriptcmd>LspGotoDefinition<CR>
-    # nnoremap <silent><buffer> <space>z :<C-U>LspGoToSymbol<space>
-    # nnoremap <silent><buffer> <space>z <scriptcmd>LspDocumentSymbol<CR>
-    nnoremap <silent><buffer> <space>z <scriptcmd>LspGoToSymbol()<CR>
     xnoremap <silent><buffer> . <scriptcmd>LspSelectionExpand<CR>
     xnoremap <silent><buffer> , <scriptcmd>LspSelectionShrink<CR>
     nnoremap <silent><buffer> <space>l <scriptcmd>qc.LspCommands()<CR>
+    nnoremap <silent><buffer> <space>z <scriptcmd>LspGoToSymbol()<CR>
+    nnoremap <silent><buffer> K <scriptcmd>LspHover<CR>
+    nnoremap <silent><buffer> gq <plug>(LspFormat)
+    xnoremap <silent><buffer> gq <plug>(LspFormat)
+    b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
+    b:undo_ftplugin ..= ' | exe "xunmap <buffer> ."'
+    b:undo_ftplugin ..= ' | exe "xunmap <buffer> ,"'
+    b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
+    b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>l"'
+    b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
+    b:undo_ftplugin ..= ' | exe "nunmap <buffer> gq"'
+    b:undo_ftplugin ..= ' | exe "xunmap <buffer> gq"'
 enddef
 
 export def UnSetupFT()
-    setlocal keywordprg&
     nunmap <buffer> gd
+    nunmap <buffer> K
+    nunmap <buffer> gq
+    xunmap <buffer> gq
     xunmap <buffer> .
     xunmap <buffer> ,
     nunmap <buffer> <space>l
