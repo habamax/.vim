@@ -7,6 +7,7 @@ import autoload 'lsp/util.vim'
 
 export def SetupFT()
     nnoremap <silent><buffer> gd <scriptcmd>LspGotoDefinition<CR>
+    nnoremap <silent><buffer> <C-w>gd <scriptcmd>exe ":hor LspGotoDefinition"<CR>
     xnoremap <silent><buffer> . <scriptcmd>LspSelectionExpand<CR>
     xnoremap <silent><buffer> , <scriptcmd>LspSelectionShrink<CR>
     nnoremap <silent><buffer> <space>l <scriptcmd>qc.LspCommands()<CR>
@@ -15,6 +16,7 @@ export def SetupFT()
     nnoremap <silent><buffer> gq <plug>(LspFormat)
     xnoremap <silent><buffer> gq <plug>(LspFormat)
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
+    b:undo_ftplugin ..= ' | exe "nunmap <buffer> <C-w>gd"'
     b:undo_ftplugin ..= ' | exe "xunmap <buffer> ."'
     b:undo_ftplugin ..= ' | exe "xunmap <buffer> ,"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>l"'
