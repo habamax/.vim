@@ -98,10 +98,7 @@ if exists("g:loaded_lsp") && executable('nc')
         args: ['127.0.0.1', '6008'],
     }])
 
-    augroup LspSetup
-        au!
-        au User LspAttached lsp#SetupFT()
-    augroup END
+    lsp#SetupFT()
 endif
 
 command! -buffer Godot exe "silent !godot --editor %:p:r.tscn 2> /dev/null 1> /dev/null &" <bar> redraw!

@@ -27,10 +27,6 @@ if exists("g:loaded_lsp") && executable('clangd')
     }])
 
     lsp#SetupFT()
-    # augroup LspSetup
-    #     au!
-    #     au User LspAttached lsp#SetupFT()
-    # augroup END
 endif
 
 
