@@ -16,10 +16,7 @@ set switchbuf=useopen
 set fileformat=unix fileformats=unix,dos
 set nrformats=bin,hex,unsigned
 set diffopt+=hiddenoff,algorithm:histogram,linematch:100
-set completeopt=menu,popup,fuzzy
-set completepopup=border:round,close:off
-set completepopup+=highlight:Popup,borderhighlight:PopupBorder
-set previewpopup=border:round,borderhighlight:PopupBorder
+set completeopt=menu,fuzzy
 set pumopt=height:15
 set autocomplete complete=o^20,.^10,w^5,b^5
 set complete+=Fcomplete#Path^10,Fcomplete#Abbrev^3,Fcomplete#Register^3
