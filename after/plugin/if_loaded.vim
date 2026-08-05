@@ -101,6 +101,7 @@ if exists("g:loaded_lsp")
         autoComplete: false,
         autoHighlight: false,
         highlightDiagInline: false,
+        hoverInPreview: true,
         hoverFallback: true,
         definitionFallback: true,
         formatFallback: true,

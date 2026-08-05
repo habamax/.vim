@@ -17,21 +17,11 @@ export def SetupFT()
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
     b:undo_ftplugin ..= ' | exe "xunmap <buffer> ."'
     b:undo_ftplugin ..= ' | exe "xunmap <buffer> ,"'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>l"'
+    b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> gq"'
     b:undo_ftplugin ..= ' | exe "xunmap <buffer> gq"'
-enddef
-
-export def UnSetupFT()
-    nunmap <buffer> gd
-    nunmap <buffer> K
-    nunmap <buffer> gq
-    xunmap <buffer> gq
-    xunmap <buffer> .
-    xunmap <buffer> ,
-    nunmap <buffer> <space>l
 enddef
 
 const symbol_map: list<string> = [
