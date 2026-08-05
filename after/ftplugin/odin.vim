@@ -24,8 +24,5 @@ if exists("g:loaded_lsp") && executable('ols')
         filetype: ['odin'],
         path: 'ols',
     }])
-    augroup LspSetup
-        au!
-        au User LspAttached lsp#SetupFT()
-    augroup END
+    lsp#SetupFT()
 endif
