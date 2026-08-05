@@ -68,20 +68,6 @@ enddef
 # Path completion
 var current_path = ''
 var path_cache = []
-def PathSize(size: number): string
-    if size >= 10 * 1073741824 # 10G
-        return printf("%.0fG", ceil(size / 1073741824.0))
-    elseif size >= 10 * 1048576 # 10M
-        return printf("%.0fM", ceil(size / 1048576.0))
-    elseif size >= 1048576 # 1M
-        return printf("%.1fM", size / 1048576.0)
-    elseif size >= 10240 # 10K
-        return printf("%.0fK", ceil(size / 1024.0))
-    else
-        return $"{size}"
-    endif
-enddef
-
 export def Path(findstart: number, base: string): any
     if findstart > 0
         var prefix = getline('.')->strpart(0, col('.') - 1)->matchstr('\v\f%(\f|\s)*$')
@@ -120,7 +106,6 @@ export def Path(findstart: number, base: string): any
                 word: f.name,
                 kind: "/",
                 menu: f.type,
-                info: $"{f.perm} {f.user} {f.group} {PathSize(f.size)} {strftime("%Y-%m-%d %H:%M:%S", f.time)}\n",
                 dup: 1
             })
         endfor
