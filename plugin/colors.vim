@@ -23,11 +23,6 @@ def NoBg()
     hi Normal guibg=NONE ctermbg=NONE
 enddef
 
-def Boldness()
-    hi Statement gui=bold cterm=bold
-    hi Type      gui=bold cterm=bold
-enddef
-
 def Habamax()
     if &background == 'dark'
         if has("gui_running")
@@ -50,16 +45,14 @@ enddef
 
 augroup colors | au!
     au Colorscheme * Lsp()
-    au Colorscheme habamax,wildcharm Habamax()
-    au Colorscheme wildcharm,xamabah Boldness()
+    au Colorscheme habamax Habamax()
     au Colorscheme polukate,habamax,wildcharm,lunaperche NoBg()
-    au Colorscheme * hi CursorLineNr guibg=NONE gui=bold cterm=bold
 augroup END
 
 g:colors = {
     # dark: "sil! colo polukate",
     dark: "colo habamax",
-    light: "set bg=light | colo wildcharm",
+    light: "sil! colo xamabah",
 }
 
 exe g:colors.dark
