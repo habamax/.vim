@@ -57,7 +57,8 @@ augroup colors | au!
 augroup END
 
 g:colors = {
-    dark: "sil! colo polukate",
+    # dark: "sil! colo polukate",
+    dark: "colo habamax",
     light: "set bg=light | colo wildcharm",
 }
 
