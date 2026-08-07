@@ -8,14 +8,14 @@ elseif executable('ugrep')
     set grepformat=%f:%l:%c:%m,%f+%l+%c+%m,%-G%f\\\|%l\\\|%c\\\|%m
 endif
 
-command -nargs=1 -bar Grep {
-    var cmd = $"{&grepprg} {<q-args>}"
+command -nargs=1 Grep {
+    var cmd = $'{&grepprg} {shellescape(<q-args>)}'
     cgetexpr system(cmd)
     setqflist([], 'a', {title: cmd})
 }
 
-command -nargs=1 -bar LGrep {
-    var cmd = $"{&grepprg} {<q-args>}"
+command -nargs=1 LGrep {
+    var cmd = $'{&grepprg} {shellescape(<q-args>)}'
     lgetexpr system(cmd)
     setloclist(winnr(), [], 'a', {title: cmd})
 }
