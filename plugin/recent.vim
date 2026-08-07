@@ -93,8 +93,7 @@ def RecentComplete(arg: string, _, _): list<dict<any>>
         ->sort((v1, v2) => v1[1] == v2[1] ? 0 : v1[1] < v2[1] ? 1 : -1)
         ->map((_, v) => (
         {
-            word: v[0],
-            abbr: fnamemodify(v[0], ":."),
+            word: fnamemodify(v[0], ":."),
             menu: DateDiffToText(v[1])
         }))
 
