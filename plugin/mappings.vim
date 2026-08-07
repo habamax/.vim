@@ -79,15 +79,7 @@ nnoremap <space>fu :<C-u>Unicode<space>
 
 
 # Grep word under cursor
-if has("win32")
-    nnoremap <space><space>w <scriptcmd>exe $'Rg \b{expand("<cword>")}\b -C {v:count}'<cr>
-    # nnoremap <space>fw <scriptcmd>exe $'LGrep \b{expand("<cword>")}\b'<cr>
-else
-    nnoremap <space><space>w <scriptcmd>exe $'Rg \\b{expand("<cword>")}\\b -C {v:count}'<cr>
-    # nnoremap <space>fw <scriptcmd>exe $'LGrep \\b{expand("<cword>")}\\b'<cr>
-endif
-# lvimgrep word in a current buffer
-nnoremap <space>w <scriptcmd>exe $'Occur {expand("<cword>")}'<cr>
+nnoremap <space>w <scriptcmd>exe $'Grep {expand("<cword>")}'<cr>
 
 import autoload 'qc.vim'
 # calc visually selected math expression
