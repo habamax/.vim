@@ -40,6 +40,7 @@ def Habamax()
         hi PmenuMatchSel guibg=#585862
         hi PmenuExtraSel guibg=#585862
         hi Comment       guifg=#80808a
+        hi ColorColumn   guibg=#262630
     endif
 enddef
 
