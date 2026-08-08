@@ -12,7 +12,7 @@ export def SetupFT()
     nnoremap <silent><buffer> <C-w><C-]> <cmd>exe ":hor LspGotoDefinition"<CR>
     xnoremap <silent><buffer> . <cmd>LspSelectionExpand<CR>
     xnoremap <silent><buffer> , <cmd>LspSelectionShrink<CR>
-    nnoremap <silent><buffer> <space>l <cmd>qc.LspCommands()<CR>
+    nnoremap <silent><buffer> <space>l <scriptcmd>qc.LspCommands()<CR>
     nnoremap <silent><buffer> <space>z <scriptcmd>LspGoToSymbol()<CR>
     nnoremap <silent><buffer> K <cmd>LspHover<CR>
     nnoremap <silent><buffer> gq <plug>(LspFormat)
