@@ -264,3 +264,11 @@ inoremap <M-c> <C-G>u<esc><scriptcmd>ToUncapitalizedWord()<cr>guiw~gi
 
 xnoremap <expr> gA mode() == "\<C-v>" ? "$A" : "\<C-v>$A"
 xnoremap <expr> gI mode() == "\<C-v>" ? "_I" : "\<C-v>_I"
+
+# close all terminal windows
+def CloseTerminalWindows()
+    for window in getwininfo()->filter((_, v) => v.terminal == 1)
+        win_execute(window.winid, "silent! wincmd c")
+    endfor
+enddef
+nnoremap <F4> <scriptcmd>CloseTerminalWindows()<cr>
