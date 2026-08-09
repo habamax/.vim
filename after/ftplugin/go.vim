@@ -8,7 +8,7 @@ setl formatprg=gofmt
 
 def Run()
     update
-    exe "Term go run" expand("%:p")
+    exe "Term! go run" expand("%:p")
 enddef
 
 nnoremap <buffer> <F5> <scriptcmd>Run()<cr>

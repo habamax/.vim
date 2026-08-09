@@ -1,9 +1,9 @@
 vim9script
 
-def RunPerl()
+def Run()
     update
-    exe "Term perl" expand("%:p")
+    exe "Term! perl" expand("%:p")
 enddef
 
-nnoremap <buffer> <F5> <scriptcmd>RunPerl()<cr>
+nnoremap <buffer> <F5> <scriptcmd>Run()<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'

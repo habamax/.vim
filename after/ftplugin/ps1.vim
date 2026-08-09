@@ -1,9 +1,9 @@
 vim9script
 
-def RunPowershell()
+def Run()
     update
-    exe "Term powershell -File" expand("%:p")
+    exe "Term! powershell -File" expand("%:p")
 enddef
 
-nnoremap <buffer> <F5> <scriptcmd>RunPowershell()<cr>
+nnoremap <buffer> <F5> <scriptcmd>Run()<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'

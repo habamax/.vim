@@ -3,7 +3,7 @@ vim9script
 setl shiftwidth=0
 setl noexpandtab tabstop=4
 
-def RunOdin(file: bool = false)
+def Run(file: bool = false)
     update
     var param = !file ? '.' : expand("%") .. ' -file'
     if exists("$WSL_DISTRO_NAME")
@@ -13,8 +13,8 @@ def RunOdin(file: bool = false)
     endif
 enddef
 
-nnoremap <buffer> <F5> <scriptcmd>RunOdin()<CR>
-nnoremap <buffer> <F6> <scriptcmd>RunOdin(1)<CR>
+nnoremap <buffer> <F5> <scriptcmd>Run()<CR>
+nnoremap <buffer> <F6> <scriptcmd>Run(1)<CR>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F6>"'
 

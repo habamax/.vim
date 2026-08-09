@@ -46,7 +46,7 @@ def Things()
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
 
-def RunVimscript()
+def Run()
     # run vim test file
     if expand("%:p") =~ $'\Vsrc/testdir/\f\+\.vim\$'
         update
@@ -76,7 +76,7 @@ def RunVimscript()
     endif
 enddef
 
-nnoremap <buffer> <F5> <scriptcmd>RunVimscript()<CR>
+nnoremap <buffer> <F5> <scriptcmd>Run()<CR>
 
 iab <buffer> v9 vim9script<C-R>=misc#Eatchar('\s')<CR>
 
