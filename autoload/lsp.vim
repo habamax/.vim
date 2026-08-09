@@ -5,6 +5,11 @@ import autoload 'popup.vim'
 import autoload 'lsp/lsp.vim'
 import autoload 'lsp/util.vim'
 
+augroup LSPPreview
+    au!
+    au BufCreate LspHover set wrap
+augroup END
+
 export def SetupFT()
     nnoremap <silent><buffer> gd <cmd>LspGotoDefinition<CR>
     nnoremap <silent><buffer> gD <scriptcmd>exe ":hor LspGotoDefinition"<CR>
