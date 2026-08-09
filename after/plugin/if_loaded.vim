@@ -102,7 +102,7 @@ if exists("g:loaded_lsp")
         autoHighlight: false,
         highlightDiagInline: false,
         completionMatcher: 'fuzzy',
-        hoverInPreview: true,
+        hoverInPreview: false,
         hoverFallback: true,
         definitionFallback: true,
         formatFallback: true,
