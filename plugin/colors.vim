@@ -41,6 +41,10 @@ def Habamax()
         hi PmenuExtraSel guibg=#585862
         hi Comment       guifg=#80808a
         hi ColorColumn   guibg=#262630
+        hi Statusline    guibg=#9e9ea8
+        hi StatuslineNC  guibg=#767680
+        hi VertSplit     guibg=#9e9ea8
+        hi VertSplitNC   guibg=#767680
     endif
 enddef
 
