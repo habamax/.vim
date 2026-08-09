@@ -5,6 +5,7 @@ compiler go
 setl shiftwidth=0
 setl noexpandtab
 setl formatprg=gofmt
+setl tabstop=4
 
 def Run()
     update
