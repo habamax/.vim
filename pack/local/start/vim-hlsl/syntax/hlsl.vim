@@ -20,13 +20,13 @@ var expanded_types = [
 # ...
 # int1x1, int1x2 ...
 exe $"syn keyword hlslType {expanded_types->join()}"
-range(1, 4)->foreach((_, idx1) => {
-    var type1 = expanded_types->mapnew((_, v) => v .. idx1)->join()
-    exe $"syn keyword hlslType {type1}"
-    range(1, 4)->foreach((_, idx2) => {
-        var type1x1 = expanded_types
-            ->mapnew((_, v) => $"{v}{idx1}x{idx2}")->join()
-        exe $"syn keyword hlslType {type1x1}"
+range(1, 4)->foreach((_, idxN) => {
+    var typeN = expanded_types->mapnew((_, v) => v .. idxN)->join()
+    exe $"syn keyword hlslType {typeN}"
+    range(1, 4)->foreach((_, idxM) => {
+        var typeNxM = expanded_types
+            ->mapnew((_, v) => $"{v}{idxN}x{idxM}")->join()
+        exe $"syn keyword hlslType {typeNxM}"
     })
 })
 syn keyword hlslType void dword half string vector matrix texture sampler
