@@ -21,11 +21,11 @@ var expanded_types = [
 # int1x1, int1x2 ...
 exe $"syn keyword hlslType {expanded_types->join()}"
 range(1, 4)->foreach((_, idxN) => {
-    var typeN = expanded_types->mapnew((_, v) => v .. idxN)->join()
+    var typeN = expanded_types->mapnew((_, type) => type .. idxN)->join()
     exe $"syn keyword hlslType {typeN}"
     range(1, 4)->foreach((_, idxM) => {
         var typeNxM = expanded_types
-            ->mapnew((_, v) => $"{v}{idxN}x{idxM}")->join()
+            ->mapnew((_, type) => $"{type}{idxN}x{idxM}")->join()
         exe $"syn keyword hlslType {typeNxM}"
     })
 })
