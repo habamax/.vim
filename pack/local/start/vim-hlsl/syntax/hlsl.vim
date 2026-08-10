@@ -7,9 +7,6 @@ if exists("b:current_syntax")
     finish
 endif
 
-# TODO: SV_POSITION, SV_TARGET etc
-# https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-semantics#system-value-semantics
-
 var expanded_types = [
     'float', 'double', 'int', 'uint', 'bool',
     'min10float', 'min16float', 'min12int', 'min16int', 'min16uint',
