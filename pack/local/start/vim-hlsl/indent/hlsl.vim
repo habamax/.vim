@@ -1,7 +1,7 @@
 vim9script
 # Language:    HLSL (High-Level Shader Language)
 # Maintainer:  Maxim Kim <habamax@gmail.com>
-# Last Update: 2026-08-10
+# Last Change: 2026-08-10
 
 if exists('b:did_indent')
   finish
