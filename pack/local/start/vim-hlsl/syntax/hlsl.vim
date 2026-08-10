@@ -8,12 +8,18 @@ if exists("b:current_syntax")
     finish
 endif
 
+# TODO: SV_POSITION, SV_TARGET etc
+# https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-semantics#system-value-semantics
+
 var expanded_type = [
     'float', 'double', 'int', 'uint', 'bool',
     'min10float', 'min16float', 'min12int', 'min16int', 'min16uint',
     'float16_t', 'int16_t', 'uint16_t', 'uint64_t', 'int64_t'
 ]
 
+# float1, float2 ...
+# ...
+# int1x1, int1x2 ...
 exe $"syn keyword hlslType {expanded_type->join()}"
 range(1, 4)->foreach((_, idx1) => {
     exe $"syn keyword hlslType {expanded_type->mapnew((_, v) => v .. idx1)->join()}"
