@@ -22,7 +22,7 @@ augroup general | au!
         if &modifiable
             var view = winsaveview()
             try
-                undojoin | exe $':1,{min([10, line('$')])}s/\v^[#"]\s+Last\s+(Change|Update):\s*\zs.*/\=strftime("%Y-%m-%d")/ie'
+                undojoin | exe $':1,{min([10, line('$')])}s/\v^[#"]\s+Last\s+(Change|Update):\s*\zs.*/\=strftime("%Y %b %d")/ie'
             catch /E790/
             endtry
             winrestview(view)
