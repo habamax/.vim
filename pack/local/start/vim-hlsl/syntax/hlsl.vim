@@ -1,8 +1,7 @@
 vim9script
-# Vim HLSL (High Level Shader Language) syntax file
-# Language: HLSL
-# Maintainer: Maxim Kim <habamax@gmail.com>
-# Description: WIP
+# Language:    HLSL (High-Level Shader Language)
+# Maintainer:  Maxim Kim <habamax@gmail.com>
+# Last Update: 2026-08-10
 
 if exists("b:current_syntax")
     finish
