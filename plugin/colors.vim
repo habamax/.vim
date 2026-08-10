@@ -4,18 +4,6 @@ if !has('gui_running')
     set termguicolors
 endif
 
-def Lsp()
-    hi link lspDiagVirtualTextError   Removed
-    hi link lspSigActiveParameter     PreProc
-    hi link lspDiagSignErrorText      Removed
-    hi link lspDiagVirtualTextWarning Changed
-    hi link lspDiagSignWarningText    Changed
-    hi link lspDiagVirtualTextHint    Added
-    hi link lspDiagSignHintText       Added
-    hi link lspDiagVirtualTextInfo    Question
-    hi link lspDiagSignInfoText       Question
-enddef
-
 def NoBg()
     if has("gui_running") || &background == "light"
         return
@@ -49,7 +37,6 @@ def Habamax()
 enddef
 
 augroup colors | au!
-    au Colorscheme * Lsp()
     au Colorscheme habamax Habamax()
     au Colorscheme polukate,habamax,wildcharm,lunaperche NoBg()
 augroup END
