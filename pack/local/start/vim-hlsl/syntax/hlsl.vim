@@ -11,7 +11,7 @@ endif
 # TODO: SV_POSITION, SV_TARGET etc
 # https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-semantics#system-value-semantics
 
-var expanded_type = [
+var expanded_types = [
     'float', 'double', 'int', 'uint', 'bool',
     'min10float', 'min16float', 'min12int', 'min16int', 'min16uint',
     'float16_t', 'int16_t', 'uint16_t', 'uint64_t', 'int64_t'
@@ -20,11 +20,14 @@ var expanded_type = [
 # float1, float2 ...
 # ...
 # int1x1, int1x2 ...
-exe $"syn keyword hlslType {expanded_type->join()}"
+exe $"syn keyword hlslType {expanded_types->join()}"
 range(1, 4)->foreach((_, idx1) => {
-    exe $"syn keyword hlslType {expanded_type->mapnew((_, v) => v .. idx1)->join()}"
+    var type1 = expanded_types->mapnew((_, v) => v .. idx1)->join()
+    exe $"syn keyword hlslType {type1}"
     range(1, 4)->foreach((_, idx2) => {
-        exe $"syn keyword hlslType {expanded_type->mapnew((_, v) => $"{v}{idx1}x{idx2}")->join()}"
+        var type1x1 = expanded_types
+            ->mapnew((_, v) => $"{v}{idx1}x{idx2}")->join()
+        exe $"syn keyword hlslType {type1x1}"
     })
 })
 syn keyword hlslType void dword half string vector matrix texture sampler
@@ -66,16 +69,16 @@ syntax cluster hlslNumber contains=hlslInteger,hlslFloat,hlslHex,hlslOct
 
 syntax region hlslChar start=+'+ skip=+\\\\\|\\'+ end=+'+ contains=hlslEscape
 syntax region hlslString start=+"+ skip=+\\\\\|\\'+ end=+"+ contains=hlslEscape
-syntax match hlslEscape display contained /\\\([abefnrtv\\'"]\|\o\{3}\|x\x\{2}\|u\x\{4}\|U\x\{8}\)/
+syntax match  hlslEscape display contained /\\\([abefnrtv\\'"]\|\o\{3}\|x\x\{2}\|u\x\{4}\|U\x\{8}\)/
 
 # TODO: better preproc
 syn region hlslPreProc start=/^\s*\zs#/ end=/$/ contains=@hlslNumber,hlslString,hlslChar,@hlslComment
 
-syntax match hlslTodo "TODO" contained
-syntax match hlslTodo "XXX" contained
-syntax match hlslTodo "FIXME" contained
-syntax region hlslLineComment start=/\/\// end=/$/  contains=@Spell,hlslTodo
-syntax region hlslBlockComment start=/\/\*/ end=/\*\// contains=@Spell,hlslTodo
+syntax match   hlslTodo "TODO" contained
+syntax match   hlslTodo "XXX" contained
+syntax match   hlslTodo "FIXME" contained
+syntax region  hlslLineComment start=/\/\// end=/$/  contains=@Spell,hlslTodo
+syntax region  hlslBlockComment start=/\/\*/ end=/\*\// contains=@Spell,hlslTodo
 syntax cluster hlslComment contains=hlslLineComment,hlslBlockComment
 
 hi def link hlslType         Type
