@@ -1,7 +1,7 @@
 vim9script
 
 command PackUpdate PackInit() | minpac#update()
-command PackClean PackInit()  | minpac#clean()
+command PackClean  PackInit() | minpac#clean()
 
 def PackInit()
     minpac#init()
