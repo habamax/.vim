@@ -39,10 +39,6 @@ augroup end
 
 # Commands
 
-# update packages
-import autoload "pack.vim"
-command! PackUpdate pack.Update()
-
 # Wipe all hidden buffers
 def WipeHiddenBuffers()
     var buffers = filter(getbufinfo(), (_, v) => empty(v.windows))

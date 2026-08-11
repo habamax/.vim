@@ -12,5 +12,6 @@
 *.temp
 /tags
 /pack/ext/
-/pack/devel/
+/pack/vim-devel/
 tags.lock
+/pack/minpac/
