@@ -33,6 +33,7 @@ def Habamax()
         hi StatuslineNC  guibg=#767680
         hi TablineSel    guibg=#9e9ea8
         hi Tabline       guibg=#767680
+        hi TabLineFill   guibg=#767680
         hi VertSplit     guibg=#9e9ea8
         hi VertSplitNC   guibg=#767680
         hi TitleBar      guibg=#3c3c46
