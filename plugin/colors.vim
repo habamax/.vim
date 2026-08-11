@@ -33,6 +33,8 @@ def Habamax()
         hi StatuslineNC  guibg=#767680
         hi VertSplit     guibg=#9e9ea8
         hi VertSplitNC   guibg=#767680
+        hi TitleBar      guibg=#3c3c46
+        hi TitleBarNC    guibg=#2c2c36
     endif
 enddef
 
