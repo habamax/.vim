@@ -22,7 +22,7 @@ def PackInit()
     minpac#add('vim/colorschemes')
 
     # Should be installed separately
-    # git clone https://codeberg.org/lifepillar/vim-devel $MYVIMDIR/pack
+    # :Term git clone https://codeberg.org/lifepillar/vim-devel $MYVIMDIR/pack
 enddef
 
 silent! packadd minpac
