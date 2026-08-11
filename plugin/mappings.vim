@@ -283,14 +283,10 @@ def CloseOtherWindows()
     if loc_closed
         return
     endif
-    var qf_closed = false
     for window in getwininfo()->filter((_, v) => v.quickfix == 1)
-        win_execute(window.winid, "cclose")
-        qf_closed = true
-    endfor
-    if qf_closed
+        cclose
         return
-    endif
+    endfor
     pclose
 enddef
 nnoremap <F4> <scriptcmd>CloseOtherWindows()<cr>
