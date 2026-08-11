@@ -33,7 +33,6 @@ if !exists("g:loaded_minpac")
     if v:shell_error != 0
         echow "Couldn't install minpac!"
     else
-        &rtp ..= ',{$MYVIMDIR}pack/minpac/opt/minpac'
         packadd minpac
         PackUpdate
     endif
