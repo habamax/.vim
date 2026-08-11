@@ -46,7 +46,6 @@ def ShowChangelog()
     if empty(lines)
         popup_notification("All plugins are up to date.", {
             title: " Plugins ",
-            borderchars: popup_borderchars,
             line: &lines - 4,
             col: &columns - 20
         })
