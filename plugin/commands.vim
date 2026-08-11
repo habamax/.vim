@@ -55,8 +55,6 @@ command! -nargs=? Search {
         feedkeys("n")
     endif
 }
-command! -nargs=1 Occur exe $'lvim /\V{escape(<q-args>, '\')}/j %' | belowright lopen
-
 # fix trailing spaces
 command! FixTrailingSpaces {
     var v = winsaveview()
