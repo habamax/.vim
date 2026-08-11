@@ -29,7 +29,6 @@ silent! packadd minpac
 
 if !exists("g:loaded_minpac")
     var mp_path = $'{$MYVIMDIR}pack/minpac/opt/minpac'
-    echow "No minpac detected, installing"
     system($'git clone https://github.com/k-takata/minpac.git {mp_path}')
     if v:shell_error != 0
         echow "Couldn't install minpac!"
