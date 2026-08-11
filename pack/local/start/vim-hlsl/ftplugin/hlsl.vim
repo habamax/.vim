@@ -1,7 +1,7 @@
 vim9script
 # Language:      HLSL (High-Level Shader Language)
 # Maintainer:    Maxim Kim <habamax@gmail.com>
-# Last Change:   2026-08-10
+# Last Change:   2026 Aug 11
 
 if exists("b:did_ftplugin")
     finish

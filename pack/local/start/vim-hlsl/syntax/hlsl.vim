@@ -1,7 +1,8 @@
 vim9script
 # Language:    HLSL (High-Level Shader Language)
 # Maintainer:  Maxim Kim <habamax@gmail.com>
-# Last Change: 2026-08-10
+# Last Change: 2026 Aug 11
+# https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl-reference
 
 if exists("b:current_syntax")
     finish
