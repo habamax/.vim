@@ -196,67 +196,19 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
     def Format(itemsAny: list<any>, props: list<any>): list<any>
         if itemsAny[0]->len() == 0 | return [] | endif
 
-        var max_visible_pretext_len = 0
-        var max_visible_posttext_len = 0
-        var max_visible_text_len = 0
-        var i = 0
-        while i < maxheight * 3 && i < itemsAny[0]->len()
-            if max_visible_text_len < len(itemsAny[0][i].text)
-                max_visible_text_len = len(itemsAny[0][i].text)
-            endif
-            var pretext = get(itemsAny[0][i], "pretext", "")
-            if max_visible_pretext_len < strwidth(pretext)
-                max_visible_pretext_len = strwidth(pretext)
-            endif
-            var posttext = get(itemsAny[0][i], "posttext", "")
-            if max_visible_posttext_len < strwidth(posttext)
-                max_visible_posttext_len = strwidth(posttext)
-            endif
-            i += 1
-        endwhile
-
-        if max_visible_text_len + max_visible_pretext_len + max_visible_posttext_len >= maxwidth
-            max_visible_text_len = maxwidth - max_visible_pretext_len - max_visible_posttext_len
-        endif
-
-        if itemsAny->len() > 1
-            return itemsAny[0]->mapnew((idx, v) => {
-                var pretext = get(v, "pretext", "")
-                var posttext = get(v, "posttext", "")
-                var text = pretext
-                if strwidth(pretext) < max_visible_pretext_len
-                    text ..= repeat(" ", max_visible_pretext_len - strwidth(pretext))
-                endif
-                text ..= v.text
-                if !empty(posttext)
-                    if strwidth(v.text) < max_visible_text_len
-                        text ..= repeat(" ", max_visible_text_len - strwidth(v.text))
-                    endif
-                    text ..= posttext
-                endif
-                return {text: text, props: itemsAny[1][idx]->mapnew((_, c) => {
+        var filtered = itemsAny->len() > 1
+        return itemsAny[0]->mapnew((idx, v) => {
+            var pretext = get(v, "pretext", "")
+            var posttext = get(v, "posttext", "")
+            var text = get(v, "text", "")
+            if filtered
+                return {text: $'{pretext}{text}{posttext}', props: itemsAny[1][idx]->mapnew((_, c) => {
                     return {col: strlen(pretext) + v.text->byteidx(c) + 1, length: 1, type: 'PopupSelectMatch'}
                 })}
-            })
-        else
-            return itemsAny[0]->mapnew((_, v) => {
-                var pretext = get(v, "pretext", "")
-                var posttext = get(v, "posttext", "")
-                var text = pretext
-                if strwidth(pretext) < max_visible_pretext_len
-                    text ..= repeat(" ", max_visible_pretext_len - strwidth(pretext))
-                endif
-                text ..= v.text
-                if !empty(posttext)
-                    if strwidth(v.text) < max_visible_text_len
-                        text ..= repeat(" ", max_visible_text_len - strwidth(v.text))
-                    endif
-                    text ..= posttext
-                endif
-
-                return {text: text}
-            })
-        endif
+            else
+                return {text: $'{pretext}{text}{posttext}'}
+            endif
+        })
     enddef
 
     def AlignPopups(pwinid: number, winid: number)
