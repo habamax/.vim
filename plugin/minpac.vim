@@ -27,6 +27,7 @@ enddef
 
 silent! packadd minpac
 
+# Bootstrap minpac and plugins
 if !exists("g:loaded_minpac")
     var mp_path = $'{$MYVIMDIR}pack/minpac/opt/minpac'
     system($'git clone https://github.com/k-takata/minpac.git {mp_path}')
