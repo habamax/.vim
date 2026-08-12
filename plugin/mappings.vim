@@ -267,6 +267,10 @@ xnoremap <expr> gI mode() == "\<C-v>" ? "_I" : "\<C-v>_I"
 
 # close other windows
 def CloseOtherWindows()
+    if !empty(popup_list())
+        popup_clear(true)
+        return
+    endif
     var term_closed = false
     for window in getwininfo()->filter((_, v) => v.terminal == 1)
         win_execute(window.winid, "silent! wincmd c")
