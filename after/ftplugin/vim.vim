@@ -16,6 +16,9 @@ def Things()
     var commentchars = split(&cms, "%s")[0]
     for nr in range(1, line('$'))
         var line = getline(nr)
+        if line =~ $'^\s*{commentchars}'
+            continue
+        endif
         if line =~ '^\s*aug\%[roup]\s\+\S\+' && line !~ '\c^\s*aug\%[roup] end\s*$'
             line = line->substitute('^\s*aug\%[roup]\s\+\(\S\+\)\s*.*$', '\1', '')
             things->add({pretext: "augroup ", text: line, posttext: $' ({nr})', linenr: nr})
@@ -25,7 +28,7 @@ def Things()
             things->add({pretext: "function ", text: line, posttext: $' ({nr})', linenr: nr})
         endif
         if line =~ '\(^\|\s\)def \([g]:\)\?\k\+('
-            line = line->substitute('^\s*def\s*', '', '')
+            line = line->substitute('^\s*\(export\s\+\)\?def\s*', '', '')
             things->add({pretext: "def ", text: line, posttext: $' ({nr})', linenr: nr})
         endif
         if line =~ '^\s*com\%[mand]!\?\s\+\S\+'
@@ -47,7 +50,9 @@ def Things()
             normal! zz
         },
         (winid) => {
+            win_execute(winid, $"syn match PopupSelectType '^\\(def\\|func\\|command\\|augroup\\)'")
             win_execute(winid, $"syn match PopupSelectLineNr '(\\d\\+)$'")
+            hi def link PopupSelectType Comment
             hi def link PopupSelectLineNr Comment
         })
 enddef
