@@ -416,14 +416,11 @@ export def Git()
             return ret * -1
     })->mapnew((_, v) => v.name)[: 10]
 
-    # TODO: support different forges
-    var is_github_remote = false
-    var fetch_head_file = $"{gitdir}/FETCH_HEAD"
-    if filereadable(fetch_head_file)
-        var fetch_head = readfile(fetch_head_file)
-        if !empty(fetch_head)
-            is_github_remote = match(fetch_head[0], 'github\.com') > -1
-        endif
+    var config_file = $"{gitdir}/config"
+    var remote_url = false
+    if filereadable(config_file)
+        remote_url = !empty(readfile($"{gitdir}/config")
+            ->filter((_, v) => v =~ '^\s*url'))
     endif
 
     for br in ["dev", "test", "prod", "main", "master"]
@@ -519,13 +516,13 @@ export def Git()
             popup.Commands(hist_commands)
         }}
     ]
-    if is_github_remote
+    if remote_url
         main_commands += [
-            {text: $'open in github', key: "o", close: true, cmd: (_) => {
+            {text: $'open in Web Browser', key: "o", close: true, cmd: (_) => {
                 if empty(region)
-                    git.GithubOpen()
+                    git.RemoteOpen()
                 else
-                    git.GithubOpen(region[0][1], region[1][1])
+                    git.RemoteOpen(region[0][1], region[1][1])
                 endif
             }},
         ]

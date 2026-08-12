@@ -50,20 +50,19 @@ export def Blame(firstline: number = line("."), lastline: number = line("."))
 enddef
 
 
-# Open current line/selection in Github.
-# Usage:
-#   import autoload 'git.vim'
-#   nnoremap <silent> <space>gh <scriptcmd>git.GithubOpen()<CR>
-#   xnoremap <silent> <space>gh <scriptcmd>git.GithubOpen(line("v"), line("."))<CR>
-export def GithubOpen(firstline: number = line("."), lastline: number = line("."))
+# Open current line/selection in Remote (github, codeberg)
+export def RemoteOpen(firstline: number = line("."), lastline: number = line("."))
     var gitroot = systemlist("git rev-parse --show-toplevel")->join('')
     var filename = strpart(expand('%:p'), len(gitroot) + 1)->tr('\', '/')
     var branch = systemlist("git rev-parse --abbrev-ref HEAD")->join('')
     var remote_url = systemlist("git remote get-url origin")->join('')
-    if remote_url =~ '^git@github.com'
-        remote_url = remote_url->substitute('^git@github.com:', 'https://github.com/', '')
+    if remote_url =~ '^git@'
+        remote_url = remote_url
+            ->substitute(':', '/', '')
+            ->substitute('^git@', 'https://', '')
+            ->substitute('.git$', '', '')
     endif
-    remote_url = remote_url->substitute('.git$', '', '')
-    var github_url = $'{remote_url}/blob/{branch}/{filename}#L{firstline}-L{lastline}'
-    os.Open(github_url)
+    var src = (remote_url =~ '^https://github.com' ? 'blob' : 'src')
+    var forge_url = $'{remote_url}/{src}/{branch}/{filename}#L{firstline}-L{lastline}'
+    os.Open(forge_url)
 enddef
