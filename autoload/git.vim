@@ -62,7 +62,15 @@ export def RemoteOpen(firstline: number = line("."), lastline: number = line("."
             ->substitute('^git@', 'https://', '')
             ->substitute('.git$', '', '')
     endif
-    var src = (remote_url =~ '^https://github.com' ? 'blob' : 'src')
+    var src = ''
+    if remote_url =~ '^https://github.com'
+        src = 'blob'
+    elseif remote_url =~ '^https://codeberg.org'
+        src = 'src'
+    else
+        # gitlab
+        src = '-/blob'
+    endif
     var forge_url = $'{remote_url}/{src}/{branch}/{filename}#L{firstline}-L{lastline}'
     os.Open(forge_url)
 enddef
