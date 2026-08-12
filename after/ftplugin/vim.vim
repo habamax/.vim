@@ -16,18 +16,25 @@ def Things()
     var commentchars = split(&cms, "%s")[0]
     for nr in range(1, line('$'))
         var line = getline(nr)
+        if line =~ '^\s*aug\%[roup]\s\+\S\+' && line !~ '\c^\s*aug\%[roup] end\s*$'
+            line = line->substitute('^\s*aug\%[roup]\s\+\(\S\+\)\s*.*$', '\1', '')
+            things->add({pretext: "augroup ", text: line, posttext: $' ({nr})', linenr: nr})
+        endif
+        if line =~ '\(^\|\s\)fu\%[nction]!\?\s\+\([sgl]:\)\?\k\+('
+            line = line->substitute('\(^\|\s\)fu\%[nction]!\?\s\+', '', '')
+            things->add({pretext: "function ", text: line, posttext: $' ({nr})', linenr: nr})
+        endif
         if line =~ '\(^\|\s\)def \([g]:\)\?\k\+('
-        || line =~ '\(^\|\s\)fu\%[nction]!\?\s\+\([sgl]:\)\?\k\+('
-        || line =~ '^\s*com\%[mand]!\?\s\+\S\+'
-        || line =~ '^\s*aug\%[roup]\s\+\S\+' && line !~ '\c^\s*aug\%[roup] end\s*$'
-            if line =~ '^\s*com\%[mand]!\?\s\+\S\+'
-                line = line->substitute(' -\(range\|count\|nargs\)\(=.\)\?', '', 'g')
-                line = line->substitute(' -\(bang\|buffer\)', '', '')
-                line = line->substitute(' -complete=\S\+', '', '')
-                line = line->substitute('^\s*com\%[mand]!\?\s\+\S\+\zs.*', '', '')
-                line = line->substitute('^\s*com\%[mand]!\?\s\+', '', '')
-            endif
-            things->add({text: line, posttext: $' ({nr})', linenr: nr})
+            line = line->substitute('^\s*def\s*', '', '')
+            things->add({pretext: "def ", text: line, posttext: $' ({nr})', linenr: nr})
+        endif
+        if line =~ '^\s*com\%[mand]!\?\s\+\S\+'
+            line = line->substitute(' -\(range\|count\|nargs\|bar\)\(=.\)\?', '', 'g')
+            line = line->substitute(' -\(bang\|buffer\)', '', '')
+            line = line->substitute(' -complete=\S\+', '', '')
+            line = line->substitute('^\s*com\%[mand]!\?\s\+\S\+\zs.*', '', '')
+            line = line->substitute('^\s*com\%[mand]!\?\s\+', '', '')
+            things->add({pretext: "command ", text: line, posttext: $' ({nr})', linenr: nr})
         endif
         if line =~ '{\{3}\s*$'
             line = matchstr(line, '^\s*' .. commentchars .. '\s*\zs.\{-}\ze\s*{\{3}\s*$')
