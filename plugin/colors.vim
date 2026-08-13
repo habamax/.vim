@@ -47,8 +47,8 @@ augroup colors | au!
 augroup END
 
 g:colors = {
-    # dark: "sil! colo polukate",
-    dark: "colo habamax",
+    dark: "sil! colo polukate",
+    # dark: "colo habamax",
     light: "sil! colo xamabah",
 }
 
