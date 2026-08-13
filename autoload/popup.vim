@@ -255,17 +255,29 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
         endif
     enddef
 
-    var ignore_input = ["\<cursorhold>", "\<ignore>", "\<Nul>",
-          \ "\<LeftMouse>", "\<LeftRelease>", "\<LeftDrag>", $"\<2-LeftMouse>",
-          \ "\<RightMouse>", "\<RightRelease>", "\<RightDrag>", "\<2-RightMouse>",
-          \ "\<MiddleMouse>", "\<MiddleRelease>", "\<MiddleDrag>", "\<2-MiddleMouse>",
-          \ "\<MiddleMouse>", "\<MiddleRelease>", "\<MiddleDrag>", "\<2-MiddleMouse>",
-          \ "\<X1Mouse>", "\<X1Release>", "\<X1Drag>", "\<X2Mouse>", "\<X2Release>", "\<X2Drag>",
-          \ "\<ScrollWheelLeft>", "\<ScrollWheelRight>"
+    var ignore_input = [
+        "\<CursorHold>", "\<Ignore>", "\<Nul>", "\<Insert>", "\<Delete>",
+        "\<F1>", "\<F2>", "\<F3>", "\<F4>", "\<F5>", "\<F6>",
+        "\<F7>", "\<F8>", "\<F9>", "\<F10>", "\<F11>", "\<F12>",
+        "\<LeftMouse>", "\<LeftRelease>", "\<LeftDrag>",
+        "\<2-LeftMouse>", "\<2-LeftRelease>",
+        "\<3-LeftMouse>", "\<3-LeftRelease>",
+        "\<4-LeftMouse>", "\<4-LeftRelease>",
+        "\<RightMouse>", "\<RightRelease>", "\<RightDrag>",
+        "\<2-RightMouse>", "\<2-RightRelease>",
+        "\<3-RightMouse>", "\<3-RightRelease>",
+        "\<4-RightMouse>", "\<4-RightRelease>",
+        "\<MiddleMouse>", "\<MiddleRelease>", "\<MiddleDrag>",
+        "\<2-MiddleMouse>", "\<2-MiddleRelease>",
+        "\<3-MiddleMouse>", "\<3-MiddleRelease>",
+        "\<4-MiddleMouse>", "\<4-MiddleRelease>",
+        "\<X1Mouse>", "\<X1Release>", "\<X1Drag>",
+        "\<X2Mouse>", "\<X2Release>", "\<X2Drag>",
+        "\<ScrollWheelLeft>", "\<ScrollWheelRight>",
+        "\<2-ScrollWheelUp>", "\<2-ScrollWheelDown>",
+        "\<3-ScrollWheelUp>", "\<3-ScrollWheelDown>",
+        "\<4-ScrollWheelUp>", "\<4-ScrollWheelDown>",
     ]
-    # this sequence of bytes are generated when left/right mouse is pressed and
-    # mouse wheel is rolled
-    var ignore_input_wtf = [128, 253, 100]
 
     var popts = {
         minwidth: minwidth,
@@ -330,8 +342,8 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
                     win_execute(id, "normal! G")
                 endif
                 AlignPopups(pwinid, id)
-            # Ignoring fancy events and double clicks, which are 6 char long: `<80><fc> <80><fd>.`
-            elseif ignore_input->index(key) == -1 && strcharlen(key) != 6 && str2list(key) != ignore_input_wtf
+            elseif ignore_input->index(key) == -1
+                echow keytrans(key)
                 if key == "\<C-u>"
                     prompt_text = ""
                     filtered_items = [items_dict]
