@@ -265,32 +265,5 @@ inoremap <M-c> <C-G>u<esc><scriptcmd>ToUncapitalizedWord()<cr>guiw~gi
 xnoremap <expr> gA mode() == "\<C-v>" ? "$A" : "\<C-v>$A"
 xnoremap <expr> gI mode() == "\<C-v>" ? "_I" : "\<C-v>_I"
 
-# close other windows
-def CloseOtherWindows()
-    if !empty(popup_list())
-        popup_clear(true)
-        return
-    endif
-    var term_closed = false
-    for window in getwininfo()->filter((_, v) => v.terminal == 1)
-        win_execute(window.winid, "silent! wincmd c")
-        term_closed = true
-    endfor
-    if term_closed
-        return
-    endif
-    var loc_closed = false
-    for window in getwininfo()->filter((_, v) => v.loclist == 1)
-        win_execute(window.winid, "lclose")
-        loc_closed = true
-    endfor
-    if loc_closed
-        return
-    endif
-    for window in getwininfo()->filter((_, v) => v.quickfix == 1)
-        cclose
-        return
-    endfor
-    pclose
-enddef
-nnoremap <F4> <scriptcmd>CloseOtherWindows()<cr>
+import autoload "window.vim"
+nnoremap <F4> <scriptcmd>window.CloseThem()<cr>
