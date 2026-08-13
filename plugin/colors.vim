@@ -11,7 +11,7 @@ def NoBg()
     hi Normal guibg=NONE ctermbg=NONE
 enddef
 
-def Habamax()
+def DarkBlueTint()
     if &background == 'dark'
         if has("gui_running")
             hi Normal    guibg=#1c1c26
@@ -43,7 +43,7 @@ def Habamax()
 enddef
 
 augroup colors | au!
-    au Colorscheme habamax Habamax()
+    au Colorscheme habamax DarkBlueTint()
     au Colorscheme polukate,habamax,wildcharm,lunaperche NoBg()
 augroup END
 
