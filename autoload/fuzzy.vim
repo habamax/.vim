@@ -271,27 +271,30 @@ enddef
 
 export def File(path: string = "")
     var opath = isdirectory(expand(path)) ? expand(path) : ''
-    if trim(opath, '/\', 2) == getcwd()
+    opath = opath->trim('\/', 2)
+    var epath = opath
+    if opath == getcwd()
         opath = ''
+        epath = ''
     elseif !empty(opath)
-        opath = $'{opath->trim('\/', 2)}'
+        opath = shellescape(opath)
+        epath ..= '/'
     endif
 
     var files = []
 
     if executable('fd')
-        files = systemlist($'fd . --path-separator / --type f --hidden --follow --exclude .git {shellescape(opath)}')
+        files = systemlist($'fd . --path-separator / --type f --hidden --follow --exclude .git {opath}')
     elseif executable('fdfind')
-        files = systemlist($'fdfind . --path-separator / --type f --hidden --follow --exclude .git {shellescape(opath)}')
+        files = systemlist($'fdfind . --path-separator / --type f --hidden --follow --exclude .git {opath}')
     elseif executable('ugrep')
-        files = systemlist($'ugrep "" -Rl -I --ignore-files {shellescape(opath)}')
+        files = systemlist($'ugrep "" -Rl -I --ignore-files {opath}')
     elseif executable('rg')
-        files = systemlist($'rg --path-separator / --files --hidden --glob !.git {shellescape(opath)}')
+        files = systemlist($'rg --path-separator / --files --hidden --glob !.git {opath}')
     elseif executable('find')
-        files = systemlist($'find {shellescape(opath)} \! \( -path "*/.git" -prune -o -name "*.swp" \) -type f -follow')
+        files = systemlist($'find {opath} \! \( -path "*/.git" -prune -o -name "*.swp" \) -type f -follow')
     else
-        opath ..= empty(opath) ? '' : '/'
-        files = expand($'{opath}**', 1, 1)->filter((_, v) => !isdirectory(v))
+        files = expand($'{epath}**', 1, 1)->filter((_, v) => !isdirectory(v))
     endif
     popup.Select("File", files[ : MAX_ELEMENTS - 1],
         (res, key) => {
