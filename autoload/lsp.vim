@@ -105,7 +105,8 @@ def LspGoToSymbol()
             linenr: v.range.start.line + 1,
             charcol: v.range.start.character + 1,
             text: v.name,
-            posttext: ' ' .. symbol_map[v.kind]}
+            pretext: symbol_map[v.kind] .. ': ',
+            posttext: $' ({v.range.start.line + 1})'}
     })
 
     popup.Select("LSP Symbols", symbols,
@@ -114,7 +115,9 @@ def LspGoToSymbol()
             normal! zz
         },
         (winid) => {
-            win_execute(winid, "syn match PopupSelectSymbolKind '\\k\\+\\s\\+\\zs\\S\\+$'")
-            hi def link PopupSelectSymbolKind PmenuKind
+            win_execute(winid, "syn match PopupSelectSymbolKind '^\\k\\+:'")
+            win_execute(winid, "syn match PopupSelectSymbolLine '\\s(\\d\\+)$'")
+            hi def link PopupSelectSymbolKind Comment
+            hi def link PopupSelectSymbolLine Comment
         })
 enddef
