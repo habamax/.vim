@@ -274,34 +274,24 @@ export def File(path: string = "")
     if trim(opath, '/\', 2) == getcwd()
         opath = ''
     elseif !empty(opath)
-        opath = $'"{opath->trim('\/', 2)}"'
+        opath = $'{opath->trim('\/', 2)}'
     endif
 
-    def Tree(dir: string): list<string>
-        var ignore_dirs = [".git", ".hg", ".bundle"]
-        var result = readdirex(dir, (v) => v.type =~ 'file\|link$')->mapnew((_, f) => f.name)
-        var dirs = readdirex(dir, (v) => v.type =~ 'dir\|linkd\|junction' && ignore_dirs->index(v.name) == -1)->mapnew((_, f) => f.name)
-        while !empty(dirs) && result->len() < MAX_ELEMENTS && dirs->len() < 200
-            var next_dir = dirs->remove(0)
-            result += readdirex(next_dir, (v) => v.type =~ 'file\|link$')->mapnew((_, f) => $"{next_dir}/{f.name}")
-            dirs += readdirex(next_dir, (v) => v.type =~ 'dir\|linkd\|junction' && ignore_dirs->index(v.name) == -1)->mapnew((_, f) => $"{next_dir}/{f.name}")
-        endwhile
-        return result
-    enddef
     var files = []
 
     if executable('fd')
-        files = systemlist($'fd . --path-separator / --type f --hidden --follow --exclude .git {opath}')
+        files = systemlist($'fd . --path-separator / --type f --hidden --follow --exclude .git {shellescape(opath)}')
     elseif executable('fdfind')
-        files = systemlist($'fdfind . --path-separator / --type f --hidden --follow --exclude .git {opath}')
+        files = systemlist($'fdfind . --path-separator / --type f --hidden --follow --exclude .git {shellescape(opath)}')
     elseif executable('ugrep')
-        files = systemlist($'ugrep "" -Rl -I --ignore-files {opath}')
+        files = systemlist($'ugrep "" -Rl -I --ignore-files {shellescape(opath)}')
     elseif executable('rg')
-        files = systemlist($'rg --path-separator / --files --hidden --glob !.git {opath}')
+        files = systemlist($'rg --path-separator / --files --hidden --glob !.git {shellescape(opath)}')
     elseif executable('find')
-        files = systemlist($'find {opath} \! \( -path "*/.git" -prune -o -name "*.swp" \) -type f -follow')
+        files = systemlist($'find {shellescape(opath)} \! \( -path "*/.git" -prune -o -name "*.swp" \) -type f -follow')
     else
-        files = Tree(opath)
+        opath ..= empty(opath) ? '' : '/'
+        files = expand($'{opath}**', 1, 1)->filter((_, v) => !isdirectory(v))
     endif
     popup.Select("File", files[ : MAX_ELEMENTS - 1],
         (res, key) => {
@@ -316,25 +306,6 @@ export def File(path: string = "")
             else
                 exe $":e {res.text->substitute('#', '\\&', 'g')}"
             endif
-            var projects_file = $'{$MYVIMDIR}.data/projects.json'
-            var projects = []
-            try
-                if !filereadable(projects_file)
-                    mkdir(fnamemodify(projects_file, ":p:h"), "p")
-                else
-                    projects = readfile(projects_file)->join()->json_decode()
-                endif
-                projects->add({path: fnamemodify(opath, ":p")
-                    ->trim('\/', 2)})
-                    ->sort()
-                    ->uniq()
-                    ->filter((_, v) => isdirectory(v.path))
-                [projects->json_encode()]->writefile(projects_file)
-            catch
-                echohl Error
-                echomsg v:exception
-                echohl None
-            endtry
         },
         (winid) => {
             win_execute(winid, "syn match PopupSelectPath '^.*[\\/]'")
