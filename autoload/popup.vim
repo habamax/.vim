@@ -343,7 +343,6 @@ export def Select(title: string, items: list<any>, Callback: func(any, string), 
                 endif
                 AlignPopups(pwinid, id)
             elseif ignore_input->index(key) == -1
-                echow keytrans(key)
                 if key == "\<C-u>"
                     prompt_text = ""
                     filtered_items = [items_dict]
