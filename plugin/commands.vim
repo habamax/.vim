@@ -48,13 +48,6 @@ def WipeHiddenBuffers()
 enddef
 command! WipeHiddenBuffers WipeHiddenBuffers()
 
-# literal search
-command! -nargs=? Search {
-    if !empty(<q-args>)
-        @/ = $'\V{escape(<q-args>, '\')}'
-        feedkeys("n")
-    endif
-}
 # fix trailing spaces
 command! FixTrailingSpaces {
     var v = winsaveview()
