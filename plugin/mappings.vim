@@ -113,7 +113,7 @@ nnoremap <space>/ <scriptcmd>exe $"Search {input("Search: ")}"<cr>
 
 # toggles
 nnoremap yow <cmd>set wrap! wrap?<CR>
-nnoremap yon <cmd>set nu! rnu!<CR>
+nnoremap yon <cmd>set nu!<CR>
 nnoremap yos <cmd>set spell! spell?<CR>
 nnoremap yod <cmd>exe (&diff ? ':diffoff' : ':diffthis')<CR>
 nnoremap yov <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
