@@ -10,13 +10,6 @@ augroup general | au!
         endif
     }
 
-    # create non-existent directory before buffer save
-    au BufWritePre * {
-        if &modifiable && !isdirectory(expand("%:p:h"))
-            mkdir(expand("%:p:h"), "p")
-        endif
-    }
-
     # update Last Change in vim files
     au BufWritePre *.vim {
         if &modifiable
