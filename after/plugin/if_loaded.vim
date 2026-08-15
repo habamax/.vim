@@ -95,8 +95,6 @@ if exists("g:loaded_dir")
 endif
 
 if exists("g:loaded_lsp")
-    # TODO: hoverFallback
-    #completionInPreview
     g:LspOptionsSet({
         autoComplete: false,
         autoHighlight: false,
