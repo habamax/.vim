@@ -68,28 +68,6 @@ b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F6>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F7>"'
 
-def Things()
-    var things = matchbufline(bufnr(),
-        '\v^\s*(func|class|signal)\s+\k+.*$',
-        1, '$')->foreach((_, v) => {
-            v.text = v.text
-            v.posttext = $" ({v.lnum})"
-        })
-    popup.Select("GDScript Things", things,
-        (res, key) => {
-            exe $":{res.lnum}"
-            normal! zz
-        },
-        (winid) => {
-            win_execute(winid, $"syn match PopupSelectLineNr '(\\d\\+)$'")
-            win_execute(winid, $"syn match PopupSelectFuncName '\\k\\+\\ze('")
-            hi def link PopupSelectLineNr Comment
-            hi def link PopupSelectFuncName Function
-        })
-enddef
-nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
-b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
-
 if exists("g:loaded_lsp") && executable('nc')
     g:LspAddServer([{
         name: 'gdscript',
