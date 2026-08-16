@@ -7,10 +7,9 @@ def Run(file: bool = false)
     update
     var param = !file ? '.' : expand("%") .. ' -file'
     if exists("$WSL_DISTRO_NAME")
-        exe $"Term! odin run {param} -thread-count:1"
-    else
-        exe $"Term! odin run {param}"
+        param ..= ' -thread-count:1'
     endif
+    exe $"Term! odin run {param}"
 enddef
 
 nnoremap <buffer> <F5> <scriptcmd>Run()<CR>
