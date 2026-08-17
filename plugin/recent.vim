@@ -87,7 +87,9 @@ def Edit(fname: string, split: bool = false, mods: string = "")
 enddef
 
 def RecentComplete(arg: string, _, _): list<dict<any>>
-    Read()
+    if empty(mru)
+        Read()
+    endif
     var mru_list = mru
         ->items()
         ->sort((v1, v2) => v1[1] == v2[1] ? 0 : v1[1] < v2[1] ? 1 : -1)
