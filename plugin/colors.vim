@@ -4,16 +4,15 @@ if !has('gui_running')
     set termguicolors
 endif
 
-def TermNoBgGuiBlack()
+def TermNoBg()
     if has("gui_running") || &background == "light"
-        hi Normal guibg=#000000
         return
     endif
     hi Normal guibg=NONE ctermbg=NONE
 enddef
 
 augroup colors | au!
-    au Colorscheme polukate,habamax TermNoBgGuiBlack()
+    au Colorscheme polukate,habamax TermNoBg()
 augroup END
 
 g:colors = {
