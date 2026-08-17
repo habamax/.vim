@@ -4,47 +4,16 @@ if !has('gui_running')
     set termguicolors
 endif
 
-def NoBg()
+def TermNoBgGuiBlack()
     if has("gui_running") || &background == "light"
+        hi Normal guibg=#000000
         return
     endif
     hi Normal guibg=NONE ctermbg=NONE
 enddef
 
-def DarkBlueTint()
-    if &background == 'dark'
-        if has("gui_running")
-            hi Normal    guibg=#1c1c26
-        endif
-        hi Popup         guibg=#3a3a44
-        hi PopupBorder   guibg=#3a3a44
-        hi PopupTitle    guibg=#3a3a44
-        hi Pmenu         guibg=#3a3a44
-        hi PmenuKind     guibg=#3a3a44
-        hi PmenuExtra    guibg=#3a3a44
-        hi PmenuBorder   guibg=#3a3a44
-        hi PmenuSel      guibg=#585862
-        hi PmenuKindSel  guibg=#585862
-        hi PmenuMatchSel guibg=#585862
-        hi PmenuExtraSel guibg=#585862
-        hi PmenuExtra    guifg=#80808a
-        hi Comment       guifg=#80808a
-        hi ColorColumn   guibg=#262630
-        hi Statusline    guibg=#9e9ea8
-        hi StatuslineNC  guibg=#767680
-        hi TablineSel    guibg=#9e9ea8
-        hi Tabline       guibg=#767680
-        hi TabLineFill   guibg=#767680
-        hi VertSplit     guibg=#9e9ea8
-        hi VertSplitNC   guibg=#767680
-        hi TitleBar      guibg=#3c3c46
-        hi TitleBarNC    guibg=#2c2c36
-    endif
-enddef
-
 augroup colors | au!
-    au Colorscheme habamax DarkBlueTint()
-    au Colorscheme polukate,habamax,wildcharm,lunaperche NoBg()
+    au Colorscheme polukate,habamax TermNoBgGuiBlack()
 augroup END
 
 g:colors = {
