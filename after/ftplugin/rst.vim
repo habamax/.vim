@@ -85,7 +85,8 @@ def Toc()
     g:toc = toc
     for t in toc
         var toc_num_str = t.toc_num[title + subtitle : ]->join('.')
-        t.text = repeat("  ", t.lvl - title - subtitle) .. $"{toc_num_str} {t.text}"
+        t.pretext = repeat("  ", t.lvl - title - subtitle) .. $"{toc_num_str} "
+        # t.text = repeat("  ", t.lvl - title - subtitle) .. $"{toc_num_str} {t.text}"
     endfor
 
     popup.Select("TOC", toc,
@@ -97,7 +98,7 @@ def Toc()
             win_execute(winid, 'syn match PopupSelectLineNr "(\d\+)$"')
             win_execute(winid, 'syn match PopupSelectSecNum "^\s*\(\d\+\.\)*\(\d\+\)"')
             hi link PopupSelectLineNr Comment
-            hi link PopupSelectSecNum rstSection
+            hi link PopupSelectSecNum Comment
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
