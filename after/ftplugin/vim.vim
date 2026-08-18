@@ -52,7 +52,7 @@ def Things()
         (winid) => {
             win_execute(winid, $"syn match PopupSelectType '^\\(def\\|func\\|command\\|augroup\\)'")
             win_execute(winid, $"syn match PopupSelectLineNr '(\\d\\+)$'")
-            hi def link PopupSelectType Comment
+            hi def link PopupSelectType Identifier
             hi def link PopupSelectLineNr Comment
         })
 enddef
