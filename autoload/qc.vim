@@ -98,7 +98,9 @@ enddef
 # Usage:
 # import autoload 'qc.vim'
 # nnoremap zl <scriptcmd>qc.HScroll($'normal! {v:count1}zl')<CR>
+# nnoremap zL <scriptcmd>qc.HScroll($'normal! zL')<CR>
 # nnoremap zh <scriptcmd>qc.HScroll($'normal! {v:count1}zh')<CR>
+# nnoremap zH <scriptcmd>qc.HScroll($'normal! zH')<CR>
 # nnoremap zs <scriptcmd>qc.HScroll($'normal! zs')<CR>
 # nnoremap ze <scriptcmd>qc.HScroll($'normal! ze')<CR>
 export def HScroll(initial: string)
