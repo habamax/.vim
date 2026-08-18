@@ -117,7 +117,7 @@ def LspGoToSymbol()
         (winid) => {
             win_execute(winid, "syn match PopupSelectSymbolKind '^\\k\\+:'")
             win_execute(winid, "syn match PopupSelectSymbolLine '\\s(\\d\\+)$'")
-            hi def link PopupSelectSymbolKind Comment
+            hi def link PopupSelectSymbolKind Identifier
             hi def link PopupSelectSymbolLine Comment
         })
 enddef
