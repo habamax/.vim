@@ -62,34 +62,54 @@ def Toc()
             toc_num.paragraph = 0
             toc_num.subparagraph = 0
             var prefix = $"{toc_num.section} "
-            toc->add({text: $"{prefix}{nr->Extract('section')}", posttext: $" ({nr})",
-                      linenr: nr})
+            toc->add({
+                pretext: prefix,
+                text: $"{nr->Extract('section')}",
+                posttext: $" ({nr})",
+                linenr: nr
+            })
         elseif line =~ '\\subsection\*\?\s*{'
             toc_num.subsection += 1
             toc_num.subsubsection = 0
             toc_num.paragraph = 0
             toc_num.subparagraph = 0
             var prefix = $"{repeat('  ', 1)}{toc_num.section}.{toc_num.subsection} "
-            toc->add({text: $"{prefix}{nr->Extract('subsection')}", posttext: $" ({nr})",
-                     linenr: nr})
+            toc->add({
+                pretext: prefix,
+                text: $"{nr->Extract('subsection')}",
+                posttext: $" ({nr})",
+                linenr: nr
+            })
         elseif line =~ '\\subsubsection\*\?\s*{'
             toc_num.subsubsection += 1
             toc_num.paragraph = 0
             toc_num.subparagraph = 0
             var prefix = $"{repeat('  ', 2)}{toc_num.section}.{toc_num.subsection}.{toc_num.subsubsection} "
-            toc->add({text: $"{prefix}{nr->Extract('subsubsection')}", posttext: $" ({nr})",
-                      linenr: nr})
+            toc->add({
+                pretext: prefix,
+                text: $"{nr->Extract('subsubsection')}",
+                posttext: $" ({nr})",
+                linenr: nr
+            })
         elseif line =~ '\\paragraph\*\?\s*{'
             toc_num.paragraph += 1
             toc_num.subparagraph = 0
             var prefix = $"{repeat('  ', 3)}{toc_num.section}.{toc_num.subsection}.{toc_num.subsubsection}.{toc_num.paragraph} "
-            toc->add({text: $"{prefix}{nr->Extract('paragraph')}", posttext: $" ({nr})",
-                      linenr: nr})
+            toc->add({
+                pretext: prefix,
+                text: $"{nr->Extract('paragraph')}",
+                posttext: $" ({nr})",
+                linenr: nr
+            })
         elseif line =~ '\\subparagraph\*\?\s*{'
             toc_num.subparagraph += 1
             var prefix = $"{repeat('  ', 4)}{toc_num.section}.{toc_num.subsection}.{toc_num.subsubsection}.{toc_num.paragraph}.{toc_num.subparagraph} "
-            toc->add({text: $"{prefix}{nr->Extract('subparagraph')}", posttext: $" ({nr})",
-                      linenr: nr})
+            toc->add({
+                pretext: prefix,
+                text: $"{nr->Extract('subparagraph')}",
+                posttext: $" ({nr})",
+                linenr: nr
+            })
         endif
     endfor
     @0 = save_reg
@@ -103,7 +123,7 @@ def Toc()
             win_execute(winid, 'syn match PopupSelectMenuLineNr "(\d\+)$"')
             win_execute(winid, 'syn match PopupSelectMenuSecNum "^\s*\(\d\+\.\)*\(\d\+\)"')
             hi def link PopupSelectMenuLineNr Comment
-            hi def link PopupSelectMenuSecNum Title
+            hi def link PopupSelectMenuSecNum Identifier
         })
 enddef
 nnoremap <buffer> <space>z <scriptcmd>Toc()<CR>
