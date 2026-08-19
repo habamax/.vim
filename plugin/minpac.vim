@@ -9,6 +9,7 @@ def PackInit()
 
     minpac#add('git@github.com:habamax/vim-habamax.git')
     minpac#add('git@github.com:habamax/vim-polukate.git')
+    minpac#add('git@github.com:habamax/vim-saturnite.git')
     minpac#add('git@github.com:habamax/vim-dir.git')
     minpac#add('git@github.com:habamax/vim-rst.git')
     minpac#add('git@github.com:habamax/vim-asciidoctor.git')
