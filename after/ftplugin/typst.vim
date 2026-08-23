@@ -3,6 +3,7 @@ vim9script
 import autoload 'popup.vim'
 import autoload 'os.vim'
 
+# &l:makeprg = $"typst compile --format html --features html --root={expand("~/docs")} {expand("%")}"
 &l:makeprg = $"typst compile --root={expand("~/docs")} {expand("%")}"
 b:undo_ftplugin ..= ' | setl makeprg<'
 
