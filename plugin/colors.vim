@@ -4,6 +4,10 @@ if !has('gui_running')
     set termguicolors
 endif
 
+def YegappanLsp()
+    hi link LspSigActiveParameter PmenuSel
+enddef
+
 def TermNoBg()
     if has("gui_running") || &background == "light"
         return
@@ -13,6 +17,7 @@ enddef
 
 augroup colors | au!
     au Colorscheme polukate,habamax TermNoBg()
+    au Colorscheme * YegappanLsp()
 augroup END
 
 g:colors = {
