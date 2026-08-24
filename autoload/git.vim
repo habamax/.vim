@@ -60,8 +60,8 @@ export def RemoteOpen(firstline: number = line("."), lastline: number = line("."
         remote_url = remote_url
             ->substitute(':', '/', '')
             ->substitute('^git@', 'https://', '')
-            ->substitute('.git$', '', '')
     endif
+    remote_url = remote_url->substitute('.git$', '', '')
     var src = ''
     if remote_url =~ '^https://github.com'
         src = 'blob'
