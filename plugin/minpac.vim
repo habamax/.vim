@@ -20,6 +20,7 @@ def PackInit()
     minpac#add('tpope/vim-fugitive')
     minpac#add('alvan/vim-closetag')
     minpac#add('yegappan/lsp')
+    # minpac#add('h-east/lsp.vim')
     minpac#add('git@github.com:vim/colorschemes.git')
 
     # Should be installed separately
