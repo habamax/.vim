@@ -99,15 +99,6 @@ nnoremap g, <scriptcmd>qc.ChangeList('g,')<CR>
 # whitespace
 nnoremap <space><space><space> <cmd>FixTrailingSpaces<CR>
 
-# search&replace
-def Vtext(): string
-    return getregion(getpos('.'), getpos('v'))->join("\n")
-enddef
-nnoremap <space>% :<C-U>%s/\<<C-r>=expand("<cword>")<CR>\>/
-xnoremap <space>% y:%s/<C-r>=$'\V{escape(getreg(), '/\\')}'->split("\n")->join('\n')<CR>//g<left><left>
-xnoremap * <scriptcmd>$'\V{Vtext()->escape('\')}'->setreg('/')<cr><esc>n
-xnoremap # <scriptcmd>$'\V{Vtext()->escape('\')}'->setreg('/')<cr><esc>N
-
 # toggles
 nnoremap yow <cmd>set wrap! wrap?<CR>
 nnoremap yon <cmd>set nu!<CR>
