@@ -73,6 +73,9 @@ def Add()
         buf = "~" .. buf[len($HOME) : ]
     endif
 
+    if empty(mru)
+        Read()
+    endif
     mru[buf] = localtime()
 enddef
 
