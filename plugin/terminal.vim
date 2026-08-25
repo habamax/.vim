@@ -4,7 +4,8 @@ import autoload 'terminal.vim'
 
 command! -bang -nargs=? Term terminal.Run(<q-args> ?? &shell, <q-mods> ?? window#BotRight(), expand("<bang>") == "!")
 
-def TermMappings()
+def TermSettings()
+    setlocal nonu nornu
     nnoremap <buffer> gq <scriptcmd>bd<CR>
     nnoremap <buffer> <CR> <scriptcmd>terminal.OpenError()<CR>
     nnoremap <buffer> o <scriptcmd>terminal.OpenError(true)<CR>
@@ -17,9 +18,9 @@ enddef
 
 augroup Terminal
     au!
-    au TerminalWinOpen * TermMappings()
+    au TerminalWinOpen * TermSettings()
     au TerminalOpen * ++nested {
         var buf = expand("<afile>")->escape('|#%[ \')
-        exe $"au BufWinEnter {buf} ++once TermMappings()"
+        exe $"au BufWinEnter {buf} ++once TermSettings()"
     }
 augroup END
