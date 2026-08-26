@@ -126,24 +126,28 @@ if exists("g:loaded_copilot")
     imap <C-g> <scriptcmd>qc.Copilot()<CR>
 endif
 
-# g:lsp_server_list = [{
-#     name: 'clangd',
-#     filetypes: ['c', 'cpp'],
-#     cmd: ['clangd', '--background-index', '--clang-tidy', '--header-insertion=never'],
-#     rootPatterns: ['compile_commands.json', '.git'],
-# }, {
-#     name: 'pylsp',
-#     filetypes: ['python'],
-#     cmd: ['pylsp'],
-#     rootPatterns: ['pyproject.toml', '.git'],
-# }, {
-#     name: 'gopls',
-#     filetypes: ['go'],
-#     cmd: ['gopls'],
-#     rootPatterns: ['go.work', 'go.mod', '.git'],
-# }, {
-#     name: 'ols',
-#     filetypes: ['odin'],
-#     cmd: ['ols'],
-#     rootPatterns: ['.git'],
-# }]
+g:lsp_client_config = {
+    hover_popup:     {opt: 'border:round'},
+    signature_popup: {opt: 'border:round'}
+}
+g:lsp_server_list = [{
+    name: 'clangd',
+    filetypes: ['c', 'cpp'],
+    cmd: ['clangd', '--background-index', '--clang-tidy', '--header-insertion=never'],
+    rootPatterns: ['compile_commands.json', '.git'],
+}, {
+    name: 'pylsp',
+    filetypes: ['python'],
+    cmd: ['pylsp'],
+    rootPatterns: ['pyproject.toml', '.git'],
+}, {
+    name: 'gopls',
+    filetypes: ['go'],
+    cmd: ['gopls'],
+    rootPatterns: ['go.work', 'go.mod', '.git'],
+}, {
+    name: 'ols',
+    filetypes: ['odin'],
+    cmd: ['ols'],
+    rootPatterns: ['.git'],
+}]
