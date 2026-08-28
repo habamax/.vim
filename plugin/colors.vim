@@ -23,7 +23,7 @@ enddef
 augroup colors | au!
     au Colorscheme polukate,habamax TermNoBg()
     au Colorscheme * YegappanLsp()
-    au Colorscheme polukate,habamax,xamabah ThinVertSplit()
+    # au Colorscheme polukate,habamax,xamabah ThinVertSplit()
 augroup END
 
 g:colors = {
