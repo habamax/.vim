@@ -1,39 +1,37 @@
 vim9script
 
-import autoload "qc.vim"
 import autoload 'popup.vim'
-import autoload 'lsp/lsp.vim'
-import autoload 'lsp/util.vim'
-
-augroup LSPPreview
-    au!
-    au BufCreate LspHover set wrap
-augroup END
+# import autoload "qc.vim"
+# import autoload 'lsp/lsp.vim'
+# import autoload 'lsp/util.vim'
 
 export def SetupFT()
-    nnoremap <silent><buffer> gd <cmd>LspGotoDefinition<CR>
-    nnoremap <silent><buffer> gD <scriptcmd>exe ":hor LspGotoDefinition"<CR>
-    nnoremap <silent><buffer> <C-]> <cmd>LspGotoDefinition<CR>
-    nnoremap <silent><buffer> <C-w><C-]> <cmd>exe ":hor LspGotoDefinition"<CR>
-    xnoremap <silent><buffer> . <cmd>LspSelectionExpand<CR>
-    xnoremap <silent><buffer> , <cmd>LspSelectionShrink<CR>
-    nnoremap <silent><buffer> <space>l <scriptcmd>qc.LspCommands()<CR>
-    nnoremap <silent><buffer> <space>z <scriptcmd>LspGoToSymbol()<CR>
+    nnoremap <silent><buffer> gd <cmd>LspDefinition<CR>
+    nnoremap <silent><buffer> gD <scriptcmd>exe ":hor LspDefinition"<CR>
     nnoremap <silent><buffer> K <cmd>LspHover<CR>
-    nnoremap <silent><buffer> gq <plug>(LspFormat)
-    xnoremap <silent><buffer> gq <plug>(LspFormat)
-
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> gD"'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> <C-]>"'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> <C-w><C-]>"'
-    b:undo_ftplugin ..= ' | exe "xunmap <buffer> ."'
-    b:undo_ftplugin ..= ' | exe "xunmap <buffer> ,"'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>l"'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> gq"'
-    b:undo_ftplugin ..= ' | exe "xunmap <buffer> gq"'
+
+
+    # nnoremap <silent><buffer> gd <cmd>LspGotoDefinition<CR>
+    # nnoremap <silent><buffer> gD <scriptcmd>exe ":hor LspGotoDefinition"<CR>
+    # nnoremap <silent><buffer> <C-]> <cmd>LspGotoDefinition<CR>
+    # nnoremap <silent><buffer> <C-w><C-]> <cmd>exe ":hor LspGotoDefinition"<CR>
+    # xnoremap <silent><buffer> . <cmd>LspSelectionExpand<CR>
+    # xnoremap <silent><buffer> , <cmd>LspSelectionShrink<CR>
+    # nnoremap <silent><buffer> <space>l <scriptcmd>qc.LspCommands()<CR>
+    # nnoremap <silent><buffer> <space>z <scriptcmd>LspGoToSymbol()<CR>
+    # nnoremap <silent><buffer> K <cmd>LspHover<CR>
+
+    # b:undo_ftplugin ..= ' | exe "nunmap <buffer> <C-]>"'
+    # b:undo_ftplugin ..= ' | exe "nunmap <buffer> <C-w><C-]>"'
+    # b:undo_ftplugin ..= ' | exe "xunmap <buffer> ."'
+    # b:undo_ftplugin ..= ' | exe "xunmap <buffer> ,"'
+    # b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>l"'
+    # b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
+    # b:undo_ftplugin ..= ' | exe "nunmap <buffer> gq"'
+    # b:undo_ftplugin ..= ' | exe "xunmap <buffer> gq"'
 enddef
 
 const symbol_map: list<string> = [
@@ -65,35 +63,6 @@ def GetDocSymbols(): dict<any>
     var params = {textDocument: {uri: util.LspFileToUri(fname)}}
     return lspserver.rpc('textDocument/documentSymbol', params)
 enddef
-
-# def DocSymbolsComplete(arg: string, _, _): list<dict<any>>
-#     var doc_symbols = GetDocSymbols()
-#     if empty(doc_symbols)
-#         return []
-#     endif
-#     var result = doc_symbols.result->mapnew((_, v) => {
-#         return {
-#             word: $'{v.name}:{v.range.start.line + 1}:{v.range.start.character + 1}',
-#             abbr: v.name,
-#             kind: symbol_map[v.kind]}
-#         })
-#     return empty(arg) ? result : result->matchfuzzy(arg, {key: "abbr"})
-# enddef
-
-# # position is the string of Whatever:Line:Character, e.g. MyFunc:10:5
-# def GoTo(position: string)
-#     if position !~ '\d\+:\d\+$'
-#         echoerr "Invalid position format. Expected 'Whatever:Line:CharCol'."
-#         return
-#     endif
-#     var pos_list = split(position, ':')
-#     var line = str2nr(pos_list[-2])
-#     var charcol = str2nr(pos_list[-1])
-#     setcursorcharpos(line, charcol)
-# enddef
-
-# command -nargs=_ -complete=customlist,DocSymbolsComplete LspGoToSymbol GoTo(<f-args>)
-
 
 def LspGoToSymbol()
     var doc_symbols = GetDocSymbols()
