@@ -23,9 +23,9 @@ if exists("g:loaded_lsp") && executable('ols')
         filetype: ['odin'],
         path: 'ols',
     }])
-    lsp#SetupFT()
+    lspft#Setup()
 endif
 
 if exists("g:loaded_lsp_vim") && executable('ols')
-    lsp#SetupFT()
+    lspft#Setup()
 endif

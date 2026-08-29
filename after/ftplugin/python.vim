@@ -32,31 +32,9 @@ if exists("g:loaded_lsp") && executable('pylsp')
         filetype: ['python'],
         path: 'pylsp',
     }])
-    lsp#SetupFT()
-else
-    nnoremap <silent><buffer> K <scriptcmd>PopupHelp(expand("<cfile>"))<CR>
-    xnoremap <silent><buffer> K y<scriptcmd>PopupHelp(getreg('"'))<CR>
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
-    b:undo_ftplugin ..= ' | exe "xunmap <buffer> K"'
+    lspft#Setup()
 endif
 
-def Things()
-    var things = matchbufline(bufnr(),
-        '\v(^\s*(def|class)\s+\k+.*$)|(if __name__ \=\= .*)',
-        1, '$')->foreach((_, v) => {
-            v.text = $"{v.text} ({v.lnum})"
-        })
-    popup.Select("Py Things", things,
-        (res, key) => {
-            exe $":{res.lnum}"
-            normal! zz
-        },
-        (winid) => {
-            win_execute(winid, "syn match PopupSelectLineNr '(\\d\\+)$'")
-            win_execute(winid, "syn match PopupSelectFuncName '\\k\\+\\ze('")
-            hi def link PopupSelectLineNr Comment
-            hi def link PopupSelectFuncName Function
-        })
-enddef
-nnoremap <buffer> <space>z <scriptcmd>Things()<CR>
-b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
+if exists("g:loaded_lsp_vim") && executable('pylsp')
+    lspft#Setup()
+endif
