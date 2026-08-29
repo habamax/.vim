@@ -28,6 +28,6 @@ endif
 
 if exists("g:loaded_lsp_vim") && executable('ols')
     nnoremap <silent><buffer> gd <cmd>LspDefinition<CR>
-    # nnoremap <silent><buffer> gD <scriptcmd>exe ":hor LspDefinition"<CR>
+    nnoremap <silent><buffer> gD <scriptcmd>exe ":hor LspDefinition"<CR>
     nnoremap <silent><buffer> K <cmd>LspHover<CR>
 endif
