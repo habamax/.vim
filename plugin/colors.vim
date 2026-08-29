@@ -4,8 +4,11 @@ if !has('gui_running')
     set termguicolors
 endif
 
-def YegappanLsp()
+def Lsp()
+    # yegappan/lsp
     hi link LspSigActiveParameter PmenuSel
+    # h-east/lsp.vim
+    hi link LspHighlightWrite LspHighlightRead
 enddef
 
 def TermNoBg()
@@ -22,7 +25,7 @@ enddef
 
 augroup colors | au!
     au Colorscheme polukate,habamax TermNoBg()
-    au Colorscheme * YegappanLsp()
+    au Colorscheme * Lsp()
     # au Colorscheme polukate,habamax,xamabah ThinVertSplit()
 augroup END
 
