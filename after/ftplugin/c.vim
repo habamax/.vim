@@ -26,9 +26,9 @@ if exists("g:loaded_lsp") && executable('clangd')
         args: ['--background-index'],
     }])
 
-    lspft#Setup()
+    lsp#Setup()
 endif
 
 if exists("g:loaded_lsp_vim") && executable('clangd')
-    lspft#Setup()
+    lsp#Setup()
 endif

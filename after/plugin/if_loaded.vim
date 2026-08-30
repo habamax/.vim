@@ -128,7 +128,7 @@ endif
 
 if exists("g:loaded_lsp_vim")
     g:lsp_client_config = {
-        hover_format:    'markdown',
+        hover_format:    'plaintext',
         hover_popup:     {opt: 'border:round'},
         signature_popup: {opt: 'border:round'}
     }

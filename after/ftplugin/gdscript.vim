@@ -76,11 +76,11 @@ if exists("g:loaded_lsp") && executable('nc')
         args: ['127.0.0.1', '6008'],
     }])
 
-    lspft#Setup()
+    lsp#Setup()
 endif
 
 if exists("g:loaded_lsp_vim") && executable('nc')
-    lspft#Setup()
+    lsp#Setup()
 endif
 
 command! -buffer Godot exe "silent !godot --editor %:p:r.tscn 2> /dev/null 1> /dev/null &" <bar> redraw!

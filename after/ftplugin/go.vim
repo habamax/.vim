@@ -22,9 +22,9 @@ if exists("g:loaded_lsp") && executable('gopls')
         filetype: ['go'],
         path: 'gopls',
     }])
-    lspft#Setup()
+    lsp#Setup()
 endif
 
 if exists("g:loaded_lsp_vim") && executable('gopls')
-    lspft#Setup()
+    lsp#Setup()
 endif
