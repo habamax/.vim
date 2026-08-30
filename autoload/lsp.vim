@@ -4,10 +4,10 @@ import autoload 'popup.vim'
 
 export def Setup()
     nnoremap <silent><buffer> gd <cmd>LspDefinition<CR>
-    nnoremap <silent><buffer> gD <scriptcmd>exe ":hor LspDefinition"<CR>
+    nnoremap <silent><buffer> <C-w>i <scriptcmd>exe ":hor LspDefinition"<CR>
     nnoremap <silent><buffer> K <cmd>LspHover<CR>
     nnoremap <silent><buffer> <space>z <scriptcmd>Outline()<CR>
-    nnoremap <silent><buffer> <C-]> <cmd>LspReferences<CR>
+    nnoremap <silent><buffer> [i <cmd>LspReferences<CR>
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> gD"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
