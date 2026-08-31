@@ -18,15 +18,9 @@ def TermNoBg()
     hi Normal guibg=NONE ctermbg=NONE
 enddef
 
-def ThinVertSplit()
-    hi VertSplit   guibg=NONE ctermbg=NONE
-    hi VertSplitNC guibg=NONE ctermbg=NONE
-enddef
-
 augroup colors | au!
     au Colorscheme polukate,habamax TermNoBg()
     au Colorscheme * Lsp()
-    # au Colorscheme polukate,habamax,xamabah ThinVertSplit()
 augroup END
 
 g:colors = {
