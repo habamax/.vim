@@ -9,10 +9,10 @@ export def Setup()
     nnoremap <silent><buffer> <space>z <scriptcmd>Outline()<CR>
     nnoremap <silent><buffer> [i <cmd>LspReferences<CR>
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> gD"'
+    b:undo_ftplugin ..= ' | exe "nunmap <buffer> <C-w>i"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
-    b:undo_ftplugin ..= ' | exe "nunmap <buffer> <C-]>"'
+    b:undo_ftplugin ..= ' | exe "nunmap <buffer> [i"'
 
     # nnoremap <silent><buffer> gd <cmd>LspGotoDefinition<CR>
     # nnoremap <silent><buffer> gD <scriptcmd>exe ":hor LspGotoDefinition"<CR>
