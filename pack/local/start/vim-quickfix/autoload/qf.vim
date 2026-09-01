@@ -72,3 +72,50 @@ export def Prev()
     catch
     endtry
 enddef
+
+try
+    import autoload "popup.vim"
+    def GoToLocation()
+        var loc = {}
+        if getwininfo(win_getid())[0].loclist
+            loc = getloclist(winnr(), {items: 1, title: 1})
+        elseif getwininfo(win_getid())[0].quickfix
+            loc = getqflist({items: 1, title: 1})
+        endif
+        if empty(loc)
+            return
+        endif
+
+        var items = loc.items->mapnew((_, v) => {
+            var vt = v.text->split('^\[.\{-}\]\s*\zs')
+            var pretext = len(vt) > 1 ? vt[0] : ''
+            var text = vt[len(vt) - 1]
+            return {
+                lnum: v.lnum,
+                col: v.col,
+                bufnr: v.bufnr,
+                pretext: pretext,
+                text: text,
+                posttext: $' ({v.lnum})'}
+        })
+
+        popup.Select(loc.title, items,
+            (res, key) => {
+                # TODO: make it work like opening from quickfix
+                exe $"sbuffer {res.bufnr}"
+                call setcursorcharpos(res.lnum, res.col)
+                normal! zz
+            },
+            (winid) => {
+                win_execute(winid, "syn match PopupSelectSymbolKind '^\\[.\\+\\]'")
+                win_execute(winid, "syn match PopupSelectSymbolLine '\\s(\\d\\+)$'")
+                hi def link PopupSelectSymbolKind Identifier
+                hi def link PopupSelectSymbolLine Comment
+            })
+    enddef
+
+    augroup qfgoto
+        au Filetype qf nnoremap <buffer><nowait> z <scriptcmd>GoToLocation()<cr>
+    augroup END
+catch
+endtry
