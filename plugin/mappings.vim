@@ -26,8 +26,8 @@ xnoremap <space>p "+p
 xnoremap <space>P "+P
 
 # scroll popups
-nnoremap <expr> <C-u> empty(popup_list()) ? '<c-u>' : '<C-S-PageUp>'
-nnoremap <expr> <C-d> empty(popup_list()) ? '<c-d>' : '<C-S-PageDown>'
+nnoremap <expr> <C-u> empty(popup_list()) ? '<C-u>' : '<C-S-PageUp>'
+nnoremap <expr> <C-d> empty(popup_list()) ? '<C-d>' : '<C-S-PageDown>'
 
 # tab && pmenu
 imap <expr> <tab> pumvisible() ? "\<C-n>" : "\t"
