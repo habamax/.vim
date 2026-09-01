@@ -8,11 +8,15 @@ export def Setup()
     nnoremap <silent><buffer> K <cmd>LspHover<CR>
     nnoremap <silent><buffer> <space>z <scriptcmd>Outline()<CR>
     nnoremap <silent><buffer> [i <cmd>LspReferences<CR>
+    xmap <buffer> . <Plug>(lsp-selection-expand)
+    xmap <buffer> , <Plug>(lsp-selection-shrink)
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> gd"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> <C-w>i"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> K"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>z"'
     b:undo_ftplugin ..= ' | exe "nunmap <buffer> [i"'
+    b:undo_ftplugin ..= ' | exe "xunmap <buffer> ."'
+    b:undo_ftplugin ..= ' | exe "xunmap <buffer> ,"'
 
     # nnoremap <silent><buffer> gd <cmd>LspGotoDefinition<CR>
     # nnoremap <silent><buffer> gD <scriptcmd>exe ":hor LspGotoDefinition"<CR>
@@ -20,14 +24,10 @@ export def Setup()
     # nnoremap <silent><buffer> <C-w><C-]> <cmd>exe ":hor LspGotoDefinition"<CR>
     # xnoremap <silent><buffer> . <cmd>LspSelectionExpand<CR>
     # xnoremap <silent><buffer> , <cmd>LspSelectionShrink<CR>
-    # nnoremap <silent><buffer> <space>l <scriptcmd>qc.LspCommands()<CR>
     # nnoremap <silent><buffer> K <cmd>LspHover<CR>
 
     # b:undo_ftplugin ..= ' | exe "nunmap <buffer> <C-]>"'
     # b:undo_ftplugin ..= ' | exe "nunmap <buffer> <C-w><C-]>"'
-    # b:undo_ftplugin ..= ' | exe "xunmap <buffer> ."'
-    # b:undo_ftplugin ..= ' | exe "xunmap <buffer> ,"'
-    # b:undo_ftplugin ..= ' | exe "nunmap <buffer> <space>l"'
     # b:undo_ftplugin ..= ' | exe "nunmap <buffer> gq"'
     # b:undo_ftplugin ..= ' | exe "xunmap <buffer> gq"'
 enddef
