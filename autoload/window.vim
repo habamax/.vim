@@ -10,7 +10,7 @@ enddef
 
 # close other windows:
 # - popup windows
-# - fugitive status
+# - fugitive windows
 # - terminals
 # - location lists
 # - quickfix
@@ -22,7 +22,7 @@ export def CloseThem()
     endif
 
     var fugitive_closed = false
-    for window in getwininfo()->filter((_, v) => v.variables->has_key("fugitive_status"))
+    for window in getwininfo()->filter((_, v) => !empty(getbufvar(v.bufnr, 'fugitive_type')))
         win_execute(window.winid, "silent! wincmd c")
         fugitive_closed = true
     endfor
