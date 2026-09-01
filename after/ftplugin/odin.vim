@@ -16,16 +16,3 @@ nnoremap <buffer> <F5> <scriptcmd>Run()<CR>
 nnoremap <buffer> <F6> <scriptcmd>Run(1)<CR>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F6>"'
-
-if exists("g:loaded_lsp") && executable('ols')
-    g:LspAddServer([{
-        name: 'ols',
-        filetype: ['odin'],
-        path: 'ols',
-    }])
-    lsp#Setup()
-endif
-
-if exists("g:loaded_lsp_vim") && executable('ols')
-    lsp#Setup()
-endif

@@ -14,17 +14,3 @@ enddef
 
 nnoremap <buffer> <F5> <scriptcmd>Run()<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
-
-# go install golang.org/x/tools/gopls@latest
-if exists("g:loaded_lsp") && executable('gopls')
-    g:LspAddServer([{
-        name: 'gopls',
-        filetype: ['go'],
-        path: 'gopls',
-    }])
-    lsp#Setup()
-endif
-
-if exists("g:loaded_lsp_vim") && executable('gopls')
-    lsp#Setup()
-endif

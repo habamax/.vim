@@ -25,16 +25,3 @@ enddef
 
 nnoremap <buffer> <F5> <scriptcmd>Run()<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
-
-if exists("g:loaded_lsp") && executable('pylsp')
-    g:LspAddServer([{
-        name: 'pylsp',
-        filetype: ['python'],
-        path: 'pylsp',
-    }])
-    lsp#Setup()
-endif
-
-if exists("g:loaded_lsp_vim") && executable('pylsp')
-    lsp#Setup()
-endif

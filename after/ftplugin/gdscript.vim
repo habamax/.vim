@@ -68,19 +68,4 @@ b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F6>"'
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F7>"'
 
-if exists("g:loaded_lsp") && executable('nc')
-    g:LspAddServer([{
-        name: 'gdscript',
-        filetype: ['gdscript'],
-        path: 'netcat',
-        args: ['127.0.0.1', '6008'],
-    }])
-
-    lsp#Setup()
-endif
-
-if exists("g:loaded_lsp_vim") && executable('nc')
-    lsp#Setup()
-endif
-
 command! -buffer Godot exe "silent !godot --editor %:p:r.tscn 2> /dev/null 1> /dev/null &" <bar> redraw!

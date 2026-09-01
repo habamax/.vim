@@ -127,6 +127,12 @@ if exists("g:loaded_copilot")
 endif
 
 if exists("g:loaded_lsp_vim")
+    augroup lspsetup
+        au!
+        au User LspAttached lsp#Map()
+        au User LspDetached lsp#Unmap()
+    augroup END
+
     g:lsp_client_config = {
         hover_format:    'plaintext',
         hover_popup:     {opt: 'border:round'},

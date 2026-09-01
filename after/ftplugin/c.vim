@@ -17,18 +17,3 @@ enddef
 
 nnoremap <buffer><F5> <scriptcmd>Make()<cr>
 b:undo_ftplugin ..= ' | exe "nunmap <buffer> <F5>"'
-
-if exists("g:loaded_lsp") && executable('clangd')
-    g:LspAddServer([{
-        name: 'clangd',
-        filetype: ['c', 'cpp'],
-        path: 'clangd',
-        args: ['--background-index'],
-    }])
-
-    lsp#Setup()
-endif
-
-if exists("g:loaded_lsp_vim") && executable('clangd')
-    lsp#Setup()
-endif
