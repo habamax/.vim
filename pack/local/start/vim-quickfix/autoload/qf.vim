@@ -86,14 +86,12 @@ try
             return
         endif
 
-        var items = loc.items->mapnew((_, v) => {
+        var items = loc.items->mapnew((idx, v) => {
             var vt = v.text->split('^\[.\{-}\]\s*\zs')
             var pretext = len(vt) > 1 ? vt[0] : ''
             var text = vt[len(vt) - 1]
             return {
-                lnum: v.lnum,
-                col: v.col,
-                bufnr: v.bufnr,
+                qflnum: idx + 1,
                 pretext: pretext,
                 text: text,
                 posttext: $' ({v.lnum})'}
@@ -101,10 +99,8 @@ try
 
         popup.Select(loc.title, items,
             (res, key) => {
-                # TODO: make it work like opening from quickfix
-                exe $"sbuffer {res.bufnr}"
-                call setcursorcharpos(res.lnum, res.col)
-                normal! zz
+                exe $":{res.qflnum}"
+                exe "normal! \<CR>"
             },
             (winid) => {
                 win_execute(winid, "syn match PopupSelectSymbolKind '^\\[.\\+\\]'")
