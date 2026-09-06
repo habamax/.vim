@@ -120,12 +120,6 @@ if exists("g:loaded_lsp")
     })
 endif
 
-if exists("g:loaded_copilot")
-    # vim-copilot
-    import autoload "qc.vim"
-    imap <C-g> <scriptcmd>qc.Copilot()<CR>
-endif
-
 if exists("g:loaded_lsp_vim")
     augroup lspsetup
         au!
@@ -143,17 +137,27 @@ if exists("g:loaded_lsp_vim")
         filetypes: ['c', 'cpp'],
         cmd: ['clangd', '--background-index', '--clang-tidy', '--header-insertion=never'],
         rootPatterns: ['compile_commands.json', '.git'],
-    }, {
+    },
+    {
         name: 'pylsp',
         filetypes: ['python'],
         cmd: ['pylsp'],
         rootPatterns: ['pyproject.toml', '.git'],
-    }, {
+    },
+    {
         name: 'gopls',
         filetypes: ['go'],
         cmd: ['gopls'],
         rootPatterns: ['go.work', 'go.mod', '.git'],
-    }, {
+    },
+    # {
+    #     # go install github.com/neoclide/vimls-go/cmd/vimls@latest
+    #     name: 'vimls',
+    #     filetypes: ['vim'],
+    #     cmd: ['vimls'],
+    #     rootPatterns: ['.git'],
+    # },
+    {
         name: 'ols',
         filetypes: ['odin'],
         cmd: ['ols'],
