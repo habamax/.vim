@@ -110,6 +110,8 @@ nnoremap yos <cmd>set spell! spell?<CR>
 nnoremap yod <cmd>exe (&diff ? ':diffoff' : ':diffthis')<CR>
 nnoremap yov <scriptcmd>&ve = (&ve == "block" ? "all" : "block")<CR><cmd>set ve<CR>
 nnoremap yob <cmd>exe &bg == "light" ? g:colors.dark : g:colors.light<CR>
+nnoremap yo_ <cmd>exe $"set isk{stridx(&isk, '_') >= 0 ? '-' : '+'}=_"<CR>
+      \<cmd>echo $"Toggle word_sep {stridx(&isk, '_') >= 0 ? 'OFF' : 'ON'}"<CR>
 
 # move lines
 xnoremap <tab> :sil! m '>+1<CR>gv
