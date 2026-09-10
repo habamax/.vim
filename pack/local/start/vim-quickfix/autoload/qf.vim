@@ -87,7 +87,7 @@ try
         endif
 
         var items = loc.items->mapnew((idx, v) => {
-            var vt = v.text->split('^\[.\{-}\]\s*\zs')
+            var vt = v.text->split('^\s*\[.\{-}\]\s*\zs')
             var pretext = len(vt) > 1 ? vt[0] : ''
             var text = vt[len(vt) - 1]
             return {
@@ -103,7 +103,7 @@ try
                 exe "normal! \<CR>"
             },
             (winid) => {
-                win_execute(winid, "syn match PopupSelectSymbolKind '^\\[.\\+\\]'")
+                win_execute(winid, "syn match PopupSelectSymbolKind '^\\s*\\[.\\+\\]'")
                 win_execute(winid, "syn match PopupSelectSymbolLine '\\s(\\d\\+)$'")
                 hi def link PopupSelectSymbolKind Identifier
                 hi def link PopupSelectSymbolLine Comment
