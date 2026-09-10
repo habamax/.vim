@@ -1,7 +1,7 @@
 vim9script
 
-var popup_borderchars = get(g:, "popup_borderchars", ['─', '│', '─', '│', '┌', '┐', '┘', '└'])
-var popup_borderchars_t = get(g:, "popup_borderchars_t", ['─', '│', '─', '│', '├', '┤', '┘', '└'])
+var popup_borderchars = get(g:, "popup_borderchars", ['─', '│', '─', '│', '╭', '╮', '╯', '╰'])
+var popup_borderchars_t = get(g:, "popup_borderchars_t", ['─', '│', '─', '│', '├', '┤', '╯', '╰'])
 var popup_match_highlight = get(g:, "popup_match_highlight", "PmenuMatch")
 var popup_key_highlight = get(g:, "popup_key_highlight", "Constant")
 var popup_key_sep_highlight = get(g:, "popup_key_sep_highlight", "Comment")

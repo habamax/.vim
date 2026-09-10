@@ -6,10 +6,6 @@ vim9script
 g:loaded_netrw = 1
 g:loaded_netrwPlugin = 1
 
-# popup
-g:popup_borderchars = ['─', '│', '─', '│', '╭', '╮', '╯', '╰']
-g:popup_borderchars_t = ['─', '│', '─', '│', '├', '┤', '╯', '╰']
-
 g:hlyank_hlgroup = "Visual"
 g:hlyank_duration = 200
 g:hlput_hlgroup = "Visual"
@@ -29,7 +25,7 @@ g:closetag_filetypes = 'html,xhtml,xml'
 g:markdown_fenced_languages = ['python', 'sql', 'json', 'vim', 'xml']
 
 # typst
-g:typst_embedded_languages = ['python', 'sql']
+g:typst_embedded_languages = ['python', 'sql', 'vim']
 
 # vim-rst
 g:rst2html_opts = "--input-encoding=utf8"
