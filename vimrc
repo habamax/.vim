@@ -19,7 +19,6 @@ set diffopt+=hiddenoff,algorithm:histogram,linematch:100
 set completeopt=menu,fuzzy
 set pumopt=height:15
 set autocomplete complete=o,.,w,Fcomplete#Path,Fcomplete#Reg
-set termwinscroll=40000
 set sessionoptions=buffers,curdir,tabpages,winsize
 set nospell spelllang=en,ru
 set mouse=a
