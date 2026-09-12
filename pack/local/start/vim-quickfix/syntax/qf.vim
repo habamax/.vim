@@ -4,6 +4,8 @@ endif
 
 syn match qfFileName "^\f\+:\d\+:\(\d\+:\)\?" nextgroup=qfText contains=qfLineCol
 syn match qfLineCol ":\d\+:\(\d\+:\)\?" contained
+syn match qfFileName "^\f\+|\d\+\scol\s\(\d\+|\)" nextgroup=qfText contains=qfLineCol
+syn match qfLineCol "|\d\+\scol\s\(\d\+|\)" contained
 syn match qfText ".*" contained
 
 syn match qfError "error" contained
