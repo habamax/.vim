@@ -9,6 +9,7 @@ export def BotRight(): string
 enddef
 
 # close other windows:
+# - command-line window
 # - popup windows
 # - fugitive windows
 # - terminals
@@ -16,6 +17,10 @@ enddef
 # - quickfix
 # - preview
 export def CloseThem()
+    if !empty(getcmdwintype())
+        :quit
+        return
+    endif
     if !empty(popup_list())
         popup_clear(true)
         return
