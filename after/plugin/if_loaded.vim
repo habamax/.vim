@@ -150,13 +150,6 @@ if exists("g:loaded_lsp_vim")
         cmd: ['gopls'],
         rootPatterns: ['go.work', 'go.mod', '.git'],
     },
-    # {
-    #     # go install github.com/neoclide/vimls-go/cmd/vimls@latest
-    #     name: 'vimls',
-    #     filetypes: ['vim'],
-    #     cmd: ['vimls'],
-    #     rootPatterns: ['.git'],
-    # },
     {
         name: 'ols',
         filetypes: ['odin'],
