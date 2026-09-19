@@ -8,6 +8,7 @@ export def Map()
     if &filetype !=# 'vim'
         setl keywordprg=:LspHover
     endif
+    setl tagfunc=lsp#TagFunc
     nnoremap <silent><buffer> <space>z <cmd>LspOutline<CR>
     nnoremap <silent><buffer> [i <cmd>LspReferences<CR>
     xmap <buffer> . <Plug>(lsp-selection-expand)
@@ -18,6 +19,7 @@ export def Unmap()
     nunmap <buffer> gd
     nunmap <buffer> <C-w>i
     setl keywordprg<
+    setl tagfunc<
     nunmap <buffer> <space>z
     nunmap <buffer> [i
     xunmap <buffer> .
