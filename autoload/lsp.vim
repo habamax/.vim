@@ -13,6 +13,7 @@ export def Map()
     nnoremap <silent><buffer> [i <cmd>LspReferences<CR>
     xmap <buffer> . <Plug>(lsp-selection-expand)
     xmap <buffer> , <Plug>(lsp-selection-shrink)
+    nnoremap <buffer> g* <scriptcmd>exe $'LspSymbol {expand("<cword>")}'<cr>
 enddef
 
 export def Unmap()
@@ -24,4 +25,5 @@ export def Unmap()
     nunmap <buffer> [i
     xunmap <buffer> .
     xunmap <buffer> ,
+    nunmap <buffer> g*
 enddef
