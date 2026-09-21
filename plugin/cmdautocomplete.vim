@@ -33,11 +33,6 @@ def CmdCompleteSelectFirst()
         return
     endif
 
-    # Do not accept first element of completion if there are multiple arguments
-    # if cmd->len() > 2
-    #     return
-    # endif
-
     # Commands to accept first element of completion if no selection is made and
     # completion is visible, e.g:
     # - :find somefile<CR> should edit the first element of the completion popup
