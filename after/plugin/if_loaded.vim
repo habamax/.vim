@@ -94,32 +94,6 @@ if exists("g:loaded_dir")
     ]
 endif
 
-if exists("g:loaded_lsp")
-    g:LspOptionsSet({
-        autoComplete: false,
-        autoHighlight: false,
-        highlightDiagInline: false,
-        completionMatcher: 'fuzzy',
-        hoverInPreview: false,
-        hoverFallback: true,
-        definitionFallback: true,
-        formatFallback: true,
-        filterCompletionDuplicates: true,
-        usePopupInCodeAction: true,
-        showInlayHints: false,
-        showDiagInPopup: true,
-        autoPopulateDiags: true,
-        showDiagWithVirtualText: false,
-        diagVirtualTextAlign: 'after',
-        diagSignErrorText: '✘',
-        diagSignWarningText: '•',
-        diagSignHintText: '§',
-        diagSignInfoText: 'ℹ',
-        popupBorder: true,
-        popupBorderHighlight: 'PmenuBorder',
-    })
-endif
-
 if exists("g:loaded_lsp_vim")
     augroup lspsetup
         au!
