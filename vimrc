@@ -12,7 +12,6 @@ set nowrap breakindent breakindentopt=sbr,list:-1 linebreak nojoinspaces
 set list listchars=tab:›\ ,nbsp:␣,trail:·,extends:…,precedes:… showbreak=↪
 set fillchars=vert:│,trunc:…
 set virtualedit=block nostartofline
-set switchbuf=useopen
 set fileformat=unix fileformats=unix,dos
 set nrformats=bin,hex,unsigned
 set diffopt+=hiddenoff,algorithm:histogram,linematch:100
