@@ -5,9 +5,6 @@ if !has('gui_running')
 endif
 
 def Lsp()
-    # yegappan/lsp
-    hi link LspSigActiveParameter PmenuSel
-    # h-east/lsp.vim
     hi link LspHighlightWrite LspHighlightRead
 enddef
 
