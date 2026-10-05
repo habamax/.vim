@@ -102,8 +102,7 @@ command -nargs=_ -complete=customlist,cmdcomplete#Buffer SBuffer {
 import autoload 'hlblink.vim'
 command BlinkLine hlblink.Line()
 
-if has("win32")
-    command GeneratePassword append('.', trim(system("openssl rand -base64 21")))
-else
-    command GeneratePassword append('.', system("tr -dc '[:graph:]' < /dev/urandom | head -c 22"))
+command GeneratePassword append('.', trim(system("openssl rand -base64 21")))
+if !has("win32")
+    command GeneratePasswordU append('.', system("tr -dc '[:graph:]' < /dev/urandom | head -c 22"))
 endif
