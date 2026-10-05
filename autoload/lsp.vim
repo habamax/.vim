@@ -4,6 +4,7 @@ import autoload 'popup.vim'
 
 export def Map()
     nnoremap <silent><buffer> gd <cmd>LspDefinition<CR>
+    nnoremap <silent><buffer> g. <cmd>LspReferences<CR>
     nnoremap <silent><buffer> <C-w>i <scriptcmd>exe ":hor LspDefinition"<CR>
     if &filetype !=# 'vim'
         setl keywordprg=:LspHover
@@ -18,6 +19,7 @@ enddef
 
 export def Unmap()
     nunmap <buffer> gd
+    nunmap <buffer> g.
     nunmap <buffer> <C-w>i
     setl keywordprg<
     setl tagfunc<
