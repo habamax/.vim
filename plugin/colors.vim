@@ -6,6 +6,7 @@ endif
 
 def Lsp()
     hi link LspHighlightWrite LspHighlightRead
+    hi link LspDiagError Removed
 enddef
 
 def TermNoBg()
