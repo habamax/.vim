@@ -1,7 +1,5 @@
 vim9script
 
-import autoload 'popup.vim'
-
 export def Map()
     nnoremap <silent><buffer> gd <cmd>LspDefinition<CR>
     nnoremap <buffer> g. <cmd>LspReferences<cr>
