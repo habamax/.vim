@@ -9,7 +9,6 @@ export def Map()
     endif
     setl tagfunc=lsp#TagFunc
     nnoremap <silent><buffer> <space>z <cmd>LspOutline<CR>
-    nnoremap <silent><buffer> [i <cmd>LspReferences<CR>
     xmap <buffer> . <Plug>(lsp-selection-expand)
     xmap <buffer> , <Plug>(lsp-selection-shrink)
 enddef
@@ -21,7 +20,6 @@ export def Unmap()
     setl keywordprg<
     setl tagfunc<
     nunmap <buffer> <space>z
-    nunmap <buffer> [i
     xunmap <buffer> .
     xunmap <buffer> ,
 enddef
