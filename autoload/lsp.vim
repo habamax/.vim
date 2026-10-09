@@ -11,9 +11,17 @@ export def Map()
     nnoremap <silent><buffer> <space>z <cmd>LspOutline<CR>
     xmap <buffer> . <Plug>(lsp-selection-expand)
     xmap <buffer> , <Plug>(lsp-selection-shrink)
+    if &filetype != 'odin'
+        augroup lsp_format
+            au BufWritePre <buffer> LspFormat
+        augroup END
+    endif
 enddef
 
 export def Unmap()
+    if &filetype != 'odin'
+        augroup! lsp_format
+    endif
     nunmap <buffer> gd
     nunmap <buffer> g.
     nunmap <buffer> <C-w>i
