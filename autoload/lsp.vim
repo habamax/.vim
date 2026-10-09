@@ -11,7 +11,7 @@ export def Map()
     nnoremap <silent><buffer> <space>z <cmd>LspOutline<CR>
     xmap <buffer> . <Plug>(lsp-selection-expand)
     xmap <buffer> , <Plug>(lsp-selection-shrink)
-    if &filetype != 'odin'
+    if ['odin', 'vim']->index(&filetype) == -1
         augroup lsp_format
             au BufWritePre <buffer> LspFormat
         augroup END
