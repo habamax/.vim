@@ -19,7 +19,7 @@ export def Map()
 enddef
 
 export def Unmap()
-    if &filetype != 'odin'
+    if ['odin', 'vim']->index(&filetype) == -1
         augroup! lsp_format
     endif
     nunmap <buffer> gd
