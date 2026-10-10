@@ -1,5 +1,9 @@
 vim9script
 
+# - vim format uses tabstop instead of shiftwidth
+# - odin format uses CRLF in windows
+const no_format = ['odin', 'vim']
+
 export def Map()
     nnoremap <silent><buffer> gd <cmd>LspDefinition<CR>
     nnoremap <buffer> g. <cmd>LspReferences<cr>
@@ -11,7 +15,7 @@ export def Map()
     nnoremap <silent><buffer> <space>z <cmd>LspOutline<CR>
     xmap <buffer> . <Plug>(lsp-selection-expand)
     xmap <buffer> , <Plug>(lsp-selection-shrink)
-    if ['odin', 'vim']->index(&filetype) == -1
+    if no_format->index(&filetype) == -1
         augroup lsp_format
             au BufWritePre <buffer> LspFormat
         augroup END
@@ -19,7 +23,7 @@ export def Map()
 enddef
 
 export def Unmap()
-    if ['odin', 'vim']->index(&filetype) == -1
+    if no_format->index(&filetype) == -1
         augroup! lsp_format
     endif
     nunmap <buffer> gd
