@@ -148,7 +148,7 @@ export def PrevError()
 enddef
 
 export def Run(cmd: string, mods: string = '', bang: bool = false)
-    var cwd = getcwd()
+    var cwd = getcwd(0)
     var term_name = $'!{cmd}'
     var termbuf = term_list()->filter((_, v) => term_getstatus(v) != 'running')
     var bufnr = !empty(termbuf) ? termbuf[0] : -1
@@ -174,6 +174,7 @@ export def Run(cmd: string, mods: string = '', bang: bool = false)
         curwin: true,
         cwd: cwd,
     })
+    exe 'lcd' cwd
     if bang
         silent! wincmd p
     endif
