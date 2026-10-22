@@ -44,8 +44,10 @@ export def Commands(commands: list<dict<any>>, pos_botright: bool = true): numbe
     commands->foreach((_, v) => {
         if v->has_key("key")
             v.text = $"  {keytrans(v.key)} → {v.text}"
-            v.props = [{col: 3, length: len(keytrans(v.key)), type: "PopupCommandKey"},
-                       {col: 4 + len(keytrans(v.key)), length: 1, type: "PopupCommandKeySep"}]
+            v.props = [
+                {col: 3, length: len(keytrans(v.key)), type: "PopupCommandKey"},
+                {col: 4 + len(keytrans(v.key)), length: 1, type: "PopupCommandKeySep"}
+            ]
         else
             v.props = [{col: 1, length: len(v.text), type: "PopupCommandKeyTitle"}]
         endif
