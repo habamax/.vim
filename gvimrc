@@ -7,8 +7,8 @@ if has("win32")
     set renderoptions=type:directx
 
     set linespace=0
-    # set guifont=Iosevka_Habamax:h17,:h17
-    set guifont=Iosevka_Habamax_PT:h17,:h17
+    set guifont=Iosevka_Habamax:h17,:h17
+    # set guifont=Iosevka_Habamax_PT:h17,:h17
 
     # :h w32-experimental-keycode-trans-strategy
     # Should fix CTRL-=
