@@ -15,9 +15,9 @@ set virtualedit=block nostartofline
 set fileformat=unix fileformats=unix,dos
 set nrformats=bin,hex,unsigned
 set diffopt+=hiddenoff,algorithm:histogram,linematch:100
-set completeopt=menu,fuzzy
+set completeopt=menu,fuzzy,pathopt
 set pumopt=height:15
-set autocomplete complete=o,.,w,Fcomplete#Path,Fcomplete#Reg
+set autocomplete complete=o,.,w,Fcomplete#Reg
 set sessionoptions=buffers,curdir,tabpages,winsize
 set nospell spelllang=en,ru
 set mouse=a
