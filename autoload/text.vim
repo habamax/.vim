@@ -12,26 +12,28 @@ vim9script
 export def Underline(char: string)
     var nextnr = line('.') + 1
     var line = matchlist(getline('.'), '^\(\s*\)\(.*\)$')
-    if empty(line[2]) | return | endif
-    var underline = line[1] .. repeat(char, strchars(line[2]))
-    if getline(nextnr) =~ '^\s*' .. '\([-=*~#^_]\)\1\+$'
+    var underline = line[1] .. repeat(char, strchars(line[2]) ?? 80)
+    if empty(getline('.'))
+        setline('.', underline)
+    elseif getline('.') =~ '^\s*' .. '\([-=*~#^_]\)\1\+$'
+        setline('.', underline)
+    elseif getline(nextnr) =~ '^\s*' .. '\([-=*~#^_]\)\1\+$'
         setline(nextnr, underline)
     else
         append('.', underline)
     endif
 enddef
 
-
 # Dates (text object and stuff)
 var mons_en = ['Jan', 'Feb', 'Mar', 'Apr',
-               'May', 'Jun', 'Jul', 'Aug',
-               'Sep', 'Oct', 'Nov', 'Dec']
+    'May', 'Jun', 'Jul', 'Aug',
+    'Sep', 'Oct', 'Nov', 'Dec']
 var months_en = ['January',   'February', 'March',    'April',
-                 'May',       'June',     'July',     'August',
-                 'September', 'October',  'November', 'December']
+    'May',       'June',     'July',     'August',
+    'September', 'October',  'November', 'December']
 var months_ru = ['января',   'февраля', 'марта',  'апреля',
-                 'мая',      'июня',    'июля',   'августа',
-                 'сентября', 'октября', 'ноября', 'декабря']
+    'мая',      'июня',    'июля',   'августа',
+    'сентября', 'октября', 'ноября', 'декабря']
 
 var months = extend(months_en, months_ru)
 months = extend(months, mons_en)
@@ -177,7 +179,7 @@ export def Obj(char: string, inner: bool)
     var lnum = line('.')
     var echar = escape(char, '.*\')
     if (search('^\|' .. echar, 'cnbW', lnum) > 0 && search(echar, 'W', lnum) > 0)
-        || (search(echar, 'nbW', lnum) > 0 && search(echar .. '\|$', 'cW', lnum) > 0)
+            || (search(echar, 'nbW', lnum) > 0 && search(echar .. '\|$', 'cW', lnum) > 0)
         if inner
             search('[^' .. escape(char, '\') .. ']', 'cbW', lnum)
         endif
