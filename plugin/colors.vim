@@ -10,7 +10,7 @@ def Lsp()
 enddef
 
 def Undercurl()
-    if has("gui_runnign") || !exists("WSL_DISTRO_NAME")
+    if has("gui_running") || !exists("WSL_DISTRO_NAME")
         return
     endif
     if g:colors_name == 'habamax'
