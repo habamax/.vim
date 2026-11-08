@@ -51,8 +51,10 @@ enddef
 def Save()
     if filereadable(recent_file)
         Read()
-        writefile([mru->json_encode()], recent_file)
+    else
+        mkdir(fnamemodify(recent_file, ":p:h"), "p")
     endif
+    writefile([mru->json_encode()], recent_file)
 enddef
 
 def Add()
